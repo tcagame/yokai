@@ -1,11 +1,11 @@
 #pragma once
+
 #include "smart_ptr.h"
 #include "Task.h"
 #include <string>
 
 PTR( Game );
-PTR( Tarosuke );
-PTR( ChipDrawer );
+PTR( Scene );
 
 class Game : public Task {
 public:
@@ -15,9 +15,7 @@ public:
 	Game( );
 	virtual ~Game( );
 	void update( );
-	void draw( );
 private:
-	TarosukePtr _tarosuke;
-	ChipDrawerPtr _chip_drawer;
+	ScenePtr _scene;
 };
 

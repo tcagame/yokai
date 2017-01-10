@@ -1,10 +1,8 @@
 #include "Game.h"
-#include "Tarosuke.h"
-#include "ChipDrawer.h"
+#include "SceneStreet.h"
 
 Game::Game( ) {
-	_tarosuke = TarosukePtr( new Tarosuke );
-	_chip_drawer = ChipDrawerPtr( new ChipDrawer );
+	_scene = ScenePtr( new SceneStreet );
 }
 
 
@@ -13,9 +11,5 @@ Game::~Game( ) {
 }
 
 void Game::update( ) {
-	draw( );
-}
-
-void Game::draw( ) {
-	_tarosuke->draw( _chip_drawer );
+	_scene->update( );
 }

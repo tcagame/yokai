@@ -87,6 +87,9 @@
     <ClCompile Include="ChipDrawer.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="SceneStreet.cpp" />
+    <ClCompile Include="SceneTitle.cpp" />
     <ClCompile Include="Tarosuke.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -97,6 +100,9 @@
   <ItemGroup>
     <ClInclude Include="ChipDrawer.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Scene.h" />
+    <ClInclude Include="SceneStreet.h" />
+    <ClInclude Include="SceneTitle.h" />
     <ClInclude Include="Tarosuke.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
