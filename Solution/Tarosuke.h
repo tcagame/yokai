@@ -8,4 +8,8 @@ class Tarosuke : public Character {
 public:
 	Tarosuke( int x, int y );
 	virtual ~Tarosuke( );
+private:
+	void debugChip( );
+private:
+	int _chip_num;
 };

@@ -14,6 +14,8 @@ SceneStreet::~SceneStreet( ) {
 }
 
 void SceneStreet::update( ) {
+	_tarosuke->update( );
+	_momotaro->update( );
 	draw( );
 }
 
