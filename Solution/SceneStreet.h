@@ -15,8 +15,8 @@ public:
 private:
 	void draw( );
 private:
-	TarosukePtr _tarosuke;
 	ChipDrawerPtr _chip_drawer;
+	CharacterPtr _tarosuke;
 	CharacterPtr _momotaro;
 };
 

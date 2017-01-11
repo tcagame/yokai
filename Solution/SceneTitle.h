@@ -4,8 +4,8 @@
 
 class SceneTitle : public Scene {
 public:
-	SceneTitle();
-	virtual ~SceneTitle();
+	SceneTitle( );
+	virtual ~SceneTitle( );
 	void update( );
 };
 

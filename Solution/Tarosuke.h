@@ -1,11 +1,11 @@
 #pragma once
 #include "smart_ptr.h"
+#include "Character.h"
 
 PTR( ChipDrawer );
 
-class Tarosuke {
+class Tarosuke : public Character {
 public:
-	Tarosuke( );
+	Tarosuke( int x, int y );
 	virtual ~Tarosuke( );
-	void draw( ChipDrawerPtr chip_drawer );
 };
