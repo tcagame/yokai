@@ -2,12 +2,15 @@
 #include "SceneStreet.h"
 
 Game::Game( ) {
-	_scene = ScenePtr( new SceneStreet );
 }
 
 
 Game::~Game( ) {
 
+}
+
+void Game::initialize( ) {
+	_scene = ScenePtr( new SceneStreet );
 }
 
 void Game::update( ) {

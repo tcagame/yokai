@@ -3,9 +3,10 @@
 
 ChipDrawer::ChipDrawer( ) {
 	DrawerPtr drawer = Drawer::getTask( );
-	//drawer->loadGraph( 0, "Yokai_OBJ_myCharacter.png" );
+	drawer->loadGraph( 0, "Yokai_OBJ_myCharacter.png" );
 
 	_chip_pos[ CHIP_TAROSUKE ] = ChipPos( 0, 0 );
+	_chip_pos[ CHIP_MOMOTARO ] = ChipPos( 6, 7 );
 }
 
 
@@ -14,7 +15,7 @@ ChipDrawer::~ChipDrawer( ) {
 
 void ChipDrawer::draw( CHIP chip, int sx, int sy ) {
 	DrawerPtr drawer = Drawer::getTask( );
-	const int CHIP_SIZE = 32;
+	const int CHIP_SIZE = 34;
 
 	int tx = _chip_pos[ chip ].cx * CHIP_SIZE;//‰æ‘œ“à‚ÌêŠx
 	int ty = _chip_pos[ chip ].cy * CHIP_SIZE;//‰æ‘œ“à‚ÌêŠy

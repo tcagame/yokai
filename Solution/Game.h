@@ -15,6 +15,7 @@ public:
 	Game( );
 	virtual ~Game( );
 	void update( );
+	void initialize( );
 private:
 	ScenePtr _scene;
 };

@@ -6,6 +6,7 @@ class ChipDrawer {
 public:
 	enum CHIP {
 		CHIP_TAROSUKE,
+		CHIP_MOMOTARO,
 		MAX_CHIP
 	};
 	struct ChipPos {

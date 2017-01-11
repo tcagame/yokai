@@ -9,4 +9,3 @@ public:
 	virtual ~Tarosuke( );
 	void draw( ChipDrawerPtr chip_drawer );
 };
-
