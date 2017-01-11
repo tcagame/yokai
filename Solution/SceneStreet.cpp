@@ -5,7 +5,7 @@
 
 SceneStreet::SceneStreet( ) {
 	_tarosuke = CharacterPtr( new Tarosuke( 0, 0 ) );
-	_momotaro = CharacterPtr( new Momotaro( 0, 34 ) );
+	_momotaro = CharacterPtr( new Momotaro( 300, 0 ) );
 	_chip_drawer = ChipDrawerPtr( new ChipDrawer );
 }
 

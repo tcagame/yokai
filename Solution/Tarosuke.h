@@ -10,6 +10,9 @@ public:
 	virtual ~Tarosuke( );
 private:
 	void debugChip( );
+	void updateAcceleration( );
 private:
+	static const int MAX_CHIP_NUM = 101;
+	ChipDrawer::CHIP _chip_list[ MAX_CHIP_NUM ];
 	int _chip_num;
 };
