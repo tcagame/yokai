@@ -11,7 +11,7 @@ class SceneStreet : public Scene {
 public:
 	SceneStreet( );
 	virtual ~SceneStreet( );
-	virtual void update( );
+	virtual NEXT update( );
 private:
 	void draw( );
 private:
