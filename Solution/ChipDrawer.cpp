@@ -121,7 +121,7 @@ ChipDrawer::~ChipDrawer( ) {
 
 void ChipDrawer::draw( CHIP chip, int sx, int sy ) {
 	DrawerPtr drawer = Drawer::getTask( );
-	const int CHIP_SIZE = 272;
+	const int CHIP_SIZE = 34 * 6;
 
 	int tx = _chip_pos[ chip ].cx * CHIP_SIZE;//‰æ‘œ“à‚ÌêŠx
 	int ty = _chip_pos[ chip ].cy * CHIP_SIZE;//‰æ‘œ“à‚ÌêŠy
