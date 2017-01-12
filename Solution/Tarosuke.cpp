@@ -131,6 +131,20 @@ void Tarosuke::debugChip( ) {
 
 }
 
-void Tarosuke::updateAcceleration( ) {
+void Tarosuke::updateAccel( ) {
+	setAccelX( 0 );
+	manipulate( );
 	fall( );
+}
+
+void Tarosuke::manipulate( ) {
+	const int MOVE_SPEED = 10;
+	KeyboardPtr keyboard = Keyboard::getTask( );
+	if ( keyboard->isHoldKey( "ARROW_LEFT" ) ) {
+		setAccelX( -MOVE_SPEED );
+	}
+	if ( keyboard->isHoldKey( "ARROW_RIGHT" ) ) {
+		setAccelX( MOVE_SPEED );
+	}
+
 }

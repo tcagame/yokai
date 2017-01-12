@@ -4,7 +4,8 @@
 Character::Character( int x, int y ) {
 	_x = x;
 	_y = y;
-	_acceleration_y = 0;
+	_accel_x = 0;
+	_accel_y = 0;
 }
 
 
@@ -12,12 +13,12 @@ Character::~Character( ) {
 }
 
 void Character::update( ) {
-	updateAcceleration( );
+	updateAccel( );
 	moveVertical( );
 	debugChip( );
 }
 
-void Character::updateAcceleration( ) {
+void Character::updateAccel( ) {
 }
 
 void Character::draw( ChipDrawerPtr chip_drawer ) {
@@ -25,10 +26,14 @@ void Character::draw( ChipDrawerPtr chip_drawer ) {
 }
 
 void Character::moveVertical( ) {
-	_y += _acceleration_y;
+	_x += _accel_x;
+	_y += _accel_y;
 }
 
 void Character::debugChip( ) {
+}
+
+void Character::manipulate( ) {
 }
 
 
@@ -41,5 +46,9 @@ ChipDrawer::CHIP Character::getChip( ) {
 }
 
 void Character::fall( ) {
-	_acceleration_y++;
+	_accel_y++;
+}
+
+void Character::setAccelX( int accel_x ) {
+	_accel_x = accel_x;
 }

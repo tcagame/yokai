@@ -122,14 +122,13 @@ ChipDrawer::~ChipDrawer( ) {
 
 void ChipDrawer::draw( CHIP chip, int sx, int sy ) {
 	DrawerPtr drawer = Drawer::getTask( );
-	const int CHIP_SIZE = 34;
-	const int RATIO_ZOOM = 8;
+	const int CHIP_SIZE = 272;
 
 	int tx = _chip_pos[ chip ].cx * CHIP_SIZE;//‰æ‘œ“à‚ÌêŠx
 	int ty = _chip_pos[ chip ].cy * CHIP_SIZE;//‰æ‘œ“à‚ÌêŠy
 
-	int sx2 = sx + CHIP_SIZE * RATIO_ZOOM;
-	int sy2 = sy + CHIP_SIZE * RATIO_ZOOM;
+	int sx2 = sx + CHIP_SIZE;
+	int sy2 = sy + CHIP_SIZE;
 
 
 	Drawer::Transform trans( sx, sy, tx, ty, CHIP_SIZE, CHIP_SIZE, sx2, sy2 );

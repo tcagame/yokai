@@ -13,15 +13,18 @@ public:
 	void update( );
 	void draw( ChipDrawerPtr chip_drawer );
 protected:
-	virtual void updateAcceleration( );
+	virtual void updateAccel( );
 	void setChip( ChipDrawer::CHIP chip );
 	virtual void moveVertical( );
+	virtual void manipulate( );
 	void debugChip( );
 	void  fall( );
+	void setAccelX( int accel_x );
 	ChipDrawer::CHIP getChip( );
 private:
 	int _x;
 	int _y;
 	ChipDrawer::CHIP _chip;
-	int _acceleration_y;
+	int _accel_x;
+	int _accel_y;
 };
