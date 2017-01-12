@@ -4,7 +4,7 @@
 #include "Momotaro.h"
 
 SceneStreet::SceneStreet( ) {
-	_tarosuke = CharacterPtr( new Tarosuke( 0, 0 ) );
+	_tarosuke = CharacterPtr( new Tarosuke( 0, 500 ) );
 	_momotaro = CharacterPtr( new Momotaro( 300, 0 ) );
 	_chip_drawer = ChipDrawerPtr( new ChipDrawer );
 }

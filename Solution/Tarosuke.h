@@ -15,11 +15,14 @@ private:
 	enum ACTION {
 		ACTION_WAIT,
 		ACTION_WALK,
+		ACTION_JUMP,
 		ACTION_MAX
 	};
 private:
 	void updateChip( );
 	void manipulate( );
+	void actOnJumping( );
 private:
 	ACTION _action;
+	int _jump_count;
 };

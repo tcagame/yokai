@@ -27,6 +27,7 @@ protected:
 	virtual void debugChip( );
 	void  fall( );
 	void setAccelX( int accel_x );
+	void setAccelY( int accel_y );
 	int getX( );
 	ChipDrawer::CHIP getChip( );
 private:
