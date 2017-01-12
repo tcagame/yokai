@@ -64,3 +64,7 @@ void Character::setDir( DIR dir ) {
 void Character::setAccelX( int accel_x ) {
 	_accel_x = accel_x;
 }
+
+void Character::setAccelY( int accel_y ) {
+	_accel_y = accel_y;
+}

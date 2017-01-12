@@ -2,6 +2,9 @@
 #include "ChipDrawer.h"
 #include "Keyboard.h"
 
+static const int JUMP_COUNT = 3;
+static const int JUMP_POWER = 20;
+
 
 Tarosuke::Tarosuke( int x, int y ) : 
 Character( x, y ) {
@@ -57,6 +60,9 @@ void Tarosuke::manipulate( ) {
 		setAccelX( MOVE_SPEED );
 		setDir( DIR_RIGHT );
 	}
+	if (keyboard->isPushKey( "SPACE" ) ) {
+		_action = ACTION_JUMP;
+		setAccelY( -JUMP_POWER );
 
-
+	}
 }
