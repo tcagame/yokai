@@ -50,10 +50,13 @@ void Tarosuke::manipulate( ) {
 	if ( keyboard->isHoldKey( "ARROW_LEFT" ) ) {
 		_action = ACTION_WALK;
 		setAccelX( -MOVE_SPEED );
+		setDir( DIR_LEFT );
 	}
 	if ( keyboard->isHoldKey( "ARROW_RIGHT" ) ) {
 		_action = ACTION_WALK;
 		setAccelX( MOVE_SPEED );
+		setDir( DIR_RIGHT );
 	}
+
 
 }

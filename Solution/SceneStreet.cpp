@@ -22,5 +22,6 @@ Scene::NEXT SceneStreet::update( ) {
 }
 
 void SceneStreet::draw( ) {
+	_tarosuke->draw( _chip_drawer );
 	_momotaro->draw( _chip_drawer );
 }

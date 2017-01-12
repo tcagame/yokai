@@ -119,7 +119,7 @@ ChipDrawer::ChipDrawer( ) {
 ChipDrawer::~ChipDrawer( ) {
 }
 
-void ChipDrawer::draw( CHIP chip, int sx, int sy ) {
+void ChipDrawer::draw( CHIP chip, int sx, int sy, bool reverse ) {
 	DrawerPtr drawer = Drawer::getTask( );
 	const int CHIP_SIZE = 34 * 6;
 
@@ -128,6 +128,14 @@ void ChipDrawer::draw( CHIP chip, int sx, int sy ) {
 
 	int sx2 = sx + CHIP_SIZE;
 	int sy2 = sy + CHIP_SIZE;
+
+	
+	if ( reverse ) {
+		int tmp = sx;
+		sx = sx2;
+		sx2 = tmp;
+	}
+
 
 
 	Drawer::Transform trans( sx, sy, tx, ty, CHIP_SIZE, CHIP_SIZE, sx2, sy2 );

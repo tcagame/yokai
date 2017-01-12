@@ -129,7 +129,7 @@ public:
 public:
 	ChipDrawer( );
 	~ChipDrawer( );
-	void draw( CHIP chip, int sx, int sy );
+	void draw( CHIP chip, int sx, int sy, bool reverse );
 private:
 	std::array< ChipPos, MAX_CHIP > _chip_pos;
 };

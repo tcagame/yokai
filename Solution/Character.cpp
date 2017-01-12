@@ -23,7 +23,9 @@ void Character::updateAccel( ) {
 }
 
 void Character::draw( ChipDrawerPtr chip_drawer ) {
-	chip_drawer->draw( _chip, _x, _y );
+	bool reverse = ( _dir == DIR_RIGHT );
+
+	chip_drawer->draw( _chip, _x, _y, reverse );
 }
 
 void Character::moveVertical( ) {
@@ -53,6 +55,10 @@ ChipDrawer::CHIP Character::getChip( ) {
 
 void Character::fall( ) {
 	_accel_y++;
+}
+
+void Character::setDir( DIR dir ) {
+	_dir = dir;
 }
 
 void Character::setAccelX( int accel_x ) {

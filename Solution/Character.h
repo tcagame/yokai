@@ -13,8 +13,14 @@ public:
 	void update( );
 	void draw( ChipDrawerPtr chip_drawer );
 protected:
-	virtual void updateAccel( );
+	enum DIR {
+		DIR_RIGHT,
+		DIR_LEFT,
+	};
+protected:
+	void setDir( DIR dir );
 	void setChip( ChipDrawer::CHIP chip );
+	virtual void updateAccel( );
 	virtual void moveVertical( );
 	virtual void manipulate( );
 	virtual void updateChip( );
@@ -29,4 +35,5 @@ private:
 	ChipDrawer::CHIP _chip;
 	int _accel_x;
 	int _accel_y;
+	DIR _dir;
 };
