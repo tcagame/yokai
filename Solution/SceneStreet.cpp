@@ -13,10 +13,12 @@ SceneStreet::SceneStreet( ) {
 SceneStreet::~SceneStreet( ) {
 }
 
-void SceneStreet::update( ) {
+Scene::NEXT SceneStreet::update( ) {
 	_tarosuke->update( );
 	_momotaro->update( );
 	draw( );
+
+	return NEXT_CONTINUE;
 }
 
 void SceneStreet::draw( ) {

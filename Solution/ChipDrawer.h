@@ -33,7 +33,7 @@ public:
 		CHIP_TAROSUKE_026,
 		CHIP_TAROSUKE_027,
 		CHIP_TAROSUKE_028,
-		CHIP_TAROSUKE_029,//
+		CHIP_TAROSUKE_029,
 		CHIP_TAROSUKE_030,
 		CHIP_TAROSUKE_031,
 		CHIP_TAROSUKE_032,
@@ -106,8 +106,6 @@ public:
 		CHIP_TAROSUKE_099,
 		CHIP_TAROSUKE_100,
 		CHIP_TAROSUKE_101,
-		CHIP_TAROSUKE_102,
-		CHIP_TAROSUKE_103,
 
 		CHIP_MOMOTARO_1,
 		CHIP_MOMOTARO_2,
@@ -131,7 +129,7 @@ public:
 public:
 	ChipDrawer( );
 	~ChipDrawer( );
-	void draw( CHIP chip, int sx, int sy );
+	void draw( CHIP chip, int sx, int sy, bool reverse );
 private:
 	std::array< ChipPos, MAX_CHIP > _chip_pos;
 };

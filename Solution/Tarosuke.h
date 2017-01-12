@@ -8,11 +8,18 @@ class Tarosuke : public Character {
 public:
 	Tarosuke( int x, int y );
 	virtual ~Tarosuke( );
-private:
+public:
 	void debugChip( );
-	void updateAcceleration( );
+	void updateAccel( );
 private:
-	static const int MAX_CHIP_NUM = 101;
-	ChipDrawer::CHIP _chip_list[ MAX_CHIP_NUM ];
-	int _chip_num;
+	enum ACTION {
+		ACTION_WAIT,
+		ACTION_WALK,
+		ACTION_MAX
+	};
+private:
+	void updateChip( );
+	void manipulate( );
+private:
+	ACTION _action;
 };

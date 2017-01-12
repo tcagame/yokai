@@ -2,8 +2,14 @@
 
 class Scene {
 public:
+	enum NEXT {
+		NEXT_CONTINUE,
+		NEXT_TITLE,
+		NEXT_STREET,
+	};
+public:
 	Scene( );
 	virtual ~Scene( );
-	virtual void update( ) = 0;
+	virtual NEXT update( ) = 0;
 };
 
