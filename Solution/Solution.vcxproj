@@ -88,6 +88,8 @@
     <ClCompile Include="ChipDrawer.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Map.cpp" />
+    <ClCompile Include="Map0.cpp" />
     <ClCompile Include="Momotaro.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneStreet.cpp" />
@@ -103,6 +105,8 @@
     <ClInclude Include="Character.h" />
     <ClInclude Include="ChipDrawer.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Map.h" />
+    <ClInclude Include="Map0.h" />
     <ClInclude Include="Momotaro.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneStreet.h" />
