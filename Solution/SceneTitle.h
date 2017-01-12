@@ -8,12 +8,6 @@ public:
 	virtual ~SceneTitle( );
 	NEXT update( );
 private:
-	enum GRAPH {
-		GRAPH_FONT,
-		GRAPH_FRAME,
-		GRAPH_PANEL,
-	};
-private:
 	void act( );
 	void draw( );
 private:

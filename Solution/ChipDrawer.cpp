@@ -1,9 +1,10 @@
 #include "ChipDrawer.h"
 #include "Drawer.h"
+#include "define.h"
 
 ChipDrawer::ChipDrawer( ) {
 	DrawerPtr drawer = Drawer::getTask( );
-	drawer->loadGraph( 0, "Yokai_OBJ_myCharacter.png" );
+	drawer->loadGraph( GRAPH_CHARACTER, "Yokai_OBJ_myCharacter.png" );
 	_chip_pos[ CHIP_TAROSUKE_001 ] = ChipPos(  0,  0 );
 	_chip_pos[ CHIP_TAROSUKE_002 ] = ChipPos(  1,  0 );
 	_chip_pos[ CHIP_TAROSUKE_003 ] = ChipPos(  2,  0 );
@@ -139,7 +140,7 @@ void ChipDrawer::draw( CHIP chip, int sx, int sy, bool reverse ) {
 
 
 	Drawer::Transform trans( sx, sy, tx, ty, CHIP_SIZE, CHIP_SIZE, sx2, sy2 );
-	Drawer::Sprite sprite( trans, 0, Drawer::BLEND_NONE, 1.0 );
+	Drawer::Sprite sprite( trans, GRAPH_CHARACTER, Drawer::BLEND_NONE, 1.0 );
 	drawer->setSprite( sprite );
 
 }

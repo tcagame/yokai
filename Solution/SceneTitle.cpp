@@ -2,6 +2,7 @@
 #include "Tarosuke.h"
 #include "Drawer.h"
 #include "Device.h"
+#include "Define.h"
 
 static const int TITLE_WIDTH  = 1024;
 static const int TITLE_HEIGHT = 256;

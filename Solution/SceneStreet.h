@@ -6,6 +6,7 @@
 PTR( Tarosuke );
 PTR( ChipDrawer );
 PTR( Character );
+PTR( Field );
 
 class SceneStreet : public Scene {
 public:
@@ -18,5 +19,6 @@ private:
 	ChipDrawerPtr _chip_drawer;
 	CharacterPtr _tarosuke;
 	CharacterPtr _momotaro;
+	FieldPtr _field;
 };
 
