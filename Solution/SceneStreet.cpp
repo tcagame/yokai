@@ -4,15 +4,15 @@
 #include "Momotaro.h"
 #include "Field.h"
 #include "Camera.h"
-#include "Map0.h"
+#include "Map.h"
 
 SceneStreet::SceneStreet( ) {
-	MapConstPtr map( new Map0 );
+	MapConstPtr map( new Map );
 	_field = FieldPtr( new Field( map ) );
 	_tarosuke = TarosukePtr( new Tarosuke( 0, 500 ) );
 	_momotaro = MomotaroPtr( new Momotaro( 300, 0 ) );
 	_chip_drawer = ChipDrawerPtr( new ChipDrawer );
-	_camera = CameraPtr( new Camera( _tarosuke ) );
+	_camera = CameraPtr( new Camera( _tarosuke, map ) );
 }
 
 SceneStreet::~SceneStreet( ) {

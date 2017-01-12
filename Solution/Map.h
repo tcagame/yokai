@@ -1,10 +1,21 @@
 #pragma once
 
-static const int MAX_STRING = 20;
+#include "define.h"
+
+struct MAPDATA {
+	const char * filename;
+	const char chip[ MAPCHIP_NUM * MAPCHIP_NUM + 1 ];
+};
 
 class Map {
 public:
 	Map( );
 	virtual ~Map( );
-	virtual const char * getBGFilename( int idx ) const = 0;
+	const char * getFilename( int idx ) const;
+	int getLength( ) const;
+	bool isChip( int x, int y ) const;
+private:
+	int _length;
+	MAPDATA * _data;
 };
+

@@ -4,10 +4,6 @@
 #include "Camera.h"
 #include "Map.h"
 
-static const int BG_X = 0;
-static const int BG_Y = -48;
-static const int BG_SIZE = 758;
-
 Field::Field( MapConstPtr map ) :
 _map( map ) {
 	_idx = -1;
@@ -32,7 +28,7 @@ void Field::update( CameraConstPtr camera ) {
 		}
 
 		for ( int i = 0; i < 3; i++ ) {
-			drawer->loadGraph( GRAPH_BG + i, _map->getBGFilename( _idx + i ) );
+			drawer->loadGraph( GRAPH_BG + i, _map->getFilename( _idx + i ) );
 		}
 	}
 
