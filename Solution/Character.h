@@ -17,9 +17,11 @@ protected:
 	void setChip( ChipDrawer::CHIP chip );
 	virtual void moveVertical( );
 	virtual void manipulate( );
-	void debugChip( );
+	virtual void updateChip( );
+	virtual void debugChip( );
 	void  fall( );
 	void setAccelX( int accel_x );
+	int getX( );
 	ChipDrawer::CHIP getChip( );
 private:
 	int _x;

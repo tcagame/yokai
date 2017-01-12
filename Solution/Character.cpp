@@ -15,6 +15,7 @@ Character::~Character( ) {
 void Character::update( ) {
 	updateAccel( );
 	moveVertical( );
+	updateChip( );
 	debugChip( );
 }
 
@@ -36,7 +37,12 @@ void Character::debugChip( ) {
 void Character::manipulate( ) {
 }
 
+void Character::updateChip( ) {
+}
 
+int Character::getX( ) {
+	return _x;
+}
 void Character::setChip( ChipDrawer::CHIP chip ) {
 	_chip = chip;
 }
