@@ -1,32 +1,53 @@
 #include "Field.h"
 #include "Drawer.h"
 #include "define.h"
+#include "Camera.h"
+#include "Map.h"
 
 static const int BG_X = 0;
 static const int BG_Y = -48;
 static const int BG_SIZE = 758;
 
-Field::Field( ) {
-	DrawerPtr drawer = Drawer::getTask( );
-	drawer->loadGraph( GRAPH_BG_NEAR, "street/map0/map0_1_3.png" );
-	drawer->loadGraph( GRAPH_BG_FAR, "street/map0/map0_2_3.png" );
+Field::Field( MapConstPtr map ) :
+_map( map ) {
+	_idx = -1;
+
+	_x = 0;
+	_y = -48; // 最終的にはカメラから取得
 }
 
 
 Field::~Field( ) {
 }
 
-void Field::draw( ) {
+void Field::update( CameraConstPtr camera ) {
+	int idx = camera->getX( ) / BG_SIZE;
+	if ( idx != _idx ) {
+		_idx = idx;
+
+		DrawerPtr drawer = Drawer::getTask( );
+
+		for ( int i = 0; i < 3; i++ ) {
+			drawer->unloadGraph( GRAPH_BG + i );
+		}
+
+		for ( int i = 0; i < 3; i++ ) {
+			drawer->loadGraph( GRAPH_BG + i, _map->getBGFilename( _idx + i ) );
+		}
+	}
+
+	_x = idx * BG_SIZE - camera->getX( );
+	_y = -48; // 最終的にはカメラから取得
+}
+
+void Field::draw( ) const {
 	DrawerPtr drawer = Drawer::getTask( );
 	
-	Drawer::Sprite sprite_bg_near( 
-		Drawer::Transform( BG_X, BG_Y ),
-		GRAPH_BG_NEAR );
-	drawer->setSprite( sprite_bg_near );
-
-	Drawer::Sprite sprite_bg_far( 
-		Drawer::Transform( BG_X + BG_SIZE, BG_Y ),
-		GRAPH_BG_FAR );
-	drawer->setSprite( sprite_bg_far );
+	for ( int i = 0; i < 3; i++ ) {
+		Drawer::Sprite sprite( 
+			Drawer::Transform( _x + i * BG_SIZE, _y ),
+			GRAPH_BG + i );
+		drawer->setSprite( sprite );
+	}
 }
 

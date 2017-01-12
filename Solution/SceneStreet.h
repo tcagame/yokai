@@ -5,8 +5,10 @@
 
 PTR( Tarosuke );
 PTR( ChipDrawer );
-PTR( Character );
+PTR( Tarosuke );
+PTR( Momotaro );
 PTR( Field );
+PTR( Camera );
 
 class SceneStreet : public Scene {
 public:
@@ -14,11 +16,10 @@ public:
 	virtual ~SceneStreet( );
 	virtual NEXT update( );
 private:
-	void draw( );
-private:
 	ChipDrawerPtr _chip_drawer;
-	CharacterPtr _tarosuke;
-	CharacterPtr _momotaro;
+	TarosukePtr _tarosuke;
+	MomotaroPtr _momotaro;
 	FieldPtr _field;
+	CameraPtr _camera;
 };
 

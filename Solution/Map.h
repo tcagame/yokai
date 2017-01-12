@@ -6,4 +6,5 @@ class Map {
 public:
 	Map( );
 	virtual ~Map( );
+	virtual const char * getBGFilename( int idx ) const = 0;
 };

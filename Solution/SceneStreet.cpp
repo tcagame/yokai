@@ -3,14 +3,17 @@
 #include "ChipDrawer.h"
 #include "Momotaro.h"
 #include "Field.h"
+#include "Camera.h"
+#include "Map0.h"
 
 SceneStreet::SceneStreet( ) {
-	_tarosuke = CharacterPtr( new Tarosuke( 0, 500 ) );
-	_momotaro = CharacterPtr( new Momotaro( 300, 0 ) );
+	MapConstPtr map( new Map0 );
+	_field = FieldPtr( new Field( map ) );
+	_tarosuke = TarosukePtr( new Tarosuke( 0, 500 ) );
+	_momotaro = MomotaroPtr( new Momotaro( 300, 0 ) );
 	_chip_drawer = ChipDrawerPtr( new ChipDrawer );
-	_field = FieldPtr( new Field );
+	_camera = CameraPtr( new Camera( _tarosuke ) );
 }
-
 
 SceneStreet::~SceneStreet( ) {
 }
@@ -18,13 +21,12 @@ SceneStreet::~SceneStreet( ) {
 Scene::NEXT SceneStreet::update( ) {
 	_tarosuke->update( );
 	_momotaro->update( );
-	draw( );
+	_camera->update( );
+	_field->update( _camera );
+
+	_field->draw( );
+	_tarosuke->draw( _chip_drawer, _camera );
+	_momotaro->draw( _chip_drawer, _camera );
 
 	return NEXT_CONTINUE;
-}
-
-void SceneStreet::draw( ) {
-	_field->draw( );
-	_tarosuke->draw( _chip_drawer );
-	_momotaro->draw( _chip_drawer );
 }

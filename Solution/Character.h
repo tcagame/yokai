@@ -3,15 +3,15 @@
 #include "ChipDrawer.h"
 
 PTR( ChipDrawer );
-
+PTR( Camera );
 
 class Character {
 public:
 	Character( int x, int y );
 	virtual ~Character( );
-public:
 	void update( );
-	void draw( ChipDrawerPtr chip_drawer );
+	void draw( ChipDrawerPtr chip_drawer, CameraConstPtr camera );
+	int getX( ) const;
 protected:
 	enum DIR {
 		DIR_RIGHT,
@@ -28,7 +28,6 @@ protected:
 	void  fall( );
 	void setAccelX( int accel_x );
 	void setAccelY( int accel_y );
-	int getX( );
 	ChipDrawer::CHIP getChip( );
 private:
 	int _x;

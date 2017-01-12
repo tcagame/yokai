@@ -1,5 +1,6 @@
 #include "Character.h"
-
+#include "define.h"
+#include "Camera.h"
 
 Character::Character( int x, int y ) {
 	_x = x;
@@ -22,10 +23,10 @@ void Character::update( ) {
 void Character::updateAccel( ) {
 }
 
-void Character::draw( ChipDrawerPtr chip_drawer ) {
+void Character::draw( ChipDrawerPtr chip_drawer, CameraConstPtr camera ) {
 	bool reverse = ( _dir == DIR_RIGHT );
 
-	chip_drawer->draw( _chip, _x, _y, reverse );
+	chip_drawer->draw( _chip, _x - CHIP_SIZE / 2 - camera->getX( ), _y - CHIP_SIZE, reverse );
 }
 
 void Character::moveVertical( ) {
@@ -42,7 +43,7 @@ void Character::manipulate( ) {
 void Character::updateChip( ) {
 }
 
-int Character::getX( ) {
+int Character::getX( ) const {
 	return _x;
 }
 void Character::setChip( ChipDrawer::CHIP chip ) {

@@ -1,10 +1,15 @@
 #pragma once
 
+const int SCREEN_WIDTH  = 1280;
+const int SCREEN_HEIGHT =  720;
+const int CHIP_SIZE = 34 * 6;
+
 enum GRAPH {
 	GRAPH_PANEL,
 	GRAPH_FRAME,
 	GRAPH_FONT,
 	GRAPH_CHARACTER,
-	GRAPH_BG_NEAR,
-	GRAPH_BG_FAR,
+	GRAPH_BG,
+	GRAPH_BG_1,
+	GRAPH_BG_2,
 };
