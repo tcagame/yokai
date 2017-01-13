@@ -1,6 +1,8 @@
 #include "Tarosuke.h"
 #include "ChipDrawer.h"
 #include "Keyboard.h"
+#include "Device.h"
+#include "define.h"
 
 static const int JUMP_COUNT = 3;
 static const int JUMP_POWER = 20;
@@ -55,22 +57,21 @@ void Tarosuke::updateChip( ) {
 void Tarosuke::manipulate( ) {
 
 	_action = ACTION_WAIT;
-	const int MOVE_SPEED = 10;
-	KeyboardPtr keyboard = Keyboard::getTask( );
-	if ( keyboard->isHoldKey( "ARROW_LEFT" ) ) {
+	DevicePtr device = Device::getTask( );
+	int accel_x = device->getDirX( ) / CHARA_MOVE_RATIO; 
+	if ( accel_x != 0 ) {
 		_action = ACTION_WALK;
-		setAccelX( -MOVE_SPEED );
-		setDir( DIR_LEFT );
+		if ( accel_x < 0 ) {
+			setDir( DIR_LEFT );
+		}
+		if ( accel_x > 0 ) {
+			setDir( DIR_RIGHT );	
+		}
 	}
-	if ( keyboard->isHoldKey( "ARROW_RIGHT" ) ) {
-		_action = ACTION_WALK;
-		setAccelX( MOVE_SPEED );
-		setDir( DIR_RIGHT );
-	}
-	if ( keyboard->isPushKey( "SPACE" ) ) {
+	setAccelX( accel_x );
+	if ( device->getButton( ) == BUTTON_C  ) {
 		_action = ACTION_JUMP;
 		setAccelY( -JUMP_POWER );
-
 	}
 }
 

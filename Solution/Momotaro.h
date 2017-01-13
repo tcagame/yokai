@@ -6,4 +6,5 @@ public:
 	Momotaro( int x, int y );
 	virtual ~Momotaro( );
 	void debugChip( );
+	void manipulate( );
 };

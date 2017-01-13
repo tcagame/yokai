@@ -1,6 +1,7 @@
 #include "Momotaro.h"
 #include "Keyboard.h"
 
+static const int MOVE_SPEED = 5;
 
 Momotaro::Momotaro( int x, int y ) :
 Character( x, y ) {
@@ -19,5 +20,10 @@ void Momotaro::debugChip( ) {
 		setChip( ChipDrawer::CHIP( ( ( getChip( ) + 1 ) - ChipDrawer::CHIP::CHIP_MOMOTARO_1 ) %
 			( MAX_CHIP_PATTERN - 1 ) + ChipDrawer::CHIP::CHIP_MOMOTARO_1 ) );
 	}
+
+}
+
+void Momotaro::manipulate( ) {
+	KeyboardPtr keyboard = Keyboard::getTask( );
 
 }

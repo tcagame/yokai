@@ -17,7 +17,7 @@ void Character::update( ) {
 	updateAccel( );
 	moveVertical( );
 	updateChip( );
-	debugChip( );
+	//debugChip( );
 }
 
 void Character::updateAccel( ) {
