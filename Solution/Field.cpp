@@ -58,7 +58,7 @@ void Field::drawChip( ) const {
 	DrawerPtr drawer = Drawer::getTask( );
 
 	for ( int i = 0; i < 3; i++ ) {
-		int bg_idx = _x / BG_SIZE + i;
+		int bg_idx = _idx + i;
 		for ( int j = 0; j < MAPCHIP_NUM * MAPCHIP_NUM; j++ ) {
 			if ( !_map->isChipIdx( bg_idx, j ) ) {
 				continue;
