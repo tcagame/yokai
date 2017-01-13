@@ -1,5 +1,7 @@
 #include "Momotaro.h"
 #include "Keyboard.h"
+#include "device.h"
+#include "define.h"
 
 static const int MOVE_SPEED = 5;
 
@@ -10,6 +12,10 @@ Character( x, y ) {
 
 
 Momotaro::~Momotaro( ) {
+}
+
+void Momotaro::updateAccel( ) {
+	manipulate( );
 }
 
 void Momotaro::debugChip( ) {
@@ -24,6 +30,15 @@ void Momotaro::debugChip( ) {
 }
 
 void Momotaro::manipulate( ) {
-	KeyboardPtr keyboard = Keyboard::getTask( );
-
+	DevicePtr device = Device::getTask( );
+	int accel_x = device->getDirX( ) / CHARA_MOVE_RATIO;
+	int accel_y = device->getDirY( ) / CHARA_MOVE_RATIO;
+	setAccelX( accel_x );
+	setAccelY( accel_y );
+	if ( accel_x < 0 ) {
+		setDir( DIR_LEFT );
+	}
+	if ( accel_x > 0 ) {
+		setDir( DIR_RIGHT );
+	}
 }

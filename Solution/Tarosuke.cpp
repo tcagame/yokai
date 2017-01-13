@@ -27,9 +27,8 @@ void Tarosuke::debugChip( ) {
 }
 
 void Tarosuke::updateAccel( ) {
-	setAccelX( 0 );
 	manipulate( );
-	//fall( );
+	//fall( ); //地面に立てないためコメントアウト
 }
 
 void Tarosuke::updateChip( ) {
@@ -52,10 +51,16 @@ void Tarosuke::manipulate( ) {
 	_action = ACTION_WAIT;
 	DevicePtr device = Device::getTask( );
 	int accel_x = device->getDirX( ) / CHARA_MOVE_RATIO; 
+	setAccelX( accel_x );
+
 	if ( accel_x != 0 ) {
 		_action = ACTION_WALK;
-		setAccelX( accel_x );
-		setDir( DIR_LEFT );
+		if ( accel_x < 0 ) {
+			setDir( DIR_LEFT );
+		}
+		if ( accel_x > 0 ) {
+			setDir( DIR_RIGHT );
+		}
 	}
 
 	if ( device->getButton( ) == BUTTON_C ) {

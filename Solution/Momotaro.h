@@ -5,6 +5,7 @@ class Momotaro : public Character {
 public:
 	Momotaro( int x, int y );
 	virtual ~Momotaro( );
+	void updateAccel( );
 	void debugChip( );
 	void manipulate( );
 };
