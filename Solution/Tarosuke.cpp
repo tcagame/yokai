@@ -27,10 +27,10 @@ void Tarosuke::debugChip( ) {
 }
 
 void Tarosuke::updateAccel( ) {
-	setAccelX( 0 );
 	manipulate( );
 	fall( );
 }
+
 
 void Tarosuke::updateChip( ) {
 	const int JUNP_PATTERN  = 2;
@@ -59,13 +59,15 @@ void Tarosuke::manipulate( ) {
 	_action = ACTION_WAIT;
 	DevicePtr device = Device::getTask( );
 	int accel_x = device->getDirX( ) / CHARA_MOVE_RATIO; 
+	setAccelX( accel_x );
+
 	if ( accel_x != 0 ) {
 		_action = ACTION_WALK;
 		if ( accel_x < 0 ) {
 			setDir( DIR_LEFT );
 		}
 		if ( accel_x > 0 ) {
-			setDir( DIR_RIGHT );	
+			setDir( DIR_RIGHT );
 		}
 	}
 	setAccelX( accel_x );
