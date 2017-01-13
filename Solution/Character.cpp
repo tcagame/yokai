@@ -15,6 +15,7 @@ Character::~Character( ) {
 
 void Character::update( ) {
 	updateAccel( );
+	moveHorizontal( );
 	moveVertical( );
 	updateChip( );
 	//debugChip( );
@@ -26,12 +27,17 @@ void Character::updateAccel( ) {
 void Character::draw( ChipDrawerPtr chip_drawer, CameraConstPtr camera ) {
 	bool reverse = ( _dir == DIR_RIGHT );
 
-	chip_drawer->draw( _chip, _x - CHIP_SIZE / 2 - camera->getX( ), _y - CHIP_SIZE, reverse );
+	chip_drawer->draw( _chip, _x - camera->getX( ), _y, reverse );
+}
+
+void Character::moveHorizontal( ) {
+	_x += _accel_x;
+	adjustX( );
 }
 
 void Character::moveVertical( ) {
-	_x += _accel_x;
     _y += _accel_y;
+	adjustY( );
 }
 
 void Character::debugChip( ) {
@@ -46,6 +52,30 @@ void Character::updateChip( ) {
 int Character::getX( ) const {
 	return _x;
 }
+
+int Character::getY( ) const {
+	return _y;
+}
+
+void Character::setX( int x ) {
+	_x = x;
+}
+
+void Character::setY( int y ) {
+	_y = y;
+}
+
+void Character::adjustX( ) {
+}
+
+void Character::adjustY( ) {
+}
+
+
+Character::DIR Character::getDir( ) const {
+	return _dir;
+}
+
 void Character::setChip( ChipDrawer::CHIP chip ) {
 	_chip = chip;
 }
@@ -55,10 +85,10 @@ ChipDrawer::CHIP Character::getChip( ) {
 }
 
 void Character::fall( ) {
- 	if ( _y < 600 ) {
+ 	if ( _y < SCREEN_HEIGHT - CHIP_SIZE ) {
 		_accel_y++;
-	} else if ( _y > 600 ) {
-		_y = 600;
+	} else if ( _y > SCREEN_HEIGHT - CHIP_SIZE ) {
+		_y = SCREEN_HEIGHT - CHIP_SIZE;
 		_accel_y = 0;
 	}
 

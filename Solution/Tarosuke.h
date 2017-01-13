@@ -21,6 +21,8 @@ private:
 private:
 	void updateChip( );
 	void manipulate( );
+	void adjustX( );
+	void adjustY( );
 private:
 	ACTION _action;
 	int _jump_count;

@@ -28,7 +28,7 @@ void Tarosuke::debugChip( ) {
 
 void Tarosuke::updateAccel( ) {
 	manipulate( );
-	fall( );
+	//fall( );
 }
 
 
@@ -74,6 +74,17 @@ void Tarosuke::manipulate( ) {
 	if ( device->getButton( ) == BUTTON_C  ) {
 		_action = ACTION_JUMP;
 		setAccelY( -JUMP_POWER );
+	}
+}
+
+void Tarosuke::adjustX( ) {
+	if ( getX( ) < 0 ) {
+		setX( 0 );
+	}
+}
+void Tarosuke::adjustY( ) {
+	if ( getY( ) < 0 ) {
+		setY( 0 );
 	}
 }
 

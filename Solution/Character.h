@@ -10,7 +10,7 @@ public:
 	Character( int x, int y );
 	virtual ~Character( );
 	void update( );
-	void draw( ChipDrawerPtr chip_drawer, CameraConstPtr camera );
+	virtual void draw( ChipDrawerPtr chip_drawer, CameraConstPtr camera );
 	int getX( ) const;
 protected:
 	enum DIR {
@@ -21,17 +21,24 @@ protected:
 	void setDir( DIR dir );
 	void setChip( ChipDrawer::CHIP chip );
 	virtual void updateAccel( );
+	virtual void moveHorizontal( );
 	virtual void moveVertical( );
 	virtual void manipulate( );
 	virtual void updateChip( );
 	virtual void debugChip( );
 	void  fall( );
 	bool isStanding( ) const;
+	int getY( ) const;
+	void setX( int x );
+	void setY( int y );
 	int getAccelX( ) const;
 	int getAccelY( ) const;
 	void setAccelX( int accel_x );
 	void setAccelY( int accel_y );
+	virtual void adjustX( );
+	virtual void adjustY( );
 	ChipDrawer::CHIP getChip( );
+	DIR getDir( ) const;
 private:
 	int _x;
 	int _y;
