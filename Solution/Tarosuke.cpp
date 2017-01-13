@@ -28,12 +28,15 @@ void Tarosuke::debugChip( ) {
 
 void Tarosuke::updateAccel( ) {
 	manipulate( );
-	//fall( ); //地面に立てないためコメントアウト
+	fall( );
 }
 
+
 void Tarosuke::updateChip( ) {
+	const int JUNP_PATTERN  = 2;
 	const int WALK_PATTERN = 4;
 	const int WAIT_TIME = 4;
+	
 	switch ( _action ) {
 	case ACTION_WAIT:
 		setChip( ChipDrawer::CHIP::CHIP_TAROSUKE_001 );
@@ -42,12 +45,17 @@ void Tarosuke::updateChip( ) {
 		setChip( ChipDrawer::CHIP( ChipDrawer::CHIP_TAROSUKE_002 +
 				( getX( ) / WAIT_TIME ) % WALK_PATTERN ) );
 		break;
+	case ACTION_JUMP:
+		
+		setChip( ChipDrawer::CHIP( ChipDrawer::CHIP_TAROSUKE_006 ) );
+		
 	default:
 		break;
 	}
 }
 
 void Tarosuke::manipulate( ) {
+
 	_action = ACTION_WAIT;
 	DevicePtr device = Device::getTask( );
 	int accel_x = device->getDirX( ) / CHARA_MOVE_RATIO; 
@@ -62,9 +70,10 @@ void Tarosuke::manipulate( ) {
 			setDir( DIR_RIGHT );
 		}
 	}
-
-	if ( device->getButton( ) == BUTTON_C ) {
+	setAccelX( accel_x );
+	if ( device->getButton( ) == BUTTON_C  ) {
 		_action = ACTION_JUMP;
 		setAccelY( -JUMP_POWER );
 	}
 }
+
