@@ -28,7 +28,7 @@ void Tarosuke::debugChip( ) {
 
 void Tarosuke::updateAccel( ) {
 	manipulate( );
-	//fall( );
+	fall( );
 }
 
 

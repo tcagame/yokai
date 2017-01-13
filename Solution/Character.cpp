@@ -94,13 +94,7 @@ Character::DIR Character::getDir( ) {
 }
 
 void Character::fall( ) {
- 	if ( _y < SCREEN_HEIGHT - CHIP_SIZE ) {
-		_accel_y++;
-	} else if ( _y > SCREEN_HEIGHT - CHIP_SIZE ) {
-		_y = SCREEN_HEIGHT - CHIP_SIZE;
-		_accel_y = 0;
-	}
-
+ 	_accel_y += GRAVITY_POWER;
 }
 
 bool Character::isStanding( ) const {
