@@ -5,6 +5,7 @@
 #include "Field.h"
 #include "Camera.h"
 #include "Map.h"
+#include "CloudManager.h"
 
 SceneStreet::SceneStreet( ) {
 	MapConstPtr map( new Map );
@@ -14,6 +15,7 @@ SceneStreet::SceneStreet( ) {
 	_momotaro = MomotaroPtr( new Momotaro( 300, 100 ) );
 	_chip_drawer = ChipDrawerPtr( new ChipDrawer );
 	_camera = CameraPtr( new Camera( _tarosuke, map ) );
+	_cloud_manager = CloudManagerPtr( new CloudManager );
 }
 
 SceneStreet::~SceneStreet( ) {
@@ -26,6 +28,7 @@ Scene::NEXT SceneStreet::update( ) {
 	_field->update( _camera );
 
 	_field->draw( );
+	_cloud_manager->draw( _camera );
 	_tarosuke->draw( _chip_drawer, _camera );
 	_momotaro->draw( _chip_drawer, _camera );
 
