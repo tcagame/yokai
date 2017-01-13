@@ -16,6 +16,7 @@ private:
 		ACTION_WAIT,
 		ACTION_WALK,
 		ACTION_JUMP,
+		ACTION_FLOAT,
 		ACTION_MAX
 	};
 private:
