@@ -15,18 +15,24 @@ void Psychic::update( ) {
 
 void Psychic::draw( int x, int y, bool right ) {
 	DrawerPtr drawer = Drawer::getTask( );
-	int x1 = x;
-	int y1 = y;
-	int tx = 0 * CHIP_SIZE;
-	int ty = 2 * CHIP_SIZE;
-	int x2 = x1 + CHIP_SIZE;
-	int y2 = y1 + CHIP_SIZE;
+	std::array< CHIP_POS, MAX_PSYCHIC > chip_pos;
+	chip_pos[ PSYCHIC_BLUE ] = CHIP_POS( 1, 2 );
+	chip_pos[ PSYCHIC_YELLOW ] = CHIP_POS( 0, 2 );
+	int x2 = x + CHIP_SIZE;
+	int y2 = y + CHIP_SIZE;
 
 	if ( right ) {
-		x1 = x2;
-		x2 = x;
+		int tmp = x;
+		x = x2;
+		x2 = tmp;
 	}
-	Drawer::Transform trans( x1, y1, tx, ty, CHIP_SIZE, CHIP_SIZE, x2, y2 );
-	Drawer::Sprite sprite( trans, GRAPH_EFFECT_0 );
-	drawer->setSprite( sprite );
+
+	for ( int i = 0; i < MAX_PSYCHIC; i++ ) {
+		int tx = chip_pos[ i ].cx * CHIP_SIZE;
+		int ty = chip_pos[ i ].cy * CHIP_SIZE;
+	
+		Drawer::Transform trans( x, y, tx, ty, CHIP_SIZE, CHIP_SIZE, x2, y2 );
+		Drawer::Sprite sprite( trans, GRAPH_EFFECT_0 );
+		drawer->setSprite( sprite );
+	}
 }
