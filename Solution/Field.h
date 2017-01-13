@@ -12,6 +12,9 @@ public:
 	void update( CameraConstPtr camera );
 	void draw( ) const;
 private:
+	void drawBG( ) const;
+	void drawChip( ) const;
+private:
 	const MapConstPtr _map;
 	int _x;
 	int _y;

@@ -220,3 +220,8 @@ bool Map::isChip( int x, int y ) const {
 	return _data[ bg_idx ].chip[ chip_idx ] == '#';
 }
 
+
+bool Map::isChipIdx( int bg_idx, int chip_idx ) const {
+	return _data[ bg_idx ].chip[ chip_idx ] == '#';
+}
+

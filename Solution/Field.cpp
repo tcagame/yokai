@@ -6,8 +6,10 @@
 
 Field::Field( MapConstPtr map ) :
 _map( map ) {
-	_idx = -1;
+	DrawerPtr drawer = Drawer::getTask( );
+	drawer->loadGraph( GRAPH_MAPCHIPGUIDE, "street/mapchipguide.png" );
 
+	_idx = -1;
 	_x = 0;
 	_y = -48; // ÅI“I‚É‚ÍƒJƒƒ‰‚©‚çæ“¾
 }
@@ -37,6 +39,11 @@ void Field::update( CameraConstPtr camera ) {
 }
 
 void Field::draw( ) const {
+	drawBG( );
+	drawChip( );
+}
+
+void Field::drawBG( ) const {
 	DrawerPtr drawer = Drawer::getTask( );
 	
 	for ( int i = 0; i < 3; i++ ) {
@@ -47,3 +54,22 @@ void Field::draw( ) const {
 	}
 }
 
+void Field::drawChip( ) const {
+	DrawerPtr drawer = Drawer::getTask( );
+
+	for ( int i = 0; i < 3; i++ ) {
+		int bg_idx = _x / BG_SIZE + i;
+		for ( int j = 0; j < MAPCHIP_NUM * MAPCHIP_NUM; j++ ) {
+			if ( !_map->isChipIdx( bg_idx, j ) ) {
+				continue;
+			}
+
+			int x = _x + i * BG_SIZE + j % MAPCHIP_NUM * MAPCHIP_SIZE;
+			int y = _y               + j / MAPCHIP_NUM * MAPCHIP_SIZE;
+			Drawer::Sprite sprite( 
+				Drawer::Transform( x, y ),
+				GRAPH_MAPCHIPGUIDE );
+			drawer->setSprite( sprite );
+		}
+	}
+}
