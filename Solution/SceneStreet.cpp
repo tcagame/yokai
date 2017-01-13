@@ -11,7 +11,7 @@ SceneStreet::SceneStreet( ) {
 	MapConstPtr map( new Map );
 	_field = FieldPtr( new Field( map ) );
 
-	_tarosuke = TarosukePtr( new Tarosuke( 50, 400 ) );
+	_tarosuke = TarosukePtr( new Tarosuke( ) );
 	_momotaro = MomotaroPtr( new Momotaro( 300, 100 ) );
 	_chip_drawer = ChipDrawerPtr( new ChipDrawer );
 	_camera = CameraPtr( new Camera( _tarosuke, map ) );
@@ -22,8 +22,8 @@ SceneStreet::~SceneStreet( ) {
 }
 
 Scene::NEXT SceneStreet::update( ) {
-	_tarosuke->update( );
-	_momotaro->update( );
+	_tarosuke->update( _field );
+	_momotaro->update( _field );
 	_camera->update( );
 	_field->update( _camera );
 

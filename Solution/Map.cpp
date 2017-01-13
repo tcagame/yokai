@@ -969,19 +969,7 @@ const char * Map::getFilename( int idx ) const {
 	return _data[ idx ].filename;
 }
 
-bool Map::isChip( int x, int y ) const {
-	if ( x < 0 || x >= MAPCHIP_NUM ||
-		 y < 0 || y >= MAPCHIP_NUM ) {
-		return true;
-	}
-
-	int bg_idx = x / BG_SIZE;
-	int chip_idx = x % BG_SIZE / MAPCHIP_SIZE + y / MAPCHIP_SIZE * MAPCHIP_NUM; 
-	return _data[ bg_idx ].chip[ chip_idx ] == '#';
-}
-
-
-bool Map::isChipIdx( int bg_idx, int chip_idx ) const {
+bool Map::isChip( int bg_idx, int chip_idx ) const {
 	return _data[ bg_idx ].chip[ chip_idx ] == '#';
 }
 

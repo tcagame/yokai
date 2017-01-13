@@ -11,6 +11,7 @@ public:
 	virtual ~Field( );
 	void update( CameraConstPtr camera );
 	void draw( ) const;
+	bool isChip( int x, int y ) const;
 private:
 	void drawBG( ) const;
 	void drawChip( ) const;

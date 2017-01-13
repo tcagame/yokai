@@ -6,8 +6,8 @@ PTR( ChipDrawer );
 
 class Tarosuke : public Character {
 public:
-	Tarosuke( int x, int y );
-	virtual ~Tarosuke( );
+	Tarosuke( );
+	virtual ~Tarosuke(  );
 public:
 	void debugChip( );
 	void updateAccel( );
