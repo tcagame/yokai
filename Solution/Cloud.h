@@ -14,7 +14,8 @@ public:
 	virtual ~Cloud( );
 	virtual void draw( CameraPtr camera );
 	void update( );
-	void updatePos( );
+	void updateAccel( );
+	void moveVertical( );
 	void updateChip( );
 protected:
 	int getX( );
@@ -24,6 +25,8 @@ private:
 	CLOUD_CHIP _cloud_chip;
 	int _x;
 	int _y;
+	int _accel;
 	int _chip_count;
+	int _turn_count;
 };
 
