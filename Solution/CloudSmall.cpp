@@ -6,8 +6,8 @@
 static const int CLOUD_SMALL_WIDTH = 207;
 static const int CLOUD_SMALL_HEIGHT = 216;
 
-CloudSmall::CloudSmall( CloudManager::CLOUD_CHIP cloud_chip, int x, int y ) :
-Cloud( cloud_chip, x, y ) {
+CloudSmall::CloudSmall( int x, int y ) :
+Cloud( x, y ) {
 }
 
 CloudSmall::~CloudSmall( ) {

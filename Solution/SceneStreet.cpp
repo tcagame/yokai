@@ -30,6 +30,7 @@ Scene::NEXT SceneStreet::update( ) {
 	_momotaro->update( _field );
 	_camera->update( );
 	_field->update( _camera );
+	_cloud_manager->update( );
 
 	_field->draw( );
 	_cloud_manager->draw( _camera );
