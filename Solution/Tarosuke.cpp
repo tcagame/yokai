@@ -7,10 +7,10 @@
 static const int JUMP_COUNT = 3;
 static const int JUMP_POWER = 20;
 
-
-Tarosuke::Tarosuke( int x, int y ) : 
+Tarosuke::Tarosuke( int x, int y, PsychicMgrPtr psychic ) : 
 Character( x, y ) {
 	setChip( ChipDrawer::CHIP::CHIP_TAROSUKE_001 );
+	_psychic_mgr = psychic;
 }
 
 Tarosuke::~Tarosuke( ) {
@@ -68,6 +68,14 @@ void Tarosuke::manipulate( ) {
 	if ( device->getButton( ) == BUTTON_C  ) {
 		_action = ACTION_JUMP;
 		setAccelY( -JUMP_POWER );
+	}
+	if ( device->getButton( ) == BUTTON_A  ) {
+		_action = ACTION_JUMP;
+		bool right = false;
+		if ( getDir( ) == DIR_RIGHT ) {
+			right = true;
+		}
+		_psychic_mgr->shooting( getX( ), getY( ), right );
 	}
 }
 

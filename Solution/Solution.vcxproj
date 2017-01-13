@@ -92,6 +92,8 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="Momotaro.cpp" />
+    <ClCompile Include="Psychic.cpp" />
+    <ClCompile Include="PsychicMgr.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneStreet.cpp" />
     <ClCompile Include="SceneTitle.cpp" />
@@ -111,6 +113,8 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Momotaro.h" />
+    <ClInclude Include="Psychic.h" />
+    <ClInclude Include="PsychicMgr.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneStreet.h" />
     <ClInclude Include="SceneTitle.h" />

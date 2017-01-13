@@ -9,6 +9,7 @@ PTR( Tarosuke );
 PTR( Momotaro );
 PTR( Field );
 PTR( Camera );
+PTR( PsychicMgr );
 
 class SceneStreet : public Scene {
 public:
@@ -21,5 +22,6 @@ private:
 	MomotaroPtr _momotaro;
 	FieldPtr _field;
 	CameraPtr _camera;
+	PsychicMgrPtr _psychic_mgr;
 };
 

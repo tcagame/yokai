@@ -1,12 +1,14 @@
 #pragma once
 #include "smart_ptr.h"
 #include "Character.h"
+#include "PsychicMgr.h"
 
 PTR( ChipDrawer );
+PTR( PsychicMgr );
 
 class Tarosuke : public Character {
 public:
-	Tarosuke( int x, int y );
+	Tarosuke( int x, int y, PsychicMgrPtr psychic );
 	virtual ~Tarosuke( );
 public:
 	void debugChip( );
@@ -16,6 +18,7 @@ private:
 		ACTION_WAIT,
 		ACTION_WALK,
 		ACTION_JUMP,
+		ACTION_PSYCHIC,
 		ACTION_MAX
 	};
 private:
@@ -25,5 +28,6 @@ private:
 	void adjustY( );
 private:
 	ACTION _action;
+	PsychicMgrPtr _psychic_mgr;
 	int _jump_count;
 };
