@@ -36,7 +36,7 @@ Scene::NEXT SceneStreet::update( ) {
 	_cloud_manager->draw( _camera );
 	_tarosuke->draw( _chip_drawer, _camera );
 	_momotaro->draw( _chip_drawer, _camera );
-	_psychic_mgr->draw( );
+	_psychic_mgr->draw( _camera );
 
 	return NEXT_CONTINUE;
 }
