@@ -21,7 +21,7 @@ protected:
 protected:
 	void setChip( ChipDrawer::CHIP chip );
 	virtual void updateAccel( );
-	virtual void moveHorizontal( );
+	virtual void moveHorizontal( FieldPtr field );
 	virtual void moveVertical( FieldPtr field );
 	virtual void manipulate( );
 	virtual void updateChip( );

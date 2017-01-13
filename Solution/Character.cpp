@@ -18,8 +18,8 @@ Character::~Character( ) {
 void Character::update( FieldPtr field ) {
 	updateAccel( );
 	updateDir( );
-	moveHorizontal( );
 	moveVertical( field );
+	moveHorizontal( field );
 	updateChip( );
 	//debugChip( );
 }
@@ -33,9 +33,28 @@ void Character::draw( ChipDrawerPtr chip_drawer, CameraConstPtr camera ) {
 	chip_drawer->draw( _chip, _x - camera->getX( ) - CHIP_SIZE / 2, _y - camera->getY( ) - CHIP_SIZE + CHIP_FOOT_BLANK, reverse );
 }
 
-void Character::moveHorizontal( ) {
+void Character::moveHorizontal( FieldPtr field ) {
 	_x += _accel_x;
 	adjustX( );
+	
+	bool overlapped = field->isChip( _x, _y );
+
+	// もしチップに重なっていたらチップの上に移動
+	if ( overlapped && !_store_overlapped ) {
+		// 衝突している
+		int dif = _x % MAPCHIP_SIZE;
+		_x = _x / MAPCHIP_SIZE * MAPCHIP_SIZE;
+		if ( dif < MAPCHIP_SIZE / 2 ) {
+			_x -= 1;
+		} else {
+			_x += MAPCHIP_SIZE;
+		}
+		_accel_x = 0;
+		overlapped = false;
+	}
+
+	_store_overlapped = overlapped;
+
 }
 
 void Character::moveVertical( FieldPtr field ) {
