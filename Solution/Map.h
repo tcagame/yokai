@@ -13,8 +13,7 @@ public:
 	virtual ~Map( );
 	const char * getFilename( int idx ) const;
 	int getLength( ) const;
-	bool isChip( int x, int y ) const;
-	bool isChipIdx( int bg_idx, int chip_idx ) const;
+	bool isChip( int bg_idx, int chip_idx ) const;
 private:
 	int _length;
 	MAPDATA * _data;

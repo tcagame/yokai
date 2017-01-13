@@ -35,7 +35,7 @@ void Field::update( CameraConstPtr camera ) {
 	}
 
 	_x = idx * BG_SIZE - camera->getX( );
-	_y = -48; // 最終的にはカメラから取得
+	_y = -camera->getY( );
 }
 
 void Field::draw( ) const {
@@ -60,7 +60,8 @@ void Field::drawChip( ) const {
 	for ( int i = 0; i < 3; i++ ) {
 		int bg_idx = _idx + i;
 		for ( int j = 0; j < MAPCHIP_NUM * MAPCHIP_NUM; j++ ) {
-			if ( !_map->isChipIdx( bg_idx, j ) ) {
+			bool b = _map->isChip( bg_idx, j );
+			if ( !b ) {
 				continue;
 			}
 
@@ -72,4 +73,20 @@ void Field::drawChip( ) const {
 			drawer->setSprite( sprite );
 		}
 	}
+}
+
+bool Field::isChip( int x, int y ) const {
+	// mapクラスにチップと重なっているか確認する Map::isChipを使う
+
+	if ( x < 0 || x >= _map->getLength( ) * BG_SIZE ||
+		 y < 0 || y >= BG_SIZE ) {
+		return false;
+	}
+
+	int bg_idx = x / BG_SIZE;
+	int chip_idx = x % BG_SIZE / MAPCHIP_SIZE + y / MAPCHIP_SIZE * MAPCHIP_NUM; 
+	
+
+
+	return _map->isChip( bg_idx, chip_idx );
 }

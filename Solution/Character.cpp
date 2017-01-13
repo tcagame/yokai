@@ -1,5 +1,6 @@
 #include "Character.h"
 #include "define.h"
+#include "Field.h"
 #include "Camera.h"
 
 Character::Character( int x, int y ) {
@@ -7,17 +8,18 @@ Character::Character( int x, int y ) {
 	_y = y;
 	_accel_x = 0;
 	_accel_y = 0;
+	_store_overlapped = false;
 }
 
 
 Character::~Character( ) {
 }
 
-void Character::update( ) {
+void Character::update( FieldPtr field ) {
 	updateAccel( );
 	updateDir( );
 	moveHorizontal( );
-	moveVertical( );
+	moveVertical( field );
 	updateChip( );
 	//debugChip( );
 }
@@ -28,7 +30,7 @@ void Character::updateAccel( ) {
 void Character::draw( ChipDrawerPtr chip_drawer, CameraConstPtr camera ) {
 	bool reverse = ( _dir == DIR_RIGHT );
 
-	chip_drawer->draw( _chip, _x - camera->getX( ), _y, reverse );
+	chip_drawer->draw( _chip, _x - camera->getX( ) - CHIP_SIZE / 2, _y - camera->getY( ) - CHIP_SIZE + CHIP_FOOT_BLANK, reverse );
 }
 
 void Character::moveHorizontal( ) {
@@ -36,9 +38,24 @@ void Character::moveHorizontal( ) {
 	adjustX( );
 }
 
-void Character::moveVertical( ) {
+void Character::moveVertical( FieldPtr field ) {
+	// 移動した
     _y += _accel_y;
 	adjustY( );
+
+	bool overlapped = field->isChip( _x, _y );
+
+	if ( _accel_y > 0 ) {
+		// もしチップに重なっていたらチップの上に移動
+		if ( overlapped /*&& !_store_overlapped*/ ) {
+			// 衝突している
+			_y = _y / MAPCHIP_SIZE * MAPCHIP_SIZE;
+			_y -= 1;
+			_accel_y = 0;
+		}
+	}
+
+	_store_overlapped = overlapped;
 }
 
 void Character::debugChip( ) {

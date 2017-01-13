@@ -6,10 +6,12 @@
 
 static const int JUMP_COUNT = 3;
 static const int JUMP_POWER = 20;
+static const int START_X = 50;
+static const int START_Y = 10;
 
 
-Tarosuke::Tarosuke( int x, int y ) : 
-Character( x, y ) {
+Tarosuke::Tarosuke( ) : 
+Character( START_X, START_Y ) {
 	setChip( ChipDrawer::CHIP::CHIP_TAROSUKE_001 );
 }
 
@@ -46,9 +48,7 @@ void Tarosuke::updateChip( ) {
 				( getX( ) / WAIT_TIME ) % WALK_PATTERN ) );
 		break;
 	case ACTION_JUMP:
-		
 		setChip( ChipDrawer::CHIP( ChipDrawer::CHIP_TAROSUKE_006 ) );
-		
 	default:
 		break;
 	}

@@ -8,6 +8,7 @@ const int MAPCHIP_NUM = 16;
 const int MAPCHIP_SIZE = BG_SIZE / MAPCHIP_NUM;
 const int CHARA_MOVE_RATIO = 10;
 const int GRAVITY_POWER = 1;
+const int CHIP_FOOT_BLANK = 25;
 
 enum GRAPH {
 	GRAPH_PANEL,
