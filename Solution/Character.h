@@ -18,7 +18,6 @@ protected:
 		DIR_LEFT,
 	};
 protected:
-	void setDir( DIR dir );
 	void setChip( ChipDrawer::CHIP chip );
 	virtual void updateAccel( );
 	virtual void moveHorizontal( );
@@ -38,7 +37,9 @@ protected:
 	virtual void adjustX( );
 	virtual void adjustY( );
 	ChipDrawer::CHIP getChip( );
-	DIR getDir( ) const;
+	DIR getDir( );
+private:
+	void updateDir( );
 private:
 	int _x;
 	int _y;

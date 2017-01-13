@@ -15,6 +15,7 @@ Character::~Character( ) {
 
 void Character::update( ) {
 	updateAccel( );
+	updateDir( );
 	moveHorizontal( );
 	moveVertical( );
 	updateChip( );
@@ -49,6 +50,15 @@ void Character::manipulate( ) {
 void Character::updateChip( ) {
 }
 
+void Character::updateDir( ) {
+	if ( _accel_x > 0 ) {
+		_dir = DIR_RIGHT;
+	}
+	if ( _accel_x < 0 ) {
+		_dir = DIR_LEFT;
+	}
+}
+
 int Character::getX( ) const {
 	return _x;
 }
@@ -71,17 +81,16 @@ void Character::adjustX( ) {
 void Character::adjustY( ) {
 }
 
-
-Character::DIR Character::getDir( ) const {
-	return _dir;
-}
-
 void Character::setChip( ChipDrawer::CHIP chip ) {
 	_chip = chip;
 }
 
 ChipDrawer::CHIP Character::getChip( ) {
 	return _chip;
+}
+
+Character::DIR Character::getDir( ) {
+	return _dir;
 }
 
 void Character::fall( ) {
@@ -92,10 +101,6 @@ void Character::fall( ) {
 		_accel_y = 0;
 	}
 
-}
-
-void Character::setDir( DIR dir ) {
-	_dir = dir;
 }
 
 bool Character::isStanding( ) const {

@@ -58,17 +58,11 @@ void Tarosuke::manipulate( ) {
 
 	_action = ACTION_WAIT;
 	DevicePtr device = Device::getTask( );
-	int accel_x = device->getDirX( ) / CHARA_MOVE_RATIO; 
+	int accel_x = device->getDirX( DEVICE_1 ) / CHARA_MOVE_RATIO; 
 	setAccelX( accel_x );
 
 	if ( accel_x != 0 ) {
 		_action = ACTION_WALK;
-		if ( accel_x < 0 ) {
-			setDir( DIR_LEFT );
-		}
-		if ( accel_x > 0 ) {
-			setDir( DIR_RIGHT );
-		}
 	}
 	setAccelX( accel_x );
 	if ( device->getButton( ) == BUTTON_C  ) {

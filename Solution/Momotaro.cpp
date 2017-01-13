@@ -42,11 +42,8 @@ void Momotaro::manipulate( ) {
 	int accel_y = device->getDirY( ) / CHARA_MOVE_RATIO;
 	setAccelX( accel_x );
 	setAccelY( accel_y );
-	if ( accel_x < 0 ) {
-		setDir( DIR_LEFT );
-	}
-	if ( accel_x > 0 ) {
-		setDir( DIR_RIGHT );
+	if ( device->getButton( ) ) {
+
 	}
 }
 
