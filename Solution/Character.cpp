@@ -47,11 +47,12 @@ void Character::moveVertical( FieldPtr field ) {
 
 	if ( _accel_y > 0 ) {
 		// もしチップに重なっていたらチップの上に移動
-		if ( overlapped /*&& !_store_overlapped*/ ) {
+		if ( overlapped && !_store_overlapped ) {
 			// 衝突している
 			_y = _y / MAPCHIP_SIZE * MAPCHIP_SIZE;
 			_y -= 1;
 			_accel_y = 0;
+			overlapped = false;
 		}
 	}
 
