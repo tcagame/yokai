@@ -4,12 +4,13 @@
 
 PTR( ChipDrawer );
 PTR( Camera );
+PTR( Field );
 
 class Character {
 public:
 	Character( int x, int y );
 	virtual ~Character( );
-	void update( );
+	void update( FieldPtr field );
 	virtual void draw( ChipDrawerPtr chip_drawer, CameraConstPtr camera );
 	int getX( ) const;
 protected:
@@ -20,8 +21,8 @@ protected:
 protected:
 	void setChip( ChipDrawer::CHIP chip );
 	virtual void updateAccel( );
-	virtual void moveHorizontal( );
-	virtual void moveVertical( );
+	virtual void moveHorizontal( FieldPtr field );
+	virtual void moveVertical( FieldPtr field );
 	virtual void manipulate( );
 	virtual void updateChip( );
 	virtual void debugChip( );
@@ -48,4 +49,5 @@ private:
 	int _accel_x;
 	int _accel_y;
 	DIR _dir;
+	bool _store_overlapped;
 };

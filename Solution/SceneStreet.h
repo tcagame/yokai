@@ -10,6 +10,7 @@ PTR( Momotaro );
 PTR( Field );
 PTR( Camera );
 PTR( PsychicMgr );
+PTR( CloudManager );
 
 class SceneStreet : public Scene {
 public:
@@ -23,5 +24,6 @@ private:
 	FieldPtr _field;
 	CameraPtr _camera;
 	PsychicMgrPtr _psychic_mgr;
+	CloudManagerPtr _cloud_manager;
 };
 

@@ -8,7 +8,7 @@ PTR( PsychicMgr );
 
 class Tarosuke : public Character {
 public:
-	Tarosuke( int x, int y, PsychicMgrPtr psychic );
+	Tarosuke( PsychicMgrPtr psychic );
 	virtual ~Tarosuke( );
 public:
 	void debugChip( );
@@ -19,6 +19,7 @@ private:
 		ACTION_WALK,
 		ACTION_JUMP,
 		ACTION_PSYCHIC,
+		ACTION_FLOAT,
 		ACTION_MAX
 	};
 private:

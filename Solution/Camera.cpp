@@ -19,8 +19,14 @@ void Camera::update( ) {
 	if ( _x > _map->getLength( ) - SCREEN_WIDTH - 1 ) {
 		_x = _map->getLength( ) - SCREEN_WIDTH - 1;
 	}
+
+	_y = 48;
 }
 
 int Camera::getX( ) const {
 	return _x;
+}
+
+int Camera::getY( ) const {
+	return _y;
 }

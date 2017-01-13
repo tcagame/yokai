@@ -12,8 +12,8 @@ Game::~Game( ) {
 }
 
 void Game::initialize( ) {
-	//_scene = ScenePtr( new SceneStreet );
-	_scene = ScenePtr( new SceneTitle );
+	_scene = ScenePtr( new SceneStreet );
+	//_scene = ScenePtr( new SceneTitle );
 }
 
 void Game::update( ) {

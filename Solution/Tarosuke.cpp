@@ -5,10 +5,12 @@
 #include "define.h"
 
 static const int JUMP_COUNT = 3;
-static const int JUMP_POWER = 20;
+static const int JUMP_POWER = 18;
+static const int START_X = 50;
+static const int START_Y = 10;
 
-Tarosuke::Tarosuke( int x, int y, PsychicMgrPtr psychic ) : 
-Character( x, y ) {
+Tarosuke::Tarosuke( PsychicMgrPtr psychic ) : 
+Character( START_X, START_Y ) {
 	setChip( ChipDrawer::CHIP::CHIP_TAROSUKE_001 );
 	_psychic_mgr = psychic;
 }
@@ -28,7 +30,7 @@ void Tarosuke::debugChip( ) {
 
 void Tarosuke::updateAccel( ) {
 	manipulate( );
-	//fall( );
+	fall( );
 }
 
 
@@ -45,10 +47,8 @@ void Tarosuke::updateChip( ) {
 		setChip( ChipDrawer::CHIP( ChipDrawer::CHIP_TAROSUKE_002 +
 				( getX( ) / WAIT_TIME ) % WALK_PATTERN ) );
 		break;
-	case ACTION_JUMP:
-		
+	case ACTION_FLOAT:
 		setChip( ChipDrawer::CHIP( ChipDrawer::CHIP_TAROSUKE_006 ) );
-		
 	default:
 		break;
 	}
@@ -65,9 +65,15 @@ void Tarosuke::manipulate( ) {
 		_action = ACTION_WALK;
 	}
 	setAccelX( accel_x );
-	if ( device->getButton( ) == BUTTON_C  ) {
-		_action = ACTION_JUMP;
-		setAccelY( -JUMP_POWER );
+
+	if ( isStanding( ) ) {
+		if ( device->getButton( ) == BUTTON_C  ) {
+			_action = ACTION_JUMP;
+			setAccelY( -JUMP_POWER );
+		}
+	}
+	if ( !isStanding( ) ) {
+		_action = ACTION_FLOAT;
 	}
 	if ( device->getButton( ) == BUTTON_A  ) {
 		_action = ACTION_JUMP;
