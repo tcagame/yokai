@@ -64,6 +64,7 @@ void Character::moveVertical( FieldPtr field ) {
 
 	bool overlapped = field->isChip( _x, _y );
 
+	_standing = false;
 	if ( _accel_y > 0 ) {
 		// もしチップに重なっていたらチップの上に移動
 		if ( overlapped && !_store_overlapped ) {
@@ -72,6 +73,7 @@ void Character::moveVertical( FieldPtr field ) {
 			_y -= 1;
 			_accel_y = 0;
 			overlapped = false;
+			_standing = true;
 		}
 	}
 
