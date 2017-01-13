@@ -27,12 +27,14 @@ void Tarosuke::debugChip( ) {
 void Tarosuke::updateAccel( ) {
 	setAccelX( 0 );
 	manipulate( );
-	//fall( );
+	fall( );
 }
 
 void Tarosuke::updateChip( ) {
+	const int JUNP_PATTERN  = 2;
 	const int WALK_PATTERN = 4;
 	const int WAIT_TIME = 4;
+	
 	switch ( _action ) {
 	case ACTION_WAIT:
 		setChip( ChipDrawer::CHIP::CHIP_TAROSUKE_001 );
@@ -41,12 +43,17 @@ void Tarosuke::updateChip( ) {
 		setChip( ChipDrawer::CHIP( ChipDrawer::CHIP_TAROSUKE_002 +
 				( getX( ) / WAIT_TIME ) % WALK_PATTERN ) );
 		break;
+	case ACTION_JUMP:
+		
+		setChip( ChipDrawer::CHIP( ChipDrawer::CHIP_TAROSUKE_006 ) );
+		
 	default:
 		break;
 	}
 }
 
 void Tarosuke::manipulate( ) {
+
 	_action = ACTION_WAIT;
 	const int MOVE_SPEED = 10;
 	KeyboardPtr keyboard = Keyboard::getTask( );
@@ -60,9 +67,10 @@ void Tarosuke::manipulate( ) {
 		setAccelX( MOVE_SPEED );
 		setDir( DIR_RIGHT );
 	}
-	if (keyboard->isPushKey( "SPACE" ) ) {
+	if ( keyboard->isPushKey( "SPACE" ) ) {
 		_action = ACTION_JUMP;
 		setAccelY( -JUMP_POWER );
 
 	}
 }
+

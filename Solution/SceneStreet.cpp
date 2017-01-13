@@ -9,7 +9,7 @@
 SceneStreet::SceneStreet( ) {
 	MapConstPtr map( new Map );
 	_field = FieldPtr( new Field( map ) );
-	_tarosuke = TarosukePtr( new Tarosuke( 0, 500 ) );
+	_tarosuke = TarosukePtr( new Tarosuke( 50, 600 ) );
 	_momotaro = MomotaroPtr( new Momotaro( 300, 0 ) );
 	_chip_drawer = ChipDrawerPtr( new ChipDrawer );
 	_camera = CameraPtr( new Camera( _tarosuke, map ) );

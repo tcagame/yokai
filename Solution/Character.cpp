@@ -31,7 +31,7 @@ void Character::draw( ChipDrawerPtr chip_drawer, CameraConstPtr camera ) {
 
 void Character::moveVertical( ) {
 	_x += _accel_x;
-	_y += _accel_y;
+    _y += _accel_y;
 }
 
 void Character::debugChip( ) {
@@ -55,11 +55,28 @@ ChipDrawer::CHIP Character::getChip( ) {
 }
 
 void Character::fall( ) {
-	_accel_y++;
+ 	if ( _y < 600 ) {
+		_accel_y++;
+	} else if ( _y > 600 ) {
+		_y = 600;
+		_accel_y = 0;
+	}
+
 }
 
 void Character::setDir( DIR dir ) {
 	_dir = dir;
+}
+
+bool Character::isStanding( ) const {
+	return _standing;
+}
+int Character::getAccelX( ) const {
+	return _accel_x;
+}
+
+int Character::getAccelY( ) const {
+	return _accel_y;
 }
 
 void Character::setAccelX( int accel_x ) {
