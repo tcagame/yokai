@@ -3,7 +3,7 @@
 
 class CloudBig : public Cloud {
 public:
-	CloudBig( CloudManager::CLOUD_CHIP cloud_chip, int x, int y );
+	CloudBig( int x, int y );
 	virtual ~CloudBig( );
 	void draw( CameraPtr Camera );
 };

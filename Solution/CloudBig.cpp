@@ -6,8 +6,8 @@
 static const int CLOUD_BIG_WIDTH = 400;
 static const int CLOUD_BIG_HEIGHT = 216;
 
-CloudBig::CloudBig( CloudManager::CLOUD_CHIP cloud_chip, int x, int y ) :
-Cloud( cloud_chip, x, y ) {
+CloudBig::CloudBig( int x, int y ) :
+Cloud( x, y ) {
 }
 
 CloudBig::~CloudBig( ) {
