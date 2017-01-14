@@ -13,8 +13,5 @@ public:
 	void draw( CameraConstPtr camera );
 	void shooting( int x, int y, bool right );
 private:
-	int _x;
-	int _y;
-	bool _right;
 	PsychicPtr _psychic;
 };
