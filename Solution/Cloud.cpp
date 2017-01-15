@@ -65,8 +65,8 @@ bool Cloud::isExistence( int x, int y ) {
 	bool result = false;
 	if ( x > _x &&
 		 x < _x + _width ) {
-		if ( y - CHIP_SIZE / 2 > _y - INTERVAL &&
-			 y - CHIP_SIZE / 2 < _y + CLOUD_HEIGHT / 2 ) {
+		if ( y > _y &&
+			 y < _y + CLOUD_HEIGHT / 2 ) {
 			result = true;
 		}
 	}
