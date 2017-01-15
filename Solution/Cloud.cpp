@@ -1,17 +1,21 @@
 #include "Cloud.h"
+#include "define.h"
 
 static const int CLOUD_CHIP_WAIT_TIME = 5;
 static const int CLOUD_CHIP_PATTERN = 4;
 static const int CLOUD_MOVE_SPEED = 4;
 static const int MAX_TURN_COUNT = 40;
+static const int CLOUD_HEIGHT = 216;
+static const int INTERVAL = 10;
 
-Cloud::Cloud( int x, int y ) {
+Cloud::Cloud( int x, int y, const int WIDTH ) {
 	_cloud_chip = CLOUD_CHIP::CLOUD_CHIP_0;
 	_x = x;
 	_y = y;
 	_accel = CLOUD_MOVE_SPEED;
 	_chip_count = 0;
 	_turn_count = 0;
+	_width = WIDTH;
 }
 
 Cloud::~Cloud( ) {
@@ -55,4 +59,16 @@ int Cloud::getY( ) {
 
 Cloud::CLOUD_CHIP Cloud::getChip( ) {
 	return _cloud_chip;
+}
+
+bool Cloud::isExistence( int x, int y ) {
+	bool result = false;
+	if ( x > _x &&
+		 x < _x + _width ) {
+		if ( y - CHIP_SIZE / 2 > _y - INTERVAL &&
+			 y - CHIP_SIZE / 2 < _y + CLOUD_HEIGHT / 2 ) {
+			result = true;
+		}
+	}
+	return result;
 }

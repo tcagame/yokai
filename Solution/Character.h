@@ -5,6 +5,7 @@
 PTR( ChipDrawer );
 PTR( Camera );
 PTR( Field );
+PTR( Cloud );
 
 class Character {
 public:
@@ -13,11 +14,6 @@ public:
 	void update( FieldPtr field );
 	virtual void draw( ChipDrawerPtr chip_drawer, CameraConstPtr camera );
 	int getX( ) const;
-protected:
-	enum DIR {
-		DIR_RIGHT,
-		DIR_LEFT,
-	};
 protected:
 	void setChip( ChipDrawer::CHIP chip );
 	virtual void updateAccel( );
@@ -50,4 +46,5 @@ private:
 	int _accel_y;
 	DIR _dir;
 	bool _store_overlapped;
+	CloudPtr _cloud;
 };

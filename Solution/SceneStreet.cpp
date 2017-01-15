@@ -9,14 +9,14 @@
 
 SceneStreet::SceneStreet( ) {
 	MapConstPtr map( new Map );
-	_field = FieldPtr( new Field( map ) );
+	_cloud_manager = CloudManagerPtr( new CloudManager );
+	_field = FieldPtr( new Field( map, _cloud_manager ) );
 
 	_psychic_mgr = PsychicMgrPtr( new PsychicMgr( ) );
 	_tarosuke = TarosukePtr( new Tarosuke( _psychic_mgr ) );
 	_momotaro = MomotaroPtr( new Momotaro( 300, 100 ) );
 	_chip_drawer = ChipDrawerPtr( new ChipDrawer );
 	_camera = CameraPtr( new Camera( _tarosuke, map ) );
-	_cloud_manager = CloudManagerPtr( new CloudManager );
 }
 
 SceneStreet::~SceneStreet( ) {

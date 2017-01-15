@@ -47,7 +47,6 @@ void Psychic::draw( CameraConstPtr camera ) {
 	int y1 = _y - camera->getY( ) - CHIP_SIZE + CHIP_FOOT_BLANK;
 	int x2 = x1 + CHIP_SIZE;
 	int y2 = y1 + CHIP_SIZE;
-
 	if ( _right ) {
 		int tmp = x1;
 		x1 = x2;

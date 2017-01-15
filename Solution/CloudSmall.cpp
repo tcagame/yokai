@@ -7,7 +7,7 @@ static const int CLOUD_SMALL_WIDTH = 207;
 static const int CLOUD_SMALL_HEIGHT = 216;
 
 CloudSmall::CloudSmall( int x, int y ) :
-Cloud( x, y ) {
+Cloud( x, y, CLOUD_SMALL_WIDTH ) {
 }
 
 CloudSmall::~CloudSmall( ) {

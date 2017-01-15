@@ -2,6 +2,7 @@
 #include "define.h"
 #include "Field.h"
 #include "Camera.h"
+#include "Cloud.h"
 
 Character::Character( int x, int y ) {
 	_x = x;
@@ -63,13 +64,27 @@ void Character::moveVertical( FieldPtr field ) {
 	adjustY( );
 
 	bool overlapped = field->isChip( _x, _y );
-
+	
 	_standing = false;
 	if ( _accel_y > 0 ) {
+		//雲との判定
+		if ( !overlapped ) {
+			overlapped = field->isCloudExistence( _x, _y );
+			if ( !overlapped && _cloud ) {
+				_cloud = CloudPtr( );
+			}
+			if ( overlapped &&  !_cloud ) {
+				_cloud = field->getCloudPtr( );
+			}
+		}
+
 		// もしチップに重なっていたらチップの上に移動
 		if ( overlapped && !_store_overlapped ) {
 			// 衝突している
 			_y = _y / MAPCHIP_SIZE * MAPCHIP_SIZE;
+			if ( _cloud ) {
+				_y = _cloud->getY( ) + CHIP_SIZE / 2;
+			}
 			_y -= 1;
 			_accel_y = 0;
 			overlapped = false;
@@ -128,7 +143,7 @@ ChipDrawer::CHIP Character::getChip( ) {
 	return _chip;
 }
 
-Character::DIR Character::getDir( ) {
+DIR Character::getDir( ) {
 	return _dir;
 }
 

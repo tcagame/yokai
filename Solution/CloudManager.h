@@ -11,6 +11,9 @@ public:
 	virtual ~CloudManager( );
 	void draw( CameraPtr camera );
 	void update( );
+	bool isCloudExistence( int x, int y );
+	CloudPtr getCloudPtr( ) const;
 private:
 	std::list< CloudPtr > _clouds;
+	CloudPtr _cloud_overlapped;
 };

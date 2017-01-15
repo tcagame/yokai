@@ -19,6 +19,7 @@ enum GRAPH {
 	GRAPH_BG_1,
 	GRAPH_BG_2,
 	GRAPH_EFFECT_0,
+	GRAPH_EFFECT_2,
 	GRAPH_MAPCHIPGUIDE,
 	GRAPH_CLOUD_BIG,
 	GRAPH_CLOUD_SMALL,
@@ -37,4 +38,9 @@ struct CHIP_POS {
 		CHIP_POS( int x, int y ) :
 			cx( x ), cy( y ) {
 		}
+};
+
+enum DIR {
+	DIR_RIGHT,
+	DIR_LEFT,
 };

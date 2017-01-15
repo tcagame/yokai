@@ -3,6 +3,7 @@
 #include "smart_ptr.h"
 
 PTR( Psychic );
+PTR( PsychicMomotaro );
 PTR( Camera );
 
 class PsychicMgr {
@@ -14,4 +15,5 @@ public:
 	void shooting( int x, int y, bool right );
 private:
 	PsychicPtr _psychic;
+	PsychicMomotaroPtr _psychic_momotaro;
 };

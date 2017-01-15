@@ -42,7 +42,7 @@ void Momotaro::manipulate( ) {
 	int accel_y = device->getDirY( ) / CHARA_MOVE_RATIO;
 	setAccelX( accel_x );
 	setAccelY( accel_y );
-	if ( device->getButton( ) ) {
+	if ( device->getButton( ) == BUTTON_A ) {
 
 	}
 }

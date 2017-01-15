@@ -98,6 +98,7 @@
     <ClCompile Include="Momotaro.cpp" />
     <ClCompile Include="Psychic.cpp" />
     <ClCompile Include="PsychicMgr.cpp" />
+    <ClCompile Include="PsychicMomotaro.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneStreet.cpp" />
     <ClCompile Include="SceneTitle.cpp" />
@@ -123,6 +124,7 @@
     <ClInclude Include="Momotaro.h" />
     <ClInclude Include="Psychic.h" />
     <ClInclude Include="PsychicMgr.h" />
+    <ClInclude Include="PsychicMomotaro.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneStreet.h" />
     <ClInclude Include="SceneTitle.h" />
