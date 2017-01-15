@@ -3,13 +3,15 @@
 #include "Drawer.h"
 #include "Camera.h"
 
+static const int MOVE_SPEED = 30;
+
 Psychic::Psychic( ) {
 	DrawerPtr drawer = Drawer::getTask( );
 	drawer->loadGraph( GRAPH_EFFECT_0, "Yokai_OBJ_effect0.png" );
 
-	_chip_pos[ STATE_CHARGE ][ PSYCHIC_BLUE ] = CHIP_POS( 7, 2 );
-	_chip_pos[ STATE_CHARGE ][ PSYCHIC_YELLOW ] = CHIP_POS( 6, 2 );
-	_chip_pos[ STATE_RELEASE ][ PSYCHIC_BLUE ] = CHIP_POS( 7, 3 );
+	_chip_pos[ STATE_CHARGE  ][ PSYCHIC_BLUE   ] = CHIP_POS( 7, 2 );
+	_chip_pos[ STATE_CHARGE  ][ PSYCHIC_YELLOW ] = CHIP_POS( 6, 2 );
+	_chip_pos[ STATE_RELEASE ][ PSYCHIC_BLUE   ] = CHIP_POS( 7, 3 );
 	_chip_pos[ STATE_RELEASE ][ PSYCHIC_YELLOW ] = CHIP_POS( 6, 3 );
 
 	_state = STATE_WAIT;
@@ -32,12 +34,10 @@ void Psychic::update( ) {
 }
 
 void Psychic::move( ) {
-	const int move_speed = 30;
-
 	if ( _right ) {
-		_x += move_speed;
+		_x += MOVE_SPEED;
 	} else {
-		_x += -move_speed;
+		_x += -MOVE_SPEED;
 	}
 }
 

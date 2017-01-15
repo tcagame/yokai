@@ -1,6 +1,7 @@
 #pragma once
 
 #include "smart_ptr.h"
+#include "define.h"
 
 PTR( Camera );
 
@@ -22,15 +23,6 @@ private:
 		STATE_CHARGE,
 		STATE_RELEASE,
 		MAX_STATE
-	};
-	struct CHIP_POS {
-		int cx;
-		int cy;
-		CHIP_POS( ) {
-		};
-		CHIP_POS( int x, int y ) :
-			cx( x ), cy( y ) {
-		}
 	};
 private:
 	void move( );

@@ -28,3 +28,13 @@ enum DEVICE {
 	DEVICE_1,
 	DEVICE_2
 };
+
+struct CHIP_POS {
+		int cx;
+		int cy;
+		CHIP_POS( ) {
+		};
+		CHIP_POS( int x, int y ) :
+			cx( x ), cy( y ) {
+		}
+};

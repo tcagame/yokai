@@ -1,6 +1,7 @@
 #pragma once
 
 #include <array>
+#include "define.h"
 
 class ChipDrawer {
 public:
@@ -117,20 +118,11 @@ public:
 		
 		MAX_CHIP
 	};
-	struct ChipPos {
-		int cx;
-		int cy;
-		ChipPos( ) {
-		};
-		ChipPos( int x, int y ) :
-			cx( x ), cy( y ) {
-		}
-	};
 public:
 	ChipDrawer( );
 	~ChipDrawer( );
 	void draw( CHIP chip, int sx, int sy, bool reverse );
 private:
-	std::array< ChipPos, MAX_CHIP > _chip_pos;
+	std::array< CHIP_POS, MAX_CHIP > _chip_pos;
 };
 
