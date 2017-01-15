@@ -10,11 +10,10 @@ CloudManager::CloudManager( ) {
 	DrawerPtr drawer = Drawer::getTask( );
 	drawer->loadGraph( GRAPH_CLOUD_SMALL, "cloud/Yokai_OBJ_cloud2.png" );
 	drawer->loadGraph( GRAPH_CLOUD_BIG, "cloud/Yokai_OBJ_cloud1.png" ); 
-	int x = 1900;
-	int y = 300;
-	_clouds.push_back( CloudPtr( new CloudSmall( x, y ) ) );
-	x += 400;
-	_clouds.push_back( CloudPtr( new CloudBig( x, y ) ) );
+	_clouds.push_back( CloudPtr( new CloudBig( 2200, 250 ) ) );
+	_clouds.push_back( CloudPtr( new CloudSmall( 2850, 250 ) ) );
+	_clouds.push_back( CloudPtr( new CloudSmall( 3250, 250 ) ) );
+	_clouds.push_back( CloudPtr( new CloudBig( 3500, 250 ) ) );
 }
 
 CloudManager::~CloudManager( ) {
