@@ -16,10 +16,10 @@ Character::Character( int x, int y ) {
 Character::~Character( ) {
 }
 
-void Character::update( FieldPtr field ) {
+void Character::update( FieldPtr field, CloudManagerPtr cloud_manager ) {
 	updateAccel( );
 	updateDir( );
-	moveVertical( field );
+	moveVertical( field, cloud_manager );
 	moveHorizontal( field );
 	updateChip( );
 	//debugChip( );
@@ -58,7 +58,7 @@ void Character::moveHorizontal( FieldPtr field ) {
 
 }
 
-void Character::moveVertical( FieldPtr field ) {
+void Character::moveVertical( FieldPtr field, CloudManagerPtr cloud_manager ) {
 	// 移動した
     _y += _accel_y;
 	adjustY( );
@@ -69,14 +69,20 @@ void Character::moveVertical( FieldPtr field ) {
 	if ( _accel_y > 0 ) {
 		//雲との判定
 		if ( !overlapped ) {
-			overlapped = field->isCloudExistence( _x, _y );
+			CloudPtr cloud = cloud_manager->getOverlappedCloud( _x, _y );
+			overlapped = false;
+			if ( cloud ) {
+				overlapped = true;
+			}
+
 			if ( !overlapped && _cloud ) {
 				_cloud = CloudPtr( );
 			}
 			if ( overlapped &&  !_cloud ) {
-				_cloud = field->getCloudPtr( );
+				_cloud = cloud;
 			}
 		}
+
 
 		// もしチップに重なっていたらチップの上に移動
 		if ( overlapped && !_store_overlapped ) {
@@ -91,7 +97,6 @@ void Character::moveVertical( FieldPtr field ) {
 			_standing = true;
 		}
 	}
-
 	_store_overlapped = overlapped;
 }
 

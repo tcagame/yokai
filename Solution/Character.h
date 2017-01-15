@@ -6,19 +6,20 @@ PTR( ChipDrawer );
 PTR( Camera );
 PTR( Field );
 PTR( Cloud );
+PTR( CloudManager );
 
 class Character {
 public:
 	Character( int x, int y );
 	virtual ~Character( );
-	void update( FieldPtr field );
+	void update( FieldPtr field, CloudManagerPtr cloud_manager );
 	virtual void draw( ChipDrawerPtr chip_drawer, CameraConstPtr camera );
 	int getX( ) const;
 protected:
 	void setChip( ChipDrawer::CHIP chip );
 	virtual void updateAccel( );
 	virtual void moveHorizontal( FieldPtr field );
-	virtual void moveVertical( FieldPtr field );
+	virtual void moveVertical( FieldPtr field, CloudManagerPtr cloud_manager );
 	virtual void manipulate( );
 	virtual void updateChip( );
 	virtual void debugChip( );

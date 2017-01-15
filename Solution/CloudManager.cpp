@@ -35,23 +35,15 @@ void CloudManager::update( ) {
 	}
 }
 
-bool CloudManager::isCloudExistence( int x, int y ) {
-	bool result = false;
+CloudPtr CloudManager::getOverlappedCloud( int x, int y ) {
+	CloudPtr overlapped = CloudPtr( );
 	std::list< CloudPtr >::iterator it = _clouds.begin( );
 	while ( it != _clouds.end( ) ) {
-		result = (*it)->isExistence( x, y );
-		_cloud_overlapped = *it;
-		if ( result ) {
+		if ( (*it)->isExistence( x, y ) ) {
+			overlapped = *it;
 			break;
 		}
 		it++;
 	}
-	return result;
-}
-
-CloudPtr CloudManager::getCloudPtr( ) const {
-	if ( !_cloud_overlapped ) {
-		return CloudPtr( );
-	}
-	return _cloud_overlapped;
+	return overlapped;
 }

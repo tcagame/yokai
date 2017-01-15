@@ -5,8 +5,8 @@
 #include "Map.h"
 #include "CloudManager.h"
 
-Field::Field( MapConstPtr map, CloudManagerPtr cloud_mgr ) :
-_map( map ), _cloud_mgr( cloud_mgr ) {
+Field::Field( MapConstPtr map ) :
+_map( map ) {
 	DrawerPtr drawer = Drawer::getTask( );
 	drawer->loadGraph( GRAPH_MAPCHIPGUIDE, "street/mapchipguide.png" );
 
@@ -90,12 +90,4 @@ bool Field::isChip( int x, int y ) const {
 
 
 	return _map->isChip( bg_idx, chip_idx );
-}
-
-bool Field::isCloudExistence( int x, int y ) const {
-	return _cloud_mgr->isCloudExistence( x, y );
-}
-
-CloudPtr Field::getCloudPtr( ) const {
-	return _cloud_mgr->getCloudPtr( );
 }

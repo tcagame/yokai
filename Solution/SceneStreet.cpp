@@ -9,9 +9,9 @@
 
 SceneStreet::SceneStreet( ) {
 	MapConstPtr map( new Map );
-	_cloud_manager = CloudManagerPtr( new CloudManager );
-	_field = FieldPtr( new Field( map, _cloud_manager ) );
+	_field = FieldPtr( new Field( map ) );
 
+	_cloud_manager = CloudManagerPtr( new CloudManager );
 	_psychic_mgr = PsychicMgrPtr( new PsychicMgr( ) );
 	_tarosuke = TarosukePtr( new Tarosuke( _psychic_mgr ) );
 	_momotaro = MomotaroPtr( new Momotaro( 300, 100 ) );
@@ -23,11 +23,9 @@ SceneStreet::~SceneStreet( ) {
 }
 
 Scene::NEXT SceneStreet::update( ) {
-	_tarosuke->update( _field );
-	_momotaro->update( _field );
+	_tarosuke->update( _field, _cloud_manager );
+	_momotaro->update( _field, _cloud_manager );
 	_psychic_mgr->update( );
-	_tarosuke->update( _field );
-	_momotaro->update( _field );
 	_camera->update( );
 	_field->update( _camera );
 	_cloud_manager->update( );
