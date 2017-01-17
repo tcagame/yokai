@@ -4,6 +4,7 @@
 #include "Camera.h"
 
 static const int MOVE_SPEED = 30;
+static const int CHIP_SIZE = 34 * 6;
 
 Psychic::Psychic( ) {
 	DrawerPtr drawer = Drawer::getTask( );

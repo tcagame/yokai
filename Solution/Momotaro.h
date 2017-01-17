@@ -1,16 +1,14 @@
 #pragma once
 
-#include "MassCharacter.h"
+#include "Character.h"
 
-class Momotaro : public MassCharacter {
+class Momotaro : public Character {
 public:
-	Momotaro( int x, int y );
+	Momotaro( CameraConstPtr camera );
 	virtual ~Momotaro( );
-	void draw( ChipDrawerPtr chip_drawer, CameraConstPtr camera );
 private:
-	void updateAccel( );
+	void act( );
 	void manipulate( );
-	void debugChip( );
-	void adjustX( );
-	void adjustY( );
+private:
+	CameraConstPtr _camera;
 };

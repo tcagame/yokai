@@ -1,18 +1,15 @@
 #pragma once
 
 #include "smart_ptr.h"
-#include "MassCharacter.h"
+#include "Character.h"
 
 PTR( ChipDrawer );
 PTR( PsychicMgr );
 
-class Tarosuke : public MassCharacter {
+class Tarosuke : public Character {
 public:
 	Tarosuke( PsychicMgrPtr psychic );
 	virtual ~Tarosuke( );
-public:
-	void debugChip( );
-	void updateAccel( );
 private:
 	enum ACTION {
 		ACTION_WAIT,
@@ -23,10 +20,9 @@ private:
 		ACTION_MAX
 	};
 private:
-	void updateChip( );
+	void act( );
 	void manipulate( );
-	void adjustX( );
-	void adjustY( );
+	void updateChip( );
 private:
 	ACTION _action;
 	PsychicMgrPtr _psychic_mgr;

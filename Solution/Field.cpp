@@ -12,7 +12,7 @@ _map( map ) {
 	_scroll_y = -48; // ÅI“I‚É‚ÍƒJƒƒ‰‚©‚çŽæ“¾
 	
 	// ¦Map‚©‚çŽæ“¾‚·‚é‚æ‚¤‚ÉC³
-	_clouds.push_back( CloudPtr( new Cloud( 2200, 450, true  ) ) );
+	_clouds.push_back( CloudPtr( new Cloud( 2300, 450, true  ) ) );
 	_clouds.push_back( CloudPtr( new Cloud( 2850, 450, false ) ) );
 	_clouds.push_back( CloudPtr( new Cloud( 3250, 450, false ) ) );
 	_clouds.push_back( CloudPtr( new Cloud( 3500, 450, true  ) ) );
@@ -120,9 +120,10 @@ Field::Collision Field::getCollision( int src_x, int src_y, int dst_x, int dst_y
 	collision.adjust_y = 0;
 	
 	if ( dst_y > src_y ) {
-		if ( !isChip( src_x, src_y ) && isChip( dst_x, dst_y ) ) {
+		if ( !isChip( src_x, src_y ) && isChip( src_x, dst_y ) ) {
 			collision.adjust_y = dst_y / MAPCHIP_SIZE * MAPCHIP_SIZE - 1;
 			collision.overlapped_y = true;
+			dst_y = collision.adjust_y;
 		}
 		
 		std::list< CloudPtr >::const_iterator it = _clouds.begin( );
@@ -132,6 +133,7 @@ Field::Collision Field::getCollision( int src_x, int src_y, int dst_x, int dst_y
 				collision.adjust_y = cloud->getY( ) - 1;
 				collision.overlapped_y = true;
 				collision.cloud = cloud;
+				dst_y = collision.adjust_y;
 				break;
 			}
 			it++;
@@ -139,7 +141,7 @@ Field::Collision Field::getCollision( int src_x, int src_y, int dst_x, int dst_y
 	}
 
 	{
-		if ( !isChip( src_x, src_y ) && isChip( dst_x, src_y ) ) {
+		if ( !isChip( src_x, dst_y ) && isChip( dst_x, dst_y ) ) {
 			int dif = dst_x % MAPCHIP_SIZE;
 			int x = dst_x / MAPCHIP_SIZE * MAPCHIP_SIZE;
 			if ( dif < MAPCHIP_SIZE / 2 ) {
