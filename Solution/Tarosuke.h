@@ -12,16 +12,18 @@ public:
 	virtual ~Tarosuke( );
 private:
 	enum ACTION {
-		ACTION_WAIT,
-		ACTION_WALK,
+		ACTION_STAND,
 		ACTION_JUMP,
-		ACTION_PSYCHIC,
 		ACTION_FLOAT,
+		ACTION_SAVE,
 		ACTION_MAX
 	};
 private:
 	void act( );
-	void manipulate( );
+	void actOnStanding( );
+	void actOnJumping( );
+	void actOnFloating( );
+	void actOnSaving( );
 	void updateChip( );
 private:
 	ACTION _action;

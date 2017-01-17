@@ -24,44 +24,82 @@ Tarosuke::~Tarosuke( ) {
 }
 
 void Tarosuke::act( ) {
-	manipulate( );
+	switch ( _action ) {
+	case ACTION_STAND:
+		actOnStanding( );
+		break;
+	case ACTION_JUMP:
+		actOnJumping( );
+		break;
+	case ACTION_FLOAT:
+		actOnFloating( );
+		break;
+	case ACTION_SAVE:
+		actOnSaving( );
+		break;
+	}
+	
 	updateChip( );
 }
 
-void Tarosuke::manipulate( ) {
-	_action = ACTION_WAIT;
+void Tarosuke::actOnStanding( ) {
+	
 	DevicePtr device = Device::getTask( );
-	int accel_x = device->getDirX( DEVICE_1 ) / CHARA_MOVE_RATIO; 
-	setAccelX( accel_x );
 
-	if ( accel_x != 0 ) {
-		_action = ACTION_WALK;
-	}
-
-	if ( isStanding( ) ) {
-		if ( device->getPush( ) == BUTTON_C  ) {
-			_action = ACTION_JUMP;
-			setAccelY( -JUMP_POWER );
-		}
-	}
 	if ( !isStanding( ) ) {
 		_action = ACTION_FLOAT;
+		return;
 	}
+	
+	if ( device->getDirY( ) > 50 && abs( device->getDirX( ) ) < 10 ) {
+		_action = ACTION_SAVE;
+		return;
+	}
+	
+	_action = ACTION_STAND;
+	
+	setAccelX( device->getDirX( DEVICE_1 ) / 10 );
+
+	if ( device->getPush( DEVICE_1 ) == BUTTON_C ) {
+		_action = ACTION_JUMP;
+		setAccelY( -JUMP_POWER );
+	}
+
 	if ( device->getPush( ) == BUTTON_A  ) {
 		_action = ACTION_JUMP;
 		_psychic_mgr->shooting( getX( ), getY( ), true );
 	}
 }
 
+void Tarosuke::actOnJumping( ) {
+	_action = ACTION_FLOAT;
+}
+
+void Tarosuke::actOnFloating( ) {
+	if ( isStanding( ) ) {
+		_action = ACTION_STAND;
+		return;
+	}
+}
+
+void Tarosuke::actOnSaving( ) {
+	DevicePtr device = Device::getTask( );
+	if ( device->getDirY( ) < 50 ) {
+		_action = ACTION_STAND;
+	}
+}
+
 void Tarosuke::updateChip( ) {
-	const int WALK[ WALK_PATTERN ] = { 1, 2, 1, 0, 3, 4, 3, 0 };
 	switch ( _action ) {
-	case ACTION_WAIT:
-		setChipUV( 0, 0 );
+	case ACTION_STAND:
+		if ( getAccelX( ) == 0 ) {
+			setChipUV( 0, 0 );
+		} else {
+			const int WALK[ WALK_PATTERN ] = { 1, 2, 1, 0, 3, 4, 3, 0 };
+			setChipUV( WALK[ ( getX( ) / WAIT_TIME ) % WALK_PATTERN ], 0 );
+		}
 		break;
-	case ACTION_WALK:
-		setChipUV( WALK[ ( getX( ) / WAIT_TIME ) % WALK_PATTERN ], 0 );
-		break;
+	case ACTION_JUMP:
 	case ACTION_FLOAT:
 		setChipUV( 5, 0 );
 		break;
