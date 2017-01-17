@@ -1,6 +1,4 @@
 #include "Tarosuke.h"
-#include "ChipDrawer.h"
-#include "Keyboard.h"
 #include "Device.h"
 #include "define.h"
 #include "PsychicMgr.h"

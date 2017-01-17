@@ -2,7 +2,6 @@
 
 #include "smart_ptr.h"
 #include "define.h"
-#include "ChipDrawer.h"
 
 PTR( Camera );
 PTR( Field );
