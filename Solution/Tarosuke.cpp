@@ -8,8 +8,8 @@
 static const int MAX_TAROSUKE_CHIP_NUM = 101;
 static const int JUMP_COUNT = 3;
 static const int JUMP_POWER = 18;
-static const int START_X = 50;
-static const int START_Y = 10;
+static const int START_X = 300;
+static const int START_Y = 200;
 static const int JUNP_PATTERN  = 2;
 static const int WALK_PATTERN = 4;
 static const int WAIT_TIME = 4;
@@ -34,7 +34,6 @@ void Tarosuke::debugChip( ) {
 
 void Tarosuke::updateAccel( ) {
 	manipulate( );
-	fall( );
 }
 
 
