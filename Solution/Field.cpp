@@ -7,12 +7,14 @@
 
 Field::Field( MapConstPtr map ) :
 _map( map ) {
-	DrawerPtr drawer = Drawer::getTask( );
-	drawer->loadGraph( GRAPH_MAPCHIPGUIDE, "street/mapchipguide.png" );
-
 	_idx = -1;
 	_x = 0;
 	_y = -48; // ÅI“I‚É‚ÍƒJƒƒ‰‚©‚çŽæ“¾
+	
+	//_clouds.push_back( CloudPtr( new CloudBig( 2200, 275 ) ) );
+	//_clouds.push_back( CloudPtr( new CloudSmall( 2850, 275 ) ) );
+	//_clouds.push_back( CloudPtr( new CloudSmall( 3250, 275 ) ) );
+	//_clouds.push_back( CloudPtr( new CloudBig( 3500, 275 ) ) );
 }
 
 
@@ -86,8 +88,38 @@ bool Field::isChip( int x, int y ) const {
 
 	int bg_idx = x / BG_SIZE;
 	int chip_idx = x % BG_SIZE / MAPCHIP_SIZE + y / MAPCHIP_SIZE * MAPCHIP_NUM; 
-	
-
 
 	return _map->isChip( bg_idx, chip_idx );
 }
+
+Field::Collision Field::getCollision( int src_x, int src_y, int dst_x, int dst_y ) const {
+	Collision collision;
+	collision.overlapped_x = false;
+	collision.overlapped_y = false;
+	collision.adjust_x = 0;
+	collision.adjust_y = 0;
+	
+	if ( dst_y > src_y ) {
+		if ( !isChip( src_x, src_y ) && isChip( dst_x, dst_y ) ) {
+			collision.adjust_y = dst_y / MAPCHIP_SIZE * MAPCHIP_SIZE - 1;
+			collision.overlapped_y = true;
+		}
+	}
+
+	{
+		if ( !isChip( src_x, src_y ) && isChip( dst_x, src_y ) ) {
+			int dif = _x % MAPCHIP_SIZE;
+			int x = dst_x / MAPCHIP_SIZE * MAPCHIP_SIZE;
+			if ( dif < MAPCHIP_SIZE / 2 ) {
+				x -= 1;
+			} else {
+				x += MAPCHIP_SIZE;
+			}
+			collision.adjust_x = x;
+			collision.overlapped_x = true;
+		}
+	}
+
+	return collision;
+}
+

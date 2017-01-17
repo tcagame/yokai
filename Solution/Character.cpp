@@ -16,11 +16,10 @@ Character::Character( int x, int y ) {
 Character::~Character( ) {
 }
 
-void Character::update( FieldPtr field, CloudManagerPtr cloud_manager ) {
+void Character::update( FieldPtr field ) {
 	updateAccel( );
 	updateDir( );
-	moveVertical( field, cloud_manager );
-	moveHorizontal( field );
+	move( field );
 	updateChip( );
 	//debugChip( );
 }
@@ -34,70 +33,25 @@ void Character::draw( ChipDrawerPtr chip_drawer, CameraConstPtr camera ) {
 	chip_drawer->draw( _chip, _x - camera->getX( ) - CHIP_SIZE / 2, _y - camera->getY( ) - CHIP_SIZE + CHIP_FOOT_BLANK, reverse );
 }
 
-void Character::moveHorizontal( FieldPtr field ) {
-	_x += _accel_x;
-	adjustX( );
-	
-	bool overlapped = field->isChip( _x, _y );
+void Character::move( FieldPtr field ) {
+    int dst_x = _x + _accel_x;
+    int dst_y = _y + _accel_y;
+	Field::Collision col = field->getCollision( _x, _y, dst_x, dst_y );
 
-	// もしチップに重なっていたらチップの上に移動
-	if ( overlapped && !_store_overlapped ) {
-		// 衝突している
-		int dif = _x % MAPCHIP_SIZE;
-		_x = _x / MAPCHIP_SIZE * MAPCHIP_SIZE;
-		if ( dif < MAPCHIP_SIZE / 2 ) {
-			_x -= 1;
-		} else {
-			_x += MAPCHIP_SIZE;
-		}
+	if ( col.overlapped_x ) {
 		_accel_x = 0;
-		overlapped = false;
+		dst_x = col.adjust_x;
 	}
 
-	_store_overlapped = overlapped;
-
-}
-
-void Character::moveVertical( FieldPtr field, CloudManagerPtr cloud_manager ) {
-	// 移動した
-    _y += _accel_y;
-	adjustY( );
-
-	bool overlapped = field->isChip( _x, _y );
-	
 	_standing = false;
-	if ( _accel_y > 0 ) {
-		//雲との判定
-		if ( !overlapped ) {
-			CloudPtr cloud = cloud_manager->getOverlappedCloud( _x, _y );
-			overlapped = false;
-			if ( cloud ) {
-				overlapped = true;
-			}
-
-			if ( !overlapped && _cloud ) {
-				_cloud = CloudPtr( );
-			}
-			if ( overlapped &&  !_cloud ) {
-				_cloud = cloud;
-			}
-		}
-
-
-		// もしチップに重なっていたらチップの上に移動
-		if ( overlapped && !_store_overlapped ) {
-			// 衝突している
-			_y = _y / MAPCHIP_SIZE * MAPCHIP_SIZE;
-			if ( _cloud ) {
-				_y = _cloud->getY( ) + CHIP_SIZE / 2;
-			}
-			_y -= 1;
-			_accel_y = 0;
-			overlapped = false;
-			_standing = true;
-		}
+	if ( col.overlapped_y ) {
+		_accel_y = 0;
+		dst_y = col.adjust_y;
+		_standing = true;
 	}
-	_store_overlapped = overlapped;
+
+	_x = dst_x;
+	_y = dst_y;
 }
 
 void Character::debugChip( ) {

@@ -7,9 +7,6 @@
 #include "define.h"
 
 CloudManager::CloudManager( ) {
-	DrawerPtr drawer = Drawer::getTask( );
-	drawer->loadGraph( GRAPH_CLOUD_SMALL, "cloud/Yokai_OBJ_cloud2.png" );
-	drawer->loadGraph( GRAPH_CLOUD_BIG, "cloud/Yokai_OBJ_cloud1.png" ); 
 	_clouds.push_back( CloudPtr( new CloudBig( 2200, 275 ) ) );
 	_clouds.push_back( CloudPtr( new CloudSmall( 2850, 275 ) ) );
 	_clouds.push_back( CloudPtr( new CloudSmall( 3250, 275 ) ) );

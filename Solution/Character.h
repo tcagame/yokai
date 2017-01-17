@@ -12,14 +12,13 @@ class Character {
 public:
 	Character( int x, int y );
 	virtual ~Character( );
-	void update( FieldPtr field, CloudManagerPtr cloud_manager );
+	void update( FieldPtr field );
 	virtual void draw( ChipDrawerPtr chip_drawer, CameraConstPtr camera );
 	int getX( ) const;
 protected:
 	void setChip( ChipDrawer::CHIP chip );
 	virtual void updateAccel( );
-	virtual void moveHorizontal( FieldPtr field );
-	virtual void moveVertical( FieldPtr field, CloudManagerPtr cloud_manager );
+	virtual void move( FieldPtr field );
 	virtual void manipulate( );
 	virtual void updateChip( );
 	virtual void debugChip( );
