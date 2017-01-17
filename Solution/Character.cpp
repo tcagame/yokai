@@ -9,7 +9,6 @@ Character::Character( int x, int y ) {
 	_y = y;
 	_accel_x = 0;
 	_accel_y = 0;
-	_store_overlapped = false;
 }
 
 
@@ -21,7 +20,6 @@ void Character::update( FieldPtr field ) {
 	updateDir( );
 	move( field );
 	updateChip( );
-	//debugChip( );
 }
 
 void Character::updateAccel( ) {
@@ -34,27 +32,39 @@ void Character::draw( ChipDrawerPtr chip_drawer, CameraConstPtr camera ) {
 }
 
 void Character::move( FieldPtr field ) {
-    int dst_x = _x + _accel_x;
-    int dst_y = _y + _accel_y;
-	Field::Collision col = field->getCollision( _x, _y, dst_x, dst_y );
+	if ( _cloud ) {
+		if ( !_cloud->isStanding( _x, 0, SCREEN_HEIGHT ) ||
+			 _accel_y < 0 ) {
+			_cloud = CloudConstPtr( );
+		}
+	}
+
+    int src_x = _x;
+    int src_y = _y;
+	_x += _accel_x;
+	_y += _accel_y;
+
+	Field::Collision col = field->getCollision( src_x, src_y, _x, _y );
 
 	if ( col.overlapped_x ) {
 		_accel_x = 0;
-		dst_x = col.adjust_x;
+		_x = col.adjust_x;
 	}
 
 	_standing = false;
 	if ( col.overlapped_y ) {
 		_accel_y = 0;
-		dst_y = col.adjust_y;
+		_y = col.adjust_y;
+		if ( col.cloud ) {
+			_cloud = col.cloud;
+		}
 		_standing = true;
 	}
 
-	_x = dst_x;
-	_y = dst_y;
-}
-
-void Character::debugChip( ) {
+	if ( _cloud ) {
+		_y = _cloud->getY( ) - 1;
+		_standing = true;
+	}
 }
 
 void Character::manipulate( ) {

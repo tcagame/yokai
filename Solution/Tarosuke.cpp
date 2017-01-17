@@ -64,7 +64,7 @@ void Tarosuke::manipulate( ) {
 	}
 
 	if ( isStanding( ) ) {
-		if ( device->getButton( ) == BUTTON_C  ) {
+		if ( device->getPush( ) == BUTTON_C  ) {
 			_action = ACTION_JUMP;
 			setAccelY( -JUMP_POWER );
 		}
@@ -72,7 +72,7 @@ void Tarosuke::manipulate( ) {
 	if ( !isStanding( ) ) {
 		_action = ACTION_FLOAT;
 	}
-	if ( device->getButton( ) == BUTTON_A  ) {
+	if ( device->getPush( ) == BUTTON_A  ) {
 		_action = ACTION_JUMP;
 		bool right = false;
 		if ( getDir( ) == DIR_RIGHT ) {

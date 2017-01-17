@@ -3,18 +3,19 @@
 #include "define.h"
 #include "Camera.h"
 #include "Map.h"
-#include "CloudManager.h"
+#include "Cloud.h"
 
 Field::Field( MapConstPtr map ) :
 _map( map ) {
 	_idx = -1;
-	_x = 0;
-	_y = -48; // 最終的にはカメラから取得
+	_scroll_x = 0;
+	_scroll_y = -48; // 最終的にはカメラから取得
 	
-	//_clouds.push_back( CloudPtr( new CloudBig( 2200, 275 ) ) );
-	//_clouds.push_back( CloudPtr( new CloudSmall( 2850, 275 ) ) );
-	//_clouds.push_back( CloudPtr( new CloudSmall( 3250, 275 ) ) );
-	//_clouds.push_back( CloudPtr( new CloudBig( 3500, 275 ) ) );
+	// ※Mapから取得するように修正
+	_clouds.push_back( CloudPtr( new Cloud( 2200, 450, true  ) ) );
+	_clouds.push_back( CloudPtr( new Cloud( 2850, 450, false ) ) );
+	_clouds.push_back( CloudPtr( new Cloud( 3250, 450, false ) ) );
+	_clouds.push_back( CloudPtr( new Cloud( 3500, 450, true  ) ) );
 }
 
 
@@ -22,6 +23,11 @@ Field::~Field( ) {
 }
 
 void Field::update( CameraConstPtr camera ) {
+	scroll( camera );
+	moveClouds( );
+}
+
+void Field::scroll( CameraConstPtr camera ) {
 	int idx = camera->getX( ) / BG_SIZE;
 	if ( idx != _idx ) {
 		_idx = idx;
@@ -37,13 +43,22 @@ void Field::update( CameraConstPtr camera ) {
 		}
 	}
 
-	_x = idx * BG_SIZE - camera->getX( );
-	_y = -camera->getY( );
+	_scroll_x = idx * BG_SIZE - camera->getX( );
+	_scroll_y = -camera->getY( );
 }
 
-void Field::draw( ) const {
+void Field::moveClouds( ) {
+	std::list< CloudPtr >::iterator it = _clouds.begin( );
+	while ( it != _clouds.end( ) ) {
+		( *it )->update( );
+		it++;
+	}
+}
+
+void Field::draw( CameraConstPtr camera ) const {
 	drawBG( );
 	drawChip( );
+	drawClouds( camera );
 }
 
 void Field::drawBG( ) const {
@@ -51,7 +66,7 @@ void Field::drawBG( ) const {
 	
 	for ( int i = 0; i < 3; i++ ) {
 		Drawer::Sprite sprite( 
-			Drawer::Transform( _x + i * BG_SIZE, _y ),
+			Drawer::Transform( _scroll_x + i * BG_SIZE, _scroll_y ),
 			GRAPH_BG + i );
 		drawer->setSprite( sprite );
 	}
@@ -68,8 +83,8 @@ void Field::drawChip( ) const {
 				continue;
 			}
 
-			int x = _x + i * BG_SIZE + j % MAPCHIP_NUM * MAPCHIP_SIZE;
-			int y = _y               + j / MAPCHIP_NUM * MAPCHIP_SIZE;
+			int x = _scroll_x + i * BG_SIZE + j % MAPCHIP_NUM * MAPCHIP_SIZE;
+			int y = _scroll_y               + j / MAPCHIP_NUM * MAPCHIP_SIZE;
 			Drawer::Sprite sprite( 
 				Drawer::Transform( x, y ),
 				GRAPH_MAPCHIPGUIDE );
@@ -78,9 +93,15 @@ void Field::drawChip( ) const {
 	}
 }
 
-bool Field::isChip( int x, int y ) const {
-	// mapクラスにチップと重なっているか確認する Map::isChipを使う
+void Field::drawClouds( CameraConstPtr camera ) const {
+	std::list< CloudPtr >::const_iterator it = _clouds.begin( );
+	while ( it != _clouds.end( ) ) {
+		( *it )->draw( camera );
+		it++;
+	}
+}
 
+bool Field::isChip( int x, int y ) const {
 	if ( x < 0 || x >= _map->getLength( ) * BG_SIZE ||
 		 y < 0 || y >= BG_SIZE ) {
 		return false;
@@ -104,11 +125,23 @@ Field::Collision Field::getCollision( int src_x, int src_y, int dst_x, int dst_y
 			collision.adjust_y = dst_y / MAPCHIP_SIZE * MAPCHIP_SIZE - 1;
 			collision.overlapped_y = true;
 		}
+		
+		std::list< CloudPtr >::const_iterator it = _clouds.begin( );
+		while ( it != _clouds.end( ) ) {
+			CloudPtr cloud = *it;
+			if ( cloud->isStanding( src_x, src_y, dst_y ) ) {
+				collision.adjust_y = cloud->getY( ) - 1;
+				collision.overlapped_y = true;
+				collision.cloud = cloud;
+				break;
+			}
+			it++;
+		}
 	}
 
 	{
 		if ( !isChip( src_x, src_y ) && isChip( dst_x, src_y ) ) {
-			int dif = _x % MAPCHIP_SIZE;
+			int dif = dst_x % MAPCHIP_SIZE;
 			int x = dst_x / MAPCHIP_SIZE * MAPCHIP_SIZE;
 			if ( dif < MAPCHIP_SIZE / 2 ) {
 				x -= 1;

@@ -34,7 +34,7 @@ Scene::NEXT SceneStreet::update( ) {
 	_camera->update( );
 	_field->update( _camera );
 
-	_field->draw( );
+	_field->draw( _camera );
 	_tarosuke->draw( _chip_drawer, _camera );
 	_momotaro->draw( _chip_drawer, _camera );
 	_psychic_mgr->draw( _camera );

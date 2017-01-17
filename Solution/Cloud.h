@@ -3,32 +3,25 @@
 
 class Cloud {
 public:
-	enum CLOUD_CHIP {
-		CLOUD_CHIP_0,
-		CLOUD_CHIP_1,
-		CLOUD_CHIP_2,
-		CLOUD_CHIP_3
-	};
-public:
-	Cloud( int x, int y, const int WIDTH );
+	Cloud( int x, int y, bool big );
 	virtual ~Cloud( );
-	virtual void draw( CameraPtr camera );
+public:
+	void draw( CameraConstPtr camera ) const;
 	void update( );
+	bool isStanding( int x, int src_y, int dst_y ) const;
+	int getX( ) const;
+	int getY( ) const;
+private:
 	void updateAccel( );
 	void moveVertical( );
 	void updateChip( );
-	virtual bool isExistence( int x, int y );
-	int getX( );
-	int getY( );
-protected:
-	CLOUD_CHIP getChip( );
 private:
-	CLOUD_CHIP _cloud_chip;
 	int _x;
 	int _y;
 	int _accel;
-	int _chip_count;
 	int _turn_count;
 	int _width;
+	int _height;
+	int _graph;
 };
 

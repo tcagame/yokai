@@ -1,6 +1,7 @@
 #pragma once
 
 #include "smart_ptr.h"
+#include <list>
 
 PTR( Camera );
 PTR( Map );
@@ -16,18 +17,23 @@ public:
 		bool overlapped_y;
 		int adjust_x;
 		int adjust_y;
+		CloudConstPtr cloud;
 	};
 	void update( CameraConstPtr camera );
-	void draw( ) const;
+	void draw( CameraConstPtr camera ) const;
 	Collision getCollision( int src_x, int src_y, int dst_x, int dst_y ) const;
 	bool isChip( int x, int y ) const;
 private:
 	void drawBG( ) const;
 	void drawChip( ) const;
+	void drawClouds( CameraConstPtr camera ) const;
+	void scroll( CameraConstPtr camera );
+	void moveClouds( );
 private:
 	const MapConstPtr _map;
-	int _x;
-	int _y;
+	int _scroll_x;
+	int _scroll_y;
 	int _idx;
+	std::list< CloudPtr > _clouds;
 };
 

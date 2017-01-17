@@ -6,7 +6,6 @@ PTR( ChipDrawer );
 PTR( Camera );
 PTR( Field );
 PTR( Cloud );
-PTR( CloudManager );
 
 class Character {
 public:
@@ -21,7 +20,6 @@ protected:
 	virtual void move( FieldPtr field );
 	virtual void manipulate( );
 	virtual void updateChip( );
-	virtual void debugChip( );
 	void  fall( );
 	bool isStanding( ) const;
 	int getY( ) const;
@@ -45,6 +43,5 @@ private:
 	int _accel_x;
 	int _accel_y;
 	DIR _dir;
-	bool _store_overlapped;
-	CloudPtr _cloud;
+	CloudConstPtr _cloud;
 };
