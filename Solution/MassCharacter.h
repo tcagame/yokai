@@ -1,4 +1,5 @@
 #pragma once
+
 #include "smart_ptr.h"
 #include "ChipDrawer.h"
 
@@ -7,10 +8,10 @@ PTR( Camera );
 PTR( Field );
 PTR( Cloud );
 
-class Character {
+class MassCharacter {
 public:
-	Character( int x, int y );
-	virtual ~Character( );
+	MassCharacter( int x, int y );
+	virtual ~MassCharacter( );
 	void update( FieldPtr field );
 	virtual void draw( ChipDrawerPtr chip_drawer, CameraConstPtr camera );
 	int getX( ) const;

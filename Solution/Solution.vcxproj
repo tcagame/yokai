@@ -85,7 +85,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
-    <ClCompile Include="Character.cpp" />
+    <ClCompile Include="MassCharacter.cpp" />
     <ClCompile Include="ChipDrawer.cpp" />
     <ClCompile Include="Cloud.cpp" />
     <ClCompile Include="Field.cpp" />
@@ -108,7 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
-    <ClInclude Include="Character.h" />
+    <ClInclude Include="MassCharacter.h" />
     <ClInclude Include="ChipDrawer.h" />
     <ClInclude Include="Cloud.h" />
     <ClInclude Include="define.h" />

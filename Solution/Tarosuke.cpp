@@ -3,6 +3,7 @@
 #include "Keyboard.h"
 #include "Device.h"
 #include "define.h"
+#include "PsychicMgr.h"
 
 static const int MAX_TAROSUKE_CHIP_NUM = 101;
 static const int JUMP_COUNT = 3;
@@ -14,7 +15,7 @@ static const int WALK_PATTERN = 4;
 static const int WAIT_TIME = 4;
 
 Tarosuke::Tarosuke( PsychicMgrPtr psychic ) : 
-Character( START_X, START_Y ) {
+MassCharacter( START_X, START_Y ) {
 	setChip( ChipDrawer::CHIP::CHIP_TAROSUKE_001 );
 	_psychic_mgr = psychic;
 }

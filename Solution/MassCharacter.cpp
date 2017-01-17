@@ -1,10 +1,10 @@
-#include "Character.h"
+#include "MassCharacter.h"
 #include "define.h"
 #include "Field.h"
 #include "Camera.h"
 #include "Cloud.h"
 
-Character::Character( int x, int y ) {
+MassCharacter::MassCharacter( int x, int y ) {
 	_x = x;
 	_y = y;
 	_accel_x = 0;
@@ -12,26 +12,26 @@ Character::Character( int x, int y ) {
 }
 
 
-Character::~Character( ) {
+MassCharacter::~MassCharacter( ) {
 }
 
-void Character::update( FieldPtr field ) {
+void MassCharacter::update( FieldPtr field ) {
 	updateAccel( );
 	updateDir( );
 	move( field );
 	updateChip( );
 }
 
-void Character::updateAccel( ) {
+void MassCharacter::updateAccel( ) {
 }
 
-void Character::draw( ChipDrawerPtr chip_drawer, CameraConstPtr camera ) {
+void MassCharacter::draw( ChipDrawerPtr chip_drawer, CameraConstPtr camera ) {
 	bool reverse = ( _dir == DIR_RIGHT );
 
 	chip_drawer->draw( _chip, _x - camera->getX( ) - CHIP_SIZE / 2, _y - camera->getY( ) - CHIP_SIZE + CHIP_FOOT_BLANK, reverse );
 }
 
-void Character::move( FieldPtr field ) {
+void MassCharacter::move( FieldPtr field ) {
 	if ( _cloud ) {
 		if ( !_cloud->isStanding( _x, 0, SCREEN_HEIGHT ) ||
 			 _accel_y < 0 ) {
@@ -67,13 +67,13 @@ void Character::move( FieldPtr field ) {
 	}
 }
 
-void Character::manipulate( ) {
+void MassCharacter::manipulate( ) {
 }
 
-void Character::updateChip( ) {
+void MassCharacter::updateChip( ) {
 }
 
-void Character::updateDir( ) {
+void MassCharacter::updateDir( ) {
 	if ( _accel_x > 0 ) {
 		_dir = DIR_RIGHT;
 	}
@@ -82,59 +82,59 @@ void Character::updateDir( ) {
 	}
 }
 
-int Character::getX( ) const {
+int MassCharacter::getX( ) const {
 	return _x;
 }
 
-int Character::getY( ) const {
+int MassCharacter::getY( ) const {
 	return _y;
 }
 
-void Character::setX( int x ) {
+void MassCharacter::setX( int x ) {
 	_x = x;
 }
 
-void Character::setY( int y ) {
+void MassCharacter::setY( int y ) {
 	_y = y;
 }
 
-void Character::adjustX( ) {
+void MassCharacter::adjustX( ) {
 }
 
-void Character::adjustY( ) {
+void MassCharacter::adjustY( ) {
 }
 
-void Character::setChip( ChipDrawer::CHIP chip ) {
+void MassCharacter::setChip( ChipDrawer::CHIP chip ) {
 	_chip = chip;
 }
 
-ChipDrawer::CHIP Character::getChip( ) {
+ChipDrawer::CHIP MassCharacter::getChip( ) {
 	return _chip;
 }
 
-DIR Character::getDir( ) {
+DIR MassCharacter::getDir( ) {
 	return _dir;
 }
 
-void Character::fall( ) {
+void MassCharacter::fall( ) {
  	_accel_y += GRAVITY_POWER;
 }
 
-bool Character::isStanding( ) const {
+bool MassCharacter::isStanding( ) const {
 	return _standing;
 }
-int Character::getAccelX( ) const {
+int MassCharacter::getAccelX( ) const {
 	return _accel_x;
 }
 
-int Character::getAccelY( ) const {
+int MassCharacter::getAccelY( ) const {
 	return _accel_y;
 }
 
-void Character::setAccelX( int accel_x ) {
+void MassCharacter::setAccelX( int accel_x ) {
 	_accel_x = accel_x;
 }
 
-void Character::setAccelY( int accel_y ) {
+void MassCharacter::setAccelY( int accel_y ) {
 	_accel_y = accel_y;
 }

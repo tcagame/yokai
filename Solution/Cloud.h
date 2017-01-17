@@ -1,5 +1,8 @@
 #pragma once
-#include "CloudManager.h"
+
+#include "smart_ptr.h"
+
+PTR( Camera );
 
 class Cloud {
 public:

@@ -18,7 +18,6 @@ _map( map ) {
 	_clouds.push_back( CloudPtr( new Cloud( 3500, 450, true  ) ) );
 }
 
-
 Field::~Field( ) {
 }
 

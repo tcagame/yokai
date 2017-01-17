@@ -6,6 +6,7 @@
 #include "Camera.h"
 #include "Map.h"
 #include "Drawer.h"
+#include "PsychicMgr.h"
 
 SceneStreet::SceneStreet( ) {
 	MapConstPtr map( new Map );

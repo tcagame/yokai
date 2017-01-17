@@ -39,9 +39,6 @@
     <ClCompile Include="Momotaro.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Character.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="Map.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -61,6 +58,9 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="PsychicMomotaro.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="MassCharacter.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
@@ -86,9 +86,6 @@
     <ClInclude Include="Momotaro.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Character.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Map.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -111,6 +108,9 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="PsychicMomotaro.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="MassCharacter.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>

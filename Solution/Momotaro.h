@@ -1,7 +1,8 @@
 #pragma once
-#include "Character.h"
 
-class Momotaro : public Character {
+#include "MassCharacter.h"
+
+class Momotaro : public MassCharacter {
 public:
 	Momotaro( int x, int y );
 	virtual ~Momotaro( );

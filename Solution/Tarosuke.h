@@ -1,12 +1,12 @@
 #pragma once
+
 #include "smart_ptr.h"
-#include "Character.h"
-#include "PsychicMgr.h"
+#include "MassCharacter.h"
 
 PTR( ChipDrawer );
 PTR( PsychicMgr );
 
-class Tarosuke : public Character {
+class Tarosuke : public MassCharacter {
 public:
 	Tarosuke( PsychicMgrPtr psychic );
 	virtual ~Tarosuke( );

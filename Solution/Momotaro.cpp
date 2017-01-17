@@ -8,7 +8,7 @@ static const int MAX_CHIP_PATTERN = 7;
 static const int CHIP_MOMOTARO_NUM = 101;
 
 Momotaro::Momotaro( int x, int y ) :
-Character( x, y ) {
+MassCharacter( x, y ) {
 	setChip( ChipDrawer::CHIP::CHIP_MOMOTARO_7 );
 }
 
