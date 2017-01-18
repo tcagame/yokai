@@ -17,6 +17,7 @@ public:
 	int getY( ) const;
 	int getAccelX( ) const;
 	int getAccelY( ) const;
+	bool isChipReverse( ) const;
 	bool isStanding( ) const;
 	bool isInWater( ) const;
 	void draw( CameraConstPtr camera );

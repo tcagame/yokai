@@ -1,19 +1,20 @@
 #pragma once
 
 #include "smart_ptr.h"
+#include <list>
 
 PTR( Psychic );
-PTR( PsychicMomotaro );
 PTR( Camera );
 
 class PsychicMgr {
 public:
-	PsychicMgr( );
+	PsychicMgr( CameraConstPtr camera );
 	virtual ~PsychicMgr( );
+public:
+	void shoot( int x, int y, bool reverse );
 	void update( );
 	void draw( CameraConstPtr camera );
-	void shooting( int x, int y, bool right );
 private:
-	PsychicPtr _psychic;
-	PsychicMomotaroPtr _psychic_momotaro;
+	CameraConstPtr _camera;
+	std::list< PsychicPtr > _psychics;
 };

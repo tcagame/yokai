@@ -1,26 +1,34 @@
 #include "PsychicMgr.h"
 #include "Psychic.h"
-#include "PsychicMomotaro.h"
-#include "define.h"
+#include "Camera.h"
+#include "PsychicNormal.h"
 
-PsychicMgr::PsychicMgr( ) {
-	_psychic = PsychicPtr( new Psychic );
-	_psychic_momotaro = PsychicMomotaroPtr( new PsychicMomotaro ); 
+PsychicMgr::PsychicMgr( CameraConstPtr camera ) :
+_camera( camera ) {
 }
 
 PsychicMgr::~PsychicMgr( ) {
 }
 
 void PsychicMgr::update( ) {
-	_psychic->update( );
-	_psychic_momotaro->update( );
+	std::list< PsychicPtr >::iterator it = _psychics.begin( );
+	while ( it != _psychics.end( ) ) {
+		PsychicPtr psychic = *it;
+		psychic->setRange( _camera->getX( ) );
+		psychic->update( FieldPtr( ) );
+		it++;
+	}
 }
 
 void PsychicMgr::draw( CameraConstPtr camera ) {
-	_psychic->draw( camera );
-	_psychic_momotaro->draw( camera );
+	std::list< PsychicPtr >::iterator it = _psychics.begin( );
+	while ( it != _psychics.end( ) ) {
+		PsychicPtr psychic = *it;
+		psychic->draw( camera );
+		it++;
+	}
 }
 
-void PsychicMgr::shooting( int x, int y, bool right ) {
-	_psychic->shooting( x, y, right );
+void PsychicMgr::shoot( int x, int y, bool reverse ) {
+	_psychics.push_back( PsychicPtr( new PsychicNormal( x, y, reverse ) ) );
 }

@@ -17,6 +17,7 @@ static const int MAX_SPEED = 15;
 static const int ACCEL_SPEED = 2;
 static const int BRAKE_SPEED = 6;
 static const int CAPACITY_SAVING_POWER = 60;
+static const int SHOOT_FOOT = 80;
 
 Tarosuke::Tarosuke( PsychicMgrPtr psychic ) : 
 Character( START_X, START_Y, GRAPH_CHARACTER, CHIP_SIZE, CHIP_FOOT ) {
@@ -99,7 +100,7 @@ void Tarosuke::actOnStanding( ) {
 		setAccelY( -JUMP_POWER );
 	}
 	
-	if ( device->getButton( ) == BUTTON_A ) {
+	if ( device->getPush( ) == BUTTON_A ) {
 		_action = ACTION_SHOOT;
 	}
 
@@ -140,12 +141,17 @@ void Tarosuke::actOnJumping( ) {
 	DevicePtr device = Device::getTask( );
 	
 	_action = ACTION_FLOAT;
-	if ( device->getButton( ) != BUTTON_C ) {
+	if ( ( device->getButton( ) & BUTTON_C ) == 0 ) {
 		return;
 	}
 	
 	_jump_count--;
 	if ( _jump_count < 0 ) {
+		return;
+	}
+		
+	if ( device->getPush( ) & BUTTON_A ) {
+		_action = ACTION_SHOOT;
 		return;
 	}
 
@@ -183,6 +189,10 @@ void Tarosuke::actOnFloating( ) {
 	if ( isStanding( ) ) {
 		_action = ACTION_STAND;
 		return;
+	}
+	
+	if ( device->getPush( ) & BUTTON_A ) {
+		_action = ACTION_SHOOT;
 	}
 
 	int ax = getAccelX( );
@@ -224,6 +234,7 @@ void Tarosuke::actOnBursting( ) {
 }
 
 void Tarosuke::actOnShooting( ) {
+	_psychic_mgr->shoot( getX( ), getY( ) - SHOOT_FOOT, isChipReverse( ) );
 	_saving_power = 0;
 	_action = ACTION_STAND;
 }

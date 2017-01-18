@@ -3,16 +3,15 @@
 #include "Tarosuke.h"
 #include "Map.h"
 
-Camera::Camera( TarosukeConstPtr tarosuke, MapConstPtr map ) :
-_tarosuke( tarosuke ),
+Camera::Camera( MapConstPtr map ) :
 _map( map ) {
 }
 
 Camera::~Camera( ) {
 }
 
-void Camera::update( ) {
-	_x = _tarosuke->getX( ) - SCREEN_WIDTH / 2;
+void Camera::update( TarosukeConstPtr tarosuke ) {
+	_x = tarosuke->getX( ) - SCREEN_WIDTH / 2;
 	if ( _x < 0 ) {
 		_x = 0;
 	}

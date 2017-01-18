@@ -37,6 +37,10 @@ int Character::getAccelY( ) const {
 	return _accel_y;
 }
 
+bool Character::isChipReverse( ) const {
+	return _chip_reverse;
+}
+
 void Character::setChipReverse( bool reverse ) {
 	_chip_reverse = reverse;
 }
@@ -58,6 +62,9 @@ void Character::update( FieldPtr field ) {
 }
 
 void Character::setInWater( FieldPtr field ) {
+	if ( !field ) {
+		return;
+	}
 	_in_water = field->isInWater( _x, _y );
 }
 
@@ -88,7 +95,7 @@ void Character::draw( CameraConstPtr camera ) {
 }
 
 void Character::move( FieldPtr field ) {
-	if ( !_mass ) {
+	if ( !_mass || !field ) {
 		_x += _accel_x;
 		_y += _accel_y;
 		return;

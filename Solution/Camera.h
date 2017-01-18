@@ -7,13 +7,13 @@ PTR( Map );
 
 class Camera {
 public:
-	Camera( TarosukeConstPtr tarosuke, MapConstPtr map );
+	Camera( MapConstPtr map );
 	virtual ~Camera( );
+public:
 	int getX( ) const;
 	int getY( ) const;
-	void update( );
+	void update( TarosukeConstPtr tarosuke );
 private:
-	TarosukeConstPtr _tarosuke;
 	MapConstPtr _map;
 	int _x;
 	int _y;
