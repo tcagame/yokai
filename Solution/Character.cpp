@@ -54,6 +54,10 @@ void Character::setChipSize( int size ) {
 	_chip_size = size;
 }
 
+void Character::setChipFoot( int foot ) {
+	_chip_foot = foot;
+}
+
 void Character::update( FieldPtr field ) {
 	setInWater( field );
 	act( );
@@ -72,7 +76,7 @@ bool Character::isInWater( ) const {
 	return _in_water;
 }
 
-void Character::draw( CameraConstPtr camera ) {
+void Character::draw( CameraConstPtr camera, bool bright ) {
 
 	int tx = _chip_u * _chip_size;
 	int ty = _chip_v * _chip_size;
@@ -88,10 +92,17 @@ void Character::draw( CameraConstPtr camera ) {
 		sx2 = tmp;
 	}
 
+	Drawer::BLEND blend = Drawer::BLEND_NONE;
+	if ( bright ) {
+		blend = Drawer::BLEND_ADD;
+	}
+
 	DrawerPtr drawer = Drawer::getTask( );
 	Drawer::Transform trans( sx1, sy1, tx, ty, _chip_size, _chip_size, sx2, sy2 );
-	Drawer::Sprite sprite( trans, _chip_graph, Drawer::BLEND_NONE, 1.0 );
+	Drawer::Sprite sprite( trans, _chip_graph, blend, 1.0 );
 	drawer->setSprite( sprite );
+
+	drawOverlapped( camera );
 }
 
 void Character::move( FieldPtr field ) {

@@ -5,16 +5,17 @@
 
 PTR( Psychic );
 PTR( Camera );
+PTR( Tarosuke );
+PTR( Psychic );
 
 class PsychicMgr {
 public:
-	PsychicMgr( CameraConstPtr camera );
+	PsychicMgr( );
 	virtual ~PsychicMgr( );
 public:
-	void shoot( int x, int y, bool reverse );
-	void update( );
+	void shoot( PsychicPtr psychic );
+	void update( CameraConstPtr camera, TarosukeConstPtr tarosuke  );
 	void draw( CameraConstPtr camera );
 private:
-	CameraConstPtr _camera;
 	std::list< PsychicPtr > _psychics;
 };

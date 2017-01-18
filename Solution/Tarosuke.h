@@ -30,6 +30,7 @@ private:
 	void actOnBursting( );
 	void actOnShooting( );
 	void updateChip( );
+	void drawOverlapped( CameraConstPtr camera ) const;
 private:
 	ACTION _action;
 	PsychicMgrPtr _psychic_mgr;

@@ -20,18 +20,20 @@ public:
 	bool isChipReverse( ) const;
 	bool isStanding( ) const;
 	bool isInWater( ) const;
-	void draw( CameraConstPtr camera );
+	void draw( CameraConstPtr camera, bool bright = false );
 protected:
 	void setAccelX( int accel_x );
 	void setAccelY( int accel_y );
 	void setChipReverse( bool reverse );
 	void setChipUV( int u, int v );
 	void setChipSize( int size );
+	void setChipFoot( int foot );
 private:
 	virtual void act( ) = 0;
 	void move( FieldPtr field );
 	void updateDir( );
 	void setInWater( FieldPtr field );
+	virtual void drawOverlapped( CameraConstPtr camera ) const { }
 private:
 	const bool _mass;
 	int _x;

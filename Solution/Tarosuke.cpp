@@ -2,6 +2,9 @@
 #include "Device.h"
 #include "define.h"
 #include "PsychicMgr.h"
+#include "Camera.h"
+#include "Drawer.h"
+#include "PsychicTarosuke.h"
 
 static const int MAX_TAROSUKE_CHIP_NUM = 101;
 static const int JUMP_COUNT = 10;
@@ -16,7 +19,7 @@ static const int CHIP_FOOT = 25;
 static const int MAX_SPEED = 15;
 static const int ACCEL_SPEED = 2;
 static const int BRAKE_SPEED = 6;
-static const int CAPACITY_SAVING_POWER = 60;
+static const int CAPACITY_SAVING_POWER = 40;
 static const int SHOOT_FOOT = 80;
 
 Tarosuke::Tarosuke( PsychicMgrPtr psychic ) : 
@@ -67,7 +70,10 @@ void Tarosuke::actOnStanding( ) {
 	_action = ACTION_STAND;
 	
 	bool accel = false;
+	bool moving = false;
+
 	if ( device->getDirX( ) > 90 ) {
+		moving = true;
 		if ( getAccelX( ) < 0 ) {
 			_action = ACTION_BRAKE;
 		} else if ( getAccelX( ) < MAX_SPEED ) {
@@ -81,6 +87,7 @@ void Tarosuke::actOnStanding( ) {
 	}
 	
 	if ( device->getDirX( ) < -90 ) {
+		moving = true;
 		if ( getAccelX( ) > 0 ) {
 			_action = ACTION_BRAKE;
 		} else if ( getAccelX( ) > -MAX_SPEED ) {
@@ -122,14 +129,16 @@ void Tarosuke::actOnStanding( ) {
 		}
 
 		setAccelX( ax );
-		
+	}
+
+	if ( !moving ) {
 		if ( device->getDirY( ) > 90 && !isInWater( ) ) {
 			_saving_power++;
 			if ( _saving_power >= CAPACITY_SAVING_POWER ) {
 				_action = ACTION_BURST;
 			}
 		} else {
-			_saving_power--;
+			_saving_power -= 4;
 			if ( _saving_power < 0 ) {
 				_saving_power = 0;
 			}
@@ -234,7 +243,8 @@ void Tarosuke::actOnBursting( ) {
 }
 
 void Tarosuke::actOnShooting( ) {
-	_psychic_mgr->shoot( getX( ), getY( ) - SHOOT_FOOT, isChipReverse( ) );
+	_psychic_mgr->shoot( PsychicPtr( new PsychicTarosuke(
+		getX( ), getY( ) - SHOOT_FOOT, isChipReverse( ), _saving_power / ( CAPACITY_SAVING_POWER / 4 ) ) ) );
 	_saving_power = 0;
 	_action = ACTION_STAND;
 }
@@ -272,11 +282,31 @@ void Tarosuke::updateChip( ) {
 		setChipUV( _saving_power / ( CAPACITY_SAVING_POWER / 7 ), 4 );
 		break;
 	case ACTION_BURST:
-		if ( _saving_power > CAPACITY_SAVING_POWER * 2 / 3 ) {
-			setChipUV( 7, 4 );
-		} else {
-			setChipUV( 8 + _saving_power / 10 % 2, 4 );
+		{
+			const int TIRED[ 11 ] = { 0, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 };
+			setChipUV( 7 + TIRED[ _saving_power / 10 ], 4 );
 		}
 		break;
 	}
 }
+
+void Tarosuke::drawOverlapped( CameraConstPtr camera ) const {
+	if ( _action == ACTION_BURST || _saving_power == 0 ) {
+		return;
+	}
+
+	int power = _saving_power / ( CAPACITY_SAVING_POWER / 6 );
+
+	int idx = power * 2 + _motion_count % 2;
+	int tx = ( 3 + idx % 4 ) * CHIP_SIZE;
+	int ty = (     idx / 4 ) * CHIP_SIZE;
+
+	int sx1 = getX( ) - camera->getX( ) - CHIP_SIZE / 2;
+	int sy1 = getY( ) - camera->getY( ) - CHIP_SIZE + CHIP_FOOT;
+
+	DrawerPtr drawer = Drawer::getTask( );
+	Drawer::Transform trans( sx1, sy1, tx, ty, CHIP_SIZE, CHIP_SIZE );
+	Drawer::Sprite sprite( trans, GRAPH_PSYCHIC, Drawer::BLEND_ADD, 1.0 );
+	drawer->setSprite( sprite );
+}
+

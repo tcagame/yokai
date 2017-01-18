@@ -1,14 +1,15 @@
 #pragma once
+
 #include "smart_ptr.h"
+#include "Psychic.h"
 
-PTR( Camera );
-
-class PsychicMomotaro {
+class PsychicMomotaro : public Psychic {
 public:
-	PsychicMomotaro( );
+	PsychicMomotaro( int x, int y, int accel_x, int accel_y );
 	virtual ~PsychicMomotaro( );
-public:
-	void update( );
-	void draw( CameraConstPtr camera );
+private:
+	void act( );
+private:
+	int _motion_count;
 };
 

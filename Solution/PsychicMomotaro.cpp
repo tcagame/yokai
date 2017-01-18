@@ -3,19 +3,25 @@
 #include "Camera.h"
 #include "define.h"
 
-static const CHIP_POS PSYCHIC_MOMOTARO_POS = CHIP_POS( 0, 5 );
-static const int MAX_PSYCHIC_MOMOTARO_PATTERN = 8;
-
-PsychicMomotaro::PsychicMomotaro( ) {
+PsychicMomotaro::PsychicMomotaro( int x, int y, int accel_x, int accel_y ) :
+Psychic( x, y ) {
+	_motion_count = rand( ) % 8;
+	setAccelX( accel_x );
+	setAccelY( accel_y );
 }
-
 
 PsychicMomotaro::~PsychicMomotaro( ) {
 }
 
-void PsychicMomotaro::update( ) {
+void PsychicMomotaro::act( ) {
+	_motion_count++;
 
+	if ( getX( ) < getRange( ) || getX( ) > getRange( ) + SCREEN_WIDTH ||
+		 getY( ) < 0 || getY( ) > SCREEN_HEIGHT ) {
+		finish( );
+	}
+
+	int idx = _motion_count;
+	setChipUV( idx % 8 / 4, idx % 8 % 4 );
 }
 
-void PsychicMomotaro::draw( CameraConstPtr camera ) {
-}
