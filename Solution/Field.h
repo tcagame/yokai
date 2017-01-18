@@ -23,6 +23,7 @@ public:
 	void draw( CameraConstPtr camera ) const;
 	Collision getCollision( int src_x, int src_y, int dst_x, int dst_y ) const;
 	bool isChip( int x, int y ) const;
+	bool isInWater( int x, int y ) const;
 private:
 	void drawBG( ) const;
 	void drawChip( ) const;

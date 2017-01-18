@@ -35,4 +35,5 @@ private:
 	PsychicMgrPtr _psychic_mgr;
 	int _jump_count;
 	int _saving_power;
+	int _motion_count;
 };

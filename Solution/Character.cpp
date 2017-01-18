@@ -51,9 +51,18 @@ void Character::setChipSize( int size ) {
 }
 
 void Character::update( FieldPtr field ) {
+	setInWater( field );
 	act( );
 	updateDir( );
 	move( field );
+}
+
+void Character::setInWater( FieldPtr field ) {
+	_in_water = field->isInWater( _x, _y );
+}
+
+bool Character::isInWater( ) const {
+	return _in_water;
 }
 
 void Character::draw( CameraConstPtr camera ) {
@@ -86,8 +95,11 @@ void Character::move( FieldPtr field ) {
 	}
 
 	_accel_y += GRAVITY_POWER;
+	if ( _accel_y > MAPCHIP_SIZE / 2 ) {
+		_accel_y = MAPCHIP_SIZE / 2;
+	}
 
-	if ( _cloud ) {
+	if ( _cloud ) { 
 		if ( !_cloud->isStanding( getX( ), 0, SCREEN_HEIGHT ) ||
 			 _accel_y < 0 ) {
 			_cloud = CloudConstPtr( );

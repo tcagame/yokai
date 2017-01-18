@@ -23,6 +23,7 @@ Character( START_X, START_Y, GRAPH_CHARACTER, CHIP_SIZE, CHIP_FOOT ) {
 	_psychic_mgr = psychic;
 	_jump_count = 0;
 	_action = ACTION_FLOAT;
+	_motion_count = 0;
 }
 
 Tarosuke::~Tarosuke( ) {
@@ -121,7 +122,7 @@ void Tarosuke::actOnStanding( ) {
 
 		setAccelX( ax );
 		
-		if ( device->getDirY( ) > 90 ) {
+		if ( device->getDirY( ) > 90 && !isInWater( ) ) {
 			_saving_power++;
 			if ( _saving_power >= CAPACITY_SAVING_POWER ) {
 				_action = ACTION_BURST;
@@ -228,17 +229,28 @@ void Tarosuke::actOnShooting( ) {
 }
 
 void Tarosuke::updateChip( ) {
+	_motion_count++;
+
 	switch ( _action ) {
 	case ACTION_STAND:
-		if ( getAccelX( ) == 0 ) {
-			if ( _saving_power == 0 ) {
-				setChipUV( 0, 0 );
+		if ( !isInWater( ) ) {
+			if ( getAccelX( ) == 0 ) {
+				if ( _saving_power == 0 ) {
+					setChipUV( 0, 0 );
+				} else {
+					setChipUV( _saving_power / ( CAPACITY_SAVING_POWER / 7 ), 4 );
+				}
 			} else {
-				setChipUV( _saving_power / ( CAPACITY_SAVING_POWER / 7 ), 4 );
+				const int WALK[ WALK_PATTERN ] = { 1, 2, 1, 0, 3, 4, 3, 0 };
+				setChipUV( WALK[ ( getX( ) / WAIT_TIME ) % WALK_PATTERN ], 0 );
 			}
 		} else {
-			const int WALK[ WALK_PATTERN ] = { 1, 2, 1, 0, 3, 4, 3, 0 };
-			setChipUV( WALK[ ( getX( ) / WAIT_TIME ) % WALK_PATTERN ], 0 );
+			const int SWIM[ 4 ] = { 0, 1, 2, 1 };
+			int idx = 8;
+			if ( getAccelX( ) == 0 ) {
+				idx = 0;
+			}
+			setChipUV( SWIM[ ( _motion_count / 4 ) % 4 ] + idx, 2 );
 		}
 		break;
 	case ACTION_JUMP:

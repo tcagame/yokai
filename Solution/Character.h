@@ -18,6 +18,7 @@ public:
 	int getAccelX( ) const;
 	int getAccelY( ) const;
 	bool isStanding( ) const;
+	bool isInWater( ) const;
 	void draw( CameraConstPtr camera );
 protected:
 	void setAccelX( int accel_x );
@@ -29,6 +30,7 @@ private:
 	virtual void act( ) = 0;
 	void move( FieldPtr field );
 	void updateDir( );
+	void setInWater( FieldPtr field );
 private:
 	const bool _mass;
 	int _x;
@@ -37,6 +39,7 @@ private:
 	int _accel_y;
 	CloudConstPtr _cloud;
 	bool _standing;
+	bool _in_water;
 	int  _chip_graph;
 	int  _chip_u;
 	int  _chip_v;

@@ -54,7 +54,7 @@ MAPDATA MAP0[] = {
 		"###########+++++"
 		"###########+++++"
 		"###########+++++"
-		"###########+++++"
+		"###########~~~~~"
 		"################"
 		"################"
 	},
@@ -73,7 +73,7 @@ MAPDATA MAP0[] = {
 		"++++++++++++++++"
 		"++++++++++++++++"
 		"++++++++++++++++"
-		"++++++++++++++++"
+		"~~~~~~~~~~~~~~~~"
 		"################"
 		"################"
 	},
@@ -971,5 +971,10 @@ const char * Map::getFilename( int idx ) const {
 
 bool Map::isChip( int bg_idx, int chip_idx ) const {
 	return _data[ bg_idx ].chip[ chip_idx ] == '#';
+}
+
+
+bool Map::isInWater( int bg_idx, int chip_idx ) const {
+	return _data[ bg_idx ].chip[ chip_idx ] == '~';
 }
 

@@ -100,6 +100,18 @@ void Field::drawClouds( CameraConstPtr camera ) const {
 	}
 }
 
+bool Field::isInWater( int x, int y ) const {
+	if ( x < 0 || x >= _map->getLength( ) * BG_SIZE ||
+		 y < 0 || y >= BG_SIZE ) {
+		return false;
+	}
+
+	int bg_idx = x / BG_SIZE;
+	int chip_idx = x % BG_SIZE / MAPCHIP_SIZE + y / MAPCHIP_SIZE * MAPCHIP_NUM; 
+
+	return _map->isInWater( bg_idx, chip_idx );
+}
+
 bool Field::isChip( int x, int y ) const {
 	if ( x < 0 || x >= _map->getLength( ) * BG_SIZE ||
 		 y < 0 || y >= BG_SIZE ) {
