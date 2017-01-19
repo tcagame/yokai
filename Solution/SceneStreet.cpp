@@ -7,7 +7,7 @@
 #include "Drawer.h"
 #include "PsychicMgr.h"
 
-SceneStreet::SceneStreet( ) {
+SceneStreet::SceneStreet( bool solo ) {
 	MapConstPtr map( new Map );
 	_field = FieldPtr( new Field( map ) );
 
@@ -16,6 +16,10 @@ SceneStreet::SceneStreet( ) {
 	_tarosuke = TarosukePtr( new Tarosuke( _psychic_mgr ) );
 	_momotaro = MomotaroPtr( new Momotaro( _camera, _psychic_mgr ) );
 	
+	if ( solo ) {
+		_tarosuke->setSoloPlay( _momotaro );
+	}
+
 	DrawerPtr drawer = Drawer::getTask( );
 	drawer->loadGraph( GRAPH_CHARACTER   , "Yokai_OBJ_myCharacter.png" );
 	drawer->loadGraph( GRAPH_CLOUD_SMALL , "street/cloud/Yokai_OBJ_cloud2.png" );

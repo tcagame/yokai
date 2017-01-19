@@ -5,7 +5,8 @@ public:
 	enum NEXT {
 		NEXT_CONTINUE,
 		NEXT_TITLE,
-		NEXT_STREET,
+		NEXT_STREET_1PLAYER,
+		NEXT_STREET_2PLAYER,
 	};
 public:
 	Scene( );

@@ -12,7 +12,7 @@ PTR( PsychicMgr );
 
 class SceneStreet : public Scene {
 public:
-	SceneStreet( );
+	SceneStreet( bool solo );
 	virtual ~SceneStreet( );
 	virtual NEXT update( );
 private:

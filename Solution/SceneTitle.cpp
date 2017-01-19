@@ -34,7 +34,11 @@ Scene::NEXT SceneTitle::update( ) {
 	draw( );
 
 	if ( _finish ) {
-		return NEXT_STREET;
+		if ( _select == 0 ) {
+			return NEXT_STREET_1PLAYER;
+		} else {
+			return NEXT_STREET_2PLAYER;
+		}
 	}
 
 	return NEXT_CONTINUE;

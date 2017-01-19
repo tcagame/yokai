@@ -24,15 +24,37 @@ _psychic_mgr( mgr ) {
 	_shoot_x = SHOOT_SPEED;
 	_shoot_y = 0;
 	_cool = 0;
+	_device_num = DEVICE_2;
+	_action = ACTION_MOVE;
 }
 
 Momotaro::~Momotaro( ) {
 }
 
+void Momotaro::setSolo( ) {
+	_device_num = DEVICE_1;
+	_action = ACTION_HIDE;
+}
+
 void Momotaro::act( ) {
+	switch ( _action ) {
+	case ACTION_MOVE:
+		actOnMove( );
+		break;
+	case ACTION_HIDE:
+		actOnHide( );
+		break;
+	};
+}
+
+void Momotaro::actOnHide( ) {
+	setChipUV( 8, 7 );
+}
+
+void Momotaro::actOnMove( ) {
 	DevicePtr device = Device::getTask( );
 	
-	Vector vec( device->getDirX( DEVICE_2 ), device->getDirY( DEVICE_2 ) );
+	Vector vec( device->getDirX( _device_num ), device->getDirY( _device_num ) );
 	
 	if ( vec.isOrijin( ) || device->getButton( ) == BUTTON_A ) {
 		double length = _vec.getLength( );
@@ -42,7 +64,7 @@ void Momotaro::act( ) {
 	}
 
 	_cool--;
-	if ( device->getButton( DEVICE_2 ) == BUTTON_A ) {
+	if ( device->getButton( _device_num ) == BUTTON_A ) {
 		if ( _cool < 0 ) {
 			PsychicPtr psychic( new PsychicMomotaro( getX( ), getY( ), _shoot_x, _shoot_y ) ); 
 			_psychic_mgr->shoot( psychic );
