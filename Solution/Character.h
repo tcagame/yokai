@@ -22,6 +22,8 @@ public:
 	bool isInWater( ) const;
 	void draw( CameraConstPtr camera, bool bright = false );
 protected:
+	void setX( int x );
+	void setY( int y );
 	void setAccelX( int accel_x );
 	void setAccelY( int accel_y );
 	void setChipReverse( bool reverse );

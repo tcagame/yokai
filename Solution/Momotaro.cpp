@@ -32,7 +32,7 @@ Momotaro::~Momotaro( ) {
 void Momotaro::act( ) {
 	DevicePtr device = Device::getTask( );
 	
-	Vector vec( device->getDirX( ), device->getDirY( ) );
+	Vector vec( device->getDirX( DEVICE_2 ), device->getDirY( DEVICE_2 ) );
 	
 	if ( vec.isOrijin( ) || device->getButton( ) == BUTTON_A ) {
 		double length = _vec.getLength( );
@@ -42,7 +42,7 @@ void Momotaro::act( ) {
 	}
 
 	_cool--;
-	if ( device->getButton( ) == BUTTON_A ) {
+	if ( device->getButton( DEVICE_2 ) == BUTTON_A ) {
 		if ( _cool < 0 ) {
 			PsychicPtr psychic( new PsychicMomotaro( getX( ), getY( ), _shoot_x, _shoot_y ) ); 
 			_psychic_mgr->shoot( psychic );
@@ -57,17 +57,21 @@ void Momotaro::act( ) {
 		setAccelY( ( int )_vec.y );
 	}
 
-	if ( getX( ) + getAccelX( ) < _camera->getX( ) ) {
+	if ( getX( ) < _camera->getX( ) ) {
 		setAccelX( 0 );
+		setX( _camera->getX( ) );
 	}
-	if ( getX( ) + getAccelX( ) > _camera->getX( ) + SCREEN_WIDTH ) {
+	if ( getX( ) > _camera->getX( ) + SCREEN_WIDTH ) {
 		setAccelX( 0 );
+		setX( _camera->getX( ) + SCREEN_WIDTH );
 	}
-	if ( getY( ) + getAccelY( ) < _camera->getY( ) ) {
+	if ( getY( ) < _camera->getY( ) ) {
 		setAccelY( 0 );
+		setY( _camera->getY( ) );
 	}
-	if ( getY( ) + getAccelY( ) > _camera->getY( ) + SCREEN_HEIGHT ) {
+	if ( getY( ) > _camera->getY( ) + SCREEN_HEIGHT ) {
 		setAccelY( 0 );
+		setY( _camera->getY( ) + SCREEN_HEIGHT );
 	}
 
 	if ( !vec.isOrijin( ) ) {
