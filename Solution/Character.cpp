@@ -37,6 +37,10 @@ int Character::getAccelY( ) const {
 	return _accel_y;
 }
 
+int Character::getSize( ) const {
+	return _chip_size;
+}
+
 bool Character::isChipReverse( ) const {
 	return _chip_reverse;
 }
@@ -65,6 +69,11 @@ void Character::setChipSize( int size ) {
 void Character::setChipFoot( int foot ) {
 	_chip_foot = foot;
 }
+
+void Character::setChipGraph( GRAPH graph ) {
+	_chip_graph = graph;
+}
+
 
 void Character::update( FieldPtr field ) {
 	setInWater( field );
