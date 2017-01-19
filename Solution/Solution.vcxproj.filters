@@ -75,7 +75,11 @@
     <ClCompile Include="EnemyRedbird.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="EnemyRedbirdAttack.cpp">
+=======
+    <ClCompile Include="Status.cpp">
+>>>>>>> 0809e6a0e6b09b00834ab474b8fdbd6a47752528
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
@@ -140,7 +144,11 @@
     <ClInclude Include="EnemyRedbird.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="EnemyRedbirdAttack.h">
+=======
+    <ClInclude Include="Status.h">
+>>>>>>> 0809e6a0e6b09b00834ab474b8fdbd6a47752528
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
