@@ -29,6 +29,7 @@ SceneStreet::SceneStreet( bool solo ) {
 	drawer->loadGraph( GRAPH_MAPCHIPGUIDE		, "street/mapchipguide.png" );
 	drawer->loadGraph( GRAPH_PSYCHIC			, "psychic.png" );
 	drawer->loadGraph( GRAPH_ENEMY_PURPLE_YOKAI , "street/enemy/Yokai_OBJ_enemy_purple.png" );
+	drawer->loadGraph( GRAPH_ENEMY_REDBIRD	    , "street/enemy/Yokai_OBJ_enemy_RedBird.png" );
 }
 
 SceneStreet::~SceneStreet( ) {

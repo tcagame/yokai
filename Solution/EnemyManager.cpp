@@ -1,9 +1,11 @@
 #include "EnemyManager.h"
 #include "EnemyPurpleYokai.h"
+#include "EnemyRedbird.h"
 #include "Camera.h"
 
 EnemyManager::EnemyManager( ) {
 	_enemies.push_back( EnemyPtr( new EnemyPurpleYokai( 1200, 204 ) ) );
+	_enemies.push_back( EnemyPtr( new EnemyRedbird( 300, 300 ) ) );
 }
 
 EnemyManager::~EnemyManager( ) {
