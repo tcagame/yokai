@@ -103,6 +103,7 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneStreet.cpp" />
     <ClCompile Include="SceneTitle.cpp" />
+    <ClCompile Include="Status.cpp" />
     <ClCompile Include="Tarosuke.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -130,6 +131,7 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneStreet.h" />
     <ClInclude Include="SceneTitle.h" />
+    <ClInclude Include="Status.h" />
     <ClInclude Include="Tarosuke.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
