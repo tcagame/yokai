@@ -5,7 +5,7 @@ static const int MAX_PATTERN = 4;
 static const int WAIT_TIME = 20;
 
 EnemyPurpleYokai::EnemyPurpleYokai( int x, int y ) :
-Enemy( x, y, GRAPH_ENEMY_1 ) {
+Enemy( x, y, GRAPH_ENEMY_PURPLE_YOKAI ) {
 }
 
 
@@ -14,11 +14,11 @@ EnemyPurpleYokai::~EnemyPurpleYokai( ) {
 
 void EnemyPurpleYokai::act( ) {
 	actMove( );
+	updateChip( );
 }
 
 void EnemyPurpleYokai::actMove( ) {
 	setAccelX( -MOVE_SPEED );
-	updateChip( );
 }
 
 
@@ -27,5 +27,4 @@ void EnemyPurpleYokai::updateChip( ) {
 	if ( pattern == MAX_PATTERN - 1 ) {
 		pattern = 1;
 	}
-	setChipGraph( GRAPH( GRAPH_ENEMY_1 + pattern ) );
 }

@@ -70,11 +70,6 @@ void Character::setChipFoot( int foot ) {
 	_chip_foot = foot;
 }
 
-void Character::setChipGraph( GRAPH graph ) {
-	_chip_graph = graph;
-}
-
-
 void Character::update( FieldPtr field ) {
 	setInWater( field );
 	act( );

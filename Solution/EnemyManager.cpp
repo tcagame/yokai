@@ -12,6 +12,10 @@ EnemyManager::~EnemyManager( ) {
 void EnemyManager::update( FieldPtr field, CameraConstPtr camera ) {
 	std::list<EnemyPtr>::iterator ite = _enemies.begin( );
 	while ( ite != _enemies.end( ) ) {
+		if ( isOutSideScreenEnemy( (*ite), camera ) ) {
+			ite = _enemies.erase( ite );
+			continue;
+		}
 		(*ite)->update( field );
 		ite++;
 	}
@@ -20,10 +24,6 @@ void EnemyManager::update( FieldPtr field, CameraConstPtr camera ) {
 void EnemyManager::draw( CameraPtr camera ) {
 	std::list<EnemyPtr>::iterator ite = _enemies.begin( );
 	while ( ite != _enemies.end( ) ) {
-		if ( isOutSideScreenEnemy( (*ite), camera ) ) {
-			ite = _enemies.erase( ite );
-			continue;
-		}
 		(*ite)->draw( camera );
 		ite++;
 	}
