@@ -3,11 +3,14 @@
 static const int CHIP_SIZE = 108;
 static const int FOOT = 20;
 static const int MAX_ANIME_PATTERN = 3;
-static const int WAIT_PATTERN_TIME = 5;
+static const int WAIT_PATTERN_TIME = 8;
 static const int MOVE_VERTICAL_SPEED = 6;
+static const int MOVE_HORIZONTAL_SPEED = 10;
+static const int WAIT_TURN_TIME = 8;
 
-EnemyRedbirdAttack::EnemyRedbirdAttack( int x, int y ) :
-Enemy( x, y, GRAPH_ENEMY_REDBIRD_ATTACK, CHIP_SIZE, FOOT, false ) {
+EnemyRedbirdAttack::EnemyRedbirdAttack( EnemyStockPtr enemy_stock, int x, int y ) :
+Enemy( enemy_stock, x, y, GRAPH_ENEMY_REDBIRD_ATTACK, CHIP_SIZE, FOOT, false ),
+anime_count( 0 ) {
 }
 
 
@@ -24,6 +27,8 @@ void EnemyRedbirdAttack::actMove( ) {
 }
 
 void EnemyRedbirdAttack::updateChip( ) {
-	int pattern = ( getX( ) / WAIT_PATTERN_TIME ) % MAX_ANIME_PATTERN;
+	anime_count++;
+	anime_count %= MAX_ANIME_PATTERN * WAIT_PATTERN_TIME;
+	int pattern = anime_count / WAIT_PATTERN_TIME;
 	setChipUV( pattern, 0 );
 }

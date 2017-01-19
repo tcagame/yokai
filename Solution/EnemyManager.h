@@ -7,6 +7,7 @@ PTR( Field );
 PTR( Camera );
 PTR( Tarosuke );
 PTR( Momotaro );
+PTR( EnemyStock );
 
 class EnemyManager : public std::enable_shared_from_this< EnemyManager > {
 public:
@@ -19,6 +20,6 @@ protected:
 	void addEnemy( EnemyPtr enemy );
 private:
 	std::list< EnemyPtr > _enemies;
-	std::list< EnemyPtr > _stock;
+	EnemyStockPtr _enemy_stock;
 };
 

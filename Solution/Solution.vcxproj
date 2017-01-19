@@ -92,6 +92,7 @@
     <ClCompile Include="EnemyPurpleYokai.cpp" />
     <ClCompile Include="EnemyRedbird.cpp" />
     <ClCompile Include="EnemyRedbirdAttack.cpp" />
+    <ClCompile Include="EnemyStock.cpp" />
     <ClCompile Include="Field.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
@@ -122,6 +123,7 @@
     <ClInclude Include="EnemyPurpleYokai.h" />
     <ClInclude Include="EnemyRedbird.h" />
     <ClInclude Include="EnemyRedbirdAttack.h" />
+    <ClInclude Include="EnemyStock.h" />
     <ClInclude Include="Field.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Map.h" />

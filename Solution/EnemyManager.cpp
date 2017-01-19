@@ -6,17 +6,22 @@
 #include "Drawer.h"
 #include "Tarosuke.h"
 #include "Momotaro.h"
+#include "EnemyStock.h"
 
 EnemyManager::EnemyManager( ) {
-	_enemies.push_back( EnemyPtr( new EnemyPurpleYokai( 1200, 204 ) ) );
-	_enemies.push_back( EnemyPtr( new EnemyRedbird( 300, 300 ) ) );
-	_enemies.push_back( EnemyPtr( new EnemyRedbirdAttack( 400, 130 ) ) );
+	_enemy_stock = EnemyStockPtr( new EnemyStock );
+	_enemies.push_back( EnemyPtr( new EnemyPurpleYokai( _enemy_stock, 1200, 204 ) ) );
+	_enemies.push_back( EnemyPtr( new EnemyRedbird( _enemy_stock, 250, 300 ) ) );
 }
 
 EnemyManager::~EnemyManager( ) {
 }
 
 void EnemyManager::update( FieldPtr field, CameraConstPtr camera, TarosukePtr tarosuke, MomotaroPtr momotaro ) {
+	EnemyPtr stock = _enemy_stock->getPopUp( );
+	if ( stock ) {
+		_enemies.push_back( stock );
+	}
 	std::list<EnemyPtr>::iterator ite = _enemies.begin( );
 	while ( ite != _enemies.end( ) ) {
 		if ( isOutSideScreenEnemy( (*ite), camera ) ) {

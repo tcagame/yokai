@@ -1,12 +1,16 @@
 #pragma once
 #include "Character.h"
+#include "EnemyStock.h"
 
-static const int ENEMY_SIZE = 204;
-static const int ENEMY_FOOT = 0;
+PTR( EnemyStock );
 
 class Enemy : public Character {
 public:
-	Enemy( int x, int y, int chip_graph, int chip_size = ENEMY_SIZE, int enemy_foot = ENEMY_FOOT, bool mass = true );
+	Enemy( EnemyStockPtr enemy_stock, int x, int y, int chip_graph, int chip_size, int enemy_foot, bool mass = true );
 	virtual ~Enemy( );
+protected:
+	EnemyStockPtr getEnemyStock( );
+private:
+	EnemyStockPtr _enemy_stock;
 };
 

@@ -3,7 +3,7 @@
 
 class EnemyPurpleYokai : public Enemy {
 public:
-	EnemyPurpleYokai( int x, int y );
+	EnemyPurpleYokai( EnemyStockPtr enemy_stock, int x, int y );
 	virtual ~EnemyPurpleYokai( );
 public:
 	void act( );

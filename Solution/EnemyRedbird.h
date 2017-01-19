@@ -3,7 +3,7 @@
 
 class EnemyRedbird : public Enemy {
 public:
-	EnemyRedbird( int x, int y );
+	EnemyRedbird( EnemyStockPtr enemy_stock, int x, int y );
 	virtual ~EnemyRedbird( );
 public:
 	void act( );
