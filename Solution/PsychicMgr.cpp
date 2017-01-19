@@ -24,8 +24,8 @@ void PsychicMgr::update( CameraConstPtr camera, TarosukeConstPtr tarosuke ) {
 	}
 }
 
-void PsychicMgr::draw( CameraConstPtr camera ) {
-	std::list< PsychicPtr >::iterator it = _psychics.begin( );
+void PsychicMgr::draw( CameraConstPtr camera ) const {
+	std::list< PsychicPtr >::const_iterator it = _psychics.begin( );
 	while ( it != _psychics.end( ) ) {
 		PsychicPtr psychic = *it;
 		psychic->draw( camera, true );
