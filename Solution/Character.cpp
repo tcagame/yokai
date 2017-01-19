@@ -45,6 +45,14 @@ bool Character::isChipReverse( ) const {
 	return _chip_reverse;
 }
 
+void Character::setX( int x ) {
+	_x = x;
+}
+
+void Character::setY( int y ) {
+	_y = y;
+}
+
 void Character::setChipReverse( bool reverse ) {
 	_chip_reverse = reverse;
 }
@@ -141,7 +149,6 @@ void Character::move( FieldPtr field ) {
 	Field::Collision col = field->getCollision( src_x, src_y, dst_x, dst_y );
 
 	if ( col.overlapped_x ) {
-		_accel_x = 0;
 		dst_x = col.adjust_x;
 	}
 

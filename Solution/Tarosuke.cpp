@@ -17,7 +17,7 @@ static const int WAIT_TIME = 30;
 static const int CHIP_SIZE = 34 * 6;
 static const int CHIP_FOOT = 25;
 static const int MAX_SPEED = 15;
-static const int ACCEL_SPEED = 2;
+static const int ACCEL_SPEED = 3;
 static const int BRAKE_SPEED = 6;
 static const int CAPACITY_SAVING_POWER = 40;
 static const int SHOOT_FOOT = 80;
@@ -28,6 +28,7 @@ Character( START_X, START_Y, GRAPH_CHARACTER, CHIP_SIZE, CHIP_FOOT ) {
 	_jump_count = 0;
 	_action = ACTION_FLOAT;
 	_motion_count = 0;
+	setChipReverse( true );
 }
 
 Tarosuke::~Tarosuke( ) {

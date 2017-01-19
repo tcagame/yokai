@@ -12,6 +12,8 @@ static const int PANEL_WIDTH  = 266;
 static const int PANEL_HEIGHT = 272;
 static const int PANEL_PITCH = 192;
 static const int FPC = 5;
+static const int SELECT_X = 600;
+static const int SELECT_Y = 500;
 
 SceneTitle::SceneTitle( ) {
 	DrawerPtr drawer = Drawer::getTask( );
@@ -21,6 +23,7 @@ SceneTitle::SceneTitle( ) {
 
 	_count = 0;
 	_finish = false;
+	_select = 0;
 }
 
 SceneTitle::~SceneTitle( ) {
@@ -44,6 +47,13 @@ void SceneTitle::act( ) {
 	DevicePtr device = Device::getTask( );
 	if ( device->getButton( ) != 0 ) {
 		_finish = true;
+	}
+
+	if ( device->getDirY( ) < 0 ) {
+		_select = 0;
+	}
+	if ( device->getDirY( ) > 0 ) {
+		_select = 1;
 	}
 }
 
@@ -73,4 +83,8 @@ void SceneTitle::draw( ) {
 			GRAPH_PANEL );
 		drawer->setSprite( sprite_panel);
 	}
+
+	drawer->drawString( SELECT_X, SELECT_Y +   0, "1P PLAYER GAME" );
+	drawer->drawString( SELECT_X, SELECT_Y +  40, "2P PLAYER GAME" );
+	drawer->drawString( SELECT_X - 30, SELECT_Y + _select * 40, "Å®" );
 }
