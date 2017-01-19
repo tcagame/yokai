@@ -23,13 +23,14 @@ SceneStreet::SceneStreet( bool solo ) {
 	}
 
 	DrawerPtr drawer = Drawer::getTask( );
-	drawer->loadGraph( GRAPH_CHARACTER			, "Yokai_OBJ_myCharacter.png" );
-	drawer->loadGraph( GRAPH_CLOUD_SMALL		, "street/cloud/Yokai_OBJ_cloud2.png" );
-	drawer->loadGraph( GRAPH_CLOUD_BIG			, "street/cloud/Yokai_OBJ_cloud1.png" ); 
-	drawer->loadGraph( GRAPH_MAPCHIPGUIDE		, "street/mapchipguide.png" );
-	drawer->loadGraph( GRAPH_PSYCHIC			, "psychic.png" );
-	drawer->loadGraph( GRAPH_ENEMY_PURPLE_YOKAI , "street/enemy/Yokai_OBJ_enemy_purple.png" );
-	drawer->loadGraph( GRAPH_ENEMY_REDBIRD	    , "street/enemy/Yokai_OBJ_enemy_RedBird.png" );
+	drawer->loadGraph( GRAPH_CHARACTER			 , "Yokai_OBJ_myCharacter.png" );
+	drawer->loadGraph( GRAPH_CLOUD_SMALL		 , "street/cloud/Yokai_OBJ_cloud2.png" );
+	drawer->loadGraph( GRAPH_CLOUD_BIG			 , "street/cloud/Yokai_OBJ_cloud1.png" ); 
+	drawer->loadGraph( GRAPH_MAPCHIPGUIDE		 , "street/mapchipguide.png" );
+	drawer->loadGraph( GRAPH_PSYCHIC			 , "psychic.png" );
+	drawer->loadGraph( GRAPH_ENEMY_PURPLE_YOKAI	 , "street/enemy/Yokai_OBJ_enemy_purple.png" );
+	drawer->loadGraph( GRAPH_ENEMY_REDBIRD		 , "street/enemy/Yokai_OBJ_enemy_RedBird.png" );
+	drawer->loadGraph( GRAPH_ENEMY_REDBIRD_ATTACK, "street/enemy/Yokai_OBJ_enemy_RedBird_attack.png" );
 }
 
 SceneStreet::~SceneStreet( ) {

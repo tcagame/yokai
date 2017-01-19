@@ -6,6 +6,7 @@
 PTR( Camera );
 PTR( Field );
 PTR( Cloud );
+PTR( EnemyManager );
 
 class Character {
 public:

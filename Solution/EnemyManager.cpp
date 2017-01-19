@@ -1,11 +1,14 @@
 #include "EnemyManager.h"
 #include "EnemyPurpleYokai.h"
 #include "EnemyRedbird.h"
+#include "EnemyRedbirdAttack.h"
 #include "Camera.h"
+#include "Drawer.h"
 
 EnemyManager::EnemyManager( ) {
 	_enemies.push_back( EnemyPtr( new EnemyPurpleYokai( 1200, 204 ) ) );
 	_enemies.push_back( EnemyPtr( new EnemyRedbird( 300, 300 ) ) );
+	_enemies.push_back( EnemyPtr( new EnemyRedbirdAttack( 400, 130 ) ) );
 }
 
 EnemyManager::~EnemyManager( ) {
@@ -29,6 +32,10 @@ void EnemyManager::draw( CameraPtr camera ) {
 		(*ite)->draw( camera );
 		ite++;
 	}
+#if _DEBUG
+	DrawerPtr drawer = Drawer::getTask( );
+	drawer->drawString( 10, 10, "Enemy Size : %d", _enemies.size( ) );
+#endif
 }
 
 bool EnemyManager::isOutSideScreenEnemy( EnemyPtr enemy, CameraConstPtr camera ) {
@@ -36,11 +43,20 @@ bool EnemyManager::isOutSideScreenEnemy( EnemyPtr enemy, CameraConstPtr camera )
 	int screen_left_side = camera->getX( );
 	int screen_right_side = screen_left_side + SCREEN_WIDTH;
 	int enemy_x = enemy->getX( );
+	int enemy_y = enemy->getY( );
 	int enemy_size = enemy->getSize( );
 	if ( enemy_x + enemy_size / 2 < screen_left_side ||
 		 enemy_x - enemy_size / 2 > screen_right_side ) {
 		result = true;
 	}
+	if ( enemy_y - enemy_size < 0 ||
+		 enemy_y > SCREEN_HEIGHT ) {
+		result = true;
+	}
 
 	return result;
+}
+
+void EnemyManager::addEnemy( EnemyPtr enemy ) {
+	_enemies.push_back( enemy );
 }

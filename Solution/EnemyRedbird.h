@@ -7,7 +7,12 @@ public:
 	virtual ~EnemyRedbird( );
 public:
 	void act( );
+private:
 	void actMove( );
+	void actAttack( );
 	void updateChip( );
+private:
+	int _attack_count;
+	int _accel;
 };
 
