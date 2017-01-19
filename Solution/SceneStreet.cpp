@@ -7,6 +7,7 @@
 #include "Drawer.h"
 #include "PsychicMgr.h"
 #include "EnemyManager.h"
+#include "Status.h"
 
 SceneStreet::SceneStreet( bool solo ) {
 	MapConstPtr map( new Map );
@@ -17,6 +18,7 @@ SceneStreet::SceneStreet( bool solo ) {
 	_tarosuke = TarosukePtr( new Tarosuke( _psychic_mgr ) );
 	_momotaro = MomotaroPtr( new Momotaro( _camera, _psychic_mgr ) );
 	_enemy_mgr = EnemyManagerPtr( new EnemyManager );
+	_status = StatusPtr( new Status );
 	
 	if ( solo ) {
 		_tarosuke->setSoloPlay( _momotaro );
@@ -30,6 +32,7 @@ SceneStreet::SceneStreet( bool solo ) {
 	drawer->loadGraph( GRAPH_PSYCHIC			, "psychic.png" );
 	drawer->loadGraph( GRAPH_ENEMY_PURPLE_YOKAI , "street/enemy/Yokai_OBJ_enemy_purple.png" );
 	drawer->loadGraph( GRAPH_ENEMY_REDBIRD	    , "street/enemy/Yokai_OBJ_enemy_RedBird.png" );
+	drawer->loadGraph( GRAPH_STATUS				, "street/Yokai_UI_plate.png" );
 }
 
 SceneStreet::~SceneStreet( ) {
@@ -41,6 +44,7 @@ Scene::NEXT SceneStreet::update( ) {
 	_momotaro->update( _field );
 	_camera->update( _tarosuke );
 	_psychic_mgr->update( _camera, _tarosuke );
+	_status->update( _camera, _momotaro );
 	_field->update( _camera );
 
 	_field->draw( _camera );
@@ -48,6 +52,7 @@ Scene::NEXT SceneStreet::update( ) {
 	_tarosuke->draw( _camera );
 	_momotaro->draw( _camera );
 	_psychic_mgr->draw( _camera );
+	_status->draw( );
 
 	return NEXT_CONTINUE;
 }
