@@ -36,10 +36,10 @@ SceneStreet::~SceneStreet( ) {
 }
 
 Scene::NEXT SceneStreet::update( ) {
-	_enemy_mgr->update( _field, _camera );
 	_tarosuke->update( _field );
 	_momotaro->update( _field );
 	_camera->update( _tarosuke );
+	_enemy_mgr->update( _field, _camera, _tarosuke, _momotaro );
 	_psychic_mgr->update( _camera, _tarosuke );
 	_field->update( _camera );
 
