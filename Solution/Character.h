@@ -17,6 +17,7 @@ public:
 	int getY( ) const;
 	int getAccelX( ) const;
 	int getAccelY( ) const;
+	int getSize( ) const;
 	bool isChipReverse( ) const;
 	bool isStanding( ) const;
 	bool isInWater( ) const;
@@ -28,6 +29,7 @@ protected:
 	void setChipUV( int u, int v );
 	void setChipSize( int size );
 	void setChipFoot( int foot );
+	void setChipGraph( GRAPH graph );
 private:
 	virtual void act( ) = 0;
 	void move( FieldPtr field );

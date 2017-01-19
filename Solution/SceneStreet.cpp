@@ -6,15 +6,17 @@
 #include "Map.h"
 #include "Drawer.h"
 #include "PsychicMgr.h"
+#include "EnemyManager.h"
 
 SceneStreet::SceneStreet( ) {
 	MapConstPtr map( new Map );
 	_field = FieldPtr( new Field( map ) );
 
 	_camera = CameraPtr( new Camera( map ) );
-	_psychic_mgr = PsychicMgrPtr( new PsychicMgr( ) );
+	_psychic_mgr = PsychicMgrPtr( new PsychicMgr );
 	_tarosuke = TarosukePtr( new Tarosuke( _psychic_mgr ) );
 	_momotaro = MomotaroPtr( new Momotaro( _camera, _psychic_mgr ) );
+	_enemy_mgr = EnemyManagerPtr( new EnemyManager );
 	
 	DrawerPtr drawer = Drawer::getTask( );
 	drawer->loadGraph( GRAPH_CHARACTER   , "Yokai_OBJ_myCharacter.png" );
@@ -22,12 +24,16 @@ SceneStreet::SceneStreet( ) {
 	drawer->loadGraph( GRAPH_CLOUD_BIG   , "street/cloud/Yokai_OBJ_cloud1.png" ); 
 	drawer->loadGraph( GRAPH_MAPCHIPGUIDE, "street/mapchipguide.png" );
 	drawer->loadGraph( GRAPH_PSYCHIC     , "psychic.png" );
+	drawer->loadGraph( GRAPH_ENEMY_1     , "enemy/Yokai_OBJ_enemy1-1.png" );
+	drawer->loadGraph( GRAPH_ENEMY_2     , "enemy/Yokai_OBJ_enemy1-2.png" );
+	drawer->loadGraph( GRAPH_ENEMY_3     , "enemy/Yokai_OBJ_enemy1-3.png" );
 }
 
 SceneStreet::~SceneStreet( ) {
 }
 
 Scene::NEXT SceneStreet::update( ) {
+	_enemy_mgr->update( _field, _camera );
 	_tarosuke->update( _field );
 	_momotaro->update( _field );
 	_camera->update( _tarosuke );
@@ -35,6 +41,7 @@ Scene::NEXT SceneStreet::update( ) {
 	_field->update( _camera );
 
 	_field->draw( _camera );
+	_enemy_mgr->draw( _camera );
 	_tarosuke->draw( _camera );
 	_momotaro->draw( _camera );
 	_psychic_mgr->draw( _camera );
