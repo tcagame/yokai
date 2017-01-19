@@ -13,29 +13,9 @@ EnemyPurpleYokai::~EnemyPurpleYokai( ) {
 }
 
 void EnemyPurpleYokai::act( ) {
-	actMove( );
-	updateChip( );
-}
-
-void EnemyPurpleYokai::actMove( ) {
 	setAccelX( -MOVE_SPEED );
-}
 
-void EnemyPurpleYokai::updateChip( ) {
-	int pattern = ( getX( ) / WAIT_TIME ) % MAX_PATTERN;
-
-	switch( pattern ) {
-	case 0:
-		setChipUV( 0, 0 );
-		break;
-	case 1:
-		setChipUV( 1, 0 );
-		break;
-	case 2:
-		setChipUV( 2, 0 );
-		break;
-	case 3:
-		setChipUV( 1, 0 );
-		break;
-	}
+	const int MOTION[ 4 ] = { 0, 1, 2, 1 };
+	int u = MOTION[ ( getX( ) / WAIT_TIME ) % MAX_PATTERN ];
+	setChipUV( u, 0 );
 }

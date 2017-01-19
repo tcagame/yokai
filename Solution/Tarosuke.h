@@ -2,6 +2,7 @@
 
 #include "smart_ptr.h"
 #include "Character.h"
+#include "mathmatics.h"
 
 PTR( ChipDrawer );
 PTR( PsychicMgr );
@@ -47,4 +48,6 @@ private:
 	int _jump_count;
 	int _saving_power;
 	int _act_count;
+	Vector _momo_pos;
+	Vector _momo_vec;
 };

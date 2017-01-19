@@ -15,7 +15,7 @@ public:
 public:
 	void shoot( PsychicPtr psychic );
 	void update( CameraConstPtr camera, TarosukeConstPtr tarosuke  );
-	void draw( CameraConstPtr camera );
+	void draw( CameraConstPtr camera ) const;
 private:
 	std::list< PsychicPtr > _psychics;
 };

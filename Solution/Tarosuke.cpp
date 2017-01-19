@@ -22,6 +22,7 @@ static const int ACCEL_SPEED = 3;
 static const int BRAKE_SPEED = 6;
 static const int CAPACITY_SAVING_POWER = 40;
 static const int SHOOT_FOOT = 80;
+static const int MOMO_SPEED = 15;
 
 Tarosuke::Tarosuke( PsychicMgrPtr psychic ) : 
 Character( START_X, START_Y, GRAPH_CHARACTER, CHIP_SIZE, CHIP_FOOT ) {
@@ -133,6 +134,8 @@ void Tarosuke::actOnStanding( ) {
 		if ( _momotaro ) {
 			_action = ACTION_CALL;
 			_act_count = 0;
+			_momo_pos = Vector( getX( ), -CHIP_SIZE );
+			_momo_vec = Vector( 1, -0.1 ).normalize( ) * MOMO_SPEED;
 			setAccelX( 0 );
 		}
 	}
@@ -279,7 +282,18 @@ void Tarosuke::actOnCalling( ) {
 	const int PRAY[ 10 ] = { 0, 0, 0, 1, 2, 3, 3, 3, 2, 1 };
 	setChipUV( PRAY[ _act_count % 10 ], 1 );
 
-	if ( _act_count > 14 ) {
+	Vector v = Vector( getX( ), getY( ) - CHIP_SIZE ) - _momo_pos;
+	double speed = MOMO_SPEED;
+	/*
+	if ( v.getLength( ) < CHIP_SIZE ) {
+		speed
+	}
+	*/
+	_momo_vec += v.normalize( ) * ( MOMO_SPEED * 0.05 );
+	_momo_vec = _momo_vec.normalize( ) * MOMO_SPEED;
+	_momo_pos += _momo_vec;
+
+	if ( v.getLength( ) < CHIP_SIZE ) {
 		_action = ACTION_APPEAR;
 		_act_count = 0;
 	}
@@ -354,6 +368,30 @@ void Tarosuke::updateChip( ) {
 }
 
 void Tarosuke::drawOverlapped( CameraConstPtr camera ) const {
+	if ( _action == ACTION_CALL ) {
+		const int ANIM[ 8 ] = { 0, 0, 0, 0, 0, 1, 2, 1 };
+
+		int idx = ANIM[ _act_count / 2 % 8 ];
+		int tx = idx * CHIP_SIZE;
+		int ty =   7 * CHIP_SIZE;
+
+		int sx1 = ( int )_momo_pos.x - camera->getX( ) - CHIP_SIZE / 2;
+		int sy1 = ( int )_momo_pos.y - camera->getY( ) - CHIP_SIZE / 2;
+		int sx2 = sx1 + CHIP_SIZE;
+		int sy2 = sy1 + CHIP_SIZE;
+		if ( _momo_vec.x > 0 ) {
+			int tmp = sx1;
+			sx1 = sx2;
+			sx2 = tmp;
+		}
+
+		DrawerPtr drawer = Drawer::getTask( );
+		Drawer::Transform trans( sx1, sy1, tx, ty, CHIP_SIZE, CHIP_SIZE, sx2, sy2 );
+		Drawer::Sprite sprite( trans, GRAPH_CHARACTER, Drawer::BLEND_NONE, 1.0 );
+		drawer->setSprite( sprite );
+		return;
+	}
+
 	if ( _action == ACTION_APPEAR ) {
 		int power = _saving_power / ( CAPACITY_SAVING_POWER / 6 );
 
