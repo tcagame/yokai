@@ -29,9 +29,11 @@ void Game::update( ) {
 	drawer->unloadAllGraph( );
 
 	switch ( next ) {
-	case Scene::NEXT_STREET:
-		_scene = ScenePtr( new SceneStreet );
+	case Scene::NEXT_STREET_1PLAYER:
+		_scene = ScenePtr( new SceneStreet( true ) );
+		break;
+	case Scene::NEXT_STREET_2PLAYER:
+		_scene = ScenePtr( new SceneStreet( false ) );
 		break;
 	}
-
 }

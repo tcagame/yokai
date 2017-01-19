@@ -5,6 +5,7 @@
 #include "Camera.h"
 #include "Drawer.h"
 #include "PsychicTarosuke.h"
+#include "Momotaro.h"
 
 static const int MAX_TAROSUKE_CHIP_NUM = 101;
 static const int JUMP_COUNT = 10;
@@ -27,7 +28,7 @@ Character( START_X, START_Y, GRAPH_CHARACTER, CHIP_SIZE, CHIP_FOOT ) {
 	_psychic_mgr = psychic;
 	_jump_count = 0;
 	_action = ACTION_FLOAT;
-	_motion_count = 0;
+	_act_count = 0;
 	setChipReverse( true );
 }
 
@@ -35,7 +36,14 @@ Tarosuke::~Tarosuke( ) {
 
 }
 
+void Tarosuke::setSoloPlay( MomotaroPtr momotaro ) {
+	_momotaro = momotaro;
+	_momotaro->setSolo( );
+}
+
 void Tarosuke::act( ) {
+	_act_count++;
+
 	switch ( _action ) {
 	case ACTION_STAND:
 		actOnStanding( );
@@ -54,6 +62,15 @@ void Tarosuke::act( ) {
 		break;
 	case ACTION_BURST:
 		actOnBursting( );
+		break;
+	case ACTION_CALL:
+		actOnCalling( );
+		break;
+	case ACTION_APPEAR:
+		actOnAppearring( );
+		break;
+	case ACTION_PRAY:
+		actOnPraying( );
 		break;
 	}
 	
@@ -110,6 +127,14 @@ void Tarosuke::actOnStanding( ) {
 	
 	if ( device->getPush( ) == BUTTON_A ) {
 		_action = ACTION_SHOOT;
+	}
+
+	if ( device->getPush( ) == BUTTON_B ) {
+		if ( _momotaro ) {
+			_action = ACTION_CALL;
+			_act_count = 0;
+			setAccelX( 0 );
+		}
 	}
 
 	if ( !accel ) {
@@ -250,9 +275,46 @@ void Tarosuke::actOnShooting( ) {
 	_action = ACTION_STAND;
 }
 
-void Tarosuke::updateChip( ) {
-	_motion_count++;
+void Tarosuke::actOnCalling( ) {
+	const int PRAY[ 10 ] = { 0, 0, 0, 1, 2, 3, 3, 3, 2, 1 };
+	setChipUV( PRAY[ _act_count % 10 ], 1 );
 
+	if ( _act_count > 14 ) {
+		_action = ACTION_APPEAR;
+		_act_count = 0;
+	}
+}
+
+void Tarosuke::actOnAppearring( ) {
+	int u = 4 + _act_count;
+	if ( u > 8 ) {
+		u = 8;
+	}
+	setChipUV( u, 1 );
+
+	if ( _act_count > 14 ) {
+		_action = ACTION_PRAY;
+	}
+}
+
+void Tarosuke::actOnPraying( ) {
+	const int CALL[ 60 ] = {
+		0, 1, 0, 1, 0, 1, 0, 1, 2, 3,
+		4, 5, 4, 5, 4, 5, 4, 5, 3, 2,
+		0, 1, 0, 1, 0, 1, 0, 1, 2, 3,
+		4, 5, 4, 5, 4, 5, 4, 5, 3, 2,
+		0, 1, 0, 1, 0, 1, 0, 1, 2, 3,
+		6, 7, 7, 7, 7, 7, 7, 6, 3, 2,
+	};
+	setChipUV( CALL[ _act_count / 2 % 60 ], 5 );
+
+	DevicePtr device = Device::getTask( );
+	if ( device->getPush( ) == BUTTON_B ) {
+		_action = ACTION_STAND;
+	}
+}
+
+void Tarosuke::updateChip( ) {
 	switch ( _action ) {
 	case ACTION_STAND:
 		if ( !isInWater( ) ) {
@@ -272,7 +334,7 @@ void Tarosuke::updateChip( ) {
 			if ( getAccelX( ) == 0 ) {
 				idx = 0;
 			}
-			setChipUV( SWIM[ ( _motion_count / 4 ) % 4 ] + idx, 2 );
+			setChipUV( SWIM[ ( _act_count / 4 ) % 4 ] + idx, 2 );
 		}
 		break;
 	case ACTION_JUMP:
@@ -292,22 +354,50 @@ void Tarosuke::updateChip( ) {
 }
 
 void Tarosuke::drawOverlapped( CameraConstPtr camera ) const {
-	if ( _action == ACTION_BURST || _saving_power == 0 ) {
+	if ( _action == ACTION_APPEAR ) {
+		int power = _saving_power / ( CAPACITY_SAVING_POWER / 6 );
+
+		int idx = _act_count - 4;
+		if ( idx < 0 ) {
+			return;
+		}
+
+		int tx = idx * CHIP_SIZE;
+		int ty =   8 * CHIP_SIZE;
+
+		int sx1 = getX( ) - camera->getX( ) - CHIP_SIZE / 2 - CHIP_SIZE;
+		int sy1 = getY( ) - camera->getY( ) - CHIP_SIZE + CHIP_FOOT;
+		int sx2 = sx1 + CHIP_SIZE;
+		int sy2 = sy1 + CHIP_SIZE;
+		if ( isChipReverse( ) ) {
+			sx1 += CHIP_SIZE * 2;
+			sx2 = sx1 + CHIP_SIZE;
+			int tmp = sx1;
+			sx1 = sx2;
+			sx2 = tmp;
+		}
+
+		DrawerPtr drawer = Drawer::getTask( );
+		Drawer::Transform trans( sx1, sy1, tx, ty, CHIP_SIZE, CHIP_SIZE, sx2, sy2 );
+		Drawer::Sprite sprite( trans, GRAPH_CHARACTER, Drawer::BLEND_ADD, 1.0 );
+		drawer->setSprite( sprite );
 		return;
 	}
 
-	int power = _saving_power / ( CAPACITY_SAVING_POWER / 6 );
+	if ( _action != ACTION_BURST && _saving_power > 0 ) {
+		int power = _saving_power / ( CAPACITY_SAVING_POWER / 6 );
 
-	int idx = power * 2 + _motion_count % 2;
-	int tx = ( 3 + idx % 4 ) * CHIP_SIZE;
-	int ty = (     idx / 4 ) * CHIP_SIZE;
+		int idx = power * 2 + _act_count % 2;
+		int tx = ( 3 + idx % 4 ) * CHIP_SIZE;
+		int ty = (     idx / 4 ) * CHIP_SIZE;
 
-	int sx1 = getX( ) - camera->getX( ) - CHIP_SIZE / 2;
-	int sy1 = getY( ) - camera->getY( ) - CHIP_SIZE + CHIP_FOOT;
+		int sx1 = getX( ) - camera->getX( ) - CHIP_SIZE / 2;
+		int sy1 = getY( ) - camera->getY( ) - CHIP_SIZE + CHIP_FOOT;
 
-	DrawerPtr drawer = Drawer::getTask( );
-	Drawer::Transform trans( sx1, sy1, tx, ty, CHIP_SIZE, CHIP_SIZE );
-	Drawer::Sprite sprite( trans, GRAPH_PSYCHIC, Drawer::BLEND_ADD, 1.0 );
-	drawer->setSprite( sprite );
+		DrawerPtr drawer = Drawer::getTask( );
+		Drawer::Transform trans( sx1, sy1, tx, ty, CHIP_SIZE, CHIP_SIZE );
+		Drawer::Sprite sprite( trans, GRAPH_PSYCHIC, Drawer::BLEND_ADD, 1.0 );
+		drawer->setSprite( sprite );
+	}
 }
 
