@@ -39,7 +39,7 @@ Tarosuke::~Tarosuke( ) {
 
 void Tarosuke::setSoloPlay( MomotaroPtr momotaro ) {
 	_momotaro = momotaro;
-	_momotaro->setSolo( );
+	_momotaro->hide( );
 }
 
 void Tarosuke::act( ) {
@@ -135,7 +135,11 @@ void Tarosuke::actOnStanding( ) {
 			_action = ACTION_CALL;
 			_act_count = 0;
 			_momo_pos = Vector( getX( ), -CHIP_SIZE );
-			_momo_vec = Vector( 1, -0.1 ).normalize( ) * MOMO_SPEED;
+			if ( isChipReverse( ) ) {
+				_momo_vec = Vector( -1, -0.1 ).normalize( ) * MOMO_SPEED;
+			} else {
+				_momo_vec = Vector( 1, -0.1 ).normalize( ) * MOMO_SPEED;
+			}
 			setAccelX( 0 );
 		}
 	}
@@ -279,21 +283,15 @@ void Tarosuke::actOnShooting( ) {
 }
 
 void Tarosuke::actOnCalling( ) {
-	const int PRAY[ 10 ] = { 0, 0, 0, 1, 2, 3, 3, 3, 2, 1 };
-	setChipUV( PRAY[ _act_count % 10 ], 1 );
+	const int PRAY[ 14 ] = { 0, 0, 0, 0, 0, 1, 2, 3, 3, 3, 3, 3, 2, 1 };
+	setChipUV( PRAY[ _act_count % 14 ], 1 );
 
 	Vector v = Vector( getX( ), getY( ) - CHIP_SIZE ) - _momo_pos;
-	double speed = MOMO_SPEED;
-	/*
-	if ( v.getLength( ) < CHIP_SIZE ) {
-		speed
-	}
-	*/
 	_momo_vec += v.normalize( ) * ( MOMO_SPEED * 0.05 );
 	_momo_vec = _momo_vec.normalize( ) * MOMO_SPEED;
 	_momo_pos += _momo_vec;
 
-	if ( v.getLength( ) < CHIP_SIZE ) {
+	if ( ( Vector( getX( ), getY( ) ) - _momo_pos ).getLength( ) < CHIP_SIZE / 2 ) {
 		_action = ACTION_APPEAR;
 		_act_count = 0;
 	}
@@ -308,6 +306,14 @@ void Tarosuke::actOnAppearring( ) {
 
 	if ( _act_count > 14 ) {
 		_action = ACTION_PRAY;
+		int x = getX( );
+		int y = getY( ) - CHIP_SIZE / 2 + CHIP_FOOT;
+		if ( isChipReverse( ) ) {
+			x += CHIP_SIZE;
+		} else {
+			x -= CHIP_SIZE;
+		}
+		_momotaro->appear( x, y, isChipReverse( ) );
 	}
 }
 
@@ -324,6 +330,7 @@ void Tarosuke::actOnPraying( ) {
 
 	DevicePtr device = Device::getTask( );
 	if ( device->getPush( ) == BUTTON_B ) {
+		_momotaro->hide( );
 		_action = ACTION_STAND;
 	}
 }

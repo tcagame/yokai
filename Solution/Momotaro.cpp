@@ -10,8 +10,8 @@
 static const int MOVE_SPEED = 20;
 static const int MAX_CHIP_PATTERN = 7;
 static const int CHIP_MOMOTARO_NUM = 101;
-static const int START_X = 360;
-static const int START_Y = 360;
+static const int START_X = -100;
+static const int START_Y = -100;
 static const int CHIP_SIZE = 34 * 6;
 static const int CHIP_FOOT = CHIP_SIZE / 2;
 static const int SHOOT_SPEED = 10;
@@ -26,17 +26,33 @@ _psychic_mgr( mgr ) {
 	_cool = 0;
 	_device_num = DEVICE_2;
 	_action = ACTION_MOVE;
+	_act_count = 0;
 }
 
 Momotaro::~Momotaro( ) {
 }
 
-void Momotaro::setSolo( ) {
+void Momotaro::hide( ) {
+	_act_count = 0;
 	_device_num = DEVICE_1;
 	_action = ACTION_HIDE;
 }
 
+void Momotaro::appear( int x, int y, bool reverse ) {
+	_device_num = DEVICE_1;
+	setX( x );
+	setY( y );
+	_action = ACTION_MOVE;
+	setChipReverse( reverse );
+	_vec = Vector( -MOVE_SPEED, -MOVE_SPEED / 2 );
+	if ( reverse ) {
+		_vec = Vector( MOVE_SPEED, -MOVE_SPEED / 2 );
+	}
+}
+
 void Momotaro::act( ) {
+	_act_count++;
+
 	switch ( _action ) {
 	case ACTION_MOVE:
 		actOnMove( );
@@ -48,7 +64,15 @@ void Momotaro::act( ) {
 }
 
 void Momotaro::actOnHide( ) {
-	setChipUV( 8, 7 );
+	double length = _vec.getLength( );
+	_vec = _vec.normalize( ) * ( length * 0.9 );
+	setAccelX( ( int )_vec.x );
+	setAccelY( ( int )_vec.y );
+	int idx = 10 - _act_count;
+	if ( idx < 0 ) {
+		idx = 10;
+	}
+	setChipUV( idx, 8 );
 }
 
 void Momotaro::actOnMove( ) {
@@ -102,5 +126,5 @@ void Momotaro::actOnMove( ) {
 		_shoot_y = ( int )vec.y;
 	}
 
-	setChipUV( 6, 7 );
+	setChipUV( _act_count / 2 % 3 + 3, 7 );
 }

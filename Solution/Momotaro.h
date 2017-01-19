@@ -10,11 +10,11 @@ public:
 	Momotaro( CameraConstPtr camera, PsychicMgrPtr mgr );
 	virtual ~Momotaro( );
 public:
-	void setSolo( );
+	void hide( );
+	void appear( int x, int y, bool reverse );
 private:
 	enum ACTION {
 		ACTION_HIDE,
-		ACTION_APPEAR,
 		ACTION_MOVE,
 	};
 private:
@@ -30,4 +30,5 @@ private:
 	int _cool;
 	Vector _vec;
 	int _device_num;
+	int _act_count;
 };
