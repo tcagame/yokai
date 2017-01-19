@@ -71,6 +71,7 @@ void Momotaro::actOnHide( ) {
 	int idx = 10 - _act_count;
 	if ( idx < 0 ) {
 		idx = 10;
+		setX( START_X );
 	}
 	setChipUV( idx, 8 );
 }
