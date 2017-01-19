@@ -2,10 +2,10 @@
 
 static const int MOVE_SPEED = 10;
 static const int MAX_PATTERN = 4;
-static const int WAIT_TIME = 20;
+static const int WAIT_TIME = 25;
 
 EnemyPurpleYokai::EnemyPurpleYokai( int x, int y ) :
-Enemy( x, y, GRAPH_ENEMY_1 ) {
+Enemy( x, y, GRAPH_ENEMY_PURPLE_YOKAI ) {
 }
 
 
@@ -14,18 +14,28 @@ EnemyPurpleYokai::~EnemyPurpleYokai( ) {
 
 void EnemyPurpleYokai::act( ) {
 	actMove( );
+	updateChip( );
 }
 
 void EnemyPurpleYokai::actMove( ) {
 	setAccelX( -MOVE_SPEED );
-	updateChip( );
 }
-
 
 void EnemyPurpleYokai::updateChip( ) {
 	int pattern = ( getX( ) / WAIT_TIME ) % MAX_PATTERN;
-	if ( pattern == MAX_PATTERN - 1 ) {
-		pattern = 1;
+
+	switch( pattern ) {
+	case 0:
+		setChipUV( 0, 0 );
+		break;
+	case 1:
+		setChipUV( 1, 0 );
+		break;
+	case 2:
+		setChipUV( 2, 0 );
+		break;
+	case 3:
+		setChipUV( 1, 0 );
+		break;
 	}
-	setChipGraph( GRAPH( GRAPH_ENEMY_1 + pattern ) );
 }

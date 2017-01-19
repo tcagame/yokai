@@ -1,9 +1,11 @@
 #include "EnemyManager.h"
 #include "EnemyPurpleYokai.h"
+#include "EnemyRedbird.h"
 #include "Camera.h"
 
 EnemyManager::EnemyManager( ) {
 	_enemies.push_back( EnemyPtr( new EnemyPurpleYokai( 1200, 204 ) ) );
+	_enemies.push_back( EnemyPtr( new EnemyRedbird( 300, 300 ) ) );
 }
 
 EnemyManager::~EnemyManager( ) {
@@ -12,6 +14,10 @@ EnemyManager::~EnemyManager( ) {
 void EnemyManager::update( FieldPtr field, CameraConstPtr camera ) {
 	std::list<EnemyPtr>::iterator ite = _enemies.begin( );
 	while ( ite != _enemies.end( ) ) {
+		if ( isOutSideScreenEnemy( (*ite), camera ) ) {
+			ite = _enemies.erase( ite );
+			continue;
+		}
 		(*ite)->update( field );
 		ite++;
 	}
@@ -20,10 +26,6 @@ void EnemyManager::update( FieldPtr field, CameraConstPtr camera ) {
 void EnemyManager::draw( CameraPtr camera ) {
 	std::list<EnemyPtr>::iterator ite = _enemies.begin( );
 	while ( ite != _enemies.end( ) ) {
-		if ( isOutSideScreenEnemy( (*ite), camera ) ) {
-			ite = _enemies.erase( ite );
-			continue;
-		}
 		(*ite)->draw( camera );
 		ite++;
 	}
