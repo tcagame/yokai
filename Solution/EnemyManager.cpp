@@ -3,12 +3,9 @@
 #include "EnemyRedbird.h"
 #include "EnemyRedbirdAttack.h"
 #include "Camera.h"
-<<<<<<< HEAD
 #include "Drawer.h"
-=======
 #include "Tarosuke.h"
 #include "Momotaro.h"
->>>>>>> 0809e6a0e6b09b00834ab474b8fdbd6a47752528
 
 EnemyManager::EnemyManager( ) {
 	_enemies.push_back( EnemyPtr( new EnemyPurpleYokai( 1200, 204 ) ) );
