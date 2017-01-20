@@ -6,6 +6,7 @@
 #include "Drawer.h"
 #include "PsychicTarosuke.h"
 #include "Momotaro.h"
+#include "Sound.h"
 
 static const int MAX_TAROSUKE_CHIP_NUM = 101;
 static const int JUMP_COUNT = 10;
@@ -192,6 +193,8 @@ void Tarosuke::actOnJumping( ) {
 	
 	_action = ACTION_FLOAT;
 	if ( ( device->getButton( ) & BUTTON_C ) == 0 ) {
+		SoundPtr sound = Sound::getTask( );
+		sound->playSE( "yokai_se_20.wav" );
 		return;
 	}
 	
@@ -288,6 +291,9 @@ void Tarosuke::actOnShooting( ) {
 		getX( ), getY( ) - SHOOT_FOOT, isChipReverse( ), _saving_power / ( CAPACITY_SAVING_POWER / 4 ) ) ) );
 	_saving_power = 0;
 	_action = ACTION_STAND;
+	
+	SoundPtr sound = Sound::getTask( );
+	sound->playSE( "yokai_se_20.wav" );
 }
 
 void Tarosuke::actOnCalling( ) {
@@ -350,10 +356,11 @@ void Tarosuke::actOnDying( ) {
 		0, 1, 2, 3, 5, 4,
 		0, 1, 6, 7, 9,
 	};
-	int idx = _act_count / 10;
+	int idx = _act_count / 2;
 	if ( idx > 22 ) {
 		idx = 22;
 	}
+	setAccelX( 0 );
 	setChipUV( DYING[ idx ], 13 );
 }
 
@@ -470,7 +477,7 @@ void Tarosuke::drawOverlapped( CameraConstPtr camera ) const {
 
 void Tarosuke::damage( ) {
 	if ( _action != ACTION_DEAD ) {
-		_action = ACTION_DEAD;
-		_act_count = 0;
+		//_action = ACTION_DEAD;
+		//_act_count = 0;
 	}
 }

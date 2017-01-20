@@ -8,6 +8,7 @@
 #include "PsychicMgr.h"
 #include "EnemyManager.h"
 #include "Status.h"
+#include "Sound.h"
 
 SceneStreet::SceneStreet( bool solo ) {
 	MapConstPtr map( new Map );
@@ -33,6 +34,9 @@ SceneStreet::SceneStreet( bool solo ) {
 	drawer->loadGraph( GRAPH_PSYCHIC			 , "psychic.png" );
 	drawer->loadGraph( GRAPH_ENEMY				 , "street/Enemy0.png" );
 	drawer->loadGraph( GRAPH_STATUS				 , "street/Yokai_UI_plate.png" );
+
+	SoundPtr sound = Sound::getTask( );
+	sound->playBGM( "yokai_music_10.wav" );
 }
 
 SceneStreet::~SceneStreet( ) {
@@ -44,7 +48,7 @@ Scene::NEXT SceneStreet::update( ) {
 	_camera->update( _tarosuke );
 	_enemy_mgr->update( _field, _camera, _tarosuke, _momotaro );
 	_psychic_mgr->update( _camera, _tarosuke );
-	_status->update( _camera, _momotaro );
+	_status->update( );
 	_field->update( _camera );
 
 	_field->draw( _camera );

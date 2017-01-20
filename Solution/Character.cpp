@@ -5,6 +5,8 @@
 #include "Camera.h"
 #include "Cloud.h"
 
+static const int MAX_FALL_SPEED = 30;
+
 Character::Character( int x, int y, int chip_graph, bool mass ) :
 _x( x ),
 _y( y ),
@@ -125,8 +127,8 @@ void Character::move( FieldPtr field ) {
 	}
 
 	_accel_y += GRAVITY_POWER;
-	if ( _accel_y > MAPCHIP_SIZE / 2 ) {
-		_accel_y = MAPCHIP_SIZE / 2;
+	if ( _accel_y > MAX_FALL_SPEED ) {
+		_accel_y = MAX_FALL_SPEED;
 	}
 
 	if ( _cloud ) { 

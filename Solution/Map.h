@@ -2,6 +2,9 @@
 
 #include "define.h"
 
+const int MAPCHIP_NUM = 16;
+const int MAPCHIP_SIZE = BG_SIZE / MAPCHIP_NUM;
+
 struct MAPDATA {
 	const char * filename;
 	const char chip[ MAPCHIP_NUM * MAPCHIP_NUM + 1 ];
