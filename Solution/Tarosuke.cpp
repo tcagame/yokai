@@ -195,6 +195,8 @@ void Tarosuke::actOnJumping( ) {
 	
 	_action = ACTION_FLOAT;
 	if ( ( device->getButton( ) & BUTTON_C ) == 0 ) {
+		SoundPtr sound = Sound::getTask( );
+		sound->playSE( "yokai_se_20.wav" );
 		return;
 	}
 	
