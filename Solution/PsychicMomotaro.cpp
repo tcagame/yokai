@@ -22,5 +22,5 @@ void PsychicMomotaro::act( ) {
 	}
 
 	int idx = _motion_count;
-	setChipUV( idx / 4 % 2, 3 );
+	setChipUV( idx % 8, 4 );
 }
