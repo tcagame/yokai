@@ -76,7 +76,7 @@ void EnemyManager::enemyCreate( unsigned int enemy_data, TarosukeConstPtr tarosu
 	}
 
 	if ( data & PURPLE ) {
-		_enemies.push_back( EnemyPtr( new EnemyPurpleYokai( _enemy_stock, tarosuke_x - 100, 400 ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyPurpleYokai( _enemy_stock, tarosuke_x - 100, 400, true ) ) );
 		_enemies.push_back( EnemyPtr( new EnemyPurpleYokai( _enemy_stock, tarosuke_x + 100, 400 ) ) );
 		_enemies.push_back( EnemyPtr( new EnemyPurpleYokai( _enemy_stock, tarosuke_x + 200, 400 ) ) );
 		_enemies.push_back( EnemyPtr( new EnemyPurpleYokai( _enemy_stock, tarosuke_x + 300, 400 ) ) );
