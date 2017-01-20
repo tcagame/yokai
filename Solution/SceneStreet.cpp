@@ -8,6 +8,7 @@
 #include "PsychicMgr.h"
 #include "EnemyManager.h"
 #include "Status.h"
+#include "Sound.h"
 
 SceneStreet::SceneStreet( bool solo ) {
 	MapConstPtr map( new Map );
@@ -34,6 +35,9 @@ SceneStreet::SceneStreet( bool solo ) {
 	drawer->loadGraph( GRAPH_ENEMY_REDBIRD		 , "street/enemy/Yokai_OBJ_enemy_RedBird.png" );
 	drawer->loadGraph( GRAPH_ENEMY_REDBIRD_ATTACK, "street/enemy/Yokai_OBJ_enemy_RedBird_attack.png" );
 	drawer->loadGraph( GRAPH_STATUS				 , "street/Yokai_UI_plate.png" );
+
+	SoundPtr sound = Sound::getTask( );
+	sound->playBGM( "yokai_music_10.wav" );
 }
 
 SceneStreet::~SceneStreet( ) {
