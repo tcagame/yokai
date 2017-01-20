@@ -487,7 +487,9 @@ void Tarosuke::drawOverlapped( CameraConstPtr camera ) const {
 }
 
 void Tarosuke::damage( ) {
+	SoundPtr sound = Sound::getTask( );
 	if ( _action != ACTION_DEAD ) {
+		sound->playBGM( "yokai_se_31.wav" );
 		_action = ACTION_DEAD;
 		_act_count = 0;
 	}
