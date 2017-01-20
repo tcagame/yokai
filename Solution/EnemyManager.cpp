@@ -21,10 +21,12 @@ EnemyManager::~EnemyManager( ) {
 
 void EnemyManager::update( FieldPtr field, CameraConstPtr camera, TarosukePtr tarosuke, MomotaroPtr momotaro ) {
 	EnemyPtr stock = _enemy_stock->getPopUp( );
-	enemyCreate( field->getEnemyData( ), ( TarosukeConstPtr )tarosuke, camera );
 	if ( stock ) {
 		_enemies.push_back( stock );
 	}
+
+	createByField( field->getEnemyData( ), camera );
+
 	std::list<EnemyPtr>::iterator ite = _enemies.begin( );
 	while ( ite != _enemies.end( ) ) {
 		EnemyPtr enemy = *ite;
@@ -57,7 +59,7 @@ void EnemyManager::draw( CameraPtr camera ) {
 bool EnemyManager::isOutSideScreenEnemy( EnemyPtr enemy, CameraConstPtr camera ) {
 	bool result = false;
 	int dead_left_side = camera->getX( );
-	int dead_right_side = dead_left_side + BG_SIZE * 3;
+	int dead_right_side = dead_left_side + BG_SIZE * BG_NUM;
 	int enemy_x = enemy->getX( );
 	int enemy_y = enemy->getY( );
 	int enemy_size = enemy->getSize( );
@@ -77,9 +79,10 @@ void EnemyManager::addEnemy( EnemyPtr enemy ) {
 	_enemies.push_back( enemy );
 }
 
-void EnemyManager::enemyCreate( unsigned int enemy_data, TarosukeConstPtr tarosuke, CameraConstPtr camera ) {
+void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera ) {
 	unsigned int data = enemy_data;
-	int pop_base_x = BG_SIZE * 2 + camera->getX( );
+	int pop_base_x = BG_SIZE * ( BG_NUM - 1 ) + camera->getX( );
+
 	if ( data & REDBIRD ) {
 		_enemies.push_back( EnemyPtr( new EnemyRedbird( _enemy_stock, pop_base_x, REDBIRD_POP_Y ) ) );
 	}

@@ -1,6 +1,7 @@
 #include "SceneTitle.h"
 #include "Tarosuke.h"
 #include "Drawer.h"
+#include "Sound.h"
 #include "Device.h"
 #include "Define.h"
 
@@ -50,6 +51,8 @@ void SceneTitle::act( ) {
 
 	DevicePtr device = Device::getTask( );
 	if ( device->getButton( ) != 0 ) {
+		SoundPtr sound = Sound::getTask( );
+		sound->playSE( "yokai_se_01.wav" );
 		_finish = true;
 	}
 

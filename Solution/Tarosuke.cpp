@@ -358,10 +358,11 @@ void Tarosuke::actOnDying( ) {
 		0, 1, 2, 3, 5, 4,
 		0, 1, 6, 7, 9,
 	};
-	int idx = _act_count / 10;
+	int idx = _act_count / 2;
 	if ( idx > 22 ) {
 		idx = 22;
 	}
+	setAccelX( 0 );
 	setChipUV( DYING[ idx ], 13 );
 }
 
@@ -478,7 +479,7 @@ void Tarosuke::drawOverlapped( CameraConstPtr camera ) const {
 
 void Tarosuke::damage( ) {
 	if ( _action != ACTION_DEAD ) {
-		_action = ACTION_DEAD;
-		_act_count = 0;
+		//_action = ACTION_DEAD;
+		//_act_count = 0;
 	}
 }
