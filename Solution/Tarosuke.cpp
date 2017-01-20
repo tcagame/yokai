@@ -91,6 +91,7 @@ void Tarosuke::act( ) {
 
 void Tarosuke::actOnStanding( ) {
 	DevicePtr device = Device::getTask( );
+	SoundPtr sound = Sound::getTask( );
 
 	if ( !isStanding( ) ) {
 		_action = ACTION_FLOAT;
@@ -143,7 +144,6 @@ void Tarosuke::actOnStanding( ) {
 
 	if ( device->getPush( ) == BUTTON_B ) {
 		if ( _momotaro ) {
-			SoundPtr sound = Sound::getTask( );
 			sound->playSE( "yokai_voice_06.wav" );
 			_action = ACTION_CALL;
 			_act_count = 0;
@@ -194,10 +194,10 @@ void Tarosuke::actOnStanding( ) {
 
 void Tarosuke::actOnJumping( ) {
 	DevicePtr device = Device::getTask( );
+	SoundPtr sound = Sound::getTask( );
 	
 	_action = ACTION_FLOAT;
 	if ( ( device->getButton( ) & BUTTON_C ) == 0 ) {
-		SoundPtr sound = Sound::getTask( );
 		sound->playSE( "yokai_voice_17.wav" );
 		return;
 	}
@@ -289,12 +289,12 @@ void Tarosuke::actOnBursting( ) {
 }
 
 void Tarosuke::actOnShooting( ) {
+	SoundPtr sound = Sound::getTask( );
 	_psychic_mgr->shoot( PsychicPtr( new PsychicTarosuke(
 		getX( ), getY( ) - SHOOT_FOOT, isChipReverse( ), _saving_power / ( CAPACITY_SAVING_POWER / 4 ) ) ) );
 	_saving_power = 0;
 	_action = ACTION_STAND;
 	
-	SoundPtr sound = Sound::getTask( );
 	sound->playSE( "yokai_se_20.wav" );
 }
 
@@ -367,6 +367,7 @@ void Tarosuke::actOnDying( ) {
 }
 
 void Tarosuke::updateChip( ) {
+	SoundPtr sound = Sound::getTask( );
 	setChipGraph( GRAPH_CHARACTER_1 );
 	const int _swim_sound_time = 3;
 	switch ( _action ) {
@@ -389,7 +390,6 @@ void Tarosuke::updateChip( ) {
 				idx = 0;
 			}
 			if ( _swim_sound_time == ( _act_count / 4 ) % 4 &&  getAccelX( ) != 0 ) {
-				SoundPtr sound = Sound::getTask( );
 				sound->playSE( "yokai_voice_14.wav" );
 			}
 			setChipUV( SWIM[ ( _act_count / 4 ) % 4 ] + idx, 3 );
@@ -487,7 +487,9 @@ void Tarosuke::drawOverlapped( CameraConstPtr camera ) const {
 }
 
 void Tarosuke::damage( ) {
+	SoundPtr sound = Sound::getTask( );
 	if ( _action != ACTION_DEAD ) {
+		sound->playBGM( "yokai_se_31.wav" );
 		_action = ACTION_DEAD;
 		_act_count = 0;
 	}
