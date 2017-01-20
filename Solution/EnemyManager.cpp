@@ -9,6 +9,9 @@
 #include "EnemyStock.h"
 #include "Field.h"
 
+static const int REDBIRD_POP_Y = 250;
+static const int PURPLE_POP_Y = 400;
+
 EnemyManager::EnemyManager( ) {
 	_enemy_stock = EnemyStockPtr( new EnemyStock );
 }
@@ -47,13 +50,13 @@ void EnemyManager::draw( CameraPtr camera ) {
 
 bool EnemyManager::isOutSideScreenEnemy( EnemyPtr enemy, CameraConstPtr camera ) {
 	bool result = false;
-	int screen_left_side = camera->getX( );
-	int screen_right_side = screen_left_side + SCREEN_WIDTH;
+	int dead_left_side = camera->getX( );
+	int dead_right_side = dead_left_side + BG_SIZE * 3;
 	int enemy_x = enemy->getX( );
 	int enemy_y = enemy->getY( );
 	int enemy_size = enemy->getSize( );
-	if ( enemy_x + enemy_size / 2 < screen_left_side ||
-		 enemy_x - enemy_size / 2 > screen_right_side ) {
+	if ( enemy_x + enemy_size / 2 < dead_left_side ||
+		 enemy_x - enemy_size / 2 > dead_right_side ) {
 		result = true;
 	}
 	if ( enemy_y - enemy_size < 0 ||
@@ -70,16 +73,16 @@ void EnemyManager::addEnemy( EnemyPtr enemy ) {
 
 void EnemyManager::enemyCreate( unsigned int enemy_data, TarosukeConstPtr tarosuke, CameraConstPtr camera ) {
 	unsigned int data = enemy_data;
-	int tarosuke_x = tarosuke->getX( );
+	int pop_base_x = BG_SIZE * 2 + camera->getX( );
 	if ( data & REDBIRD ) {
-		_enemies.push_back( EnemyPtr( new EnemyRedbird( _enemy_stock, camera->getX( ) + SCREEN_WIDTH * 7 / 8, 250 ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyRedbird( _enemy_stock, pop_base_x, REDBIRD_POP_Y ) ) );
 	}
 
 	if ( data & PURPLE ) {
-		_enemies.push_back( EnemyPtr( new EnemyPurpleYokai( _enemy_stock, tarosuke_x - 100, 400, true ) ) );
-		_enemies.push_back( EnemyPtr( new EnemyPurpleYokai( _enemy_stock, tarosuke_x + 100, 400 ) ) );
-		_enemies.push_back( EnemyPtr( new EnemyPurpleYokai( _enemy_stock, tarosuke_x + 200, 400 ) ) );
-		_enemies.push_back( EnemyPtr( new EnemyPurpleYokai( _enemy_stock, tarosuke_x + 300, 400 ) ) );
-		_enemies.push_back( EnemyPtr( new EnemyPurpleYokai( _enemy_stock, tarosuke_x + 400, 400 ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyPurpleYokai( _enemy_stock, pop_base_x	  , PURPLE_POP_Y ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyPurpleYokai( _enemy_stock, pop_base_x + 100, PURPLE_POP_Y ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyPurpleYokai( _enemy_stock, pop_base_x + 200, PURPLE_POP_Y ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyPurpleYokai( _enemy_stock, pop_base_x + 300, PURPLE_POP_Y ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyPurpleYokai( _enemy_stock, pop_base_x + 400, PURPLE_POP_Y ) ) );
 	}
 }
