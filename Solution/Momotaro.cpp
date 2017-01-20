@@ -78,6 +78,7 @@ void Momotaro::actOnHide( ) {
 
 void Momotaro::actOnMove( ) {
 	DevicePtr device = Device::getTask( );
+	SoundPtr sound = Sound::getTask( );
 	
 	Vector vec( device->getDirX( _device_num ), device->getDirY( _device_num ) );
 	
@@ -90,7 +91,6 @@ void Momotaro::actOnMove( ) {
 
 	_cool--;
 	if ( device->getButton( _device_num ) == BUTTON_A ) {
-		SoundPtr sound = Sound::getTask( );
 		sound->playSE( "yokai_se_27.wav" );
 		if ( _cool < 0 ) {
 			PsychicPtr psychic( new PsychicMomotaro( getX( ), getY( ), _shoot_x, _shoot_y ) ); 

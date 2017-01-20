@@ -49,9 +49,9 @@ Scene::NEXT SceneTitle::update( ) {
 void SceneTitle::act( ) {
 	_count++;
 
+	SoundPtr sound = Sound::getTask( );
 	DevicePtr device = Device::getTask( );
 	if ( device->getButton( ) != 0 ) {
-		SoundPtr sound = Sound::getTask( );
 		sound->playSE( "yokai_se_01.wav" );
 		_finish = true;
 	}
