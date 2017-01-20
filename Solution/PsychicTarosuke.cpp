@@ -2,7 +2,6 @@
 #include "mathmatics.h"
 
 static const int SPEED = 40;
-static const int CHIP_SIZE = 34 * 6;
 
 PsychicTarosuke::PsychicTarosuke( int x, int y, bool dir_right, int power ) :
 Psychic( x, y ),

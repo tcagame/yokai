@@ -4,10 +4,9 @@
 #include "Camera.h"
 
 static const int MOVE_SPEED = 30;
-static const int CHIP_SIZE = 34 * 6;
 
 Psychic::Psychic( int x, int y ) :
-Character( x, y, GRAPH_PSYCHIC, CHIP_SIZE, CHIP_SIZE / 2, false ) {
+Character( x, y, GRAPH_PSYCHIC, false ) {
 	_range_x = 0;
 	_finished = false;
 }

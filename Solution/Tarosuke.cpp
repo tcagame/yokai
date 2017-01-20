@@ -15,8 +15,6 @@ static const int START_Y = 200;
 static const int JUNP_PATTERN  = 2;
 static const int WALK_PATTERN = 8;
 static const int WAIT_TIME = 30;
-static const int CHIP_SIZE = 34 * 6;
-static const int CHIP_FOOT = 25;
 static const int MAX_SPEED = 15;
 static const int ACCEL_SPEED = 3;
 static const int BRAKE_SPEED = 6;
@@ -25,7 +23,7 @@ static const int SHOOT_FOOT = 80;
 static const int MOMO_SPEED = 15;
 
 Tarosuke::Tarosuke( PsychicMgrPtr psychic ) : 
-Character( START_X, START_Y, GRAPH_CHARACTER, CHIP_SIZE, CHIP_FOOT ) {
+Character( START_X, START_Y, GRAPH_CHARACTER_1 ) {
 	_psychic_mgr = psychic;
 	_jump_count = 0;
 	_action = ACTION_FLOAT;
@@ -317,7 +315,7 @@ void Tarosuke::actOnAppearring( ) {
 	if ( _act_count > 14 ) {
 		_action = ACTION_PRAY;
 		int x = getX( );
-		int y = getY( ) - CHIP_SIZE / 2 + CHIP_FOOT;
+		int y = getY( ) - CHIP_SIZE / 2;
 		if ( isChipReverse( ) ) {
 			x += CHIP_SIZE;
 		} else {
@@ -336,7 +334,7 @@ void Tarosuke::actOnPraying( ) {
 		0, 1, 0, 1, 0, 1, 0, 1, 2, 3,
 		6, 7, 7, 7, 7, 7, 7, 6, 3, 2,
 	};
-	setChipUV( CALL[ _act_count / 2 % 60 ], 5 );
+	setChipUV( CALL[ _act_count / 2 % 60 ], 6 );
 
 	DevicePtr device = Device::getTask( );
 	if ( device->getPush( ) == BUTTON_B ) {
@@ -375,11 +373,11 @@ void Tarosuke::updateChip( ) {
 			}
 		} else {
 			const int SWIM[ 4 ] = { 0, 1, 2, 1 };
-			int idx = 8;
+			int idx = 4;
 			if ( getAccelX( ) == 0 ) {
 				idx = 0;
 			}
-			setChipUV( SWIM[ ( _act_count / 4 ) % 4 ] + idx, 2 );
+			setChipUV( SWIM[ ( _act_count / 4 ) % 4 ] + idx, 3 );
 		}
 		break;
 	case ACTION_JUMP:
@@ -404,7 +402,7 @@ void Tarosuke::drawOverlapped( CameraConstPtr camera ) const {
 
 		int idx = ANIM[ _act_count / 2 % 8 ];
 		int tx = idx * CHIP_SIZE;
-		int ty =   7 * CHIP_SIZE;
+		int ty =   5 * CHIP_SIZE;
 
 		int sx1 = ( int )_momo_pos.x - camera->getX( ) - CHIP_SIZE / 2;
 		int sy1 = ( int )_momo_pos.y - camera->getY( ) - CHIP_SIZE / 2;
@@ -418,7 +416,7 @@ void Tarosuke::drawOverlapped( CameraConstPtr camera ) const {
 
 		DrawerPtr drawer = Drawer::getTask( );
 		Drawer::Transform trans( sx1, sy1, tx, ty, CHIP_SIZE, CHIP_SIZE, sx2, sy2 );
-		Drawer::Sprite sprite( trans, GRAPH_CHARACTER, Drawer::BLEND_NONE, 1.0 );
+		Drawer::Sprite sprite( trans, GRAPH_CHARACTER_2, Drawer::BLEND_NONE, 1.0 );
 		drawer->setSprite( sprite );
 		return;
 	}
@@ -435,7 +433,7 @@ void Tarosuke::drawOverlapped( CameraConstPtr camera ) const {
 		int ty =   8 * CHIP_SIZE;
 
 		int sx1 = getX( ) - camera->getX( ) - CHIP_SIZE / 2 - CHIP_SIZE;
-		int sy1 = getY( ) - camera->getY( ) - CHIP_SIZE + CHIP_FOOT;
+		int sy1 = getY( ) - camera->getY( ) - CHIP_SIZE;
 		int sx2 = sx1 + CHIP_SIZE;
 		int sy2 = sy1 + CHIP_SIZE;
 		if ( isChipReverse( ) ) {
@@ -448,7 +446,7 @@ void Tarosuke::drawOverlapped( CameraConstPtr camera ) const {
 
 		DrawerPtr drawer = Drawer::getTask( );
 		Drawer::Transform trans( sx1, sy1, tx, ty, CHIP_SIZE, CHIP_SIZE, sx2, sy2 );
-		Drawer::Sprite sprite( trans, GRAPH_CHARACTER, Drawer::BLEND_ADD, 1.0 );
+		Drawer::Sprite sprite( trans, GRAPH_CHARACTER_1, Drawer::BLEND_ADD, 1.0 );
 		drawer->setSprite( sprite );
 		return;
 	}
@@ -461,7 +459,7 @@ void Tarosuke::drawOverlapped( CameraConstPtr camera ) const {
 		int ty = (     idx / 4 ) * CHIP_SIZE;
 
 		int sx1 = getX( ) - camera->getX( ) - CHIP_SIZE / 2;
-		int sy1 = getY( ) - camera->getY( ) - CHIP_SIZE + CHIP_FOOT;
+		int sy1 = getY( ) - camera->getY( ) - CHIP_SIZE;
 
 		DrawerPtr drawer = Drawer::getTask( );
 		Drawer::Transform trans( sx1, sy1, tx, ty, CHIP_SIZE, CHIP_SIZE );

@@ -8,17 +8,15 @@
 #include "PsychicMomotaro.h"
 
 static const int MOVE_SPEED = 20;
-static const int MAX_CHIP_PATTERN = 7;
 static const int CHIP_MOMOTARO_NUM = 101;
 static const int START_X = -100;
 static const int START_Y = -100;
-static const int CHIP_SIZE = 34 * 6;
-static const int CHIP_FOOT = CHIP_SIZE / 2;
 static const int SHOOT_SPEED = 10;
 static const int COOL_TIME = 5;
+static const int WAIT_PATTERN_TIME = 10;
 
 Momotaro::Momotaro( CameraConstPtr camera, PsychicMgrPtr mgr ) :
-Character( START_X, START_Y, GRAPH_CHARACTER, CHIP_SIZE, CHIP_FOOT, false ),
+Character( START_X, START_Y, GRAPH_CHARACTER_2, false ),
 _camera( camera ),
 _psychic_mgr( mgr ) {
 	_shoot_x = SHOOT_SPEED;
@@ -68,12 +66,12 @@ void Momotaro::actOnHide( ) {
 	_vec = _vec.normalize( ) * ( length * 0.9 );
 	setAccelX( ( int )_vec.x );
 	setAccelY( ( int )_vec.y );
-	int idx = 10 - _act_count;
+	int idx = 8 - _act_count;
 	if ( idx < 0 ) {
-		idx = 10;
+		idx = 8;
 		setX( START_X );
 	}
-	setChipUV( idx, 8 );
+	setChipUV( idx % 8, 6 + idx / 8 );
 }
 
 void Momotaro::actOnMove( ) {
@@ -127,5 +125,5 @@ void Momotaro::actOnMove( ) {
 		_shoot_y = ( int )vec.y;
 	}
 
-	setChipUV( _act_count / 2 % 3 + 3, 7 );
+	setChipUV( _act_count / WAIT_PATTERN_TIME % 3 + 3, 5 );
 }

@@ -5,13 +5,13 @@
 #include "Camera.h"
 #include "Cloud.h"
 
-Character::Character( int x, int y, int chip_graph, int chip_size, int chip_foot, bool mass ) :
+Character::Character( int x, int y, int chip_graph, bool mass ) :
 _x( x ),
 _y( y ),
 _mass( mass ),
 _chip_graph( chip_graph ),
-_chip_size( chip_size ),
-_chip_foot( chip_foot ),
+_chip_size( CHIP_SIZE ),
+_chip_foot( 0 ),
 _chip_u( 0 ),
 _chip_v( 0 ),
 _accel_x( 0 ),
@@ -90,8 +90,8 @@ bool Character::isInWater( ) const {
 
 void Character::draw( CameraConstPtr camera, bool bright ) const {
 
-	int tx = _chip_u * _chip_size;
-	int ty = _chip_v * _chip_size;
+	int tx = _chip_u * _chip_size + 1;
+	int ty = _chip_v * _chip_size + 1;
 
 	int sx1 = getX( ) - camera->getX( ) - _chip_size / 2;
 	int sy1 = getY( ) - camera->getY( ) - _chip_size + _chip_foot;

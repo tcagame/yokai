@@ -2,8 +2,8 @@
 
 
 
-Enemy::Enemy( EnemyStockPtr enemy_stock, int x, int y, int chip_graph, int chip_size, int foot, bool mass ) :
-Character( x, y, chip_graph, chip_size, foot, mass ),
+Enemy::Enemy( EnemyStockPtr enemy_stock, int x, int y, int chip_graph,  bool mass ) :
+Character( x, y, chip_graph, mass ),
 _enemy_stock( enemy_stock ) {
 }
 
