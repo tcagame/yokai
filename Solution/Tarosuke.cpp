@@ -367,6 +367,7 @@ void Tarosuke::actOnDying( ) {
 }
 
 void Tarosuke::updateChip( ) {
+	const int _swim_sound_time = 3;
 	switch ( _action ) {
 	case ACTION_STAND:
 		if ( !isInWater( ) ) {
@@ -385,6 +386,10 @@ void Tarosuke::updateChip( ) {
 			int idx = 4;
 			if ( getAccelX( ) == 0 ) {
 				idx = 0;
+			}
+			if ( _swim_sound_time == ( _act_count / 4 ) % 4 &&  getAccelX( ) != 0 ) {
+				SoundPtr sound = Sound::getTask( );
+				sound->playSE( "yokai_voice_14.wav" );
 			}
 			setChipUV( SWIM[ ( _act_count / 4 ) % 4 ] + idx, 3 );
 		}
