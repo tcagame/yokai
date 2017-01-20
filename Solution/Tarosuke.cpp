@@ -141,6 +141,8 @@ void Tarosuke::actOnStanding( ) {
 
 	if ( device->getPush( ) == BUTTON_B ) {
 		if ( _momotaro ) {
+			SoundPtr sound = Sound::getTask( );
+			sound->playSE( "yokai_voice_06.wav" );
 			_action = ACTION_CALL;
 			_act_count = 0;
 			_momo_pos = Vector( getX( ), -CHIP_SIZE );
@@ -194,7 +196,7 @@ void Tarosuke::actOnJumping( ) {
 	_action = ACTION_FLOAT;
 	if ( ( device->getButton( ) & BUTTON_C ) == 0 ) {
 		SoundPtr sound = Sound::getTask( );
-		sound->playSE( "yokai_se_20.wav" );
+		sound->playSE( "yokai_se_17.wav" );
 		return;
 	}
 	
