@@ -2,6 +2,7 @@
 
 #include "smart_ptr.h"
 #include "define.h"
+#include "mathmatics.h"
 
 PTR( Camera );
 PTR( Field );
@@ -22,7 +23,9 @@ public:
 	bool isChipReverse( ) const;
 	bool isStanding( ) const;
 	bool isInWater( ) const;
-	void draw( CameraConstPtr camera, bool bright = false );
+	virtual double getOverlappedRadius( ) const;
+	virtual Vector getOverlapeedPos( ) const;
+	void draw( CameraConstPtr camera, bool bright = false ) const;
 protected:
 	void setX( int x );
 	void setY( int y );

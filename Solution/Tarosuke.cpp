@@ -470,3 +470,9 @@ void Tarosuke::drawOverlapped( CameraConstPtr camera ) const {
 	}
 }
 
+void Tarosuke::damage( ) {
+	if ( _action != ACTION_DEAD ) {
+		_action = ACTION_DEAD;
+		_act_count = 0;
+	}
+}

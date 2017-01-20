@@ -14,6 +14,7 @@ public:
 	virtual ~Tarosuke( );
 public:
 	void setSoloPlay( MomotaroPtr momotaro );
+	void damage( );
 private:
 	enum ACTION {
 		ACTION_STAND,

@@ -88,7 +88,7 @@ bool Character::isInWater( ) const {
 	return _in_water;
 }
 
-void Character::draw( CameraConstPtr camera, bool bright ) {
+void Character::draw( CameraConstPtr camera, bool bright ) const {
 
 	int tx = _chip_u * _chip_size;
 	int ty = _chip_v * _chip_size;
@@ -185,4 +185,12 @@ void Character::setAccelX( int accel_x ) {
 
 void Character::setAccelY( int accel_y ) {
 	_accel_y = accel_y;
+}
+
+double Character::getOverlappedRadius( ) const {
+	return _chip_size / 2 * 0.8;
+}
+
+Vector Character::getOverlapeedPos( ) const {
+	return Vector( _x, _y + _chip_foot - _chip_size / 2 );
 }

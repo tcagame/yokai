@@ -11,7 +11,7 @@
 EnemyManager::EnemyManager( ) {
 	_enemy_stock = EnemyStockPtr( new EnemyStock );
 	_enemies.push_back( EnemyPtr( new EnemyPurpleYokai( _enemy_stock, 1200, 204 ) ) );
-	_enemies.push_back( EnemyPtr( new EnemyRedbird( _enemy_stock, 250, 300 ) ) );
+	//_enemies.push_back( EnemyPtr( new EnemyRedbird( _enemy_stock, 250, 300 ) ) );
 }
 
 EnemyManager::~EnemyManager( ) {
@@ -24,11 +24,17 @@ void EnemyManager::update( FieldPtr field, CameraConstPtr camera, TarosukePtr ta
 	}
 	std::list<EnemyPtr>::iterator ite = _enemies.begin( );
 	while ( ite != _enemies.end( ) ) {
-		if ( isOutSideScreenEnemy( (*ite), camera ) ) {
+		EnemyPtr enemy = *ite;
+		if ( isOutSideScreenEnemy( enemy, camera ) ) {
 			ite = _enemies.erase( ite );
 			continue;
 		}
-		(*ite)->update( field );
+		enemy->update( field );
+
+		if ( enemy->isOverlapped( tarosuke ) ) {
+			tarosuke->damage( );
+		}
+
 		ite++;
 	}
 }
