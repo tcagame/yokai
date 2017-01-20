@@ -22,6 +22,7 @@ public:
 	void update( CameraConstPtr camera );
 	void draw( CameraConstPtr camera ) const;
 	Collision getCollision( int src_x, int src_y, int dst_x, int dst_y ) const;
+	unsigned int getEnemyData( );
 	bool isChip( int x, int y ) const;
 	bool isInWater( int x, int y ) const;
 private:
@@ -35,6 +36,7 @@ private:
 	int _scroll_x;
 	int _scroll_y;
 	int _idx;
+	unsigned int _enemy_data;
 	std::list< CloudPtr > _clouds;
 };
 

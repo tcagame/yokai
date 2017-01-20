@@ -9,6 +9,9 @@ const int CHARA_MOVE_RATIO = 10;
 const int GRAVITY_POWER = 3;
 const int CHIP_FOOT_BLANK = 25;
 
+const unsigned int PURPLE = 0x00000001;
+const unsigned int REDBIRD = 0x00000002;
+
 enum GRAPH {
 	GRAPH_PANEL,
 	GRAPH_FRAME,

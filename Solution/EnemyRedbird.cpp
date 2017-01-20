@@ -25,7 +25,7 @@ void EnemyRedbird::act( ) {
 }
 
 void EnemyRedbird::actMove( ) {
-	setAccelX( MOVE_SPEED );
+	setAccelX( -MOVE_SPEED );
 }
 
 void EnemyRedbird::actAttack( ) {
