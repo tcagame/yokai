@@ -35,6 +35,7 @@ protected:
 	void setChipUV( int u, int v );
 	void setChipSize( int size );
 	void setChipFoot( int foot );
+	void setChipGraph( GRAPH graph );
 private:
 	virtual void act( ) = 0;
 	void move( FieldPtr field );
