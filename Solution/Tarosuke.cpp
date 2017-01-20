@@ -399,7 +399,7 @@ void Tarosuke::updateChip( ) {
 	case ACTION_BURST:
 		{
 			const int TIRED[ 11 ] = { 0, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 };
-			setChipUV( 7 + TIRED[ _saving_power / 10 ], 4 );
+			setChipUV( ( 7 + TIRED[ _saving_power / 10 ] ) % 8, 4 + ( 7 + TIRED[ _saving_power / 10 ] ) / 8 );
 		}
 		break;
 	}
@@ -464,8 +464,8 @@ void Tarosuke::drawOverlapped( CameraConstPtr camera ) const {
 		int power = _saving_power / ( CAPACITY_SAVING_POWER / 6 );
 
 		int idx = power * 2 + _act_count % 2;
-		int tx = ( 3 + idx % 4 ) * CHIP_SIZE;
-		int ty = (     idx / 4 ) * CHIP_SIZE;
+		int tx = ( idx % 8 ) * CHIP_SIZE;
+		int ty = ( idx / 8 ) * CHIP_SIZE;
 
 		int sx1 = getX( ) - camera->getX( ) - CHIP_SIZE / 2;
 		int sy1 = getY( ) - camera->getY( ) - CHIP_SIZE;
