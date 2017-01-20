@@ -6,8 +6,6 @@ const int BG_SIZE = 512;
 const int BG_NUM = SCREEN_WIDTH / 512 + 2;
 const int CHARA_MOVE_RATIO = 10;
 const int GRAVITY_POWER = 3;
-const int CHIP_FOOT_BLANK = 25;
-const int CHIP_SIZE = 128;
 
 const unsigned int PURPLE = 0x00000001;
 const unsigned int REDBIRD = 0x00000002;

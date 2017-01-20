@@ -11,7 +11,7 @@ PTR( EnemyManager );
 
 class Character {
 public:
-	Character( int x, int y, int chip_graph, bool mass = true );
+	Character( int x, int y, int chip_graph, int chip_size, int chip_foot, bool mass = true );
 	virtual ~Character( );
 public:
 	virtual void update( FieldPtr field );

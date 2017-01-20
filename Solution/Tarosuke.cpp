@@ -21,10 +21,12 @@ static const int ACCEL_SPEED = 3;
 static const int BRAKE_SPEED = 6;
 static const int CAPACITY_SAVING_POWER = 40;
 static const int SHOOT_FOOT = 80;
-static const int MOMO_SPEED = 15;
+static const int MOMO_SPEED = 10;
+static const int CHIP_SIZE = 128;
+static const int CHIP_FOOT = 18;
 
 Tarosuke::Tarosuke( PsychicMgrPtr psychic ) : 
-Character( START_X, START_Y, GRAPH_CHARACTER_1 ) {
+Character( START_X, START_Y, GRAPH_CHARACTER_1, CHIP_SIZE, CHIP_FOOT ) {
 	_psychic_mgr = psychic;
 	_jump_count = 0;
 	_action = ACTION_FLOAT;

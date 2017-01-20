@@ -11,6 +11,6 @@ private:
 	void actMove( );
 	void updateChip( );
 private:
-	int anime_count;
+	int _act_count;
 };
 
