@@ -5,6 +5,7 @@
 
 Camera::Camera( MapConstPtr map ) :
 _map( map ) {
+	_y = BG_SIZE - SCREEN_HEIGHT;
 }
 
 Camera::~Camera( ) {
@@ -19,7 +20,6 @@ void Camera::update( TarosukeConstPtr tarosuke ) {
 		_x = _map->getLength( ) - SCREEN_WIDTH - 1;
 	}
 
-	_y = 48;
 }
 
 int Camera::getX( ) const {

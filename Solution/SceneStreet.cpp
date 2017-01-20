@@ -45,7 +45,7 @@ Scene::NEXT SceneStreet::update( ) {
 	_camera->update( _tarosuke );
 	_enemy_mgr->update( _field, _camera, _tarosuke, _momotaro );
 	_psychic_mgr->update( _camera, _tarosuke );
-	_status->update( _camera, _momotaro );
+	_status->update( );
 	_field->update( _camera );
 
 	_field->draw( _camera );

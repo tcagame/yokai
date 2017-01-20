@@ -9,8 +9,7 @@ class Status {
 public:
 	Status( );
 	virtual ~Status( );
-	void update( CameraConstPtr camera, MomotaroConstPtr momotaro );
+public:
+	void update( );
 	void draw( );
-private:
-	int _x;
 };

@@ -2,9 +2,7 @@
 
 const int SCREEN_WIDTH  = 1280;
 const int SCREEN_HEIGHT =  720;
-const int BG_SIZE = 768;
-const int MAPCHIP_NUM = 16;
-const int MAPCHIP_SIZE = BG_SIZE / MAPCHIP_NUM;
+const int BG_SIZE = 512;
 const int CHARA_MOVE_RATIO = 10;
 const int GRAVITY_POWER = 3;
 const int CHIP_FOOT_BLANK = 25;
