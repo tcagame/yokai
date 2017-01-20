@@ -24,6 +24,7 @@
     <ClCompile Include="Status.cpp" />
     <ClCompile Include="Tarosuke.cpp" />
     <ClCompile Include="EnemyStock.cpp" />
+    <ClCompile Include="EnemyMoth.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
@@ -49,5 +50,6 @@
     <ClInclude Include="Status.h" />
     <ClInclude Include="Tarosuke.h" />
     <ClInclude Include="EnemyStock.h" />
+    <ClInclude Include="EnemyMoth.h" />
   </ItemGroup>
 </Project>
