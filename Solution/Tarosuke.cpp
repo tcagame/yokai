@@ -6,6 +6,7 @@
 #include "Drawer.h"
 #include "PsychicTarosuke.h"
 #include "Momotaro.h"
+#include "Sound.h"
 
 static const int MAX_TAROSUKE_CHIP_NUM = 101;
 static const int JUMP_COUNT = 10;
@@ -290,6 +291,9 @@ void Tarosuke::actOnShooting( ) {
 		getX( ), getY( ) - SHOOT_FOOT, isChipReverse( ), _saving_power / ( CAPACITY_SAVING_POWER / 4 ) ) ) );
 	_saving_power = 0;
 	_action = ACTION_STAND;
+	
+	SoundPtr sound = Sound::getTask( );
+	sound->playSE( "yokai_se_20.wav" );
 }
 
 void Tarosuke::actOnCalling( ) {
