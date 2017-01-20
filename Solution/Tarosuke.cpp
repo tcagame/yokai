@@ -73,9 +73,19 @@ void Tarosuke::act( ) {
 	case ACTION_PRAY:
 		actOnPraying( );
 		break;
+	case ACTION_DEAD:
+		actOnDying( );
+		break;
 	}
 	
 	updateChip( );
+
+	// デバッグ
+	DevicePtr device = Device::getTask( );
+	if ( device->getPush( ) == BUTTON_D ) {
+		_action = ACTION_DEAD;
+		_act_count = 0;
+	}
 }
 
 void Tarosuke::actOnStanding( ) {
@@ -333,6 +343,20 @@ void Tarosuke::actOnPraying( ) {
 		_momotaro->hide( );
 		_action = ACTION_STAND;
 	}
+}
+
+void Tarosuke::actOnDying( ) {
+	const int DYING[ 23 ] = {
+		0, 1, 2, 3, 5, 4,
+		0, 1, 2, 3, 5, 4,
+		0, 1, 2, 3, 5, 4,
+		0, 1, 6, 7, 9,
+	};
+	int idx = _act_count / 10;
+	if ( idx > 22 ) {
+		idx = 22;
+	}
+	setChipUV( DYING[ idx ], 13 );
 }
 
 void Tarosuke::updateChip( ) {

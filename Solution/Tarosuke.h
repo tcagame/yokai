@@ -26,6 +26,7 @@ private:
 		ACTION_CALL,
 		ACTION_APPEAR,
 		ACTION_PRAY,
+		ACTION_DEAD,
 		ACTION_MAX
 	};
 private:
@@ -39,6 +40,7 @@ private:
 	void actOnCalling( );
 	void actOnAppearring( );
 	void actOnPraying( );
+	void actOnDying( );
 	void updateChip( );
 	void drawOverlapped( CameraConstPtr camera ) const;
 private:
