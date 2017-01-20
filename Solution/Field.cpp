@@ -34,16 +34,15 @@ void Field::scroll( CameraConstPtr camera ) {
 
 		DrawerPtr drawer = Drawer::getTask( );
 
-		for ( int i = 0; i < 3; i++ ) {
+		for ( int i = 0; i < BG_NUM; i++ ) {
 			drawer->unloadGraph( GRAPH_BG + i );
 		}
 
-		for ( int i = 0; i < 3; i++ ) {
+		for ( int i = 0; i < BG_NUM; i++ ) {
 			drawer->loadGraph( GRAPH_BG + i, _map->getFilename( _idx + i ) );
-			if ( i == 2 ) { // ‰E’[
-				_enemy_data = _map->getEnemyData( idx + i );
-			}
 		}
+
+		_enemy_data = _map->getEnemyData( idx + BG_NUM - 1 );
 	}
 
 	_scroll_x = idx * BG_SIZE - camera->getX( );
@@ -67,7 +66,7 @@ void Field::draw( CameraConstPtr camera ) const {
 void Field::drawBG( ) const {
 	DrawerPtr drawer = Drawer::getTask( );
 	
-	for ( int i = 0; i < 3; i++ ) {
+	for ( int i = 0; i < BG_NUM; i++ ) {
 		Drawer::Sprite sprite( 
 			Drawer::Transform( _scroll_x + i * BG_SIZE, _scroll_y ),
 			GRAPH_BG + i );
@@ -78,7 +77,7 @@ void Field::drawBG( ) const {
 void Field::drawChip( ) const {
 	DrawerPtr drawer = Drawer::getTask( );
 
-	for ( int i = 0; i < 3; i++ ) {
+	for ( int i = 0; i < BG_NUM; i++ ) {
 		int bg_idx = _idx + i;
 		for ( int j = 0; j < MAPCHIP_NUM * MAPCHIP_NUM; j++ ) {
 			bool b = _map->isChip( bg_idx, j );
