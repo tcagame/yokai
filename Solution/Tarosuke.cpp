@@ -363,7 +363,7 @@ void Tarosuke::actOnDying( ) {
 		idx = 22;
 	}
 	setAccelX( 0 );
-	setChipUV( DYING[ idx ], 13 );
+	setChipUV( DYING[ idx ] % 8, 3 + idx / 8 );// Character2.png
 }
 
 void Tarosuke::updateChip( ) {
@@ -438,8 +438,8 @@ void Tarosuke::drawOverlapped( CameraConstPtr camera ) const {
 			return;
 		}
 
-		int tx = idx * CHIP_SIZE;
-		int ty =   8 * CHIP_SIZE;
+		int tx = ( idx % 8     ) * CHIP_SIZE;
+		int ty = ( idx / 8 + 6 ) * CHIP_SIZE;
 
 		int sx1 = getX( ) - camera->getX( ) - CHIP_SIZE / 2 - CHIP_SIZE;
 		int sy1 = getY( ) - camera->getY( ) - CHIP_SIZE;
@@ -455,7 +455,7 @@ void Tarosuke::drawOverlapped( CameraConstPtr camera ) const {
 
 		DrawerPtr drawer = Drawer::getTask( );
 		Drawer::Transform trans( sx1, sy1, tx, ty, CHIP_SIZE, CHIP_SIZE, sx2, sy2 );
-		Drawer::Sprite sprite( trans, GRAPH_CHARACTER_1, Drawer::BLEND_ADD, 1.0 );
+		Drawer::Sprite sprite( trans, GRAPH_CHARACTER_2, Drawer::BLEND_ADD, 1.0 );
 		drawer->setSprite( sprite );
 		return;
 	}
@@ -479,7 +479,7 @@ void Tarosuke::drawOverlapped( CameraConstPtr camera ) const {
 
 void Tarosuke::damage( ) {
 	if ( _action != ACTION_DEAD ) {
-		//_action = ACTION_DEAD;
-		//_act_count = 0;
+		_action = ACTION_DEAD;
+		_act_count = 0;
 	}
 }

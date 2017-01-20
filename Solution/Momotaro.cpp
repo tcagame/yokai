@@ -13,7 +13,7 @@ static const int START_X = -100;
 static const int START_Y = -100;
 static const int SHOOT_SPEED = 10;
 static const int COOL_TIME = 5;
-static const int WAIT_PATTERN_TIME = 10;
+static const int WAIT_PATTERN_TIME = 3;
 static const int CHIP_SIZE = 128;
 
 Momotaro::Momotaro( CameraConstPtr camera, PsychicMgrPtr mgr ) :
