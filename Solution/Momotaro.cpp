@@ -6,6 +6,7 @@
 #include "mathmatics.h"
 #include "PsychicMgr.h"
 #include "PsychicMomotaro.h"
+#include "Sound.h"
 
 static const int MOVE_SPEED = 20;
 static const int CHIP_MOMOTARO_NUM = 101;
@@ -89,6 +90,8 @@ void Momotaro::actOnMove( ) {
 
 	_cool--;
 	if ( device->getButton( _device_num ) == BUTTON_A ) {
+		SoundPtr sound = Sound::getTask( );
+		sound->playSE( "yokai_se_27.wav" );
 		if ( _cool < 0 ) {
 			PsychicPtr psychic( new PsychicMomotaro( getX( ), getY( ), _shoot_x, _shoot_y ) ); 
 			_psychic_mgr->shoot( psychic );
