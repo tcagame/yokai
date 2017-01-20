@@ -363,11 +363,12 @@ void Tarosuke::actOnDying( ) {
 		idx = 22;
 	}
 	setAccelX( 0 );
-	setChipUV( DYING[ idx ] % 8, 3 + idx / 8 );// Character2.png
+	setChipUV( DYING[ idx ] % 8, DYING[ idx ] / 8 + 3 );// Character2.png
 }
 
 void Tarosuke::updateChip( ) {
 	SoundPtr sound = Sound::getTask( );
+	setChipGraph( GRAPH_CHARACTER_1 );
 	const int _swim_sound_time = 3;
 	switch ( _action ) {
 	case ACTION_STAND:
@@ -406,6 +407,9 @@ void Tarosuke::updateChip( ) {
 			const int TIRED[ 11 ] = { 0, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 };
 			setChipUV( ( 7 + TIRED[ _saving_power / 10 ] ) % 8, 4 + ( 7 + TIRED[ _saving_power / 10 ] ) / 8 );
 		}
+		break;
+	case ACTION_DEAD:
+		setChipGraph( GRAPH_CHARACTER_2 );
 		break;
 	}
 }
