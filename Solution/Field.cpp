@@ -6,7 +6,8 @@
 #include "Cloud.h"
 
 Field::Field( MapConstPtr map ) :
-_map( map ) {
+_map( map ),
+_enemy_data( 0 ) {
 	_idx = -1;
 	_scroll_x = 0;
 	_scroll_y = -48; // 最終的にはカメラから取得
@@ -39,6 +40,9 @@ void Field::scroll( CameraConstPtr camera ) {
 
 		for ( int i = 0; i < 3; i++ ) {
 			drawer->loadGraph( GRAPH_BG + i, _map->getFilename( _idx + i ) );
+			if ( i == 2 ) { // 右端
+				_enemy_data = _map->getEnemyData( idx + i );
+			}
 		}
 	}
 
@@ -167,5 +171,11 @@ Field::Collision Field::getCollision( int src_x, int src_y, int dst_x, int dst_y
 	}
 
 	return collision;
+}
+
+unsigned int Field::getEnemyData( ) {
+	unsigned int enemy_data = _enemy_data;
+	_enemy_data = 0x00000000;
+	return enemy_data;
 }
 

@@ -7,6 +7,9 @@
 #include "Tarosuke.h"
 #include "Momotaro.h"
 #include "EnemyStock.h"
+#include "Field.h"
+
+static const int ENEMY_POP_SCREEN_X = 1300;
 
 EnemyManager::EnemyManager( ) {
 	_enemy_stock = EnemyStockPtr( new EnemyStock );
@@ -19,6 +22,7 @@ EnemyManager::~EnemyManager( ) {
 
 void EnemyManager::update( FieldPtr field, CameraConstPtr camera, TarosukePtr tarosuke, MomotaroPtr momotaro ) {
 	EnemyPtr stock = _enemy_stock->getPopUp( );
+	enemyCreate( field->getEnemyData( ), camera );
 	if ( stock ) {
 		_enemies.push_back( stock );
 	}
@@ -66,4 +70,16 @@ bool EnemyManager::isOutSideScreenEnemy( EnemyPtr enemy, CameraConstPtr camera )
 
 void EnemyManager::addEnemy( EnemyPtr enemy ) {
 	_enemies.push_back( enemy );
+}
+
+void EnemyManager::enemyCreate( unsigned int enemy_data, CameraConstPtr camera ) {
+	unsigned int data = enemy_data;
+	int pop_x = camera->getX( ) + ENEMY_POP_SCREEN_X;
+	if ( data & REDBIRD ) {
+		_enemies.push_back( EnemyPtr( new EnemyRedbird( _enemy_stock, pop_x, 250 ) ) );
+	}
+
+	if ( data & PURPLE ) {
+		_enemies.push_back( EnemyPtr( new EnemyPurpleYokai( _enemy_stock, pop_x, 400 ) ) );
+	}
 }
