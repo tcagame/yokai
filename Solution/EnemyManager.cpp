@@ -9,12 +9,8 @@
 #include "EnemyStock.h"
 #include "Field.h"
 
-static const int ENEMY_POP_SCREEN_X = 1300;
-
 EnemyManager::EnemyManager( ) {
 	_enemy_stock = EnemyStockPtr( new EnemyStock );
-	_enemies.push_back( EnemyPtr( new EnemyPurpleYokai( _enemy_stock, 1200, 204 ) ) );
-	_enemies.push_back( EnemyPtr( new EnemyRedbird( _enemy_stock, 250, 300 ) ) );
 }
 
 EnemyManager::~EnemyManager( ) {
@@ -22,7 +18,7 @@ EnemyManager::~EnemyManager( ) {
 
 void EnemyManager::update( FieldPtr field, CameraConstPtr camera, TarosukePtr tarosuke, MomotaroPtr momotaro ) {
 	EnemyPtr stock = _enemy_stock->getPopUp( );
-	enemyCreate( field->getEnemyData( ), camera );
+	enemyCreate( field->getEnemyData( ), ( TarosukeConstPtr )tarosuke, camera );
 	if ( stock ) {
 		_enemies.push_back( stock );
 	}
@@ -72,14 +68,18 @@ void EnemyManager::addEnemy( EnemyPtr enemy ) {
 	_enemies.push_back( enemy );
 }
 
-void EnemyManager::enemyCreate( unsigned int enemy_data, CameraConstPtr camera ) {
+void EnemyManager::enemyCreate( unsigned int enemy_data, TarosukeConstPtr tarosuke, CameraConstPtr camera ) {
 	unsigned int data = enemy_data;
-	int pop_x = camera->getX( ) + ENEMY_POP_SCREEN_X;
+	int tarosuke_x = tarosuke->getX( );
 	if ( data & REDBIRD ) {
-		_enemies.push_back( EnemyPtr( new EnemyRedbird( _enemy_stock, pop_x, 250 ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyRedbird( _enemy_stock, camera->getX( ) + SCREEN_WIDTH * 7 / 8, 250 ) ) );
 	}
 
 	if ( data & PURPLE ) {
-		_enemies.push_back( EnemyPtr( new EnemyPurpleYokai( _enemy_stock, pop_x, 400 ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyPurpleYokai( _enemy_stock, tarosuke_x - 100, 400 ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyPurpleYokai( _enemy_stock, tarosuke_x + 100, 400 ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyPurpleYokai( _enemy_stock, tarosuke_x + 200, 400 ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyPurpleYokai( _enemy_stock, tarosuke_x + 300, 400 ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyPurpleYokai( _enemy_stock, tarosuke_x + 400, 400 ) ) );
 	}
 }

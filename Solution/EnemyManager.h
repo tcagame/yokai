@@ -19,7 +19,7 @@ public:
 protected:
 	void addEnemy( EnemyPtr enemy );
 private:
-	void enemyCreate( unsigned int enemy_data, CameraConstPtr camera );
+	void enemyCreate( unsigned int enemy_data, TarosukeConstPtr tarosuke, CameraConstPtr camera );
 private:
 	std::list< EnemyPtr > _enemies;
 	EnemyStockPtr _enemy_stock;
