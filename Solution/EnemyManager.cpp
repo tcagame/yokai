@@ -9,10 +9,13 @@
 #include "EnemyRedbird.h"
 #include "EnemyRedbirdAttack.h"
 #include "EnemyMoth.h"
+#include "EnemyTree.h"
 
+static const int PURPLE_POP_NUM = 5;
 static const int REDBIRD_POP_Y = 250;
 static const int PURPLE_POP_Y = 400;
 static const int MOTH_POP_Y = 230;
+static const int TREE_POP_Y = 400;
 
 EnemyManager::EnemyManager( ) {
 	_enemy_stock = EnemyStockPtr( new EnemyStock );
@@ -90,14 +93,16 @@ void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera
 	}
 
 	if ( data & PURPLE ) {
-		_enemies.push_back( EnemyPtr( new EnemyPurpleYokai( _enemy_stock, pop_base_x	  , PURPLE_POP_Y ) ) );
-		_enemies.push_back( EnemyPtr( new EnemyPurpleYokai( _enemy_stock, pop_base_x + 100, PURPLE_POP_Y ) ) );
-		_enemies.push_back( EnemyPtr( new EnemyPurpleYokai( _enemy_stock, pop_base_x + 200, PURPLE_POP_Y ) ) );
-		_enemies.push_back( EnemyPtr( new EnemyPurpleYokai( _enemy_stock, pop_base_x + 300, PURPLE_POP_Y ) ) );
-		_enemies.push_back( EnemyPtr( new EnemyPurpleYokai( _enemy_stock, pop_base_x + 400, PURPLE_POP_Y ) ) );
+		for ( int i = 0; i < PURPLE_POP_NUM; i++ ) {
+			_enemies.push_back( EnemyPtr( new EnemyPurpleYokai( _enemy_stock, pop_base_x + ( i * 100 ), PURPLE_POP_Y ) ) );
+		}
 	}
 	if ( data & MOTH ) {
 		_enemies.push_back( EnemyPtr( new EnemyMoth( _enemy_stock, pop_base_x, MOTH_POP_Y ) ) );
 		_enemies.push_back( EnemyPtr( new EnemyMoth( _enemy_stock, pop_base_x + 200, MOTH_POP_Y + 30 ) ) );
+	}
+
+	if ( data & TREE ) {
+		_enemies.push_back( EnemyPtr( new EnemyTree( _enemy_stock, pop_base_x, TREE_POP_Y ) ) );
 	}
 }

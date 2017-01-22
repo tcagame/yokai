@@ -10,6 +10,7 @@ const int GRAVITY_POWER = 3;
 const unsigned int PURPLE = 0x00000001;
 const unsigned int REDBIRD = 0x00000002;
 const unsigned int MOTH = 0x00000004;
+const unsigned int TREE = 0x00000008;
 
 enum GRAPH {
 	GRAPH_PANEL,
@@ -19,6 +20,7 @@ enum GRAPH {
 	GRAPH_CHARACTER_2,
 	GRAPH_ENEMY,
 	GRAPH_ENEMY_SMALL,
+	GRAPH_ENEMY_TREE,
 	GRAPH_BG,
 	GRAPH_BG_1,
 	GRAPH_BG_2,
