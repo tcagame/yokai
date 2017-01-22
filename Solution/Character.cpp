@@ -17,7 +17,8 @@ _chip_foot( chip_foot ),
 _chip_u( 0 ),
 _chip_v( 0 ),
 _accel_x( 0 ),
-_accel_y( 0 ) {
+_accel_y( 0 ),
+_dead( false ) {
 }
 
 Character::~Character( ) {
@@ -76,6 +77,9 @@ void Character::setChipGraph( GRAPH graph ) {
 	_chip_graph = graph;
 }
 
+void Character::setDead( bool dead ) {
+	_dead = dead;
+}
 
 void Character::update( FieldPtr field ) {
 	setInWater( field );
@@ -93,6 +97,10 @@ void Character::setInWater( FieldPtr field ) {
 
 bool Character::isInWater( ) const {
 	return _in_water;
+}
+
+bool Character::isDead( ) const {
+	return _dead;
 }
 
 void Character::draw( CameraConstPtr camera, bool bright ) const {
@@ -165,7 +173,7 @@ void Character::move( FieldPtr field ) {
 	}
 
 	if ( _cloud ) {
-		dst_y = _cloud->getY( ) - 1;
+		dst_y = _cloud->getY( ) - _cloud->getHeight( ) / 2 + _cloud->getBlank( ) - 1;
 		_standing = true;
 	}
 

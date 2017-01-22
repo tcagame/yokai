@@ -11,6 +11,7 @@ public:
 	virtual ~Enemy( );
 public:
 	bool isOverlapped( CharacterPtr target );
+	void damage( );
 protected:
 	EnemyStockPtr getEnemyStock( );
 private:
