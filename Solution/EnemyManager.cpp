@@ -32,7 +32,8 @@ void EnemyManager::update( FieldPtr field, CameraConstPtr camera, TarosukePtr ta
 	std::list<EnemyPtr>::iterator ite = _enemies.begin( );
 	while ( ite != _enemies.end( ) ) {
 		EnemyPtr enemy = *ite;
-		if ( isOutSideScreenEnemy( enemy, camera ) ) {
+		if ( isOutSideScreenEnemy( enemy, camera ) ||
+			 enemy->isDead( ) ) {
 			ite = _enemies.erase( ite );
 			continue;
 		}
@@ -75,6 +76,10 @@ bool EnemyManager::isOutSideScreenEnemy( EnemyPtr enemy, CameraConstPtr camera )
 	}
 
 	return result;
+}
+
+std::list< EnemyPtr > EnemyManager::getEnemyList( ) {
+	return _enemies;
 }
 
 void EnemyManager::addEnemy( EnemyPtr enemy ) {
