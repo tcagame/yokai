@@ -23,6 +23,7 @@ public:
 	bool isChipReverse( ) const;
 	bool isStanding( ) const;
 	bool isInWater( ) const;
+	bool isDead( ) const;
 	virtual double getOverlappedRadius( ) const;
 	virtual Vector getOverlapeedPos( ) const;
 	void draw( CameraConstPtr camera, bool bright = false ) const;
@@ -36,6 +37,7 @@ protected:
 	void setChipSize( int size );
 	void setChipFoot( int foot );
 	void setChipGraph( GRAPH graph );
+	void setDead( bool dead );
 private:
 	virtual void act( ) = 0;
 	void move( FieldPtr field );
@@ -57,4 +59,5 @@ private:
 	int  _chip_size;
 	int  _chip_foot;
 	bool _chip_reverse;
+	bool _dead;
 };
