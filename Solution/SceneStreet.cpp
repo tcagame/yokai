@@ -9,29 +9,31 @@
 #include "EnemyManager.h"
 #include "Status.h"
 #include "Sound.h"
+#include "Power.h"
 
 SceneStreet::SceneStreet( bool solo ) {
 	MapConstPtr map( new Map );
 	_field = FieldPtr( new Field( map ) );
 
+	_power = PowerPtr( new Power );
 	_camera = CameraPtr( new Camera( map ) );
 	_psychic_mgr = PsychicMgrPtr( new PsychicMgr );
-	_tarosuke = TarosukePtr( new Tarosuke( _psychic_mgr ) );
-	_momotaro = MomotaroPtr( new Momotaro( _camera, _psychic_mgr ) );
+	_tarosuke = TarosukePtr( new Tarosuke( _psychic_mgr, _power ) );
+	_momotaro = MomotaroPtr( new Momotaro( _camera, _psychic_mgr, _power ) );
 	_enemy_mgr = EnemyManagerPtr( new EnemyManager );
-	_status = StatusPtr( new Status );
+	_status = StatusPtr( new Status( _power ) );
 	
 	if ( solo ) {
 		_tarosuke->setSoloPlay( _momotaro );
 	}
 
 	DrawerPtr drawer = Drawer::getTask( );
-	drawer->loadGraph( GRAPH_CHARACTER_1		 , "street/Character/Character1.png" );
-	drawer->loadGraph( GRAPH_CHARACTER_2		 , "street/Character/Character2.png" );
+	drawer->loadGraph( GRAPH_CHARACTER_1		 , "Character/Character1.png" );
+	drawer->loadGraph( GRAPH_CHARACTER_2		 , "Character/Character2.png" );
+	drawer->loadGraph( GRAPH_PSYCHIC			 , "Character/psychic.png" );
 	drawer->loadGraph( GRAPH_CLOUD_BIG			 , "street/cloud/Yokai_OBJ_cloud1.png" ); 
 	drawer->loadGraph( GRAPH_CLOUD_SMALL		 , "street/cloud/Yokai_OBJ_cloud2.png" );
 	drawer->loadGraph( GRAPH_MAPCHIPGUIDE		 , "street/mapchipguide.png" );
-	drawer->loadGraph( GRAPH_PSYCHIC			 , "psychic.png" );
 	drawer->loadGraph( GRAPH_ENEMY				 , "street/Enemy0.png" );
 	drawer->loadGraph( GRAPH_ENEMY_SMALL		 , "street/enemy_small.png" );
 	drawer->loadGraph( GRAPH_ENEMY_TREE			 , "street/enemy_tree.png" );

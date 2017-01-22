@@ -4,14 +4,16 @@
 #include "mathmatics.h"
 
 PTR( PsychicMgr );
+PTR( Power );
 
 class Momotaro : public Character {
 public:
-	Momotaro( CameraConstPtr camera, PsychicMgrPtr mgr );
+	Momotaro( CameraConstPtr camera, PsychicMgrPtr mgr, PowerPtr _power );
 	virtual ~Momotaro( );
 public:
 	void hide( );
 	void appear( int x, int y, bool reverse );
+	void damage( int pow );
 private:
 	enum ACTION {
 		ACTION_HIDE,
@@ -24,6 +26,7 @@ private:
 private:
 	CameraConstPtr _camera;
 	PsychicMgrPtr _psychic_mgr;
+	PowerPtr _power;
 	ACTION _action;
 	int _shoot_x;
 	int _shoot_y;
@@ -31,4 +34,5 @@ private:
 	Vector _vec;
 	int _device_num;
 	int _act_count;
+	int _falter_count;
 };

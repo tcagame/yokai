@@ -11,7 +11,7 @@ PTR( EnemyManager );
 
 class Character {
 public:
-	Character( int x, int y, int chip_graph, int chip_size, int chip_foot, bool mass = true );
+	Character( int x, int y, int chip_size, int chip_foot, bool mass );
 	virtual ~Character( );
 public:
 	virtual void update( FieldPtr field );
@@ -33,10 +33,9 @@ protected:
 	void setAccelX( int accel_x );
 	void setAccelY( int accel_y );
 	void setChipReverse( bool reverse );
-	void setChipUV( int u, int v );
+	void setChipGraph( GRAPH graph, int u, int v );
 	void setChipSize( int size );
 	void setChipFoot( int foot );
-	void setChipGraph( GRAPH graph );
 	void setDead( bool dead );
 private:
 	virtual void act( ) = 0;

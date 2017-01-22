@@ -7,6 +7,7 @@
 #include "PsychicMgr.h"
 #include "PsychicMomotaro.h"
 #include "Sound.h"
+#include "Power.h"
 
 static const int MOVE_SPEED = 20;
 static const int CHIP_MOMOTARO_NUM = 101;
@@ -16,17 +17,20 @@ static const int SHOOT_SPEED = 10;
 static const int COOL_TIME = 5;
 static const int WAIT_PATTERN_TIME = 3;
 static const int CHIP_SIZE = 128;
+static const int FALTER_COUNT = 30;
 
-Momotaro::Momotaro( CameraConstPtr camera, PsychicMgrPtr mgr ) :
-Character( START_X, START_Y, GRAPH_CHARACTER_2, CHIP_SIZE, CHIP_SIZE / 2, false ),
+Momotaro::Momotaro( CameraConstPtr camera, PsychicMgrPtr mgr, PowerPtr power ) :
+Character( START_X, START_Y, CHIP_SIZE, CHIP_SIZE / 2, false ),
 _camera( camera ),
-_psychic_mgr( mgr ) {
+_psychic_mgr( mgr ),
+_power( power ) {
 	_shoot_x = SHOOT_SPEED;
 	_shoot_y = 0;
 	_cool = 0;
 	_device_num = DEVICE_2;
 	_action = ACTION_MOVE;
 	_act_count = 0;
+	_falter_count = 0;
 }
 
 Momotaro::~Momotaro( ) {
@@ -40,6 +44,7 @@ void Momotaro::hide( ) {
 
 void Momotaro::appear( int x, int y, bool reverse ) {
 	_device_num = DEVICE_1;
+	_falter_count = 0;
 	setX( x );
 	setY( y );
 	_action = ACTION_MOVE;
@@ -73,7 +78,7 @@ void Momotaro::actOnHide( ) {
 		idx = 8;
 		setX( START_X );
 	}
-	setChipUV( idx % 8, 6 + idx / 8 );
+	setChipGraph( GRAPH_CHARACTER_2, idx % 8, 6 + idx / 8 );
 }
 
 void Momotaro::actOnMove( ) {
@@ -129,5 +134,23 @@ void Momotaro::actOnMove( ) {
 		_shoot_y = ( int )vec.y;
 	}
 
-	setChipUV( _act_count / WAIT_PATTERN_TIME % 3 + 3, 5 );
+	_falter_count --;
+	if ( _falter_count < 0 ) {
+		_falter_count = 0;
+	}
+
+	if ( _falter_count % 2 == 0 ) {
+		setChipGraph( GRAPH_CHARACTER_2, _act_count / WAIT_PATTERN_TIME % 3 + 3, 5 );
+	} else {
+		setChipGraph( GRAPH_CHARACTER_2, 7, 7 );
+	}
+}
+
+void Momotaro::damage( int pow ) {
+	if ( _action != ACTION_MOVE || _falter_count > 0 ) {
+		return;
+	}
+
+	_falter_count = FALTER_COUNT;
+	_power->decrease( pow );
 }

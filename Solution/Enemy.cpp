@@ -3,8 +3,8 @@
 
 PTR( Psychic );
 
-Enemy::Enemy( EnemyStockPtr enemy_stock, int x, int y, int chip_graph, int chip_size, int chip_foot, bool mass ) :
-Character( x, y, chip_graph, chip_size, chip_foot, mass ),
+Enemy::Enemy( EnemyStockPtr enemy_stock, int x, int y, int chip_size, int chip_foot, bool mass ) :
+Character( x, y, chip_size, chip_foot, mass ),
 _enemy_stock( enemy_stock ) {
 }
 

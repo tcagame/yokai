@@ -7,6 +7,7 @@
 #include "PsychicTarosuke.h"
 #include "Momotaro.h"
 #include "Sound.h"
+#include "Power.h"
 
 static const int MAX_TAROSUKE_CHIP_NUM = 101;
 static const int JUMP_COUNT = 10;
@@ -24,9 +25,11 @@ static const int SHOOT_FOOT = 30;
 static const int MOMO_SPEED = 10;
 static const int CHIP_SIZE = 128;
 static const int CHIP_FOOT = 18;
+static const int FALTER_COUNT = 6;
 
-Tarosuke::Tarosuke( PsychicMgrPtr psychic ) : 
-Character( START_X, START_Y, GRAPH_CHARACTER_1, CHIP_SIZE, CHIP_FOOT ) {
+Tarosuke::Tarosuke( PsychicMgrPtr psychic, PowerPtr power ) : 
+Character( START_X, START_Y, CHIP_SIZE, CHIP_FOOT, true ),
+_power( power ) {
 	_psychic_mgr = psychic;
 	_jump_count = 0;
 	_action = ACTION_FLOAT;
@@ -59,6 +62,9 @@ void Tarosuke::act( ) {
 	case ACTION_BRAKE:
 		actOnBraking( );
 		break;
+	case ACTION_FALTER:
+		actOnFaltering( );
+		break;
 	case ACTION_SHOOT:
 		actOnShooting( );
 		break;
@@ -79,7 +85,16 @@ void Tarosuke::act( ) {
 		break;
 	}
 	
-	updateChip( );
+	if ( _action != ACTION_DEAD && _power->get( ) == 0 ) {
+		SoundPtr sound = Sound::getTask( );
+		sound->playBGM( "yokai_se_31.wav" );
+		_action = ACTION_DEAD;
+		_act_count = 0;
+		if ( _momotaro ) {
+			_momotaro->hide( );
+		}
+		return;
+	}
 
 	// デバッグ
 	DevicePtr device = Device::getTask( );
@@ -190,6 +205,33 @@ void Tarosuke::actOnStanding( ) {
 			}
 		}
 	}
+
+	if ( !isInWater( ) ) {
+		if ( getAccelX( ) == 0 ) {
+			if ( _saving_power == 0 ) {
+				setChipGraph( GRAPH_CHARACTER_1, 0, 0 );
+			} else {
+				setChipGraph( GRAPH_CHARACTER_1, _saving_power / ( CAPACITY_SAVING_POWER / 7 ), 4 );
+			}
+		} else {
+			const int WALK[ WALK_PATTERN ] = { 1, 2, 1, 0, 3, 4, 3, 0 };
+			int u = WALK[ ( getX( ) / WAIT_TIME ) % WALK_PATTERN ];
+			setChipGraph( GRAPH_CHARACTER_1, u, 0 );
+			if ( _act_count % ( WAIT_TIME * WALK_PATTERN / 2 ) == 0 ) {
+				sound->playSE( "yokai_voice_15.wav" );
+			}
+		}
+	} else {
+		const int SWIM[ 4 ] = { 0, 1, 2, 1 };
+		int u = SWIM[ ( _act_count / 4 ) % 4 ];
+		if ( getAccelX( ) != 0 ) {
+			u += 4;
+			if ( _act_count % ( 4 * 4 / 2 ) == 0 ) {
+				sound->playSE( "yokai_voice_14.wav" );
+			}
+		}
+		setChipGraph( GRAPH_CHARACTER_1, u, 3 );
+	}
 }
 
 void Tarosuke::actOnJumping( ) {
@@ -212,6 +254,8 @@ void Tarosuke::actOnJumping( ) {
 	}
 	_action = ACTION_JUMP;
 	setAccelY( -JUMP_POWER );
+
+	setChipGraph( GRAPH_CHARACTER_1, 5, 0 );
 }
 
 void Tarosuke::actOnBraking( ) {
@@ -278,6 +322,7 @@ void Tarosuke::actOnFloating( ) {
 	}
 
 	setAccelX( ax );
+	setChipGraph( GRAPH_CHARACTER_1, 6, 0 );
 }
 
 void Tarosuke::actOnBursting( ) {
@@ -286,21 +331,45 @@ void Tarosuke::actOnBursting( ) {
 		_saving_power = 0;
 		_action = ACTION_STAND;
 	}
+	const int TIRED[ 11 ] = { 0, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 };
+	setChipGraph( GRAPH_CHARACTER_1, ( 7 + TIRED[ _saving_power / 10 ] ) % 8, 4 + ( 7 + TIRED[ _saving_power / 10 ] ) / 8 );
+}
+
+void Tarosuke::actOnFaltering( ) {
+	if ( _act_count % 2 ) {
+		if ( isInWater( ) ) {
+			setChipGraph( GRAPH_CHARACTER_2, 0, 0 );
+		} else {
+			setChipGraph( GRAPH_CHARACTER_2, 0, 2 );
+		}
+	} else {
+		setChipGraph( GRAPH_CHARACTER_2, 7, 7 );
+	}
+
+	if ( isChipReverse( ) ) {
+		setAccelX( MAX_SPEED );
+	} else {
+		setAccelX( -MAX_SPEED );
+	}
+
+	if ( _act_count > FALTER_COUNT ) {
+		_action = ACTION_STAND;
+	}
 }
 
 void Tarosuke::actOnShooting( ) {
-	SoundPtr sound = Sound::getTask( );
 	_psychic_mgr->shoot( PsychicPtr( new PsychicTarosuke(
 		getX( ), getY( ) - SHOOT_FOOT, isChipReverse( ), _saving_power / ( CAPACITY_SAVING_POWER / 4 ) ) ) );
 	_saving_power = 0;
 	_action = ACTION_STAND;
 	
+	SoundPtr sound = Sound::getTask( );
 	sound->playSE( "yokai_se_20.wav" );
 }
 
 void Tarosuke::actOnCalling( ) {
 	const int PRAY[ 14 ] = { 0, 0, 0, 0, 0, 1, 2, 3, 3, 3, 3, 3, 2, 1 };
-	setChipUV( PRAY[ _act_count % 14 ], 1 );
+	setChipGraph( GRAPH_CHARACTER_1, PRAY[ _act_count % 14 ], 1 );
 
 	Vector v = Vector( getX( ), getY( ) - CHIP_SIZE ) - _momo_pos;
 	_momo_vec += v.normalize( ) * ( MOMO_SPEED * 0.05 );
@@ -318,7 +387,7 @@ void Tarosuke::actOnAppearring( ) {
 	if ( u > 8 ) {
 		u = 8;
 	}
-	setChipUV( u, 1 );
+	setChipGraph( GRAPH_CHARACTER_1, u, 1 );
 
 	if ( _act_count > 14 ) {
 		_action = ACTION_PRAY;
@@ -342,7 +411,7 @@ void Tarosuke::actOnPraying( ) {
 		0, 1, 0, 1, 0, 1, 0, 1, 2, 3,
 		6, 7, 7, 7, 7, 7, 7, 6, 3, 2,
 	};
-	setChipUV( CALL[ _act_count / 2 % 60 ], 6 );
+	setChipGraph( GRAPH_CHARACTER_1, CALL[ _act_count / 2 % 60 ], 6 );
 
 	DevicePtr device = Device::getTask( );
 	if ( device->getPush( ) == BUTTON_B ) {
@@ -352,69 +421,28 @@ void Tarosuke::actOnPraying( ) {
 }
 
 void Tarosuke::actOnDying( ) {
-	const int DYING[ 23 ] = {
-		0, 1, 2, 3, 5, 4,
-		0, 1, 2, 3, 5, 4,
-		0, 1, 2, 3, 5, 4,
-		0, 1, 6, 7, 9,
-	};
-	int idx = _act_count / 2;
-	if ( idx > 22 ) {
-		idx = 22;
-	}
 	setAccelX( 0 );
-	setChipUV( DYING[ idx ] % 8, DYING[ idx ] / 8 + 3 );// Character2.png
-}
-
-void Tarosuke::updateChip( ) {
-	SoundPtr sound = Sound::getTask( );
-	setChipGraph( GRAPH_CHARACTER_1 );
-	const int _walk_time = 1;
-	const int _swim_sound_time = 3;
-	switch ( _action ) {
-	case ACTION_STAND:
-		if ( !isInWater( ) ) {
-			if ( getAccelX( ) == 0 ) {
-				if ( _saving_power == 0 ) {
-					setChipUV( 0, 0 );
-				} else {
-					setChipUV( _saving_power / ( CAPACITY_SAVING_POWER / 7 ), 4 );
-				}
-			} else {
-				const int WALK[ WALK_PATTERN ] = { 1, 2, 1, 0, 3, 4, 3, 0 };
-				setChipUV( WALK[ ( getX( ) / WAIT_TIME ) % WALK_PATTERN ], 0 );
-				if ( _walk_time ==  _act_count % 2 &&  getAccelX( ) != 0 ) {
-					sound->playSE( "yokai_voice_15.wav" );
-				}
-			}
-		} else {
-			const int SWIM[ 4 ] = { 0, 1, 2, 1 };
-			int idx = 4;
-			if ( getAccelX( ) == 0 ) {
-				idx = 0;
-			}
-			if ( _swim_sound_time == ( _act_count / 4 ) % 4 &&  getAccelX( ) != 0 ) {
-				sound->playSE( "yokai_voice_14.wav" );
-			}
-			setChipUV( SWIM[ ( _act_count / 4 ) % 4 ] + idx, 3 );
+	if ( isInWater( ) ) {
+		int idx = _act_count / 4;
+		int u = idx % 8;
+		int v = 0;
+		if ( idx >= 8 ) {
+			u = 8;
+			v = 8;
 		}
-		break;
-	case ACTION_JUMP:
-	case ACTION_FLOAT:
-		setChipUV( 5, 0 );
-		break;
-	case ACTION_SAVE:
-		setChipUV( _saving_power / ( CAPACITY_SAVING_POWER / 7 ), 4 );
-		break;
-	case ACTION_BURST:
-		{
-			const int TIRED[ 11 ] = { 0, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 };
-			setChipUV( ( 7 + TIRED[ _saving_power / 10 ] ) % 8, 4 + ( 7 + TIRED[ _saving_power / 10 ] ) / 8 );
+		setChipGraph( GRAPH_CHARACTER_2, u, v );
+	} else {
+		const int DYING[ 23 ] = {
+			0, 1, 2, 3, 5, 4,
+			0, 1, 2, 3, 5, 4,
+			0, 1, 2, 3, 5, 4,
+			0, 1, 6, 7, 8,
+		};
+		int idx = _act_count / 4;
+		if ( idx > 22 ) {
+			idx = 22;
 		}
-		break;
-	case ACTION_DEAD:
-		setChipGraph( GRAPH_CHARACTER_2 );
-		break;
+		setChipGraph( GRAPH_CHARACTER_2, DYING[ idx ] % 8, DYING[ idx ] / 8 + 2 );
 	}
 }
 
@@ -493,11 +521,19 @@ void Tarosuke::drawOverlapped( CameraConstPtr camera ) const {
 	}
 }
 
-void Tarosuke::damage( ) {
-	SoundPtr sound = Sound::getTask( );
-	if ( _action != ACTION_DEAD ) {
-		sound->playBGM( "yokai_se_31.wav" );
-		_action = ACTION_DEAD;
-		_act_count = 0;
+void Tarosuke::damage( int pow ) {
+	switch ( _action ) {
+	case ACTION_DEAD:
+	case ACTION_FALTER:
+	case ACTION_CALL:
+	case ACTION_APPEAR:
+	case ACTION_PRAY:
+		return;
 	}
+
+	_power->decrease( pow );
+	_action = ACTION_FALTER;
+	_act_count = 0;
+	setAccelX( 0 );
+	setChipReverse( !isChipReverse( ) );
 }

@@ -6,7 +6,7 @@ static const int CHIP_SIZE = 72;
 static const int CHIP_FOOT = 0;
 
 EnemyMoth::EnemyMoth( EnemyStockPtr enemy_stock, int x, int y ) :
-Enemy( enemy_stock, x, y, GRAPH_ENEMY_SMALL, CHIP_SIZE, CHIP_FOOT, false ),
+Enemy( enemy_stock, x, y, CHIP_SIZE, CHIP_FOOT, false ),
 _anime_count( 0 ) {
 }
 
@@ -28,5 +28,5 @@ void EnemyMoth::updateChip( ) {
 	_anime_count++;
 	_anime_count %= WAIT_ANIME_TIME * MAX_ANIME_PATTERN;
 	int pattern = _anime_count / WAIT_ANIME_TIME% ( MAX_ANIME_PATTERN - 1 );
-	setChipUV( pattern, 1 );
+	setChipGraph( GRAPH_ENEMY_SMALL, pattern, 1 );
 }

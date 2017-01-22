@@ -7,11 +7,11 @@
 
 static const int MAX_FALL_SPEED = 30;
 
-Character::Character( int x, int y, int chip_graph, int chip_size, int chip_foot, bool mass ) :
+Character::Character( int x, int y, int chip_size, int chip_foot, bool mass ) :
 _x( x ),
 _y( y ),
 _mass( mass ),
-_chip_graph( chip_graph ),
+_chip_graph( 0 ),
 _chip_size( chip_size ),
 _chip_foot( chip_foot ),
 _chip_u( 0 ),
@@ -60,7 +60,8 @@ void Character::setChipReverse( bool reverse ) {
 	_chip_reverse = reverse;
 }
 
-void Character::setChipUV( int u, int v ) {
+void Character::setChipGraph( GRAPH graph, int u, int v ) {
+	_chip_graph = graph;
 	_chip_u = u;
 	_chip_v = v;
 }
@@ -71,10 +72,6 @@ void Character::setChipSize( int size ) {
 
 void Character::setChipFoot( int foot ) {
 	_chip_foot = foot;
-}
-
-void Character::setChipGraph( GRAPH graph ) {
-	_chip_graph = graph;
 }
 
 void Character::setDead( bool dead ) {

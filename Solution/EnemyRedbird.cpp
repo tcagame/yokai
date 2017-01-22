@@ -9,7 +9,7 @@ static const int CHIP_SIZE = 128;
 static const int CHIP_FOOT = 0;
 
 EnemyRedbird::EnemyRedbird( EnemyStockPtr enemy_stock, int x, int y ) :
-Enemy( enemy_stock, x, y, GRAPH_ENEMY, CHIP_SIZE, CHIP_FOOT, false ),
+Enemy( enemy_stock, x, y, CHIP_SIZE, CHIP_FOOT, false ),
 _attack_count( 0 ),
 _accel( 0 ) {
 }
@@ -39,5 +39,5 @@ void EnemyRedbird::actAttack( ) {
 
 void EnemyRedbird::updateChip( ) {
 	int pattern = ( getX( ) / WAIT_PATTERN_TIME ) % MAX_PATTERN;
-	setChipUV( pattern, 1 );
+	setChipGraph( GRAPH_ENEMY, pattern, 1 );
 }

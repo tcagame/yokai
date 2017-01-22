@@ -11,6 +11,7 @@ PTR( Camera );
 PTR( PsychicMgr );
 PTR( EnemyManager );
 PTR( Status );
+PTR( Power );
 
 class SceneStreet : public Scene {
 public:
@@ -18,6 +19,7 @@ public:
 	virtual ~SceneStreet( );
 	virtual NEXT update( );
 private:
+	PowerPtr _power;
 	TarosukePtr _tarosuke;
 	MomotaroPtr _momotaro;
 	FieldPtr _field;
