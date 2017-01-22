@@ -358,8 +358,9 @@ void Tarosuke::actOnFaltering( ) {
 }
 
 void Tarosuke::actOnShooting( ) {
+	int level = _saving_power / ( CAPACITY_SAVING_POWER / 4 );
 	_psychic_mgr->shoot( PsychicPtr( new PsychicTarosuke(
-		getX( ), getY( ) - SHOOT_FOOT, isChipReverse( ), _saving_power / ( CAPACITY_SAVING_POWER / 4 ) ) ) );
+		getX( ), getY( ) - SHOOT_FOOT, isChipReverse( ), level ) ) );
 	_saving_power = 0;
 	_action = ACTION_STAND;
 	

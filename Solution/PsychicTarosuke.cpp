@@ -3,13 +3,15 @@
 
 static const int SPEED = 40;
 static const int CHIP_SIZE = 128;
+static const int POW = 5;
 
-PsychicTarosuke::PsychicTarosuke( int x, int y, bool dir_right, int power ) :
+PsychicTarosuke::PsychicTarosuke( int x, int y, bool dir_right, int level ) :
 Psychic( x, y ),
 _dir_right( dir_right ),
-_power( power ),
 _outward( true ),
-_motion_count( 0 ) {
+_motion_count( 0 ),
+_level( level ) {
+	setPow( level * POW );
 }
 
 
@@ -29,7 +31,7 @@ void PsychicTarosuke::act( ) {
 			_outward = false;
 		}
 		setChipReverse( _dir_right );
-		int idx = _power * 2 + _motion_count % 2;
+		int idx = _level * 2 + _motion_count % 2;
 		setChipGraph( GRAPH_PSYCHIC, idx % 8, 2 );
 	} else {
 		Vector pos( getX( ), getY( ) );
@@ -42,9 +44,16 @@ void PsychicTarosuke::act( ) {
 		setAccelX( ( int )vec.x );
 		setAccelY( ( int )vec.y );
 		setChipReverse( !_dir_right );
-		setChipGraph( GRAPH_PSYCHIC, _motion_count % 2, 2 );
+		setChipGraph( GRAPH_PSYCHIC, _motion_count % 2, 0 );
 		
 		setChipFoot( ( int )( CHIP_SIZE / 2 + sin( 3.14159 * getX( ) / 300 ) * ( CHIP_SIZE / 4 ) ) );
+	}
+}
+
+void PsychicTarosuke::hit( ) {
+	if ( getPow( ) == 1 ) {
+		_outward = false;
+		setPow( 0 );
 	}
 }
 

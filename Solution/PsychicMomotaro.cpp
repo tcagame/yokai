@@ -24,3 +24,8 @@ void PsychicMomotaro::act( ) {
 	int idx = _motion_count;
 	setChipGraph( GRAPH_PSYCHIC, idx % 8, 4 );
 }
+
+void PsychicMomotaro::hit( ) {
+	finish( );
+}
+

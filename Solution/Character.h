@@ -23,7 +23,6 @@ public:
 	bool isChipReverse( ) const;
 	bool isStanding( ) const;
 	bool isInWater( ) const;
-	bool isDead( ) const;
 	virtual double getOverlappedRadius( ) const;
 	virtual Vector getOverlapeedPos( ) const;
 	void draw( CameraConstPtr camera, bool bright = false ) const;

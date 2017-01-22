@@ -8,10 +8,11 @@ public:
 	virtual ~PsychicTarosuke( );
 private:
 	void act( );
+	void hit( );
 private:
 	bool _dir_right;
 	bool _outward;
 	int _motion_count;
-	int _power;
+	int _level;
 };
 

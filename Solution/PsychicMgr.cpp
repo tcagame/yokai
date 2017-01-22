@@ -22,10 +22,16 @@ void PsychicMgr::update( CameraConstPtr camera, TarosukeConstPtr tarosuke, Enemy
 			it = _psychics.erase( it );
 			continue;
 		}
-		EnemyPtr overlapped = getOverlappedEnemy( psychic, enemy_mgr );
-		if ( overlapped ) {
-			overlapped->damage( );
+		
+		int pow = psychic->getPow( );
+		if ( pow > 0 ) {
+			EnemyPtr enemy = enemy_mgr->getOverlappedEnemy( psychic );
+			if ( enemy ) {
+				psychic->hit( );
+				enemy->damage( pow );
+			}
 		}
+
 		it++;
 	}
 }
@@ -41,19 +47,4 @@ void PsychicMgr::draw( CameraConstPtr camera ) const {
 
 void PsychicMgr::shoot( PsychicPtr psychic ) {
 	_psychics.push_back( psychic );
-}
-
-EnemyPtr PsychicMgr::getOverlappedEnemy( PsychicPtr pcychic, EnemyManagerPtr enemy_mgr ) {
-	std::list< EnemyPtr > enemies = enemy_mgr->getEnemyList( );
-	std::list<EnemyPtr>::iterator ite = enemies.begin( );
-	EnemyPtr overlapped = EnemyPtr( );
-
-	while ( ite != enemies.end( ) ) {
-		if ( (*ite)->isOverlapped( pcychic ) ) {
-			overlapped = (*ite);
-			break;
-		}
-		ite++;
-	}
-	return overlapped;
 }

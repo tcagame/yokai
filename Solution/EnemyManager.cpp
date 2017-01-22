@@ -4,6 +4,7 @@
 #include "Drawer.h"
 #include "Tarosuke.h"
 #include "Momotaro.h"
+#include "Psychic.h"
 #include "EnemyStock.h"
 #include "EnemyPurpleYokai.h"
 #include "EnemyRedbird.h"
@@ -36,7 +37,7 @@ void EnemyManager::update( FieldPtr field, CameraConstPtr camera, TarosukePtr ta
 	while ( ite != _enemies.end( ) ) {
 		EnemyPtr enemy = *ite;
 		if ( isOutSideScreenEnemy( enemy, camera ) ||
-			 enemy->isDead( ) ) {
+			 enemy->isFinished( ) ) {
 			ite = _enemies.erase( ite );
 			continue;
 		}
@@ -85,10 +86,6 @@ bool EnemyManager::isOutSideScreenEnemy( EnemyPtr enemy, CameraConstPtr camera )
 	return result;
 }
 
-std::list< EnemyPtr > EnemyManager::getEnemyList( ) {
-	return _enemies;
-}
-
 void EnemyManager::addEnemy( EnemyPtr enemy ) {
 	_enemies.push_back( enemy );
 }
@@ -114,4 +111,18 @@ void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera
 	if ( data & TREE ) {
 		_enemies.push_back( EnemyPtr( new EnemyTree( _enemy_stock, pop_base_x, TREE_POP_Y ) ) );
 	}
+}
+
+EnemyPtr EnemyManager::getOverlappedEnemy( PsychicPtr pcychic ) {
+	std::list< EnemyPtr>::iterator ite = _enemies.begin( );
+	EnemyPtr target;
+
+	while ( ite != _enemies.end( ) ) {
+		if ( (*ite)->isOverlapped( pcychic ) ) {
+			target = (*ite);
+			break;
+		}
+		ite++;
+	}
+	return target;
 }

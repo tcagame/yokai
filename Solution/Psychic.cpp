@@ -10,9 +10,18 @@ Psychic::Psychic( int x, int y ) :
 Character( x, y, CHIP_SIZE, CHIP_SIZE / 2, false ) {
 	_range_x = 0;
 	_finished = false;
+	_pow = 0;
 }
 
 Psychic::~Psychic( ) {
+}
+
+void Psychic::setPow( int pow ) {
+	_pow = pow;
+}
+
+int Psychic::getPow( ) const {
+	return _pow;
 }
 
 void Psychic::setRange( int range_x, int target_x, int target_y ) {

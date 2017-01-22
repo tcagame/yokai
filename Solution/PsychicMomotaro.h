@@ -9,6 +9,7 @@ public:
 	virtual ~PsychicMomotaro( );
 private:
 	void act( );
+	void hit( );
 private:
 	int _motion_count;
 };
