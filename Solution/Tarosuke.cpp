@@ -419,6 +419,7 @@ void Tarosuke::updateChip( ) {
 }
 
 void Tarosuke::drawOverlapped( CameraConstPtr camera ) const {
+	SoundPtr sound = Sound::getTask( );
 	if ( _action == ACTION_CALL ) {
 		const int ANIM[ 8 ] = { 0, 0, 0, 0, 0, 1, 2, 1 };
 
@@ -482,6 +483,8 @@ void Tarosuke::drawOverlapped( CameraConstPtr camera ) const {
 
 		int sx1 = getX( ) - camera->getX( ) - CHIP_SIZE / 2;
 		int sy1 = getY( ) - camera->getY( ) - CHIP_SIZE;
+
+		sound->playSE( "yokai_se_21.wav" );
 
 		DrawerPtr drawer = Drawer::getTask( );
 		Drawer::Transform trans( sx1, sy1, tx, ty, CHIP_SIZE, CHIP_SIZE );
