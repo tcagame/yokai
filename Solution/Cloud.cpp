@@ -14,6 +14,8 @@ static const int CLOUD_BIG_HEIGHT = 216;
 static const int CLOUD_SMALL_WIDTH = 207;
 static const int CLOUD_SMALL_HEIGHT = 216;
 
+static const int BLANK = 60;
+
 
 Cloud::Cloud( int x, int y, bool big ) {
 	_width  = CLOUD_SMALL_WIDTH;
@@ -37,7 +39,7 @@ void Cloud::draw( CameraConstPtr camera ) const {
 	int tx = _y / INTERVAL % CLOUD_CHIP_PATTERN * _width;
 	int ty = 0;
 	int sx = _x - camera->getX( ) - _width / 2;
-	int sy = _y - _height / 2;
+	int sy = _y - camera->getY( ) - _height / 2;
 	int sx2 = sx + _width;
 	int sy2 = sy + _height;
 
@@ -71,10 +73,17 @@ int Cloud::getY( ) const {
 	return _y;
 }
 
+int Cloud::getHeight( ) const {
+	return _height;
+}
+
+int Cloud::getBlank( ) const {
+	return BLANK;
+}
+
 bool Cloud::isStanding( int x, int src_y, int dst_y ) const {
 	if ( x < _x - _width / 2 || x > _x + _width / 2 ) {
 		return false;
 	}
-
-	return src_y < _y && dst_y >= _y;
+	return src_y < _y - _height / 2 + BLANK  && dst_y >= _y - _height / 2 + BLANK;
 }

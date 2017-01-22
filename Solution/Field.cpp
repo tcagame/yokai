@@ -13,10 +13,10 @@ _enemy_data( 0 ) {
 	_scroll_y = -48; // ÅI“I‚É‚ÍƒJƒƒ‰‚©‚çŽæ“¾
 	
 	// ¦Map‚©‚çŽæ“¾‚·‚é‚æ‚¤‚ÉC³
-	_clouds.push_back( CloudPtr( new Cloud( 2300, 450, true  ) ) );
-	_clouds.push_back( CloudPtr( new Cloud( 2850, 450, false ) ) );
-	_clouds.push_back( CloudPtr( new Cloud( 3250, 450, false ) ) );
-	_clouds.push_back( CloudPtr( new Cloud( 3500, 450, true  ) ) );
+	_clouds.push_back( CloudPtr( new Cloud( 2300, 250, true  ) ) );
+	_clouds.push_back( CloudPtr( new Cloud( 2850, 250, false ) ) );
+	_clouds.push_back( CloudPtr( new Cloud( 3250, 250, false ) ) );
+	_clouds.push_back( CloudPtr( new Cloud( 3500, 250, true  ) ) );
 }
 
 Field::~Field( ) {
@@ -145,7 +145,7 @@ Field::Collision Field::getCollision( int src_x, int src_y, int dst_x, int dst_y
 		while ( it != _clouds.end( ) ) {
 			CloudPtr cloud = *it;
 			if ( cloud->isStanding( src_x, src_y, dst_y ) ) {
-				collision.adjust_y = cloud->getY( ) - 1;
+				collision.adjust_y = cloud->getY( ) - cloud->getHeight( ) / 2 + cloud->getBlank( ) - 1;
 				collision.overlapped_y = true;
 				collision.cloud = cloud;
 				dst_y = collision.adjust_y;
