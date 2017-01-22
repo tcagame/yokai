@@ -14,7 +14,7 @@ static const int CLOUD_BIG_HEIGHT = 216;
 static const int CLOUD_SMALL_WIDTH = 207;
 static const int CLOUD_SMALL_HEIGHT = 216;
 
-static const int CLOUD_BLANK = 30;
+static const int BLANK = 60;
 
 
 Cloud::Cloud( int x, int y, bool big ) {
@@ -78,12 +78,12 @@ int Cloud::getHeight( ) const {
 }
 
 int Cloud::getBlank( ) const {
-	return CLOUD_BLANK;
+	return BLANK;
 }
 
 bool Cloud::isStanding( int x, int src_y, int dst_y ) const {
 	if ( x < _x - _width / 2 || x > _x + _width / 2 ) {
 		return false;
 	}
-	return src_y < _y - _height / 2 && dst_y >= _y - _height / 2;
+	return src_y < _y - _height / 2 + BLANK  && dst_y >= _y - _height / 2 + BLANK;
 }
