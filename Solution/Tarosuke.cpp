@@ -369,6 +369,7 @@ void Tarosuke::actOnDying( ) {
 void Tarosuke::updateChip( ) {
 	SoundPtr sound = Sound::getTask( );
 	setChipGraph( GRAPH_CHARACTER_1 );
+	const int _walk_time = 1;
 	const int _swim_sound_time = 3;
 	switch ( _action ) {
 	case ACTION_STAND:
@@ -382,6 +383,9 @@ void Tarosuke::updateChip( ) {
 			} else {
 				const int WALK[ WALK_PATTERN ] = { 1, 2, 1, 0, 3, 4, 3, 0 };
 				setChipUV( WALK[ ( getX( ) / WAIT_TIME ) % WALK_PATTERN ], 0 );
+				if ( _walk_time ==  _act_count % 2 &&  getAccelX( ) != 0 ) {
+					sound->playSE( "yokai_voice_15.wav" );
+				}
 			}
 		} else {
 			const int SWIM[ 4 ] = { 0, 1, 2, 1 };
