@@ -14,6 +14,8 @@ public:
 	bool isStanding( int x, int src_y, int dst_y ) const;
 	int getX( ) const;
 	int getY( ) const;
+	int getHeight( ) const;
+	int getBlank( ) const;
 private:
 	void updateAccel( );
 	void moveVertical( );

@@ -173,7 +173,7 @@ void Character::move( FieldPtr field ) {
 	}
 
 	if ( _cloud ) {
-		dst_y = _cloud->getY( ) - 1;
+		dst_y = _cloud->getY( ) - _cloud->getHeight( ) / 2 + _cloud->getBlank( ) - 1;
 		_standing = true;
 	}
 
