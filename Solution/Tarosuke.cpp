@@ -255,7 +255,7 @@ void Tarosuke::actOnJumping( ) {
 	_action = ACTION_JUMP;
 	setAccelY( -JUMP_POWER );
 
-	setChipGraph( GRAPH_CHARACTER_1, 5, 0 );
+	setChipGraph( GRAPH_CHARACTER_1, 6, 0 );
 }
 
 void Tarosuke::actOnBraking( ) {
@@ -322,7 +322,7 @@ void Tarosuke::actOnFloating( ) {
 	}
 
 	setAccelX( ax );
-	setChipGraph( GRAPH_CHARACTER_1, 6, 0 );
+	setChipGraph( GRAPH_CHARACTER_1, 5, 0 );
 }
 
 void Tarosuke::actOnBursting( ) {
@@ -537,4 +537,23 @@ void Tarosuke::damage( int pow ) {
 	_act_count = 0;
 	setAccelX( 0 );
 	setChipReverse( !isChipReverse( ) );
+}
+
+bool Tarosuke::isOnHead( CharacterPtr target ) const {
+	Vector taro = getOverlappedPos( );
+	Vector ene  = target->getOverlappedPos( );
+	Vector vec = ene - taro;
+	if ( vec.y < 0 ) {
+		return false;
+	}
+	if ( vec.getLength( ) < target->getOverlappedRadius( ) ) {
+		return false;
+	}
+	return true;
+}
+
+void Tarosuke::bound( ) {
+	_jump_count = JUMP_COUNT;
+	_action = ACTION_JUMP;
+	setAccelY( -JUMP_POWER );
 }

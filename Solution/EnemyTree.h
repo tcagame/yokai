@@ -10,5 +10,5 @@ public:
 public:
 	void act( );
 	double getOverlappedRadius( ) const;
-	Vector getOverlapeedPos( ) const;
+	Vector getOverlappedPos( ) const;
 };

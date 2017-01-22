@@ -194,6 +194,6 @@ double Character::getOverlappedRadius( ) const {
 	return _chip_size / 2 * 0.8;
 }
 
-Vector Character::getOverlapeedPos( ) const {
+Vector Character::getOverlappedPos( ) const {
 	return Vector( _x, _y + _chip_foot - _chip_size / 2 );
 }

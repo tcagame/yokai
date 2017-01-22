@@ -24,7 +24,7 @@ public:
 	bool isStanding( ) const;
 	bool isInWater( ) const;
 	virtual double getOverlappedRadius( ) const;
-	virtual Vector getOverlapeedPos( ) const;
+	virtual Vector getOverlappedPos( ) const;
 	void draw( CameraConstPtr camera, bool bright = false ) const;
 protected:
 	void setX( int x );

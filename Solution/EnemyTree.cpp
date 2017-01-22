@@ -18,6 +18,6 @@ double EnemyTree::getOverlappedRadius( ) const {
 	return GRAPH_HEIGHT / 2 * 0.8;
 }
 
-Vector EnemyTree::getOverlapeedPos( ) const {
+Vector EnemyTree::getOverlappedPos( ) const {
 	return Vector( getX( ), getY( ) + CHIP_FOOT - GRAPH_HEIGHT / 2 );
 }

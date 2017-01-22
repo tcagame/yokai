@@ -8,6 +8,7 @@ PTR( ChipDrawer );
 PTR( PsychicMgr );
 PTR( Momotaro );
 PTR( Power );
+PTR( Character );
 
 class Tarosuke : public Character {
 public:
@@ -16,6 +17,8 @@ public:
 public:
 	void setSoloPlay( MomotaroPtr momotaro );
 	void damage( int pow );
+	bool isOnHead( CharacterPtr target ) const;
+	void bound( );
 private:
 	enum ACTION {
 		ACTION_STAND,

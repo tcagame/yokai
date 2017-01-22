@@ -44,7 +44,11 @@ void EnemyManager::update( FieldPtr field, CameraConstPtr camera, TarosukePtr ta
 		enemy->update( field );
 
 		if ( enemy->isOverlapped( tarosuke ) ) {
-			tarosuke->damage( 1 ); // ¦Enemy‚©‚çUŒ‚—Í‚ðŽæ“¾‚µ‚Ä“n‚·
+			if ( tarosuke->isOnHead( enemy ) ) {
+				tarosuke->bound( );
+			} else {
+				tarosuke->damage( 1 ); // ¦Enemy‚©‚çUŒ‚—Í‚ðŽæ“¾‚µ‚Ä“n‚·
+			}
 		}
 
 		if ( enemy->isOverlapped( momotaro ) ) {
