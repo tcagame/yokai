@@ -26,8 +26,8 @@ SceneStreet::SceneStreet( bool solo ) {
 	}
 
 	DrawerPtr drawer = Drawer::getTask( );
-	drawer->loadGraph( GRAPH_CHARACTER_1		 , "street/Character1.png" );
-	drawer->loadGraph( GRAPH_CHARACTER_2		 , "street/Character2.png" );
+	drawer->loadGraph( GRAPH_CHARACTER_1		 , "street/Character/Character1.png" );
+	drawer->loadGraph( GRAPH_CHARACTER_2		 , "street/Character/Character2.png" );
 	drawer->loadGraph( GRAPH_CLOUD_BIG			 , "street/cloud/Yokai_OBJ_cloud1.png" ); 
 	drawer->loadGraph( GRAPH_CLOUD_SMALL		 , "street/cloud/Yokai_OBJ_cloud2.png" );
 	drawer->loadGraph( GRAPH_MAPCHIPGUIDE		 , "street/mapchipguide.png" );
@@ -35,7 +35,8 @@ SceneStreet::SceneStreet( bool solo ) {
 	drawer->loadGraph( GRAPH_ENEMY				 , "street/Enemy0.png" );
 	drawer->loadGraph( GRAPH_ENEMY_SMALL		 , "street/enemy_small.png" );
 	drawer->loadGraph( GRAPH_ENEMY_TREE			 , "street/enemy_tree.png" );
-	drawer->loadGraph( GRAPH_STATUS				 , "street/Yokai_UI_plate.png" );
+	drawer->loadGraph( GRAPH_STATUS_PLATE		 , "street/status_plate.png" );
+	drawer->loadGraph( GRAPH_STATUS_MAP		     , "street/map0/status/status_map_0.png" );
 
 	SoundPtr sound = Sound::getTask( );
 	sound->playBGM( "yokai_music_10.wav" );
