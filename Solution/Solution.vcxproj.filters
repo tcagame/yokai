@@ -27,6 +27,7 @@
     <ClCompile Include="EnemyMoth.cpp" />
     <ClCompile Include="EnemyTree.cpp" />
     <ClCompile Include="Power.cpp" />
+    <ClCompile Include="SceneGate.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
@@ -55,5 +56,6 @@
     <ClInclude Include="EnemyMoth.h" />
     <ClInclude Include="EnemyTree.h" />
     <ClInclude Include="Power.h" />
+    <ClInclude Include="SceneGate.h" />
   </ItemGroup>
 </Project>

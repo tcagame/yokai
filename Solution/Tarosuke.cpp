@@ -535,11 +535,15 @@ void Tarosuke::damage( int pow ) {
 	_power->decrease( pow );
 	_action = ACTION_FALTER;
 	_act_count = 0;
+	_saving_power = 0;
 	setAccelX( 0 );
 	setChipReverse( !isChipReverse( ) );
 }
 
 bool Tarosuke::isOnHead( CharacterPtr target ) const {
+	if ( _action != ACTION_FLOAT ) {
+		return false;
+	}
 	Vector taro = getOverlappedPos( );
 	Vector ene  = target->getOverlappedPos( );
 	Vector vec = ene - taro;

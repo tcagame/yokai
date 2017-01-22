@@ -1,5 +1,6 @@
 #include "Game.h"
 #include "SceneTitle.h"
+#include "SceneGate.h"
 #include "SceneStreet.h"
 #include "Drawer.h"
 
@@ -12,7 +13,10 @@ Game::~Game( ) {
 }
 
 void Game::initialize( ) {
+	_solo = true;
+	_stage = 0;
 	//_scene = ScenePtr( new SceneStreet );
+	//_scene = ScenePtr( new SceneGate( _stage ) );
 	_scene = ScenePtr( new SceneTitle );
 }
 
@@ -29,11 +33,14 @@ void Game::update( ) {
 	drawer->unloadAllGraph( );
 
 	switch ( next ) {
-	case Scene::NEXT_STREET_1PLAYER:
-		_scene = ScenePtr( new SceneStreet( true ) );
+	case Scene::NEXT_SELECT_1PLAYER:
+	case Scene::NEXT_SELECT_2PLAYER:
+		_solo = ( next == Scene::NEXT_SELECT_1PLAYER );
+		_stage = 0;
+		_scene = ScenePtr( new SceneGate( _stage ) );
 		break;
-	case Scene::NEXT_STREET_2PLAYER:
-		_scene = ScenePtr( new SceneStreet( false ) );
+	case Scene::NEXT_STREET:
+		_scene = ScenePtr( new SceneStreet( _solo ) );
 		break;
 	}
 }

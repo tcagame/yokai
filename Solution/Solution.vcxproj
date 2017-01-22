@@ -106,6 +106,7 @@
     <ClCompile Include="PsychicMomotaro.cpp" />
     <ClCompile Include="PsychicTarosuke.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="SceneGate.cpp" />
     <ClCompile Include="SceneStreet.cpp" />
     <ClCompile Include="SceneTitle.cpp" />
     <ClCompile Include="Status.cpp" />
@@ -139,6 +140,7 @@
     <ClInclude Include="PsychicMomotaro.h" />
     <ClInclude Include="PsychicTarosuke.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="SceneGate.h" />
     <ClInclude Include="SceneStreet.h" />
     <ClInclude Include="SceneTitle.h" />
     <ClInclude Include="Status.h" />

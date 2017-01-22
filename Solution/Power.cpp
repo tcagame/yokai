@@ -3,7 +3,7 @@
 static const int MAX = 42;
 
 Power::Power( ) :
-_value( 3 ) {
+_value( MAX ) {
 }
 
 

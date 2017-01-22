@@ -4,9 +4,11 @@ static const int WAIT_ANIME_TIME = 1;
 static const int MOVE_SPEED = 1;
 static const int CHIP_SIZE = 72;
 static const int CHIP_FOOT = 0;
+static const int HP  = 10;
+static const int POW = 3;
 
 EnemyMoth::EnemyMoth( EnemyStockPtr enemy_stock, int x, int y ) :
-Enemy( enemy_stock, x, y, CHIP_SIZE, CHIP_FOOT, false ),
+Enemy( enemy_stock, x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ),
 _anime_count( 0 ) {
 }
 

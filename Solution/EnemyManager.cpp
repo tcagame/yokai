@@ -53,17 +53,18 @@ void EnemyManager::update( FieldPtr field, CameraConstPtr camera, TarosukePtr ta
 
 		}
 		enemy->update( field );
+		int pow = enemy->getPow( );
 
 		if ( enemy->isOverlapped( tarosuke ) ) {
 			if ( tarosuke->isOnHead( enemy ) ) {
 				tarosuke->bound( );
 			} else {
-				tarosuke->damage( 1 ); // ¦Enemy‚©‚çUŒ‚—Í‚ğæ“¾‚µ‚Ä“n‚·
+				tarosuke->damage( pow ); // ¦Enemy‚©‚çUŒ‚—Í‚ğæ“¾‚µ‚Ä“n‚·
 			}
 		}
 
 		if ( enemy->isOverlapped( momotaro ) ) {
-			momotaro->damage( 1 ); // ¦Enemy‚©‚çUŒ‚—Í‚ğæ“¾‚µ‚Ä“n‚·
+			momotaro->damage( pow ); // ¦Enemy‚©‚çUŒ‚—Í‚ğæ“¾‚µ‚Ä“n‚·
 		}
 
 		ite++;

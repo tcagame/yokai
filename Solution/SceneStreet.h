@@ -17,6 +17,7 @@ class SceneStreet : public Scene {
 public:
 	SceneStreet( bool solo );
 	virtual ~SceneStreet( );
+private:
 	virtual NEXT update( );
 private:
 	PowerPtr _power;

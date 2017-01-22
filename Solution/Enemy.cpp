@@ -3,10 +3,11 @@
 
 PTR( Psychic );
 
-Enemy::Enemy( EnemyStockPtr enemy_stock, int x, int y, int chip_size, int chip_foot, bool mass ) :
+Enemy::Enemy( EnemyStockPtr enemy_stock, int x, int y, int chip_size, int chip_foot, bool mass, int hp, int pow ) :
 Character( x, y, chip_size, chip_foot, mass ),
 _enemy_stock( enemy_stock ),
-_hp( 10 ) {
+_hp( hp ),
+_pow( pow ) {
 }
 
 Enemy::~Enemy( ) {
@@ -28,5 +29,9 @@ void Enemy::damage( int pow ) {
 
 bool Enemy::isFinished( ) const {
 	return _hp <= 0;
+}
+
+int Enemy::getPow( ) const {
+	return _pow;
 }
 

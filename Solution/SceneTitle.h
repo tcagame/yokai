@@ -6,8 +6,8 @@ class SceneTitle : public Scene {
 public:
 	SceneTitle( );
 	virtual ~SceneTitle( );
-	NEXT update( );
 private:
+	NEXT update( );
 	void act( );
 	void draw( );
 private:

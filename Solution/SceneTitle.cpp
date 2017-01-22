@@ -18,9 +18,9 @@ static const int SELECT_Y = 500;
 
 SceneTitle::SceneTitle( ) {
 	DrawerPtr drawer = Drawer::getTask( );
-	drawer->loadGraph( GRAPH_FONT,  "title/Yokai_UI_title_font.png"  );
-	drawer->loadGraph( GRAPH_FRAME, "title/Yokai_UI_title_frame.png" );
-	drawer->loadGraph( GRAPH_PANEL, "title/Yokai_UI_title_panel.png" );
+	drawer->loadGraph( GRAPH_TITLE_FONT,  "title/Yokai_UI_title_font.png"  );
+	drawer->loadGraph( GRAPH_TITLE_FRAME, "title/Yokai_UI_title_frame.png" );
+	drawer->loadGraph( GRAPH_TITLE_PANEL, "title/Yokai_UI_title_panel.png" );
 
 	_count = 0;
 	_finish = false;
@@ -36,9 +36,9 @@ Scene::NEXT SceneTitle::update( ) {
 
 	if ( _finish ) {
 		if ( _select == 0 ) {
-			return NEXT_STREET_1PLAYER;
+			return NEXT_SELECT_1PLAYER;
 		} else {
-			return NEXT_STREET_2PLAYER;
+			return NEXT_SELECT_2PLAYER;
 		}
 	}
 
@@ -69,12 +69,12 @@ void SceneTitle::draw( ) {
 
 	Drawer::Sprite sprite_font( 
 		Drawer::Transform( TITLE_CENTER_X - TITLE_WIDTH / 2, TITLE_CENTER_Y - TITLE_HEIGHT / 2),
-		GRAPH_FONT );
+		GRAPH_TITLE_FONT );
 	drawer->setSprite( sprite_font );
 
 	Drawer::Sprite sprite_frame( 
 		Drawer::Transform( TITLE_CENTER_X - TITLE_WIDTH / 2, TITLE_CENTER_Y - TITLE_HEIGHT / 2),
-		GRAPH_FRAME );
+		GRAPH_TITLE_FRAME );
 	drawer->setSprite( sprite_frame);
 
 	for ( int i = 0; i < 5; i++ ) {
@@ -87,7 +87,7 @@ void SceneTitle::draw( ) {
 		tx *= PANEL_WIDTH;
 		Drawer::Sprite sprite_panel( 
 			Drawer::Transform( x, y, tx, 0, PANEL_WIDTH, PANEL_HEIGHT ),
-			GRAPH_PANEL );
+			GRAPH_TITLE_PANEL );
 		drawer->setSprite( sprite_panel);
 	}
 

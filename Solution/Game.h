@@ -18,5 +18,7 @@ public:
 	void initialize( );
 private:
 	ScenePtr _scene;
+	bool _solo;
+	int _stage;
 };
 
