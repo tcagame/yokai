@@ -28,7 +28,10 @@ void Status::draw( ) {
 		drawer->setSprite( sprite );
 	}
 	{
-		Drawer::Transform trans( POWER_X, POWER_Y);
+		static int n = 0;
+		n++;
+
+		Drawer::Transform trans( POWER_X, POWER_Y, 0, 0, 672 - ( n / 30 * 16 ), 32 );
 		Drawer::Sprite sprite( trans, GRAPH_STATUS_POWER );
 		drawer->setSprite( sprite );
 	}
