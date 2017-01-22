@@ -33,6 +33,7 @@ SceneStreet::SceneStreet( bool solo ) {
 	drawer->loadGraph( GRAPH_MAPCHIPGUIDE		 , "street/mapchipguide.png" );
 	drawer->loadGraph( GRAPH_PSYCHIC			 , "psychic.png" );
 	drawer->loadGraph( GRAPH_ENEMY				 , "street/Enemy0.png" );
+	drawer->loadGraph( GRAPH_ENEMY_SMALL		 , "street/enemy_small.png" );
 	drawer->loadGraph( GRAPH_STATUS				 , "street/Yokai_UI_plate.png" );
 
 	SoundPtr sound = Sound::getTask( );

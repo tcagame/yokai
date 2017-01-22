@@ -1,16 +1,18 @@
 #include "EnemyManager.h"
-#include "EnemyPurpleYokai.h"
-#include "EnemyRedbird.h"
-#include "EnemyRedbirdAttack.h"
+#include "Field.h"
 #include "Camera.h"
 #include "Drawer.h"
 #include "Tarosuke.h"
 #include "Momotaro.h"
 #include "EnemyStock.h"
-#include "Field.h"
+#include "EnemyPurpleYokai.h"
+#include "EnemyRedbird.h"
+#include "EnemyRedbirdAttack.h"
+#include "EnemyMoth.h"
 
 static const int REDBIRD_POP_Y = 250;
 static const int PURPLE_POP_Y = 400;
+static const int MOTH_POP_Y = 230;
 
 EnemyManager::EnemyManager( ) {
 	_enemy_stock = EnemyStockPtr( new EnemyStock );
@@ -84,7 +86,7 @@ void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera
 	int pop_base_x = BG_SIZE * ( BG_NUM - 1 ) + camera->getX( );
 
 	if ( data & REDBIRD ) {
-		_enemies.push_back( EnemyPtr( new EnemyRedbird( _enemy_stock, pop_base_x, REDBIRD_POP_Y ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyRedbird( _enemy_stock, pop_base_x - BG_SIZE * 2, REDBIRD_POP_Y ) ) );
 	}
 
 	if ( data & PURPLE ) {
@@ -93,5 +95,9 @@ void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera
 		_enemies.push_back( EnemyPtr( new EnemyPurpleYokai( _enemy_stock, pop_base_x + 200, PURPLE_POP_Y ) ) );
 		_enemies.push_back( EnemyPtr( new EnemyPurpleYokai( _enemy_stock, pop_base_x + 300, PURPLE_POP_Y ) ) );
 		_enemies.push_back( EnemyPtr( new EnemyPurpleYokai( _enemy_stock, pop_base_x + 400, PURPLE_POP_Y ) ) );
+	}
+	if ( data & MOTH ) {
+		_enemies.push_back( EnemyPtr( new EnemyMoth( _enemy_stock, pop_base_x, MOTH_POP_Y ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyMoth( _enemy_stock, pop_base_x + 200, MOTH_POP_Y + 30 ) ) );
 	}
 }
