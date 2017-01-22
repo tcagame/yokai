@@ -3,6 +3,8 @@
 #include "define.h"
 
 static const int MAP_WIDTH = 347;
+static const int POWER_X = 218;
+static const int POWER_Y = 136;
 
 Status::Status( ) {
 }
@@ -23,6 +25,11 @@ void Status::draw( ) {
 	{
 		Drawer::Transform trans( 0, 0 );
 		Drawer::Sprite sprite( trans, GRAPH_STATUS_PLATE );
+		drawer->setSprite( sprite );
+	}
+	{
+		Drawer::Transform trans( POWER_X, POWER_Y);
+		Drawer::Sprite sprite( trans, GRAPH_STATUS_POWER );
 		drawer->setSprite( sprite );
 	}
 }

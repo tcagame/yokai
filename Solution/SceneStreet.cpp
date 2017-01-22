@@ -35,7 +35,8 @@ SceneStreet::SceneStreet( bool solo ) {
 	drawer->loadGraph( GRAPH_ENEMY				 , "street/Enemy0.png" );
 	drawer->loadGraph( GRAPH_ENEMY_SMALL		 , "street/enemy_small.png" );
 	drawer->loadGraph( GRAPH_ENEMY_TREE			 , "street/enemy_tree.png" );
-	drawer->loadGraph( GRAPH_STATUS_PLATE		 , "street/status_plate.png" );
+	drawer->loadGraph( GRAPH_STATUS_PLATE		 , "street/status/status_plate.png" );
+	drawer->loadGraph( GRAPH_STATUS_POWER        , "street/status/status_power.png" );
 	drawer->loadGraph( GRAPH_STATUS_MAP		     , "street/map0/status/status_map_0.png" );
 
 	SoundPtr sound = Sound::getTask( );
