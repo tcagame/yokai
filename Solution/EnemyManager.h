@@ -1,6 +1,9 @@
 #pragma once
+
 #include "smart_ptr.h"
+#include "mathmatics.h"
 #include <list>
+#include <array>
 
 PTR( Enemy );
 PTR( Field );
@@ -22,9 +25,20 @@ public:
 protected:
 	void addEnemy( EnemyPtr enemy );
 private:
+	static const int BOMB_NUM = 20;
+	struct Bomb {
+		Vector pos;
+		int count;
+	};
+private:
 	void createByField( unsigned int enemy_data,  CameraConstPtr camera );
+	void addBomb( const Vector& pos );
+	void drawBomb( CameraConstPtr camera ) const;
+	void updateBomb( );
 private:
 	std::list< EnemyPtr > _enemies;
 	EnemyStockPtr _enemy_stock;
+	std::array< Bomb, BOMB_NUM > _bombs;
+	int _idx_bomb;
 };
 

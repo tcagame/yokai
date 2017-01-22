@@ -17,9 +17,14 @@ static const int REDBIRD_POP_Y = 250;
 static const int PURPLE_POP_Y = 400;
 static const int MOTH_POP_Y = 230;
 static const int TREE_POP_Y = 400;
+static const int BOMB_COUNT = 16;
+static const int BOMB_SIZE = 256;
 
 EnemyManager::EnemyManager( ) {
 	_enemy_stock = EnemyStockPtr( new EnemyStock );
+	for ( int i = 0; i < BOMB_NUM; i++ ) {
+		_bombs[ i ].count = BOMB_COUNT;
+	}
 }
 
 EnemyManager::~EnemyManager( ) {
@@ -32,14 +37,20 @@ void EnemyManager::update( FieldPtr field, CameraConstPtr camera, TarosukePtr ta
 	}
 
 	createByField( field->getEnemyData( ), camera );
+	updateBomb( );
 
 	std::list<EnemyPtr>::iterator ite = _enemies.begin( );
 	while ( ite != _enemies.end( ) ) {
 		EnemyPtr enemy = *ite;
-		if ( isOutSideScreenEnemy( enemy, camera ) ||
-			 enemy->isFinished( ) ) {
+		if ( isOutSideScreenEnemy( enemy, camera ) ) {
 			ite = _enemies.erase( ite );
 			continue;
+		}
+		if ( enemy->isFinished( ) ) {
+			addBomb( enemy->getOverlappedPos( ) );
+			ite = _enemies.erase( ite );
+			continue;
+
 		}
 		enemy->update( field );
 
@@ -65,10 +76,45 @@ void EnemyManager::draw( CameraPtr camera ) {
 		(*ite)->draw( camera );
 		ite++;
 	}
+
+	drawBomb( camera );
 #if _DEBUG
 	DrawerPtr drawer = Drawer::getTask( );
 	drawer->drawString( 10, 10, "Enemy Size : %d", _enemies.size( ) );
 #endif
+}
+
+void EnemyManager::addBomb( const Vector& pos ) {
+	_bombs[ _idx_bomb ].pos = pos;
+	_bombs[ _idx_bomb ].count = 0;
+	_idx_bomb = ( _idx_bomb + 1 ) % BOMB_NUM;
+}
+
+void EnemyManager::updateBomb( ) {
+	for ( int i = 0; i < BOMB_NUM; i++ ) {
+		 _bombs[ i ].count++;
+	}
+}
+
+void EnemyManager::drawBomb( CameraConstPtr camera ) const {
+	DrawerPtr drawer = Drawer::getTask( );
+
+	for ( int i = 0; i < BOMB_NUM; i++ ) {
+		int idx = ( _idx_bomb + i ) % BOMB_NUM;
+		if ( _bombs[ idx ].count >= BOMB_COUNT ) {
+			continue;
+		}
+		int pattern = _bombs[ idx ].count / ( BOMB_COUNT / 4 );
+		int tx = pattern % 2 * BOMB_SIZE;
+		int ty = pattern / 2 * BOMB_SIZE;
+
+		int sx = ( int )_bombs[ idx ].pos.x - camera->getX( ) - BOMB_SIZE / 2;
+		int sy = ( int )_bombs[ idx ].pos.y - camera->getY( ) - BOMB_SIZE / 2;
+
+		Drawer::Transform trans( sx, sy, tx, ty, BOMB_SIZE, BOMB_SIZE );
+		Drawer::Sprite sprite( trans, GRAPH_BOMB, Drawer::BLEND_NONE, 1.0 );
+		drawer->setSprite( sprite );
+	}
 }
 
 bool EnemyManager::isOutSideScreenEnemy( EnemyPtr enemy, CameraConstPtr camera ) {

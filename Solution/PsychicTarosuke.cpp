@@ -11,7 +11,7 @@ _dir_right( dir_right ),
 _outward( true ),
 _motion_count( 0 ),
 _level( level ) {
-	setPow( level * POW );
+	setPow( level * POW + 1 );
 }
 
 
