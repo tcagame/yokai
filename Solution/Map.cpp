@@ -205,7 +205,7 @@ MAPDATA MAP0[] = {
 		NONE
 	},
 	{//10
-		"street/map0/bg/map0_07_00.png",
+		"street/map0/bg/map0_07_00.png", // Ç¬Ç»Ç¨ÇçlÇ¶ÇÈ
 		"++++++++++++++++"
 		"++++++++++++++++"
 		"++++++++++++++++"
@@ -505,7 +505,7 @@ MAPDATA MAP0[] = {
 		PURPLE | REDBIRD
 	},
 	{//25
-		"street/map0/bg/map0_04_02.png",
+		"street/map0/bg/map0_00_02.png",
 		"++++++++++++++++"
 		"++++++++++++++++"
 		"++++++++++++++++"
@@ -525,7 +525,7 @@ MAPDATA MAP0[] = {
 		PURPLE | REDBIRD
 	},
 	{//26
-		"street/map0/bg/map0_05_02.png",
+		"street/map0/bg/map0_00_01.png", // Ç¬Ç»Ç¨ÇçlÇ¶ÇÈ
 		"++++++++++++++++"
 		"++++++++++++++++"
 		"++++++++++++++++"
@@ -545,7 +545,7 @@ MAPDATA MAP0[] = {
 		PURPLE | REDBIRD
 	},
 	{//27
-		"street/map0/bg/map0_06_02.png",
+		"street/map0/bg/map0_00_01.png",
 		"++++++++++++++++"
 		"++++++++++++++++"
 		"++++++++++++++++"
@@ -565,7 +565,7 @@ MAPDATA MAP0[] = {
 		PURPLE | REDBIRD
 	},
 	{//28
-		"street/map0/bg/map0_00_08.png",
+		"street/map0/bg/map0_00_01.png",
 		"++++++++++++++++"
 		"++++++++++++++++"
 		"++++++++++++++++"
@@ -585,7 +585,7 @@ MAPDATA MAP0[] = {
 		PURPLE | REDBIRD
 	},
 	{//29
-		"street/map0/bg/map0_01_03.png",
+		"street/map0/bg/map0_00_01.png",
 		"++++++++++++++++"
 		"++++++++++++++++"
 		"++++++++++++++++"
@@ -605,7 +605,7 @@ MAPDATA MAP0[] = {
 		PURPLE | REDBIRD
 	},
 	{//30
-		"street/map0/bg/map0_01_03.png",
+		"street/map0/bg/map0_00_01.png",
 		"++++++++++++++++"
 		"++++++++++++++++"
 		"++++++++++++++++"
@@ -625,7 +625,7 @@ MAPDATA MAP0[] = {
 		PURPLE | REDBIRD
 	},
 	{//31
-		"street/map0/bg/map0_04_03.png",
+		"street/map0/bg/map0_04_03.png", // map3_04_04ÇÇ¢ÇÍÇÈ
 		"++++++++++++++++"
 		"++++++++++++++++"
 		"++++++++++++++++"
@@ -785,7 +785,7 @@ MAPDATA MAP0[] = {
 		PURPLE | REDBIRD
 	},
 	{//39
-		"street/map0/bg/map0_00_10.png",
+		"street/map0/bg/map0_00_01.png", // map3_07_04ÇÇ¢ÇÍÇÈ
 		"++++++++++++++++"
 		"++++++++++++++++"
 		"++++++++++++++++"
@@ -925,7 +925,7 @@ MAPDATA MAP0[] = {
 		PURPLE | REDBIRD
 	},
 	{//46
-		"street/event/event_04_00.png",
+		"street/map0/bg/event_04_00.png",
 		"++++++++++++++++"
 		"++++++++++++++++"
 		"++++++++++++++++"
@@ -945,7 +945,7 @@ MAPDATA MAP0[] = {
 		PURPLE | REDBIRD
 	},
 	{//47
-		"street/event/event_05_00.png",
+		"street/map0/bg/event_05_00.png",
 		"++++++++++++++++"
 		"++++++++++++++++"
 		"++++++++++++++++"
@@ -965,7 +965,7 @@ MAPDATA MAP0[] = {
 		PURPLE | REDBIRD
 	},
 	{//48
-		"street/event/event_06_00.png",
+		"street/map0/bg/event_06_00.png",
 		"++++++++++++++++"
 		"++++++++++++++++"
 		"++++++++++++++++"
@@ -985,7 +985,7 @@ MAPDATA MAP0[] = {
 		PURPLE | REDBIRD
 	},
 	{//49
-		"street/event/event_07_00.png",
+		"street/map0/bg/event_07_00.png",
 		"++++++++++++++++"
 		"++++++++++++++++"
 		"++++++++++++++++"
