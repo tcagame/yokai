@@ -529,6 +529,8 @@ void Tarosuke::drawOverlapped( CameraConstPtr camera ) const {
 }
 
 void Tarosuke::damage( int pow ) {
+	SoundPtr sound = Sound::getTask( );
+
 	switch ( _action ) {
 	case ACTION_DEAD:
 	case ACTION_FALTER:
@@ -537,7 +539,7 @@ void Tarosuke::damage( int pow ) {
 	case ACTION_PRAY:
 		return;
 	}
-
+	sound->playSE( "yokai_voice_26.wav" );
 	_power->decrease( pow );
 	_action = ACTION_FALTER;
 	_act_count = 0;
