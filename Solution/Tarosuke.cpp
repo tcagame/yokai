@@ -223,7 +223,7 @@ void Tarosuke::actOnStanding( ) {
 			const int WALK[ WALK_PATTERN ] = { 1, 2, 1, 0, 3, 4, 3, 0 };
 			int u = WALK[ ( getX( ) / WAIT_TIME ) % WALK_PATTERN ];
 			setChipGraph( GRAPH_CHARACTER_1, u, 0 );
-			if ( _act_count % ( WAIT_TIME * WALK_PATTERN / 2 ) == 0 ) {
+			if ( _act_count % ( WALK_PATTERN ) == 0 ) {
 				sound->playSE( "yokai_voice_15.wav" );
 			}
 		}
