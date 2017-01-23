@@ -15,6 +15,7 @@ public:
 	Tarosuke( PsychicMgrPtr psychic, PowerPtr power );
 	virtual ~Tarosuke( );
 public:
+	void warp( int v );
 	void setSoloPlay( MomotaroPtr momotaro );
 	void damage( int pow );
 	bool isOnHead( CharacterPtr target ) const;

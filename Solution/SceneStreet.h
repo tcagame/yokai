@@ -19,6 +19,7 @@ public:
 	virtual ~SceneStreet( );
 private:
 	virtual NEXT update( );
+	void debugWarp( );
 private:
 	PowerPtr _power;
 	TarosukePtr _tarosuke;

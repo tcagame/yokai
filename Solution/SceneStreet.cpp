@@ -10,6 +10,8 @@
 #include "Status.h"
 #include "Sound.h"
 #include "Power.h"
+#include "Device.h"
+#include "Keyboard.h"
 
 SceneStreet::SceneStreet( bool solo ) {
 	MapConstPtr map( new Map );
@@ -65,5 +67,26 @@ Scene::NEXT SceneStreet::update( ) {
 	_psychic_mgr->draw( _camera );
 	_status->draw( );
 
+	debugWarp( );
+
 	return NEXT_CONTINUE;
 }
+
+void SceneStreet::debugWarp( ) {
+	KeyboardPtr keyboard = Keyboard::getTask( );
+
+	int warp = 0;
+	if ( keyboard->isPushKey( "D" ) ) {
+		warp = 1;
+	}
+	if ( keyboard->isPushKey( "A" ) ) {
+		warp = -1;
+	}
+	if ( warp == 0 ) {
+		return;
+	}
+
+	_tarosuke->warp( warp );
+	_enemy_mgr->clear( );
+}
+

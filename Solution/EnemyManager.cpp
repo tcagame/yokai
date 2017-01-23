@@ -30,6 +30,12 @@ EnemyManager::EnemyManager( ) {
 EnemyManager::~EnemyManager( ) {
 }
 
+
+void EnemyManager::clear( ) {
+	_enemies.clear( );
+	_enemy_stock =  EnemyStockPtr( new EnemyStock );
+}
+
 void EnemyManager::update( FieldPtr field, CameraConstPtr camera, TarosukePtr tarosuke, MomotaroPtr momotaro ) {
 	EnemyPtr stock = _enemy_stock->getPopUp( );
 	if ( stock ) {

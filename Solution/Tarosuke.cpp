@@ -41,6 +41,12 @@ Tarosuke::~Tarosuke( ) {
 
 }
 
+void Tarosuke::warp( int v ) {
+	int x = getX( ) + v * BG_SIZE;
+	setX( x );
+	setY( 0 );
+}
+
 void Tarosuke::setSoloPlay( MomotaroPtr momotaro ) {
 	_momotaro = momotaro;
 	_momotaro->hide( );

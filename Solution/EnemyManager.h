@@ -22,6 +22,7 @@ public:
 	void draw( CameraPtr camera );
 	bool isOutSideScreenEnemy( EnemyPtr enemy, CameraConstPtr camera );
 	EnemyPtr getOverlappedEnemy( PsychicPtr pcychic );
+	void clear( );
 protected:
 	void addEnemy( EnemyPtr enemy );
 private:
