@@ -11,6 +11,7 @@
 #include "EnemyRedbirdAttack.h"
 #include "EnemyMoth.h"
 #include "EnemyTree.h"
+#include "Sound.h"
 
 static const int PURPLE_POP_NUM = 5;
 static const int REDBIRD_POP_Y = 250;
@@ -95,6 +96,8 @@ void EnemyManager::addBomb( const Vector& pos ) {
 	_bombs[ _idx_bomb ].pos = pos;
 	_bombs[ _idx_bomb ].count = 0;
 	_idx_bomb = ( _idx_bomb + 1 ) % BOMB_NUM;
+	SoundPtr sound = Sound::getTask( );
+	sound->playSE( "yokai_se_26.wav" );
 }
 
 void EnemyManager::updateBomb( ) {
