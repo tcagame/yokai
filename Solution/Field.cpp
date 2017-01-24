@@ -9,11 +9,24 @@
 Field::Field( MapConstPtr map ) :
 _map( map ),
 _enemy_data( 0 ) {
-	_idx = -1;
+	_idx = 0;
 	_scroll_x = 0;
 	_scroll_y = -48; // ÅI“I‚É‚ÍƒJƒƒ‰‚©‚çŽæ“¾
-	_cloud_mgr = CloudMgrPtr( new CloudMgr );
-	// ¦Map‚©‚çŽæ“¾‚·‚é‚æ‚¤‚ÉC³
+
+	_cloud_mgr = map->createCloudMgr( );
+	
+	DrawerPtr drawer = Drawer::getTask( );
+	for ( int i = 0; i < BG_NUM; i++ ) {
+		int graph_bg = GRAPH_BG + ( _idx + i ) % BG_NUM;
+		drawer->loadGraph( graph_bg, _map->getBgFilename( _idx + i ) );
+
+		int graph_cover = GRAPH_COVER + ( _idx + i ) % BG_NUM;
+		drawer->unloadGraph( graph_cover );
+		std::string str = _map->getCoverFilename( _idx + i );
+		if ( !str.empty( ) ) {
+			drawer->loadGraph( graph_cover, _map->getCoverFilename( _idx + i ) );
+		}
+	}
 }
 
 Field::~Field( ) {
@@ -27,22 +40,27 @@ void Field::update( CameraConstPtr camera ) {
 void Field::scroll( CameraConstPtr camera ) {
 	int idx = camera->getX( ) / BG_SIZE;
 	if ( idx != _idx ) {
-		_idx = idx;
+		int new_idx = idx;
+		if ( idx > _idx ) {
+			new_idx = idx + BG_NUM - 1;
+			_enemy_data = _map->getEnemyData( idx + BG_NUM - 1 );
+		}
 
 		DrawerPtr drawer = Drawer::getTask( );
 
-		for ( int i = 0; i < BG_NUM; i++ ) {
-			drawer->unloadGraph( GRAPH_BG + i );
+		int graph_bg = GRAPH_BG + new_idx % BG_NUM;
+		drawer->loadGraph( graph_bg, _map->getBgFilename( new_idx ) );
+		
+		int graph_cover = GRAPH_COVER + new_idx % BG_NUM;
+		drawer->unloadGraph( graph_cover );
+		std::string str = _map->getCoverFilename( new_idx );
+		if ( !str.empty( ) ) {
+			drawer->loadGraph( graph_cover, _map->getCoverFilename( new_idx ) );
 		}
-
-		for ( int i = 0; i < BG_NUM; i++ ) {
-			drawer->loadGraph( GRAPH_BG + i, _map->getFilename( _idx + i ) );
-		}
-
-		_enemy_data = _map->getEnemyData( idx + BG_NUM - 1 );
+		_idx = idx;
 	}
 
-	_scroll_x = idx * BG_SIZE - camera->getX( );
+	_scroll_x = _idx * BG_SIZE - camera->getX( );
 	_scroll_y = -camera->getY( );
 }
 
@@ -56,13 +74,26 @@ void Field::draw( CameraConstPtr camera ) const {
 	drawClouds( camera );
 }
 
+void Field::drawCover( ) const {
+	DrawerPtr drawer = Drawer::getTask( );
+	
+	for ( int i = 0; i < BG_NUM; i++ ) {
+		int graph = GRAPH_COVER + ( _idx + i ) % BG_NUM;
+		Drawer::Sprite sprite( 
+			Drawer::Transform( _scroll_x + i * BG_SIZE, _scroll_y ),
+			graph );
+		drawer->setSprite( sprite );
+	}
+}
+
 void Field::drawBG( ) const {
 	DrawerPtr drawer = Drawer::getTask( );
 	
 	for ( int i = 0; i < BG_NUM; i++ ) {
+		int graph = GRAPH_BG + ( _idx + i ) % BG_NUM;
 		Drawer::Sprite sprite( 
 			Drawer::Transform( _scroll_x + i * BG_SIZE, _scroll_y ),
-			GRAPH_BG + i );
+			graph );
 		drawer->setSprite( sprite );
 	}
 }
