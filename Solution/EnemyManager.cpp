@@ -49,7 +49,13 @@ void EnemyManager::update( FieldPtr field, CameraConstPtr camera, TarosukePtr ta
 	std::list<EnemyPtr>::iterator ite = _enemies.begin( );
 	while ( ite != _enemies.end( ) ) {
 		EnemyPtr enemy = *ite;
+		/*
 		if ( isOutSideScreenEnemy( enemy, camera ) ) {
+			ite = _enemies.erase( ite );
+			continue;
+		}
+		*/
+		if ( enemy->isOutSideScreen( camera ) ) {
 			ite = _enemies.erase( ite );
 			continue;
 		}
@@ -125,25 +131,6 @@ void EnemyManager::drawBomb( CameraConstPtr camera ) const {
 		Drawer::Sprite sprite( trans, GRAPH_BOMB, Drawer::BLEND_NONE, 1.0 );
 		drawer->setSprite( sprite );
 	}
-}
-
-bool EnemyManager::isOutSideScreenEnemy( EnemyPtr enemy, CameraConstPtr camera ) {
-	bool result = false;
-	int dead_left_side = camera->getX( );
-	int dead_right_side = dead_left_side + BG_SIZE * BG_NUM;
-	int enemy_x = enemy->getX( );
-	int enemy_y = enemy->getY( );
-	int enemy_size = enemy->getSize( );
-	if ( enemy_x + enemy_size / 2 < dead_left_side ||
-		 enemy_x - enemy_size / 2 > dead_right_side ) {
-		result = true;
-	}
-	if ( enemy_y - enemy_size < 0 ||
-		 enemy_y > SCREEN_HEIGHT ) {
-		result = true;
-	}
-
-	return result;
 }
 
 void EnemyManager::addEnemy( EnemyPtr enemy ) {

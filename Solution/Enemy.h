@@ -14,6 +14,7 @@ public:
 	void damage( int pow );
 	bool isFinished( ) const;
 	int getPow( ) const;
+	bool isOutSideScreen( CameraConstPtr camera ) const;
 protected:
 	EnemyStockPtr getEnemyStock( );
 private:

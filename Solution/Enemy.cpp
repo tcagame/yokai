@@ -1,5 +1,6 @@
 #include "Enemy.h"
 #include "Psychic.h"
+#include "Camera.h"
 
 PTR( Psychic );
 
@@ -35,3 +36,21 @@ int Enemy::getPow( ) const {
 	return _pow;
 }
 
+bool Enemy::isOutSideScreen( CameraConstPtr camera ) const {
+	bool result = false;
+	int dead_left_side = camera->getX( );
+	int dead_right_side = dead_left_side + BG_SIZE * BG_NUM;
+	int x = getX( );
+	int y = getY( );
+	int size = getSize( );
+	if ( x + size / 2 < dead_left_side ||
+		 x - size / 2 > dead_right_side ) {
+		result = true;
+	}
+	if ( y - size < 0 ||
+		 y > SCREEN_HEIGHT ) {
+		result = true;
+	}
+
+	return result;
+}
