@@ -12,6 +12,7 @@ PTR( Tarosuke );
 PTR( Momotaro );
 PTR( EnemyStock );
 PTR( Psychic );
+PTR( Boss );
 
 class EnemyManager : public std::enable_shared_from_this< EnemyManager > {
 public:
@@ -38,6 +39,7 @@ private:
 private:
 	std::list< EnemyPtr > _enemies;
 	EnemyStockPtr _enemy_stock;
+	BossPtr _boss;
 	std::array< Bomb, BOMB_NUM > _bombs;
 	int _idx_bomb;
 };

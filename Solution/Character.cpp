@@ -47,6 +47,10 @@ bool Character::isChipReverse( ) const {
 	return _chip_reverse;
 }
 
+int Character::getChipFoot( ) const {
+	return _chip_foot;
+}
+
 void Character::setX( int x ) {
 	_x = x;
 }

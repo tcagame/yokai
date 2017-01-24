@@ -12,6 +12,7 @@
 #include "EnemyMoth.h"
 #include "EnemyTree.h"
 #include "Sound.h"
+#include "BossRedDemon.h"
 
 static const int PURPLE_POP_NUM = 5;
 static const int REDBIRD_POP_Y = 250;
@@ -26,6 +27,8 @@ EnemyManager::EnemyManager( ) {
 	for ( int i = 0; i < BOMB_NUM; i++ ) {
 		_bombs[ i ].count = BOMB_COUNT;
 	}
+	_boss = BossPtr( new BossRedDemon( _enemy_stock ) );
+	_enemies.push_back( _boss );
 }
 
 EnemyManager::~EnemyManager( ) {

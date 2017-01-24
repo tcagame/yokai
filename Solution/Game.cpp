@@ -15,9 +15,9 @@ Game::~Game( ) {
 void Game::initialize( ) {
 	_solo = true;
 	_stage = 0;
-	//_scene = ScenePtr( new SceneStreet );
+	_scene = ScenePtr( new SceneStreet( _solo ) );
 	//_scene = ScenePtr( new SceneGate( _stage ) );
-	_scene = ScenePtr( new SceneTitle );
+	//_scene = ScenePtr( new SceneTitle );
 }
 
 void Game::update( ) {

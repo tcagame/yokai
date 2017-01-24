@@ -20,6 +20,7 @@ public:
 	int getAccelX( ) const;
 	int getAccelY( ) const;
 	int getSize( ) const;
+	int getChipFoot( ) const;
 	bool isChipReverse( ) const;
 	bool isStanding( ) const;
 	bool isInWater( ) const;

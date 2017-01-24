@@ -29,6 +29,8 @@
     <ClCompile Include="Power.cpp" />
     <ClCompile Include="SceneGate.cpp" />
     <ClCompile Include="CloudMgr.cpp" />
+    <ClCompile Include="Boss.cpp" />
+    <ClCompile Include="BossRedDemon.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
@@ -59,5 +61,7 @@
     <ClInclude Include="Power.h" />
     <ClInclude Include="SceneGate.h" />
     <ClInclude Include="CloudMgr.h" />
+    <ClInclude Include="Boss.h" />
+    <ClInclude Include="BossRedDemon.h" />
   </ItemGroup>
 </Project>
