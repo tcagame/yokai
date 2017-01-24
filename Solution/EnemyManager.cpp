@@ -16,6 +16,7 @@
 #include "EnemyDeceasedFirst.h"
 #include "EnemyDeceasedSecond.h"
 #include "EnemyDeceasedThird.h"
+#include "EnemyDeceasedFourth.h"
 #include "EnemyFlog.h"
 #include "EnemyStone.h"
 #include "Map.h"
@@ -171,6 +172,7 @@ void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera
 		_enemies.push_back( EnemyPtr ( new EnemyDeceasedFirst( _enemy_stock, pop_base_x, TREE_POP_Y ) ) );
 		_enemies.push_back( EnemyPtr ( new EnemyDeceasedSecond( _enemy_stock, pop_base_x += INTERVAL, TREE_POP_Y ) ) );
 		_enemies.push_back( EnemyPtr ( new EnemyDeceasedThird( _enemy_stock, pop_base_x += INTERVAL, TREE_POP_Y ) ) );
+		_enemies.push_back( EnemyPtr ( new EnemyDeceasedFourth( _enemy_stock, pop_base_x += INTERVAL, TREE_POP_Y ) ) );
 	}
 	
 	if ( data & FLOG ) {

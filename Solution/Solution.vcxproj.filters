@@ -42,6 +42,7 @@
     <ClCompile Include="EnemyDeceasedFirst.cpp" />
     <ClCompile Include="EnemyDeceasedSecond.cpp" />
     <ClCompile Include="EnemyDeceasedThird.cpp" />
+    <ClCompile Include="EnemyDeceasedFourth.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
@@ -85,5 +86,6 @@
     <ClInclude Include="EnemyDeceasedFirst.h" />
     <ClInclude Include="EnemyDeceasedSecond.h" />
     <ClInclude Include="EnemyDeceasedThird.h" />
+    <ClInclude Include="EnemyDeceasedFourth.h" />
   </ItemGroup>
 </Project>
