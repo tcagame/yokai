@@ -4,8 +4,8 @@
 #include "Cloud.h"
 #include "BossRedDemon.h"
 
-Map::Map( const Boss * boss, const Panel * panel, int panel_num ) :
-_boss( boss ),
+Map::Map( const Item * item, const Panel * panel, int panel_num ) :
+_item( item ),
 _panel( panel ),
 _panel_num( panel_num ) {
 }
@@ -68,5 +68,13 @@ CloudMgrPtr Map::createCloudMgr( ) const {
 }
 
 BossPtr Map::createBoss( EnemyStockPtr enemy_stock ) const {
-	return BossPtr( new BossRedDemon( enemy_stock ) );
+	
+	BossPtr boss;
+	switch ( _item->boss ) {
+	case BOSS_REDDEMON:
+		boss = BossPtr( new BossRedDemon( enemy_stock, getLength( ) ) );
+		break;
+	}
+
+	return boss;
 }

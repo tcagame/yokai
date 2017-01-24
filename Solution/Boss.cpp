@@ -1,8 +1,7 @@
 #include "Boss.h"
 
-
-Boss::Boss( EnemyStockPtr enemy_stock ) :
-Enemy( enemy_stock, 256, 400, 256, 0, true, 30, 10 ) {
+Boss::Boss( EnemyStockPtr enemy_stock, int x, int y, int hp, int pow ) :
+Enemy( enemy_stock, x, y, 256, 0, false, hp, pow ) {
 }
 
 

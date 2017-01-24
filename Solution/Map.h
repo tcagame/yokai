@@ -16,9 +16,7 @@ public:
 		BOSS_REDDEMON,
 	};
 
-	struct Boss {
-		int offset_x;
-		int offset_y;
+	struct Item {
 		BOSS boss;
 
 	};
@@ -29,7 +27,7 @@ public:
 		const unsigned int enemy;
 	};
 public:
-	Map( const Boss * boss, const Panel * panel, int panel_num );
+	Map( const Item * item, const Panel * panel, int panel_num );
 	virtual ~Map( );
 public:
 	const char * getBgFilename( int idx ) const;
@@ -44,7 +42,7 @@ private:
 	bool isSmallCloud( int bg_idx, int chip_idx ) const;
 	bool isBigCloud( int bg_idx, int chip_idx ) const;
 private:
-	const Boss  * _boss;
+	const Item  * _item;
 	const Panel * _panel;
 	const int     _panel_num;
 };

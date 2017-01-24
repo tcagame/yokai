@@ -2,10 +2,14 @@
 #include "Drawer.h"
 #include "Camera.h"
 
-static const int  CHIP_SIZE = 256;
+static const int CHIP_SIZE = 256;
+static const int OFFSET_X = 400;
+static const int OFFSET_Y = 400;
+static const int HP  = 20;
+static const int POW = 10;
 
-BossRedDemon::BossRedDemon( EnemyStockPtr enemy_stock ) :
-Boss( enemy_stock ) { 
+BossRedDemon::BossRedDemon( EnemyStockPtr enemy_stock, int x ) :
+Boss( enemy_stock, x + OFFSET_X, OFFSET_Y, HP, POW ) { 
 }
 
 

@@ -1,13 +1,11 @@
 #include "Map3.h"
 #include "define.h"
 
-static const Map::Boss boss3 = {
-	100,
-	100,
+static const Map::Item item = {
 	Map::BOSS_REDDEMON
 };
 
-static const Map::Panel panel3[] = {
+static const Map::Panel panel[] = {
 	{//0
 		"street/map0/bg/map0_00_00.png",
 		"street/map0/cover/bg_cover.png",
@@ -1063,7 +1061,7 @@ static const Map::Panel panel3[] = {
 
 
 Map3::Map3( ) :
-Map( &boss3, panel3, sizeof( panel3 ) / sizeof( Map::Panel ) - 1 ) {
+Map( &item, panel, sizeof( panel ) / sizeof( Map::Panel ) - 1 ) {
 }
 
 

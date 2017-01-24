@@ -4,7 +4,7 @@
 
 class BossRedDemon : public Boss {
 public:
-	BossRedDemon( EnemyStockPtr enemy_stock );
+	BossRedDemon( EnemyStockPtr enemy_stock, int x );
 	virtual ~BossRedDemon( );
 private:
 	void act( );
