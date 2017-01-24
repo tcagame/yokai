@@ -102,6 +102,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
+    <ClCompile Include="Map0.cpp" />
     <ClCompile Include="Momotaro.cpp" />
     <ClCompile Include="Power.cpp" />
     <ClCompile Include="Psychic.cpp" />
@@ -139,6 +140,7 @@
     <ClInclude Include="Field.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Map.h" />
+    <ClInclude Include="Map0.h" />
     <ClInclude Include="Momotaro.h" />
     <ClInclude Include="Power.h" />
     <ClInclude Include="Psychic.h" />

@@ -3,7 +3,6 @@
 #include "Momotaro.h"
 #include "Field.h"
 #include "Camera.h"
-#include "Map.h"
 #include "Drawer.h"
 #include "PsychicMgr.h"
 #include "EnemyManager.h"
@@ -12,14 +11,31 @@
 #include "Power.h"
 #include "Device.h"
 #include "Keyboard.h"
+#include "Game.h"
+#include "Map0.h"
+//#include "Map1.h"
+//#include "Map2.h"
+//#include "Map3.h"
+//#include "Map4.h"
+//#include "MapTest.h"
 
 SceneStreet::SceneStreet( ) {
-	MapConstPtr map( new Map );
-	_field = FieldPtr( new Field( map ) );
+	GamePtr game = Game::getTask( );
+	
+	MapConstPtr map;
+	switch ( game->getStage( ) ) {
+	case 0: map = MapPtr( new Map0 ); break;
+	//case 1: map = MapPtr( new Map1 ); break;
+	//case 2: map = MapPtr( new Map2 ); break;
+	//case 3: map = MapPtr( new Map3 ); break;
+	//case 4: map = MapPtr( new Map4 ); break;
+	//case 5: map = MapPtr( new MapTest ); break;
+	}
 
-	_power = PowerPtr( new Power );
+	_field = FieldPtr( new Field( map ) );
 	_camera = CameraPtr( new Camera( map ) );
 	_psychic_mgr = PsychicMgrPtr( new PsychicMgr );
+	_power = PowerPtr( new Power );
 	_momotaro = MomotaroPtr( new Momotaro( _camera, _psychic_mgr, _power ) );
 	_tarosuke = TarosukePtr( new Tarosuke( _psychic_mgr, _power, _momotaro ) );
 	_enemy_mgr = EnemyManagerPtr( new EnemyManager( map ) );

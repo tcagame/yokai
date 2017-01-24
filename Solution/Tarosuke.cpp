@@ -51,6 +51,8 @@ void Tarosuke::warp( int v ) {
 }
 
 void Tarosuke::act( ) {
+	GamePtr game = Game::getTask( );
+	game->addDebugMessage( "Tarosuke x:%05d(%03d) y:%03d", getX( ), getX( ) % BG_SIZE, getY( ) );
 	_act_count++;
 
 	switch ( _action ) {
@@ -98,13 +100,6 @@ void Tarosuke::act( ) {
 			_momotaro->hide( );
 		}
 		return;
-	}
-
-	// デバッグ
-	DevicePtr device = Device::getTask( );
-	if ( device->getPush( ) == BUTTON_D ) {
-		_action = ACTION_DEAD;
-		_act_count = 0;
 	}
 }
 

@@ -14,6 +14,7 @@
 #include "Sound.h"
 #include "Map.h"
 #include "Boss.h"
+#include "Game.h"
 
 static const int PURPLE_POP_NUM = 5;
 static const int REDBIRD_POP_Y = 250;
@@ -91,10 +92,9 @@ void EnemyManager::draw( CameraPtr camera ) {
 	}
 
 	drawBomb( camera );
-#if _DEBUG
-	DrawerPtr drawer = Drawer::getTask( );
-	drawer->drawString( 10, 10, "Enemy Size : %d", _enemies.size( ) );
-#endif
+
+	GamePtr game = Game::getTask( );
+	game->addDebugMessage( "Enemy Size : %d", _enemies.size( ) );
 }
 
 void EnemyManager::addBomb( const Vector& pos ) {

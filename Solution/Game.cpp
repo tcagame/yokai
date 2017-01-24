@@ -5,6 +5,7 @@
 #include "Drawer.h"
 #include "Keyboard.h"
 #include "Application.h"
+#include <stdarg.h>
 
 GamePtr Game::getTask( ) {
 	ApplicationPtr fw = Application::getInstance( );
@@ -41,12 +42,26 @@ int Game::getStage( ) const {
 }
 
 void Game::update( ) {
+	Scene::NEXT next = _scene->update( );
+	
 	KeyboardPtr keyboard = Keyboard::getTask( );
 	if ( keyboard->isPushKey( "SPACE" ) ) {
 		_debug = !_debug;
 	}
 
-	Scene::NEXT next = _scene->update( );
+	if ( _debug ) {
+		int x = 0;
+		int y = 0;
+		DrawerPtr drawer = Drawer::getTask( );
+		std::list< std::string >::iterator it = _debug_message.begin( );
+		while ( it != _debug_message.end( ) ) {
+			std::string& str = *it;
+			drawer->drawString( x, y, str.c_str( ) );
+			y += 20;
+			it++;
+		}
+	}
+	_debug_message.clear( );
 
 	if ( next == Scene::NEXT_CONTINUE ) {
 		return;
@@ -73,4 +88,15 @@ void Game::update( ) {
 		_scene = ScenePtr( new SceneStreet( ) );
 		break;
 	}
+}
+
+void Game::addDebugMessage( const char* string, ... ) {
+	char buf[ 1024 ];
+	va_list ap;
+	unsigned int color = 0xFFFFFF;
+	va_start( ap, string );
+	vsprintf_s( buf, 1024, string, ap );
+	std::string str = buf;
+	_debug_message.push_back( str );
+	va_end( ap );
 }
