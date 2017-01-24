@@ -22,6 +22,7 @@ private:
 		PHASE_NORMAL,
 		PHASE_BOSS,
 		PHASE_CLEAR,
+		PHASE_FADEOUT,
 	};
 private:
 	virtual NEXT update( );

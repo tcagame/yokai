@@ -2,6 +2,7 @@
 #include "Drawer.h"
 #include "define.h"
 #include "Sound.h"
+#include "Game.h"
 
 static const int BG_HEIGHT = 512;
 static const int MAP_X = ( SCREEN_WIDTH - 512 ) / 2;
@@ -30,9 +31,17 @@ Scene::NEXT SceneGate::update( ) {
 	act( );
 	draw( );
 
-	if ( _x > SCREEN_WIDTH + TAROSUKE_SIZE ) {
+	GamePtr game = Game::getTask( );
+	switch ( game->getFade( ) ) {
+	case Game::FADE_NONE:
+		if ( _x > SCREEN_WIDTH + TAROSUKE_SIZE ) {
+			game->setFade( Game::FADE_OUT );
+		}
+		break;
+	case Game::FADE_COVER:
 		return NEXT_STREET;
 	}
+
 	return NEXT_CONTINUE;
 }
 

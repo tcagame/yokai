@@ -102,7 +102,16 @@ Scene::NEXT SceneStreet::update( ) {
 		break;
 	case PHASE_CLEAR:
 		if ( _phase_count > CLEAR_COUNT ) {
-			return NEXT_STAGE;
+			GamePtr game = Game::getTask( );
+			game->setFade( Game::FADE_OUT );
+		}
+		break;
+	case PHASE_FADEOUT:
+		{
+			GamePtr game = Game::getTask( );
+			if ( game->getFade( ) == Game::FADE_COVER ) {
+				return NEXT_STAGE;
+			}
 		}
 		break;
 	}

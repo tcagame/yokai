@@ -17,6 +17,7 @@ const unsigned int FLOG		= 0x00000032;
 const unsigned int STONE	= 0x00000064;
 
 enum GRAPH {
+	GRAPH_FADE_BOARD,
 	GRAPH_TITLE_PANEL,
 	GRAPH_TITLE_FRAME,
 	GRAPH_TITLE_FONT,

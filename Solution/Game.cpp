@@ -5,7 +5,16 @@
 #include "Drawer.h"
 #include "Keyboard.h"
 #include "Application.h"
+#include "define.h"
+#include "Drawer.h"
 #include <stdarg.h>
+
+static const int PANEL_WIDTH  = 266;
+static const int PANEL_HEIGHT = 272;
+static const int PANEL_PITCH = 192;
+static const int PANLE_COL = SCREEN_WIDTH  / PANEL_PITCH + 2;
+static const int PANLE_ROW = SCREEN_HEIGHT / PANEL_PITCH + 2;
+static const int FADE_COUNT = 60;
 
 GamePtr Game::getTask( ) {
 	ApplicationPtr fw = Application::getInstance( );
@@ -13,7 +22,10 @@ GamePtr Game::getTask( ) {
 }
 
 Game::Game( ) :
-_debug( false ) {
+_debug( false ),
+_solo( true ),
+_stage( 0 ),
+_fade( FADE_NONE ) {
 }
 
 
@@ -22,11 +34,7 @@ Game::~Game( ) {
 }
 
 void Game::initialize( ) {
-	_solo = true;
-	_stage = 0;
-	//_scene = ScenePtr( new SceneStreet( ) );
-	//_scene = ScenePtr( new SceneGate( _stage ) );
-	_scene = ScenePtr( new SceneTitle );
+	changeScene( Scene::NEXT_TITLE );
 }
 
 bool Game::isDebug( ) const {
@@ -43,7 +51,64 @@ int Game::getStage( ) const {
 
 void Game::update( ) {
 	Scene::NEXT next = _scene->update( );
-	
+	fade( );
+	option( );
+	changeScene( next );
+}
+
+Game::FADE Game::getFade( ) const {
+	return _fade;
+}
+
+void Game::setFade( FADE fade ) {
+	_fade = fade;
+}
+
+void Game::fade( ) {
+	switch ( _fade ) {
+	case FADE_IN:
+		_fade_count++;
+		if ( _fade_count >= FADE_COUNT ) {
+			_fade = FADE_NONE;
+			return;
+		}
+		break;
+	case FADE_NONE:
+		_fade_count = FADE_COUNT;
+		return;
+	case FADE_OUT:
+		_fade_count--;
+		if ( _fade_count < 0 ) {
+			_fade = FADE_COVER;
+			_fade_count = 0;
+		}
+		break;
+	case FADE_COVER:
+		_fade_count = 0;
+		break;
+	}
+
+	for ( int i = 0; i < PANLE_COL; i++ ) {
+		for ( int j = 0; j < PANLE_ROW; j++ ) {
+			int sx = -PANEL_WIDTH  / 2 + i * PANEL_PITCH;
+			int sy = -PANEL_HEIGHT / 2 + j * PANEL_PITCH;
+			int num = _fade_count / 3 - ( i + j * 2 );
+			if ( num > 4 ) {
+				continue;
+			}
+			if ( num < 0 ) {
+				num = 0;
+			}
+			int tx = num * PANEL_WIDTH;
+			DrawerPtr drawer = Drawer::getTask( );
+			Drawer::Transform trans( sx, sy, tx, 0, PANEL_WIDTH, PANEL_HEIGHT );
+			Drawer::Sprite sprite( trans, GRAPH_TITLE_PANEL, Drawer::BLEND_NONE, 1.0 );
+			drawer->setSprite( sprite );
+		}
+	}
+}
+
+void Game::option( ) {
 	KeyboardPtr keyboard = Keyboard::getTask( );
 	if ( keyboard->isPushKey( "SPACE" ) ) {
 		_debug = !_debug;
@@ -62,7 +127,9 @@ void Game::update( ) {
 		}
 	}
 	_debug_message.clear( );
+}
 
+void Game::changeScene( Scene::NEXT next ) {
 	if ( next == Scene::NEXT_CONTINUE ) {
 		return;
 	}
@@ -104,6 +171,10 @@ void Game::update( ) {
 		_scene = ScenePtr( new SceneStreet( ) );
 		break;
 	}
+	
+	drawer->loadGraph( GRAPH_TITLE_PANEL, "title/Yokai_UI_title_panel.png" );
+
+	setFade( FADE_IN );
 }
 
 void Game::addDebugMessage( const char* string, ... ) {

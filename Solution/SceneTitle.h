@@ -12,7 +12,6 @@ private:
 	void draw( );
 private:
 	int _count;
-	bool _finish;
 	int _select;
 };
 

@@ -5,6 +5,7 @@
 #include "Device.h"
 #include "Define.h"
 #include "Keyboard.h"
+#include "Game.h"
 
 static const int TITLE_WIDTH  = 1024;
 static const int TITLE_HEIGHT = 256;
@@ -24,7 +25,6 @@ SceneTitle::SceneTitle( ) {
 	drawer->loadGraph( GRAPH_TITLE_PANEL, "title/Yokai_UI_title_panel.png" );
 
 	_count = 0;
-	_finish = false;
 	_select = 0;
 }
 
@@ -34,8 +34,9 @@ SceneTitle::~SceneTitle( ) {
 Scene::NEXT SceneTitle::update( ) {
 	act( );
 	draw( );
-
-	if ( _finish ) {
+	
+	GamePtr game = Game::getTask( );
+	if ( game->getFade( ) == Game::FADE_COVER ) {
 		if ( _select == 0 ) {
 			return NEXT_SELECT_1PLAYER;
 		} else {
@@ -54,11 +55,17 @@ Scene::NEXT SceneTitle::update( ) {
 void SceneTitle::act( ) {
 	_count++;
 
+	GamePtr game = Game::getTask( );
+	if ( game->getFade( ) != Game::FADE_NONE ) {
+		return;
+	}
+
 	DevicePtr device = Device::getTask( );
+
 	if ( device->getButton( ) != 0 ) {
 		SoundPtr sound = Sound::getTask( );
 		sound->playSE( "yokai_se_01.wav" );
-		_finish = true;
+		game->setFade( Game::FADE_OUT );
 	}
 
 	if ( device->getDirY( ) < 0 ) {
@@ -96,7 +103,11 @@ void SceneTitle::draw( ) {
 		drawer->setSprite( sprite_panel);
 	}
 
-	drawer->drawString( SELECT_X, SELECT_Y +   0, "1P PLAYER GAME" );
-	drawer->drawString( SELECT_X, SELECT_Y +  40, "2P PLAYER GAME" );
-	drawer->drawString( SELECT_X - 30, SELECT_Y + _select * 40, "Å®" );
+	GamePtr game = Game::getTask( );
+	Game::FADE fade = game->getFade( );
+	if ( fade == Game::FADE_NONE ) {
+		drawer->drawString( SELECT_X, SELECT_Y +   0, "1P PLAYER GAME" );
+		drawer->drawString( SELECT_X, SELECT_Y +  40, "2P PLAYER GAME" );
+		drawer->drawString( SELECT_X - 30, SELECT_Y + _select * 40, "Å®" );
+	}
 }
