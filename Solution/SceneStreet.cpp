@@ -65,6 +65,7 @@ Scene::NEXT SceneStreet::update( ) {
 	_tarosuke->draw( _camera );
 	_momotaro->draw( _camera );
 	_psychic_mgr->draw( _camera );
+	_field->drawCover( );
 	_status->draw( );
 
 	debugWarp( );

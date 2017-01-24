@@ -21,6 +21,7 @@ public:
 	};
 	void update( CameraConstPtr camera );
 	void draw( CameraConstPtr camera ) const;
+	void drawCover( ) const;
 	Collision getCollision( int src_x, int src_y, int dst_x, int dst_y ) const;
 	unsigned int getEnemyData( );
 	bool isChip( int x, int y ) const;
