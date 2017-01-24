@@ -11,7 +11,6 @@
 #include "EnemyRedbirdAttack.h"
 #include "EnemyMoth.h"
 #include "EnemyTree.h"
-#include "EnemyDeceased.h"
 #include "Sound.h"
 #include "Map.h"
 #include "Boss.h"
@@ -158,10 +157,11 @@ void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera
 	if ( data & TREE ) {
 		_enemies.push_back( EnemyPtr( new EnemyTree( _enemy_stock, pop_base_x, TREE_POP_Y ) ) );
 	}
-
+	/*
 	if ( data & DECEASED ) {
 		_enemies.push_back( EnemyPtr ( new EnemyDeceased( _enemy_stock, pop_base_x, TREE_POP_Y ) ) );
 	}
+	*/
 }
 
 EnemyPtr EnemyManager::getOverlappedEnemy( PsychicPtr pcychic ) {

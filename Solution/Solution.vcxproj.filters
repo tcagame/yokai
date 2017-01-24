@@ -31,7 +31,6 @@
     <ClCompile Include="CloudMgr.cpp" />
     <ClCompile Include="Boss.cpp" />
     <ClCompile Include="BossRedDemon.cpp" />
-    <ClCompile Include="EnemyDeceased.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
@@ -64,6 +63,5 @@
     <ClInclude Include="CloudMgr.h" />
     <ClInclude Include="Boss.h" />
     <ClInclude Include="BossRedDemon.h" />
-    <ClInclude Include="EnemyDeceased.h" />
   </ItemGroup>
 </Project>
