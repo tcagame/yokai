@@ -10,7 +10,7 @@ static const int TAROSUKE_Y = 550;
 static const int TAROSUKE_SPEED = 10;
 static const int TAROSUKE_SIZE = 128;
 
-SceneGate::SceneGate( int stage ) {
+SceneGate::SceneGate( ) {
 	DrawerPtr drawer = Drawer::getTask( );
 	drawer->loadGraph( GRAPH_CHARACTER_1, "Character/Character1.png" );
 	drawer->loadGraph( GRAPH_GATE_BG,     "gate/gate_bg.png"  );

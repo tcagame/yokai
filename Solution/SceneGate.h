@@ -4,7 +4,7 @@
 
 class SceneGate : public Scene {
 public:
-	SceneGate( int stage );
+	SceneGate( );
 	virtual ~SceneGate( );
 private:
 	NEXT update( );

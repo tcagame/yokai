@@ -8,6 +8,7 @@
 #include "PsychicMomotaro.h"
 #include "Sound.h"
 #include "Power.h"
+#include "Game.h"
 
 static const int MOVE_SPEED = 20;
 static const int CHIP_MOMOTARO_NUM = 101;
@@ -31,23 +32,28 @@ _power( power ) {
 	_action = ACTION_MOVE;
 	_act_count = 0;
 	_falter_count = 0;
+
+	_device_num = DEVICE_2;
+	GamePtr game = Game::getTask( );
+	if ( game->isSolo( ) ) {
+		_device_num = DEVICE_1;
+		hide( );
+	}
 }
 
 Momotaro::~Momotaro( ) {
 }
 
 void Momotaro::hide( ) {
-	_act_count = 0;
-	_device_num = DEVICE_1;
 	_action = ACTION_HIDE;
+	_act_count = 0;
 }
 
 void Momotaro::appear( int x, int y, bool reverse ) {
-	_device_num = DEVICE_1;
+	_action = ACTION_MOVE;
 	_falter_count = 0;
 	setX( x );
 	setY( y );
-	_action = ACTION_MOVE;
 	setChipReverse( reverse );
 	_vec = Vector( -MOVE_SPEED, -MOVE_SPEED / 2 );
 	if ( reverse ) {

@@ -12,13 +12,12 @@ PTR( Character );
 
 class Tarosuke : public Character {
 public:
-	Tarosuke( PsychicMgrPtr psychic, PowerPtr power );
+	Tarosuke( PsychicMgrPtr psychic, PowerPtr power, MomotaroPtr momotaro );
 	virtual ~Tarosuke( );
 public:
-	void warp( int v );
-	void setSoloPlay( MomotaroPtr momotaro );
-	void damage( int pow );
 	bool isOnHead( CharacterPtr target ) const;
+	void warp( int v );
+	void damage( int pow );
 	void bound( );
 private:
 	enum ACTION {

@@ -8,6 +8,7 @@
 #include "Momotaro.h"
 #include "Sound.h"
 #include "Power.h"
+#include "Game.h"
 
 static const int MAX_TAROSUKE_CHIP_NUM = 101;
 static const int JUMP_COUNT = 10;
@@ -21,14 +22,16 @@ static const int MAX_SPEED = 15;
 static const int ACCEL_SPEED = 3;
 static const int BRAKE_SPEED = 6;
 static const int CAPACITY_SAVING_POWER = 40;
+static const int BURST_COUNT = 40;
 static const int SHOOT_FOOT = 30;
 static const int MOMO_SPEED = 10;
 static const int CHIP_SIZE = 128;
 static const int CHIP_FOOT = 18;
 static const int FALTER_COUNT = 6;
 
-Tarosuke::Tarosuke( PsychicMgrPtr psychic, PowerPtr power ) : 
+Tarosuke::Tarosuke( PsychicMgrPtr psychic, PowerPtr power, MomotaroPtr momotaro ) : 
 Character( START_X, START_Y, CHIP_SIZE, CHIP_FOOT, true ),
+_momotaro( momotaro ),
 _power( power ) {
 	_psychic_mgr = psychic;
 	_jump_count = 0;
@@ -45,11 +48,6 @@ void Tarosuke::warp( int v ) {
 	int x = getX( ) + v * BG_SIZE;
 	setX( x );
 	setY( 0 );
-}
-
-void Tarosuke::setSoloPlay( MomotaroPtr momotaro ) {
-	_momotaro = momotaro;
-	_momotaro->hide( );
 }
 
 void Tarosuke::act( ) {
@@ -164,7 +162,8 @@ void Tarosuke::actOnStanding( ) {
 	}
 
 	if ( device->getPush( ) == BUTTON_B ) {
-		if ( _momotaro ) {
+		GamePtr game = Game::getTask( );
+		if ( game->isSolo( ) ) {
 			sound->playSE( "yokai_voice_06.wav" );
 			_action = ACTION_CALL;
 			_act_count = 0;
@@ -203,6 +202,8 @@ void Tarosuke::actOnStanding( ) {
 			_saving_power++;
 			if ( _saving_power >= CAPACITY_SAVING_POWER ) {
 				_action = ACTION_BURST;
+				_act_count = 0;
+				return;
 			}
 		} else {
 			_saving_power -= 4;
@@ -332,13 +333,12 @@ void Tarosuke::actOnFloating( ) {
 }
 
 void Tarosuke::actOnBursting( ) {
-	_saving_power--;
-	if ( _saving_power <= 0 ) {
+	if ( _act_count > BURST_COUNT ) {
 		_saving_power = 0;
 		_action = ACTION_STAND;
 	}
-	const int TIRED[ 11 ] = { 0, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 };
-	setChipGraph( GRAPH_CHARACTER_1, ( 7 + TIRED[ _saving_power / 10 ] ) % 8, 4 + ( 7 + TIRED[ _saving_power / 10 ] ) / 8 );
+	const int ANIM[ ] = { 39, 40, 41, 40, 41, 40, 41, 40, 41, 40, 41, 40, 41 };
+	setChipGraph( GRAPH_CHARACTER_1, ANIM[ _act_count / 10 ] % 8, ANIM[ _act_count / 10 ] / 8 );
 }
 
 void Tarosuke::actOnFaltering( ) {
@@ -390,11 +390,11 @@ void Tarosuke::actOnCalling( ) {
 }
 
 void Tarosuke::actOnAppearring( ) {
-	int u = 4 + _act_count;
-	if ( u > 8 ) {
-		u = 8;
+	int n = 12 + _act_count / 2;
+	if ( n > 17 ) {
+		n = 17;
 	}
-	setChipGraph( GRAPH_CHARACTER_1, u, 1 );
+	setChipGraph( GRAPH_CHARACTER_1, n % 8, n / 8 );
 
 	if ( _act_count > 14 ) {
 		_action = ACTION_PRAY;
@@ -480,8 +480,6 @@ void Tarosuke::drawOverlapped( CameraConstPtr camera ) const {
 	}
 
 	if ( _action == ACTION_APPEAR ) {
-		int power = _saving_power / ( CAPACITY_SAVING_POWER / 6 );
-
 		int idx = _act_count - 4;
 		if ( idx < 0 ) {
 			return;
@@ -490,12 +488,12 @@ void Tarosuke::drawOverlapped( CameraConstPtr camera ) const {
 		int tx = ( idx % 8     ) * CHIP_SIZE;
 		int ty = ( idx / 8 + 6 ) * CHIP_SIZE;
 
-		int sx1 = getX( ) - camera->getX( ) - CHIP_SIZE / 2 - CHIP_SIZE;
+		int sx1 = getX( ) - camera->getX( ) - CHIP_SIZE / 2 - CHIP_SIZE / 2;
 		int sy1 = getY( ) - camera->getY( ) - CHIP_SIZE;
 		int sx2 = sx1 + CHIP_SIZE;
 		int sy2 = sy1 + CHIP_SIZE;
 		if ( isChipReverse( ) ) {
-			sx1 += CHIP_SIZE * 2;
+			sx1 += CHIP_SIZE;
 			sx2 = sx1 + CHIP_SIZE;
 			int tmp = sx1;
 			sx1 = sx2;
@@ -509,7 +507,7 @@ void Tarosuke::drawOverlapped( CameraConstPtr camera ) const {
 		return;
 	}
 
-	if ( _action != ACTION_BURST && _saving_power > 0 ) {
+	if ( _saving_power > 0 ) {
 		int power = _saving_power / ( CAPACITY_SAVING_POWER / 6 );
 
 		int idx = power * 2 + _act_count % 2;

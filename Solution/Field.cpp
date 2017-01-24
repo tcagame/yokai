@@ -5,6 +5,8 @@
 #include "Map.h"
 #include "Cloud.h"
 #include "CloudMgr.h"
+#include "Keyboard.h"
+#include "Game.h"
 
 Field::Field( MapConstPtr map ) :
 _map( map ),
@@ -27,6 +29,8 @@ _enemy_data( 0 ) {
 			drawer->loadGraph( graph_cover, _map->getCoverFilename( _idx + i ) );
 		}
 	}
+
+	_debug_mapchip = false;
 }
 
 Field::~Field( ) {
@@ -35,6 +39,11 @@ Field::~Field( ) {
 void Field::update( CameraConstPtr camera ) {
 	scroll( camera );
 	moveClouds( );
+
+	KeyboardPtr keyboard = Keyboard::getTask( );
+	if ( keyboard->isPushKey( "C" ) ) {
+		_debug_mapchip = !_debug_mapchip; 
+	}
 }
 
 void Field::scroll( CameraConstPtr camera ) {
@@ -99,6 +108,11 @@ void Field::drawBG( ) const {
 }
 
 void Field::drawChip( ) const {
+	GamePtr game = Game::getTask( );
+	if ( !game->isDebug( ) ) {
+		return;
+	}
+
 	DrawerPtr drawer = Drawer::getTask( );
 
 	for ( int i = 0; i < BG_NUM; i++ ) {

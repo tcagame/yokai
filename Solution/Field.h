@@ -41,5 +41,6 @@ private:
 	unsigned int _enemy_data;
 	std::list< CloudPtr > _clouds;
 	CloudMgrPtr _cloud_mgr;
+	bool _debug_mapchip;
 };
 

@@ -13,21 +13,17 @@
 #include "Device.h"
 #include "Keyboard.h"
 
-SceneStreet::SceneStreet( bool solo ) {
+SceneStreet::SceneStreet( ) {
 	MapConstPtr map( new Map );
 	_field = FieldPtr( new Field( map ) );
 
 	_power = PowerPtr( new Power );
 	_camera = CameraPtr( new Camera( map ) );
 	_psychic_mgr = PsychicMgrPtr( new PsychicMgr );
-	_tarosuke = TarosukePtr( new Tarosuke( _psychic_mgr, _power ) );
 	_momotaro = MomotaroPtr( new Momotaro( _camera, _psychic_mgr, _power ) );
+	_tarosuke = TarosukePtr( new Tarosuke( _psychic_mgr, _power, _momotaro ) );
 	_enemy_mgr = EnemyManagerPtr( new EnemyManager( map ) );
 	_status = StatusPtr( new Status( _power ) );
-	
-	if ( solo ) {
-		_tarosuke->setSoloPlay( _momotaro );
-	}
 
 	DrawerPtr drawer = Drawer::getTask( );
 	drawer->loadGraph( GRAPH_CHARACTER_1		 , "Character/Character1.png" );
@@ -39,7 +35,7 @@ SceneStreet::SceneStreet( bool solo ) {
 	drawer->loadGraph( GRAPH_BOMB                , "street/bomb.png" );
 	drawer->loadGraph( GRAPH_BOSS                , "street/enemy/boss_reddemon.png" );
 	drawer->loadGraph( GRAPH_ENEMY				 , "street/enemy/Enemy0.png" );
-	drawer->loadGraph( GRAPH_ENEMY_1			 , "street/enemy/enemy1.png" );
+	//drawer->loadGraph( GRAPH_ENEMY_1			 , "street/enemy/enemy1.png" );
 	drawer->loadGraph( GRAPH_ENEMY_SMALL		 , "street/enemy/enemy_small.png" );
 	drawer->loadGraph( GRAPH_ENEMY_TREE			 , "street/enemy/enemy_tree.png" );
 	drawer->loadGraph( GRAPH_STATUS_PLATE		 , "street/status/status_plate.png" );

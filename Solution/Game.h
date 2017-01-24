@@ -14,11 +14,16 @@ public:
 public:
 	Game( );
 	virtual ~Game( );
+public:
 	void update( );
 	void initialize( );
+	bool isDebug( ) const;
+	bool isSolo( ) const;
+	int getStage( ) const;
 private:
 	ScenePtr _scene;
 	bool _solo;
 	int _stage;
+	bool _debug;
 };
 

@@ -7,6 +7,7 @@ public:
 		NEXT_TITLE,
 		NEXT_SELECT_1PLAYER,
 		NEXT_SELECT_2PLAYER,
+		NEXT_GATE,
 		NEXT_STREET,
 	};
 public:
