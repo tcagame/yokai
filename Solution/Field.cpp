@@ -12,8 +12,8 @@ _enemy_data( 0 ) {
 	_idx = -1;
 	_scroll_x = 0;
 	_scroll_y = -48; // ÅI“I‚É‚ÍƒJƒƒ‰‚©‚çŽæ“¾
-	_cloud_mgr = CloudMgrPtr( new CloudMgr );
-	// ¦Map‚©‚çŽæ“¾‚·‚é‚æ‚¤‚ÉC³
+	_cloud_mgr = map->createCloudMgr( );
+
 }
 
 Field::~Field( ) {
