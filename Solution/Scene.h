@@ -9,6 +9,7 @@ public:
 		NEXT_SELECT_2PLAYER,
 		NEXT_GATE,
 		NEXT_STREET,
+		NEXT_TEST,
 	};
 public:
 	Scene( );

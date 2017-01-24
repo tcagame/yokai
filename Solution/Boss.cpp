@@ -7,3 +7,7 @@ Enemy( enemy_stock, x, y, 256, 0, false, hp, pow ) {
 
 Boss::~Boss( ) {
 }
+
+bool Boss::isOutSideScreen( CameraConstPtr camera ) const {
+	return false;
+}

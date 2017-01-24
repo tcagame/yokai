@@ -48,6 +48,7 @@ EnemyManager::~EnemyManager( ) {
 
 void EnemyManager::clear( ) {
 	_enemies.clear( );
+	_enemies.push_back( _boss );
 	_enemy_stock =  EnemyStockPtr( new EnemyStock );
 }
 

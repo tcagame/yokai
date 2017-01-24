@@ -24,9 +24,9 @@ Game::~Game( ) {
 void Game::initialize( ) {
 	_solo = true;
 	_stage = 0;
-	_scene = ScenePtr( new SceneStreet( ) );
+	//_scene = ScenePtr( new SceneStreet( ) );
 	//_scene = ScenePtr( new SceneGate( _stage ) );
-	//_scene = ScenePtr( new SceneTitle );
+	_scene = ScenePtr( new SceneTitle );
 }
 
 bool Game::isDebug( ) const {
@@ -84,6 +84,10 @@ void Game::update( ) {
 		_scene = ScenePtr( new SceneGate( ) );
 		break;
 	case Scene::NEXT_STREET:
+		_scene = ScenePtr( new SceneStreet( ) );
+		break;
+	case Scene::NEXT_TEST:
+		_stage = 5;
 		_scene = ScenePtr( new SceneStreet( ) );
 		break;
 	}

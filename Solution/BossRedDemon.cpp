@@ -3,8 +3,8 @@
 #include "Camera.h"
 
 static const int CHIP_SIZE = 256;
-static const int OFFSET_X = 400;
-static const int OFFSET_Y = 400;
+static const int OFFSET_X = 60;
+static const int OFFSET_Y = 512 - 140;
 static const int HP  = 20;
 static const int POW = 10;
 

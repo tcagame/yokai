@@ -4,6 +4,7 @@
 #include "Sound.h"
 #include "Device.h"
 #include "Define.h"
+#include "Keyboard.h"
 
 static const int TITLE_WIDTH  = 1024;
 static const int TITLE_HEIGHT = 256;
@@ -42,16 +43,20 @@ Scene::NEXT SceneTitle::update( ) {
 		}
 	}
 
+	KeyboardPtr keyboard = Keyboard::getTask( );
+	if ( keyboard->isPushKey( "ENTER" ) ) {
+		return NEXT_TEST;
+	}
+
 	return NEXT_CONTINUE;
 }
-
 
 void SceneTitle::act( ) {
 	_count++;
 
-	SoundPtr sound = Sound::getTask( );
 	DevicePtr device = Device::getTask( );
 	if ( device->getButton( ) != 0 ) {
+		SoundPtr sound = Sound::getTask( );
 		sound->playSE( "yokai_se_01.wav" );
 		_finish = true;
 	}

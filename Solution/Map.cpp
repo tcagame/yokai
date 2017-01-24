@@ -72,7 +72,7 @@ BossPtr Map::createBoss( EnemyStockPtr enemy_stock ) const {
 	BossPtr boss;
 	switch ( _item->boss ) {
 	case BOSS_REDDEMON:
-		boss = BossPtr( new BossRedDemon( enemy_stock, getLength( ) ) );
+		boss = BossPtr( new BossRedDemon( enemy_stock, getLength( ) - BG_SIZE ) );
 		break;
 	}
 
