@@ -67,7 +67,6 @@ void Game::update( ) {
 		return;
 	}
 
-	
 	_scene.reset( );
 
 	DrawerPtr drawer = Drawer::getTask( );

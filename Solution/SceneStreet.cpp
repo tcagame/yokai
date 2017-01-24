@@ -13,11 +13,11 @@
 #include "Keyboard.h"
 #include "Game.h"
 #include "Map0.h"
-//#include "Map1.h"
-//#include "Map2.h"
-//#include "Map3.h"
-//#include "Map4.h"
-//#include "MapTest.h"
+#include "Map1.h"
+#include "Map2.h"
+#include "Map3.h"
+#include "Map4.h"
+#include "MapTest.h"
 
 SceneStreet::SceneStreet( ) {
 	GamePtr game = Game::getTask( );
@@ -25,11 +25,11 @@ SceneStreet::SceneStreet( ) {
 	MapConstPtr map;
 	switch ( game->getStage( ) ) {
 	case 0: map = MapPtr( new Map0 ); break;
-	//case 1: map = MapPtr( new Map1 ); break;
-	//case 2: map = MapPtr( new Map2 ); break;
-	//case 3: map = MapPtr( new Map3 ); break;
-	//case 4: map = MapPtr( new Map4 ); break;
-	//case 5: map = MapPtr( new MapTest ); break;
+	case 1: map = MapPtr( new Map1 ); break;
+	case 2: map = MapPtr( new Map2 ); break;
+	case 3: map = MapPtr( new Map3 ); break;
+	case 4: map = MapPtr( new Map4 ); break;
+	case 5: map = MapPtr( new MapTest ); break;
 	}
 
 	_field = FieldPtr( new Field( map ) );

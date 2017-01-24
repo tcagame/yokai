@@ -32,6 +32,11 @@
     <ClCompile Include="Boss.cpp" />
     <ClCompile Include="BossRedDemon.cpp" />
     <ClCompile Include="Map0.cpp" />
+    <ClCompile Include="Map1.cpp" />
+    <ClCompile Include="Map2.cpp" />
+    <ClCompile Include="Map3.cpp" />
+    <ClCompile Include="Map4.cpp" />
+    <ClCompile Include="MapTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
@@ -65,5 +70,10 @@
     <ClInclude Include="Boss.h" />
     <ClInclude Include="BossRedDemon.h" />
     <ClInclude Include="Map0.h" />
+    <ClInclude Include="Map1.h" />
+    <ClInclude Include="Map2.h" />
+    <ClInclude Include="Map3.h" />
+    <ClInclude Include="Map4.h" />
+    <ClInclude Include="MapTest.h" />
   </ItemGroup>
 </Project>
