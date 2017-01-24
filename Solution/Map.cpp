@@ -8,6 +8,7 @@ static const unsigned int NONE = 0x00000000;
 MAPDATA MAP0[] = {
 	{//0
 		"street/map0/bg/map0_00_00.png",
+		"street/map0/cover/bg_cover.png",
 		"###             "
 		"###             "
 		"###             "
@@ -28,6 +29,7 @@ MAPDATA MAP0[] = {
 	},
 	{//1
 		"street/map0/bg/map0_01_00.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -48,6 +50,7 @@ MAPDATA MAP0[] = {
 	},
 	{//2
 		"street/map0/bg/map0_02_00.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -68,6 +71,7 @@ MAPDATA MAP0[] = {
 	},
 	{//3
 		"street/map0/bg/map0_03_00.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -88,6 +92,7 @@ MAPDATA MAP0[] = {
 	},
 	{//4
 		"street/map0/bg/map0_04_00.png",
+		"street/map0/cover/bg_cover.png",
 		"                "
 		"                "
 		"                "
@@ -108,6 +113,7 @@ MAPDATA MAP0[] = {
 	},
 	{//5
 		"street/map0/bg/map0_05_00.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -128,6 +134,7 @@ MAPDATA MAP0[] = {
 	},
 	{//6
 		"street/map0/bg/map0_06_00.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -148,6 +155,7 @@ MAPDATA MAP0[] = {
 	},
 	{//7
 		"street/map0/bg/map0_07_00.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -168,6 +176,7 @@ MAPDATA MAP0[] = {
 	},
 	{//8
 		"street/map0/bg/map0_07_00.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -188,6 +197,7 @@ MAPDATA MAP0[] = {
 	},
 	{//9
 		"street/map0/bg/map0_07_00.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -208,6 +218,7 @@ MAPDATA MAP0[] = {
 	},
 	{//10
 		"street/map0/bg/map0_07_00.png", // Ç¬Ç»Ç¨ÇçlÇ¶ÇÈ
+		"",
 		"                "
 		"                "
 		"                "
@@ -228,6 +239,7 @@ MAPDATA MAP0[] = {
 	},
 	{//11
 		"street/map0/bg/map0_00_01.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -248,6 +260,7 @@ MAPDATA MAP0[] = {
 	},
 	{//12
 		"street/map0/bg/map0_00_01.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -268,6 +281,7 @@ MAPDATA MAP0[] = {
 	},
 	{//13
 		"street/map0/bg/map0_00_01.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -288,6 +302,7 @@ MAPDATA MAP0[] = {
 	},
 	{//14
 		"street/map0/bg/map0_04_01.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -308,6 +323,7 @@ MAPDATA MAP0[] = {
 	},
 	{//15
 		"street/map0/bg/map0_05_01.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -328,6 +344,7 @@ MAPDATA MAP0[] = {
 	},
 	{//16
 		"street/map0/bg/map0_06_01.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -348,6 +365,7 @@ MAPDATA MAP0[] = {
 	},
 	{//17
 		"street/map0/bg/map0_07_01.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -368,6 +386,7 @@ MAPDATA MAP0[] = {
 	},
 	{//18
 		"street/map0/bg/map0_08_01.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -388,6 +407,7 @@ MAPDATA MAP0[] = {
 	},
 	{//19
 		"street/map0/bg/map0_09_01.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -408,6 +428,7 @@ MAPDATA MAP0[] = {
 	},
 	{//20
 		"street/map0/bg/map0_10_01.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -428,6 +449,7 @@ MAPDATA MAP0[] = {
 	},
 	{//21
 		"street/map0/bg/map0_11_01.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -448,6 +470,7 @@ MAPDATA MAP0[] = {
 	},
 	{//22
 		"street/map0/bg/map0_00_02.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -468,6 +491,7 @@ MAPDATA MAP0[] = {
 	},
 	{//23
 		"street/map0/bg/map0_00_02.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -488,6 +512,7 @@ MAPDATA MAP0[] = {
 	},
 	{//24
 		"street/map0/bg/map0_00_02.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -508,6 +533,7 @@ MAPDATA MAP0[] = {
 	},
 	{//25
 		"street/map0/bg/map0_00_02.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -528,6 +554,7 @@ MAPDATA MAP0[] = {
 	},
 	{//26
 		"street/map0/bg/map0_00_01.png", // Ç¬Ç»Ç¨ÇçlÇ¶ÇÈ
+		"",
 		"                "
 		"                "
 		"                "
@@ -548,6 +575,7 @@ MAPDATA MAP0[] = {
 	},
 	{//27
 		"street/map0/bg/map0_00_01.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -568,6 +596,7 @@ MAPDATA MAP0[] = {
 	},
 	{//28
 		"street/map0/bg/map0_00_01.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -582,12 +611,14 @@ MAPDATA MAP0[] = {
 		"                "
 		"                "
 		"                "
+
 		"################"
 		"################",
 		PURPLE | REDBIRD
 	},
 	{//29
 		"street/map0/bg/map0_00_01.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -608,6 +639,7 @@ MAPDATA MAP0[] = {
 	},
 	{//30
 		"street/map0/bg/map0_00_01.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -628,6 +660,7 @@ MAPDATA MAP0[] = {
 	},
 	{//31
 		"street/map0/bg/map0_04_03.png", // map3_04_04ÇÇ¢ÇÍÇÈ
+		"",
 		"                "
 		"                "
 		"                "
@@ -648,6 +681,7 @@ MAPDATA MAP0[] = {
 	},
 	{//32
 		"street/map0/bg/map0_06_03.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -668,6 +702,7 @@ MAPDATA MAP0[] = {
 	},
 	{//33
 		"street/map0/bg/map0_07_03.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -688,6 +723,7 @@ MAPDATA MAP0[] = {
 	},
 	{//34
 		"street/map0/bg/map0_00_04.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -708,6 +744,7 @@ MAPDATA MAP0[] = {
 	},
 	{//35
 		"street/map0/bg/map0_02_04.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -728,6 +765,7 @@ MAPDATA MAP0[] = {
 	},
 	{//36
 		"street/map0/bg/map0_01_04.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -748,6 +786,7 @@ MAPDATA MAP0[] = {
 	},
 	{//37
 		"street/map0/bg/map0_03_04.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -768,6 +807,7 @@ MAPDATA MAP0[] = {
 	},
 	{//38
 		"street/map0/bg/map0_04_04.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -788,6 +828,7 @@ MAPDATA MAP0[] = {
 	},
 	{//39
 		"street/map0/bg/map0_00_01.png", // map3_07_04ÇÇ¢ÇÍÇÈ
+		"",
 		"                "
 		"                "
 		"                "
@@ -808,6 +849,7 @@ MAPDATA MAP0[] = {
 	},
 	{//40
 		"street/map0/bg/map0_00_05.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -828,6 +870,7 @@ MAPDATA MAP0[] = {
 	},
 	{//41
 		"street/map0/bg/map0_00_05.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -848,6 +891,7 @@ MAPDATA MAP0[] = {
 	},
 	{//42
 		"street/map0/bg/map0_00_05.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -868,6 +912,7 @@ MAPDATA MAP0[] = {
 	},
 	{//43
 		"street/map0/bg/map0_06_05.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -888,6 +933,7 @@ MAPDATA MAP0[] = {
 	},
 	{//44
 		"street/map0/bg/map0_07_05.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -908,6 +954,7 @@ MAPDATA MAP0[] = {
 	},
 	{//45
 		"street/map0/bg/map0_08_05.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -928,6 +975,7 @@ MAPDATA MAP0[] = {
 	},
 	{//46
 		"street/map0/bg/event_04_00.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -948,6 +996,7 @@ MAPDATA MAP0[] = {
 	},
 	{//47
 		"street/map0/bg/event_05_00.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -968,6 +1017,7 @@ MAPDATA MAP0[] = {
 	},
 	{//48
 		"street/map0/bg/event_06_00.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -988,6 +1038,7 @@ MAPDATA MAP0[] = {
 	},
 	{//49
 		"street/map0/bg/event_07_00.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -1020,8 +1071,12 @@ int Map::getLength( ) const {
 	return _num * BG_SIZE;
 }
 
-const char * Map::getFilename( int idx ) const {
-	return _data[ idx ].filename;
+const char * Map::getBgFilename( int idx ) const {
+	return _data[ idx ].bg_filename;
+}
+
+const char * Map::getCoverFilename( int idx ) const {
+	return _data[ idx ].cover_filename;
 }
 
 const unsigned int Map::getEnemyData( int idx ) const {

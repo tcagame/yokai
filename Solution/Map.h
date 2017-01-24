@@ -7,7 +7,8 @@ const int MAPCHIP_NUM = 16;
 const int MAPCHIP_SIZE = BG_SIZE / MAPCHIP_NUM;
 
 struct MAPDATA {
-	const char * filename;
+	const char * bg_filename;
+	const char * cover_filename;
 	const char chip[ MAPCHIP_NUM * MAPCHIP_NUM + 1 ];
 	const unsigned int enemy;
 };
@@ -19,7 +20,8 @@ public:
 	Map( );
 	virtual ~Map( );
 public:
-	const char * getFilename( int idx ) const;
+	const char * getBgFilename( int idx ) const;
+	const char * getCoverFilename( int idx ) const;
 	const unsigned int getEnemyData( int idx ) const;
 	int getLength( ) const;
 	bool isChip( int bg_idx, int chip_idx ) const;
