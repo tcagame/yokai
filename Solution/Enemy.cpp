@@ -25,7 +25,11 @@ EnemyStockPtr Enemy::getEnemyStock( ) {
 }
 
 void Enemy::damage( int pow ) {
-	_hp -= pow;
+	if ( pow < 0 ) {
+		_hp = 0;
+	} else {
+		_hp -= pow;
+	}
 }
 
 bool Enemy::isFinished( ) const {

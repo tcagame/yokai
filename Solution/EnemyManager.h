@@ -24,6 +24,8 @@ public:
 	void draw( CameraPtr camera );
 	EnemyPtr getOverlappedEnemy( PsychicPtr pcychic );
 	void clear( );
+	void attackBoss( );
+	bool isBossDead( ) const;
 protected:
 	void addEnemy( EnemyPtr enemy );
 private:

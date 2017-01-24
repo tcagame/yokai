@@ -33,3 +33,7 @@ void BossRedDemon::drawOverlapped( CameraConstPtr camera ) const {
 	Drawer::Sprite sprite( trans, GRAPH_BOSS, Drawer::BLEND_NONE, 1.0 );
 	drawer->setSprite( sprite );
 }
+
+void BossRedDemon::attack( ) {
+
+}

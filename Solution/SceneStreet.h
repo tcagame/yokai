@@ -18,6 +18,12 @@ public:
 	SceneStreet( );
 	virtual ~SceneStreet( );
 private:
+	enum PHASE {
+		PHASE_NORMAL,
+		PHASE_BOSS,
+		PHASE_CLEAR,
+	};
+private:
 	virtual NEXT update( );
 	void debugWarp( );
 private:
@@ -29,5 +35,7 @@ private:
 	PsychicMgrPtr _psychic_mgr;
 	EnemyManagerPtr _enemy_mgr;
 	StatusPtr _status;
+	PHASE _phase;
+	int _phase_count;
 };
 

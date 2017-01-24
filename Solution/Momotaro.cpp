@@ -20,9 +20,8 @@ static const int WAIT_PATTERN_TIME = 3;
 static const int CHIP_SIZE = 128;
 static const int FALTER_COUNT = 30;
 
-Momotaro::Momotaro( CameraConstPtr camera, PsychicMgrPtr mgr, PowerPtr power ) :
+Momotaro::Momotaro( PsychicMgrPtr mgr, PowerPtr power ) :
 Character( START_X, START_Y, CHIP_SIZE, CHIP_SIZE / 2, false ),
-_camera( camera ),
 _psychic_mgr( mgr ),
 _power( power ) {
 	_shoot_x = SHOOT_SPEED;
@@ -47,6 +46,29 @@ Momotaro::~Momotaro( ) {
 void Momotaro::hide( ) {
 	_action = ACTION_HIDE;
 	_act_count = 0;
+}
+
+void Momotaro::adjust( CameraConstPtr camera ) {
+	if ( _action == ACTION_HIDE ) {
+		return;
+	}
+
+	if ( getX( ) < camera->getX( ) + CHIP_SIZE / 2 ) {
+		setAccelX( 0 );
+		setX( camera->getX( ) + CHIP_SIZE / 2 );
+	}
+	if ( getX( ) > camera->getX( ) + SCREEN_WIDTH - CHIP_SIZE / 2 ) {
+		setAccelX( 0 );
+		setX( camera->getX( ) + SCREEN_WIDTH - CHIP_SIZE / 2 );
+	}
+	if ( getY( ) < CHIP_SIZE / 2 ) {
+		setAccelY( 0 );
+		setY( CHIP_SIZE / 2 );
+	}
+	if ( getY( ) > BG_SIZE - CHIP_SIZE / 2) {
+		setAccelY( 0 );
+		setY( BG_SIZE - CHIP_SIZE / 2 );
+	}
 }
 
 void Momotaro::appear( int x, int y, bool reverse ) {
@@ -115,23 +137,6 @@ void Momotaro::actOnMove( ) {
 		_vec = ( _vec + vec).normalize( ) * MOVE_SPEED;
 		setAccelX( ( int )_vec.x );
 		setAccelY( ( int )_vec.y );
-	}
-
-	if ( getX( ) < _camera->getX( ) ) {
-		setAccelX( 0 );
-		setX( _camera->getX( ) );
-	}
-	if ( getX( ) > _camera->getX( ) + SCREEN_WIDTH ) {
-		setAccelX( 0 );
-		setX( _camera->getX( ) + SCREEN_WIDTH );
-	}
-	if ( getY( ) < _camera->getY( ) ) {
-		setAccelY( 0 );
-		setY( _camera->getY( ) );
-	}
-	if ( getY( ) > _camera->getY( ) + SCREEN_HEIGHT ) {
-		setAccelY( 0 );
-		setY( _camera->getY( ) + SCREEN_HEIGHT );
 	}
 
 	if ( !vec.isOrijin( ) ) {

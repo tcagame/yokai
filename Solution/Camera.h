@@ -13,9 +13,11 @@ public:
 	int getX( ) const;
 	int getY( ) const;
 	void update( TarosukeConstPtr tarosuke );
+	bool isLocked( ) const;
 private:
 	MapConstPtr _map;
 	int _x;
 	int _y;
+	bool _lock;
 };
 

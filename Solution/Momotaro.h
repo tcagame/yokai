@@ -8,12 +8,13 @@ PTR( Power );
 
 class Momotaro : public Character {
 public:
-	Momotaro( CameraConstPtr camera, PsychicMgrPtr mgr, PowerPtr _power );
+	Momotaro( PsychicMgrPtr mgr, PowerPtr _power );
 	virtual ~Momotaro( );
 public:
 	void hide( );
 	void appear( int x, int y, bool reverse );
 	void damage( int pow );
+	void adjust( CameraConstPtr camera );
 private:
 	enum ACTION {
 		ACTION_HIDE,

@@ -19,6 +19,7 @@ public:
 	void warp( int v );
 	void damage( int pow );
 	void bound( );
+	void adjust( CameraConstPtr camera );
 private:
 	enum ACTION {
 		ACTION_STAND,

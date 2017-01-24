@@ -80,12 +80,25 @@ void Game::update( ) {
 	case Scene::NEXT_SELECT_2PLAYER:
 		_solo = ( next == Scene::NEXT_SELECT_1PLAYER );
 		_stage = 0;
-	case Scene::NEXT_GATE:
 		_scene = ScenePtr( new SceneGate( ) );
+		break;
+	case Scene::NEXT_STAGE:
+		_stage++;
+		if ( _stage < 5 ) {
+			_scene = ScenePtr( new SceneGate( ) );
+		} else {
+			_scene = ScenePtr( new SceneTitle );
+			//_scene = ScenePtr( new SceneResult );
+		}
 		break;
 	case Scene::NEXT_STREET:
 		_scene = ScenePtr( new SceneStreet( ) );
 		break;
+	/*
+	case Scene::NEXT_RESULT:
+		_scene = ScenePtr( new SceneResult( ) );
+		break;
+	*/
 	case Scene::NEXT_TEST:
 		_stage = 5;
 		_scene = ScenePtr( new SceneStreet( ) );

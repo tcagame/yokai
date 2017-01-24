@@ -23,7 +23,7 @@ static const int ACCEL_SPEED = 3;
 static const int BRAKE_SPEED = 6;
 static const int CAPACITY_SAVING_POWER = 40;
 static const int BURST_COUNT = 40;
-static const int SHOOT_FOOT = 30;
+static const int SHOOT_FOOT = 40;
 static const int MOMO_SPEED = 10;
 static const int CHIP_SIZE = 128;
 static const int CHIP_FOOT = 18;
@@ -48,6 +48,15 @@ void Tarosuke::warp( int v ) {
 	int x = getX( ) + v * BG_SIZE;
 	setX( x );
 	setY( 0 );
+}
+
+void Tarosuke::adjust( CameraConstPtr camera ) {
+	if ( getX( ) < camera->getX( ) + CHIP_SIZE / 2 ) {
+		setX( camera->getX( ) + CHIP_SIZE / 2 );
+	}
+	if ( getX( ) > camera->getX( ) + SCREEN_WIDTH - CHIP_SIZE / 2 ) {
+		setX( camera->getX( ) + SCREEN_WIDTH - CHIP_SIZE / 2 );
+	}
 }
 
 void Tarosuke::act( ) {

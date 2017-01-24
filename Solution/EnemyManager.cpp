@@ -47,9 +47,21 @@ EnemyManager::~EnemyManager( ) {
 
 
 void EnemyManager::clear( ) {
-	_enemies.clear( );
-	_enemies.push_back( _boss );
+	std::list<EnemyPtr>::iterator ite = _enemies.begin( );
+	while ( ite != _enemies.end( ) ) {
+		EnemyPtr enemy = *ite;
+		enemy->damage( -1 );
+		ite++;
+	}
 	_enemy_stock =  EnemyStockPtr( new EnemyStock );
+}
+
+void EnemyManager::attackBoss( ) {
+	_boss->attack( );
+}
+
+bool EnemyManager::isBossDead( ) const {
+	return _boss->isFinished( );
 }
 
 void EnemyManager::update( FieldPtr field, CameraConstPtr camera, TarosukePtr tarosuke, MomotaroPtr momotaro ) {

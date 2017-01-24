@@ -9,5 +9,6 @@ public:
 private:
 	void act( );
 	void drawOverlapped( CameraConstPtr camera ) const;
+	void attack( );
 };
 

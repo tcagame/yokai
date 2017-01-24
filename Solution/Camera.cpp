@@ -3,8 +3,12 @@
 #include "Tarosuke.h"
 #include "Map.h"
 
+static const int RANGE_NEAR = SCREEN_WIDTH / 5;
+static const int RANGE_FAR  = SCREEN_WIDTH / 2;
+
 Camera::Camera( MapConstPtr map ) :
-_map( map ) {
+_map( map ),
+_lock( false ) {
 	_y = BG_SIZE - SCREEN_HEIGHT;
 }
 
@@ -12,14 +16,34 @@ Camera::~Camera( ) {
 }
 
 void Camera::update( TarosukeConstPtr tarosuke ) {
-	_x = tarosuke->getX( ) - SCREEN_WIDTH / 2;
-	if ( _x < 0 ) {
-		_x = 0;
+	if ( _x > tarosuke->getX( ) - RANGE_NEAR ) {
+		_x = tarosuke->getX( ) - RANGE_NEAR;
+	}
+	
+	if ( _x < tarosuke->getX( ) - RANGE_FAR ) {
+		_x = tarosuke->getX( ) - RANGE_FAR ;
+	}
+	
+	if ( _lock ) {
+		if ( _x < _map->getLength( ) - BG_SIZE * 3 ) {
+			_x = _map->getLength( ) - BG_SIZE * 3;
+		}
+	} else {
+		if ( _x < 0 ) {
+			_x = 0;
+		}
 	}
 	if ( _x > _map->getLength( ) - SCREEN_WIDTH - 1 ) {
 		_x = _map->getLength( ) - SCREEN_WIDTH - 1;
 	}
 
+	if ( _map->getLength( ) - BG_SIZE * 3 < _x ) {
+		_lock = true;
+	}
+}
+
+bool Camera::isLocked( ) const {
+	return _lock;
 }
 
 int Camera::getX( ) const {

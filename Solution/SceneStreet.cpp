@@ -19,6 +19,8 @@
 #include "Map4.h"
 #include "MapTest.h"
 
+static const int CLEAR_COUNT = 120;
+
 SceneStreet::SceneStreet( ) {
 	GamePtr game = Game::getTask( );
 	
@@ -48,7 +50,7 @@ SceneStreet::SceneStreet( ) {
 	_camera = CameraPtr( new Camera( map ) );
 	_psychic_mgr = PsychicMgrPtr( new PsychicMgr );
 	_power = PowerPtr( new Power );
-	_momotaro = MomotaroPtr( new Momotaro( _camera, _psychic_mgr, _power ) );
+	_momotaro = MomotaroPtr( new Momotaro( _psychic_mgr, _power ) );
 	_tarosuke = TarosukePtr( new Tarosuke( _psychic_mgr, _power, _momotaro ) );
 	_enemy_mgr = EnemyManagerPtr( new EnemyManager( map ) );
 	_status = StatusPtr( new Status( _power ) );
@@ -70,6 +72,9 @@ SceneStreet::SceneStreet( ) {
 	drawer->loadGraph( GRAPH_STATUS_POWER        , "street/status/status_power.png" );
 	drawer->loadGraph( GRAPH_STATUS_MAP		     , "street/map0/status/status_map_0.png" );
 
+	_phase = PHASE_NORMAL;
+	_phase_count = 0;
+
 	SoundPtr sound = Sound::getTask( );
 	sound->playBGM( "yokai_music_10.wav" );
 }
@@ -78,8 +83,34 @@ SceneStreet::~SceneStreet( ) {
 }
 
 Scene::NEXT SceneStreet::update( ) {
+	_phase_count++;
+
+	switch ( _phase ) {
+	case PHASE_NORMAL:
+		if ( _camera->isLocked( ) ) {
+			_phase = PHASE_BOSS;
+			_phase_count = 0;
+		}
+		break;
+	case PHASE_BOSS:
+		_enemy_mgr->attackBoss( );
+		if ( _enemy_mgr->isBossDead( ) ) {
+			_enemy_mgr->clear( );
+			_phase = PHASE_CLEAR;
+			_phase_count = 0;
+		}
+		break;
+	case PHASE_CLEAR:
+		if ( _phase_count > CLEAR_COUNT ) {
+			return NEXT_STAGE;
+		}
+		break;
+	}
+
 	_tarosuke->update( _field );
+	_tarosuke->adjust( _camera );
 	_momotaro->update( _field );
+	_momotaro->adjust( _camera );
 	_camera->update( _tarosuke );
 	_enemy_mgr->update( _field, _camera, _tarosuke, _momotaro );
 	_psychic_mgr->update( _camera, _tarosuke, _enemy_mgr );
@@ -114,6 +145,5 @@ void SceneStreet::debugWarp( ) {
 	}
 
 	_tarosuke->warp( warp );
-	_enemy_mgr->clear( );
 }
 
