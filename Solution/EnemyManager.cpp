@@ -1,6 +1,8 @@
 #include "EnemyManager.h"
 #include "Field.h"
+#include "Game.h"
 #include "Camera.h"
+#include "Sound.h"
 #include "Drawer.h"
 #include "Tarosuke.h"
 #include "Momotaro.h"
@@ -11,10 +13,9 @@
 #include "EnemyRedbirdAttack.h"
 #include "EnemyMoth.h"
 #include "EnemyTree.h"
-#include "Sound.h"
+#include "EnemyFlog.h"
 #include "Map.h"
 #include "Boss.h"
-#include "Game.h"
 
 static const int PURPLE_POP_NUM = 5;
 static const int REDBIRD_POP_Y = 250;
@@ -23,6 +24,8 @@ static const int MOTH_POP_Y = 230;
 static const int TREE_POP_Y = 400;
 static const int BOMB_COUNT = 16;
 static const int BOMB_SIZE = 256;
+static const int FLOG_POP_Y = 100;
+static const int FLOG_POP_NUM = 3;
 
 EnemyManager::EnemyManager( MapConstPtr map ) {
 	_enemy_stock = EnemyStockPtr( new EnemyStock );
@@ -162,6 +165,11 @@ void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera
 		_enemies.push_back( EnemyPtr ( new EnemyDeceased( _enemy_stock, pop_base_x, TREE_POP_Y ) ) );
 	}
 	*/
+	if ( data & FLOG ) {
+		for ( int i = 0; i < FLOG_POP_NUM; i++ ) {
+			_enemies.push_back( EnemyPtr( new EnemyFlog( _enemy_stock, pop_base_x + i * 100, FLOG_POP_Y ) ) );
+		}
+	}
 }
 
 EnemyPtr EnemyManager::getOverlappedEnemy( PsychicPtr pcychic ) {

@@ -153,7 +153,7 @@ static const Map::Panel panel0[] = {
 		"                "
 		"################"
 		"################",
-		NONE
+		FLOG
 	},
 	{//7
 		"street/map0/bg/map0_07_00.png",
@@ -216,7 +216,7 @@ static const Map::Panel panel0[] = {
 		"                "
 		"################"
 		"################",
-		NONE
+		FLOG
 	},
 	{//10
 		"street/map0/bg/map0_07_00.png", // ‚Â‚È‚¬‚ğl‚¦‚é

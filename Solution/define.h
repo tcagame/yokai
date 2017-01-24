@@ -13,6 +13,7 @@ const unsigned int REDBIRD  = 0x00000002;
 const unsigned int MOTH     = 0x00000004;
 const unsigned int TREE     = 0x00000008;
 const unsigned int DECEASED = 0x00000016;
+const unsigned int FLOG		= 0x00000032;
 
 enum GRAPH {
 	GRAPH_TITLE_PANEL,

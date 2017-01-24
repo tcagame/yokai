@@ -37,6 +37,7 @@
     <ClCompile Include="Map3.cpp" />
     <ClCompile Include="Map4.cpp" />
     <ClCompile Include="MapTest.cpp" />
+    <ClCompile Include="EnemyFlog.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
@@ -75,5 +76,6 @@
     <ClInclude Include="Map3.h" />
     <ClInclude Include="Map4.h" />
     <ClInclude Include="MapTest.h" />
+    <ClInclude Include="EnemyFlog.h" />
   </ItemGroup>
 </Project>
