@@ -12,7 +12,6 @@ _enemy_data( 0 ) {
 	_idx = 0;
 	_scroll_x = 0;
 	_scroll_y = -48; // ÅI“I‚É‚ÍƒJƒƒ‰‚©‚çæ“¾
-<<<<<<< HEAD
 	
 	DrawerPtr drawer = Drawer::getTask( );
 	for ( int i = 0; i < BG_NUM; i++ ) {
@@ -26,9 +25,7 @@ _enemy_data( 0 ) {
 			drawer->loadGraph( graph_cover, _map->getCoverFilename( _idx + i ) );
 		}
 	}
-=======
 	_cloud_mgr = CloudMgrPtr( new CloudMgr );
->>>>>>> 8207254a3b11c3f95572fe49c187b19c52bec554
 	// ¦Map‚©‚çæ“¾‚·‚é‚æ‚¤‚ÉC³
 }
 
