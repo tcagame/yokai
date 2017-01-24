@@ -13,6 +13,7 @@
 #include "EnemyRedbirdAttack.h"
 #include "EnemyMoth.h"
 #include "EnemyTree.h"
+#include "EnemyDeceased.h"
 #include "EnemyFlog.h"
 #include "EnemyStone.h"
 #include "Map.h"
@@ -162,11 +163,11 @@ void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera
 	if ( data & TREE ) {
 		_enemies.push_back( EnemyPtr( new EnemyTree( _enemy_stock, pop_base_x, TREE_POP_Y ) ) );
 	}
-	/*
+	
 	if ( data & DECEASED ) {
 		_enemies.push_back( EnemyPtr ( new EnemyDeceased( _enemy_stock, pop_base_x, TREE_POP_Y ) ) );
 	}
-	*/
+	
 	if ( data & FLOG ) {
 		for ( int i = 0; i < FLOG_POP_NUM; i++ ) {
 			_enemies.push_back( EnemyPtr( new EnemyFlog( _enemy_stock, pop_base_x + i * 100, FLOG_POP_Y ) ) );
