@@ -20,7 +20,6 @@ public:
 public:
 	void update( FieldPtr field, CameraConstPtr camera, TarosukePtr tarosuke, MomotaroPtr momotaro );
 	void draw( CameraPtr camera );
-	bool isOutSideScreenEnemy( EnemyPtr enemy, CameraConstPtr camera );
 	EnemyPtr getOverlappedEnemy( PsychicPtr pcychic );
 	void clear( );
 protected:

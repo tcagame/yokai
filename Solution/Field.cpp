@@ -4,6 +4,7 @@
 #include "Camera.h"
 #include "Map.h"
 #include "Cloud.h"
+#include "CloudMgr.h"
 
 Field::Field( MapConstPtr map ) :
 _map( map ),
@@ -11,6 +12,7 @@ _enemy_data( 0 ) {
 	_idx = 0;
 	_scroll_x = 0;
 	_scroll_y = -48; // ÅI“I‚É‚ÍƒJƒƒ‰‚©‚çæ“¾
+<<<<<<< HEAD
 	
 	DrawerPtr drawer = Drawer::getTask( );
 	for ( int i = 0; i < BG_NUM; i++ ) {
@@ -24,11 +26,10 @@ _enemy_data( 0 ) {
 			drawer->loadGraph( graph_cover, _map->getCoverFilename( _idx + i ) );
 		}
 	}
+=======
+	_cloud_mgr = CloudMgrPtr( new CloudMgr );
+>>>>>>> 8207254a3b11c3f95572fe49c187b19c52bec554
 	// ¦Map‚©‚çæ“¾‚·‚é‚æ‚¤‚ÉC³
-	_clouds.push_back( CloudPtr( new Cloud( 2300, 250, true  ) ) );
-	_clouds.push_back( CloudPtr( new Cloud( 2850, 250, false ) ) );
-	_clouds.push_back( CloudPtr( new Cloud( 3250, 250, false ) ) );
-	_clouds.push_back( CloudPtr( new Cloud( 3500, 250, true  ) ) );
 }
 
 Field::~Field( ) {
@@ -67,11 +68,7 @@ void Field::scroll( CameraConstPtr camera ) {
 }
 
 void Field::moveClouds( ) {
-	std::list< CloudPtr >::iterator it = _clouds.begin( );
-	while ( it != _clouds.end( ) ) {
-		( *it )->update( );
-		it++;
-	}
+	_cloud_mgr->update( );
 }
 
 void Field::draw( CameraConstPtr camera ) const {
@@ -126,11 +123,7 @@ void Field::drawChip( ) const {
 }
 
 void Field::drawClouds( CameraConstPtr camera ) const {
-	std::list< CloudPtr >::const_iterator it = _clouds.begin( );
-	while ( it != _clouds.end( ) ) {
-		( *it )->draw( camera );
-		it++;
-	}
+	_cloud_mgr->draw( camera );
 }
 
 bool Field::isInWater( int x, int y ) const {
@@ -171,18 +164,14 @@ Field::Collision Field::getCollision( int src_x, int src_y, int dst_x, int dst_y
 			dst_y = collision.adjust_y;
 		}
 		
-		std::list< CloudPtr >::const_iterator it = _clouds.begin( );
-		while ( it != _clouds.end( ) ) {
-			CloudPtr cloud = *it;
-			if ( cloud->isStanding( src_x, src_y, dst_y ) ) {
-				collision.adjust_y = cloud->getY( ) - cloud->getHeight( ) / 2 + cloud->getBlank( ) - 1;
-				collision.overlapped_y = true;
-				collision.cloud = cloud;
-				dst_y = collision.adjust_y;
-				break;
-			}
-			it++;
+		CloudPtr cloud = _cloud_mgr->getOnStanding( src_x, src_y, dst_y );
+		if ( cloud ) {
+			collision.adjust_y = cloud->getY( ) - cloud->getHeight( ) / 2 + cloud->getBlank( ) - 1;
+			collision.overlapped_y = true;
+			collision.cloud = cloud;
+			dst_y = collision.adjust_y;
 		}
+
 	}
 
 	{
