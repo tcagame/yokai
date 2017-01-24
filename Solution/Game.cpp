@@ -26,6 +26,7 @@ void Game::update( ) {
 	if ( next == Scene::NEXT_CONTINUE ) {
 		return;
 	}
+
 	
 	_scene.reset( );
 

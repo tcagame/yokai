@@ -12,7 +12,8 @@
 #include "EnemyMoth.h"
 #include "EnemyTree.h"
 #include "Sound.h"
-#include "BossRedDemon.h"
+#include "Map.h"
+#include "Boss.h"
 
 static const int PURPLE_POP_NUM = 5;
 static const int REDBIRD_POP_Y = 250;
@@ -22,12 +23,12 @@ static const int TREE_POP_Y = 400;
 static const int BOMB_COUNT = 16;
 static const int BOMB_SIZE = 256;
 
-EnemyManager::EnemyManager( ) {
+EnemyManager::EnemyManager( MapConstPtr map ) {
 	_enemy_stock = EnemyStockPtr( new EnemyStock );
 	for ( int i = 0; i < BOMB_NUM; i++ ) {
 		_bombs[ i ].count = BOMB_COUNT;
 	}
-	_boss = BossPtr( new BossRedDemon( _enemy_stock ) );
+	_boss = map->createBoss( _enemy_stock );
 	_enemies.push_back( _boss );
 }
 
@@ -52,12 +53,7 @@ void EnemyManager::update( FieldPtr field, CameraConstPtr camera, TarosukePtr ta
 	std::list<EnemyPtr>::iterator ite = _enemies.begin( );
 	while ( ite != _enemies.end( ) ) {
 		EnemyPtr enemy = *ite;
-		/*
-		if ( isOutSideScreenEnemy( enemy, camera ) ) {
-			ite = _enemies.erase( ite );
-			continue;
-		}
-		*/
+
 		if ( enemy->isOutSideScreen( camera ) ) {
 			ite = _enemies.erase( ite );
 			continue;

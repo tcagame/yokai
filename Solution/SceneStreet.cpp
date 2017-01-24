@@ -22,7 +22,7 @@ SceneStreet::SceneStreet( bool solo ) {
 	_psychic_mgr = PsychicMgrPtr( new PsychicMgr );
 	_tarosuke = TarosukePtr( new Tarosuke( _psychic_mgr, _power ) );
 	_momotaro = MomotaroPtr( new Momotaro( _camera, _psychic_mgr, _power ) );
-	_enemy_mgr = EnemyManagerPtr( new EnemyManager );
+	_enemy_mgr = EnemyManagerPtr( new EnemyManager( map ) );
 	_status = StatusPtr( new Status( _power ) );
 	
 	if ( solo ) {

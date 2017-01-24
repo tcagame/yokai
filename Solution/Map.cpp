@@ -2,6 +2,7 @@
 #include "define.h"
 #include "CloudMgr.h"
 #include "Cloud.h"
+#include "BossRedDemon.h"
 
 static const unsigned int NONE = 0x00000000;
 
@@ -1122,3 +1123,6 @@ CloudMgrPtr Map::createCloudMgr( ) const {
 	return mgr;
 }
 
+BossPtr Map::createBoss( EnemyStockPtr enemy_stock ) const {
+	return BossPtr( new BossRedDemon( enemy_stock ) );
+}

@@ -14,6 +14,8 @@ struct MAPDATA {
 };
 
 PTR( CloudMgr );
+PTR( Boss );
+PTR( EnemyStock );
 
 class Map {
 public:
@@ -27,6 +29,7 @@ public:
 	bool isChip( int bg_idx, int chip_idx ) const;
 	bool isInWater( int bg_idx, int chip_idx ) const;
 	CloudMgrPtr createCloudMgr( ) const;
+	BossPtr createBoss( EnemyStockPtr enemy_stock ) const;
 private:
 	bool isSmallCloud( int bg_idx, int chip_idx ) const;
 	bool isBigCloud( int bg_idx, int chip_idx ) const;
