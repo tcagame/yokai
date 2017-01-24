@@ -28,6 +28,7 @@
     <ClCompile Include="EnemyTree.cpp" />
     <ClCompile Include="Power.cpp" />
     <ClCompile Include="SceneGate.cpp" />
+    <ClCompile Include="CloudMgr.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
@@ -57,5 +58,6 @@
     <ClInclude Include="EnemyTree.h" />
     <ClInclude Include="Power.h" />
     <ClInclude Include="SceneGate.h" />
+    <ClInclude Include="CloudMgr.h" />
   </ItemGroup>
 </Project>

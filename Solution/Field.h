@@ -6,6 +6,7 @@
 PTR( Camera );
 PTR( Map );
 PTR( Cloud );
+PTR( CloudMgr );
 
 class Field {
 public:
@@ -38,5 +39,6 @@ private:
 	int _idx;
 	unsigned int _enemy_data;
 	std::list< CloudPtr > _clouds;
+	CloudMgrPtr _cloud_mgr;
 };
 
