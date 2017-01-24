@@ -12,6 +12,8 @@ _enemy_data( 0 ) {
 	_idx = 0;
 	_scroll_x = 0;
 	_scroll_y = -48; // ÅI“I‚É‚ÍƒJƒƒ‰‚©‚çæ“¾
+
+	_cloud_mgr = map->createCloudMgr( );
 	
 	DrawerPtr drawer = Drawer::getTask( );
 	for ( int i = 0; i < BG_NUM; i++ ) {
@@ -25,8 +27,6 @@ _enemy_data( 0 ) {
 			drawer->loadGraph( graph_cover, _map->getCoverFilename( _idx + i ) );
 		}
 	}
-	_cloud_mgr = CloudMgrPtr( new CloudMgr );
-	// ¦Map‚©‚çæ“¾‚·‚é‚æ‚¤‚ÉC³
 }
 
 Field::~Field( ) {

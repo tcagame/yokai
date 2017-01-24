@@ -1,11 +1,8 @@
 #include "CloudMgr.h"
 #include "Cloud.h"
+#include "Map.h"
 
 CloudMgr::CloudMgr( ) {
-	_clouds.push_back( CloudPtr( new Cloud( 2300, 250, true  ) ) );
-	_clouds.push_back( CloudPtr( new Cloud( 2850, 250, false ) ) );
-	_clouds.push_back( CloudPtr( new Cloud( 3250, 250, false ) ) );
-	_clouds.push_back( CloudPtr( new Cloud( 3500, 250, true  ) ) );
 }
 
 
@@ -27,6 +24,10 @@ void CloudMgr::draw( CameraConstPtr camera ) {
 		(*ite)->draw( camera );
 		ite++;
 	}
+}
+
+void CloudMgr::add( CloudPtr cloud ) {
+	_clouds.push_back( cloud );
 }
 
 CloudPtr CloudMgr::getOnStanding( int src_x, int src_y, int dst_y ) {

@@ -1,5 +1,7 @@
 #include "Map.h"
 #include "define.h"
+#include "CloudMgr.h"
+#include "Cloud.h"
 
 static const unsigned int NONE = 0x00000000;
 
@@ -79,7 +81,7 @@ MAPDATA MAP0[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		" =           -  "
 		"                "
 		"                "
 		"                "
@@ -99,7 +101,7 @@ MAPDATA MAP0[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"      =         "
 		"                "
 		"                "
 		"                "
@@ -121,7 +123,7 @@ MAPDATA MAP0[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"-               "
 		"                "
 		"                "
 		"                "
@@ -1058,7 +1060,7 @@ MAPDATA MAP0[] = {
 };
 
 Map::Map( ) {
-	_length = ( sizeof( MAP0 ) / sizeof( MAPDATA ) - 1 ) * BG_SIZE;
+	_num = ( sizeof( MAP0 ) / sizeof( MAPDATA ) - 1 );
 	_data = MAP0;
 }
 
@@ -1066,7 +1068,7 @@ Map::~Map( ) {
 }
 
 int Map::getLength( ) const {
-	return _length;
+	return _num * BG_SIZE;
 }
 
 const char * Map::getBgFilename( int idx ) const {
@@ -1088,5 +1090,35 @@ bool Map::isChip( int bg_idx, int chip_idx ) const {
 
 bool Map::isInWater( int bg_idx, int chip_idx ) const {
 	return _data[ bg_idx ].chip[ chip_idx ] == '~';
+}
+
+bool Map::isBigCloud( int bg_idx, int chip_idx ) const {
+	return _data[ bg_idx ].chip[ chip_idx ] == '=';
+}
+
+bool Map::isSmallCloud( int bg_idx, int chip_idx ) const {
+	return _data[ bg_idx ].chip[ chip_idx ] == '-';
+}
+
+CloudMgrPtr Map::createCloudMgr( ) const {
+	CloudMgrPtr mgr( new CloudMgr );
+
+	for ( int i = 0; i < _num; i++ ) {
+		for ( int j = 0; j < MAPCHIP_NUM * MAPCHIP_NUM; j++ ) {
+			if ( isBigCloud( i, j ) ||
+				 isSmallCloud( i, j ) ) {
+				bool big = false;
+				if ( isBigCloud( i, j ) ) {
+					big = true;
+				}
+				int x = j % MAPCHIP_NUM * MAPCHIP_SIZE + i * BG_SIZE;
+				int y = j / MAPCHIP_NUM * MAPCHIP_SIZE;
+				CloudPtr cloud( new Cloud( x, y, big ) );
+				mgr->add( cloud );
+			}
+		}
+	}
+
+	return mgr;
 }
 
