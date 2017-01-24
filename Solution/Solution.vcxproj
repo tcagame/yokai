@@ -91,6 +91,7 @@
     <ClCompile Include="Cloud.cpp" />
     <ClCompile Include="CloudMgr.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemyDeceased.cpp" />
     <ClCompile Include="EnemyManager.cpp" />
     <ClCompile Include="EnemyMoth.cpp" />
     <ClCompile Include="EnemyPurpleYokai.cpp" />
@@ -129,6 +130,7 @@
     <ClInclude Include="CloudMgr.h" />
     <ClInclude Include="define.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyDeceased.h" />
     <ClInclude Include="EnemyManager.h" />
     <ClInclude Include="EnemyMoth.h" />
     <ClInclude Include="EnemyPurpleYokai.h" />
