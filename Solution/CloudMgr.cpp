@@ -28,6 +28,10 @@ void CloudMgr::draw( CameraConstPtr camera ) {
 
 void CloudMgr::add( CloudPtr cloud ) {
 	_clouds.push_back( cloud );
+	int count = rand( ) % 100;
+	for ( int i = 0; i < count; i++ ) {
+		cloud->update( );
+	}
 }
 
 CloudPtr CloudMgr::getOnStanding( int src_x, int src_y, int dst_y ) {

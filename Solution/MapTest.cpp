@@ -8,17 +8,17 @@ static const Map::Item item = {
 static const Map::Panel panel[] = {
 	{//0
 		"street/map0/bg/map0_00_00.png",
-		"street/map0/cover/bg_cover.png",
+		"",
 		"###             "
 		"###             "
 		"###             "
 		"###             "
 		"###             "
+		"###         -   "
 		"###             "
+		"### -           "
 		"###             "
-		"###             "
-		"###             "
-		"###             "
+		"###     -      -"
 		"###             "
 		"###             "
 		"###             "
