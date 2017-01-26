@@ -65,6 +65,7 @@ SceneStreet::SceneStreet( ) {
 	drawer->loadGraph( GRAPH_BOMB                , "street/bomb.png" );
 	drawer->loadGraph( GRAPH_BOSS                , "street/enemy/boss_reddemon.png" );
 	drawer->loadGraph( GRAPH_ENEMY				 , "street/enemy/Enemy0.png" );
+	drawer->loadGraph( GRAPH_ENEMY_COMMON		 , "street/enemy/enemy_common.png" );
 	drawer->loadGraph( GRAPH_ENEMY_1			 , "street/enemy/enemy1.png" );
 	drawer->loadGraph( GRAPH_ENEMY_SMALL		 , "street/enemy/enemy_small.png" );
 	drawer->loadGraph( GRAPH_ENEMY_TREE			 , "street/enemy/enemy_tree.png" );
