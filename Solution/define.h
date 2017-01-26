@@ -19,7 +19,8 @@ const unsigned int STONE_FLY		= 0x00000126;
 const unsigned int GHOUL			= 0x00000256;
 const unsigned int EXTRUDEDSPRITS	= 0x00000512;
 const unsigned int ONYUDO			= 0x00001024;
-const unsigned int GHOST_WATER		= 0x00002048;
+const unsigned int WATER_GHOST		= 0x00002048;
+const unsigned int WATER_MONK		= 0x00004096;
 
 enum GRAPH {
 	GRAPH_FADE_BOARD,

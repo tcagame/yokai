@@ -88,7 +88,7 @@ static const Map::Panel panel[] = {
 		"~~~~~~~~~~~~~~~~"
 		"################"
 		"################",
-		MOTH | STONE_FLY
+		WATER_MONK
 	},
 	{//4
 		"street/map0/bg/map0_05_00.png",
@@ -109,7 +109,7 @@ static const Map::Panel panel[] = {
 		"~~#             "
 		"################"
 		"################",
-		GHOST_WATER
+		WATER_GHOST
 	},
 	{//5
 		"street/map0/bg/map0_06_00.png",
@@ -130,7 +130,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"################"
 		"################",
-		FLOG | ONYUDO
+		FLOG
 	},
 	{//6
 		"street/map0/bg/map0_07_00.png",
@@ -151,7 +151,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"################"
 		"################",
-		TREE
+		ONYUDO
 	},
 	{//7
 		"street/map0/bg/map0_07_00.png",
@@ -172,7 +172,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"################"
 		"################",
-		TREE
+		TREE | MOTH
 	},
 	{//8
 		"street/map0/bg/map0_07_00.png",
@@ -193,7 +193,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"################"
 		"################",
-		TREE
+		REDBIRD
 	},
 	{//9
 		"street/map0/bg/map0_04_01.png",

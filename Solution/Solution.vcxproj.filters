@@ -48,7 +48,8 @@
     <ClCompile Include="EnemyOnyudo.cpp" />
     <ClCompile Include="EnemyStoneFly.cpp" />
     <ClCompile Include="EnemyStoneRote.cpp" />
-    <ClCompile Include="EnemyGhostWater.cpp" />
+    <ClCompile Include="EnemyWaterGhost.cpp" />
+    <ClCompile Include="EnemyWaterMonk.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
@@ -98,6 +99,7 @@
     <ClInclude Include="EnemyOnyudo.h" />
     <ClInclude Include="EnemyStoneFly.h" />
     <ClInclude Include="EnemyStoneRote.h" />
-    <ClInclude Include="EnemyGhostWater.h" />
+    <ClInclude Include="EnemyWaterGhost.h" />
+    <ClInclude Include="EnemyWaterMonk.h" />
   </ItemGroup>
 </Project>

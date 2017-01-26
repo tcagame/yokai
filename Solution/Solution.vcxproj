@@ -97,7 +97,7 @@
     <ClCompile Include="EnemyDeceasedThird.cpp" />
     <ClCompile Include="EnemyExtrudedSpirits.cpp" />
     <ClCompile Include="EnemyFlog.cpp" />
-    <ClCompile Include="EnemyGhostWater.cpp" />
+    <ClCompile Include="EnemyWaterGhost.cpp" />
     <ClCompile Include="EnemyGhoul.cpp" />
     <ClCompile Include="EnemyManager.cpp" />
     <ClCompile Include="EnemyMoth.cpp" />
@@ -110,6 +110,7 @@
     <ClCompile Include="EnemyStoneFly.cpp" />
     <ClCompile Include="EnemyTree.cpp" />
     <ClCompile Include="EnemyGhost.cpp" />
+    <ClCompile Include="EnemyWaterMonk.cpp" />
     <ClCompile Include="Field.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
@@ -153,7 +154,7 @@
     <ClInclude Include="EnemyDeceasedThird.h" />
     <ClInclude Include="EnemyExtrudedSpirits.h" />
     <ClInclude Include="EnemyFlog.h" />
-    <ClInclude Include="EnemyGhostWater.h" />
+    <ClInclude Include="EnemyWaterGhost.h" />
     <ClInclude Include="EnemyGhoul.h" />
     <ClInclude Include="EnemyManager.h" />
     <ClInclude Include="EnemyMoth.h" />
@@ -166,6 +167,7 @@
     <ClInclude Include="EnemyStoneFly.h" />
     <ClInclude Include="EnemyTree.h" />
     <ClInclude Include="EnemyGhost.h" />
+    <ClInclude Include="EnemyWaterMonk.h" />
     <ClInclude Include="Field.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Map.h" />

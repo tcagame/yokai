@@ -22,8 +22,9 @@
 #include "EnemyStoneFly.h"
 #include "EnemyGhoul.h"
 #include "EnemyOnyudo.h"
-#include "EnemyGhostWater.h"
+#include "EnemyWaterGhost.h"
 #include "EnemyExtrudedSpirits.h"
+#include "EnemyWaterMonk.h"
 #include "Map.h"
 #include "Boss.h"
 
@@ -39,7 +40,7 @@ static const int FLOG_POP_Y = 100;
 static const int FLOG_POP_NUM = 3;
 static const int STONE_POP_Y = 200;
 static const int EXTRUDEDSPIRITS_POP_Y = 200;
-static const int GHOST_WATER_POP_Y = 480;
+static const int WATER_ENEMY_POP_Y = 480;
 
 EnemyManager::EnemyManager( MapConstPtr map ) {
 	_enemy_stock = EnemyStockPtr( new EnemyStock );
@@ -222,8 +223,12 @@ void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera
 		_enemies.push_back( EnemyPtr( new EnemyOnyudo( _enemy_stock, pop_base_x, BASE_POP_Y ) ) );
 	}
 
-	if ( data & GHOST_WATER ) {
-		_enemies.push_back( EnemyPtr( new EnemyGhostWater( _enemy_stock, pop_base_x, GHOST_WATER_POP_Y ) ) );
+	if ( data & WATER_GHOST ) {
+		_enemies.push_back( EnemyPtr( new EnemyWaterGhost( _enemy_stock, pop_base_x, WATER_ENEMY_POP_Y ) ) );
+	}
+
+	if ( data & WATER_MONK ) {
+		_enemies.push_back( EnemyPtr( new EnemyWaterMonk( _enemy_stock, pop_base_x, WATER_ENEMY_POP_Y ) ) );
 	}
 }
 
