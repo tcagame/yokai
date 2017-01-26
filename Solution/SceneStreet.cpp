@@ -97,6 +97,7 @@ Scene::NEXT SceneStreet::update( ) {
 		}
 		if ( _power->get( ) == 0 ) {
 			_phase = PHASE_DEAD;
+			_phase_count = 0;
 		}
 		break;
 	case PHASE_BOSS:
@@ -108,6 +109,7 @@ Scene::NEXT SceneStreet::update( ) {
 		}
 		if ( _power->get( ) == 0 ) {
 			_phase = PHASE_DEAD;
+			_phase_count = 0;
 		}
 		break;
 	case PHASE_DEAD:
