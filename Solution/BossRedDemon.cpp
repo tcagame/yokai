@@ -9,7 +9,7 @@ static const int OFFSET_Y = 512 - 140;
 static const int HP  = 20;
 static const int POW = 10;
 
-static const int CREATE_COUNT_YUREI = 60;
+static const int CREATE_COUNT_GHOST = 60;
 
 BossRedDemon::BossRedDemon( EnemyStockPtr enemy_stock, int x ) :
 Boss( enemy_stock, x + OFFSET_X, OFFSET_Y, HP, POW ),
@@ -41,10 +41,10 @@ void BossRedDemon::drawOverlapped( CameraConstPtr camera ) const {
 void BossRedDemon::attack( ) {
 	_count++;
 
-	if ( _count % CREATE_COUNT_YUREI == 0 ) {
-		int x = getX( ) - rand( ) % SCREEN_WIDTH / 2;
-		int y = 250;
-		Vector target( getX( ) + SCREEN_WIDTH / 4, SCREEN_HEIGHT / 2 );
+	if ( _count % CREATE_COUNT_GHOST == 0 ) {
+		int x = getX( ) - rand( ) % SCREEN_WIDTH;
+		int y = rand( ) % 150 + 100;
+		Vector target( getX( ) - SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 );
 		EnemyStockPtr stock = getEnemyStock( );
 		stock->addEnemy( EnemyPtr( new EnemyGhost( stock, x, y, target ) ) );
 	}

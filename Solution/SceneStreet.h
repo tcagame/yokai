@@ -21,6 +21,7 @@ private:
 	enum PHASE {
 		PHASE_NORMAL,
 		PHASE_BOSS,
+		PHASE_DEAD,
 		PHASE_CLEAR,
 		PHASE_FADEOUT,
 	};

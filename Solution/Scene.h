@@ -9,6 +9,7 @@ public:
 		NEXT_SELECT_2PLAYER,
 		NEXT_STAGE,
 		NEXT_STREET,
+		NEXT_RESULT,
 		NEXT_TEST,
 	};
 public:

@@ -20,6 +20,7 @@
 #include "MapTest.h"
 
 static const int CLEAR_COUNT = 120;
+static const int DEAD_COUNT = 120;
 
 SceneStreet::SceneStreet( ) {
 	GamePtr game = Game::getTask( );
@@ -94,6 +95,9 @@ Scene::NEXT SceneStreet::update( ) {
 			_phase = PHASE_BOSS;
 			_phase_count = 0;
 		}
+		if ( _power->get( ) == 0 ) {
+			_phase = PHASE_DEAD;
+		}
 		break;
 	case PHASE_BOSS:
 		_enemy_mgr->attackBoss( );
@@ -102,18 +106,33 @@ Scene::NEXT SceneStreet::update( ) {
 			_phase = PHASE_CLEAR;
 			_phase_count = 0;
 		}
+		if ( _power->get( ) == 0 ) {
+			_phase = PHASE_DEAD;
+		}
+		break;
+	case PHASE_DEAD:
+		if ( _phase_count > DEAD_COUNT ) {
+			GamePtr game = Game::getTask( );
+			game->setFade( Game::FADE_OUT );
+			_phase = PHASE_FADEOUT;
+		}
 		break;
 	case PHASE_CLEAR:
 		if ( _phase_count > CLEAR_COUNT ) {
 			GamePtr game = Game::getTask( );
 			game->setFade( Game::FADE_OUT );
+			_phase = PHASE_FADEOUT;
 		}
 		break;
 	case PHASE_FADEOUT:
 		{
 			GamePtr game = Game::getTask( );
 			if ( game->getFade( ) == Game::FADE_COVER ) {
-				return NEXT_STAGE;
+				if ( _power->get( ) > 0 ) {
+					return NEXT_STAGE;
+				} else {
+					return NEXT_RESULT;
+				}
 			}
 		}
 		break;

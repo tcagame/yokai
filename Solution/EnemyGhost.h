@@ -14,6 +14,7 @@ private:
 	void act( );
 private:
 	int _count;
+	Vector _pos;
 	Vector _vec;
 	Vector _target;
 };

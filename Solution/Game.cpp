@@ -2,6 +2,7 @@
 #include "SceneTitle.h"
 #include "SceneGate.h"
 #include "SceneStreet.h"
+#include "SceneResult.h"
 #include "Drawer.h"
 #include "Keyboard.h"
 #include "Application.h"
@@ -158,19 +159,18 @@ void Game::changeScene( Scene::NEXT next ) {
 		_stage++;
 		if ( _stage < 5 ) {
 			_scene = ScenePtr( new SceneGate( ) );
+		} else if ( _stage == 5 ) {
+			_scene = ScenePtr( new SceneResult );
 		} else {
 			_scene = ScenePtr( new SceneTitle );
-			//_scene = ScenePtr( new SceneResult );
 		}
 		break;
 	case Scene::NEXT_STREET:
 		_scene = ScenePtr( new SceneStreet( ) );
 		break;
-	/*
 	case Scene::NEXT_RESULT:
 		_scene = ScenePtr( new SceneResult( ) );
 		break;
-	*/
 	case Scene::NEXT_TEST:
 		_stage = 5;
 		_scene = ScenePtr( new SceneStreet( ) );

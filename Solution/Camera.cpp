@@ -5,6 +5,7 @@
 
 static const int RANGE_NEAR = SCREEN_WIDTH / 5;
 static const int RANGE_FAR  = SCREEN_WIDTH / 2;
+static const int LOCK_SPEED = 10;
 
 Camera::Camera( MapConstPtr map ) :
 _map( map ),
@@ -16,19 +17,23 @@ Camera::~Camera( ) {
 }
 
 void Camera::update( TarosukeConstPtr tarosuke ) {
-	if ( _x > tarosuke->getX( ) - RANGE_NEAR ) {
-		_x = tarosuke->getX( ) - RANGE_NEAR;
-	}
-	
 	if ( _x < tarosuke->getX( ) - RANGE_FAR ) {
 		_x = tarosuke->getX( ) - RANGE_FAR ;
 	}
 	
 	if ( _lock ) {
-		if ( _x < _map->getLength( ) - BG_SIZE * 3 ) {
-			_x = _map->getLength( ) - BG_SIZE * 3;
+		double near = _map->getLength( ) - BG_SIZE * 3;
+		if ( _x < near ) {
+			_x += LOCK_SPEED;
+		} else if ( _x > tarosuke->getX( ) - RANGE_NEAR ) {
+			if ( tarosuke->getX( ) - RANGE_NEAR > near ) {
+				_x = tarosuke->getX( ) - RANGE_NEAR;
+			}
 		}
 	} else {
+		if ( _x > tarosuke->getX( ) - RANGE_NEAR ) {
+			_x = tarosuke->getX( ) - RANGE_NEAR;
+		}
 		if ( _x < 0 ) {
 			_x = 0;
 		}
@@ -37,7 +42,7 @@ void Camera::update( TarosukeConstPtr tarosuke ) {
 		_x = _map->getLength( ) - SCREEN_WIDTH - 1;
 	}
 
-	if ( _map->getLength( ) - BG_SIZE * 3 < _x ) {
+	if ( _map->getLength( ) - BG_SIZE * 3 < tarosuke->getX( ) ) {
 		_lock = true;
 	}
 }
