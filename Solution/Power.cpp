@@ -18,13 +18,15 @@ int Power::get( ) const {
 void Power::decrease( int pow ) {
 	SoundPtr sound = Sound::getTask( );
 
+	int n = _value;
+
 	_value -= pow;
 	if ( _value < 0 ) {
 		_value = 0;
 	}
 
-	if ( _value <= 6 ) {
-		sound->playBGM( "yokai_se_02.wav" );
+	if ( _value <= 6 && n > 6 ) {
+		sound->playSE( "yokai_se_02.wav", true );
 	}
 
 	

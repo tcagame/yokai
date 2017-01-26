@@ -7,6 +7,7 @@
 #include "Application.h"
 #include "define.h"
 #include "Drawer.h"
+#include "Sound.h"
 #include <stdarg.h>
 
 static const int PANEL_WIDTH  = 266;
@@ -138,6 +139,10 @@ void Game::changeScene( Scene::NEXT next ) {
 
 	DrawerPtr drawer = Drawer::getTask( );
 	drawer->unloadAllGraph( );
+
+	SoundPtr sound = Sound::getTask( );
+	sound->stopAllSE( );
+	sound->stopBGM( );
 
 	switch ( next ) {
 	case Scene::NEXT_TITLE:

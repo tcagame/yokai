@@ -539,6 +539,14 @@ void Tarosuke::drawOverlapped( CameraConstPtr camera ) const {
 }
 
 void Tarosuke::damage( int pow ) {
+	switch ( _action ) {
+	case ACTION_DEAD:
+	case ACTION_APPEAR:
+	case ACTION_CALL:
+	case ACTION_PRAY:
+		return;
+	};
+
 	if ( _invincible_count > 0 ) {
 		return;
 	}
