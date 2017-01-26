@@ -29,6 +29,9 @@ static const int CHIP_SIZE = 128;
 static const int CHIP_FOOT = 18;
 static const int FALTER_COUNT = 6;
 static const int INVINCIBLE_COUNT = 30;
+static const int JET_POWER = 70;
+static const int FALLOUT_POW = 6;
+
 
 Tarosuke::Tarosuke( PsychicMgrPtr psychic, PowerPtr power, MomotaroPtr momotaro ) : 
 Character( START_X, START_Y, CHIP_SIZE, CHIP_FOOT, true ),
@@ -79,6 +82,9 @@ void Tarosuke::act( ) {
 		break;
 	case ACTION_FLOAT:
 		actOnFloating( );
+		break;
+	case ACTION_FALLOUT:
+		actOnFallingOut( );
 		break;
 	case ACTION_BRAKE:
 		actOnBraking( );
@@ -344,8 +350,18 @@ void Tarosuke::actOnFloating( ) {
 		}
 	}
 
+	if ( getY( ) > SCREEN_HEIGHT + CHIP_SIZE ) {
+		_action = ACTION_FALLOUT; 
+	}
+
 	setAccelX( ax );
 	setChipGraph( GRAPH_CHARACTER_1, 5, 0 );
+}
+
+void Tarosuke::actOnFallingOut( ) {
+	setY( SCREEN_HEIGHT + CHIP_SIZE - 1 ); // ‚Ü‚¾—Ž‚¿‚Ä‚È‚¢‚¬‚è‚¬‚è‚Ü‚Å–ß‚·
+	setAccelY( -JET_POWER );
+	damage( FALLOUT_POW );
 }
 
 void Tarosuke::actOnBursting( ) {

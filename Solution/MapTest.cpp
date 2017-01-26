@@ -153,6 +153,47 @@ static const Map::Panel panel[] = {
 		"################",
 		PURPLE | REDBIRD
 	},
+		{//47
+		"street/map0/bg/event_07_00.png",
+		"",
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"     =          "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                ",
+		NONE
+	},
+	{	"street/map0/bg/event_07_00.png",
+		"",
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"    =           "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                ",
+		NONE
+	},
 	{//47
 		"street/map0/bg/event_04_00.png",
 		"",

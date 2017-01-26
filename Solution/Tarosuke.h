@@ -33,6 +33,7 @@ private:
 		ACTION_APPEAR,
 		ACTION_PRAY,
 		ACTION_DEAD,
+		ACTION_FALLOUT,
 		ACTION_MAX
 	};
 private:
@@ -48,6 +49,7 @@ private:
 	void actOnAppearring( );
 	void actOnPraying( );
 	void actOnDying( );
+	void actOnFallingOut( );
 	void drawOverlapped( CameraConstPtr camera ) const;
 private:
 	MomotaroPtr _momotaro;
