@@ -379,9 +379,10 @@ void Tarosuke::actOnShooting( ) {
 }
 
 void Tarosuke::actOnCalling( ) {
+	_saving_power = 0;
+
 	const int PRAY[ 14 ] = { 0, 0, 0, 0, 0, 1, 2, 3, 3, 3, 3, 3, 2, 1 };
 	setChipGraph( GRAPH_CHARACTER_1, PRAY[ _act_count % 14 ], 1 );
-
 	Vector v = Vector( getX( ), getY( ) - CHIP_SIZE ) - _momo_pos;
 	_momo_vec += v.normalize( ) * ( MOMO_SPEED * 0.05 );
 	_momo_vec = _momo_vec.normalize( ) * MOMO_SPEED;
