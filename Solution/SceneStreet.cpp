@@ -61,12 +61,14 @@ SceneStreet::SceneStreet( ) {
 	drawer->loadGraph( GRAPH_PSYCHIC			 , "Character/psychic.png" );
 	drawer->loadGraph( GRAPH_CLOUD_BIG			 , "street/cloud/Yokai_OBJ_cloud1.png" ); 
 	drawer->loadGraph( GRAPH_CLOUD_SMALL		 , "street/cloud/Yokai_OBJ_cloud2.png" );
-	drawer->loadGraph( GRAPH_MAPCHIPGUIDE		 , "street/other/mapchipguide.png" );
+//	drawer->loadGraph( GRAPH_MAPCHIPGUIDE		 , "street/other/mapchipguide.png" );
 	drawer->loadGraph( GRAPH_IMPACT              , "street/other/impact.png" );
 	drawer->loadGraph( GRAPH_BOMB                , "street/other/bomb.png" );
-	drawer->loadGraph( GRAPH_BOSS                , "street/enemy/boss_reddemon.png" );
+	drawer->loadGraph( GRAPH_BOSS_1              , "street/enemy/boss_reddemon.png" );
+	drawer->loadGraph( GRAPH_BOSS_2              , "street/enemy/boss_bluedemon.png" );
+	drawer->loadGraph( GRAPH_BOSS_3              , "street/enemy/boss_sanzu.png" );
 	drawer->loadGraph( GRAPH_ENEMY_COMMON		 , "street/enemy/enemy_common.png" );
-	drawer->loadGraph( GRAPH_ENEMY_SMALL		 , "street/enemy/enemy_small.png" );
+	drawer->loadGraph( GRAPH_ENEMY_COMMON_SMALL	 , "street/enemy/enemy_common_small.png" );
 	drawer->loadGraph( GRAPH_ENEMY_TREE			 , "street/enemy/enemy_tree.png" );
 	drawer->loadGraph( GRAPH_STATUS_PLATE		 , "street/status/status_plate.png" );
 	drawer->loadGraph( GRAPH_STATUS_POWER        , "street/status/status_power.png" );

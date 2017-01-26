@@ -17,7 +17,7 @@ BossRedDemon::~BossRedDemon( ) {
 }
 
 void BossRedDemon::act( ) {
-	setChipGraph( GRAPH_BOSS, 0, 0 );
+	setChipGraph( GRAPH_BOSS_1, 0, 0 );
 }
 
 void BossRedDemon::drawOverlapped( CameraConstPtr camera ) const {
@@ -30,7 +30,7 @@ void BossRedDemon::drawOverlapped( CameraConstPtr camera ) const {
 
 	DrawerPtr drawer = Drawer::getTask( );
 	Drawer::Transform trans( sx, sy, tx, ty, CHIP_SIZE, CHIP_SIZE );
-	Drawer::Sprite sprite( trans, GRAPH_BOSS, Drawer::BLEND_NONE, 1.0 );
+	Drawer::Sprite sprite( trans, GRAPH_BOSS_1, Drawer::BLEND_NONE, 1.0 );
 	drawer->setSprite( sprite );
 }
 
