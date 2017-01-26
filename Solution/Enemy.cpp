@@ -8,7 +8,8 @@ Enemy::Enemy( EnemyStockPtr enemy_stock, int x, int y, int chip_size, int chip_f
 Character( x, y, chip_size, chip_foot, mass ),
 _enemy_stock( enemy_stock ),
 _hp( hp ),
-_pow( pow ) {
+_pow( pow ),
+_head( true ) {
 }
 
 Enemy::~Enemy( ) {
@@ -18,6 +19,18 @@ bool Enemy::isOverlapped( CharacterPtr target ) const {
 	Vector vec = getOverlappedPos( ) - target->getOverlappedPos( );
 	double radius = getOverlappedRadius( ) + target->getOverlappedRadius( );
 	return vec.getLength( ) < radius;
+}
+
+bool Enemy::isHead( ) const {
+	return _head;
+}
+
+void Enemy::steppedOn( ) {
+
+}
+
+void Enemy::setNoHead( ) {
+	_head = false;
 }
 
 EnemyStockPtr Enemy::getEnemyStock( ) {

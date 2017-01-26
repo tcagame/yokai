@@ -9,13 +9,14 @@ PTR( PsychicMgr );
 PTR( Momotaro );
 PTR( Power );
 PTR( Character );
+PTR( Enemy );
 
 class Tarosuke : public Character {
 public:
 	Tarosuke( PsychicMgrPtr psychic, PowerPtr power, MomotaroPtr momotaro );
 	virtual ~Tarosuke( );
 public:
-	bool isOnHead( CharacterPtr target ) const;
+	bool isOnHead( EnemyPtr target ) const;
 	void warp( int v );
 	void damage( int pow );
 	void bound( );

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "smart_ptr.h"
+#include "define.h"
 #include <list>
 
 PTR( Camera );
@@ -26,7 +27,7 @@ public:
 	Collision getCollision( int src_x, int src_y, int dst_x, int dst_y ) const;
 	unsigned int getEnemyData( );
 	bool isChip( int x, int y ) const;
-	bool isInWater( int x, int y ) const;
+	FLOOR getFloor( int x, int y ) const;
 private:
 	void drawBG( ) const;
 	void drawChip( ) const;

@@ -8,7 +8,7 @@ static const int OFFSET_X = 60;
 static const int OFFSET_Y = 512 - 140;
 static const int HP  = 20;
 static const int POW = 10;
-
+static const double RADIUS = 50;
 static const int CREATE_COUNT_GHOST = 60;
 
 BossRedDemon::BossRedDemon( EnemyStockPtr enemy_stock, int x ) :
@@ -48,4 +48,8 @@ void BossRedDemon::attack( ) {
 		EnemyStockPtr stock = getEnemyStock( );
 		stock->addEnemy( EnemyPtr( new EnemyGhost( stock, x, y, target ) ) );
 	}
+}
+
+double BossRedDemon::getOverlappedRadius( ) const {
+	return RADIUS;
 }

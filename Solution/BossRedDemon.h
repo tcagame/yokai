@@ -10,6 +10,7 @@ private:
 	void act( );
 	void drawOverlapped( CameraConstPtr camera ) const;
 	void attack( );
+	double getOverlappedRadius( ) const;
 private:
 	int _count;
 };

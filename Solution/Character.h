@@ -23,7 +23,7 @@ public:
 	int getChipFoot( ) const;
 	bool isChipReverse( ) const;
 	bool isStanding( ) const;
-	bool isInWater( ) const;
+	FLOOR getFloor( ) const;
 	virtual double getOverlappedRadius( ) const;
 	virtual Vector getOverlappedPos( ) const;
 	void draw( CameraConstPtr camera, bool bright = false ) const;
@@ -41,7 +41,7 @@ private:
 	virtual void act( ) = 0;
 	void move( FieldPtr field );
 	void updateDir( );
-	void setInWater( FieldPtr field );
+	void setFloor( FieldConstPtr field );
 	virtual void drawOverlapped( CameraConstPtr camera ) const { }
 private:
 	const bool _mass;
@@ -59,4 +59,5 @@ private:
 	int  _chip_foot;
 	bool _chip_reverse;
 	bool _dead;
+	FLOOR _floor;
 };

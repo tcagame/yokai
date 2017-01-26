@@ -15,6 +15,7 @@ _target( target ) {
 	_vec = _target - _pos;
 	_vec.y = 0;
 	_vec = _vec.normalize( ) * SPEED;
+	setNoHead( );
 }
 
 EnemyGhost::~EnemyGhost( ) {

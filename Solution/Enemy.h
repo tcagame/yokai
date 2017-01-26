@@ -15,11 +15,15 @@ public:
 	bool isFinished( ) const;
 	int getPow( ) const;
 	virtual bool isOutSideScreen( CameraConstPtr camera ) const;
+	bool isHead( ) const;
+	virtual void steppedOn( );
 protected:
 	EnemyStockPtr getEnemyStock( );
+	void setNoHead( );
 private:
 	const int _pow;
 	int _hp;
+	bool _head;
 	EnemyStockPtr _enemy_stock;
 };
 

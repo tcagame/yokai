@@ -33,8 +33,17 @@ bool Map::isChip( int bg_idx, int chip_idx ) const {
 	return _panel[ bg_idx ].chip[ chip_idx ] == '#';
 }
 
-bool Map::isInWater( int bg_idx, int chip_idx ) const {
-	return _panel[ bg_idx ].chip[ chip_idx ] == '~';
+FLOOR Map::getFloor( int bg_idx, int chip_idx ) const {
+	FLOOR floor = FLOOR_ROAD;
+	switch ( _panel[ bg_idx ].chip[ chip_idx ] ) {
+	case '~':
+		floor = FLOOR_WATER;
+		break;
+	case '+':
+		floor = FLOOR_BOG;
+		break;
+	}
+	return floor;
 }
 
 bool Map::isBigCloud( int bg_idx, int chip_idx ) const {

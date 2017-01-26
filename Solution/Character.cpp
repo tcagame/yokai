@@ -78,21 +78,21 @@ void Character::setChipFoot( int foot ) {
 }
 
 void Character::update( FieldPtr field ) {
-	setInWater( field );
+	setFloor( field );
 	act( );
 	updateDir( );
 	move( field );
 }
 
-void Character::setInWater( FieldPtr field ) {
+void Character::setFloor( FieldConstPtr field ) {
 	if ( !field ) {
 		return;
 	}
-	_in_water = field->isInWater( _x, _y );
+	_floor = field->getFloor( _x, _y );
 }
 
-bool Character::isInWater( ) const {
-	return _in_water;
+FLOOR Character::getFloor( ) const {
+	return _floor;
 }
 
 void Character::draw( CameraConstPtr camera, bool bright ) const {
