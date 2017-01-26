@@ -20,6 +20,7 @@
 #include "EnemyFlog.h"
 #include "EnemyStone.h"
 #include "EnemyGhoul.h"
+#include "EnemyExtrudedSpirits.h"
 #include "Map.h"
 #include "Boss.h"
 
@@ -33,6 +34,7 @@ static const int BOMB_SIZE = 256;
 static const int FLOG_POP_Y = 100;
 static const int FLOG_POP_NUM = 3;
 static const int STONE_POP_Y = 200;
+static const int EXTRUDEDSPIRITS_POP_Y = 200;
 
 EnemyManager::EnemyManager( MapConstPtr map ) {
 	_enemy_stock = EnemyStockPtr( new EnemyStock );
@@ -201,10 +203,14 @@ void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera
 	if ( data & GHOUL ) {
 		_enemies.push_back( EnemyPtr( new EnemyGhoul( _enemy_stock, pop_base_x, POPUP_GROUND ) ) );
 	}
+	
+	if ( data & EXTRUDEDSPRITS ) {
+		_enemies.push_back( EnemyPtr( new EnemyExtrudedSpirits( _enemy_stock, pop_base_x, EXTRUDEDSPIRITS_POP_Y ) ) );
+	}
 }
 
 EnemyPtr EnemyManager::getOverlappedEnemy( PsychicPtr pcychic ) {
-	std::list< EnemyPtr>::iterator ite = _enemies.begin( );
+	std::list< EnemyPtr >::iterator ite = _enemies.begin( );
 	EnemyPtr target;
 
 	while ( ite != _enemies.end( ) ) {

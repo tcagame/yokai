@@ -7,15 +7,16 @@ const int BG_NUM = SCREEN_WIDTH / 512 + 2;
 const int CHARA_MOVE_RATIO = 10;
 const int GRAVITY_POWER = 3;
 
-const unsigned int NONE     = 0x00000000;
-const unsigned int PURPLE   = 0x00000001;
-const unsigned int REDBIRD  = 0x00000002;
-const unsigned int MOTH     = 0x00000004;
-const unsigned int TREE     = 0x00000008;
-const unsigned int DECEASED = 0x00000016;
-const unsigned int FLOG		= 0x00000032;
-const unsigned int STONE	= 0x00000064;
-const unsigned int GHOUL	= 0x00000128;
+const unsigned int NONE				= 0x00000000;
+const unsigned int PURPLE			= 0x00000001;
+const unsigned int REDBIRD			= 0x00000002;
+const unsigned int MOTH				= 0x00000004;
+const unsigned int TREE				= 0x00000008;
+const unsigned int DECEASED			= 0x00000016;
+const unsigned int FLOG				= 0x00000032;
+const unsigned int STONE			= 0x00000064;
+const unsigned int GHOUL			= 0x00000128;
+const unsigned int EXTRUDEDSPRITS	= 0x00000256;
 
 enum GRAPH {
 	GRAPH_FADE_BOARD,
