@@ -106,6 +106,7 @@
     <ClCompile Include="EnemyStock.cpp" />
     <ClCompile Include="EnemyStone.cpp" />
     <ClCompile Include="EnemyTree.cpp" />
+    <ClCompile Include="EnemyGhost.cpp" />
     <ClCompile Include="Field.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
@@ -158,6 +159,7 @@
     <ClInclude Include="EnemyStock.h" />
     <ClInclude Include="EnemyStone.h" />
     <ClInclude Include="EnemyTree.h" />
+    <ClInclude Include="EnemyGhost.h" />
     <ClInclude Include="Field.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Map.h" />
