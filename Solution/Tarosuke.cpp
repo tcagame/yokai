@@ -139,6 +139,7 @@ void Tarosuke::actOnStanding( ) {
 		return;
 	}
 	
+	_air_jump = true;
 	_action = ACTION_STAND;
 	
 	bool accel = false;
@@ -317,6 +318,13 @@ void Tarosuke::actOnFloating( ) {
 	if ( isStanding( ) ) {
 		_action = ACTION_STAND;
 		return;
+	}
+	
+	if ( device->getPush( ) == BUTTON_C && _air_jump ) {
+		_air_jump = false;
+		_jump_count = JUMP_COUNT;
+		_action = ACTION_JUMP;
+		setAccelY( -JUMP_POWER );
 	}
 	
 	if ( device->getPush( ) & BUTTON_A ) {

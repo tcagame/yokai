@@ -60,6 +60,7 @@ private:
 	int _saving_power;
 	int _act_count;
 	int _invincible_count;
+	bool _air_jump;
 	Vector _momo_pos;
 	Vector _momo_vec;
 };
