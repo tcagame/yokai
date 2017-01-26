@@ -19,19 +19,22 @@
 #include "EnemyDeceasedFourth.h"
 #include "EnemyFlog.h"
 #include "EnemyStone.h"
+#include "EnemyGhoul.h"
+#include "EnemyExtrudedSpirits.h"
 #include "Map.h"
 #include "Boss.h"
 
+static const int POPUP_GROUND = 400;
 static const int PURPLE_POP_NUM = 5;
 static const int REDBIRD_POP_Y = 250;
 static const int PURPLE_POP_Y = 400;
 static const int MOTH_POP_Y = 230;
-static const int TREE_POP_Y = 400;
 static const int BOMB_COUNT = 16;
 static const int BOMB_SIZE = 256;
 static const int FLOG_POP_Y = 100;
 static const int FLOG_POP_NUM = 3;
 static const int STONE_POP_Y = 200;
+static const int EXTRUDEDSPIRITS_POP_Y = 200;
 
 EnemyManager::EnemyManager( MapConstPtr map ) {
 	_enemy_stock = EnemyStockPtr( new EnemyStock );
@@ -177,15 +180,15 @@ void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera
 	}
 
 	if ( data & TREE ) {
-		_enemies.push_back( EnemyPtr( new EnemyTree( _enemy_stock, pop_base_x, TREE_POP_Y ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyTree( _enemy_stock, pop_base_x, POPUP_GROUND ) ) );
 	}
 	
 	if ( data & DECEASED ) {
 		const int INTERVAL = 64;
-		_enemies.push_back( EnemyPtr ( new EnemyDeceasedFirst( _enemy_stock, pop_base_x, TREE_POP_Y ) ) );
-		_enemies.push_back( EnemyPtr ( new EnemyDeceasedSecond( _enemy_stock, pop_base_x += INTERVAL, TREE_POP_Y ) ) );
-		_enemies.push_back( EnemyPtr ( new EnemyDeceasedThird( _enemy_stock, pop_base_x += INTERVAL, TREE_POP_Y ) ) );
-		_enemies.push_back( EnemyPtr ( new EnemyDeceasedFourth( _enemy_stock, pop_base_x += INTERVAL, TREE_POP_Y ) ) );
+		_enemies.push_back( EnemyPtr ( new EnemyDeceasedFirst( _enemy_stock, pop_base_x, POPUP_GROUND ) ) );
+		_enemies.push_back( EnemyPtr ( new EnemyDeceasedSecond( _enemy_stock, pop_base_x += INTERVAL, POPUP_GROUND ) ) );
+		_enemies.push_back( EnemyPtr ( new EnemyDeceasedThird( _enemy_stock, pop_base_x += INTERVAL, POPUP_GROUND ) ) );
+		_enemies.push_back( EnemyPtr ( new EnemyDeceasedFourth( _enemy_stock, pop_base_x += INTERVAL, POPUP_GROUND ) ) );
 	}
 	
 	if ( data & FLOG ) {
@@ -196,10 +199,18 @@ void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera
 	if ( data % STONE ) {
 		_enemies.push_back( EnemyPtr( new EnemyStone( _enemy_stock, pop_base_x, STONE_POP_Y ) ) );
 	}
+
+	if ( data & GHOUL ) {
+		_enemies.push_back( EnemyPtr( new EnemyGhoul( _enemy_stock, pop_base_x, POPUP_GROUND ) ) );
+	}
+	
+	if ( data & EXTRUDEDSPRITS ) {
+		_enemies.push_back( EnemyPtr( new EnemyExtrudedSpirits( _enemy_stock, pop_base_x, EXTRUDEDSPIRITS_POP_Y ) ) );
+	}
 }
 
 EnemyPtr EnemyManager::getOverlappedEnemy( PsychicPtr pcychic ) {
-	std::list< EnemyPtr>::iterator ite = _enemies.begin( );
+	std::list< EnemyPtr >::iterator ite = _enemies.begin( );
 	EnemyPtr target;
 
 	while ( ite != _enemies.end( ) ) {
