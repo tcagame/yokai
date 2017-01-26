@@ -96,6 +96,7 @@
     <ClCompile Include="EnemyDeceasedSecond.cpp" />
     <ClCompile Include="EnemyDeceasedThird.cpp" />
     <ClCompile Include="EnemyFlog.cpp" />
+    <ClCompile Include="EnemyGhoul.cpp" />
     <ClCompile Include="EnemyManager.cpp" />
     <ClCompile Include="EnemyMoth.cpp" />
     <ClCompile Include="EnemyPurpleYokai.cpp" />
@@ -146,6 +147,7 @@
     <ClInclude Include="EnemyDeceasedSecond.h" />
     <ClInclude Include="EnemyDeceasedThird.h" />
     <ClInclude Include="EnemyFlog.h" />
+    <ClInclude Include="EnemyGhoul.h" />
     <ClInclude Include="EnemyManager.h" />
     <ClInclude Include="EnemyMoth.h" />
     <ClInclude Include="EnemyPurpleYokai.h" />

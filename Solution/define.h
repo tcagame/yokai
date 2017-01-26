@@ -15,6 +15,7 @@ const unsigned int TREE     = 0x00000008;
 const unsigned int DECEASED = 0x00000016;
 const unsigned int FLOG		= 0x00000032;
 const unsigned int STONE	= 0x00000064;
+const unsigned int GHOUL	= 0x00000128;
 
 enum GRAPH {
 	GRAPH_FADE_BOARD,
