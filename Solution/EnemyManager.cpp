@@ -22,10 +22,12 @@
 #include "EnemyStoneFly.h"
 #include "EnemyGhoul.h"
 #include "EnemyOnyudo.h"
+#include "EnemyGhostWater.h"
 #include "EnemyExtrudedSpirits.h"
 #include "Map.h"
 #include "Boss.h"
 
+static const int BASE_POP_Y = 400;
 static const int POPUP_GROUND = 400;
 static const int PURPLE_POP_NUM = 5;
 static const int REDBIRD_POP_Y = 250;
@@ -37,7 +39,7 @@ static const int FLOG_POP_Y = 100;
 static const int FLOG_POP_NUM = 3;
 static const int STONE_POP_Y = 200;
 static const int EXTRUDEDSPIRITS_POP_Y = 200;
-static const int BASE_POP_Y = 400;
+static const int GHOST_WATER_POP_Y = 480;
 
 EnemyManager::EnemyManager( MapConstPtr map ) {
 	_enemy_stock = EnemyStockPtr( new EnemyStock );
@@ -218,6 +220,10 @@ void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera
 
 	if ( data & ONYUDO ) {
 		_enemies.push_back( EnemyPtr( new EnemyOnyudo( _enemy_stock, pop_base_x, BASE_POP_Y ) ) );
+	}
+
+	if ( data & GHOST_WATER ) {
+		_enemies.push_back( EnemyPtr( new EnemyGhostWater( _enemy_stock, pop_base_x, GHOST_WATER_POP_Y ) ) );
 	}
 }
 
