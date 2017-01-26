@@ -25,5 +25,5 @@ void EnemyPurpleYokai::act( ) {
 
 	const int MOTION[ 4 ] = { 0, 1, 2, 1 };
 	int u = MOTION[ ( getX( ) / WAIT_TIME ) % MAX_PATTERN ];
-	setChipGraph( GRAPH_ENEMY, u, 0 );
+	setChipGraph( GRAPH_ENEMY_COMMON, u, 1 );
 }
