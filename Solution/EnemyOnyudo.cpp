@@ -8,7 +8,7 @@ static const int MOVE_SPEED = 3;
 static const int WAIT_ANIME_TIME = 20;
 
 EnemyOnyudo::EnemyOnyudo( EnemyStockPtr enemy_stock, int x, int y ) :
-Enemy( enemy_stock, x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ) {
+Enemy( enemy_stock, x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ) {
 }
 
 

@@ -131,6 +131,7 @@
     <ClCompile Include="SceneGate.cpp" />
     <ClCompile Include="SceneStreet.cpp" />
     <ClCompile Include="SceneTitle.cpp" />
+    <ClCompile Include="EnemySkeletonSpear.cpp" />
     <ClCompile Include="Status.cpp" />
     <ClCompile Include="Tarosuke.cpp" />
   </ItemGroup>
@@ -187,6 +188,7 @@
     <ClInclude Include="SceneGate.h" />
     <ClInclude Include="SceneStreet.h" />
     <ClInclude Include="SceneTitle.h" />
+    <ClInclude Include="EnemySkeletonSpear.h" />
     <ClInclude Include="Status.h" />
     <ClInclude Include="Tarosuke.h" />
   </ItemGroup>

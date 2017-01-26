@@ -193,7 +193,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"################"
 		"################",
-		REDBIRD
+		REDBIRD | SKELETON_SPEAR
 	},
 	{//9
 		"street/map0/bg/map0_04_01.png",

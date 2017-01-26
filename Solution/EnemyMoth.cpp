@@ -1,6 +1,6 @@
 #include "EnemyMoth.h"
 
-static const int WAIT_ANIME_TIME = 1;
+static const int WAIT_ANIME_TIME = 3;
 static const int MOVE_SPEED = 1;
 static const int CHIP_SIZE = 72;
 static const int CHIP_FOOT = 0;
@@ -26,9 +26,9 @@ void EnemyMoth::actMove( ) {
 }
 
 void EnemyMoth::updateChip( ) {
-	const int MAX_ANIME_PATTERN = 6;
+	const int MAX_ANIME_PATTERN = 2;
 	_anime_count++;
 	_anime_count %= WAIT_ANIME_TIME * MAX_ANIME_PATTERN;
-	int pattern = _anime_count / WAIT_ANIME_TIME % ( MAX_ANIME_PATTERN - 1 );
+	int pattern = _anime_count / WAIT_ANIME_TIME % MAX_ANIME_PATTERN;
 	setChipGraph( GRAPH_ENEMY_COMMON_SMALL, pattern, 0 );
 }
