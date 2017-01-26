@@ -8,7 +8,7 @@ static const Map::Item item = {
 static const Map::Panel panel[] = {
 	{//0
 		"street/map0/bg/map0_00_00.png",
-		"street/map0/cover/bg_cover.png",
+		"",
 		"###             "
 		"###             "
 		"###             "
@@ -70,29 +70,8 @@ static const Map::Panel panel[] = {
 		DECEASED
 	},
 	{//3
-		"street/map0/bg/map0_03_00.png",
-		"",
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		" =           -  "
-		"                "
-		"                "
-		"                "
-		"~~~~~~~~~~~~~~~~"
-		"################"
-		"################",
-		DECEASED
-	},
-	{//4
 		"street/map0/bg/map0_04_00.png",
-		"street/map0/cover/bg_cover.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -111,7 +90,7 @@ static const Map::Panel panel[] = {
 		"################",
 		MOTH
 	},
-	{//5
+	{//4
 		"street/map0/bg/map0_05_00.png",
 		"",
 		"                "
@@ -127,12 +106,12 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"~~~#            "
+		"~~#             "
 		"################"
 		"################",
 		NONE
 	},
-	{//6
+	{//5
 		"street/map0/bg/map0_06_00.png",
 		"",
 		"                "
@@ -153,6 +132,27 @@ static const Map::Panel panel[] = {
 		"################",
 		FLOG
 	},
+	{//6
+		"street/map0/bg/map0_07_00.png",
+		"",
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"       -        "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"################"
+		"################",
+		TREE
+	},
 	{//7
 		"street/map0/bg/map0_07_00.png",
 		"",
@@ -164,7 +164,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"       -        "
 		"                "
 		"                "
 		"                "
@@ -185,6 +185,27 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
+		"       -        "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"################"
+		"################",
+		TREE
+	},
+	{//9
+		"street/map0/bg/map0_04_01.png",
+		"street/map0/cover/rock_2.png",
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
 		"                "
 		"                "
 		"                "
@@ -195,8 +216,8 @@ static const Map::Panel panel[] = {
 		"################",
 		PURPLE | REDBIRD
 	},
-	{//9
-		"street/map0/bg/map0_07_00.png",
+	{//10
+		"street/map0/bg/map0_05_01.png",
 		"",
 		"                "
 		"                "
@@ -216,8 +237,8 @@ static const Map::Panel panel[] = {
 		"################",
 		FLOG
 	},
-	{//10
-		"street/map0/bg/map0_07_00.png", // Ç¬Ç»Ç¨ÇçlÇ¶ÇÈ
+	{//11
+		"street/map0/bg/map0_06_01.png",
 		"",
 		"                "
 		"                "
@@ -237,8 +258,8 @@ static const Map::Panel panel[] = {
 		"################",
 		STONE
 	},
-	{//11
-		"street/map0/bg/map0_00_01.png",
+	{//12
+		"street/map0/bg/map0_07_01.png",
 		"",
 		"                "
 		"                "
@@ -258,8 +279,8 @@ static const Map::Panel panel[] = {
 		"################",
 		PURPLE
 	},
-	{//12
-		"street/map0/bg/map0_00_01.png",
+	{//13
+		"street/map0/bg/map0_08_01.png",
 		"",
 		"                "
 		"                "
@@ -279,133 +300,7 @@ static const Map::Panel panel[] = {
 		"################",
 		NONE
 	},
-	{//13
-		"street/map0/bg/map0_00_01.png",
-		"",
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"################"
-		"################",
-		PURPLE | REDBIRD
-	},
 	{//14
-		"street/map0/bg/map0_04_01.png",
-		"",
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"################"
-		"################",
-		PURPLE | REDBIRD
-	},
-	{//15
-		"street/map0/bg/map0_05_01.png",
-		"",
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"################"
-		"################",
-		PURPLE | REDBIRD
-	},
-	{//16
-		"street/map0/bg/map0_06_01.png",
-		"",
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"################"
-		"################",
-		PURPLE | REDBIRD
-	},
-	{//17
-		"street/map0/bg/map0_07_01.png",
-		"",
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"################"
-		"################",
-		PURPLE | REDBIRD
-	},
-	{//18
-		"street/map0/bg/map0_08_01.png",
-		"",
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"################"
-		"################",
-		PURPLE | REDBIRD
-	},
-	{//19
 		"street/map0/bg/map0_09_01.png",
 		"",
 		"                "
@@ -426,28 +321,7 @@ static const Map::Panel panel[] = {
 		"################",
 		PURPLE | REDBIRD
 	},
-	{//20
-		"street/map0/bg/map0_10_01.png",
-		"",
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"################"
-		"################",
-		PURPLE | REDBIRD
-	},
-	{//21
+	{//15
 		"street/map0/bg/map0_11_01.png",
 		"",
 		"                "
@@ -468,9 +342,9 @@ static const Map::Panel panel[] = {
 		"################",
 		PURPLE | REDBIRD
 	},
-	{//22
-		"street/map0/bg/map0_00_02.png",
-		"",
+	{//16
+		"street/map0/bg/map0_01_02.png",
+		"street/map0/cover/right_half_gate.png",
 		"                "
 		"                "
 		"                "
@@ -489,239 +363,7 @@ static const Map::Panel panel[] = {
 		"################",
 		PURPLE | REDBIRD
 	},
-	{//23
-		"street/map0/bg/map0_00_02.png",
-		"",
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"################"
-		"################",
-		PURPLE | REDBIRD
-	},
-	{//24
-		"street/map0/bg/map0_00_02.png",
-		"",
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"################"
-		"################",
-		PURPLE | REDBIRD
-	},
-	{//25
-		"street/map0/bg/map0_00_02.png",
-		"",
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"################"
-		"################",
-		PURPLE | REDBIRD
-	},
-	{//26
-		"street/map0/bg/map0_00_01.png", // Ç¬Ç»Ç¨ÇçlÇ¶ÇÈ
-		"",
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"################"
-		"################",
-		PURPLE | REDBIRD
-	},
-	{//27
-		"street/map0/bg/map0_00_01.png",
-		"",
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"################"
-		"################",
-		PURPLE | REDBIRD
-	},
-	{//28
-		"street/map0/bg/map0_00_01.png",
-		"",
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-
-		"################"
-		"################",
-		PURPLE | REDBIRD
-	},
-	{//29
-		"street/map0/bg/map0_00_01.png",
-		"",
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"################"
-		"################",
-		PURPLE | REDBIRD
-	},
-	{//30
-		"street/map0/bg/map0_00_01.png",
-		"",
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"################"
-		"################",
-		PURPLE | REDBIRD
-	},
-	{//31
-		"street/map0/bg/map0_04_03.png", // map3_04_04ÇÇ¢ÇÍÇÈ
-		"",
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"################"
-		"################",
-		PURPLE | REDBIRD
-	},
-	{//32
-		"street/map0/bg/map0_06_03.png",
-		"",
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"################"
-		"################",
-		PURPLE | REDBIRD
-	},
-	{//33
-		"street/map0/bg/map0_07_03.png",
-		"",
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"################"
-		"################",
-		PURPLE | REDBIRD
-	},
-	{//34
+	{//17
 		"street/map0/bg/map0_00_04.png",
 		"",
 		"                "
@@ -742,28 +384,7 @@ static const Map::Panel panel[] = {
 		"################",
 		PURPLE | REDBIRD
 	},
-	{//35
-		"street/map0/bg/map0_02_04.png",
-		"",
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"################"
-		"################",
-		PURPLE | REDBIRD
-	},
-	{//36
+	{//18
 		"street/map0/bg/map0_01_04.png",
 		"",
 		"                "
@@ -784,8 +405,50 @@ static const Map::Panel panel[] = {
 		"################",
 		PURPLE | REDBIRD
 	},
-	{//37
+	{//19
+		"street/map0/bg/map0_02_04.png",
+		"street/map0/cover/tree_1.png",
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"################"
+		"################",
+		PURPLE | REDBIRD
+	},
+	{//20
 		"street/map0/bg/map0_03_04.png",
+		"street/map0/cover/tree_2.png",
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"################"
+		"################",
+		PURPLE | REDBIRD
+	},
+	{//21
+		"street/map0/bg/map0_forestRock.png",
 		"",
 		"                "
 		"                "
@@ -805,49 +468,7 @@ static const Map::Panel panel[] = {
 		"################",
 		PURPLE | REDBIRD
 	},
-	{//38
-		"street/map0/bg/map0_04_04.png",
-		"",
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"################"
-		"################",
-		PURPLE | REDBIRD
-	},
-	{//39
-		"street/map0/bg/map0_00_01.png", // map3_07_04ÇÇ¢ÇÍÇÈ
-		"",
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"################"
-		"################",
-		PURPLE | REDBIRD
-	},
-	{//40
+	{//22
 		"street/map0/bg/map0_00_05.png",
 		"",
 		"                "
@@ -868,51 +489,9 @@ static const Map::Panel panel[] = {
 		"################",
 		PURPLE | REDBIRD
 	},
-	{//41
-		"street/map0/bg/map0_00_05.png",
-		"",
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"################"
-		"################",
-		PURPLE | REDBIRD
-	},
-	{//42
-		"street/map0/bg/map0_00_05.png",
-		"",
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"################"
-		"################",
-		PURPLE | REDBIRD
-	},
-	{//43
+	{//23
 		"street/map0/bg/map0_06_05.png",
-		"",
+		"street/map0/cover/entrygate_1.png",
 		"                "
 		"                "
 		"                "
@@ -931,9 +510,9 @@ static const Map::Panel panel[] = {
 		"################",
 		PURPLE | REDBIRD
 	},
-	{//44
+	{//24
 		"street/map0/bg/map0_07_05.png",
-		"",
+		"street/map0/cover/entrygate_2.png",
 		"                "
 		"                "
 		"                "
@@ -952,7 +531,7 @@ static const Map::Panel panel[] = {
 		"################",
 		PURPLE | REDBIRD
 	},
-	{//45
+	{//25
 		"street/map0/bg/map0_08_05.png",
 		"",
 		"                "
@@ -973,7 +552,7 @@ static const Map::Panel panel[] = {
 		"################",
 		PURPLE | REDBIRD
 	},
-	{//46
+	{//26
 		"street/map0/bg/event_04_00.png",
 		"",
 		"                "
@@ -994,7 +573,7 @@ static const Map::Panel panel[] = {
 		"################",
 		PURPLE | REDBIRD
 	},
-	{//47
+	{//27
 		"street/map0/bg/event_05_00.png",
 		"",
 		"                "
@@ -1015,7 +594,7 @@ static const Map::Panel panel[] = {
 		"################",
 		PURPLE | REDBIRD
 	},
-	{//48
+	{//28
 		"street/map0/bg/event_06_00.png",
 		"",
 		"                "
@@ -1036,7 +615,7 @@ static const Map::Panel panel[] = {
 		"################",
 		PURPLE | REDBIRD
 	},
-	{//49
+	{//29
 		"street/map0/bg/event_07_00.png",
 		"",
 		"                "
