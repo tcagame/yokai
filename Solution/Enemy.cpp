@@ -1,6 +1,7 @@
 #include "Enemy.h"
 #include "Psychic.h"
 #include "Camera.h"
+#include "Sound.h" 
 
 PTR( Psychic );
 
@@ -42,6 +43,8 @@ void Enemy::damage( int pow ) {
 		_hp = 0;
 	} else {
 		_hp -= pow;
+		SoundPtr sound = Sound::getTask( );
+		sound->playSE( "yokai_se_25.wav" );
 	}
 }
 
