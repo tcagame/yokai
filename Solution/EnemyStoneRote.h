@@ -1,10 +1,10 @@
 #pragma once
 #include "Enemy.h"
 
-class EnemyStone : public Enemy {
+class EnemyStoneRote : public Enemy {
 public:
-	EnemyStone( EnemyStockPtr enemy_stock, int x, int y );
-	virtual ~EnemyStone( );
+	EnemyStoneRote( EnemyStockPtr enemy_stock, int x, int y );
+	virtual ~EnemyStoneRote( );
 public:
 	void act( );
 private:

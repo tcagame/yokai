@@ -18,7 +18,8 @@
 #include "EnemyDeceasedThird.h"
 #include "EnemyDeceasedFourth.h"
 #include "EnemyFlog.h"
-#include "EnemyStone.h"
+#include "EnemyStoneRote.h"
+#include "EnemyStoneFly.h"
 #include "EnemyGhoul.h"
 #include "EnemyExtrudedSpirits.h"
 #include "Map.h"
@@ -197,8 +198,12 @@ void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera
 			_enemies.push_back( EnemyPtr( new EnemyFlog( _enemy_stock, pop_base_x + i * 100, FLOG_POP_Y ) ) );
 		}
 	}
-	if ( data % STONE ) {
-		_enemies.push_back( EnemyPtr( new EnemyStone( _enemy_stock, pop_base_x, STONE_POP_Y ) ) );
+	if ( data % STONE_ROTE ) {
+		_enemies.push_back( EnemyPtr( new EnemyStoneRote( _enemy_stock, pop_base_x, STONE_POP_Y ) ) );
+	}
+
+	if ( data % STONE_FLY ) {
+		_enemies.push_back( EnemyPtr( new EnemyStoneFly( _enemy_stock, pop_base_x, STONE_POP_Y ) ) );
 	}
 
 	if ( data & GHOUL ) {

@@ -14,9 +14,10 @@ const unsigned int MOTH				= 0x00000004;
 const unsigned int TREE				= 0x00000008;
 const unsigned int DECEASED			= 0x00000016;
 const unsigned int FLOG				= 0x00000032;
-const unsigned int STONE			= 0x00000064;
-const unsigned int GHOUL			= 0x00000128;
-const unsigned int EXTRUDEDSPRITS	= 0x00000256;
+const unsigned int STONE_ROTE		= 0x00000064;
+const unsigned int STONE_FLY		= 0x00000126;
+const unsigned int GHOUL			= 0x00000256;
+const unsigned int EXTRUDEDSPRITS	= 0x00000512;
 
 enum GRAPH {
 	GRAPH_FADE_BOARD,
@@ -35,6 +36,7 @@ enum GRAPH {
 	GRAPH_BOSS_3,
 	GRAPH_ENEMY_COMMON,
 	GRAPH_ENEMY_COMMON_SMALL,
+	GRAPH_ENEMY_COMMON_BIG,
 	GRAPH_ENEMY_TREE,
 	GRAPH_BG,
 	GRAPH_BG_1,

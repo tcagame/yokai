@@ -38,7 +38,6 @@
     <ClCompile Include="Map4.cpp" />
     <ClCompile Include="MapTest.cpp" />
     <ClCompile Include="EnemyFlog.cpp" />
-    <ClCompile Include="EnemyStone.cpp" />
     <ClCompile Include="EnemyDeceasedFirst.cpp" />
     <ClCompile Include="EnemyDeceasedSecond.cpp" />
     <ClCompile Include="EnemyDeceasedThird.cpp" />
@@ -46,6 +45,9 @@
     <ClCompile Include="EnemyGhoul.cpp" />
     <ClCompile Include="EnemyExtrudedSpirits.cpp" />
     <ClCompile Include="EnemyGhost.cpp" />
+    <ClCompile Include="EnemyOnyudo.cpp" />
+    <ClCompile Include="EnemyStoneFly.cpp" />
+    <ClCompile Include="EnemyStoneRote.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
@@ -85,7 +87,6 @@
     <ClInclude Include="Map4.h" />
     <ClInclude Include="MapTest.h" />
     <ClInclude Include="EnemyFlog.h" />
-    <ClInclude Include="EnemyStone.h" />
     <ClInclude Include="EnemyDeceasedFirst.h" />
     <ClInclude Include="EnemyDeceasedSecond.h" />
     <ClInclude Include="EnemyDeceasedThird.h" />
@@ -93,5 +94,8 @@
     <ClInclude Include="EnemyGhoul.h" />
     <ClInclude Include="EnemyExtrudedSpirits.h" />
     <ClInclude Include="EnemyGhost.h" />
+    <ClInclude Include="EnemyOnyudo.h" />
+    <ClInclude Include="EnemyStoneFly.h" />
+    <ClInclude Include="EnemyStoneRote.h" />
   </ItemGroup>
 </Project>

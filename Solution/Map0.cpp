@@ -88,7 +88,7 @@ static const Map::Panel panel[] = {
 		"~~~~~~~~~~~~~~~~"
 		"################"
 		"################",
-		MOTH
+		MOTH | STONE_FLY
 	},
 	{//4
 		"street/map0/bg/map0_05_00.png",
@@ -256,7 +256,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"################"
 		"################",
-		STONE
+		STONE_ROTE
 	},
 	{//12
 		"street/map0/bg/map0_07_01.png",
