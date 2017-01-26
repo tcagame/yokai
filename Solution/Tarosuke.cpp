@@ -602,6 +602,10 @@ void Tarosuke::drawOverlapped( CameraConstPtr camera ) const {
 		int sy1 = getY( ) - camera->getY( ) - CHIP_SIZE;
 
 		sound->playSE( "yokai_se_21.wav" );
+		DevicePtr device = Device::getTask( );
+		if ( device->getDirY( ) == 0 ) {
+			sound->stopSE( "yokai_se_21.wav" );
+		}
 
 		DrawerPtr drawer = Drawer::getTask( );
 		Drawer::Transform trans( sx1, sy1, tx, ty, CHIP_SIZE, CHIP_SIZE );
