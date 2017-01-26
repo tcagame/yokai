@@ -130,7 +130,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"################"
 		"################",
-		FLOG
+		FLOG | ONYUDO
 	},
 	{//6
 		"street/map0/bg/map0_07_00.png",
