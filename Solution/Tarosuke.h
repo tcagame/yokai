@@ -57,6 +57,7 @@ private:
 	int _jump_count;
 	int _saving_power;
 	int _act_count;
+	int _invincible_count;
 	Vector _momo_pos;
 	Vector _momo_vec;
 };

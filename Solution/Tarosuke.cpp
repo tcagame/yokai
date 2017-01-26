@@ -28,6 +28,7 @@ static const int MOMO_SPEED = 10;
 static const int CHIP_SIZE = 128;
 static const int CHIP_FOOT = 18;
 static const int FALTER_COUNT = 6;
+static const int INVINCIBLE_COUNT = 30;
 
 Tarosuke::Tarosuke( PsychicMgrPtr psychic, PowerPtr power, MomotaroPtr momotaro ) : 
 Character( START_X, START_Y, CHIP_SIZE, CHIP_FOOT, true ),
@@ -37,6 +38,7 @@ _power( power ) {
 	_jump_count = 0;
 	_action = ACTION_FLOAT;
 	_act_count = 0;
+	_invincible_count = 0;
 	setChipReverse( true );
 }
 
@@ -63,6 +65,10 @@ void Tarosuke::act( ) {
 	GamePtr game = Game::getTask( );
 	game->addDebugMessage( "Tarosuke x:%05d(%03d) y:%03d", getX( ), getX( ) % BG_SIZE, getY( ) );
 	_act_count++;
+	_invincible_count--;
+	if ( _invincible_count < 0 ) {
+		_invincible_count = 0;
+	}
 
 	switch ( _action ) {
 	case ACTION_STAND:
@@ -100,6 +106,11 @@ void Tarosuke::act( ) {
 		break;
 	}
 	
+	// –³“G’†‚Í“_–Å‚·‚é
+	if ( _invincible_count % 2 == 1 ) { 
+		setChipGraph( GRAPH_CHARACTER_2, 7, 7 );
+	}
+
 	if ( _action != ACTION_DEAD && _power->get( ) == 0 ) {
 		SoundPtr sound = Sound::getTask( );
 		sound->playBGM( "yokai_se_31.wav" );
@@ -346,14 +357,10 @@ void Tarosuke::actOnBursting( ) {
 }
 
 void Tarosuke::actOnFaltering( ) {
-	if ( _act_count % 2 ) {
-		if ( isInWater( ) ) {
-			setChipGraph( GRAPH_CHARACTER_2, 0, 0 );
-		} else {
-			setChipGraph( GRAPH_CHARACTER_2, 0, 2 );
-		}
+	if ( isInWater( ) ) {
+		setChipGraph( GRAPH_CHARACTER_2, 0, 0 );
 	} else {
-		setChipGraph( GRAPH_CHARACTER_2, 7, 7 );
+		setChipGraph( GRAPH_CHARACTER_2, 0, 2 );
 	}
 
 	if ( isChipReverse( ) ) {
@@ -379,9 +386,10 @@ void Tarosuke::actOnShooting( ) {
 }
 
 void Tarosuke::actOnCalling( ) {
+	_saving_power = 0;
+
 	const int PRAY[ 14 ] = { 0, 0, 0, 0, 0, 1, 2, 3, 3, 3, 3, 3, 2, 1 };
 	setChipGraph( GRAPH_CHARACTER_1, PRAY[ _act_count % 14 ], 1 );
-
 	Vector v = Vector( getX( ), getY( ) - CHIP_SIZE ) - _momo_pos;
 	_momo_vec += v.normalize( ) * ( MOMO_SPEED * 0.05 );
 	_momo_vec = _momo_vec.normalize( ) * MOMO_SPEED;
@@ -531,23 +539,20 @@ void Tarosuke::drawOverlapped( CameraConstPtr camera ) const {
 }
 
 void Tarosuke::damage( int pow ) {
-	SoundPtr sound = Sound::getTask( );
-
-	switch ( _action ) {
-	case ACTION_DEAD:
-	case ACTION_FALTER:
-	case ACTION_CALL:
-	case ACTION_APPEAR:
-	case ACTION_PRAY:
+	if ( _invincible_count > 0 ) {
 		return;
 	}
-	sound->playSE( "yokai_voice_26.wav" );
+
+	_invincible_count = INVINCIBLE_COUNT;
 	_power->decrease( pow );
 	_action = ACTION_FALTER;
 	_act_count = 0;
 	_saving_power = 0;
 	setAccelX( 0 );
 	setChipReverse( !isChipReverse( ) );
+
+	SoundPtr sound = Sound::getTask( );
+	sound->playSE( "yokai_voice_26.wav" );
 }
 
 bool Tarosuke::isOnHead( CharacterPtr target ) const {
