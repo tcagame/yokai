@@ -112,13 +112,14 @@ void Tarosuke::act( ) {
 	}
 
 	if ( _action != ACTION_DEAD && _power->get( ) == 0 ) {
-		SoundPtr sound = Sound::getTask( );
-		sound->playBGM( "yokai_se_31.wav" );
 		_action = ACTION_DEAD;
 		_act_count = 0;
 		if ( _momotaro ) {
 			_momotaro->hide( );
 		}
+		SoundPtr sound = Sound::getTask( );
+		sound->playBGM( "yokai_se_31.wav" );
+		sound->stopSE( "yokai_se_02.wav" );
 		return;
 	}
 }
