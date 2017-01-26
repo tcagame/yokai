@@ -603,8 +603,14 @@ void Tarosuke::drawOverlapped( CameraConstPtr camera ) const {
 
 		sound->playSE( "yokai_se_21.wav" );
 		DevicePtr device = Device::getTask( );
-		if ( device->getDirY( ) == 0 || _saving_power >= 40 ) {
+		if ( device->getDirY( ) == 0 || _saving_power >= 25 ) {
 			sound->stopSE( "yokai_se_21.wav" );
+		}
+		if ( _saving_power >= 25 && _saving_power <= 40 ) {
+			sound->playSE( "yokai_se_22.wav" );
+		}
+		if ( device->getDirY( ) == 0 || _saving_power >= 40 ) {
+			sound->stopSE( "yokai_se_22.wav" );
 		}
 
 		DrawerPtr drawer = Drawer::getTask( );
