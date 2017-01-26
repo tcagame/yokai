@@ -88,7 +88,7 @@ static const Map::Panel panel[] = {
 		"~~~~~~~~~~~~~~~~"
 		"################"
 		"################",
-		DECEASED
+		DECEASED | EXTRUDEDSPRITS
 	},
 	{//4
 		"street/map0/bg/map0_04_00.png",
