@@ -43,6 +43,7 @@ EnemyManager::EnemyManager( MapConstPtr map ) {
 	}
 	_boss = map->createBoss( _enemy_stock );
 	_enemies.push_back( _boss );
+	_idx_bomb = 0;
 }
 
 EnemyManager::~EnemyManager( ) {

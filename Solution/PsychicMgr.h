@@ -1,7 +1,9 @@
 #pragma once
 
 #include "smart_ptr.h"
+#include "mathmatics.h"
 #include <list>
+#include <array>
 
 PTR( Psychic );
 PTR( Camera );
@@ -20,5 +22,17 @@ public:
 	void draw( CameraConstPtr camera ) const;
 	EnemyPtr getOverlappedEnemy( PsychicPtr pcychic, EnemyManagerPtr enemy_mgr );
 private:
+	static const int IMPACT_NUM = 20;
+	struct Impact {
+		Vector pos;
+		int count;
+	};
+private:
+	void addImpact( const Vector& pos );
+	void drawImpact( CameraConstPtr camera ) const;
+	void updateImpact( );
+private:
 	std::list< PsychicPtr > _psychics;
+	std::array< Impact, IMPACT_NUM > _impact;
+	int _idx_impact;
 };

@@ -26,9 +26,9 @@ void EnemyGhoul::actMove( ) {
 
 void EnemyGhoul::updateChip( ) {
 	const int MAX_ANIME_PATTERN = 4;
-	const int v = 6;
+	const int v = 10;
 	_count++;
 	_count %= WAIT_ANIME_TIME * MAX_ANIME_PATTERN;
 	int pattern = _count / WAIT_ANIME_TIME % ( MAX_ANIME_PATTERN - 1 );
-	setChipGraph( GRAPH_ENEMY_1, pattern, v );
+	setChipGraph( GRAPH_ENEMY_COMMON, pattern, v );
 }

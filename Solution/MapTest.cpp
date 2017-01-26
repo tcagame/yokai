@@ -8,17 +8,17 @@ static const Map::Item item = {
 static const Map::Panel panel[] = {
 	{//0
 		"street/map0/bg/map0_00_00.png",
-		"street/map0/cover/bg_cover.png",
+		"",
 		"###             "
 		"###             "
 		"###             "
 		"###             "
 		"###             "
+		"###         -   "
 		"###             "
+		"### -           "
 		"###             "
-		"###             "
-		"###             "
-		"###             "
+		"###     -      -"
 		"###             "
 		"###             "
 		"###             "
@@ -152,6 +152,47 @@ static const Map::Panel panel[] = {
 		"################"
 		"################",
 		PURPLE | REDBIRD
+	},
+		{//47
+		"street/map0/bg/event_07_00.png",
+		"",
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"     =          "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                ",
+		NONE
+	},
+	{	"street/map0/bg/event_07_00.png",
+		"",
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"    =           "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                ",
+		NONE
 	},
 	{//47
 		"street/map0/bg/event_04_00.png",

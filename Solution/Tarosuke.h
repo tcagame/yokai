@@ -33,6 +33,7 @@ private:
 		ACTION_APPEAR,
 		ACTION_PRAY,
 		ACTION_DEAD,
+		ACTION_FALLOUT,
 		ACTION_MAX
 	};
 private:
@@ -48,6 +49,7 @@ private:
 	void actOnAppearring( );
 	void actOnPraying( );
 	void actOnDying( );
+	void actOnFallingOut( );
 	void drawOverlapped( CameraConstPtr camera ) const;
 private:
 	MomotaroPtr _momotaro;
@@ -58,6 +60,7 @@ private:
 	int _saving_power;
 	int _act_count;
 	int _invincible_count;
+	bool _air_jump;
 	Vector _momo_pos;
 	Vector _momo_vec;
 };
