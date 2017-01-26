@@ -61,8 +61,9 @@ SceneStreet::SceneStreet( ) {
 	drawer->loadGraph( GRAPH_PSYCHIC			 , "Character/psychic.png" );
 	drawer->loadGraph( GRAPH_CLOUD_BIG			 , "street/cloud/Yokai_OBJ_cloud1.png" ); 
 	drawer->loadGraph( GRAPH_CLOUD_SMALL		 , "street/cloud/Yokai_OBJ_cloud2.png" );
-	drawer->loadGraph( GRAPH_MAPCHIPGUIDE		 , "street/mapchipguide.png" );
-	drawer->loadGraph( GRAPH_BOMB                , "street/bomb.png" );
+	drawer->loadGraph( GRAPH_MAPCHIPGUIDE		 , "street/other/mapchipguide.png" );
+	drawer->loadGraph( GRAPH_IMPACT              , "street/other/impact.png" );
+	drawer->loadGraph( GRAPH_BOMB                , "street/other/bomb.png" );
 	drawer->loadGraph( GRAPH_BOSS                , "street/enemy/boss_reddemon.png" );
 	drawer->loadGraph( GRAPH_ENEMY_COMMON		 , "street/enemy/enemy_common.png" );
 	drawer->loadGraph( GRAPH_ENEMY_SMALL		 , "street/enemy/enemy_small.png" );
