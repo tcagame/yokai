@@ -81,6 +81,7 @@ SceneStreet::SceneStreet( ) {
 
 	SoundPtr sound = Sound::getTask( );
 	sound->playBGM( "yokai_music_10.wav" );
+
 }
 
 SceneStreet::~SceneStreet( ) {
@@ -109,6 +110,11 @@ Scene::NEXT SceneStreet::update( ) {
 		if ( _power->get( ) == 0 ) {
 			_phase = PHASE_DEAD;
 		}
+		if ( PHASE_BOSS ) {
+			SoundPtr sound = Sound::getTask( );
+			sound->playBGM( "yokai_music_04.wav" );
+		}
+
 		break;
 	case PHASE_DEAD:
 		if ( _phase_count > DEAD_COUNT ) {

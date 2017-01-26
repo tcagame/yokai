@@ -603,7 +603,7 @@ void Tarosuke::drawOverlapped( CameraConstPtr camera ) const {
 
 		sound->playSE( "yokai_se_21.wav" );
 		DevicePtr device = Device::getTask( );
-		if ( device->getDirY( ) == 0 ) {
+		if ( device->getDirY( ) == 0 || _saving_power >= 40 ) {
 			sound->stopSE( "yokai_se_21.wav" );
 		}
 
