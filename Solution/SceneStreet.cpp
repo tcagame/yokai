@@ -109,6 +109,8 @@ Scene::NEXT SceneStreet::update( ) {
 			_enemy_mgr->clear( );
 			_phase = PHASE_CLEAR;
 			_phase_count = 0;
+			SoundPtr sound = Sound::getTask( );
+			sound->playBGM( "yokai_se_32.wav" );
 		}
 		if ( _power->get( ) == 0 ) {
 			_phase = PHASE_DEAD;
