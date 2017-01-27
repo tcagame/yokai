@@ -30,5 +30,5 @@ void EnemyStoneRote::updateChip( ) {
 	_act_count++;
 	_act_count %= WAIT_ANIME_TIME * MAX_ANIME_PATTERN;
 	int pattern = _act_count / WAIT_ANIME_TIME;
-	setChipGraph( GRAPH_ENEMY_SMALL, pattern, 2 );
+	setChipGraph( GRAPH_ENEMY_SMALL, pattern, 3 );
 }
