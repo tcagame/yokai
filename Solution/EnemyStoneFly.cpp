@@ -31,5 +31,5 @@ void EnemyStoneFly::updateChip( ) {
 	_act_count %= WAIT_ANIME_TIME * MAX_ANIME_PATTERN;
 	int u = _act_count / WAIT_ANIME_TIME % MAX_ANIME_PATTERN;
 	int v = 12;
-	setChipGraph( GRAPH_ENEMY_COMMON, u, v );
+	setChipGraph( GRAPH_ENEMY_NOMAL, u, v );
 }
