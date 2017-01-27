@@ -29,6 +29,7 @@
 #include "EnemyMiasmaGray.h"
 #include "EnemyFlog.h"
 #include "EnemyJizo.h"
+#include "EnemyEyeSpector.h"
 #include "Map.h"
 #include "Boss.h"
 
@@ -248,7 +249,9 @@ void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera
 	}
 	if ( data & JIZO ) {
 		_enemies.push_back( EnemyPtr( new EnemyJizo( _enemy_stock, pop_base_x, BASE_POP_Y ) ) );
-
+	}
+	if ( data & EYE ) {
+		_enemies.push_back( EnemyPtr( new EnemyEyeSpector( _enemy_stock, pop_base_x, BASE_POP_Y - 100 ) ) );
 	}
 }
 

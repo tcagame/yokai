@@ -130,7 +130,7 @@ static const Map::Panel panel[] = {
 		"~~~~#########+++"
 		"################"
 		"################",
-		REDBIRD
+		REDBIRD | EYE
 	},
 	{//47
 		"street/map0/bg/map0_06_00.png",
