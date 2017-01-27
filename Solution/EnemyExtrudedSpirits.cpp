@@ -32,7 +32,7 @@ void EnemyExtrudedSpirits::actMove( ) {
 void EnemyExtrudedSpirits::updateChip( ) {
 	const int MAX_ANIME_PATTERN = 2;
 	const int ANIME_PATTERN_START = 2;
-	const int v = 8;
+	const int v = 13;
 	_count++;
 	_count %= WAIT_ANIME_TIME * MAX_ANIME_PATTERN;
 	int pattern = _count / WAIT_ANIME_TIME % MAX_ANIME_PATTERN + ANIME_PATTERN_START;
@@ -40,7 +40,7 @@ void EnemyExtrudedSpirits::updateChip( ) {
 }
 
 void EnemyExtrudedSpirits::appearing( ) {
-	const int v = 8;
+	const int v = 13;
 	_count++;
 	if ( _count < WAIT_ANIME_TIME ) {
 		setChipGraph( GRAPH_ENEMY_NOMAL, 0, v );

@@ -25,6 +25,6 @@ void EnemyWaterGhost::updateChip( ) {
 	_act_count++;
 	_act_count %= WAIT_ANIME_TIME * MAX_ANIME_PATTERN;
 	int u = ANIME[ _act_count / WAIT_ANIME_TIME % MAX_ANIME_PATTERN ];
-	int v = 9;
+	int v = 12;
 	setChipGraph( GRAPH_ENEMY_NOMAL, u, v );
 }

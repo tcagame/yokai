@@ -18,8 +18,9 @@ EnemyDeceasedThird::~EnemyDeceasedThird( ) {
 
 void EnemyDeceasedThird::act( ) {
 	const int MAX_ANIME_PATTERN = 3;
+	const int ANIME_START = 10;
 	_count++;
 	_count %= WAIT_ANIME_TIME * MAX_ANIME_PATTERN;
-	int pattern = _count / WAIT_ANIME_TIME % ( MAX_ANIME_PATTERN - 1 );
+	int pattern = _count / WAIT_ANIME_TIME % ( MAX_ANIME_PATTERN - 1 ) + ANIME_START;
 	setChipGraph( GRAPH_ENEMY_NOMAL, pattern, 14 );
 }
