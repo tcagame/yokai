@@ -32,5 +32,5 @@ void EnemyRedbirdAttack::updateChip( ) {
 	_act_count++;
 	_act_count %= MAX_ANIME_PATTERN * WAIT_PATTERN_TIME;
 	int pattern = _act_count / WAIT_PATTERN_TIME;
-	setChipGraph( GRAPH_ENEMY_COMMON_SMALL, pattern, 1 );
+	setChipGraph( GRAPH_ENEMY_SMALL, pattern, 2 );
 }

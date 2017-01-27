@@ -25,9 +25,10 @@ void EnemyFlog::steppedOn( ) {
 }
 
 void EnemyFlog::act( ) {
+	int v = 4;
 	if ( _smashed_count > 0 ) {
 		_smashed_count ++;
-		setChipGraph( GRAPH_ENEMY_COMMON_SMALL, 3, 3 );
+		setChipGraph( GRAPH_ENEMY_SMALL, 3, v );
 		if ( _smashed_count > SMASHED_COUNT ) {
 			damage( -1 );
 		}
@@ -37,6 +38,6 @@ void EnemyFlog::act( ) {
 		_act_count++;
 		_act_count %= WAIT_ANIME_TIME * MAX_ANIME_PATTERN;
 		int pattern = _act_count / WAIT_ANIME_TIME;
-		setChipGraph( GRAPH_ENEMY_COMMON_SMALL, pattern, 3 );
+		setChipGraph( GRAPH_ENEMY_SMALL, pattern, v );
 	}
 }

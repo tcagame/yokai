@@ -29,5 +29,5 @@ void EnemyOnyudo::updateChip( ) {
 	const int ANIME[ MAX_ANIME_PATTERN ] = { 0, 1, 2, 1 };
 	int u = ANIME[ getX( ) / WAIT_ANIME_TIME % MAX_ANIME_PATTERN ];
 	int v = 0;
-	setChipGraph( GRAPH_ENEMY_COMMON_BIG, u, v );
+	setChipGraph( GRAPH_ENEMY_BIG_1, u, v );
 }

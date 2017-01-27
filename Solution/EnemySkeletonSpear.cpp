@@ -29,5 +29,5 @@ void EnemySkeletonSpear::updateChip( ) {
 	const int ANIME[ MAX_ANIME_PATTERN ] = { 0, 1, 2, 3, 2, 1 };
 	int u = ANIME[ getX( ) / WAIT_ANIME_TIME % MAX_ANIME_PATTERN ];
 	int v = 15;
-	setChipGraph( GRAPH_ENEMY_COMMON, u, v );
+	setChipGraph( GRAPH_ENEMY_NOMAL, u, v );
 }
