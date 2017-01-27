@@ -24,6 +24,8 @@ const unsigned int WATER_MONK		= 0x00001000;
 const unsigned int SKELETON_SPEAR	= 0x00002000;
 const unsigned int MIASMA_GRAY		= 0x00004000;
 
+const unsigned int JIZO				= 0x00008000;
+
 enum GRAPH {
 	GRAPH_FADE_BOARD,
 	GRAPH_TITLE_PANEL,
