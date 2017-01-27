@@ -4,7 +4,7 @@
 static const int MOVE_SPEED = 10;
 static const int WAIT_ANIME_TIME = 40;
 static const int WAIT_ATTACK_TIME = 25;
-static const int CHIP_SIZE = 126;
+static const int CHIP_SIZE = 128;
 static const int CHIP_FOOT = 0;
 static const int HP  = 10;
 static const int POW = 3;
@@ -42,5 +42,5 @@ void EnemyRedbird::updateChip( ) {
 	const int MAX_ANIME_PATTERN = 9;
 	const int ANIME_PATTERN[ MAX_ANIME_PATTERN ] = { 0, 4, 1, 0, 4, 2, 0, 4, 3  };
 	int pattern = ANIME_PATTERN[ ( getX( ) / WAIT_ANIME_TIME ) % MAX_ANIME_PATTERN ];
-	setChipGraph( GRAPH_ENEMY_COMMON, pattern, 5 );
+	setChipGraph( GRAPH_ENEMY_NOMAL, pattern, 5 );
 }

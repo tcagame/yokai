@@ -30,5 +30,5 @@ void EnemyGhoul::updateChip( ) {
 	_count++;
 	_count %= WAIT_ANIME_TIME * MAX_ANIME_PATTERN;
 	int pattern = _count / WAIT_ANIME_TIME % ( MAX_ANIME_PATTERN - 1 );
-	setChipGraph( GRAPH_ENEMY_COMMON, pattern, v );
+	setChipGraph( GRAPH_ENEMY_NOMAL, pattern, v );
 }
