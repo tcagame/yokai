@@ -86,7 +86,7 @@
   <ItemGroup>
     <ClCompile Include="Boss.cpp" />
     <ClCompile Include="BossRedDemon.cpp" />
-    <ClCompile Include="BowDemon.cpp" />
+    <ClCompile Include="EnemyBowDemon.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="Cloud.cpp" />
@@ -152,7 +152,7 @@
   <ItemGroup>
     <ClInclude Include="Boss.h" />
     <ClInclude Include="BossRedDemon.h" />
-    <ClInclude Include="BowDemon.h" />
+    <ClInclude Include="EnemyBowDemon.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="Cloud.h" />
