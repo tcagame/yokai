@@ -14,5 +14,6 @@ private:
 private:
 	int _attack_count;
 	int _accel;
+	int _count;
 };
 

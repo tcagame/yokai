@@ -40,7 +40,7 @@ void EnemyExtrudedSpirits::updateChip( ) {
 }
 
 void EnemyExtrudedSpirits::appearing( ) {
-	const int v = 13;
+	const int v = 8;
 	_count++;
 	if ( _count < WAIT_ANIME_TIME ) {
 		setChipGraph( GRAPH_ENEMY_NOMAL, 0, v );

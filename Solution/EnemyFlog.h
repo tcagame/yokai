@@ -8,10 +8,8 @@ public:
 public:
 	void act( );
 private:
-	void actMove( );
 	void updateChip( );
-	void steppedOn( );
 private:
 	int _act_count;
-	int _smashed_count;
 };
+
