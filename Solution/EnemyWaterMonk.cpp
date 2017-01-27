@@ -26,5 +26,5 @@ void EnemyWaterMonk::updateChip( ) {
 	_act_count %= WAIT_ANIME_TIME * MAX_ANIME_PATTERN;
 	int u = ANIME[ _act_count / WAIT_ANIME_TIME % MAX_ANIME_PATTERN ];
 	int v = 4;
-	setChipGraph( GRAPH_ENEMY_COMMON_BIG, u, v );
+	setChipGraph( GRAPH_ENEMY_BIG_1, u, v );
 }
