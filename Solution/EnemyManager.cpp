@@ -26,11 +26,8 @@
 #include "EnemyExtrudedSpirits.h"
 #include "EnemyWaterMonk.h"
 #include "EnemySkeletonSpear.h"
-<<<<<<< HEAD
 #include "EnemyMiasmaGray.h"
-=======
 #include "EnemyJizo.h"
->>>>>>> f155f6d22f5ce207f6835e9309b3a16d5c1423f7
 #include "Map.h"
 #include "Boss.h"
 
@@ -241,15 +238,13 @@ void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera
 	if ( data & SKELETON_SPEAR ) {
 		_enemies.push_back( EnemyPtr( new EnemySkeletonSpear( _enemy_stock, pop_base_x, BASE_POP_Y ) ) );
 	}
-<<<<<<< HEAD
 	if ( data & MIASMA_GRAY ) {
 		_enemies.push_back( EnemyPtr( new EnemyMiasmaGray( _enemy_stock, pop_base_x, MOTH_POP_Y ) ) );
 		_enemies.push_back( EnemyPtr( new EnemyMiasmaGray( _enemy_stock, pop_base_x + 200, MOTH_POP_Y + 30 ) ) );
-=======
-
+	}
 	if ( data & JIZO ) {
 		_enemies.push_back( EnemyPtr( new EnemyJizo( _enemy_stock, pop_base_x, BASE_POP_Y ) ) );
->>>>>>> f155f6d22f5ce207f6835e9309b3a16d5c1423f7
+
 	}
 }
 
