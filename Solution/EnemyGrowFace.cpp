@@ -10,7 +10,6 @@ static const int POW = 3;
 EnemyGrowFace::EnemyGrowFace( EnemyStockPtr enemy_stock, int x, int y ) :
 Enemy( enemy_stock, x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ),
 _anime_count( 0 ) {
-	_y = y;
 }
 
 
@@ -23,7 +22,6 @@ void EnemyGrowFace::act( ) {
 }
 
 void EnemyGrowFace::actMove( ) {
-
 	setAccelX( -MOVE_SPEED );
 
 }
