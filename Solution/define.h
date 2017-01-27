@@ -27,6 +27,7 @@ const unsigned int JIZO				= 0x00008000;
 const unsigned int FLOG				= 0x00010000;
 const unsigned int EYE				= 0x00020000;
 const unsigned int GROW_FACE        = 0x00040000;
+const unsigned int BOW_DEMON        = 0x00080000;
 
 enum GRAPH {
 	GRAPH_FADE_BOARD,

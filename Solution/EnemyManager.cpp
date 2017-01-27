@@ -31,6 +31,7 @@
 #include "EnemyJizo.h"
 #include "EnemyEyeSpector.h"
 #include "EnemyGrowFace.h"
+#include "EnemyBowDemon.h"
 #include "Map.h"
 #include "Boss.h"
 
@@ -256,6 +257,9 @@ void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera
 	}
 	if ( data & GROW_FACE ) {
 		_enemies.push_back( EnemyPtr( new EnemyGrowFace( _enemy_stock, pop_base_x, MOTH_POP_Y ) ) );
+	}
+	if ( data & BOW_DEMON ) {
+		_enemies.push_back( EnemyPtr( new EnemyBowDemon( _enemy_stock, pop_base_x, BASE_POP_Y ) ) );
 	}
 }
 

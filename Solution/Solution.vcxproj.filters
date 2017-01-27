@@ -59,7 +59,7 @@
     <ClCompile Include="EnemyFlog.cpp" />
     <ClCompile Include="EnemyEyeSpector.cpp" />
     <ClCompile Include="EnemyGrowFace.cpp" />
-    <ClCompile Include="BowDemon.cpp" />
+    <ClCompile Include="EnemyBowDemon.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
@@ -120,6 +120,6 @@
     <ClInclude Include="EnemyFlog.h" />
     <ClInclude Include="EnemyEyeSpector.h" />
     <ClInclude Include="EnemyGrowFace.h" />
-    <ClInclude Include="BowDemon.h" />
+    <ClInclude Include="EnemyBowDemon.h" />
   </ItemGroup>
 </Project>
