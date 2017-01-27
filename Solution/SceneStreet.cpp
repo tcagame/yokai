@@ -70,8 +70,8 @@ SceneStreet::SceneStreet( ) {
 	drawer->loadGraph( GRAPH_BOSS_3              , "street/enemy/boss_sanzu.png" );
 	drawer->loadGraph( GRAPH_ENEMY_COMMON		 , "street/enemy/enemy_common.png" );
 	drawer->loadGraph( GRAPH_ENEMY_COMMON_SMALL	 , "street/enemy/enemy_common_small.png" );
-	drawer->loadGraph( GRAPH_ENEMY_COMMON_BIG	 , "street/enemy/enemy_common_big.png" );
-	drawer->loadGraph( GRAPH_ENEMY_MAP1    	 , "street/enemy/enemy_map1.png" );
+	drawer->loadGraph( GRAPH_ENEMY_BIG_1		 , "street/enemy/enemy_big.png" );
+	drawer->loadGraph( GRAPH_ENEMY_MAP1		   	 , "street/enemy/enemy_map1.png" );
 	drawer->loadGraph( GRAPH_ENEMY_TREE			 , "street/enemy/enemy_tree.png" );
 	drawer->loadGraph( GRAPH_STATUS_PLATE		 , "street/status/status_plate.png" );
 	drawer->loadGraph( GRAPH_STATUS_POWER        , "street/status/status_power.png" );
