@@ -29,7 +29,7 @@ void EnemyStoneFly::actMove( ) {
 void EnemyStoneFly::updateChip( ) {
 	const int MAX_ANIME_PATTERN = 4;
 	_act_count %= WAIT_ANIME_TIME * MAX_ANIME_PATTERN;
-	int u = _act_count / WAIT_ANIME_TIME % MAX_ANIME_PATTERN + 12;
-	int v = 3;
+	int u = _act_count / WAIT_ANIME_TIME % MAX_ANIME_PATTERN;
+	int v = 12;
 	setChipGraph( GRAPH_ENEMY_NOMAL, u, v );
 }

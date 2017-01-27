@@ -27,6 +27,7 @@
 #include "EnemyWaterMonk.h"
 #include "EnemySkeletonSpear.h"
 #include "EnemyMiasmaGray.h"
+#include "EnemyFlog.h"
 #include "EnemyJizo.h"
 #include "Map.h"
 #include "Boss.h"
@@ -206,6 +207,9 @@ void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera
 		for ( int i = 0; i < FLOG_SMALL_POP_NUM; i++ ) {
 			_enemies.push_back( EnemyPtr( new EnemyFlogSmall( _enemy_stock, pop_base_x + i * 100, FLOG_SMALL_POP_Y ) ) );
 		}
+	}
+	if ( data & FLOG ) {
+		_enemies.push_back( EnemyPtr( new EnemyFlog( _enemy_stock, pop_base_x, BASE_POP_Y ) ) );
 	}
 	if ( data % STONE_ROTE ) {
 		_enemies.push_back( EnemyPtr( new EnemyStoneRote( _enemy_stock, pop_base_x, STONE_POP_Y ) ) );
