@@ -23,6 +23,8 @@ const unsigned int WATER_GHOST		= 0x00000800;
 const unsigned int WATER_MONK		= 0x00001000;
 const unsigned int SKELETON_SPEAR	= 0x00002000;
 
+const unsigned int JIZO				= 0x00008000;
+
 enum GRAPH {
 	GRAPH_FADE_BOARD,
 	GRAPH_TITLE_PANEL,

@@ -26,6 +26,7 @@
 #include "EnemyExtrudedSpirits.h"
 #include "EnemyWaterMonk.h"
 #include "EnemySkeletonSpear.h"
+#include "EnemyJizo.h"
 #include "Map.h"
 #include "Boss.h"
 
@@ -235,6 +236,10 @@ void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera
 	
 	if ( data & SKELETON_SPEAR ) {
 		_enemies.push_back( EnemyPtr( new EnemySkeletonSpear( _enemy_stock, pop_base_x, BASE_POP_Y ) ) );
+	}
+
+	if ( data & JIZO ) {
+		_enemies.push_back( EnemyPtr( new EnemyJizo( _enemy_stock, pop_base_x, BASE_POP_Y ) ) );
 	}
 }
 
