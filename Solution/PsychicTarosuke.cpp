@@ -29,6 +29,7 @@ void PsychicTarosuke::act( ) {
 		}
 		if ( getX( ) < getRange( ) || getX( ) > getRange( ) + SCREEN_WIDTH ) {
 			_outward = false;
+			setPow( 0 );
 		}
 		setChipReverse( _dir_right );
 		int idx = _level * 2 + _motion_count % 2;
