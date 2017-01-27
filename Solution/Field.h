@@ -27,6 +27,7 @@ public:
 	Collision getCollision( int src_x, int src_y, int dst_x, int dst_y ) const;
 	unsigned int getEnemyData( );
 	bool isChip( int x, int y ) const;
+	bool isBlockChip( int x, int y ) const;
 	FLOOR getFloor( int x, int y ) const;
 private:
 	void drawBG( ) const;

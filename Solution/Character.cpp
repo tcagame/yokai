@@ -156,12 +156,14 @@ void Character::move( FieldPtr field ) {
 
 	_standing = false;
 	if ( col.overlapped_y ) {
+		if ( _accel_y >= 0 ) {
+			_standing = true;
+		}
 		_accel_y = 0;
 		dst_y = col.adjust_y;
 		if ( col.cloud ) {
 			_cloud = col.cloud;
 		}
-		_standing = true;
 	}
 
 	if ( _cloud ) {

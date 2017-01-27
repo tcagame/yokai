@@ -8,6 +8,8 @@
 #include "Keyboard.h"
 #include "Game.h"
 
+static const int HEAD_HEIGHT = 100;
+
 Field::Field( MapConstPtr map ) :
 _map( map ),
 _enemy_data( 0 ) {
@@ -161,6 +163,18 @@ bool Field::isChip( int x, int y ) const {
 	return _map->isChip( bg_idx, chip_idx );
 }
 
+bool Field::isBlockChip( int x, int y ) const {
+	if ( x < 0 || x >= _map->getLength( ) * BG_SIZE ||
+		 y < 0 || y >= BG_SIZE ) {
+		return false;
+	}
+
+	int bg_idx = x / BG_SIZE;
+	int chip_idx = x % BG_SIZE / MAPCHIP_SIZE + y / MAPCHIP_SIZE * MAPCHIP_NUM; 
+
+	return _map->isBlockChip( bg_idx, chip_idx );
+}
+
 Field::Collision Field::getCollision( int src_x, int src_y, int dst_x, int dst_y ) const {
 	Collision collision;
 	collision.overlapped_x = false;
@@ -182,7 +196,12 @@ Field::Collision Field::getCollision( int src_x, int src_y, int dst_x, int dst_y
 			collision.cloud = cloud;
 			dst_y = collision.adjust_y;
 		}
-
+	} else {
+		if ( isBlockChip( src_x, dst_y - HEAD_HEIGHT ) ) {
+			collision.adjust_y = ( dst_y - HEAD_HEIGHT ) / MAPCHIP_SIZE * MAPCHIP_SIZE + MAPCHIP_SIZE + HEAD_HEIGHT + 1;
+			collision.overlapped_y = true;
+			dst_y = collision.adjust_y;
+		}
 	}
 
 	{
