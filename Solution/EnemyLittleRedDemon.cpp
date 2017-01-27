@@ -21,9 +21,9 @@ EnemyLittleRedDemon::~EnemyLittleRedDemon( ) {
 void EnemyLittleRedDemon::act( ) {
 	setAccelX( -SPEED );
 
-	const int MAX_ANIME_PATTERN = 5;
 	_count++;
-	_count %= WAIT_ANIME_TIME * MAX_ANIME_PATTERN;
-	int pattern = _count / WAIT_ANIME_TIME % ( MAX_ANIME_PATTERN - 1 );
-	setChipGraph( GRAPH_ENEMY_MAP1, pattern, 0 );
+
+	const int ANIM[ 4 ] = { 4, 5, 8, 9 };
+	int pattern = ANIM[ _count / WAIT_ANIME_TIME % 4 ];
+	setChipGraph( GRAPH_ENEMY_COMMON, pattern, 3 );
 }
