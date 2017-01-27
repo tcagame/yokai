@@ -25,7 +25,7 @@ static const Map::Panel panel[] = {
 		"###             "
 		"################"
 		"################",
-		PURPLE
+		NONE
 	},
 	{//1
 		"street/map0/bg/map0_01_00.png",
@@ -67,7 +67,7 @@ static const Map::Panel panel[] = {
 		"###########~~~~~"
 		"################"
 		"################",
-		DECEASED
+		NONE
 	},
 	{//3
 		"street/map0/bg/map0_04_00.png",
@@ -88,7 +88,7 @@ static const Map::Panel panel[] = {
 		"~~~~~~~~~~~~~~~~"
 		"################"
 		"################",
-		WATER_MONK
+		NONE
 	},
 	{//4
 		"street/map0/bg/map0_05_00.png",
@@ -149,9 +149,9 @@ static const Map::Panel panel[] = {
 		"#               "
 		"#               "
 		"#               "
-		"################"
-		"################",
-		ONYUDO
+		"#               "
+		"#               ",
+		NONE
 	},
 	{//7
 		"street/map0/bg/map0_07_00.png",
@@ -170,12 +170,12 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"################"
-		"################",
-		TREE | MOTH
+		"                "
+		"                ",
+		NONE
 	},
 	{//8
-		"street/map0/bg/map0_07_00.png",
+		"street/map0/bg/cemetery.png",
 		"",
 		"                "
 		"                "
@@ -191,13 +191,13 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"################"
-		"################",
-		REDBIRD | SKELETON_SPEAR
+		"               #"
+		"               #",
+		NONE
 	},
 	{//9
-		"street/map0/bg/map0_04_01.png",
-		"street/map0/cover/rock_2.png",
+		"street/map0/bg/cliff_stairs.png",
+		"",
 		"                "
 		"                "
 		"                "
@@ -214,7 +214,7 @@ static const Map::Panel panel[] = {
 		"       #########"
 		"################"
 		"################",
-		PURPLE | REDBIRD
+		NONE
 	},
 	{//10
 		"street/map0/bg/map0_05_01.png",
@@ -235,7 +235,7 @@ static const Map::Panel panel[] = {
 		"#####           "
 		"#####~~~~~~~~~~~"
 		"################",
-		FLOG_SMALL
+		NONE
 	},
 	{//11
 		"street/map0/bg/map0_06_01.png",
@@ -256,7 +256,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"~~~~~~~~~~~~~~~~"
 		"################",
-		STONE_ROTE
+		NONE
 	},
 	{//12
 		"street/map0/bg/map0_07_01.png",
@@ -277,7 +277,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"~~~~~~~~~~~~~~~~"
 		"################",
-		PURPLE
+		NONE
 	},
 	{//13
 		"street/map0/bg/map0_08_01.png",
@@ -319,7 +319,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"~~~~~~~~~~~~~~~~"
 		"################",
-		PURPLE | REDBIRD
+		NONE
 	},
 	{//15
 		"street/map0/bg/map0_11_01.png",
@@ -340,7 +340,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"~~~~~~~~~~~~~~~~"
 		"################",
-		PURPLE | REDBIRD
+		NONE
 	},
 	{//16
 		"street/map0/bg/map0_01_02.png",
@@ -350,7 +350,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"  ##            "
+		"  ##           #"
 		"  ##       #####"
 		"  ##       #####"
 		"  **     #######"
@@ -358,12 +358,54 @@ static const Map::Panel panel[] = {
 		"       #########"
 		"       #########"
 		"     ###########"
-		"                "
-		"~~~~~~~~~~~~~~~~"
+		"              ##"
+		"~~~~~~~~~~~~~~##"
 		"################",
-		PURPLE | REDBIRD
+		NONE
 	},
 	{//17
+		"street/map0/bg/make_bg.png",
+		"street/map0/cover/make_cover.png",
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"##              "
+		"##              "
+		"##              "
+		"##              "
+		"##              "
+		"##  ####        "
+		"##              "
+		"##              "
+		"##              "
+		"################"
+		"################",
+		NONE
+	},
+	{//18
+		"street/map0/bg/map2_04_01.png",
+		"street/map0/cover/grass.png",
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"################"
+		"################",
+		NONE
+	},
+	{//18
 		"street/map0/bg/map0_00_04.png",
 		"street/map0/cover/grass.png",
 		"                "
@@ -382,9 +424,9 @@ static const Map::Panel panel[] = {
 		"                "
 		"################"
 		"################",
-		PURPLE | REDBIRD
+		NONE
 	},
-	{//18
+	{//19
 		"street/map0/bg/map0_01_04.png",
 		"street/map0/cover/grass.png",
 		"                "
@@ -403,9 +445,9 @@ static const Map::Panel panel[] = {
 		"                "
 		"################"
 		"################",
-		PURPLE | REDBIRD
+		NONE
 	},
-	{//19
+	{//20
 		"street/map0/bg/map0_02_04.png",
 		"street/map0/cover/tree_1.png",
 		"                "
@@ -424,9 +466,9 @@ static const Map::Panel panel[] = {
 		"                "
 		"################"
 		"################",
-		FLOG
+		NONE
 	},
-	{//20
+	{//21
 		"street/map0/bg/map0_03_04.png",
 		"street/map0/cover/tree_2.png",
 		"                "
@@ -445,9 +487,9 @@ static const Map::Panel panel[] = {
 		"                "
 		"################"
 		"################",
-		PURPLE | REDBIRD
+		NONE
 	},
-	{//21
+	{//22
 		"street/map0/bg/map0_forestRock.png",
 		"street/map0/cover/grass.png",
 		"                "
@@ -466,9 +508,9 @@ static const Map::Panel panel[] = {
 		"                "
 		"################"
 		"################",
-		PURPLE | REDBIRD
+		NONE
 	},
-	{//22
+	{//23
 		"street/map0/bg/map0_00_05.png",
 		"",
 		"                "
@@ -487,9 +529,9 @@ static const Map::Panel panel[] = {
 		"                "
 		"################"
 		"################",
-		PURPLE | REDBIRD
+		NONE
 	},
-	{//23
+	{//24
 		"street/map0/bg/map0_06_05.png",
 		"street/map0/cover/entrygate_1.png",
 		"                "
@@ -508,9 +550,9 @@ static const Map::Panel panel[] = {
 		"                "
 		"################"
 		"################",
-		PURPLE | REDBIRD
+		NONE
 	},
-	{//24
+	{//25
 		"street/map0/bg/map0_07_05.png",
 		"street/map0/cover/entrygate_2.png",
 		"                "
@@ -529,9 +571,9 @@ static const Map::Panel panel[] = {
 		"                "
 		"################"
 		"################",
-		PURPLE | REDBIRD
+		NONE
 	},
-	{//25
+	{//26
 		"street/map0/bg/map0_08_05.png",
 		"",
 		"                "
@@ -550,9 +592,30 @@ static const Map::Panel panel[] = {
 		"                "
 		"################"
 		"################",
-		PURPLE | REDBIRD
+		NONE
 	},
-	{//26
+	{//27
+		"street/map0/bg/iwakabe.png",
+		"street/map0/cover/bg_cover.png",
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"################"
+		"################",
+		NONE
+	},
+	{//28
 		"street/map0/bg/event_04_00.png",
 		"",
 		"                "
@@ -571,9 +634,9 @@ static const Map::Panel panel[] = {
 		"                "
 		"################"
 		"################",
-		PURPLE | REDBIRD
+		NONE
 	},
-	{//27
+	{//29
 		"street/map0/bg/event_05_00.png",
 		"",
 		"                "
@@ -592,9 +655,9 @@ static const Map::Panel panel[] = {
 		"                "
 		"################"
 		"################",
-		PURPLE | REDBIRD
+		NONE
 	},
-	{//28
+	{//30
 		"street/map0/bg/event_06_00.png",
 		"",
 		"                "
@@ -613,9 +676,9 @@ static const Map::Panel panel[] = {
 		"                "
 		"################"
 		"################",
-		PURPLE | REDBIRD
+		NONE
 	},
-	{//29
+	{//31
 		"street/map0/bg/event_07_00.png",
 		"",
 		"                "
@@ -634,7 +697,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"################"
 		"################",
-		PURPLE | REDBIRD
+		NONE
 	},
 };
 
