@@ -113,6 +113,7 @@
     <ClCompile Include="EnemyWaterMonk.cpp" />
     <ClCompile Include="Field.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="EnemyLittleRedDemon.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="Map0.cpp" />
@@ -172,6 +173,7 @@
     <ClInclude Include="EnemyWaterMonk.h" />
     <ClInclude Include="Field.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="EnemyLittleRedDemon.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Map0.h" />
     <ClInclude Include="Map1.h" />

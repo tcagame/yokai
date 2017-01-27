@@ -2,6 +2,7 @@
 #include "Drawer.h"
 #include "Camera.h"
 #include "EnemyGhost.h"
+#include "EnemyLittleRedDemon.h"
 
 static const int CHIP_SIZE = 256;
 static const int OFFSET_X = 60;
@@ -10,6 +11,7 @@ static const int HP  = 20;
 static const int POW = 10;
 static const double RADIUS = 50;
 static const int CREATE_COUNT_GHOST = 60;
+static const int CREATE_COUNT_LITTLE_RED_DEMON = 60;
 
 BossRedDemon::BossRedDemon( EnemyStockPtr enemy_stock, int x ) :
 Boss( enemy_stock, x + OFFSET_X, OFFSET_Y, HP, POW ),
@@ -40,7 +42,6 @@ void BossRedDemon::drawOverlapped( CameraConstPtr camera ) const {
 
 void BossRedDemon::attack( ) {
 	_count++;
-
 	if ( _count % CREATE_COUNT_GHOST == 0 ) {
 		int x = getX( ) - rand( ) % SCREEN_WIDTH;
 		int y = rand( ) % 150 + 100;
@@ -48,6 +49,14 @@ void BossRedDemon::attack( ) {
 		EnemyStockPtr stock = getEnemyStock( );
 		stock->addEnemy( EnemyPtr( new EnemyGhost( stock, x, y, target ) ) );
 	}
+
+	if ( _count % CREATE_COUNT_LITTLE_RED_DEMON == 0 ) {
+		int x = getX( );
+		int y = getY( );
+		EnemyStockPtr stock = getEnemyStock( );
+		stock->addEnemy( EnemyPtr( new EnemyLittleRedDemon( stock, x, y ) ) );
+	}
+
 }
 
 double BossRedDemon::getOverlappedRadius( ) const {
