@@ -100,6 +100,7 @@
     <ClCompile Include="EnemyFlogSmall.cpp" />
     <ClCompile Include="EnemyJizo.cpp" />
     <ClCompile Include="EnemyJizoAttack.cpp" />
+    <ClCompile Include="EnemyMiasmaGray.cpp" />
     <ClCompile Include="EnemyWaterGhost.cpp" />
     <ClCompile Include="EnemyGhoul.cpp" />
     <ClCompile Include="EnemyManager.cpp" />
@@ -163,6 +164,7 @@
     <ClInclude Include="EnemyFlogSmall.h" />
     <ClInclude Include="EnemyJizo.h" />
     <ClInclude Include="EnemyJizoAttack.h" />
+    <ClInclude Include="EnemyMiasmaGray.h" />
     <ClInclude Include="EnemyWaterGhost.h" />
     <ClInclude Include="EnemyGhoul.h" />
     <ClInclude Include="EnemyManager.h" />
