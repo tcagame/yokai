@@ -53,6 +53,7 @@
     <ClCompile Include="EnemySkeletonSpear.cpp" />
     <ClCompile Include="SceneResult.cpp" />
     <ClCompile Include="EnemyLittleRedDemon.cpp" />
+    <ClCompile Include="EnemyMiasmaGray.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
@@ -107,5 +108,6 @@
     <ClInclude Include="EnemySkeletonSpear.h" />
     <ClInclude Include="SceneResult.h" />
     <ClInclude Include="EnemyLittleRedDemon.h" />
+    <ClInclude Include="EnemyMiasmaGray.h" />
   </ItemGroup>
 </Project>

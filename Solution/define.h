@@ -22,6 +22,7 @@ const unsigned int ONYUDO			= 0x00000400;
 const unsigned int WATER_GHOST		= 0x00000800;
 const unsigned int WATER_MONK		= 0x00001000;
 const unsigned int SKELETON_SPEAR	= 0x00002000;
+const unsigned int MIASMA_GRAY		= 0x00004000;
 
 enum GRAPH {
 	GRAPH_FADE_BOARD,
