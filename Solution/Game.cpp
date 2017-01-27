@@ -37,6 +37,8 @@ Game::~Game( ) {
 
 void Game::initialize( ) {
 	changeScene( Scene::NEXT_TITLE );
+	//_stage = 6;
+	//changeScene( Scene::NEXT_RESULT );
 }
 
 bool Game::isDebug( ) const {
