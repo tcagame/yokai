@@ -2,6 +2,7 @@
 #include "Drawer.h"
 #include "Camera.h"
 #include "EnemyGhost.h"
+#include "EnemyLittleBlueDemon.h"
 
 static const int CHIP_SIZE = 256;
 static const int OFFSET_X = 60;
@@ -52,7 +53,7 @@ void BossBlueDemon::attack( ) {
 		int x = getX( );
 		int y = getY( );
 		EnemyStockPtr stock = getEnemyStock( );
-	//	stock->addEnemy( EnemyPtr( new EnemyLittleBlueDemon( stock, x, y ) ) );
+		stock->addEnemy( EnemyPtr( new EnemyLittleBlueDemon( stock, x, y ) ) );
 	}
 
 }

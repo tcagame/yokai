@@ -2,7 +2,7 @@
 #include "define.h"
 
 static const Map::Item item = {
-	Map::BOSS_REDDEMON
+	Map::BOSS_BLUEDEMON
 };
 
 static const Map::Panel panel[] = {
