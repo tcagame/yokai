@@ -9,5 +9,7 @@ public:
 	void act( );
 private:
 	void updateChip( );
+private:
+	int _act_count;
 };
 
