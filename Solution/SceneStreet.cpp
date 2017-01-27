@@ -73,6 +73,7 @@ SceneStreet::SceneStreet( ) {
 	drawer->loadGraph( GRAPH_ENEMY_BIG_1		 , "street/enemy/enemy_big1.png" );
 	drawer->loadGraph( GRAPH_ENEMY_BIG_2		 , "street/enemy/enemy_big2.png" );
 	drawer->loadGraph( GRAPH_ENEMY_TREE			 , "street/enemy/enemy_tree.png" );
+	drawer->loadGraph( GRAPH_ENEMY_EFFECT_JIZO	 , "street/enemy/enemy_effect_jizo.png" );
 	drawer->loadGraph( GRAPH_STATUS_PLATE		 , "street/status/status_plate.png" );
 	drawer->loadGraph( GRAPH_STATUS_POWER        , "street/status/status_power.png" );
 	drawer->loadGraph( GRAPH_STATUS_MAP		     , "street/map0/status/status_map_0.png" );

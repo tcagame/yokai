@@ -17,7 +17,7 @@
 #include "EnemyDeceasedSecond.h"
 #include "EnemyDeceasedThird.h"
 #include "EnemyDeceasedFourth.h"
-#include "EnemyFlog.h"
+#include "EnemyFlogSmall.h"
 #include "EnemyStoneRote.h"
 #include "EnemyStoneFly.h"
 #include "EnemyGhoul.h"
@@ -26,6 +26,8 @@
 #include "EnemyExtrudedSpirits.h"
 #include "EnemyWaterMonk.h"
 #include "EnemySkeletonSpear.h"
+#include "EnemyMiasmaGray.h"
+#include "EnemyJizo.h"
 #include "Map.h"
 #include "Boss.h"
 
@@ -37,8 +39,8 @@ static const int PURPLE_POP_Y = 400;
 static const int MOTH_POP_Y = 230;
 static const int BOMB_COUNT = 16;
 static const int BOMB_SIZE = 256;
-static const int FLOG_POP_Y = 100;
-static const int FLOG_POP_NUM = 3;
+static const int FLOG_SMALL_POP_Y = 100;
+static const int FLOG_SMALL_POP_NUM = 3;
 static const int STONE_POP_Y = 200;
 static const int EXTRUDEDSPIRITS_POP_Y = 200;
 static const int WATER_ENEMY_POP_Y = 480;
@@ -200,9 +202,9 @@ void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera
 		_enemies.push_back( EnemyPtr ( new EnemyDeceasedFourth( _enemy_stock, pop_base_x += INTERVAL, POPUP_GROUND ) ) );
 	}
 	
-	if ( data & FLOG ) {
-		for ( int i = 0; i < FLOG_POP_NUM; i++ ) {
-			_enemies.push_back( EnemyPtr( new EnemyFlog( _enemy_stock, pop_base_x + i * 100, FLOG_POP_Y ) ) );
+	if ( data & FLOG_SMALL ) {
+		for ( int i = 0; i < FLOG_SMALL_POP_NUM; i++ ) {
+			_enemies.push_back( EnemyPtr( new EnemyFlogSmall( _enemy_stock, pop_base_x + i * 100, FLOG_SMALL_POP_Y ) ) );
 		}
 	}
 	if ( data % STONE_ROTE ) {
@@ -235,6 +237,14 @@ void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera
 	
 	if ( data & SKELETON_SPEAR ) {
 		_enemies.push_back( EnemyPtr( new EnemySkeletonSpear( _enemy_stock, pop_base_x, BASE_POP_Y ) ) );
+	}
+	if ( data & MIASMA_GRAY ) {
+		_enemies.push_back( EnemyPtr( new EnemyMiasmaGray( _enemy_stock, pop_base_x, MOTH_POP_Y ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyMiasmaGray( _enemy_stock, pop_base_x + 200, MOTH_POP_Y + 30 ) ) );
+	}
+	if ( data & JIZO ) {
+		_enemies.push_back( EnemyPtr( new EnemyJizo( _enemy_stock, pop_base_x, BASE_POP_Y ) ) );
+
 	}
 }
 

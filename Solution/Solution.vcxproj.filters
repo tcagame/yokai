@@ -37,7 +37,6 @@
     <ClCompile Include="Map3.cpp" />
     <ClCompile Include="Map4.cpp" />
     <ClCompile Include="MapTest.cpp" />
-    <ClCompile Include="EnemyFlog.cpp" />
     <ClCompile Include="EnemyDeceasedFirst.cpp" />
     <ClCompile Include="EnemyDeceasedSecond.cpp" />
     <ClCompile Include="EnemyDeceasedThird.cpp" />
@@ -53,6 +52,11 @@
     <ClCompile Include="EnemySkeletonSpear.cpp" />
     <ClCompile Include="SceneResult.cpp" />
     <ClCompile Include="EnemyLittleRedDemon.cpp" />
+    <ClCompile Include="EnemyMiasmaGray.cpp" />
+    <ClCompile Include="EnemyJizo.cpp" />
+    <ClCompile Include="EnemyJizoAttack.cpp" />
+    <ClCompile Include="EnemyFlogSmall.cpp" />
+    <ClCompile Include="EnemyFlog.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
@@ -91,7 +95,6 @@
     <ClInclude Include="Map3.h" />
     <ClInclude Include="Map4.h" />
     <ClInclude Include="MapTest.h" />
-    <ClInclude Include="EnemyFlog.h" />
     <ClInclude Include="EnemyDeceasedFirst.h" />
     <ClInclude Include="EnemyDeceasedSecond.h" />
     <ClInclude Include="EnemyDeceasedThird.h" />
@@ -107,5 +110,10 @@
     <ClInclude Include="EnemySkeletonSpear.h" />
     <ClInclude Include="SceneResult.h" />
     <ClInclude Include="EnemyLittleRedDemon.h" />
+    <ClInclude Include="EnemyMiasmaGray.h" />
+    <ClInclude Include="EnemyJizo.h" />
+    <ClInclude Include="EnemyJizoAttack.h" />
+    <ClInclude Include="EnemyFlogSmall.h" />
+    <ClInclude Include="EnemyFlog.h" />
   </ItemGroup>
 </Project>

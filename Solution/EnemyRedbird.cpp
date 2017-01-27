@@ -8,6 +8,7 @@ static const int CHIP_SIZE = 128;
 static const int CHIP_FOOT = 0;
 static const int HP  = 10;
 static const int POW = 3;
+static const int EXTIT_TIME = 80;
 
 EnemyRedbird::EnemyRedbird( EnemyStockPtr enemy_stock, int x, int y ) :
 Enemy( enemy_stock, x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ),
@@ -26,7 +27,12 @@ void EnemyRedbird::act( ) {
 }
 
 void EnemyRedbird::actMove( ) {
+	_count++;
+
 	setAccelX( MOVE_SPEED );
+	if ( _count >= EXTIT_TIME ) {
+		setAccelY( -MOVE_SPEED );
+	}
 }
 
 void EnemyRedbird::actAttack( ) {
@@ -40,7 +46,7 @@ void EnemyRedbird::actAttack( ) {
 
 void EnemyRedbird::updateChip( ) {
 	const int MAX_ANIME_PATTERN = 9;
-	const int ANIME_PATTERN[ MAX_ANIME_PATTERN ] = { 8, 12, 9, 8, 12, 10, 8, 12, 11  };
+	const int ANIME_PATTERN[ MAX_ANIME_PATTERN ] = { 0, 4, 1, 0, 4, 2, 0, 4, 3  };
 	int pattern = ANIME_PATTERN[ ( getX( ) / WAIT_ANIME_TIME ) % MAX_ANIME_PATTERN ];
-	setChipGraph( GRAPH_ENEMY_NOMAL, pattern, 7 );
+	setChipGraph( GRAPH_ENEMY_NOMAL, pattern, 5 );
 }
