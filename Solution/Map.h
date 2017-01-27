@@ -14,6 +14,7 @@ class Map {
 public:
 	enum BOSS {
 		BOSS_REDDEMON,
+		BOSS_BLUEDEMON,
 	};
 
 	struct Item {

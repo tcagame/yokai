@@ -85,6 +85,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Boss.cpp" />
+    <ClCompile Include="BossBlueDemon.cpp" />
     <ClCompile Include="BossRedDemon.cpp" />
     <ClCompile Include="EnemyBowDemon.cpp" />
     <ClCompile Include="Camera.cpp" />
@@ -151,6 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Boss.h" />
+    <ClInclude Include="BossBlueDemon.h" />
     <ClInclude Include="BossRedDemon.h" />
     <ClInclude Include="EnemyBowDemon.h" />
     <ClInclude Include="Camera.h" />
