@@ -25,11 +25,8 @@ const unsigned int SKELETON_SPEAR	= 0x00002000;
 const unsigned int MIASMA_GRAY		= 0x00004000;
 const unsigned int JIZO				= 0x00008000;
 const unsigned int FLOG				= 0x00010000;
-<<<<<<< HEAD
 const unsigned int EYE				= 0x00020000;
-=======
-const unsigned int GROW_FACE         = 0x00020000;
->>>>>>> 91cdd1000307bc76ee250b168b890fde8e30dff0
+const unsigned int GROW_FACE        = 0x00040000;
 
 enum GRAPH {
 	GRAPH_FADE_BOARD,

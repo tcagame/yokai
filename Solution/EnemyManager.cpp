@@ -29,11 +29,8 @@
 #include "EnemyMiasmaGray.h"
 #include "EnemyFlog.h"
 #include "EnemyJizo.h"
-<<<<<<< HEAD
 #include "EnemyEyeSpector.h"
-=======
 #include "EnemyGrowFace.h"
->>>>>>> 91cdd1000307bc76ee250b168b890fde8e30dff0
 #include "Map.h"
 #include "Boss.h"
 

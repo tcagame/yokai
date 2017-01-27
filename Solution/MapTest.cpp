@@ -143,7 +143,6 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-<<<<<<< HEAD
 		"    #########   "
 		"-   #########   "
 		"    #########   "
@@ -153,16 +152,6 @@ static const Map::Panel panel[] = {
 		"################"
 		"################",
 		REDBIRD | EYE
-=======
-		"#      -        "
-		"#               "
-		"#               "
-		"#               "
-		"#               "
-		"#               "
-		"#               "
-		"#               ",
-		NONE
 	},
 	{//7
 		"street/map0/bg/map0_07_00.png",
@@ -184,7 +173,6 @@ static const Map::Panel panel[] = {
 		"                "
 		"                ",
 		GROW_FACE
->>>>>>> 91cdd1000307bc76ee250b168b890fde8e30dff0
 	},
 	{//47
 		"street/map0/bg/map0_06_00.png",
