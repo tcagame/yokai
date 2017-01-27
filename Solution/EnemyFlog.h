@@ -9,7 +9,9 @@ public:
 	void act( );
 private:
 	void updateChip( );
+	void actAttack( );
 private:
 	int _act_count;
+	EnemyStockPtr _enemy_stock;
 };
 
