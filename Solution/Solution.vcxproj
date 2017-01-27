@@ -86,6 +86,7 @@
   <ItemGroup>
     <ClCompile Include="Boss.cpp" />
     <ClCompile Include="BossRedDemon.cpp" />
+    <ClCompile Include="EnemyBowDemon.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="Cloud.cpp" />
@@ -96,8 +97,10 @@
     <ClCompile Include="EnemyDeceasedSecond.cpp" />
     <ClCompile Include="EnemyDeceasedThird.cpp" />
     <ClCompile Include="EnemyExtrudedSpirits.cpp" />
+    <ClCompile Include="EnemyEyeSpector.cpp" />
     <ClCompile Include="EnemyFlog.cpp" />
     <ClCompile Include="EnemyFlogSmall.cpp" />
+    <ClCompile Include="EnemyGrowFace.cpp" />
     <ClCompile Include="EnemyJizo.cpp" />
     <ClCompile Include="EnemyJizoAttack.cpp" />
     <ClCompile Include="EnemyMiasmaGray.cpp" />
@@ -149,6 +152,7 @@
   <ItemGroup>
     <ClInclude Include="Boss.h" />
     <ClInclude Include="BossRedDemon.h" />
+    <ClInclude Include="EnemyBowDemon.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="Cloud.h" />
@@ -160,8 +164,10 @@
     <ClInclude Include="EnemyDeceasedSecond.h" />
     <ClInclude Include="EnemyDeceasedThird.h" />
     <ClInclude Include="EnemyExtrudedSpirits.h" />
+    <ClInclude Include="EnemyEyeSpector.h" />
     <ClInclude Include="EnemyFlog.h" />
     <ClInclude Include="EnemyFlogSmall.h" />
+    <ClInclude Include="EnemyGrowFace.h" />
     <ClInclude Include="EnemyJizo.h" />
     <ClInclude Include="EnemyJizoAttack.h" />
     <ClInclude Include="EnemyMiasmaGray.h" />

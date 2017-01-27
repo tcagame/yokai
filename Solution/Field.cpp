@@ -21,14 +21,20 @@ _enemy_data( 0 ) {
 	
 	DrawerPtr drawer = Drawer::getTask( );
 	for ( int i = 0; i < BG_NUM; i++ ) {
+		std::string str;
+
 		int graph_bg = GRAPH_BG + ( _idx + i ) % BG_NUM;
-		drawer->loadGraph( graph_bg, _map->getBgFilename( _idx + i ) );
+		drawer->unloadGraph( graph_bg );
+		str = _map->getBgFilename( _idx + i );
+		if ( !str.empty( ) ) {
+			drawer->loadGraph( graph_bg, str.c_str( ) );
+		}
 
 		int graph_cover = GRAPH_COVER + ( _idx + i ) % BG_NUM;
 		drawer->unloadGraph( graph_cover );
-		std::string str = _map->getCoverFilename( _idx + i );
+		str = _map->getCoverFilename( _idx + i );
 		if ( !str.empty( ) ) {
-			drawer->loadGraph( graph_cover, _map->getCoverFilename( _idx + i ) );
+			drawer->loadGraph( graph_cover, str.c_str( ) );
 		}
 	}
 
@@ -58,13 +64,17 @@ void Field::scroll( CameraConstPtr camera ) {
 		}
 
 		DrawerPtr drawer = Drawer::getTask( );
-
-		int graph_bg = GRAPH_BG + new_idx % BG_NUM;
-		drawer->loadGraph( graph_bg, _map->getBgFilename( new_idx ) );
+		std::string str;
 		
+		int graph_bg = GRAPH_BG + new_idx % BG_NUM;
+		drawer->unloadGraph( graph_bg );
+		str = _map->getBgFilename( new_idx );
+		if ( !str.empty( ) ) {
+			drawer->loadGraph( graph_bg, str.c_str( ) );
+		}
 		int graph_cover = GRAPH_COVER + new_idx % BG_NUM;
 		drawer->unloadGraph( graph_cover );
-		std::string str = _map->getCoverFilename( new_idx );
+		str = _map->getCoverFilename( new_idx );
 		if ( !str.empty( ) ) {
 			drawer->loadGraph( graph_cover, _map->getCoverFilename( new_idx ) );
 		}

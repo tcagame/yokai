@@ -16,5 +16,6 @@ private:
 	void drawHell( );   
 private:
 	int _level;
+	int _count;
 };
 

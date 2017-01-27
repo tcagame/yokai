@@ -29,6 +29,9 @@
 #include "EnemyMiasmaGray.h"
 #include "EnemyFlog.h"
 #include "EnemyJizo.h"
+#include "EnemyEyeSpector.h"
+#include "EnemyGrowFace.h"
+#include "EnemyBowDemon.h"
 #include "Map.h"
 #include "Boss.h"
 
@@ -248,7 +251,15 @@ void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera
 	}
 	if ( data & JIZO ) {
 		_enemies.push_back( EnemyPtr( new EnemyJizo( _enemy_stock, pop_base_x, BASE_POP_Y ) ) );
-
+	}
+	if ( data & EYE ) {
+		_enemies.push_back( EnemyPtr( new EnemyEyeSpector( _enemy_stock, pop_base_x, BASE_POP_Y - 100 ) ) );
+	}
+	if ( data & GROW_FACE ) {
+		_enemies.push_back( EnemyPtr( new EnemyGrowFace( _enemy_stock, pop_base_x, MOTH_POP_Y ) ) );
+	}
+	if ( data & BOW_DEMON ) {
+		_enemies.push_back( EnemyPtr( new EnemyBowDemon( _enemy_stock, pop_base_x, BASE_POP_Y ) ) );
 	}
 }
 

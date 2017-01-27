@@ -57,6 +57,9 @@
     <ClCompile Include="EnemyJizoAttack.cpp" />
     <ClCompile Include="EnemyFlogSmall.cpp" />
     <ClCompile Include="EnemyFlog.cpp" />
+    <ClCompile Include="EnemyEyeSpector.cpp" />
+    <ClCompile Include="EnemyGrowFace.cpp" />
+    <ClCompile Include="EnemyBowDemon.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
@@ -115,5 +118,8 @@
     <ClInclude Include="EnemyJizoAttack.h" />
     <ClInclude Include="EnemyFlogSmall.h" />
     <ClInclude Include="EnemyFlog.h" />
+    <ClInclude Include="EnemyEyeSpector.h" />
+    <ClInclude Include="EnemyGrowFace.h" />
+    <ClInclude Include="EnemyBowDemon.h" />
   </ItemGroup>
 </Project>
