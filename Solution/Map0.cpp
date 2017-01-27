@@ -385,6 +385,27 @@ static const Map::Panel panel[] = {
 		NONE
 	},
 	{//18
+		"street/map0/bg/map2_04_01.png",
+		"street/map0/cover/grass.png",
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"################"
+		"################",
+		NONE
+	},
+	{//18
 		"street/map0/bg/map0_00_04.png",
 		"street/map0/cover/grass.png",
 		"                "
