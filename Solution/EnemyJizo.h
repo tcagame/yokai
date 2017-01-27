@@ -21,5 +21,5 @@ private:
 private:
 	ACTION _action;
 	int _act_count;
+	EnemyStockPtr _enemy_stock;
 };
-

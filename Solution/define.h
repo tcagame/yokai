@@ -13,7 +13,7 @@ const unsigned int REDBIRD			= 0x00000002;
 const unsigned int MOTH				= 0x00000004;
 const unsigned int TREE				= 0x00000008;
 const unsigned int DECEASED			= 0x00000010;
-const unsigned int FLOG				= 0x00000020;
+const unsigned int FLOG_SMALL		= 0x00000020;
 const unsigned int STONE_ROTE		= 0x00000040;
 const unsigned int STONE_FLY		= 0x00000080;
 const unsigned int GHOUL			= 0x00000100;
@@ -23,8 +23,8 @@ const unsigned int WATER_GHOST		= 0x00000800;
 const unsigned int WATER_MONK		= 0x00001000;
 const unsigned int SKELETON_SPEAR	= 0x00002000;
 const unsigned int MIASMA_GRAY		= 0x00004000;
-
 const unsigned int JIZO				= 0x00008000;
+const unsigned int FLOG				= 0x00010000;
 
 enum GRAPH {
 	GRAPH_FADE_BOARD,
@@ -47,6 +47,7 @@ enum GRAPH {
 	GRAPH_ENEMY_BIG_1,
 	GRAPH_ENEMY_BIG_2,
 	GRAPH_ENEMY_TREE,
+	GRAPH_ENEMY_EFFECT_JIZO,
 	GRAPH_BG,
 	GRAPH_BG_1,
 	GRAPH_BG_2,
