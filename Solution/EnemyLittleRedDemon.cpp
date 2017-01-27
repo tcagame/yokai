@@ -23,7 +23,7 @@ void EnemyLittleRedDemon::act( ) {
 
 	_count++;
 
-	const int ANIM[ 4 ] = { 4, 5, 8, 9 };
+	const int ANIM[ 4 ] = { 0, 1, 4, 5 };
 	int pattern = ANIM[ _count / WAIT_ANIME_TIME % 4 ];
-	setChipGraph( GRAPH_ENEMY_NOMAL, pattern, 3 );
+	setChipGraph( GRAPH_ENEMY_NOMAL, pattern, 2 );
 }

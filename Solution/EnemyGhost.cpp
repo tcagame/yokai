@@ -31,9 +31,9 @@ void EnemyGhost::act( ) {
 	}
 
 	if ( _count / 2 < 3 ) {
-		setChipGraph( GRAPH_ENEMY_NOMAL, _count / 2, 3 );
+		setChipGraph( GRAPH_ENEMY_NOMAL, 12 + _count / 2, 0 );
 	} else {
-		setChipGraph( GRAPH_ENEMY_NOMAL, 2 + _count / 2 % 2, 3 );
+		setChipGraph( GRAPH_ENEMY_NOMAL, 14 + _count / 2 % 2, 0 );
 	}
 
 	if ( _count > IDLING_COUNT ) {

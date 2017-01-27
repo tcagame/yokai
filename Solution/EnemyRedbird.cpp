@@ -40,7 +40,7 @@ void EnemyRedbird::actAttack( ) {
 
 void EnemyRedbird::updateChip( ) {
 	const int MAX_ANIME_PATTERN = 9;
-	const int ANIME_PATTERN[ MAX_ANIME_PATTERN ] = { 0, 4, 1, 0, 4, 2, 0, 4, 3  };
+	const int ANIME_PATTERN[ MAX_ANIME_PATTERN ] = { 8, 12, 9, 8, 12, 10, 8, 12, 11  };
 	int pattern = ANIME_PATTERN[ ( getX( ) / WAIT_ANIME_TIME ) % MAX_ANIME_PATTERN ];
-	setChipGraph( GRAPH_ENEMY_NOMAL, pattern, 5 );
+	setChipGraph( GRAPH_ENEMY_NOMAL, pattern, 7 );
 }
