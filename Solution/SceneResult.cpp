@@ -12,7 +12,7 @@ _count( 0 ) {
 	DrawerPtr drawer = Drawer::getTask( );
 
 	GamePtr game = Game::getTask( );
-	_level = game->getStage( ) - 2;
+	_level = game->getStage( ) - 1;
 	if ( _level < 0 ) {
 		_level = 0;
 	}

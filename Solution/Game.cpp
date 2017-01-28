@@ -171,29 +171,49 @@ void Game::changeScene( Scene::NEXT next ) {
 	case Scene::NEXT_RESULT:
 		_scene = ScenePtr( new SceneResult( ) );
 		break;
-	case Scene::NEXT_DEBUG_0:
+	case Scene::NEXT_DEBUG_STREET_0:
 		_stage = 0;
 		_scene = ScenePtr( new SceneStreet( ) );
 		break;
-	case Scene::NEXT_DEBUG_1:
+	case Scene::NEXT_DEBUG_STREET_1:
 		_stage = 1;
 		_scene = ScenePtr( new SceneStreet( ) );
 		break;
-	case Scene::NEXT_DEBUG_2:
+	case Scene::NEXT_DEBUG_STREET_2:
 		_stage = 2;
 		_scene = ScenePtr( new SceneStreet( ) );
 		break;
-	case Scene::NEXT_DEBUG_3:
+	case Scene::NEXT_DEBUG_STREET_3:
 		_stage = 3;
 		_scene = ScenePtr( new SceneStreet( ) );
 		break;
-	case Scene::NEXT_DEBUG_4:
+	case Scene::NEXT_DEBUG_STREET_4:
 		_stage = 4;
 		_scene = ScenePtr( new SceneStreet( ) );
 		break;
-	case Scene::NEXT_DEBUG_TEST:
+	case Scene::NEXT_DEBUG_STREET_TEST:
 		_stage = 5;
 		_scene = ScenePtr( new SceneStreet( ) );
+		break;
+	case Scene::NEXT_DEBUG_RESULT_1:
+		_stage = 1;
+		_scene = ScenePtr( new SceneResult( ) );
+		break;
+	case Scene::NEXT_DEBUG_RESULT_2:
+		_stage = 2;
+		_scene = ScenePtr( new SceneResult( ) );
+		break;
+	case Scene::NEXT_DEBUG_RESULT_3:
+		_stage = 3;
+		_scene = ScenePtr( new SceneResult( ) );
+		break;
+	case Scene::NEXT_DEBUG_RESULT_4:
+		_stage = 4;
+		_scene = ScenePtr( new SceneResult( ) );
+		break;
+	case Scene::NEXT_DEBUG_RESULT_5:
+		_stage = 5;
+		_scene = ScenePtr( new SceneResult( ) );
 		break;
 	}
 	
