@@ -9,11 +9,14 @@
 #include "Game.h"
 
 static const int HEAD_HEIGHT = 100;
+static const int REBORN_RANGE = 2;
 
 Field::Field( MapConstPtr map ) :
 _map( map ),
 _enemy_data( 0 ) {
 	_idx = 0;
+	_create_idx = 0;
+
 	_scroll_x = 0;
 	_scroll_y = -48; // ÅI“I‚É‚ÍƒJƒƒ‰‚©‚çŽæ“¾
 
@@ -99,7 +102,6 @@ void Field::scroll( CameraConstPtr camera ) {
 		int new_idx = idx;
 		if ( idx > _idx ) {
 			new_idx = idx + BG_NUM - 1;
-			_enemy_data = _map->getEnemyData( idx + BG_NUM - 1 );
 		}
 
 		DrawerPtr drawer = Drawer::getTask( );
@@ -118,6 +120,14 @@ void Field::scroll( CameraConstPtr camera ) {
 			drawer->loadGraph( graph_cover, _map->getCoverFilename( new_idx ) );
 		}
 		_idx = idx;
+		
+		if ( _create_idx < _idx ) {
+			_create_idx = _idx;
+			_enemy_data = _map->getEnemyData( _create_idx + BG_NUM - 1 );
+		}
+		if ( _idx < _create_idx - REBORN_RANGE ) {
+			_create_idx -= REBORN_RANGE;
+		}
 	}
 
 	_scroll_x = _idx * BG_SIZE - camera->getX( );

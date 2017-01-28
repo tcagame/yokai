@@ -57,18 +57,19 @@ int Enemy::getPow( ) const {
 }
 
 bool Enemy::isOutSideScreen( CameraConstPtr camera ) const {
-	bool result = false;
-	int dead_left_side = camera->getX( );
-	int dead_right_side = dead_left_side + BG_SIZE * BG_NUM;
+	int left  = camera->getX( ) - BG_SIZE;
+	int right = camera->getX( ) + BG_SIZE * ( BG_NUM + 1 );
 	int x = getX( );
 	int y = getY( );
 	int size = getSize( );
-	if ( x + size / 2 < dead_left_side ||
-		 x - size / 2 > dead_right_side ) {
+
+	bool result = false;
+	if ( x < left ||
+		 x > right ) {
 		result = true;
 	}
-	if ( y - size < 0 ||
-		 y > SCREEN_HEIGHT ) {
+	if ( y < -size ||
+		 y > SCREEN_HEIGHT + size * 2 ) {
 		result = true;
 	}
 

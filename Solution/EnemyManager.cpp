@@ -62,7 +62,6 @@ EnemyManager::EnemyManager( MapConstPtr map ) {
 EnemyManager::~EnemyManager( ) {
 }
 
-
 void EnemyManager::clear( ) {
 	std::list<EnemyPtr>::iterator ite = _enemies.begin( );
 	while ( ite != _enemies.end( ) ) {

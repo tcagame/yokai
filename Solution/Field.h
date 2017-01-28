@@ -44,6 +44,7 @@ private:
 	int _scroll_x;
 	int _scroll_y;
 	int _idx;
+	int _create_idx;
 	unsigned int _enemy_data;
 	std::list< CloudPtr > _clouds;
 	CloudMgrPtr _cloud_mgr;
