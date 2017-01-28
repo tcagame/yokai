@@ -37,8 +37,6 @@ Game::~Game( ) {
 
 void Game::initialize( ) {
 	changeScene( Scene::NEXT_TITLE );
-	//_stage = 6;
-	//changeScene( Scene::NEXT_RESULT );
 }
 
 bool Game::isDebug( ) const {
@@ -173,7 +171,27 @@ void Game::changeScene( Scene::NEXT next ) {
 	case Scene::NEXT_RESULT:
 		_scene = ScenePtr( new SceneResult( ) );
 		break;
-	case Scene::NEXT_TEST:
+	case Scene::NEXT_DEBUG_0:
+		_stage = 0;
+		_scene = ScenePtr( new SceneStreet( ) );
+		break;
+	case Scene::NEXT_DEBUG_1:
+		_stage = 1;
+		_scene = ScenePtr( new SceneStreet( ) );
+		break;
+	case Scene::NEXT_DEBUG_2:
+		_stage = 2;
+		_scene = ScenePtr( new SceneStreet( ) );
+		break;
+	case Scene::NEXT_DEBUG_3:
+		_stage = 3;
+		_scene = ScenePtr( new SceneStreet( ) );
+		break;
+	case Scene::NEXT_DEBUG_4:
+		_stage = 4;
+		_scene = ScenePtr( new SceneStreet( ) );
+		break;
+	case Scene::NEXT_DEBUG_TEST:
 		_stage = 5;
 		_scene = ScenePtr( new SceneStreet( ) );
 		break;

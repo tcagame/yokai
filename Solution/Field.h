@@ -4,6 +4,7 @@
 #include "define.h"
 #include "mathmatics.h"
 #include <list>
+#include <vector>
 
 PTR( Camera );
 PTR( Map );
@@ -47,5 +48,6 @@ private:
 	std::list< CloudPtr > _clouds;
 	CloudMgrPtr _cloud_mgr;
 	bool _debug_mapchip;
+	std::vector< Vector > _markers; 
 };
 

@@ -48,13 +48,31 @@ Field::~Field( ) {
 }
 
 void Field::initMark( ) {
-	for ( int i = 0; i < _map->getPanelNum( ); i++ ) {
+	int num = _map->getPanelNum( );
+	_markers.resize( num );
 
+	int s = 0;
+	for ( int i = 1; i < num; i++ ) {
+		Vector dst = _map->getMarkerPos( i );
+		if ( dst.isOrijin( ) ) {
+			if ( i < num - 1 ) { 
+				continue;
+			}
+			dst = _map->getMarkerPos( s );
+		}
+
+		int c = i - s;
+		for ( int j = 0; j < c; j++ ) {
+			Vector src = _map->getMarkerPos( s );
+			_markers[ s + j ] = src + ( dst - src ) * j * ( 1.0 / c );
+		}
+
+		s = i;
 	}
 }
 
 Vector Field::getStatusMarkerPos( int x ) const {
-	return Vector( 100, 100 );
+	return _markers[ x / BG_SIZE ];
 }
 
 

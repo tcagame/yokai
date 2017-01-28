@@ -46,7 +46,22 @@ Scene::NEXT SceneTitle::update( ) {
 
 	KeyboardPtr keyboard = Keyboard::getTask( );
 	if ( keyboard->isPushKey( "ENTER" ) ) {
-		return NEXT_TEST;
+		return NEXT_DEBUG_TEST;
+	}
+	if ( keyboard->isPushKey( "NUM0" ) ) {
+		return NEXT_DEBUG_0;
+	}
+	if ( keyboard->isPushKey( "NUM1" ) ) {
+		return NEXT_DEBUG_1;
+	}
+	if ( keyboard->isPushKey( "NUM2" ) ) {
+		return NEXT_DEBUG_2;
+	}
+	if ( keyboard->isPushKey( "NUM3" ) ) {
+		return NEXT_DEBUG_3;
+	}
+	if ( keyboard->isPushKey( "NUM4" ) ) {
+		return NEXT_DEBUG_4;
 	}
 
 	return NEXT_CONTINUE;

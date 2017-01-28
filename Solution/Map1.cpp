@@ -849,6 +849,5 @@ Map1::Map1( ) :
 Map( &item, panel, sizeof( panel ) / sizeof( Map::Panel ) - 1 ) {
 }
 
-
 Map1::~Map1( ) {
 }

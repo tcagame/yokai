@@ -97,3 +97,8 @@ BossPtr Map::createBoss( EnemyStockPtr enemy_stock ) const {
 
 	return boss;
 }
+
+Vector Map::getMarkerPos( int idx ) const {
+	return Vector( _panel[ idx ].marker_x, _panel[ idx ].marker_y ); 
+}
+

@@ -10,7 +10,12 @@ public:
 		NEXT_STAGE,
 		NEXT_STREET,
 		NEXT_RESULT,
-		NEXT_TEST,
+		NEXT_DEBUG_0,
+		NEXT_DEBUG_1,
+		NEXT_DEBUG_2,
+		NEXT_DEBUG_3,
+		NEXT_DEBUG_4,
+		NEXT_DEBUG_TEST,
 	};
 public:
 	Scene( );
