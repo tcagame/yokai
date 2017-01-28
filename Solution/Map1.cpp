@@ -113,7 +113,7 @@ static const Map::Panel panel[] = {
 	},
 	{//5
 		"street/map1/bg/map1_05.png",
-		"",
+		"street/map1/cover/bamboo1.png",
 		"                "
 		"                "
 		"                "
@@ -134,7 +134,7 @@ static const Map::Panel panel[] = {
 	},
 	{//6
 		"street/map1/bg/map1_06.png",
-		"",
+		"street/map1/cover/bamboo2.png",
 		"                "
 		"                "
 		"                "
@@ -155,7 +155,7 @@ static const Map::Panel panel[] = {
 	},
 	{//7
 		"street/map1/bg/map1_07.png",
-		"",
+		"street/map1/cover/bamboo3.png",
 		"                "
 		"                "
 		"                "
@@ -176,7 +176,7 @@ static const Map::Panel panel[] = {
 	},
 	{//8
 		"street/map1/bg/map1_08.png",
-		"",
+		"street/map1/cover/bamboo1.png",
 		"                "
 		"                "
 		"                "
@@ -197,7 +197,7 @@ static const Map::Panel panel[] = {
 	},
 	{//9
 		"street/map1/bg/map1_09.png",
-		"",
+		"street/map1/cover/bamboo2.png",
 		"                "
 		"                "
 		"                "
@@ -218,7 +218,7 @@ static const Map::Panel panel[] = {
 	},
 	{//10
 		"street/map1/bg/map1_10.png",
-		"",
+		"street/map1/cover/bamboo3.png",
 		"                "
 		"                "
 		"                "
@@ -239,7 +239,7 @@ static const Map::Panel panel[] = {
 	},
 	{//11
 		"street/map1/bg/map1_11.png",
-		"",
+		"street/map1/cover/bamboo1.png",
 		"                "
 		"                "
 		"                "
@@ -323,9 +323,9 @@ static const Map::Panel panel[] = {
 	},
 	{//15
 		"street/map1/bg/map1_15.png",
-		"",
-		"                "
-		"                "
+		"street/map1/cover/big_gate.png",
+		"  *****         "
+		"  *****         "
 		"                "
 		"                "
 		"                "
@@ -365,7 +365,7 @@ static const Map::Panel panel[] = {
 	},
 	{//17
 		"street/map1/bg/map1_17.png",
-		"",
+		"street/map1/cover/house_entry.png",
 		"                "
 		"                "
 		"                "
@@ -386,7 +386,7 @@ static const Map::Panel panel[] = {
 	},
 	{//18
 		"street/map1/bg/map1_18.png",
-		"",
+		"street/map1/cover/house.png",
 		"                "
 		"                "
 		"                "
@@ -491,7 +491,7 @@ static const Map::Panel panel[] = {
 	},
 	{//23
 		"street/map1/bg/map1_23.png",
-		"",
+		"street/map1/cover/cave_1.png",
 		"                "
 		"                "
 		"                "
@@ -512,7 +512,7 @@ static const Map::Panel panel[] = {
 	},
 	{//24
 		"street/map1/bg/map1_24.png",
-		"",
+		"street/map1/cover/cave_2.png",
 		"                "
 		"                "
 		"                "
@@ -532,8 +532,8 @@ static const Map::Panel panel[] = {
 		NONE
 	},
 	{//25
-		"street/map1/bg/map1_25.png",
-		"",
+		"street/map1/bg/map1_24.png",
+		"street/map1/cover/cave_3.png",
 		"                "
 		"                "
 		"                "
@@ -553,8 +553,8 @@ static const Map::Panel panel[] = {
 		NONE
 	},
 	{//26
-		"street/map1/bg/map1_26.png",
-		"",
+		"street/map1/bg/map1_25.png",
+		"street/map1/cover/cave_4.png",
 		"                "
 		"                "
 		"                "
@@ -574,8 +574,8 @@ static const Map::Panel panel[] = {
 		NONE
 	},
 	{//27
-		"street/map1/bg/map1_27.png",
-		"",
+		"street/map1/bg/map1_26.png",
+		"street/map1/cover/bridge_1.png",
 		"                "
 		"                "
 		"                "
@@ -595,8 +595,8 @@ static const Map::Panel panel[] = {
 		NONE
 	},
 	{//28
-		"street/map1/bg/map1_28.png",
-		"",
+		"street/map1/bg/map1_27.png",
+		"street/map1/cover/bridge_2.png",
 		"                "
 		"                "
 		"                "
@@ -616,8 +616,8 @@ static const Map::Panel panel[] = {
 		NONE
 	},
 	{//29
-		"street/map1/bg/map1_29.png",
-		"",
+		"street/map1/bg/map1_28.png",
+		"street/map1/cover/bridge_3.png",
 		"                "
 		"                "
 		"                "
@@ -637,6 +637,27 @@ static const Map::Panel panel[] = {
 		NONE
 	},
 	{//30
+		"street/map1/bg/map1_29.png",
+		"street/map1/cover/entry_cave.png",
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"################"
+		"################"
+		"      ##########"
+		"      ##########"
+		"################"
+		"################",
+		NONE
+	},
+	{//31
 		"street/map1/bg/map1_30.png",
 		"",
 		"                "
@@ -657,7 +678,7 @@ static const Map::Panel panel[] = {
 		"################",
 		NONE
 	},
-	{//31
+	{//32
 		"street/map1/bg/map1_31.png",
 		"",
 		"                "
@@ -678,9 +699,9 @@ static const Map::Panel panel[] = {
 		"################",
 		NONE
 	},
-	{//32
+	{//33
 		"street/map1/bg/map1_32.png",
-		"",
+		"street/map1/cover/bg_cover.png",
 		"                "
 		"                "
 		"                "
@@ -699,7 +720,7 @@ static const Map::Panel panel[] = {
 		"################",
 		NONE
 	},
-	{//33
+	{//34
 		"street/map1/bg/map1_33.png",
 		"",
 		"                "
@@ -720,7 +741,7 @@ static const Map::Panel panel[] = {
 		"################",
 		NONE
 	},
-	{//34
+	{//35
 		"street/map1/bg/map1_34.png",
 		"",
 		"                "
@@ -741,7 +762,7 @@ static const Map::Panel panel[] = {
 		"################",
 		NONE
 	},
-	{//35
+	{//36
 		"street/map1/bg/map1_35.png",
 		"",
 		"                "
@@ -762,7 +783,7 @@ static const Map::Panel panel[] = {
 		"################",
 		NONE
 	},
-	{//36
+	{//37
 		"street/map1/bg/map1_36.png",
 		"",
 		"################"
