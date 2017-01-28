@@ -22,7 +22,7 @@ void Camera::update( TarosukeConstPtr tarosuke ) {
 	}
 	
 	if ( _lock ) {
-		double near = _map->getLength( ) - BG_SIZE * 3;
+		double near = _map->getPanelNum( ) * BG_SIZE - BG_SIZE * 3;
 		if ( _x < near ) {
 			_x += LOCK_SPEED;
 		} else if ( _x > tarosuke->getX( ) - RANGE_NEAR ) {
@@ -38,11 +38,11 @@ void Camera::update( TarosukeConstPtr tarosuke ) {
 			_x = 0;
 		}
 	}
-	if ( _x > _map->getLength( ) - SCREEN_WIDTH - 1 ) {
-		_x = _map->getLength( ) - SCREEN_WIDTH - 1;
+	if ( _x > _map->getPanelNum( ) * BG_SIZE- SCREEN_WIDTH - 1 ) {
+		_x = _map->getPanelNum( ) * BG_SIZE - SCREEN_WIDTH - 1;
 	}
 
-	if ( _map->getLength( ) - BG_SIZE * 3 < tarosuke->getX( ) ) {
+	if ( _map->getPanelNum( ) * BG_SIZE - BG_SIZE * 3 < tarosuke->getX( ) ) {
 		_lock = true;
 	}
 }

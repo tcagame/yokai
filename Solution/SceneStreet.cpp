@@ -22,28 +22,63 @@
 static const int CLEAR_COUNT = 120;
 static const int DEAD_COUNT = 120;
 
-SceneStreet::SceneStreet( ) {
+SceneStreet::SceneStreet() {
+	DrawerPtr drawer = Drawer::getTask();
+	drawer->loadGraph(GRAPH_CHARACTER_1, "Character/Character1.png");
+	drawer->loadGraph(GRAPH_CHARACTER_2, "Character/Character2.png");
+	drawer->loadGraph(GRAPH_PSYCHIC, "Character/psychic.png");
+	drawer->loadGraph(GRAPH_CLOUD_BIG, "street/cloud/Yokai_OBJ_cloud1.png");
+	drawer->loadGraph(GRAPH_CLOUD_SMALL, "street/cloud/Yokai_OBJ_cloud2.png");
+	drawer->loadGraph(GRAPH_MAPCHIPGUIDE, "street/other/mapchipguide.png");
+	drawer->loadGraph(GRAPH_IMPACT, "street/other/impact.png");
+	drawer->loadGraph(GRAPH_BOMB, "street/other/bomb.png");
+	drawer->loadGraph(GRAPH_BOSS_1, "street/enemy/boss_reddemon.png");
+	drawer->loadGraph(GRAPH_BOSS_2, "street/enemy/boss_bluedemon.png");
+	drawer->loadGraph(GRAPH_BOSS_3, "street/enemy/boss_sanzu.png");
+	drawer->loadGraph(GRAPH_ENEMY_NOMAL, "street/enemy/enemy_nomal.png");
+	drawer->loadGraph(GRAPH_ENEMY_SMALL, "street/enemy/enemy_small.png");
+	drawer->loadGraph(GRAPH_ENEMY_BIG_1, "street/enemy/enemy_big1.png");
+	drawer->loadGraph(GRAPH_ENEMY_BIG_2, "street/enemy/enemy_big2.png");
+	drawer->loadGraph(GRAPH_ENEMY_TREE, "street/enemy/enemy_tree.png");
+	drawer->loadGraph(GRAPH_ENEMY_EFFECT_JIZO, "street/enemy/enemy_effect_jizo.png");
+	drawer->loadGraph(GRAPH_ENEMY_FLOG, "street/enemy/enemy_frog_green.png");
+	drawer->loadGraph(GRAPH_STATUS_PLATE,  "street/status/status_plate.png");
+	drawer->loadGraph(GRAPH_STATUS_POWER,  "street/status/status_power.png");
+	drawer->loadGraph(GRAPH_STATUS_MARKER, "street/status/status_marker.png");
+
 	GamePtr game = Game::getTask( );
 	
 	MapConstPtr map;
 	switch ( game->getStage( ) ) {
 	case 0:
-		map = MapPtr( new Map0 );
+		map = MapPtr(new Map0);
+		drawer->loadGraph(GRAPH_STATUS_MAP  , "street/status/status_map_0.png");
+		drawer->loadGraph(GRAPH_STATUS_TITLE, "street/status/status_title_0.png");
 		break;
 	case 1:
-		map = MapPtr( new Map1 );
+		map = MapPtr(new Map1);
+		drawer->loadGraph(GRAPH_STATUS_MAP, "street/status/status_map_1.png");
+		drawer->loadGraph(GRAPH_STATUS_TITLE, "street/status/status_title_1.png");
 		break;
 	case 2:
-		map = MapPtr( new Map2 );
+		map = MapPtr(new Map2);
+		drawer->loadGraph(GRAPH_STATUS_MAP, "street/status/status_map_2.png");
+		drawer->loadGraph(GRAPH_STATUS_TITLE, "street/status/status_title_2.png");
 		break;
 	case 3:
-		map = MapPtr( new Map3 );
+		map = MapPtr(new Map3);
+		drawer->loadGraph(GRAPH_STATUS_MAP, "street/status/status_map_3.png");
+		drawer->loadGraph(GRAPH_STATUS_TITLE, "street/status/status_title_3.png");
 		break;
 	case 4:
-		map = MapPtr( new Map4 );
+		map = MapPtr(new Map4);
+		drawer->loadGraph(GRAPH_STATUS_MAP, "street/status/status_map_4.png");
+		drawer->loadGraph(GRAPH_STATUS_TITLE, "street/status/status_title_4.png");
 		break;
 	case 5:
-		map = MapPtr( new MapTest );
+		map = MapPtr(new MapTest);
+		drawer->loadGraph(GRAPH_STATUS_MAP, "street/status/status_map_0.png");
+		drawer->loadGraph(GRAPH_STATUS_TITLE, "street/status/status_title_test.png");
 		break;
 	}
 
@@ -54,30 +89,8 @@ SceneStreet::SceneStreet( ) {
 	_momotaro = MomotaroPtr( new Momotaro( _psychic_mgr, _power ) );
 	_tarosuke = TarosukePtr( new Tarosuke( _psychic_mgr, _power, _momotaro ) );
 	_enemy_mgr = EnemyManagerPtr( new EnemyManager( map ) );
-	_status = StatusPtr( new Status( _power ) );
+	_status = StatusPtr( new Status( _power, _field, _tarosuke ) );
 
-	DrawerPtr drawer = Drawer::getTask( );
-	drawer->loadGraph( GRAPH_CHARACTER_1		 , "Character/Character1.png" );
-	drawer->loadGraph( GRAPH_CHARACTER_2		 , "Character/Character2.png" );
-	drawer->loadGraph( GRAPH_PSYCHIC			 , "Character/psychic.png" );
-	drawer->loadGraph( GRAPH_CLOUD_BIG			 , "street/cloud/Yokai_OBJ_cloud1.png" ); 
-	drawer->loadGraph( GRAPH_CLOUD_SMALL		 , "street/cloud/Yokai_OBJ_cloud2.png" );
-	drawer->loadGraph( GRAPH_MAPCHIPGUIDE		 , "street/other/mapchipguide.png" );
-	drawer->loadGraph( GRAPH_IMPACT              , "street/other/impact.png" );
-	drawer->loadGraph( GRAPH_BOMB                , "street/other/bomb.png" );
-	drawer->loadGraph( GRAPH_BOSS_1              , "street/enemy/boss_reddemon.png" );
-	drawer->loadGraph( GRAPH_BOSS_2              , "street/enemy/boss_bluedemon.png" );
-	drawer->loadGraph( GRAPH_BOSS_3              , "street/enemy/boss_sanzu.png" );
-	drawer->loadGraph( GRAPH_ENEMY_NOMAL		 , "street/enemy/enemy_nomal.png" );
-	drawer->loadGraph( GRAPH_ENEMY_SMALL		 , "street/enemy/enemy_small.png" );
-	drawer->loadGraph( GRAPH_ENEMY_BIG_1		 , "street/enemy/enemy_big1.png" );
-	drawer->loadGraph( GRAPH_ENEMY_BIG_2		 , "street/enemy/enemy_big2.png" );
-	drawer->loadGraph( GRAPH_ENEMY_TREE			 , "street/enemy/enemy_tree.png" );
-	drawer->loadGraph( GRAPH_ENEMY_EFFECT_JIZO	 , "street/enemy/enemy_effect_jizo.png" );
-	drawer->loadGraph( GRAPH_ENEMY_FLOG			 , "street/enemy/enemy_frog_green.png" );
-	drawer->loadGraph( GRAPH_STATUS_PLATE		 , "street/status/status_plate.png" );
-	drawer->loadGraph( GRAPH_STATUS_POWER        , "street/status/status_power.png" );
-	drawer->loadGraph( GRAPH_STATUS_MAP		     , "street/map0/status/status_map_0.png" );
 	_phase = PHASE_NORMAL;
 	_phase_count = 0;
 

@@ -2,6 +2,8 @@
 
 #include "define.h"
 #include "smart_ptr.h"
+#include "mathmatics.h"
+#include <vector>
 
 const int MAPCHIP_NUM = 16;
 const int MAPCHIP_SIZE = BG_SIZE / MAPCHIP_NUM;
@@ -24,6 +26,8 @@ public:
 	struct Panel {
 		const char * bg_filename;
 		const char * cover_filename;
+		int marker_x;
+		int marker_y;
 		const char chip[ MAPCHIP_NUM * MAPCHIP_NUM + 1 ];
 		const unsigned int enemy;
 	};
@@ -34,7 +38,7 @@ public:
 	const char * getBgFilename( int idx ) const;
 	const char * getCoverFilename( int idx ) const;
 	const unsigned int getEnemyData( int idx ) const;
-	int getLength( ) const;
+	int getPanelNum( ) const;
 	bool isChip( int bg_idx, int chip_idx ) const;
 	bool isBlockChip( int bg_idx, int chip_idx ) const;
 	FLOOR getFloor( int bg_idx, int chip_idx ) const;
@@ -47,5 +51,6 @@ private:
 	const Item  * _item;
 	const Panel * _panel;
 	const int     _panel_num;
+	std::vector< Vector > _mark; 
 };
 

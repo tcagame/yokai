@@ -14,8 +14,8 @@ _panel_num( panel_num ) {
 Map::~Map( ) {
 }
 
-int Map::getLength( ) const {
-	return _panel_num * BG_SIZE;
+int Map::getPanelNum( ) const {
+	return _panel_num;
 }
 
 const char * Map::getBgFilename( int idx ) const {
@@ -84,12 +84,14 @@ CloudMgrPtr Map::createCloudMgr( ) const {
 BossPtr Map::createBoss( EnemyStockPtr enemy_stock ) const {
 	
 	BossPtr boss;
+	int offset_x = _panel_num * BG_SIZE - BG_SIZE;
+
 	switch ( _item->boss ) {
 	case BOSS_REDDEMON:
-		boss = BossPtr( new BossRedDemon( enemy_stock, getLength( ) - BG_SIZE ) );
+		boss = BossPtr( new BossRedDemon( enemy_stock, offset_x ) );
 		break;
 	case BOSS_BLUEDEMON:
-		boss = BossPtr( new BossBlueDemon( enemy_stock, getLength( ) - BG_SIZE ) );
+		boss = BossPtr( new BossBlueDemon( enemy_stock, offset_x ) );
 		break;
 	} 
 

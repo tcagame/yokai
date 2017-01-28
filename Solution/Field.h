@@ -2,6 +2,7 @@
 
 #include "smart_ptr.h"
 #include "define.h"
+#include "mathmatics.h"
 #include <list>
 
 PTR( Camera );
@@ -29,12 +30,14 @@ public:
 	bool isChip( int x, int y ) const;
 	bool isBlockChip( int x, int y ) const;
 	FLOOR getFloor( int x, int y ) const;
+	Vector getStatusMarkerPos( int x ) const;
 private:
 	void drawBG( ) const;
 	void drawChip( ) const;
 	void drawClouds( CameraConstPtr camera ) const;
 	void scroll( CameraConstPtr camera );
 	void moveClouds( );
+	void initMark( );
 private:
 	const MapConstPtr _map;
 	int _scroll_x;

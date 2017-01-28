@@ -9,6 +9,7 @@ static const Map::Panel panel[] = {
 	{//0
 		"street/map1/bg/map1_00.png",
 		"",
+		0, 0,
 		"###             "
 		"###             "
 		"###             "
@@ -30,6 +31,7 @@ static const Map::Panel panel[] = {
 	{//1
 		"street/map1/bg/map1_01.png",
 		"",
+		0, 0,
 		"                "
 		"                "
 		"                "
@@ -51,6 +53,7 @@ static const Map::Panel panel[] = {
 	{//2
 		"street/map1/bg/map1_02.png",
 		"",
+		0, 0,
 		"                "
 		"                "
 		"                "
@@ -72,6 +75,7 @@ static const Map::Panel panel[] = {
 	{//3
 		"street/map1/bg/map1_03.png",
 		"",
+		0, 0,
 		"                "
 		"                "
 		"                "
@@ -93,6 +97,7 @@ static const Map::Panel panel[] = {
 	{//4
 		"street/map1/bg/map1_04.png",
 		"",
+		0, 0,
 		"                "
 		"                "
 		"                "
@@ -114,6 +119,7 @@ static const Map::Panel panel[] = {
 	{//5
 		"street/map1/bg/map1_05.png",
 		"",
+		0, 0,
 		"                "
 		"                "
 		"                "
@@ -135,6 +141,7 @@ static const Map::Panel panel[] = {
 	{//6
 		"street/map1/bg/map1_06.png",
 		"",
+		0, 0,
 		"                "
 		"                "
 		"                "
@@ -156,6 +163,7 @@ static const Map::Panel panel[] = {
 	{//7
 		"street/map1/bg/map1_07.png",
 		"",
+		0, 0,
 		"                "
 		"                "
 		"                "
@@ -177,6 +185,7 @@ static const Map::Panel panel[] = {
 	{//8
 		"street/map1/bg/map1_08.png",
 		"",
+		0, 0,
 		"                "
 		"                "
 		"                "
@@ -198,6 +207,7 @@ static const Map::Panel panel[] = {
 	{//9
 		"street/map1/bg/map1_09.png",
 		"",
+		0, 0,
 		"                "
 		"                "
 		"                "
@@ -219,6 +229,7 @@ static const Map::Panel panel[] = {
 	{//10
 		"street/map1/bg/map1_10.png",
 		"",
+		0, 0,
 		"                "
 		"                "
 		"                "
@@ -240,6 +251,7 @@ static const Map::Panel panel[] = {
 	{//11
 		"street/map1/bg/map1_11.png",
 		"",
+		0, 0,
 		"                "
 		"                "
 		"                "
@@ -261,6 +273,7 @@ static const Map::Panel panel[] = {
 	{//12
 		"street/map1/bg/map1_12.png",
 		"",
+		0, 0,
 		"                "
 		"                "
 		"                "
@@ -282,6 +295,7 @@ static const Map::Panel panel[] = {
 	{//13
 		"street/map1/bg/map1_13.png",
 		"",
+		0, 0,
 		"                "
 		"                "
 		"                "
@@ -303,6 +317,7 @@ static const Map::Panel panel[] = {
 	{//14
 		"street/map1/bg/map1_14.png",
 		"",
+		0, 0,
 		"                "
 		"                "
 		"                "
@@ -324,6 +339,7 @@ static const Map::Panel panel[] = {
 	{//15
 		"street/map1/bg/map1_15.png",
 		"",
+		0, 0,
 		"                "
 		"                "
 		"                "
@@ -345,6 +361,7 @@ static const Map::Panel panel[] = {
 	{//16
 		"street/map1/bg/map1_16.png",
 		"",
+		0, 0,
 		"                "
 		"                "
 		"                "
@@ -366,6 +383,7 @@ static const Map::Panel panel[] = {
 	{//17
 		"street/map1/bg/map1_17.png",
 		"",
+		0, 0,
 		"                "
 		"                "
 		"                "
@@ -387,6 +405,7 @@ static const Map::Panel panel[] = {
 	{//18
 		"street/map1/bg/map1_18.png",
 		"",
+		0, 0,
 		"                "
 		"                "
 		"                "
@@ -408,6 +427,7 @@ static const Map::Panel panel[] = {
 	{//19
 		"street/map1/bg/map1_19.png",
 		"",
+		0, 0,
 		"                "
 		"                "
 		"                "
@@ -429,6 +449,7 @@ static const Map::Panel panel[] = {
 	{//20
 		"street/map1/bg/map1_20.png",
 		"",
+		0, 0,
 		"                "
 		"                "
 		"                "
@@ -450,6 +471,7 @@ static const Map::Panel panel[] = {
 	{//21
 		"street/map1/bg/map1_21.png",
 		"",
+		0, 0,
 		"                "
 		"                "
 		"                "
@@ -471,6 +493,7 @@ static const Map::Panel panel[] = {
 	{//22
 		"street/map1/bg/map1_22.png",
 		"",
+		0, 0,
 		"                "
 		"                "
 		"                "
@@ -492,6 +515,7 @@ static const Map::Panel panel[] = {
 	{//23
 		"street/map1/bg/map1_23.png",
 		"",
+		0, 0,
 		"                "
 		"                "
 		"                "
@@ -513,6 +537,7 @@ static const Map::Panel panel[] = {
 	{//24
 		"street/map1/bg/map1_24.png",
 		"",
+		0, 0,
 		"                "
 		"                "
 		"                "
@@ -534,6 +559,7 @@ static const Map::Panel panel[] = {
 	{//25
 		"street/map1/bg/map1_25.png",
 		"",
+		0, 0,
 		"                "
 		"                "
 		"                "
@@ -555,6 +581,7 @@ static const Map::Panel panel[] = {
 	{//26
 		"street/map1/bg/map1_26.png",
 		"",
+		0, 0,
 		"                "
 		"                "
 		"                "
@@ -576,6 +603,7 @@ static const Map::Panel panel[] = {
 	{//27
 		"street/map1/bg/map1_27.png",
 		"",
+		0, 0,
 		"                "
 		"                "
 		"                "
@@ -597,6 +625,7 @@ static const Map::Panel panel[] = {
 	{//28
 		"street/map1/bg/map1_28.png",
 		"",
+		0, 0,
 		"                "
 		"                "
 		"                "
@@ -618,6 +647,7 @@ static const Map::Panel panel[] = {
 	{//29
 		"street/map1/bg/map1_29.png",
 		"",
+		0, 0,
 		"                "
 		"                "
 		"                "
@@ -639,6 +669,7 @@ static const Map::Panel panel[] = {
 	{//30
 		"street/map1/bg/map1_30.png",
 		"",
+		0, 0,
 		"                "
 		"                "
 		"                "
@@ -660,6 +691,7 @@ static const Map::Panel panel[] = {
 	{//31
 		"street/map1/bg/map1_31.png",
 		"",
+		0, 0,
 		"                "
 		"                "
 		"                "
@@ -681,6 +713,7 @@ static const Map::Panel panel[] = {
 	{//32
 		"street/map1/bg/map1_32.png",
 		"",
+		0, 0,
 		"                "
 		"                "
 		"                "
@@ -702,6 +735,7 @@ static const Map::Panel panel[] = {
 	{//33
 		"street/map1/bg/map1_33.png",
 		"",
+		0, 0,
 		"                "
 		"                "
 		"                "
@@ -723,6 +757,7 @@ static const Map::Panel panel[] = {
 	{//34
 		"street/map1/bg/map1_34.png",
 		"",
+		0, 0,
 		"                "
 		"                "
 		"                "
@@ -744,6 +779,7 @@ static const Map::Panel panel[] = {
 	{//35
 		"street/map1/bg/map1_35.png",
 		"",
+		0, 0,
 		"                "
 		"                "
 		"                "
@@ -765,6 +801,7 @@ static const Map::Panel panel[] = {
 	{//36
 		"street/map1/bg/map1_36.png",
 		"",
+		0, 0,
 		"################"
 		"################"
 		"################"

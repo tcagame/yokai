@@ -2,17 +2,20 @@
 
 #include "smart_ptr.h"
 
-PTR( Camera );
-PTR( Momotaro );
 PTR( Power );
+PTR( Tarosuke );
+PTR( Field );
 
 class Status {
 public:
-	Status( PowerConstPtr power  );
+	Status( PowerConstPtr power, FieldConstPtr field, TarosukeConstPtr tarosuke  );
 	virtual ~Status( );
 public:
 	void update( );
 	void draw( );
 private:
 	PowerConstPtr _power;
+	int _count;
+	FieldConstPtr _field;
+	TarosukeConstPtr _tarosuke;
 };

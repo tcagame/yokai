@@ -20,6 +20,7 @@ _enemy_data( 0 ) {
 	_cloud_mgr = map->createCloudMgr( );
 	
 	DrawerPtr drawer = Drawer::getTask( );
+
 	for ( int i = 0; i < BG_NUM; i++ ) {
 		std::string str;
 
@@ -38,11 +39,24 @@ _enemy_data( 0 ) {
 		}
 	}
 
+	initMark( );
+
 	_debug_mapchip = false;
 }
 
 Field::~Field( ) {
 }
+
+void Field::initMark( ) {
+	for ( int i = 0; i < _map->getPanelNum( ); i++ ) {
+
+	}
+}
+
+Vector Field::getStatusMarkerPos( int x ) const {
+	return Vector( 100, 100 );
+}
+
 
 void Field::update( CameraConstPtr camera ) {
 	scroll( camera );
@@ -150,7 +164,7 @@ void Field::drawClouds( CameraConstPtr camera ) const {
 }
 
 FLOOR Field::getFloor( int x, int y ) const {
-	if ( x < 0 || x >= _map->getLength( ) * BG_SIZE ||
+	if ( x < 0 || x >= _map->getPanelNum( ) * BG_SIZE ||
 		 y < 0 || y >= BG_SIZE ) {
 		return FLOOR_ROAD;
 	}
@@ -162,7 +176,7 @@ FLOOR Field::getFloor( int x, int y ) const {
 }
 
 bool Field::isChip( int x, int y ) const {
-	if ( x < 0 || x >= _map->getLength( ) * BG_SIZE ||
+	if ( x < 0 || x >= _map->getPanelNum( ) * BG_SIZE ||
 		 y < 0 || y >= BG_SIZE ) {
 		return false;
 	}
@@ -174,7 +188,7 @@ bool Field::isChip( int x, int y ) const {
 }
 
 bool Field::isBlockChip( int x, int y ) const {
-	if ( x < 0 || x >= _map->getLength( ) * BG_SIZE ||
+	if ( x < 0 || x >= _map->getPanelNum( ) * BG_SIZE ||
 		 y < 0 || y >= BG_SIZE ) {
 		return false;
 	}
