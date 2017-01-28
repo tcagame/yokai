@@ -5,8 +5,10 @@
 #include "Game.h"
 
 static const int BG_HEIGHT = 512;
-static const int MAP_X = ( SCREEN_WIDTH - 512 ) / 2;
-static const int MAP_Y = -100;
+static const int MAP_X = ( SCREEN_WIDTH - 632 ) / 2;
+static const int MAP_Y = 70;
+static const int TITLE_X = ( SCREEN_WIDTH - 480 ) / 2;
+static const int TITLE_Y = 10;
 static const int TAROSUKE_Y = 550;
 static const int TAROSUKE_SPEED = 10;
 static const int TAROSUKE_SIZE = 128;
@@ -16,7 +18,30 @@ SceneGate::SceneGate( ) {
 	drawer->loadGraph( GRAPH_CHARACTER_1, "Character/Character1.png" );
 	drawer->loadGraph( GRAPH_GATE_BG,     "gate/gate_bg.png"  );
 	drawer->loadGraph( GRAPH_GATE_COVER,  "gate/gate_cover.png"  );
-	drawer->loadGraph( GRAPH_GATE_MAP,    "gate/gate_map_0.png"  );
+
+	GamePtr game = Game::getTask( );
+	switch ( game->getStage( ) ) {
+	case 0:
+		drawer->loadGraph( GRAPH_GATE_MAP  , "gate/gate_map_0.png"  );
+		drawer->loadGraph( GRAPH_GATE_TITLE, "gate/gate_title_0.png"  );
+		break;
+	case 1:
+		drawer->loadGraph( GRAPH_GATE_MAP  , "gate/gate_map_1.png"  );
+		drawer->loadGraph( GRAPH_GATE_TITLE, "gate/gate_title_1.png"  );
+		break;
+	case 2:
+		drawer->loadGraph( GRAPH_GATE_MAP  , "gate/gate_map_2.png"  );
+		drawer->loadGraph( GRAPH_GATE_TITLE, "gate/gate_title_2.png"  );
+		break;
+	case 3:
+		drawer->loadGraph( GRAPH_GATE_MAP  , "gate/gate_map_3.png"  );
+		drawer->loadGraph( GRAPH_GATE_TITLE, "gate/gate_title_3.png"  );
+		break;
+	case 4:
+		drawer->loadGraph( GRAPH_GATE_MAP  , "gate/gate_map_4.png"  );
+		drawer->loadGraph( GRAPH_GATE_TITLE, "gate/gate_title_4.png"  );
+		break;
+	}
 
 	SoundPtr sound = Sound::getTask( );
 	sound->playBGM( "yokai_se_32.wav" );
@@ -55,6 +80,11 @@ void SceneGate::draw( ) const {
 	{
 		Drawer::Sprite sprite( 
 			Drawer::Transform( MAP_X, MAP_Y ), GRAPH_GATE_MAP );
+		drawer->setSprite( sprite );
+	}
+	{
+		Drawer::Sprite sprite( 
+			Drawer::Transform( TITLE_X, TITLE_Y ), GRAPH_GATE_TITLE );
 		drawer->setSprite( sprite );
 	}
 	{
