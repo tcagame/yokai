@@ -52,10 +52,10 @@ void Field::initMark( ) {
 	_markers.resize( num );
 
 	int s = 0;
-	for ( int i = 1; i < num; i++ ) {
+	for ( int i = 1; i < num + 1; i++ ) {
 		Vector dst = _map->getMarkerPos( i );
 		if ( dst.isOrijin( ) ) {
-			if ( i < num - 1 ) { 
+			if ( i < num ) { 
 				continue;
 			}
 			dst = _map->getMarkerPos( s );
@@ -72,7 +72,14 @@ void Field::initMark( ) {
 }
 
 Vector Field::getStatusMarkerPos( int x ) const {
-	return _markers[ x / BG_SIZE ];
+	int idx = x / BG_SIZE;
+	Vector src = _markers[ idx ];
+	Vector dst = src;
+	if ( idx + 1 < ( int )_markers.size( ) ) {
+		dst = _markers[ idx + 1 ];
+	}
+	double offset = x % BG_SIZE;
+	return src + ( dst - src ) * ( offset / BG_SIZE );
 }
 
 
