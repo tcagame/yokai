@@ -32,9 +32,6 @@ SceneStreet::SceneStreet() {
 	drawer->loadGraph(GRAPH_MAPCHIPGUIDE, "street/other/mapchipguide.png");
 	drawer->loadGraph(GRAPH_IMPACT, "street/other/impact.png");
 	drawer->loadGraph(GRAPH_BOMB, "street/other/bomb.png");
-	drawer->loadGraph(GRAPH_BOSS_1, "street/enemy/boss_reddemon.png");
-	drawer->loadGraph(GRAPH_BOSS_2, "street/enemy/boss_bluedemon.png");
-	drawer->loadGraph(GRAPH_BOSS_3, "street/enemy/boss_sanzu.png");
 	drawer->loadGraph(GRAPH_ENEMY_NOMAL, "street/enemy/enemy_nomal.png");
 	drawer->loadGraph(GRAPH_ENEMY_SMALL, "street/enemy/enemy_small.png");
 	drawer->loadGraph(GRAPH_ENEMY_BIG_1, "street/enemy/enemy_big1.png");
@@ -52,13 +49,15 @@ SceneStreet::SceneStreet() {
 	switch ( game->getStage( ) ) {
 	case 0:
 		map = MapPtr(new Map0);
-		drawer->loadGraph(GRAPH_STATUS_MAP  , "street/status/status_map_0.png");
-		drawer->loadGraph(GRAPH_STATUS_TITLE, "street/status/status_title_0.png");
+		drawer->loadGraph(GRAPH_STATUS_MAP   , "street/status/status_map_0.png");
+		drawer->loadGraph(GRAPH_STATUS_TITLE , "street/status/status_title_0.png");
+		drawer->loadGraph(GRAPH_BOSS         , "street/enemy/boss_reddemon.png");
 		break;
 	case 1:
 		map = MapPtr(new Map1);
-		drawer->loadGraph(GRAPH_STATUS_MAP, "street/status/status_map_1.png");
-		drawer->loadGraph(GRAPH_STATUS_TITLE, "street/status/status_title_1.png");
+		drawer->loadGraph(GRAPH_STATUS_MAP   , "street/status/status_map_1.png");
+		drawer->loadGraph(GRAPH_STATUS_TITLE , "street/status/status_title_1.png");
+		drawer->loadGraph(GRAPH_BOSS         , "street/enemy/boss_bluedemon.png");
 		break;
 	case 2:
 		map = MapPtr(new Map2);
@@ -67,18 +66,20 @@ SceneStreet::SceneStreet() {
 		break;
 	case 3:
 		map = MapPtr(new Map3);
-		drawer->loadGraph(GRAPH_STATUS_MAP, "street/status/status_map_3.png");
+		drawer->loadGraph(GRAPH_STATUS_MAP  , "street/status/status_map_3.png");
 		drawer->loadGraph(GRAPH_STATUS_TITLE, "street/status/status_title_3.png");
+		drawer->loadGraph(GRAPH_BOSS        , "street/enemy/boss_sanzu.png");
 		break;
 	case 4:
 		map = MapPtr(new Map4);
-		drawer->loadGraph(GRAPH_STATUS_MAP, "street/status/status_map_4.png");
+		drawer->loadGraph(GRAPH_STATUS_MAP  , "street/status/status_map_4.png");
 		drawer->loadGraph(GRAPH_STATUS_TITLE, "street/status/status_title_4.png");
 		break;
 	case 5:
 		map = MapPtr(new MapTest);
-		drawer->loadGraph(GRAPH_STATUS_MAP, "street/status/status_map_0.png");
+		drawer->loadGraph(GRAPH_STATUS_MAP  , "street/status/status_map_0.png");
 		drawer->loadGraph(GRAPH_STATUS_TITLE, "street/status/status_title_test.png");
+		drawer->loadGraph(GRAPH_BOSS         , "street/enemy/boss_bluedemon.png");
 		break;
 	}
 
@@ -120,16 +121,16 @@ Scene::NEXT SceneStreet::update( ) {
 		break;
 	case PHASE_BOSS:
 		_enemy_mgr->attackBoss( );
+		if ( _power->get( ) == 0 ) {
+			_phase = PHASE_DEAD;
+			_phase_count = 0;
+		}
 		if ( _enemy_mgr->isBossDead( ) ) {
 			_enemy_mgr->clear( );
 			_phase = PHASE_CLEAR;
 			_phase_count = 0;
 			SoundPtr sound = Sound::getTask( );
 			sound->playBGM( "yokai_se_32.wav" );
-		}
-		if ( _power->get( ) == 0 ) {
-			_phase = PHASE_DEAD;
-			_phase_count = 0;
 		}
 		break;
 	case PHASE_DEAD:

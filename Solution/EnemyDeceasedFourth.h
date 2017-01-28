@@ -3,7 +3,7 @@
 
 class EnemyDeceasedFourth : public Enemy {
 public:
-	EnemyDeceasedFourth( EnemyStockPtr enemy_stock, int x, int y );
+	EnemyDeceasedFourth( int x, int y );
 	virtual ~EnemyDeceasedFourth( );
 private:
 	void act( );

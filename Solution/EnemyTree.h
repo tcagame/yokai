@@ -1,13 +1,12 @@
 #pragma once
-#include "Enemy.h"
 
-PTR( EnemyStock );
+#include "Enemy.h"
 
 class EnemyTree : public Enemy {
 public:
-	EnemyTree( EnemyStockPtr enemy_stock, int x, int y );
+	EnemyTree( int x, int y );
 	virtual ~EnemyTree( );
-public:
+private:
 	void act( );
 	double getOverlappedRadius( ) const;
 	Vector getOverlappedPos( ) const;

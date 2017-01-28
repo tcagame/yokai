@@ -7,7 +7,7 @@ PTR( Character );
 
 class Enemy : public Character {
 public:
-	Enemy( EnemyStockPtr enemy_stock, int x, int y, int chip_size, int chip_foot, bool mass, int hp, int pow );
+	Enemy( int x, int y, int chip_size, int chip_foot, bool mass, int hp, int pow );
 	virtual ~Enemy( );
 public:
 	bool isOverlapped( CharacterPtr target ) const;
@@ -18,12 +18,10 @@ public:
 	bool isHead( ) const;
 	virtual void steppedOn( );
 protected:
-	EnemyStockPtr getEnemyStock( );
 	void setNoHead( );
 private:
 	const int _pow;
 	int _hp;
 	bool _head;
-	EnemyStockPtr _enemy_stock;
 };
 

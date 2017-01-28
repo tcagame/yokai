@@ -1,17 +1,12 @@
 #pragma once
 #include "Enemy.h"
 
-PTR( EnemyStock );
-
 class EnemyMoth : public Enemy {
 public:
-	EnemyMoth( EnemyStockPtr enemy_stock, int x, int y );
+	EnemyMoth( int x, int y );
 	virtual ~EnemyMoth( );
-public:
-	void act( );
 private:
-	void actMove( );
-	void updateChip( );
+	void act( );
 private:
 	int _anime_count;
 };

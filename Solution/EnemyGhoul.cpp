@@ -7,8 +7,8 @@ static const int POW = 3;
 static const int MOVE_SPEED = 1;
 static const int WAIT_ANIME_TIME = 6;
 
-EnemyGhoul::EnemyGhoul( EnemyStockPtr enemy_stock, int x, int y ) :
-Enemy( enemy_stock, x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),
+EnemyGhoul::EnemyGhoul( int x, int y ) :
+Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),
 _count( 0 ) {
 }
 
@@ -16,15 +16,8 @@ EnemyGhoul::~EnemyGhoul( ) {
 }
 
 void EnemyGhoul::act( ) {
-	actMove( );
-	updateChip( );
-}
-
-void EnemyGhoul::actMove( ) {
 	setAccelX( -MOVE_SPEED );
-}
 
-void EnemyGhoul::updateChip( ) {
 	const int MAX_ANIME_PATTERN = 4;
 	const int v = 12;
 	_count++;

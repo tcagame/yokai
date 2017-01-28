@@ -3,12 +3,9 @@
 
 class EnemyBowDemon : public Enemy {
 public:
-	EnemyBowDemon( EnemyStockPtr enemy_stock, int x, int y );
+	EnemyBowDemon( int x, int y );
 	virtual ~EnemyBowDemon( );
 public:
-	void act( );
-private:
-	void actMove( );
-	void updateChip( );
+	void act( );;
 };
 

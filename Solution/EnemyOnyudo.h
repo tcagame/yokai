@@ -3,12 +3,9 @@
 
 class EnemyOnyudo : public Enemy {
 public:
-	EnemyOnyudo( EnemyStockPtr enemy_stock, int x, int y );
+	EnemyOnyudo( int x, int y );
 	virtual ~EnemyOnyudo( );
-public:
-	void act( );
 private:
-	void actMove( );
-	void updateChip( );
+	void act( );
 };
 

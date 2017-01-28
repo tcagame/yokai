@@ -3,7 +3,7 @@
 
 class EnemyExtrudedSpirits : public Enemy {
 public:
-	EnemyExtrudedSpirits( EnemyStockPtr enemy_stock, int x, int y );
+	EnemyExtrudedSpirits( int x, int y );
 	virtual ~EnemyExtrudedSpirits( );
 private:
 	void act( );

@@ -10,8 +10,8 @@ static const int CHIP_FOOT = 0;
 static const int HP  = 10;
 static const int POW = 3;
 
-EnemyRedbirdAttack::EnemyRedbirdAttack( EnemyStockPtr enemy_stock, int x, int y ) :
-Enemy( enemy_stock, x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ),
+EnemyRedbirdAttack::EnemyRedbirdAttack( int x, int y ) :
+Enemy( x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ),
 _act_count( 0 ) {
 }
 
@@ -20,15 +20,8 @@ EnemyRedbirdAttack::~EnemyRedbirdAttack( ) {
 }
 
 void EnemyRedbirdAttack::act( ) {
-	actMove( );
-	updateChip( );
-}
-
-void EnemyRedbirdAttack::actMove( ) {
 	setAccelY( MOVE_VERTICAL_SPEED );
-}
 
-void EnemyRedbirdAttack::updateChip( ) {
 	_act_count++;
 	_act_count %= MAX_ANIME_PATTERN * WAIT_PATTERN_TIME;
 	int pattern = _act_count / WAIT_PATTERN_TIME;

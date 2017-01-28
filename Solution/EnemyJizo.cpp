@@ -11,11 +11,11 @@ static const int WAIT_ATTACK_TIME = 100;
 static const int WAIT_APPEAR_TIME = 10;
 static const int ATTACK_FOOT = 100;
 
-EnemyJizo::EnemyJizo( EnemyStockPtr enemy_stock, int x, int y ) :
-Enemy( enemy_stock, x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),
+EnemyJizo::EnemyJizo( EnemyStockPtr stock, int x, int y ) :
+Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),
+_stock( stock ),
 _action( ACTION_WAIT ),
-_act_count( 0 ),
-_enemy_stock( enemy_stock ) {
+_act_count( 0 ) {
 }
 
 
@@ -40,8 +40,8 @@ void EnemyJizo::act( ) {
 void EnemyJizo::actNomal( ) {
 	setAccelX( -MOVE_SPEED );
 	if ( _act_count % WAIT_ATTACK_TIME == 0 ) {
-		EnemyPtr enemy = EnemyPtr( new EnemyJizoAttack( _enemy_stock, getX( ), getY( ) - ATTACK_FOOT ) );
-		_enemy_stock->addEnemy( enemy );
+		EnemyPtr enemy = EnemyPtr( new EnemyJizoAttack( getX( ), getY( ) - ATTACK_FOOT ) );
+		_stock->addEnemy( enemy );
 	}
 }
 

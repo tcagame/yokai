@@ -3,13 +3,10 @@
 
 class EnemyRedbirdAttack : public Enemy {
 public:
-	EnemyRedbirdAttack( EnemyStockPtr enemy_stock, int x, int y );
+	EnemyRedbirdAttack( int x, int y );
 	virtual ~EnemyRedbirdAttack( );
-public:
-	void act( );
 private:
-	void actMove( );
-	void updateChip( );
+	void act( );
 private:
 	int _act_count;
 };

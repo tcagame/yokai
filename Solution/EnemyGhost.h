@@ -8,7 +8,7 @@ PTR( EnemyStock );
 
 class EnemyGhost : public Enemy {
 public:
-	EnemyGhost( EnemyStockPtr stock, int x, int y, const Vector& target );
+	EnemyGhost( int x, int y, const Vector& target );
 	virtual ~EnemyGhost( );
 private:
 	void act( );

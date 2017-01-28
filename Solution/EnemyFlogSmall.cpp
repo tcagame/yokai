@@ -7,8 +7,8 @@ static const int POW = 1;
 static const int WAIT_ANIME_TIME = 40;
 static const int SMASHED_COUNT = 5;
 
-EnemyFlogSmall::EnemyFlogSmall( EnemyStockPtr enemy_stock, int x, int y ) :
-Enemy( enemy_stock, x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),
+EnemyFlogSmall::EnemyFlogSmall( int x, int y ) :
+Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),
 _act_count( 0 ),
 _smashed_count( 0 ) {
 
@@ -25,10 +25,9 @@ void EnemyFlogSmall::steppedOn( ) {
 }
 
 void EnemyFlogSmall::act( ) {
-	int v = 4;
 	if ( _smashed_count > 0 ) {
-		_smashed_count ++;
-		setChipGraph( GRAPH_ENEMY_SMALL, 3, v );
+		_smashed_count++;
+		setChipGraph( GRAPH_ENEMY_SMALL, 3, 4 );
 		if ( _smashed_count > SMASHED_COUNT ) {
 			damage( -1 );
 		}
@@ -38,6 +37,6 @@ void EnemyFlogSmall::act( ) {
 		_act_count++;
 		_act_count %= WAIT_ANIME_TIME * MAX_ANIME_PATTERN;
 		int pattern = _act_count / WAIT_ANIME_TIME;
-		setChipGraph( GRAPH_ENEMY_SMALL, pattern, v );
+		setChipGraph( GRAPH_ENEMY_SMALL, pattern, 4 );
 	}
 }

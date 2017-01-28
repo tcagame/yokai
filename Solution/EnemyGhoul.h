@@ -3,12 +3,10 @@
 
 class EnemyGhoul : public Enemy {
 public:
-	EnemyGhoul( EnemyStockPtr enemy_stock, int x, int y );
+	EnemyGhoul( int x, int y );
 	virtual ~EnemyGhoul( );
 private:
 	void act( );
-	void actMove( );
-	void updateChip( );
 private:
 	int _count;
 };

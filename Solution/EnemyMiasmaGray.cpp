@@ -7,8 +7,8 @@ static const int CHIP_FOOT = 0;
 static const int HP  = 10;
 static const int POW = 3;
 
-EnemyMiasmaGray::EnemyMiasmaGray( EnemyStockPtr enemy_stock, int x, int y ) :
-Enemy( enemy_stock, x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ),
+EnemyMiasmaGray::EnemyMiasmaGray( int x, int y ) :
+Enemy( x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ),
 _anime_count( 0 ) {
 }
 
@@ -17,15 +17,8 @@ EnemyMiasmaGray::~EnemyMiasmaGray( ) {
 }
 
 void EnemyMiasmaGray::act( ) {
-	actMove( );
-	updateChip( );
-}
-
-void EnemyMiasmaGray::actMove( ) {
 	setAccelX( -MOVE_SPEED );
-}
 
-void EnemyMiasmaGray::updateChip( ) {
 	const int MAX_ANIME_PATTERN = 4;
 	_anime_count++;
 	_anime_count %= WAIT_ANIME_TIME * MAX_ANIME_PATTERN;

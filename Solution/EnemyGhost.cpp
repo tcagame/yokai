@@ -7,8 +7,8 @@ static const int POW = 3;
 static const int IDLING_COUNT = 60;
 static const int SPEED = 5;
 
-EnemyGhost::EnemyGhost( EnemyStockPtr stock , int x, int y, const Vector& target ) : 
-Enemy( stock, x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ),
+EnemyGhost::EnemyGhost( int x, int y, const Vector& target ) : 
+Enemy( x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ),
 _count( 0 ),
 _pos( x, y ),
 _target( target ) {

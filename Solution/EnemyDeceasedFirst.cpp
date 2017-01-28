@@ -6,8 +6,8 @@ static const int CHIP_FOOT = 0;
 static const int HP  = 10;
 static const int POW = 10;
 
-EnemyDeceasedFirst::EnemyDeceasedFirst( EnemyStockPtr enemy_stock, int x, int y ) :
-Enemy( enemy_stock, x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ),
+EnemyDeceasedFirst::EnemyDeceasedFirst( int x, int y ) :
+Enemy( x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ),
 _count( 0 ) {
 	setNoHead( );
 }

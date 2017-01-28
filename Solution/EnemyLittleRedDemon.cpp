@@ -9,8 +9,8 @@ static const int SPEED = 5;
 static const int WAIT_ANIME_TIME = 6;
 
 
-EnemyLittleRedDemon::EnemyLittleRedDemon( EnemyStockPtr stock, int x, int y ) :
-Enemy( stock, x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),
+EnemyLittleRedDemon::EnemyLittleRedDemon( int x, int y ) :
+Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),
 _count( 0 ) {
 }
 

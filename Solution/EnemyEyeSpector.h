@@ -3,11 +3,10 @@
 
 class EnemyEyeSpector : public Enemy {
 public:
-	EnemyEyeSpector( EnemyStockPtr enemy_stock, int x, int y );
+	EnemyEyeSpector( int x, int y );
 	virtual ~EnemyEyeSpector( );
-public:
-	void act( );
 private:
+	void act( );
 	void actMove( );
 	void updateChip( );
 private:

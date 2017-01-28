@@ -4,7 +4,7 @@
 
 class BossBlueDemon : public Boss {
 public:
-	BossBlueDemon( EnemyStockPtr enemy_stock, int x );
+	BossBlueDemon( EnemyStockPtr stock, int x );
 	virtual ~BossBlueDemon( );
 private:
 	void act( );
@@ -12,6 +12,7 @@ private:
 	void attack( );
 	double getOverlappedRadius( ) const;
 private:
+	EnemyStockPtr _stock;
 	int _count;
 };
 

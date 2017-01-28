@@ -81,17 +81,17 @@ CloudMgrPtr Map::createCloudMgr( ) const {
 	return mgr;
 }
 
-BossPtr Map::createBoss( EnemyStockPtr enemy_stock ) const {
+BossPtr Map::createBoss( EnemyStockPtr stock ) const {
 	
 	BossPtr boss;
 	int offset_x = _panel_num * BG_SIZE - BG_SIZE;
 
 	switch ( _item->boss ) {
 	case BOSS_REDDEMON:
-		boss = BossPtr( new BossRedDemon( enemy_stock, offset_x ) );
+		boss = BossPtr( new BossRedDemon( stock, offset_x ) );
 		break;
 	case BOSS_BLUEDEMON:
-		boss = BossPtr( new BossBlueDemon( enemy_stock, offset_x ) );
+		boss = BossPtr( new BossBlueDemon( stock, offset_x ) );
 		break;
 	} 
 

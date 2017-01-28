@@ -3,7 +3,7 @@
 
 class EnemyFlog : public Enemy {
 public:
-	EnemyFlog( EnemyStockPtr enemy_stock, int x, int y );
+	EnemyFlog( EnemyStockPtr stock, int x, int y );
 	virtual ~EnemyFlog( );
 public:
 	void act( );
@@ -12,6 +12,6 @@ private:
 	void actAttack( );
 private:
 	int _act_count;
-	EnemyStockPtr _enemy_stock;
+	EnemyStockPtr _stock;
 };
 

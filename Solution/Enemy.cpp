@@ -5,9 +5,8 @@
 
 PTR( Psychic );
 
-Enemy::Enemy( EnemyStockPtr enemy_stock, int x, int y, int chip_size, int chip_foot, bool mass, int hp, int pow ) :
+Enemy::Enemy( int x, int y, int chip_size, int chip_foot, bool mass, int hp, int pow ) :
 Character( x, y, chip_size, chip_foot, mass ),
-_enemy_stock( enemy_stock ),
 _hp( hp ),
 _pow( pow ),
 _head( true ) {
@@ -32,10 +31,6 @@ void Enemy::steppedOn( ) {
 
 void Enemy::setNoHead( ) {
 	_head = false;
-}
-
-EnemyStockPtr Enemy::getEnemyStock( ) {
-	return _enemy_stock;
 }
 
 void Enemy::damage( int pow ) {

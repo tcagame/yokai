@@ -8,8 +8,8 @@ static const int CHIP_FOOT = 0;
 static const int HP  = 10;
 static const int POW = 3;
 
-EnemyPurpleYokai::EnemyPurpleYokai( EnemyStockPtr enemy_stock, int x, int y, bool right ) :
-Enemy( enemy_stock, x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),
+EnemyPurpleYokai::EnemyPurpleYokai( int x, int y, bool right ) :
+Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),
 _move_speed( MOVE_SPEED ) {
 	if ( right ) {
 		_move_speed *= -1;

@@ -185,80 +185,80 @@ void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera
 
 	if ( data & PURPLE ) {
 		for ( int i = 0; i < PURPLE_POP_NUM; i++ ) {
-			_enemies.push_back( EnemyPtr( new EnemyPurpleYokai( _enemy_stock, pop_base_x + ( i * 100 ), PURPLE_POP_Y ) ) );
+			_enemies.push_back( EnemyPtr( new EnemyPurpleYokai( pop_base_x + ( i * 100 ), PURPLE_POP_Y ) ) );
 		}
 	}
 	if ( data & MOTH ) {
-		_enemies.push_back( EnemyPtr( new EnemyMoth( _enemy_stock, pop_base_x, MOTH_POP_Y ) ) );
-		_enemies.push_back( EnemyPtr( new EnemyMoth( _enemy_stock, pop_base_x + 200, MOTH_POP_Y + 30 ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyMoth( pop_base_x, MOTH_POP_Y ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyMoth( pop_base_x + 200, MOTH_POP_Y + 30 ) ) );
 	}
 
 	if ( data & TREE ) {
-		_enemies.push_back( EnemyPtr( new EnemyTree( _enemy_stock, pop_base_x, POPUP_GROUND ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyTree( pop_base_x, POPUP_GROUND ) ) );
 	}
 	
 	if ( data & DECEASED ) {
 		const int INTERVAL = 64;
-		_enemies.push_back( EnemyPtr ( new EnemyDeceasedFirst( _enemy_stock, pop_base_x, POPUP_GROUND ) ) );
-		_enemies.push_back( EnemyPtr ( new EnemyDeceasedSecond( _enemy_stock, pop_base_x += INTERVAL, POPUP_GROUND ) ) );
-		_enemies.push_back( EnemyPtr ( new EnemyDeceasedThird( _enemy_stock, pop_base_x += INTERVAL, POPUP_GROUND ) ) );
-		_enemies.push_back( EnemyPtr ( new EnemyDeceasedFourth( _enemy_stock, pop_base_x += INTERVAL, POPUP_GROUND ) ) );
+		_enemies.push_back( EnemyPtr ( new EnemyDeceasedFirst ( pop_base_x + INTERVAL * 0, POPUP_GROUND ) ) );
+		_enemies.push_back( EnemyPtr ( new EnemyDeceasedSecond( pop_base_x + INTERVAL * 1, POPUP_GROUND ) ) );
+		_enemies.push_back( EnemyPtr ( new EnemyDeceasedThird ( pop_base_x + INTERVAL * 2, POPUP_GROUND ) ) );
+		_enemies.push_back( EnemyPtr ( new EnemyDeceasedFourth( pop_base_x + INTERVAL * 3, POPUP_GROUND ) ) );
 	}
 	
 	if ( data & FLOG_SMALL ) {
 		for ( int i = 0; i < FLOG_SMALL_POP_NUM; i++ ) {
-			_enemies.push_back( EnemyPtr( new EnemyFlogSmall( _enemy_stock, pop_base_x + i * 100, FLOG_SMALL_POP_Y ) ) );
+			_enemies.push_back( EnemyPtr( new EnemyFlogSmall( pop_base_x + i * 100, FLOG_SMALL_POP_Y ) ) );
 		}
 	}
 	if ( data & FLOG ) {
 		_enemies.push_back( EnemyPtr( new EnemyFlog( _enemy_stock, pop_base_x, BASE_POP_Y ) ) );
 	}
 	if ( data % STONE_ROTE ) {
-		_enemies.push_back( EnemyPtr( new EnemyStoneRote( _enemy_stock, pop_base_x, STONE_POP_Y ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyStoneRote( pop_base_x, STONE_POP_Y ) ) );
 	}
 
 	if ( data % STONE_FLY ) {
-		_enemies.push_back( EnemyPtr( new EnemyStoneFly( _enemy_stock, pop_base_x, STONE_POP_Y ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyStoneFly( pop_base_x, STONE_POP_Y ) ) );
 	}
 
 	if ( data & GHOUL ) {
-		_enemies.push_back( EnemyPtr( new EnemyGhoul( _enemy_stock, pop_base_x, POPUP_GROUND ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyGhoul( pop_base_x, POPUP_GROUND ) ) );
 	}
 	
 	if ( data & EXTRUDEDSPRITS ) {
-		_enemies.push_back( EnemyPtr( new EnemyExtrudedSpirits( _enemy_stock, pop_base_x, EXTRUDEDSPIRITS_POP_Y ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyExtrudedSpirits( pop_base_x, EXTRUDEDSPIRITS_POP_Y ) ) );
 	}
 
 	if ( data & ONYUDO ) {
-		_enemies.push_back( EnemyPtr( new EnemyOnyudo( _enemy_stock, pop_base_x, BASE_POP_Y ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyOnyudo( pop_base_x, BASE_POP_Y ) ) );
 	}
 
 	if ( data & WATER_GHOST ) {
-		_enemies.push_back( EnemyPtr( new EnemyWaterGhost( _enemy_stock, pop_base_x, WATER_ENEMY_POP_Y ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyWaterGhost( pop_base_x, WATER_ENEMY_POP_Y ) ) );
 	}
 
 	if ( data & WATER_MONK ) {
-		_enemies.push_back( EnemyPtr( new EnemyWaterMonk( _enemy_stock, pop_base_x, WATER_ENEMY_POP_Y ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyWaterMonk( pop_base_x, WATER_ENEMY_POP_Y ) ) );
 	}
 	
 	if ( data & SKELETON_SPEAR ) {
-		_enemies.push_back( EnemyPtr( new EnemySkeletonSpear( _enemy_stock, pop_base_x, BASE_POP_Y ) ) );
+		_enemies.push_back( EnemyPtr( new EnemySkeletonSpear( pop_base_x, BASE_POP_Y ) ) );
 	}
 	if ( data & MIASMA_GRAY ) {
-		_enemies.push_back( EnemyPtr( new EnemyMiasmaGray( _enemy_stock, pop_base_x, MOTH_POP_Y ) ) );
-		_enemies.push_back( EnemyPtr( new EnemyMiasmaGray( _enemy_stock, pop_base_x + 200, MOTH_POP_Y + 30 ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyMiasmaGray( pop_base_x, MOTH_POP_Y ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyMiasmaGray( pop_base_x + 200, MOTH_POP_Y + 30 ) ) );
 	}
 	if ( data & JIZO ) {
 		_enemies.push_back( EnemyPtr( new EnemyJizo( _enemy_stock, pop_base_x, BASE_POP_Y ) ) );
 	}
 	if ( data & EYE ) {
-		_enemies.push_back( EnemyPtr( new EnemyEyeSpector( _enemy_stock, pop_base_x, BASE_POP_Y - 100 ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyEyeSpector( pop_base_x, BASE_POP_Y - 100 ) ) );
 	}
 	if ( data & GROW_FACE ) {
-		_enemies.push_back( EnemyPtr( new EnemyGrowFace( _enemy_stock, pop_base_x, MOTH_POP_Y ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyGrowFace( pop_base_x, MOTH_POP_Y ) ) );
 	}
 	if ( data & BOW_DEMON ) {
-		_enemies.push_back( EnemyPtr( new EnemyBowDemon( _enemy_stock, pop_base_x, BASE_POP_Y ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyBowDemon( pop_base_x, BASE_POP_Y ) ) );
 	}
 }
 

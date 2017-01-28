@@ -13,8 +13,9 @@ static const double RADIUS = 50;
 static const int CREATE_COUNT_GHOST = 60;
 static const int CREATE_COUNT_LITTLE_RED_DEMON = 60;
 
-BossBlueDemon::BossBlueDemon( EnemyStockPtr enemy_stock, int x ) :
-Boss( enemy_stock, x + OFFSET_X, OFFSET_Y, HP, POW ),
+BossBlueDemon::BossBlueDemon( EnemyStockPtr stock, int x ) :
+Boss( x + OFFSET_X, OFFSET_Y, HP, POW ),
+_stock( stock ),
 _count( 0 ) {
 }
 
@@ -22,7 +23,7 @@ BossBlueDemon::~BossBlueDemon( ) {
 }
 
 void BossBlueDemon::act( ) {
-	setChipGraph( GRAPH_BOSS_2, 0, 0 );
+	setChipGraph( GRAPH_BOSS, 0, 0 );
 }
 
 void BossBlueDemon::drawOverlapped( CameraConstPtr camera ) const {
@@ -35,7 +36,7 @@ void BossBlueDemon::drawOverlapped( CameraConstPtr camera ) const {
 
 	DrawerPtr drawer = Drawer::getTask( );
 	Drawer::Transform trans( sx, sy, tx, ty, CHIP_SIZE, CHIP_SIZE );
-	Drawer::Sprite sprite( trans, GRAPH_BOSS_2, Drawer::BLEND_NONE, 1.0 );
+	Drawer::Sprite sprite( trans, GRAPH_BOSS, Drawer::BLEND_NONE, 1.0 );
 	drawer->setSprite( sprite );
 }
 
@@ -45,15 +46,13 @@ void BossBlueDemon::attack( ) {
 		int x = getX( ) - rand( ) % SCREEN_WIDTH;
 		int y = rand( ) % 150 + 100;
 		Vector target( getX( ) - SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 );
-		EnemyStockPtr stock = getEnemyStock( );
-		stock->addEnemy( EnemyPtr( new EnemyGhost( stock, x, y, target ) ) );
+		_stock->addEnemy( EnemyPtr( new EnemyGhost( x, y, target ) ) );
 	}
 
 	if ( _count % CREATE_COUNT_LITTLE_RED_DEMON == 0 ) {
 		int x = getX( );
 		int y = getY( );
-		EnemyStockPtr stock = getEnemyStock( );
-		stock->addEnemy( EnemyPtr( new EnemyLittleBlueDemon( stock, x, y ) ) );
+		_stock->addEnemy( EnemyPtr( new EnemyLittleBlueDemon( x, y ) ) );
 	}
 
 }

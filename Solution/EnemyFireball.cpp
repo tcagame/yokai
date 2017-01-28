@@ -1,4 +1,4 @@
-#include "EnemyJizoAttack.h"
+#include "EnemyFireball.h"
 
 static const int CHIP_SIZE = 72;
 static const int CHIP_FOOT = 0;
@@ -7,15 +7,17 @@ static const int POW = 8;
 static const int MOVE_SPEED = 5;
 static const int WAIT_ANIME_TIME = 1;
 
-EnemyJizoAttack::EnemyJizoAttack( int x, int y ) :
-Enemy( x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ) {
+EnemyFireball::EnemyFireball( const Vector& pos, const Vector& vec ) :
+Enemy( -CHIP_SIZE, -CHIP_SIZE, CHIP_SIZE, CHIP_FOOT, false, HP, POW ),
+_pos( pos ),
+_vec( vec ) {
 }
 
 
-EnemyJizoAttack::~EnemyJizoAttack( ) {
+EnemyFireball::~EnemyFireball( ) {
 }
 
-void EnemyJizoAttack::act( ) {
+void EnemyFireball::act( ) {
 	setAccelX( -MOVE_SPEED );
 
 	const int MAX_ANIME_PATTERN = 2;
