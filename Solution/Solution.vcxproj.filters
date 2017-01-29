@@ -54,7 +54,6 @@
     <ClCompile Include="EnemyLittleRedDemon.cpp" />
     <ClCompile Include="EnemyMiasmaGray.cpp" />
     <ClCompile Include="EnemyJizo.cpp" />
-    <ClCompile Include="EnemyJizoAttack.cpp" />
     <ClCompile Include="EnemyFlogSmall.cpp" />
     <ClCompile Include="EnemyFlog.cpp" />
     <ClCompile Include="EnemyEyeSpector.cpp" />
@@ -124,7 +123,6 @@
     <ClInclude Include="EnemyLittleRedDemon.h" />
     <ClInclude Include="EnemyMiasmaGray.h" />
     <ClInclude Include="EnemyJizo.h" />
-    <ClInclude Include="EnemyJizoAttack.h" />
     <ClInclude Include="EnemyFlogSmall.h" />
     <ClInclude Include="EnemyFlog.h" />
     <ClInclude Include="EnemyEyeSpector.h" />

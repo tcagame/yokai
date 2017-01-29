@@ -1,5 +1,5 @@
 #include "EnemyJizo.h"
-#include "EnemyJizoAttack.h"
+#include "EnemyFireball.h"
 
 static const int CHIP_SIZE = 264;
 static const int CHIP_FOOT = 0;
@@ -10,6 +10,7 @@ static const int WAIT_ANIME_TIME = 6;
 static const int WAIT_ATTACK_TIME = 100;
 static const int WAIT_APPEAR_TIME = 10;
 static const int ATTACK_FOOT = 100;
+static const int FIRE_SPEED = 5;
 
 EnemyJizo::EnemyJizo( EnemyStockPtr stock, int x, int y ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),
@@ -40,7 +41,9 @@ void EnemyJizo::act( ) {
 void EnemyJizo::actNomal( ) {
 	setAccelX( -MOVE_SPEED );
 	if ( _act_count % WAIT_ATTACK_TIME == 0 ) {
-		EnemyPtr enemy = EnemyPtr( new EnemyJizoAttack( getX( ), getY( ) - ATTACK_FOOT ) );
+		Vector pos( getX( ), getY( ) - ATTACK_FOOT );
+		Vector vec = Vector( 1, 0.5 ).normalize( ) * FIRE_SPEED;
+		EnemyPtr enemy = EnemyPtr( new EnemyFireball( pos, vec ) );
 		_stock->addEnemy( enemy );
 	}
 }
