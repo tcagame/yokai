@@ -16,7 +16,8 @@ public:
 	enum BOSS {
 		BOSS_REDDEMON,
 		BOSS_BLUEDEMON,
-		BOSS_HAG
+		BOSS_HAG,
+		BOSS_BUDDHA,
 	};
 
 	struct Item {
