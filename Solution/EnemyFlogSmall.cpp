@@ -1,6 +1,6 @@
 #include "EnemyFlogSmall.h"
 
-static const int CHIP_SIZE = 72;
+static const int CHIP_SIZE = 64;
 static const int CHIP_FOOT = 0;
 static const int HP = 1;
 static const int POW = 1;
@@ -27,7 +27,7 @@ void EnemyFlogSmall::steppedOn( ) {
 void EnemyFlogSmall::act( ) {
 	if ( _smashed_count > 0 ) {
 		_smashed_count++;
-		setChipGraph( GRAPH_ENEMY_SMALL, 3, 4 );
+		setChipGraph( GRAPH_ENEMY_SMALL, 3, 2 );
 		if ( _smashed_count > SMASHED_COUNT ) {
 			damage( -1 );
 		}
@@ -37,6 +37,6 @@ void EnemyFlogSmall::act( ) {
 		_act_count++;
 		_act_count %= WAIT_ANIME_TIME * MAX_ANIME_PATTERN;
 		int pattern = _act_count / WAIT_ANIME_TIME;
-		setChipGraph( GRAPH_ENEMY_SMALL, pattern, 4 );
+		setChipGraph( GRAPH_ENEMY_SMALL, pattern, 2 );
 	}
 }

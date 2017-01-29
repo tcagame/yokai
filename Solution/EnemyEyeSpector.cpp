@@ -1,6 +1,6 @@
 #include "EnemyEyeSpector.h"
 
-static const int CHIP_SIZE = 72;
+static const int CHIP_SIZE = 64;
 static const int CHIP_FOOT = 0;
 static const int HP = 1;
 static const int POW = 1;
@@ -28,6 +28,6 @@ void EnemyEyeSpector::act( ) {
 
 	const int MAX_ANIME_PATTERN = 4;
 	int u = _act_count / WAIT_ANIME_TIME % MAX_ANIME_PATTERN;
-	int v = 0;
+	int v = 5;
 	setChipGraph( GRAPH_ENEMY_SMALL, u, v );
 }
