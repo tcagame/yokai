@@ -33,6 +33,7 @@
 #include "EnemyGrowFace.h"
 #include "EnemyCrocodileSnake.h"
 #include "EnemyBowDemon.h"
+#include "EnemyHugDemon.h"
 #include "Map.h"
 #include "Boss.h"
 
@@ -263,6 +264,9 @@ void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera
 	}
 	if ( data & CROCODILE_SNAKE ) {
 		_enemies.push_back( EnemyPtr( new EnemyCrocodileSnake( pop_base_x, BASE_POP_Y ) ) );
+	}
+	if ( data & HUG_DEMON ) {
+		_enemies.push_back( EnemyPtr( new EnemyHugDemon( pop_base_x, BASE_POP_Y ) ) );
 	}
 }
 
