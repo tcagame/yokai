@@ -4,7 +4,7 @@
 
 class EnemyTree : public Enemy {
 public:
-	EnemyTree( int x, int y );
+	EnemyTree( EnemyStockPtr stock, int x, int y );
 	virtual ~EnemyTree( );
 private:
 	void act( );

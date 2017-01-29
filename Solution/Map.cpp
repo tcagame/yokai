@@ -4,6 +4,9 @@
 #include "Cloud.h"
 #include "BossRedDemon.h"
 #include "BossBlueDemon.h"
+#include "BossHag.h"
+#include "BossBuddha.h"
+
 
 Map::Map( const Item * item, const Panel * panel, int panel_num ) :
 _item( item ),
@@ -92,6 +95,12 @@ BossPtr Map::createBoss( EnemyStockPtr stock ) const {
 		break;
 	case BOSS_BLUEDEMON:
 		boss = BossPtr( new BossBlueDemon( stock, offset_x ) );
+		break;
+	case BOSS_HAG:
+		boss = BossPtr( new BossHag( stock, offset_x ) );
+		break;
+	case BOSS_BUDDHA:
+		boss = BossPtr( new BossBuddha( stock, offset_x ) );
 		break;
 	} 
 
