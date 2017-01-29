@@ -12,3 +12,16 @@ Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ) {
 
 EnemyHugDemon::~EnemyHugDemon( ) {
 }
+
+void EnemyHugDemon::act( ) {
+	actMove( );
+	updateChip( );
+}
+
+void EnemyHugDemon::actMove( ) {
+
+}
+
+void EnemyHugDemon::updateChip( ) {
+
+}
