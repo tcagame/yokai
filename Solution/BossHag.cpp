@@ -25,10 +25,6 @@ void BossHag::act( ) {
 	setChipGraph( GRAPH_BOSS, 0, 0 );
 }
 
-void BossHag::drawOverlapped( CameraConstPtr camera ) const {
-
-}
-
 void BossHag::attack( ) {
 	_count++;
 	if ( _count % CREATE_COUNT_CROW == 0 ) {
