@@ -3,7 +3,6 @@
 
 static const int SPEED = 40;
 static const int CHIP_SIZE = 128;
-static const int POW = 5;
 
 PsychicTarosuke::PsychicTarosuke( int x, int y, bool dir_right, int level ) :
 Psychic( x, y ),
@@ -11,7 +10,7 @@ _dir_right( dir_right ),
 _outward( true ),
 _motion_count( 0 ),
 _level( level ) {
-	setPow( level * POW + 1 );
+	setPow( level + 1 );
 }
 
 
