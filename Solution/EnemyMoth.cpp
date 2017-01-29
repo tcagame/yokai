@@ -2,7 +2,7 @@
 
 static const int WAIT_ANIME_TIME = 3;
 static const int MOVE_SPEED = 1;
-static const int CHIP_SIZE = 72;
+static const int CHIP_SIZE = 64;
 static const int CHIP_FOOT = 0;
 static const int HP  = 10;
 static const int POW = 3;
