@@ -9,5 +9,9 @@ private:
 	void act( );
 	void actMove( );
 	void updateChip( );
+private:
+	int _old_x;
+	int _old_y;
+	int _act_count;
 };
 
