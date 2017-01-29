@@ -50,8 +50,8 @@ void PsychicTarosuke::act( ) {
 	}
 }
 
-void PsychicTarosuke::hit( ) {
-	if ( getPow( ) == 1 ) {
+void PsychicTarosuke::hit( bool killed ) {
+	if ( getPow( ) == 1 || !killed ) {
 		_outward = false;
 		setPow( 0 );
 	}

@@ -8,7 +8,7 @@ public:
 	virtual ~PsychicTarosuke( );
 private:
 	void act( );
-	void hit( );
+	void hit( bool killed );
 private:
 	bool _dir_right;
 	bool _outward;

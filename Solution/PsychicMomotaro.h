@@ -11,7 +11,7 @@ public:
 	virtual ~PsychicMomotaro( );
 private:
 	void act( );
-	void hit( );
+	void hit( bool killed );
 	virtual void draw( CameraConstPtr camera, bool bright = false ) const;
 	Vector getOverlappedPos( ) const;
 	double getOverlappedRadius( ) const;

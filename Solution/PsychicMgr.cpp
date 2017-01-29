@@ -35,8 +35,8 @@ void PsychicMgr::update( CameraConstPtr camera, TarosukeConstPtr tarosuke, Enemy
 		if ( pow > 0 ) {
 			EnemyPtr enemy = enemy_mgr->getOverlappedEnemy( psychic );
 			if ( enemy ) {
-				psychic->hit( );
 				enemy->damage( pow );
+				psychic->hit( enemy->isFinished( ) );
 				if ( !enemy->isFinished( ) ) {
 					addImpact( psychic->getOverlappedPos( ) );
 				}

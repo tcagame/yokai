@@ -49,7 +49,7 @@ void PsychicMomotaro::act( ) {
 	}
 }
 
-void PsychicMomotaro::hit( ) {
+void PsychicMomotaro::hit( bool killed ) {
 	finish( );
 }
 

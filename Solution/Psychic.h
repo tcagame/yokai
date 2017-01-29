@@ -13,7 +13,7 @@ public:
 	int getTargetY( ) const;
 	bool isFinished( ) const;
 	int getPow( ) const;
-	virtual void hit( ) = 0;
+	virtual void hit( bool killed ) = 0;
 protected:
 	void finish( );
 	void setPow( int pow );

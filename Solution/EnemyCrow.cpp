@@ -8,6 +8,7 @@ static const int IDLING_COUNT = 60;
 static const int SPEED = 10;
 static const int ATTACK_RANGE = 10;
 static const int ANIMATION_WAIT_TIME = 6;
+static const int WAIT_COUNT = 240;
 
 EnemyCrow::EnemyCrow( int x, int y, const Vector& target ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ),
@@ -17,6 +18,10 @@ _target( target ) {
 	_vec = _target - _pos;
 	_vec.y = 0;
 	_vec = _vec.normalize( ) * SPEED;
+	_action = ACTION_APPEAR;
+
+	setX( ( int )_pos.x );
+	setY( ( int )_pos.y );
 }
 
 EnemyCrow::~EnemyCrow( ) {
@@ -25,20 +30,58 @@ EnemyCrow::~EnemyCrow( ) {
 void EnemyCrow::act( ) {
 	_count++;
 	
+	switch ( _action ) {
+	case ACTION_APPEAR:
+		actOnAppearing( );
+		break;
+	case ACTION_WAIT:
+		actOnWaiting( );
+		break;
+	case ACTION_MOVE:
+		actOnMoving( );
+		break;
+	}
+}
+	
+void EnemyCrow::actOnAppearing( ) {
+	const int ANIM[ 8 ] = { 13, 12, 11, 10, 9, 8, 8, 9 };
+	int idx = _count / ANIMATION_WAIT_TIME;
+	if ( idx >= 8 - 1 ) {
+		_action = ACTION_WAIT;
+	}
+
+	setChipGraph( GRAPH_ENEMY_NOMAL, ANIM[ idx ], 15 );
+}
+
+void EnemyCrow::actOnWaiting( ) {
+	int u = 2;
+	if ( _count % 100 < 30 ) {
+		u = 3;
+	}
+	if ( _count % 123 < 5 ) {
+		u = 4;
+	}
+	if ( _count > WAIT_COUNT ) {
+		_action = ACTION_MOVE;
+	}
+	setChipGraph( GRAPH_ENEMY_NOMAL, u, 15 );
+}
+
+void EnemyCrow::actOnMoving( ) {
+
+	Vector v = _target - _pos;
+	_vec += v.normalize( ) * ( SPEED * 0.05 );
+	_vec = _vec.normalize( ) * SPEED;
+
+	_pos += _vec;
+	setX( ( int )_pos.x );
+	setY( ( int )_pos.y );
+
 	if ( _vec.x > 0 ) {
 		setChipReverse( true );
 	} else {
 		setChipReverse( false );
 	}
-
 	setChipGraph( GRAPH_ENEMY_NOMAL, _count / ANIMATION_WAIT_TIME % 2, 15 );
-
-	if ( _count > IDLING_COUNT ) {
-		Vector v = _target - _pos;
-		_vec += v.normalize( ) * ( SPEED * 0.05 );
-		_vec = _vec.normalize( ) * SPEED;
-	}
-	_pos += _vec;
-	setX( ( int )_pos.x );
-	setY( ( int )_pos.y );
 }
+
