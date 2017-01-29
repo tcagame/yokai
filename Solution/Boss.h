@@ -5,7 +5,7 @@
 
 class Boss : public Enemy {
 public:
-	Boss( int x, int y, int hp, int pow );
+	Boss( int x, int y, int chip_size, int hp, int pow );
 	virtual ~Boss();
 public:
 	virtual void attack( ) = 0;

@@ -96,6 +96,9 @@ FLOOR Character::getFloor( ) const {
 }
 
 void Character::draw( CameraConstPtr camera, bool bright ) const {
+	if ( _chip_size <= 0 ) {
+		return;
+	}
 
 	int tx = _chip_u * _chip_size;
 	int ty = _chip_v * _chip_size;

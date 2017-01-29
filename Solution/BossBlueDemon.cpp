@@ -14,7 +14,7 @@ static const int CREATE_COUNT_GHOST = 60;
 static const int CREATE_COUNT_LITTLE_RED_DEMON = 60;
 
 BossBlueDemon::BossBlueDemon( EnemyStockPtr stock, int x ) :
-Boss( x + OFFSET_X, OFFSET_Y, HP, POW ),
+Boss( x + OFFSET_X, OFFSET_Y, CHIP_SIZE, HP, POW ),
 _stock( stock ),
 _count( 0 ) {
 }

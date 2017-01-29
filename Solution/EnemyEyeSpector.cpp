@@ -6,8 +6,8 @@ static const int HP = 1;
 static const int POW = 1;
 static const int WAIT_ANIME_TIME = 10;
 static const int MOVE_SPEED = 2;
-static const int WAIT_JUMP_TIME = 50;
-static const int JUMP_POWER = -40;
+static const int WAIT_JUMP_TIME = 60;
+static const int JUMP_POWER = -30;
 
 EnemyEyeSpector::EnemyEyeSpector( int x, int y) :
 Enemy( x - 400, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),

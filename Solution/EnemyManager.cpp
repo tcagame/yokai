@@ -31,11 +31,13 @@
 #include "EnemyJizo.h"
 #include "EnemyEyeSpector.h"
 #include "EnemyGrowFace.h"
+#include "EnemyCrocodileSnake.h"
 #include "EnemyBowDemon.h"
+#include "EnemyHugDemon.h"
 #include "Map.h"
 #include "Boss.h"
 
-static const int BASE_POP_Y = 400;
+static const int BASE_POP_Y = 200;
 static const int POPUP_GROUND = 400;
 static const int PURPLE_POP_NUM = 5;
 static const int REDBIRD_POP_Y = 250;
@@ -256,6 +258,12 @@ void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera
 	}
 	if ( data & BOW_DEMON ) {
 		_enemies.push_back( EnemyPtr( new EnemyBowDemon( pop_base_x, BASE_POP_Y ) ) );
+	}
+	if ( data & CROCODILE_SNAKE ) {
+		_enemies.push_back( EnemyPtr( new EnemyCrocodileSnake( pop_base_x, BASE_POP_Y ) ) );
+	}
+	if ( data & HUG_DEMON ) {
+		_enemies.push_back( EnemyPtr( new EnemyHugDemon( pop_base_x, BASE_POP_Y ) ) );
 	}
 }
 

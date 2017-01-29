@@ -114,7 +114,7 @@ static const Map::Panel panel[] = {
 		"~~###########   "
 		"################"
 		"################",
-		PURPLE
+		CROCODILE_SNAKE
 	},
 	{//5
 		"street/map0/bg/map0_06_00.png",
@@ -136,7 +136,7 @@ static const Map::Panel panel[] = {
 		"   #############"
 		"################"
 		"################",
-		NONE
+		HUG_DEMON
 	},
 	{//6
 		"street/map0/bg/map0_07_00.png",
@@ -289,7 +289,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"################"
 		"################",
-		BOW_DEMON | TREE
+		NONE
 	},
 	{//48
 		"street/map0/bg/event_06_00.png",
