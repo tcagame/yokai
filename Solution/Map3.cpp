@@ -7,7 +7,7 @@ static const Map::Item item = {
 
 static const Map::Panel panel[] = {
 	{
-		"street/map0/bg/map0_03_00.png",
+		"street/map0/bg/map0_00_04.png",
 		"",
 		0, 0,
 		"                "
@@ -29,7 +29,7 @@ static const Map::Panel panel[] = {
 		NONE
 	},
 	{
-		"street/map0/bg/map0_03_00.png",
+		"street/map0/bg/map0_00_04.png",
 		"",
 		0, 0,
 		"                "
@@ -51,7 +51,7 @@ static const Map::Panel panel[] = {
 		NONE
 	},
 	{
-		"street/map0/bg/map0_03_00.png",
+		"street/map0/bg/map0_00_04.png",
 		"",
 		0, 0,
 		"                "
@@ -73,7 +73,7 @@ static const Map::Panel panel[] = {
 		NONE
 	},
 	{
-		"street/map0/bg/map0_03_00.png",
+		"street/map0/bg/map0_00_04.png",
 		"",
 		0, 0,
 		"                "
@@ -95,7 +95,7 @@ static const Map::Panel panel[] = {
 		NONE
 	},
 	{
-		"street/map0/bg/map0_03_00.png",
+		"street/map0/bg/map0_00_04.png",
 		"",
 		0, 0,
 		"                "
@@ -117,7 +117,7 @@ static const Map::Panel panel[] = {
 		NONE
 	},
 	{
-		"street/map0/bg/map0_03_00.png",
+		"street/map0/bg/map0_00_04.png",
 		"",
 		0, 0,
 		"                "
@@ -139,7 +139,7 @@ static const Map::Panel panel[] = {
 		NONE
 	},
 	{
-		"street/map0/bg/map0_03_00.png",
+		"street/map0/bg/map0_00_04.png",
 		"",
 		0, 0,
 		"                "
