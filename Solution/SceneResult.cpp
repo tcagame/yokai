@@ -372,9 +372,27 @@ void SceneResult::drawHungry( ) {
 			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
 			drawer->setSprite( sprite );
 		}
+	} else if ( _count < 450 ) {
+		{// ‚½‚ë‚·‚¯
+			Drawer::Transform trans( 575, 325 + (  ( _count / 3 ) - 117 ), ( _count / 16 % 2 ) * 128, 0, 128, 128 );
+			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
+			drawer->setSprite( sprite );
+		}
+
+		{// ‰ì‹S¶
+			Drawer::Transform trans( 375, 420, ( _count / 8 % 2 ) * 128 + 256, 128, 128, 128 );
+			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
+			drawer->setSprite( sprite );
+		}
+		{// ‰ì‹S‰E
+			const int ANIM[ 4 ] = { 0, 1, 2, 1 };
+			Drawer::Transform trans( 770 - ( _count - 350 ), 420, ( _count / 8 % 4 ) * 128 + 512, 128, 128, 128 );
+			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
+			drawer->setSprite( sprite );
+		}
 	}
 
-	if ( _count > 250 ) {
+	if ( _count > 250 && _count < 450 ) {
 		{//H‚×•¨
 			Drawer::Transform trans( 610, y, ( _count / 4 % 4 ) * 64 + 640, 384, 64, 64 );
 			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
