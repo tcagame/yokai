@@ -9,7 +9,7 @@ static const Map::Panel panel[] = {/*
 	{
 		"street/map2/map2_start_00.png",
 		"",
-		0, 0,
+		204, 97,
 		"###             "
 		"###             "
 		"###             "
@@ -75,7 +75,7 @@ static const Map::Panel panel[] = {/*
 	{
 		"street/map2/map2_rock_00.png",
 		"",
-		0, 0,
+		194, 100,
 		"#               "
 		"#               "
 		"#               "
@@ -141,7 +141,7 @@ static const Map::Panel panel[] = {/*
 	{
 		"street/map2/map2_sea_00.png",
 		"",
-		0, 0,
+		181, 106,
 		"                "
 		"                "
 		"                "
@@ -163,7 +163,7 @@ static const Map::Panel panel[] = {/*
 	{
 		"street/map2/map2_sea_01.png",
 		"",
-		0, 0,
+		169, 109,
 		"                "
 		"                "
 		"                "
@@ -185,7 +185,7 @@ static const Map::Panel panel[] = {/*
 	{
 		"street/map2/map2_sea_01.png",
 		"",
-		0, 0,
+		150, 111,
 		"                "
 		"                "
 		"                "
@@ -207,7 +207,7 @@ static const Map::Panel panel[] = {/*
 	{
 		"street/map2/map2_sea_01.png",
 		"",
-		0, 0,
+		135, 113,
 		"                "
 		"                "
 		"                "
@@ -229,7 +229,7 @@ static const Map::Panel panel[] = {/*
 	{
 		"street/map2/map2_sea_02.png",
 		"",
-		0, 0,
+		130, 116,
 		"                "
 		"                "
 		"                "
@@ -251,7 +251,7 @@ static const Map::Panel panel[] = {/*
 	{
 		"street/map2/map2_brownstreet_00.png",
 		"",
-		0, 0,
+		84, 113,
 		"                "
 		"                "
 		"                "
@@ -273,7 +273,7 @@ static const Map::Panel panel[] = {/*
 	{
 		"street/map2/map2_brownstreet_01.png",
 		"",
-		0, 0,
+		66, 121,
 		"                "
 		"                "
 		"                "
@@ -295,7 +295,7 @@ static const Map::Panel panel[] = {/*
 	{
 		"street/map2/map2_brownstreet_02.png",
 		"",
-		0, 0,
+		50, 141,
 		"                "
 		"                "
 		"                "
@@ -317,7 +317,7 @@ static const Map::Panel panel[] = {/*
 	{
 		"street/map2/map2_brownstreet_03.png",
 		"",
-		0, 0,
+		63, 145,
 		"                "
 		"                "
 		"                "
@@ -339,7 +339,7 @@ static const Map::Panel panel[] = {/*
 	{
 		"street/map2/map2_brownstreet_04.png",
 		"",
-		0, 0,
+		79, 145,
 		"                "
 		"                "
 		"                "
@@ -361,7 +361,7 @@ static const Map::Panel panel[] = {/*
 	{
 		"street/map2/map2_brownstreet_05.png",
 		"",
-		0, 0,
+		85, 146,
 		"                "
 		"                "
 		"                "
@@ -383,7 +383,7 @@ static const Map::Panel panel[] = {/*
 	{
 		"street/map2/map2_sea_00_01.png",
 		"",
-		0, 0,
+		105, 147,
 		"                "
 		"                "
 		"                "
@@ -405,7 +405,7 @@ static const Map::Panel panel[] = {/*
 	{
 		"street/map2/map2_sea_00_02.png",
 		"",
-		0, 0,
+		119, 152,
 		"                "
 		"                "
 		"                "
@@ -427,7 +427,7 @@ static const Map::Panel panel[] = {/*
 	{
 		"street/map2/map2_sea_01.png",
 		"",
-		0, 0,
+		141, 152,
 		"                "
 		"                "
 		"                "
@@ -449,7 +449,7 @@ static const Map::Panel panel[] = {/*
 	{
 		"street/map2/map2_sea_01.png",
 		"",
-		0, 0,
+		163, 148,
 		"                "
 		"                "
 		"                "
@@ -471,7 +471,7 @@ static const Map::Panel panel[] = {/*
 	{
 		"street/map2/map2_sea_01.png",
 		"",
-		0, 0,
+		199, 138,
 		"                "
 		"                "
 		"                "
@@ -493,7 +493,7 @@ static const Map::Panel panel[] = {/*
 	{
 		"street/map2/map2_sea_01.png",
 		"",
-		0, 0,
+		239, 135,
 		"                "
 		"                "
 		"                "
@@ -515,7 +515,7 @@ static const Map::Panel panel[] = {/*
 	{
 		"street/map2/map2_sea_02.png",
 		"",
-		0, 0,
+		273, 134,
 		"                "
 		"                "
 		"                "
@@ -537,7 +537,7 @@ static const Map::Panel panel[] = {/*
 	{
 		"street/map2/map2_riverbed.png",
 		"",
-		0, 0,
+		291, 131,
 		"                "
 		"                "
 		"                "
@@ -581,7 +581,7 @@ static const Map::Panel panel[] = {/*
 	{
 		"street/map2/map2_gravel1.png",
 		"",
-		0, 0,
+		308, 164,
 		"                "
 		"                "
 		"                "
