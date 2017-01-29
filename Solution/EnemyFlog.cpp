@@ -1,7 +1,7 @@
 #include "EnemyFlog.h"
 #include "EnemyFlogSmall.h"
 
-static const int CHIP_SIZE = 264;
+static const int CHIP_SIZE = 256;
 static const int CHIP_FOOT = 0;
 static const int HP = 10;
 static const int POW = 10;
@@ -27,10 +27,11 @@ void EnemyFlog::act( ) {
 }
 
 void EnemyFlog::updateChip( ) {
-	const int WIDTH_NUM = 3;
-	const int MAX_ANIME_PATTERN = 5;
-	int u = _act_count / WAIT_ANIME_TIME % MAX_ANIME_PATTERN % WIDTH_NUM;
-	int v = _act_count / WAIT_ANIME_TIME % MAX_ANIME_PATTERN / WIDTH_NUM;
+	const int WIDTH_NUM = 4;
+	const int ANIME[ ] = { 0, 1, 3, 4, 3, 1, 0, 1, 2, 2, 3, 4, 3, 1 };
+	int anime_num = sizeof( ANIME ) / sizeof( ANIME[ 0 ] );
+	int u = ANIME[ _act_count / WAIT_ANIME_TIME % anime_num ] % WIDTH_NUM;
+	int v = ANIME[ _act_count / WAIT_ANIME_TIME % anime_num ] / WIDTH_NUM;
 	setChipGraph( GRAPH_ENEMY_FLOG, u, v );
 }
 

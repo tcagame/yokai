@@ -26,7 +26,7 @@ public:
 	FLOOR getFloor( ) const;
 	virtual double getOverlappedRadius( ) const;
 	virtual Vector getOverlappedPos( ) const;
-	void draw( CameraConstPtr camera, bool bright = false ) const;
+	virtual void draw( CameraConstPtr camera, bool bright = false ) const;
 protected:
 	void setX( int x );
 	void setY( int y );

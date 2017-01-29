@@ -21,6 +21,7 @@ public:
 	void damage( int pow );
 	void bound( );
 	void adjust( CameraConstPtr camera );
+	bool isCalling( ) const;
 private:
 	enum ACTION {
 		ACTION_STAND,

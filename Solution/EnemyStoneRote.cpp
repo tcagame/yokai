@@ -1,6 +1,6 @@
 #include "EnemyStoneRote.h"
 
-static const int CHIP_SIZE = 72;
+static const int CHIP_SIZE = 64;
 static const int CHIP_FOOT = 0;
 static const int HP = 2;
 static const int POW = 2;
@@ -23,5 +23,5 @@ void EnemyStoneRote::act( ) {
 	_act_count++;
 	_act_count %= WAIT_ANIME_TIME * MAX_ANIME_PATTERN;
 	int pattern = _act_count / WAIT_ANIME_TIME;
-	setChipGraph( GRAPH_ENEMY_SMALL, pattern, 3 );
+	setChipGraph( GRAPH_ENEMY_SMALL, pattern, 6 );
 }

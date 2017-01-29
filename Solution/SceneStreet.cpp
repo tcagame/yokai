@@ -121,7 +121,9 @@ Scene::NEXT SceneStreet::update( ) {
 		}
 		break;
 	case PHASE_BOSS:
-		_enemy_mgr->attackBoss( );
+		if ( !_tarosuke->isCalling( ) ) {
+			_enemy_mgr->attackBoss( );
+		}
 		if ( _power->get( ) == 0 ) {
 			_phase = PHASE_DEAD;
 			_phase_count = 0;
@@ -167,10 +169,13 @@ Scene::NEXT SceneStreet::update( ) {
 	_momotaro->update( _field );
 	_momotaro->adjust( _camera );
 	_camera->update( _tarosuke );
-	_enemy_mgr->update( _field, _camera, _tarosuke, _momotaro );
-	_psychic_mgr->update( _camera, _tarosuke, _enemy_mgr );
 	_status->update( );
-	_field->update( _camera );
+
+	if ( !_tarosuke->isCalling( ) ) {
+		_enemy_mgr->update( _field, _camera, _tarosuke, _momotaro );
+		_psychic_mgr->update( _camera, _tarosuke, _enemy_mgr );
+		_field->update( _camera );
+	}
 
 	_field->draw( _camera );
 	_enemy_mgr->draw( _camera );

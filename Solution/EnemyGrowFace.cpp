@@ -2,7 +2,7 @@
 
 static const int WAIT_ANIME_TIME = 3;
 static const int MOVE_SPEED = 8;
-static const int CHIP_SIZE = 72;
+static const int CHIP_SIZE = 64;
 static const int CHIP_FOOT = 0;
 static const int HP  = 10;
 static const int POW = 3;
@@ -24,15 +24,17 @@ void EnemyGrowFace::act( ) {
 		const int GROW_PATTERN[ MAX_GROW_PATTERN ] = { 0, 1, 2, 3, 4 , 5};
 		int pattern = GROW_PATTERN[ ( getX( ) / 2 ) % MAX_GROW_PATTERN ];
 		setChipGraph( GRAPH_ENEMY_SMALL, pattern, 6 );
-	}
 		_action = ACTION_ATTACK;
 		break;
-	case ACTION_ATTACK:
+	}
+	case ACTION_ATTACK:{
 		setAccelX( -MOVE_SPEED );
 		const int MAX_ATTACK_PATTERN = 2;
 		const int ATTACK_PATTERN[ MAX_ATTACK_PATTERN ] = { 6, 7 };
 		int pattern = ATTACK_PATTERN[ ( getX( ) / WAIT_ANIME_TIME ) % MAX_ATTACK_PATTERN ];
-		setChipGraph( GRAPH_ENEMY_SMALL, pattern, 5 );
+		setChipGraph( GRAPH_ENEMY_SMALL, pattern, 3 );
 		break;
+	}
+
 	}
 }

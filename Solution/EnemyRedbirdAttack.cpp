@@ -5,7 +5,7 @@ static const int WAIT_PATTERN_TIME = 8;
 static const int MOVE_VERTICAL_SPEED = 6;
 static const int MOVE_HORIZONTAL_SPEED = 10;
 static const int WAIT_TURN_TIME = 8;
-static const int CHIP_SIZE = 72;
+static const int CHIP_SIZE = 64;
 static const int CHIP_FOOT = 0;
 static const int HP  = 10;
 static const int POW = 3;
@@ -25,5 +25,5 @@ void EnemyRedbirdAttack::act( ) {
 	_act_count++;
 	_act_count %= MAX_ANIME_PATTERN * WAIT_PATTERN_TIME;
 	int pattern = _act_count / WAIT_PATTERN_TIME;
-	setChipGraph( GRAPH_ENEMY_SMALL, pattern, 2 );
+	setChipGraph( GRAPH_ENEMY_SMALL, pattern, 0 );
 }
