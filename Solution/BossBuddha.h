@@ -14,5 +14,6 @@ private:
 	double getOverlappedRadius( ) const;
 private:
 	EnemyStockPtr _stock;
+	int _count;
 };
 

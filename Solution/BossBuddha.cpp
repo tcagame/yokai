@@ -1,14 +1,17 @@
 #include "BossBuddha.h"
+#include "EnemyFireball.h"
 
-static const int OFFSET_X = 0;
-static const int OFFSET_Y = 0;
+static const int OFFSET_X = 414;
+static const int OFFSET_Y = 155;
 static const int HP = 30;
 static const int POW = 10;
 static const int RADIUS = 100;
+static const int CREATE_COUNT_FIREBALL = 100;
 
 BossBuddha::BossBuddha( EnemyStockPtr stock, int x ) :
 Boss( OFFSET_X + x, OFFSET_Y, 0, HP, POW ),
-_stock( stock ) {
+_stock( stock ),
+_count( 0 ) {
 	
 }
 
@@ -19,6 +22,12 @@ void BossBuddha::act( ) {
 }
 
 void BossBuddha::attack( ) {
+	_count++;
+	if ( _count % CREATE_COUNT_FIREBALL == 0 ) {
+		Vector pos( getX( ), 50 );
+		Vector vec( -5.0, 5.0 );
+		_stock->addEnemy( EnemyPtr( new EnemyFireball( pos, vec ) ) );
+	}
 }
 
 double BossBuddha::getOverlappedRadius( ) const {

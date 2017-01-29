@@ -24,24 +24,24 @@ static const int DEAD_COUNT = 120;
 
 SceneStreet::SceneStreet() {
 	DrawerPtr drawer = Drawer::getTask();
-	drawer->loadGraph(GRAPH_CHARACTER_1, "Character/Character1.png");
-	drawer->loadGraph(GRAPH_CHARACTER_2, "Character/Character2.png");
-	drawer->loadGraph(GRAPH_PSYCHIC, "Character/psychic.png");
-	drawer->loadGraph(GRAPH_CLOUD_BIG, "street/cloud/Yokai_OBJ_cloud1.png");
-	drawer->loadGraph(GRAPH_CLOUD_SMALL, "street/cloud/Yokai_OBJ_cloud2.png");
-	drawer->loadGraph(GRAPH_MAPCHIPGUIDE, "street/other/mapchipguide.png");
-	drawer->loadGraph(GRAPH_IMPACT, "street/other/impact.png");
-	drawer->loadGraph(GRAPH_BOMB, "street/other/bomb.png");
-	drawer->loadGraph(GRAPH_ENEMY_NOMAL, "street/enemy/enemy_nomal.png");
-	drawer->loadGraph(GRAPH_ENEMY_SMALL, "street/enemy/enemy_small.png");
-	drawer->loadGraph(GRAPH_ENEMY_BIG_1, "street/enemy/enemy_big1.png");
-	drawer->loadGraph(GRAPH_ENEMY_BIG_2, "street/enemy/enemy_big2.png");
-	drawer->loadGraph(GRAPH_ENEMY_TREE, "street/enemy/enemy_tree.png");
-	drawer->loadGraph(GRAPH_ENEMY_EFFECT_JIZO, "street/enemy/enemy_effect_jizo.png");
-	drawer->loadGraph(GRAPH_ENEMY_FLOG, "street/enemy/enemy_frog_green.png");
-	drawer->loadGraph(GRAPH_STATUS_PLATE,  "street/status/status_plate.png");
-	drawer->loadGraph(GRAPH_STATUS_POWER,  "street/status/status_power.png");
-	drawer->loadGraph(GRAPH_STATUS_MARKER, "street/status/status_marker.png");
+	drawer->loadGraph(GRAPH_CHARACTER_1   , "Character/Character1.png");
+	drawer->loadGraph(GRAPH_CHARACTER_2   , "Character/Character2.png");
+	drawer->loadGraph(GRAPH_PSYCHIC       , "Character/psychic.png");
+	drawer->loadGraph(GRAPH_CLOUD_BIG     , "street/cloud/Yokai_OBJ_cloud1.png");
+	drawer->loadGraph(GRAPH_CLOUD_SMALL   , "street/cloud/Yokai_OBJ_cloud2.png");
+	drawer->loadGraph(GRAPH_MAPCHIPGUIDE  , "street/other/mapchipguide.png");
+	drawer->loadGraph(GRAPH_IMPACT        , "street/other/impact.png");
+	drawer->loadGraph(GRAPH_BOMB          , "street/other/bomb.png");
+	drawer->loadGraph(GRAPH_ENEMY_NOMAL   , "street/enemy/enemy_nomal.png");
+	drawer->loadGraph(GRAPH_ENEMY_SMALL   , "street/enemy/enemy_small.png");
+	drawer->loadGraph(GRAPH_ENEMY_BIG_1   , "street/enemy/enemy_big1.png");
+	drawer->loadGraph(GRAPH_ENEMY_BIG_2   , "street/enemy/enemy_big2.png");
+	drawer->loadGraph(GRAPH_ENEMY_TREE    , "street/enemy/enemy_tree.png");
+	drawer->loadGraph(GRAPH_ENEMY_FIREBALL, "street/enemy/enemy_fireball.png");
+	drawer->loadGraph(GRAPH_ENEMY_FLOG    , "street/enemy/enemy_frog_green.png");
+	drawer->loadGraph(GRAPH_STATUS_PLATE  , "street/status/status_plate.png");
+	drawer->loadGraph(GRAPH_STATUS_POWER  , "street/status/status_power.png");
+	drawer->loadGraph(GRAPH_STATUS_MARKER , "street/status/status_marker.png");
 
 	GamePtr game = Game::getTask( );
 	

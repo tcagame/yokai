@@ -1,6 +1,6 @@
 #include "EnemyJizoAttack.h"
 
-static const int CHIP_SIZE = 72;
+static const int CHIP_SIZE = 64;
 static const int CHIP_FOOT = 0;
 static const int HP = 1;
 static const int POW = 8;
@@ -21,5 +21,5 @@ void EnemyJizoAttack::act( ) {
 	const int MAX_ANIME_PATTERN = 2;
 	int u = getX( ) / WAIT_ANIME_TIME % MAX_ANIME_PATTERN;
 	int v = 3;
-	setChipGraph( GRAPH_ENEMY_EFFECT_JIZO, u, v );
+	setChipGraph( GRAPH_ENEMY_FIREBALL, u, v );
 }
