@@ -30,6 +30,7 @@ const unsigned int GROW_FACE        = 0x00040000;	//l–Ê÷‚©‚ç¬‚éŠç
 const unsigned int BOW_DEMON        = 0x00080000;	//‹|‹S
 const unsigned int CROCODILE_SNAKE	= 0x00100000;	//ƒƒjÖ
 const unsigned int HUG_DEMON		= 0x00200000;	//•ø‚«‚Â‚«‹S
+const unsigned int BLOOD_POND_DEMON	= 0x00400000;	//ŒŒ‚Ì’r‚Ì‹S
 
 enum GRAPH {
 	GRAPH_FADE_BOARD,
