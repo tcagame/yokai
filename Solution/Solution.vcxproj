@@ -87,6 +87,7 @@
     <ClCompile Include="Boss.cpp" />
     <ClCompile Include="BossBlueDemon.cpp" />
     <ClCompile Include="BossRedDemon.cpp" />
+    <ClCompile Include="EnemyBloodPondDemon.cpp" />
     <ClCompile Include="EnemyBowDemon.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Character.cpp" />
@@ -158,6 +159,7 @@
     <ClInclude Include="Boss.h" />
     <ClInclude Include="BossBlueDemon.h" />
     <ClInclude Include="BossRedDemon.h" />
+    <ClInclude Include="EnemyBloodPondDemon.h" />
     <ClInclude Include="EnemyBowDemon.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Character.h" />
