@@ -1,8 +1,12 @@
 #pragma once
+#include "Enemy.h"
 
-class EnemyCrocodileSnake {
+class EnemyCrocodileSnake : public Enemy {
 public:
-	EnemyCrocodileSnake( );
+	EnemyCrocodileSnake( int x, int y );
 	virtual ~EnemyCrocodileSnake( );
+private:
+	void act( );
+	void actMove( );
+	void updateChip( );
 };
-
