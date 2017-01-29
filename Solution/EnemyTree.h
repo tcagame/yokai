@@ -9,5 +9,8 @@ public:
 private:
 	void act( );
 	double getOverlappedRadius( ) const;
+	int _count;
+private:
+	EnemyStockPtr _stock;
 	Vector getOverlappedPos( ) const;
 };

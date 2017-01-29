@@ -136,7 +136,7 @@ static const Map::Panel panel[] = {
 		"   #############"
 		"################"
 		"################",
-		NONE
+		HUG_DEMON
 	},
 	{//6
 		"street/map0/bg/map0_07_00.png",
@@ -158,7 +158,7 @@ static const Map::Panel panel[] = {
 		"~~~~#########+++"
 		"################"
 		"################",
-		REDBIRD | EYE
+		REDBIRD | EYE 
 	},
 	{//7
 		"street/map0/bg/map0_07_00.png",
@@ -180,7 +180,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                ",
-		GROW_FACE
+		GROW_FACE | MIASMA_GRAY
 	},
 	{//47
 		"street/map0/bg/map0_06_00.png",
@@ -202,7 +202,7 @@ static const Map::Panel panel[] = {
 		"++++############"
 		"################"
 		"################",
-		JIZO
+		NONE
 	},
 		{//47
 		"street/map0/bg/event_07_00.png",
