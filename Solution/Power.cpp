@@ -31,5 +31,3 @@ void Power::decrease( int pow ) {
 
 	
 }
-
-

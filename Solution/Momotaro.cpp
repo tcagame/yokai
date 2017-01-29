@@ -73,7 +73,7 @@ void Momotaro::adjust( CameraConstPtr camera ) {
 
 void Momotaro::appear( int x, int y, bool reverse ) {
 	_action = ACTION_MOVE;
-	_falter_count = 0;
+	_falter_count = FALTER_COUNT;
 	setX( x );
 	setY( y );
 	setChipReverse( reverse );
@@ -117,7 +117,7 @@ void Momotaro::actOnMove( ) {
 	
 	if ( vec.isOrijin( ) || device->getButton( ) == BUTTON_A ) {
 		double length = _vec.getLength( );
-		_vec = _vec.normalize( ) * ( length * 0.9 );
+		_vec = _vec.normalize( ) * ( length * 0.8 );
 		setAccelX( ( int )_vec.x );
 		setAccelY( ( int )_vec.y );
 	}
@@ -126,7 +126,7 @@ void Momotaro::actOnMove( ) {
 	if ( device->getButton( _device_num ) == BUTTON_A ) {
 		sound->playSE( "yokai_se_27.wav" );
 		if ( _cool < 0 ) {
-			PsychicPtr psychic( new PsychicMomotaro( getX( ), getY( ), _shoot_x, _shoot_y ) ); 
+			PsychicPtr psychic( new PsychicMomotaro( getX( ), getY( ), isChipReverse( ) ) ); 
 			_psychic_mgr->shoot( psychic );
 			_cool = COOL_TIME;
 		}

@@ -65,6 +65,12 @@ void Tarosuke::adjust( CameraConstPtr camera ) {
 	}
 }
 
+bool Tarosuke::isCalling( ) const {
+	return
+		_action == ACTION_CALL ||
+		_action == ACTION_APPEAR;
+}
+
 void Tarosuke::act( ) {
 	GamePtr game = Game::getTask( );
 	game->addDebugMessage( "Tarosuke x:%05d(%03d) y:%03d", getX( ), getX( ) % BG_SIZE, getY( ) );
