@@ -196,7 +196,7 @@ void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera
 	}
 
 	if ( data & TREE ) {
-		_enemies.push_back( EnemyPtr( new EnemyTree( pop_base_x, POPUP_GROUND ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyTree( _enemy_stock, pop_base_x, POPUP_GROUND ) ) );
 	}
 	
 	if ( data & DECEASED ) {
