@@ -11,6 +11,7 @@ EnemyFireball::EnemyFireball( const Vector& pos, const Vector& vec ) :
 Enemy( ( int )pos.x, ( int )pos.y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ),
 _pos( pos ),
 _vec( vec ) {
+	setNoHead( );
 }
 
 
