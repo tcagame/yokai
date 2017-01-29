@@ -138,36 +138,107 @@ void SceneResult::drawHeaven( ) {
 void SceneResult::drawHuman( ) {
 	DrawerPtr drawer = Drawer::getTask( );
 
-	{// たろすけ
-		Drawer::Transform trans( 360, 400, 0, 0, 128, 128 );
-		Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
-		drawer->setSprite( sprite );
-	}
+	if ( _count < 450 ) {
+		{// たろすけ
+			Drawer::Transform trans( 360, 400, 0, 0, 128, 128 );
+			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
+			drawer->setSprite( sprite );
+		}
 
-	{// 父？
-		Drawer::Transform trans( 590, 410, ( _count / 8 % 2 ) * 128, 128, 128, 128 );
-		Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
-		drawer->setSprite( sprite );
-	}
+		{// 父？
+			Drawer::Transform trans( 590, 410, ( _count / 8 % 2 ) * 128, 128, 128, 128 );
+			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
+			drawer->setSprite( sprite );
+		}
 
-	{// 母？
-		const int ANIM[ 6 ] = { 0, 0, 0, 0, 0, 1 };
-		Drawer::Transform trans( 710, 480, ANIM[ _count / 4 % 6 ] * 128, 256, 128, 128 );
-		Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
-		drawer->setSprite( sprite );
-	}
+		{// 母？
+			const int ANIM[ 6 ] = { 0, 0, 0, 0, 0, 1 };
+			Drawer::Transform trans( 710, 480, ANIM[ _count / 4 % 6 ] * 128, 256, 128, 128 );
+			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
+			drawer->setSprite( sprite );
+		}
 
-	{// 親戚Ａ
-		Drawer::Transform trans( 710, 355, ( ( _count + 12 ) / 8 % 2 ) * 128, 512, 128, 128 );
-		Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
-		drawer->setSprite( sprite );
-	}
+		{// 親戚Ａ
+			Drawer::Transform trans( 710, 355, ( ( _count + 12 ) / 8 % 2 ) * 128, 512, 128, 128 );
+			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
+			drawer->setSprite( sprite );
+		}
 
-	{// 親戚Ｂ
-	const int ANIM[ 4 ] = { 0, 0, 0, 1 };
-		Drawer::Transform trans( 830, 350, ANIM[ ( _count + 12 ) / 4 % 4 ] * 128, 384, 128, 128 );
-		Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
-		drawer->setSprite( sprite );
+		{// 親戚Ｂ
+			const int ANIM[ 4 ] = { 0, 0, 0, 1 };
+			Drawer::Transform trans( 830, 350, ANIM[ ( _count + 12 ) / 4 % 4 ] * 128, 384, 128, 128 );
+			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
+			drawer->setSprite( sprite );
+		}
+	} else if ( _count < 470 ) {
+		{// たろすけ
+			const int ANIM[ 10 ] = { 0, 1, 2, 3, 3, 3, 3, 3, 3, 3 };
+			Drawer::Transform trans( 360, 400, ANIM[ _count / 8 % 10 ], 0, 128, 128 );
+			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
+			drawer->setSprite( sprite );
+		}
+	} else if ( _count >= 470 && _count < 510 ) {
+		{// たろすけ
+			Drawer::Transform trans( 360, 400, 0, 0, 128, 128 );
+			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
+			drawer->setSprite( sprite );
+		}
+
+		{// 父？
+			Drawer::Transform trans( 590, 410, ( _count / 8 % 2 ) * 128, 128, 128, 128 );
+			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
+			drawer->setSprite( sprite );
+		}
+
+		{// 母？
+			const int ANIM[ 6 ] = { 0, 0, 0, 0, 0, 1 };
+			Drawer::Transform trans( 710, 480, ANIM[ _count / 4 % 6 ] * 128, 256, 128, 128 );
+			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
+			drawer->setSprite( sprite );
+		}
+
+		{// 親戚Ａ
+			Drawer::Transform trans( 710, 355, ( ( _count + 12 ) / 8 % 2 ) * 128, 512, 128, 128 );
+			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
+			drawer->setSprite( sprite );
+		}
+
+		{// 親戚Ｂ
+		const int ANIM[ 4 ] = { 0, 0, 0, 1 };
+			Drawer::Transform trans( 830, 350, ANIM[ ( _count + 12 ) / 4 % 4 ] * 128, 384, 128, 128 );
+			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
+			drawer->setSprite( sprite );
+		}
+	} else {
+		{// たろすけ
+			Drawer::Transform trans( 360, 400, 768, 0, 128, 128 );
+			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
+			drawer->setSprite( sprite );
+		}
+
+		{// 父？
+			Drawer::Transform trans( 590, 410, ( _count / 8 % 2 ) * 128 + 768, 128, 128, 128 );
+			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
+			drawer->setSprite( sprite );
+		}
+
+		{// 母？
+			Drawer::Transform trans( 710, 480, ( _count / 8 % 2 ) * 128 + 768, 256, 128, 128 );
+			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
+			drawer->setSprite( sprite );
+		}
+
+		{// 親戚Ａ
+			Drawer::Transform trans( 710, 355, ( _count / 8 % 2 ) * 128 + 768, 384, 128, 128 );
+			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
+			drawer->setSprite( sprite );
+		}
+
+		{// 親戚Ｂ
+			Drawer::Transform trans( 830, 350, ( _count / 8 % 2 ) * 128 + 640, 512, 128, 128 );
+			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
+			drawer->setSprite( sprite );
+		}
 	}
 }
 
@@ -176,66 +247,75 @@ void SceneResult::drawDamn( ) {
 
 	if ( _count > 510 ) {
 		{// 豚ろすけ
-		Drawer::Transform trans( 650, 480, ( _count / 4 % 2 ) * 128 + 256, 0, 128, 128 );
-		Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
-		drawer->setSprite( sprite );
+			Drawer::Transform trans( 650, 480, ( _count / 4 % 2 ) * 128 + 256, 0, 128, 128 );
+			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
+			drawer->setSprite( sprite );
 		}
 
 		{// おじいさん
-		Drawer::Transform trans( 380, 450, ( _count / 4 % 2 ) * 128, 128, 128, 128 );
-		Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
-		drawer->setSprite( sprite );
+			Drawer::Transform trans( 380, 450, ( _count / 4 % 2 ) * 128, 128, 128, 128 );
+			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
+			drawer->setSprite( sprite );
 		}
 
 		{// 豚ﾊﾟｲｾﾝ
-		Drawer::Transform trans( 730, 485, 0, 256, 128, 128 );
-		Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
-		drawer->setSprite( sprite );
+			Drawer::Transform trans( 730, 485, 0, 256, 128, 128 );
+			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
+			drawer->setSprite( sprite );
 		}
+
 	} else if ( _count >= 450 && _count <= 510 ) {
+		if ( _count >= 465 & _count <= 500 ) {
+			{// ハート
+				Drawer::Transform trans( 715, 450, ( _count / 8 % 4 ) * 128 + 128, 384, 64, 64 );
+				Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
+				drawer->setSprite( sprite );
+			}
+		}
 		{// 豚ろすけ
-		Drawer::Transform trans( 650, 480, ( _count / 8 % 2 ) * 128, 0, 128, 128 );
-		Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
-		drawer->setSprite( sprite );
+			Drawer::Transform trans( 650, 480, ( _count / 8 % 2 ) * 128, 0, 128, 128 );
+			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
+			drawer->setSprite( sprite );
 		}
 
 		{// おじいさん
-		Drawer::Transform trans( 380, 450, ( _count / 4 % 2 ) * 128 + 256, 128, 128, 128 );
-		Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
-		drawer->setSprite( sprite );
+			Drawer::Transform trans( 380, 450, ( _count / 4 % 2 ) * 128 + 256, 128, 128, 128 );
+			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
+			drawer->setSprite( sprite );
 		}
 		
 		{// 豚ﾊﾟｲｾﾝ
-		const int ANIM[ 8 ] = { 0, 1, 2, 2, 2, 2, 2, 1 };
-		Drawer::Transform trans( 730, 485, ANIM[ _count / 8 % 8 ] * 128 + 128, 256, 128, 128 );
-		Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
-		drawer->setSprite( sprite );
+			const int ANIM[ 8 ] = { 0, 1, 2, 2, 2, 2, 2, 1 };
+			Drawer::Transform trans( 730, 485, ANIM[ _count / 8 % 8 ] * 128 + 128, 256, 128, 128 );
+			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
+			drawer->setSprite( sprite );
 		}
 
 	} else if ( _count < 450 ) {
 		{// 豚ろすけ
-		Drawer::Transform trans( 650, 480, ( _count / 8 % 2 ) * 128, 0, 128, 128 );
-		Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
-		drawer->setSprite( sprite );
+			Drawer::Transform trans( 650, 480, ( _count / 8 % 2 ) * 128, 0, 128, 128 );
+			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
+			drawer->setSprite( sprite );
 		}
 
 		{// おじいさん
-		Drawer::Transform trans( 380, 450, ( _count / 8 % 2 ) * 128, 128, 128, 128 );
-		Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
-		drawer->setSprite( sprite );
+			Drawer::Transform trans( 380, 450, ( _count / 8 % 2 ) * 128, 128, 128, 128 );
+			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
+			drawer->setSprite( sprite );
 		}
 
 		{// 豚ﾊﾟｲｾﾝ
-		Drawer::Transform trans( 730, 485, 0, 256, 128, 128 );
-		Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
-		drawer->setSprite( sprite );
+			Drawer::Transform trans( 730, 485, 0, 256, 128, 128 );
+			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
+			drawer->setSprite( sprite );
 		}
 	}
 
-	// カラス
+	{// カラス
 		Drawer::Transform trans( 900 - _count, 200, ( _count / 4 % 2 ) * 64, 384, 64, 64 );
 		Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
 		drawer->setSprite( sprite );
+	}
 }
 
 void SceneResult::drawHungry( ) {
