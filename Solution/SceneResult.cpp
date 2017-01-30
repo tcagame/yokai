@@ -349,12 +349,12 @@ void SceneResult::drawHungry( ) {
 		}
 
 		{// ‰ì‹S¶
-			Drawer::Transform trans( 375, 420, ( _count / 8 % 2 ) * 128, 128, 128, 128 );
+			Drawer::Transform trans( 375, 420, ( _count / 4 % 2 ) * 128, 128, 128, 128 );
 			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
 			drawer->setSprite( sprite );
 		}
 		{// ‰ì‹S‰E
-			Drawer::Transform trans( 770, 420, ( _count / 8 % 2 ) * 128, 256, 128, 128 );
+			Drawer::Transform trans( 770, 420, ( _count / 4 % 2 ) * 128, 256, 128, 128 );
 			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
 			drawer->setSprite( sprite );
 		}
@@ -367,35 +367,46 @@ void SceneResult::drawHungry( ) {
 		}
 
 		{// ‰ì‹S¶
-			Drawer::Transform trans( 375, 420, ( _count / 8 % 2 ) * 128 + 256, 128, 128, 128 );
+			Drawer::Transform trans( 375, 420, ( _count / 4 % 2 ) * 128 + 256, 128, 128, 128 );
 			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
 			drawer->setSprite( sprite );
 		}
 		{// ‰ì‹S‰E
 			const int ANIM[ 4 ] = { 0, 1, 2, 1 };
-			Drawer::Transform trans( 770, 420, ANIM[ _count / 8 % 2 ] * 128 + 256, 256, 128, 128 );
+			Drawer::Transform trans( 770, 420, ANIM[ _count / 4 % 4 ] * 128 + 256, 256, 128, 128 );
 			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
 			drawer->setSprite( sprite );
 		}
-	} else if ( _count < 450 ) {
+	} else if ( _count < 460 ) {
 		{// ‚½‚ë‚·‚¯
-			Drawer::Transform trans( 575, 325 + (  ( _count / 3 ) - 117 ), ( _count / 16 % 2 ) * 128, 0, 128, 128 );
+			Drawer::Transform trans( 575, 325 + ( ( _count / 3 ) - 117 ), ( _count / 16 % 2 ) * 128, 0, 128, 128 );
 			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
 			drawer->setSprite( sprite );
 		}
 
 		{// ‰ì‹S¶
-			Drawer::Transform trans( 375, 420, ( _count / 8 % 2 ) * 128 + 256, 128, 128, 128 );
+			const int ANIM[ 6 ] = { 0, 1, 2, 3, 2, 1 };
+			Drawer::Transform trans( 375 + ( _count - 350 ), 420, ANIM[ _count / 6 % 6 ] * 128 + 512, 128, 128, 128 );
 			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
 			drawer->setSprite( sprite );
 		}
 		{// ‰ì‹S‰E
-			const int ANIM[ 4 ] = { 0, 1, 2, 1 };
-			Drawer::Transform trans( 770 - ( _count - 350 ), 420, ( _count / 8 % 4 ) * 128 + 512, 128, 128, 128 );
+			const int ANIM[ 6 ] = { 0, 1, 2, 3, 2, 1 };
+			Drawer::Transform trans( 770 - ( _count - 350 ), 420, ANIM[ _count / 6 % 6 ] * 128, 384, 128, 128 );
 			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
 			drawer->setSprite( sprite );
 		}
 	} else {
+		{// Žè‘«
+			Drawer::Transform trans( ( _count / 15 % 4 ) * 60 + 530, ( _count / 24 % 4 ) * 60 + 390 , ( _count / 32 % 4 ) * 64 + 512, 448, 64, 64 );
+			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
+			drawer->setSprite( sprite );
+		}
+		{// Šç
+			Drawer::Transform trans( ( _count / 13 % 3 ) * 80 + 520, ( _count / 7 % 3 ) * 80 + 380, ( _count / 32 % 3 ) * 64 + 768, 448, 64, 64 );
+			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
+			drawer->setSprite( sprite );
+		}
 		{// ƒPƒ“ƒJ‰Œ
 			const int ANIM[ 6 ] = { 0, 1, 2, 3, 2, 1 };
 			Drawer::Transform trans( 510, 370, ANIM[ _count / 4 % 6 ] * 256, 512, 256, 256 );
@@ -403,8 +414,10 @@ void SceneResult::drawHungry( ) {
 			drawer->setSprite( sprite );
 		}
 	}
+	
+	
 
-	if ( _count > 250 && _count < 450 ) {
+	if ( _count > 250 && _count < 460 ) {
 		{// H‚×•¨
 			Drawer::Transform trans( 610, y, ( _count / 4 % 4 ) * 64 + 640, 384, 64, 64 );
 			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
@@ -415,7 +428,6 @@ void SceneResult::drawHungry( ) {
 
 void SceneResult::drawHell( ) {
 	DrawerPtr drawer = Drawer::getTask( );
-
 
 	if ( _count < 400 ) {
 		{// ‚½‚ë‚·‚¯
