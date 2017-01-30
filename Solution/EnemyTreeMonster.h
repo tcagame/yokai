@@ -13,5 +13,6 @@ private:
 private:
 	int x;
 	int y;
+	EnemyStockPtr _stock;
 	Vector getOverlappedPos( ) const;
 };
