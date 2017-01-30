@@ -5,6 +5,7 @@
 #include "BossRedDemon.h"
 #include "BossBlueDemon.h"
 #include "BossHag.h"
+#include "BossEnma.h"
 #include "BossBuddha.h"
 
 
@@ -98,6 +99,9 @@ BossPtr Map::createBoss( EnemyStockPtr stock ) const {
 		break;
 	case BOSS_HAG:
 		boss = BossPtr( new BossHag( stock, offset_x ) );
+		break;
+	case BOSS_ENMA:
+		boss = BossPtr( new BossEnma( stock, offset_x ) );
 		break;
 	case BOSS_BUDDHA:
 		boss = BossPtr( new BossBuddha( stock, offset_x ) );
