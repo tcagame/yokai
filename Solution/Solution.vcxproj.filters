@@ -77,6 +77,7 @@
     <ClCompile Include="EnemySkeletonSpear.cpp" />
     <ClCompile Include="Status.cpp" />
     <ClCompile Include="Tarosuke.cpp" />
+    <ClCompile Include="EnemyBranchMonsterAttack.cpp" />
     <ClCompile Include="EnemyWindMonster.cpp" />
     <ClCompile Include="EnemyBranchMonster.cpp" />
     <ClCompile Include="EnemyHellFire.cpp" />
@@ -212,6 +213,7 @@
     <ClInclude Include="EnemySkeletonSpear.h" />
     <ClInclude Include="Status.h" />
     <ClInclude Include="Tarosuke.h" />
+    <ClInclude Include="EnemyBranchMonsterAttack.h" />
     <ClInclude Include="EnemyWindMonster.h" />
     <ClInclude Include="EnemyBranchMonster.h" />
     <ClInclude Include="EnemyHellFire.h" />

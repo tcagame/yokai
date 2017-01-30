@@ -43,6 +43,7 @@
 #include "EnemyHellFire.h"
 #include "EnemyRockMassSoul.h"
 #include "EnemyRockMassShell.h"
+#include "EnemyWindMonster.h"
 #include "Map.h"
 #include "Boss.h"
 
@@ -313,7 +314,9 @@ void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera
 		_enemies.push_back( EnemyPtr( new EnemyRockMassSoul( pop_base_x - 25, BASE_POP_Y + 50 ) ) );
 		_enemies.push_back( EnemyPtr( new EnemyRockMassShell( pop_base_x, BASE_POP_Y ) ) );
 	}
-	
+	if ( data & WIND_MONSTER ) {
+		_enemies.push_back( EnemyPtr( new EnemyWindMonster( pop_base_x, BASE_POP_Y ) ) );
+	}
 }
 
 EnemyPtr EnemyManager::getOverlappedEnemy( PsychicPtr pcychic ) {
