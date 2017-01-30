@@ -35,7 +35,7 @@ private:
 		int count;
 	};
 private:
-	void createByField( unsigned int enemy_data,  CameraConstPtr camera );
+	void createByField( unsigned long long enemy_data,  CameraConstPtr camera );
 	void addBomb( const Vector& pos );
 	void drawBomb( CameraConstPtr camera ) const;
 	void updateBomb( );

@@ -196,8 +196,8 @@ void EnemyManager::addEnemy( EnemyPtr enemy ) {
 	_enemies.push_back( enemy );
 }
 
-void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera ) {
-	unsigned int data = enemy_data;
+void EnemyManager::createByField( unsigned long long enemy_data, CameraConstPtr camera ) {
+	unsigned long long data = enemy_data;
 	int camera_pos = 0;
 	if ( camera ) {
 		camera_pos = camera->getX( );
