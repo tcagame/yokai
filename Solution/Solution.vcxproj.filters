@@ -73,6 +73,9 @@
     <ClCompile Include="EnemySkeletonSpear.cpp" />
     <ClCompile Include="Status.cpp" />
     <ClCompile Include="Tarosuke.cpp" />
+<<<<<<< HEAD
+    <ClCompile Include="EnemyBranchMonster.cpp" />
+=======
     <ClCompile Include="EnemyHellFire.cpp" />
     <ClCompile Include="EnemyStock.cpp" />
     <ClCompile Include="EnemyMoth.cpp" />
@@ -127,6 +130,7 @@
     <ClCompile Include="EnemyDeceasedPurple.cpp" />
     <ClCompile Include="EnemyDeceasedGreen.cpp" />
     <ClCompile Include="EnemyRockMassShell.cpp" />
+>>>>>>> eb73c03ee4ba9704bc16f09fe5b99ee1dc3aaffe
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Boss.h" />
@@ -201,6 +205,9 @@
     <ClInclude Include="EnemySkeletonSpear.h" />
     <ClInclude Include="Status.h" />
     <ClInclude Include="Tarosuke.h" />
+<<<<<<< HEAD
+    <ClInclude Include="EnemyBranchMonster.h" />
+=======
     <ClInclude Include="EnemyHellFire.h" />
     <ClInclude Include="EnemyStock.h" />
     <ClInclude Include="EnemyMoth.h" />
@@ -255,5 +262,6 @@
     <ClInclude Include="EnemyDeceasedPurple.h" />
     <ClInclude Include="EnemyDeceasedGreen.h" />
     <ClInclude Include="EnemyRockMassShell.h" />
+>>>>>>> eb73c03ee4ba9704bc16f09fe5b99ee1dc3aaffe
   </ItemGroup>
 </Project>
