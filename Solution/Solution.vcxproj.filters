@@ -126,6 +126,7 @@
     <ClCompile Include="EnemyMiasmaWhite.cpp" />
     <ClCompile Include="EnemyDeceasedPurple.cpp" />
     <ClCompile Include="EnemyDeceasedGreen.cpp" />
+    <ClCompile Include="EnemyRockMassShell.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Boss.h" />
@@ -253,5 +254,6 @@
     <ClInclude Include="EnemyMiasmaWhite.h" />
     <ClInclude Include="EnemyDeceasedPurple.h" />
     <ClInclude Include="EnemyDeceasedGreen.h" />
+    <ClInclude Include="EnemyRockMassShell.h" />
   </ItemGroup>
 </Project>
