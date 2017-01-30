@@ -27,7 +27,7 @@ public:
 	void draw( CameraConstPtr camera ) const;
 	void drawCover( ) const;
 	Collision getCollision( int src_x, int src_y, int dst_x, int dst_y ) const;
-	unsigned int getEnemyData( );
+	unsigned long long getEnemyData( );
 	bool isChip( int x, int y ) const;
 	bool isBlockChip( int x, int y ) const;
 	FLOOR getFloor( int x, int y ) const;
@@ -45,7 +45,7 @@ private:
 	int _scroll_y;
 	int _idx;
 	int _create_idx;
-	unsigned int _enemy_data;
+	unsigned long long _enemy_data;
 	std::list< CloudPtr > _clouds;
 	CloudMgrPtr _cloud_mgr;
 	bool _debug_mapchip;

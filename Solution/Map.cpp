@@ -29,7 +29,7 @@ const char * Map::getCoverFilename( int idx ) const {
 	return _panel[ idx ].cover_filename;
 }
 
-const unsigned int Map::getEnemyData( int idx ) const {
+const unsigned long long Map::getEnemyData( int idx ) const {
 	return _panel[ idx ].enemy;
 }
 

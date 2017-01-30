@@ -89,6 +89,7 @@
     <ClCompile Include="BossBuddha.cpp" />
     <ClCompile Include="BossHag.cpp" />
     <ClCompile Include="BossRedDemon.cpp" />
+    <ClCompile Include="EnemyBat.cpp" />
     <ClCompile Include="EnemyBloodPondDemon.cpp" />
     <ClCompile Include="EnemyBlueMonk.cpp" />
     <ClCompile Include="EnemyBowDemon.cpp" />
@@ -123,6 +124,8 @@
     <ClCompile Include="EnemyRayMonster.cpp" />
     <ClCompile Include="EnemyRockMassShell.cpp" />
     <ClCompile Include="EnemyRockMassSoul.cpp" />
+    <ClCompile Include="EnemyRollOverNeckWoman.cpp" />
+    <ClCompile Include="EnemyStoneMortgage.cpp" />
     <ClCompile Include="EnemyRollOverNeckSkull.cpp" />
     <ClCompile Include="EnemyTreeMonster.cpp" />
     <ClCompile Include="EnemyWaterGhost.cpp" />
@@ -177,6 +180,7 @@
     <ClInclude Include="BossBuddha.h" />
     <ClInclude Include="BossHag.h" />
     <ClInclude Include="BossRedDemon.h" />
+    <ClInclude Include="EnemyBat.h" />
     <ClInclude Include="EnemyBloodPondDemon.h" />
     <ClInclude Include="EnemyBlueMonk.h" />
     <ClInclude Include="EnemyBowDemon.h" />
@@ -212,6 +216,8 @@
     <ClInclude Include="EnemyRayMonster.h" />
     <ClInclude Include="EnemyRockMassShell.h" />
     <ClInclude Include="EnemyRockMassSoul.h" />
+    <ClInclude Include="EnemyRollOverNeckWoman.h" />
+    <ClInclude Include="EnemyStoneMortgage.h" />
     <ClInclude Include="EnemyRollOverNeckSkull.h" />
     <ClInclude Include="EnemyTreeMonster.h" />
     <ClInclude Include="EnemyWaterGhost.h" />

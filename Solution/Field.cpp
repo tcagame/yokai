@@ -280,9 +280,9 @@ Field::Collision Field::getCollision( int src_x, int src_y, int dst_x, int dst_y
 	return collision;
 }
 
-unsigned int Field::getEnemyData( ) {
-	unsigned int enemy_data = _enemy_data;
-	_enemy_data = 0x00000000;
+unsigned long long Field::getEnemyData( ) {
+	unsigned long long enemy_data = _enemy_data;
+	_enemy_data = NONE;
 	return enemy_data;
 }
 

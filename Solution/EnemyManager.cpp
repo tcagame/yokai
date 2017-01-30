@@ -7,6 +7,8 @@
 #include "Tarosuke.h"
 #include "Momotaro.h"
 #include "Psychic.h"
+#include "Boss.h"
+#include "Map.h"
 #include "EnemyStock.h"
 #include "EnemyDeceasedPurple.h"
 #include "EnemyMiasmaWhite.h"
@@ -43,10 +45,11 @@
 #include "EnemyHellFire.h"
 #include "EnemyRockMassSoul.h"
 #include "EnemyRockMassShell.h"
+#include "EnemyRollOverNeckSkull.h"
+#include "EnemyRollOverNeckWoman.h"
 #include "EnemyRayMonster.h"
 #include "EnemyWindMonster.h"
-#include "Map.h"
-#include "Boss.h"
+#include "EnemyBat.h"
 
 static const int BASE_POP_Y = 200;
 static const int POPUP_GROUND = 400;
@@ -195,8 +198,8 @@ void EnemyManager::addEnemy( EnemyPtr enemy ) {
 	_enemies.push_back( enemy );
 }
 
-void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera ) {
-	unsigned int data = enemy_data;
+void EnemyManager::createByField( unsigned long long enemy_data, CameraConstPtr camera ) {
+	unsigned long long data = enemy_data;
 	int camera_pos = 0;
 	if ( camera ) {
 		camera_pos = camera->getX( );
@@ -314,13 +317,22 @@ void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera
 	}
 	if ( data & ROCK_MASS ) {
 		_enemies.push_back( EnemyPtr( new EnemyRockMassSoul( pop_base_x - 25, BASE_POP_Y + 50 ) ) );
-		_enemies.push_back( EnemyPtr( new EnemyRockMassShell( pop_base_x, BASE_POP_Y ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyRockMassShell( _enemy_stock, pop_base_x, BASE_POP_Y ) ) );
 	}
 	if ( data & WIND_MONSTER ) {
 		_enemies.push_back( EnemyPtr( new EnemyWindMonster( pop_base_x, BASE_POP_Y ) ) );
 	}
 	if ( data & RAY_MONSTER ) {
 		_enemies.push_back( EnemyPtr( new EnemyRayMonster( pop_base_x, BASE_POP_Y ) ) );
+	}
+	if ( data & NECK_SKULL ) {
+		_enemies.push_back( EnemyPtr( new EnemyRollOverNeckSkull( pop_base_x, BASE_POP_Y ) ) );
+	}
+	if ( data & NECK_WOMAN ) {
+		_enemies.push_back( EnemyPtr( new EnemyRollOverNeckWoman( pop_base_x, BASE_POP_Y ) ) );
+	}
+	if ( data & BAT ) {
+		_enemies.push_back( EnemyPtr( new EnemyBat( pop_base_x, BASE_POP_Y ) ) );
 	}
 }
 

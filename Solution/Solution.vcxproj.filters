@@ -135,8 +135,11 @@
     <ClCompile Include="EnemyDeceasedGreen.cpp" />
     <ClCompile Include="EnemyRockMassShell.cpp" />
     <ClCompile Include="EnemyRockMassSoul.cpp" />
+    <ClCompile Include="EnemyStoneMortgage.cpp" />
     <ClCompile Include="EnemyRayMonster.cpp" />
     <ClCompile Include="EnemyRollOverNeckSkull.cpp" />
+    <ClCompile Include="EnemyBat.cpp" />
+    <ClCompile Include="EnemyRollOverNeckWoman.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Boss.h" />
@@ -273,7 +276,10 @@
     <ClInclude Include="EnemyDeceasedGreen.h" />
     <ClInclude Include="EnemyRockMassShell.h" />
     <ClInclude Include="EnemyRockMassSoul.h" />
+    <ClInclude Include="EnemyStoneMortgage.h" />
     <ClInclude Include="EnemyRayMonster.h" />
     <ClInclude Include="EnemyRollOverNeckSkull.h" />
+    <ClInclude Include="EnemyBat.h" />
+    <ClInclude Include="EnemyRollOverNeckWoman.h" />
   </ItemGroup>
 </Project>

@@ -30,7 +30,7 @@ public:
 		int marker_x;
 		int marker_y;
 		const char chip[ MAPCHIP_NUM * MAPCHIP_NUM + 1 ];
-		const unsigned int enemy;
+		const unsigned long long enemy;
 	};
 public:
 	Map( const Item * item, const Panel * panel, int panel_num );
@@ -38,7 +38,7 @@ public:
 public:
 	const char * getBgFilename( int idx ) const;
 	const char * getCoverFilename( int idx ) const;
-	const unsigned int getEnemyData( int idx ) const;
+	const unsigned long long getEnemyData( int idx ) const;
 	Vector getMarkerPos( int idx ) const;
 	int getPanelNum( ) const;
 	bool isChip( int bg_idx, int chip_idx ) const;
