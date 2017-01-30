@@ -173,7 +173,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"      -         "
 		"                "
 		"                "
 		"                "
@@ -217,7 +217,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"           -    "
 		"                "
 		"                "
 		"                "
@@ -283,14 +283,14 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"   -            "
 		"                "
 		"                "
 		"                "
 		"                "
 		"################"
 		"################",
-		STONE_ROTE | STONE_FLY | EXTRUDEDSPRITS
+		STONE_ROTE | STONE_FLY
 	},
 	{
 		"street/map2/map2_brownstreet_02.png",
@@ -312,7 +312,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"################"
 		"################",
-		STONE_ROTE
+		STONE_ROTE | STONE_FLY | EXTRUDEDSPRITS
 	},
 	{
 		"street/map2/map2_brownstreet_03.png",
@@ -437,7 +437,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"    -           "
 		"                "
 		"                "
 		"                "
@@ -481,7 +481,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"        -       "
 		"                "
 		"                "
 		"                "
@@ -525,7 +525,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		" -              "
 		"                "
 		"                "
 		"                "
