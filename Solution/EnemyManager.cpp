@@ -315,7 +315,7 @@ void EnemyManager::createByField( unsigned long long enemy_data, CameraConstPtr 
 	}
 	if ( data & ROCK_MASS ) {
 		_enemies.push_back( EnemyPtr( new EnemyRockMassSoul( pop_base_x - 25, BASE_POP_Y + 50 ) ) );
-		_enemies.push_back( EnemyPtr( new EnemyRockMassShell( pop_base_x, BASE_POP_Y ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyRockMassShell( _enemy_stock, pop_base_x, BASE_POP_Y ) ) );
 	}
 	if ( data & WIND_MONSTER ) {
 		_enemies.push_back( EnemyPtr( new EnemyWindMonster( pop_base_x, BASE_POP_Y ) ) );

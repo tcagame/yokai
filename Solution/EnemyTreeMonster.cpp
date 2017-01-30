@@ -17,12 +17,10 @@ EnemyTreeMonster::EnemyTreeMonster( EnemyStockPtr stock, int x, int y ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ) {
 	setChipGraph( GRAPH_ENEMY_TREE_2, 0, 0 );
 	setChipReverse( false );
-	_count++;
-		x = getX( ) + BORN_1_X;
-		y = getY( ) + BORN_1_Y;
-		stock->addEnemy( EnemyPtr( new EnemyBranchMonster( stock,  x, y ) ) );
-	
-
+	_stock = stock;
+	x = getX( ) + BORN_1_X;
+	y = getY( ) + BORN_1_Y;
+	_stock->addEnemy( EnemyPtr( new EnemyBranchMonster( _stock,  x, y ) ) );
 }
 
 
