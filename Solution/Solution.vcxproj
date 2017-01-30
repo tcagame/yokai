@@ -120,6 +120,7 @@
     <ClCompile Include="EnemyMiasmaGray.cpp" />
     <ClCompile Include="EnemyMiasmaWhite.cpp" />
     <ClCompile Include="EnemyOneEyesSnake.cpp" />
+    <ClCompile Include="EnemyRayMonster.cpp" />
     <ClCompile Include="EnemyRockMassShell.cpp" />
     <ClCompile Include="EnemyRockMassSoul.cpp" />
     <ClCompile Include="EnemyTreeMonster.cpp" />
@@ -207,6 +208,7 @@
     <ClInclude Include="EnemyMiasmaGray.h" />
     <ClInclude Include="EnemyMiasmaWhite.h" />
     <ClInclude Include="EnemyOneEyesSnake.h" />
+    <ClInclude Include="EnemyRayMonster.h" />
     <ClInclude Include="EnemyRockMassShell.h" />
     <ClInclude Include="EnemyRockMassSoul.h" />
     <ClInclude Include="EnemyTreeMonster.h" />
