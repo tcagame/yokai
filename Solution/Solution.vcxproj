@@ -114,6 +114,7 @@
     <ClCompile Include="EnemyFlog.cpp" />
     <ClCompile Include="EnemyFlogSmall.cpp" />
     <ClCompile Include="EnemyGrowFace.cpp" />
+    <ClCompile Include="EnemyHandMonster.cpp" />
     <ClCompile Include="EnemyHellFire.cpp" />
     <ClCompile Include="EnemyHugDemon.cpp" />
     <ClCompile Include="EnemyJizo.cpp" />
@@ -206,6 +207,7 @@
     <ClInclude Include="EnemyFlog.h" />
     <ClInclude Include="EnemyFlogSmall.h" />
     <ClInclude Include="EnemyGrowFace.h" />
+    <ClInclude Include="EnemyHandMonster.h" />
     <ClInclude Include="EnemyHellFire.h" />
     <ClInclude Include="EnemyHugDemon.h" />
     <ClInclude Include="EnemyJizo.h" />
