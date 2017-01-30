@@ -43,7 +43,6 @@ void EnemyBranchMonster::actGrow( ) {
 	}
 }
 void EnemyBranchMonster::actAttack( ) {
-
 	const int ANIME[ ] = { 2, 3, 4, 5, 1, 0 };
 	int anime_num = sizeof( ANIME ) / sizeof( ANIME[ 0 ] );
 	int u = ANIME[ _anime_count / WAIT_ANIME_TIME % anime_num ];
@@ -53,6 +52,5 @@ void EnemyBranchMonster::actAttack( ) {
 			_stock->addEnemy( EnemyPtr( new EnemyBranchMonsterAttack( getX( ) - 40, getY( ) - ATTACK_FOOT ) ) );
 		}
 	}
-
 	setChipGraph( GRAPH_ENEMY_NOMAL, u, v );
 }
