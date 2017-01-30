@@ -19,9 +19,9 @@ void EnemyGhoul::act( ) {
 	setAccelX( -MOVE_SPEED );
 
 	const int MAX_ANIME_PATTERN = 4;
-	const int v = 12;
+	const int v = 10;
 	_count++;
 	_count %= WAIT_ANIME_TIME * MAX_ANIME_PATTERN;
-	int pattern = _count / WAIT_ANIME_TIME % ( MAX_ANIME_PATTERN - 1 ) + 8;
+	int pattern = _count / WAIT_ANIME_TIME % MAX_ANIME_PATTERN;
 	setChipGraph( GRAPH_ENEMY_NOMAL, pattern, v );
 }

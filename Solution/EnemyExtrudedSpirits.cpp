@@ -32,7 +32,7 @@ void EnemyExtrudedSpirits::actMove( ) {
 void EnemyExtrudedSpirits::updateChip( ) {
 	const int MAX_ANIME_PATTERN = 2;
 	const int ANIME_PATTERN_START = 2;
-	const int v = 13;
+	const int v = 8;
 	_count++;
 	_count %= WAIT_ANIME_TIME * MAX_ANIME_PATTERN;
 	int pattern = _count / WAIT_ANIME_TIME % MAX_ANIME_PATTERN + ANIME_PATTERN_START;
