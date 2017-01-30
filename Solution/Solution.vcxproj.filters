@@ -144,11 +144,8 @@
     <ClInclude Include="EnemyBlueMonk.h" />
     <ClInclude Include="EnemyBowDemonAttack.h" />
     <ClInclude Include="EnemyOneEyesSnake.h" />
-<<<<<<< HEAD
     <ClInclude Include="EnemyTreeMonster.h" />
-=======
     <ClInclude Include="EnemyMiasmaWhite.h" />
     <ClInclude Include="EnemyDeceasedPurple.h" />
->>>>>>> 9f7287975d5280f5dd76f17321c7fa8f7c8e0942
   </ItemGroup>
 </Project>
