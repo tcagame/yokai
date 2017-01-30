@@ -77,6 +77,7 @@
     <ClCompile Include="EnemySkeletonSpear.cpp" />
     <ClCompile Include="Status.cpp" />
     <ClCompile Include="Tarosuke.cpp" />
+    <ClCompile Include="EnemyBranchMonsterAttack.cpp" />
     <ClCompile Include="EnemyWindMonster.cpp" />
     <ClCompile Include="EnemyBranchMonster.cpp" />
     <ClCompile Include="EnemyHellFire.cpp" />
@@ -135,6 +136,8 @@
     <ClCompile Include="EnemyRockMassShell.cpp" />
     <ClCompile Include="EnemyRockMassSoul.cpp" />
     <ClCompile Include="EnemyStoneMortgage.cpp" />
+    <ClCompile Include="EnemyRayMonster.cpp" />
+    <ClCompile Include="EnemyRollOverNeckSkull.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Boss.h" />
@@ -213,6 +216,7 @@
     <ClInclude Include="EnemySkeletonSpear.h" />
     <ClInclude Include="Status.h" />
     <ClInclude Include="Tarosuke.h" />
+    <ClInclude Include="EnemyBranchMonsterAttack.h" />
     <ClInclude Include="EnemyWindMonster.h" />
     <ClInclude Include="EnemyBranchMonster.h" />
     <ClInclude Include="EnemyHellFire.h" />
@@ -271,5 +275,7 @@
     <ClInclude Include="EnemyRockMassShell.h" />
     <ClInclude Include="EnemyRockMassSoul.h" />
     <ClInclude Include="EnemyStoneMortgage.h" />
+    <ClInclude Include="EnemyRayMonster.h" />
+    <ClInclude Include="EnemyRollOverNeckSkull.h" />
   </ItemGroup>
 </Project>

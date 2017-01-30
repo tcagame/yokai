@@ -4,12 +4,12 @@
 
 class EnemyBranchMonster: public Enemy {
 public:
-	EnemyBranchMonster( int x, int y );
+	EnemyBranchMonster( EnemyStockPtr stock, int x, int y );
 	virtual ~EnemyBranchMonster( );
 private:
-	void actGrow( );
 	void act( );
-
+	void actGrow( );
+	void actAttack( );
 private:
 	enum ACTION {
 		ACTION_GROW,
@@ -20,6 +20,8 @@ private:
 	int _anime_count;
 	int _y;
 	int _action;
+	int _count;
+	EnemyStockPtr _stock;
 };
 
 

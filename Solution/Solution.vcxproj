@@ -99,6 +99,7 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyBowDemonAttack.cpp" />
     <ClCompile Include="EnemyBranchMonster.cpp" />
+    <ClCompile Include="EnemyBranchMonsterAttack.cpp" />
     <ClCompile Include="EnemyCrow.cpp" />
     <ClCompile Include="EnemyCrocodileSnake.cpp" />
     <ClCompile Include="EnemyDeceasedFirst.cpp" />
@@ -119,9 +120,11 @@
     <ClCompile Include="EnemyMiasmaGray.cpp" />
     <ClCompile Include="EnemyMiasmaWhite.cpp" />
     <ClCompile Include="EnemyOneEyesSnake.cpp" />
+    <ClCompile Include="EnemyRayMonster.cpp" />
     <ClCompile Include="EnemyRockMassShell.cpp" />
     <ClCompile Include="EnemyRockMassSoul.cpp" />
     <ClCompile Include="EnemyStoneMortgage.cpp" />
+    <ClCompile Include="EnemyRollOverNeckSkull.cpp" />
     <ClCompile Include="EnemyTreeMonster.cpp" />
     <ClCompile Include="EnemyWaterGhost.cpp" />
     <ClCompile Include="EnemyGhoul.cpp" />
@@ -186,6 +189,7 @@
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyBowDemonAttack.h" />
     <ClInclude Include="EnemyBranchMonster.h" />
+    <ClInclude Include="EnemyBranchMonsterAttack.h" />
     <ClInclude Include="EnemyCrow.h" />
     <ClInclude Include="EnemyCrocodileSnake.h" />
     <ClInclude Include="EnemyDeceasedFirst.h" />
@@ -206,9 +210,11 @@
     <ClInclude Include="EnemyMiasmaGray.h" />
     <ClInclude Include="EnemyMiasmaWhite.h" />
     <ClInclude Include="EnemyOneEyesSnake.h" />
+    <ClInclude Include="EnemyRayMonster.h" />
     <ClInclude Include="EnemyRockMassShell.h" />
     <ClInclude Include="EnemyRockMassSoul.h" />
     <ClInclude Include="EnemyStoneMortgage.h" />
+    <ClInclude Include="EnemyRollOverNeckSkull.h" />
     <ClInclude Include="EnemyTreeMonster.h" />
     <ClInclude Include="EnemyWaterGhost.h" />
     <ClInclude Include="EnemyGhoul.h" />

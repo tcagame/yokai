@@ -48,7 +48,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"################"
 		"################",
-		NONE
+		GHOUL
 	},
 	{
 		"street/map3/bg/map3_00_02.png",
@@ -70,7 +70,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"################"
 		"################",
-		NONE
+		DECEASED_PURPLE | HELL_FIRE
 	},
 	{
 		"street/map3/bg/map3_00_04.png",
@@ -92,7 +92,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"################"
 		"################",
-		NONE
+		FLOG_SMALL
 	},
 	{
 		"street/map3/bg/map3_00_05.png",
@@ -114,7 +114,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"################"
 		"################",
-		NONE
+		STONE_ROTE | HUG_DEMON | BOW_DEMON
 	},
 	{
 		"street/map3/bg/map3_00_06.png",
@@ -136,7 +136,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"################"
 		"################",
-		NONE
+		STONE_ROTE | STONE_FLY | EXTRUDEDSPRITS | HUG_DEMON
 	},
 	{
 		"street/map3/bg/map3_00_07.png",
@@ -158,7 +158,7 @@ static const Map::Panel panel[] = {
 		"              ##"
 		"################"
 		"################",
-		NONE
+		DECEASED_GREEN | BOW_DEMON | HELL_FIRE
 	},
 	{
 		"street/map3/bg/map3_00_09.png",
@@ -180,7 +180,7 @@ static const Map::Panel panel[] = {
 		"################"
 		"################"
 		"################",
-		NONE
+		HELL_FIRE | EXTRUDEDSPRITS
 	},
 	{
 		"street/map3/bg/map3_00_10.png",
@@ -199,7 +199,7 @@ static const Map::Panel panel[] = {
 		"########        "
 		"########        "
 		"########        "
-		"########~~~~~~~~"
+		"########++++++++"
 		"################"
 		"################",
 		NONE
@@ -221,10 +221,10 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"~~~~~~~~~~~~~~~~"
+		"++++++++++++++++"
 		"################"
 		"################",
-		NONE
+		BLOOD_POND_DEMON
 	},
 	{
 		"street/map3/bg/map3_00_12.png",
@@ -268,7 +268,7 @@ static const Map::Panel panel[] = {
 		"################"
 		"################"
 		"################",
-		NONE
+		STONE_ROTE | STONE_FLY
 	},
 	{
 		"street/map3/bg/map3_00_14.png",
@@ -290,7 +290,7 @@ static const Map::Panel panel[] = {
 		"################"
 		"################"
 		"################",
-		NONE
+		EXTRUDEDSPRITS | HELL_FIRE
 	},
 	{
 		"street/map3/bg/map3_00_15.png",
@@ -312,7 +312,7 @@ static const Map::Panel panel[] = {
 		"################"
 		"################"
 		"################",
-		NONE
+		HELL_FIRE | STONE_FLY
 	},
 	{
 		"street/map3/bg/map3_00_16.png",
@@ -334,7 +334,7 @@ static const Map::Panel panel[] = {
 		"################"
 		"################"
 		"################",
-		NONE
+		MOTH | MIASMA_WHITE | HELL_FIRE
 	},
 	{
 		"street/map3/bg/map3_00_17.png",
@@ -378,7 +378,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"################"
 		"################",
-		NONE
+		STONE_FLY
 	},
 	{
 		"street/map3/bg/map3_00_19.png",
@@ -400,7 +400,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"################"
 		"################",
-		NONE
+		HELL_FIRE | EXTRUDEDSPRITS
 	},
 	{
 		"street/map3/bg/map3_00_20.png",
@@ -422,7 +422,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"################"
 		"################",
-		NONE
+		TREE_MONSTER
 	},
 	{
 		"street/map3/bg/map3_00_21.png",
@@ -488,7 +488,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"################"
 		"################",
-		NONE
+		FLOG_SMALL | HELL_FIRE | STONE_FLY
 	},
 	{
 		"street/map3/bg/map3_00_24.png",
@@ -510,7 +510,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"################"
 		"################",
-		NONE
+		STONE_FLY | MOTH | FLOG
 	},
 	{
 		"street/map3/bg/map3_00_25.png",
@@ -532,7 +532,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"################"
 		"################",
-		NONE
+		MIASMA_GRAY
 	},
 	{
 		"street/map3/bg/map3_00_26.png",
@@ -554,7 +554,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"################"
 		"################",
-		NONE
+		GHOUL | EXTRUDEDSPRITS
 	},
 	{
 		"street/map3/bg/map3_00_27.png",
@@ -576,7 +576,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"################"
 		"################",
-		NONE
+		ONYUDO
 	},
 	{
 		"street/map3/bg/map3_00_28.png",
@@ -598,7 +598,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"################"
 		"################",
-		NONE
+		BOW_DEMON | CROCODILE_SNAKE
 	},
 	{
 		"street/map3/bg/map3_00_29.png",
@@ -620,7 +620,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"################"
 		"################",
-		NONE
+		MIASMA_GRAY | FLOG_SMALL | DECEASED_PURPLE
 	},
 	{
 		"street/map3/bg/map3_00_30.png",
@@ -642,7 +642,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"###############~"
 		"################",
-		NONE
+		STONE_ROTE | BOW_DEMON
 	},
 	{
 		"street/map3/bg/map3_00_31.png",
