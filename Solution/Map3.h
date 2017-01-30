@@ -7,4 +7,3 @@ public:
 	Map3( );
 	virtual ~Map3( );
 };
-

@@ -2,13 +2,13 @@
 
 static const int WAIT_ANIME_TIME = 2;
 static const int CHIP_SIZE = 128;
-static const int CHIP_FOOT = 0;
+static const int CHIP_FOOT = -60;
 static const int HP  = 10;
 static const int POW = 3;
 static const int MAX_ANIME_PATTERN = 8;
 
 EnemyRockMassSoul::EnemyRockMassSoul( int x, int y ) :
-Enemy( x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ),
+Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),
 _count( 0 ) {
 }
 
