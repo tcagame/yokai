@@ -8,7 +8,7 @@ const int CHARA_MOVE_RATIO = 10;
 const int GRAVITY_POWER = 3;
 
 const unsigned int NONE				= 0x00000000;	//‚È‚µ
-const unsigned int PURPLE			= 0x00000001;	//–SÒi‡j
+const unsigned int DECEASED_PURPLE	= 0x00000001;	//–SÒi‡j
 const unsigned int REDBIRD			= 0x00000002;	//g’¹
 const unsigned int MOTH				= 0x00000004;	//‰é
 const unsigned int TREE				= 0x00000008;	//l–Ê÷
@@ -33,6 +33,7 @@ const unsigned int HUG_DEMON		= 0x00200000;	//•ø‚«‚Â‚«‹S
 const unsigned int BLOOD_POND_DEMON	= 0x00400000;	//ŒŒ‚Ì’r‚Ì‹S
 const unsigned int BLUE_MONK		= 0x00800000;	//Â–Vå
 const unsigned int ONE_EYES_SNAKE	= 0x01000000;	//ˆê‚Â–ÚÖ
+const unsigned int MIYASMA_WHITE	= 0x02000000;	//“Å‹C(”’F)
 
 enum GRAPH {
 	GRAPH_FADE_BOARD,

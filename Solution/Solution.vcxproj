@@ -121,7 +121,7 @@
     <ClCompile Include="EnemyManager.cpp" />
     <ClCompile Include="EnemyMoth.cpp" />
     <ClCompile Include="EnemyOnyudo.cpp" />
-    <ClCompile Include="EnemyPurpleYokai.cpp" />
+    <ClCompile Include="EnemyDeceasedPurple.cpp" />
     <ClCompile Include="EnemyRedbird.cpp" />
     <ClCompile Include="EnemyRedbirdAttack.cpp" />
     <ClCompile Include="EnemyStock.cpp" />
@@ -200,7 +200,7 @@
     <ClInclude Include="EnemyManager.h" />
     <ClInclude Include="EnemyMoth.h" />
     <ClInclude Include="EnemyOnyudo.h" />
-    <ClInclude Include="EnemyPurpleYokai.h" />
+    <ClInclude Include="EnemyDeceasedPurple.h" />
     <ClInclude Include="EnemyRedbird.h" />
     <ClInclude Include="EnemyRedbirdAttack.h" />
     <ClInclude Include="EnemyStock.h" />

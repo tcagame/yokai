@@ -6,7 +6,6 @@
     <ClCompile Include="Cloud.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyManager.cpp" />
-    <ClCompile Include="EnemyPurpleYokai.cpp" />
     <ClCompile Include="EnemyRedbird.cpp" />
     <ClCompile Include="EnemyRedbirdAttack.cpp" />
     <ClCompile Include="Field.cpp" />
@@ -72,6 +71,7 @@
     <ClCompile Include="EnemyBowDemonAttack.cpp" />
     <ClCompile Include="EnemyOneEyesSnake.cpp" />
     <ClCompile Include="EnemyMiasmaWhite.cpp" />
+    <ClCompile Include="EnemyDeceasedPurple.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
@@ -80,7 +80,6 @@
     <ClInclude Include="define.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyManager.h" />
-    <ClInclude Include="EnemyPurpleYokai.h" />
     <ClInclude Include="EnemyRedbird.h" />
     <ClInclude Include="EnemyRedbirdAttack.h" />
     <ClInclude Include="Field.h" />
@@ -145,5 +144,6 @@
     <ClInclude Include="EnemyBowDemonAttack.h" />
     <ClInclude Include="EnemyOneEyesSnake.h" />
     <ClInclude Include="EnemyMiasmaWhite.h" />
+    <ClInclude Include="EnemyDeceasedPurple.h" />
   </ItemGroup>
 </Project>

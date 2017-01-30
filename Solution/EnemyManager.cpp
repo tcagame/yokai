@@ -8,7 +8,7 @@
 #include "Momotaro.h"
 #include "Psychic.h"
 #include "EnemyStock.h"
-#include "EnemyPurpleYokai.h"
+#include "EnemyDeceasedPurple.h"
 #include "EnemyRedbird.h"
 #include "EnemyRedbirdAttack.h"
 #include "EnemyMoth.h"
@@ -42,9 +42,9 @@
 
 static const int BASE_POP_Y = 200;
 static const int POPUP_GROUND = 400;
-static const int PURPLE_POP_NUM = 5;
+static const int DECEASED_PURPLE_POP_NUM = 5;
 static const int REDBIRD_POP_Y = 250;
-static const int PURPLE_POP_Y = 100;
+static const int DECEASED_PURPLE_POP_Y = 100;
 static const int MOTH_POP_Y = 230;
 static const int BOMB_COUNT = 16;
 static const int BOMB_SIZE = 256;
@@ -196,9 +196,9 @@ void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera
 		_enemies.push_back( EnemyPtr( new EnemyRedbird( _enemy_stock, pop_base_x - BG_SIZE * 2, REDBIRD_POP_Y ) ) );
 	}
 
-	if ( data & PURPLE ) {
-		for ( int i = 0; i < PURPLE_POP_NUM; i++ ) {
-			_enemies.push_back( EnemyPtr( new EnemyPurpleYokai( pop_base_x + ( i * 100 ), PURPLE_POP_Y ) ) );
+	if ( data & DECEASED_PURPLE ) {
+		for ( int i = 0; i < DECEASED_PURPLE_POP_NUM; i++ ) {
+			_enemies.push_back( EnemyPtr( new EnemyDeceasedPurple( pop_base_x + ( i * 100 ), DECEASED_PURPLE_POP_Y ) ) );
 		}
 	}
 	if ( data & MOTH ) {

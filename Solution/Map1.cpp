@@ -48,7 +48,7 @@ static const Map::Panel panel[] = {
 		"         #######"
 		"################"
 		"################",
-		PURPLE | REDBIRD
+		DECEASED_PURPLE | REDBIRD
 	},
 	{//2
 		"street/map1/bg/map1_02.png",
@@ -620,7 +620,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"################"
 		"################",
-		PURPLE | REDBIRD
+		DECEASED_PURPLE | REDBIRD
 	},
 	{//28
 		"street/map1/bg/map1_27.png",
