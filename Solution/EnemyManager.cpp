@@ -258,7 +258,7 @@ void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera
 		_enemies.push_back( EnemyPtr( new EnemyEyeSpector( pop_base_x, BASE_POP_Y - 100 ) ) );
 	}
 	if ( data & BOW_DEMON ) {
-		_enemies.push_back( EnemyPtr( new EnemyBowDemon( pop_base_x, BASE_POP_Y ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyBowDemon( _enemy_stock, pop_base_x, BASE_POP_Y ) ) );
 	}
 	if ( data & CROCODILE_SNAKE ) {
 		_enemies.push_back( EnemyPtr( new EnemyCrocodileSnake( pop_base_x, BASE_POP_Y ) ) );
