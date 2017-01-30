@@ -51,7 +51,7 @@
 #include "EnemyWindMonster.h"
 #include "EnemyBat.h"
 #include "EnemyHandMonster.h"
-#include "EnemyNoFace.h"
+//#include "EnemyNoFace.h"
 #include "EnemyNoNeckGhost.h"
 
 static const int BASE_POP_Y = 200;
@@ -341,7 +341,7 @@ void EnemyManager::createByField( unsigned long long enemy_data, CameraConstPtr 
 		_enemies.push_back( EnemyPtr( new EnemyHandMonster( pop_base_x, BASE_POP_Y ) ) );
 	}
 	if ( data & NO_FACE ) {
-		_enemies.push_back( EnemyPtr( new EnemyNoFace( pop_base_x, BASE_POP_Y ) ) );
+	//	_enemies.push_back( EnemyPtr( new EnemyNoFace( pop_base_x, BASE_POP_Y ) ) );
 	}
 
 	if ( data & NO_NECK_GHOST ) {
