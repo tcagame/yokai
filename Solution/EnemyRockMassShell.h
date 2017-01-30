@@ -7,5 +7,7 @@ public:
 	virtual ~EnemyRockMassShell( );
 private:
 	void act( );
+private:
+	int _act_count;
 };
 
