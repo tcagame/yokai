@@ -50,6 +50,7 @@
 #include "EnemyRayMonster.h"
 #include "EnemyWindMonster.h"
 #include "EnemyBat.h"
+#include "EnemyHandMonster.h"
 
 static const int BASE_POP_Y = 200;
 static const int POPUP_GROUND = 400;
@@ -333,6 +334,9 @@ void EnemyManager::createByField( unsigned long long enemy_data, CameraConstPtr 
 	}
 	if ( data & BAT ) {
 		_enemies.push_back( EnemyPtr( new EnemyBat( pop_base_x, BASE_POP_Y ) ) );
+	}
+	if ( data & HAND ) {
+		_enemies.push_back( EnemyPtr( new EnemyHandMonster( pop_base_x, BASE_POP_Y ) ) );
 	}
 }
 
