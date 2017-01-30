@@ -71,6 +71,7 @@
     <ClCompile Include="EnemyBlueMonk.cpp" />
     <ClCompile Include="EnemyBowDemonAttack.cpp" />
     <ClCompile Include="EnemyOneEyesSnake.cpp" />
+    <ClCompile Include="EnemyMiasmaWhite.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
@@ -143,5 +144,6 @@
     <ClInclude Include="EnemyBlueMonk.h" />
     <ClInclude Include="EnemyBowDemonAttack.h" />
     <ClInclude Include="EnemyOneEyesSnake.h" />
+    <ClInclude Include="EnemyMiasmaWhite.h" />
   </ItemGroup>
 </Project>
