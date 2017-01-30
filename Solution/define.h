@@ -14,7 +14,7 @@ const unsigned int MIASMA_GRAY		= 0x00000004;	//毒気(灰色)
 const unsigned int REDBIRD			= 0x00000008;	//紅鳥
 const unsigned int MOTH				= 0x00000010;	//蛾
 const unsigned int TREE				= 0x00000020;	//人面樹
-const unsigned int GROW_FACE        = 0x00000040;	//人面樹から成る顔
+const unsigned int TREE_MONSTER     = 0x00000040;	//樹妖
 const unsigned int FLOG				= 0x00000080;	//ガマ
 const unsigned int FLOG_SMALL		= 0x00000100;	//ミニガエル
 const unsigned int DECEASED			= 0x00000200;	//沼の亡者
@@ -60,6 +60,7 @@ enum GRAPH {
 	GRAPH_ENEMY_SMALL,
 	GRAPH_ENEMY_BIG,
 	GRAPH_ENEMY_TREE,
+	GRAPH_ENEMY_TREE_2,
 	GRAPH_ENEMY_FIREBALL,
 	GRAPH_ENEMY_FLOG,
 	GRAPH_ENEMY_EFFECT_NOMAL,

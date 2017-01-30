@@ -38,6 +38,7 @@
 #include "EnemyBloodPondDemon.h"
 #include "EnemyBlueMonk.h"
 #include "EnemyOneEyesSnake.h"
+#include "EnemyTreeMonster.h"
 #include "Map.h"
 #include "Boss.h"
 
@@ -209,6 +210,9 @@ void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera
 
 	if ( data & TREE ) {
 		_enemies.push_back( EnemyPtr( new EnemyTree( _enemy_stock, pop_base_x, POPUP_GROUND ) ) );
+	}
+	if ( data & TREE_MONSTER ) {
+		_enemies.push_back( EnemyPtr( new EnemyTreeMonster( _enemy_stock, pop_base_x, POPUP_GROUND ) ) );
 	}
 	
 	if ( data & DECEASED ) {

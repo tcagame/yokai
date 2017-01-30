@@ -180,7 +180,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                ",
-		GROW_FACE | MIASMA_GRAY
+		MIASMA_GRAY
 	},
 	{//47
 		"street/map0/bg/map0_06_00.png",
@@ -289,7 +289,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"################"
 		"################",
-		TREE
+		TREE_MONSTER
 	},
 	{//48
 		"street/map0/bg/event_06_00.png",
