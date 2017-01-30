@@ -43,6 +43,7 @@
 #include "EnemyHellFire.h"
 #include "EnemyRockMassSoul.h"
 #include "EnemyRockMassShell.h"
+#include "EnemyRayMonster.h"
 #include "EnemyWindMonster.h"
 #include "Map.h"
 #include "Boss.h"
@@ -316,6 +317,9 @@ void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera
 	}
 	if ( data & WIND_MONSTER ) {
 		_enemies.push_back( EnemyPtr( new EnemyWindMonster( pop_base_x, BASE_POP_Y ) ) );
+	}
+	if ( data & RAY_MONSTER ) {
+		_enemies.push_back( EnemyPtr( new EnemyRayMonster( pop_base_x, BASE_POP_Y ) ) );
 	}
 }
 
