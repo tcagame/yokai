@@ -1,14 +1,15 @@
 #pragma once
+
 #include "Enemy.h"
 
-class EnemyGrowFace : public Enemy{
+class EnemyBranchMonster: public Enemy {
 public:
-	EnemyGrowFace( int x, int y );
-	virtual ~EnemyGrowFace( );
+	EnemyBranchMonster( int x, int y );
+	virtual ~EnemyBranchMonster( );
 private:
-	void act( );
 	void actGrow( );
-	void actAttack( );
+	void act( );
+
 private:
 	enum ACTION {
 		ACTION_GROW,
@@ -20,4 +21,5 @@ private:
 	int _y;
 	int _action;
 };
+
 
