@@ -5,7 +5,7 @@ static const Map::Item item = {
 	Map::BOSS_HAG
 };
 
-static const Map::Panel panel[] = {/*
+static const Map::Panel panel[] = {
 	{
 		"street/map2/map2_start_00.png",
 		"",
@@ -555,7 +555,7 @@ static const Map::Panel panel[] = {/*
 		"################"
 		"################",
 		NONE
-	},*/
+	},
 	{
 		"street/map2/map2_gravel0.png",
 		"",
