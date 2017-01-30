@@ -40,7 +40,8 @@ const unsigned long long ROCK_MASS			= 0x0000000010000000;	//岩の塊(魂&外殻)
 const unsigned long long WIND_MONSTER		= 0x0000000020000000;	//風の妖怪
 const unsigned long long RAY_MONSTER		= 0x0000000040000000;	//化けエイ
 const unsigned long long NECK_SKULL			= 0x0000000080000000;	//飛頭蛮（ドクロ）
-const unsigned long long BAT				= 0x0000000100000000;	//コウモリ
+const unsigned long long NECK_WOMAN			= 0x0000000100000000;	//飛頭蛮（女）
+const unsigned long long BAT				= 0x0000000200000000;	//コウモリ
 
 enum GRAPH {
 	GRAPH_FADE_BOARD,

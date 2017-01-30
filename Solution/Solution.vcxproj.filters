@@ -139,6 +139,7 @@
     <ClCompile Include="EnemyRayMonster.cpp" />
     <ClCompile Include="EnemyRollOverNeckSkull.cpp" />
     <ClCompile Include="EnemyBat.cpp" />
+    <ClCompile Include="EnemyRollOverNeckWoman.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Boss.h" />
@@ -279,5 +280,6 @@
     <ClInclude Include="EnemyRayMonster.h" />
     <ClInclude Include="EnemyRollOverNeckSkull.h" />
     <ClInclude Include="EnemyBat.h" />
+    <ClInclude Include="EnemyRollOverNeckWoman.h" />
   </ItemGroup>
 </Project>
