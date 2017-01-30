@@ -4,11 +4,31 @@ static const int CHIP_SIZE = 256;
 static const int CHIP_FOOT = 0;
 static const int HP = 4;
 static const int POW = 1;
+static const int WAIT_ANIME_TIME = 3;
+static const int MOVE_SPEED = 10;
 
 EnemyWindMonster::EnemyWindMonster( int x, int y ) :
-Enemy( x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ) {
+Enemy( x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ),
+_act_count( 0 ) {
 }
 
 
 EnemyWindMonster::~EnemyWindMonster( ) {
+}
+
+void EnemyWindMonster::act( ) {
+	setAccelX( -MOVE_SPEED );
+	const int WIDTH_NUM = 5;
+	const int ANIME[ ] = {	0, 1, 2, 3, 4,
+							3, 2, 1, 0, 1,
+							2, 3, 4, 3, 2,
+							1, 0, 1, 2, 3,
+							4, 5, 6, 7, 8,
+							9, 8, 7, 6, 5,
+							4, 3, 2, 1 };
+	int anime_num = sizeof( ANIME ) / sizeof( ANIME[ 0 ] );
+	int u = ANIME[ _act_count / WAIT_ANIME_TIME % anime_num ] % WIDTH_NUM;
+	int v = ANIME[ _act_count / WAIT_ANIME_TIME % anime_num ] / WIDTH_NUM + 1;
+	setChipGraph( GRAPH_ENEMY_BIG, u, v );
+	_act_count++;
 }
