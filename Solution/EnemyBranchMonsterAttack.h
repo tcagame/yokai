@@ -9,4 +9,5 @@ private:
 	void act( );
 private:
 	int _anime_count;
+	int _jump_power;
 };
