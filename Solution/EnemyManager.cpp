@@ -299,7 +299,7 @@ void EnemyManager::createByField( unsigned long long enemy_data, CameraConstPtr 
 		_enemies.push_back( EnemyPtr( new EnemyHugDemon( pop_base_x, BASE_POP_Y ) ) );
 	}
 	if ( data & BLOOD_POND_DEMON ) {
-		_enemies.push_back( EnemyPtr( new EnemyBloodPondDemon( pop_base_x, BASE_POP_Y + 200 ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyBloodPondDemon( _enemy_stock, pop_base_x, BASE_POP_Y + 200 ) ) );
 	}
 	if ( data & BLUE_MONK ) {
 		_enemies.push_back( EnemyPtr( new EnemyBlueMonk( pop_base_x, BASE_POP_Y ) ) );

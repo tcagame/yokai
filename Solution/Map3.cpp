@@ -30,7 +30,7 @@ static const Map::Panel panel[] = {
 	},
 	{
 		"street/map3/bg/map3_00_01.png",
-		"",
+		"street/map3/cover/bg_cover.png",
 		70, 110,
 		"                "
 		"                "
@@ -227,7 +227,7 @@ static const Map::Panel panel[] = {
 		BLOOD_POND_DEMON
 	},
 	{
-		"street/map3/bg/map3_00_12.png",
+		"street/map3/bg/bloodstairs.png",
 		"",
 		190, 130,
 		"                "
@@ -243,13 +243,13 @@ static const Map::Panel panel[] = {
 		"                "
 		"              ##"
 		"            ####"
-		"          ######"
+		"+++++++++#######"
 		"################"
 		"################",
 		NONE
 	},
 	{
-		"street/map3/bg/map3_00_13.png",
+		"street/map3/bg/map3_00_13_test.png",
 		"",
 		0, 0,
 		"                "
@@ -448,7 +448,7 @@ static const Map::Panel panel[] = {
 	},
 	{
 		"street/map3/bg/map3_00_22.png",
-		"",
+		"street/map3/cover/tree_1.png",
 		0, 0,
 		"                "
 		"                "
@@ -470,7 +470,7 @@ static const Map::Panel panel[] = {
 	},
 	{
 		"street/map3/bg/map3_00_23.png",
-		"",
+		"street/map3/cover/tree_2.png",
 		0, 0,
 		"                "
 		"                "
@@ -684,7 +684,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"~~~~~###########"
+		"~~~~############"
 		"################",
 		NONE
 	},
@@ -725,9 +725,9 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
-		"                "
-		"                "
+		"       #########"
+		"       #########"
+		"       #########"
 		"################"
 		"################",
 		NONE
@@ -747,9 +747,9 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
-		"                "
-		"                "
+		"   #############"
+		"   #############"
+		"   #############"
 		"################"
 		"################",
 		NONE
