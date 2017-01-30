@@ -5,7 +5,7 @@ static const Map::Item item = {
 	Map::BOSS_ENMA
 };
 
-static const Map::Panel panel[] = {/*
+static const Map::Panel panel[] = {
 	{
 		"street/map3/bg/map3_00_00.png",
 		"",
@@ -665,7 +665,7 @@ static const Map::Panel panel[] = {/*
 		"~~~~~~~~~~~~~~~~"
 		"################",
 		NONE
-	},*/
+	},
 	{
 		"street/map3/bg/map3_00_32.png",
 		"",
