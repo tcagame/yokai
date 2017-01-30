@@ -38,11 +38,8 @@
 #include "EnemyBloodPondDemon.h"
 #include "EnemyBlueMonk.h"
 #include "EnemyOneEyesSnake.h"
-<<<<<<< HEAD
 #include "EnemyDeceasedGreen.h"
-=======
 #include "EnemyTreeMonster.h"
->>>>>>> 4c64e7ad1a4114dc58ea3ab3762aa38fb345068c
 #include "Map.h"
 #include "Boss.h"
 
