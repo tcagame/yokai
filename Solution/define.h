@@ -14,7 +14,7 @@ const unsigned int MIASMA_GRAY		= 0x00000004;	//“Å‹C(ŠDF)
 const unsigned int REDBIRD			= 0x00000008;	//g’¹
 const unsigned int MOTH				= 0x00000010;	//‰é
 const unsigned int TREE				= 0x00000020;	//l–Ê÷
-const unsigned int GROW_FACE        = 0x00000040;	//l–Ê÷‚©‚ç¬‚éŠç
+const unsigned int TREE_MONSTER     = 0x00000040;	//÷—d
 const unsigned int FLOG				= 0x00000080;	//ƒKƒ}
 const unsigned int FLOG_SMALL		= 0x00000100;	//ƒ~ƒjƒKƒGƒ‹
 const unsigned int DECEASED			= 0x00000200;	//À‚Ì–SÒ
@@ -32,8 +32,14 @@ const unsigned int BOW_DEMON        = 0x00100000;	//‹|‹S
 const unsigned int HUG_DEMON		= 0x00200000;	//•ø‚«‚Â‚«‹S
 const unsigned int BLOOD_POND_DEMON	= 0x00400000;	//ŒŒ‚Ì’r‚Ì‹S
 const unsigned int BLUE_MONK		= 0x00800000;	//Â–Vå
+<<<<<<< HEAD
+const unsigned int ONE_EYES_SNAKE	= 0x01000000;	//ˆê‚Â–ÚÖ
+const unsigned int MIYASMA_WHITE	= 0x02000000;	//“Å‹C(”’F)
+const unsigned int DECEASED_GREEN	= 0x04000000;	//–SÒi—Îj
+=======
 const unsigned int CROCODILE_SNAKE	= 0x01000000;	//ƒƒjÖ
 const unsigned int ONE_EYES_SNAKE	= 0x02000000;	//ˆê‚Â–ÚÖ
+>>>>>>> 4c64e7ad1a4114dc58ea3ab3762aa38fb345068c
 
 enum GRAPH {
 	GRAPH_FADE_BOARD,
@@ -60,6 +66,7 @@ enum GRAPH {
 	GRAPH_ENEMY_SMALL,
 	GRAPH_ENEMY_BIG,
 	GRAPH_ENEMY_TREE,
+	GRAPH_ENEMY_TREE_2,
 	GRAPH_ENEMY_FIREBALL,
 	GRAPH_ENEMY_FLOG,
 	GRAPH_ENEMY_EFFECT_NOMAL,
