@@ -12,3 +12,7 @@ Enemy( x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ) {
 
 EnemyHellFire::~EnemyHellFire( ) {
 }
+
+
+void EnemyHellFire::act( ) {
+}

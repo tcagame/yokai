@@ -5,4 +5,6 @@ class EnemyHellFire : public Enemy {
 public:
 	EnemyHellFire( int x, int y );
 	virtual ~EnemyHellFire( );
+private:
+	void act( );
 };

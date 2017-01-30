@@ -40,6 +40,7 @@
 #include "EnemyOneEyesSnake.h"
 #include "EnemyDeceasedGreen.h"
 #include "EnemyTreeMonster.h"
+#include "EnemyHellFire.h"
 #include "Map.h"
 #include "Boss.h"
 
@@ -302,6 +303,10 @@ void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera
 			_enemies.push_back( EnemyPtr( new EnemyDeceasedGreen( pop_base_x + ( i * 100 ), DECEASED_GREEN_POP_Y ) ) );
 		}
 	}
+	if ( data & HELL_FIRE ) {
+		_enemies.push_back( EnemyPtr( new EnemyHellFire( pop_base_x, BASE_POP_Y ) ) );
+	}
+	
 }
 
 EnemyPtr EnemyManager::getOverlappedEnemy( PsychicPtr pcychic ) {
