@@ -41,12 +41,14 @@
 #include "EnemyDeceasedGreen.h"
 #include "EnemyTreeMonster.h"
 #include "EnemyHellFire.h"
+#include "EnemyRockMassSoul.h"
 #include "EnemyRockMassShell.h"
+#include "EnemyWindMonster.h"
 #include "Map.h"
 #include "Boss.h"
 
 static const int BASE_POP_Y = 200;
-static const int POPUP_GROUND = 400;
+static const int POPUP_GROUND = 450;
 static const int DECEASED_PURPLE_POP_NUM = 5;
 static const int DECEASED_GREEN_POP_NUM = 5;
 static const int REDBIRD_POP_Y = 250;
@@ -221,6 +223,7 @@ void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera
 	}
 	
 	if ( data & DECEASED ) {
+		pop_base_x += 384;
 		const int INTERVAL = 64;
 		_enemies.push_back( EnemyPtr ( new EnemyDeceasedFirst ( pop_base_x + INTERVAL * 0, POPUP_GROUND ) ) );
 		_enemies.push_back( EnemyPtr ( new EnemyDeceasedSecond( pop_base_x + INTERVAL * 1, POPUP_GROUND ) ) );
@@ -308,9 +311,12 @@ void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera
 		_enemies.push_back( EnemyPtr( new EnemyHellFire( pop_base_x, BASE_POP_Y ) ) );
 	}
 	if ( data & ROCK_MASS ) {
+		_enemies.push_back( EnemyPtr( new EnemyRockMassSoul( pop_base_x - 25, BASE_POP_Y + 50 ) ) );
 		_enemies.push_back( EnemyPtr( new EnemyRockMassShell( pop_base_x, BASE_POP_Y ) ) );
 	}
-	
+	if ( data & WIND_MONSTER ) {
+		_enemies.push_back( EnemyPtr( new EnemyWindMonster( pop_base_x, BASE_POP_Y ) ) );
+	}
 }
 
 EnemyPtr EnemyManager::getOverlappedEnemy( PsychicPtr pcychic ) {
