@@ -9,32 +9,37 @@ const int GRAVITY_POWER = 3;
 
 const unsigned int NONE				= 0x00000000;	//‚È‚µ
 const unsigned int DECEASED_PURPLE	= 0x00000001;	//–SÒi‡j
-const unsigned int REDBIRD			= 0x00000002;	//g’¹
-const unsigned int MOTH				= 0x00000004;	//‰é
-const unsigned int TREE				= 0x00000008;	//l–Ê÷
-const unsigned int DECEASED			= 0x00000010;	//À‚Ì–SÒ
-const unsigned int FLOG_SMALL		= 0x00000020;	//ƒ~ƒjƒKƒGƒ‹
-const unsigned int STONE_ROTE		= 0x00000040;	//Îi‰ñ“]j
-const unsigned int STONE_FLY		= 0x00000080;	//Îi”òsj
-const unsigned int GHOUL			= 0x00000100;	//‰ì‹S
-const unsigned int EXTRUDEDSPRITS	= 0x00000200;	//Šç‚Æè
-const unsigned int ONYUDO			= 0x00000400;	//‘å“ü“¹
-const unsigned int WATER_GHOST		= 0x00000800;	//…–S—ì
-const unsigned int WATER_MONK		= 0x00001000;	//…–Vå
-const unsigned int SKELETON_SPEAR	= 0x00002000;	//‘„Š[œ
-const unsigned int MIASMA_GRAY		= 0x00004000;	//“Å‹C(ŠDF)
-const unsigned int JIZO				= 0x00008000;	//‰»‚¯’n‘ 
-const unsigned int FLOG				= 0x00010000;	//ƒKƒ}
-const unsigned int EYE				= 0x00020000;	//–Ú‹Ê‚Ì—d‰ö
-const unsigned int GROW_FACE        = 0x00040000;	//l–Ê÷‚©‚ç¬‚éŠç
-const unsigned int BOW_DEMON        = 0x00080000;	//‹|‹S
-const unsigned int CROCODILE_SNAKE	= 0x00100000;	//ƒƒjÖ
+const unsigned int MIASMA_WHITE		= 0x00000002;	//“Å‹C(”’F)
+const unsigned int MIASMA_GRAY		= 0x00000004;	//“Å‹C(ŠDF)
+const unsigned int REDBIRD			= 0x00000008;	//g’¹
+const unsigned int MOTH				= 0x00000010;	//‰é
+const unsigned int TREE				= 0x00000020;	//l–Ê÷
+const unsigned int TREE_MONSTER     = 0x00000040;	//÷—d
+const unsigned int FLOG				= 0x00000080;	//ƒKƒ}
+const unsigned int FLOG_SMALL		= 0x00000100;	//ƒ~ƒjƒKƒGƒ‹
+const unsigned int DECEASED			= 0x00000200;	//À‚Ì–SÒ
+const unsigned int STONE_ROTE		= 0x00000400;	//Îi‰ñ“]j
+const unsigned int STONE_FLY		= 0x00000800;	//Îi”òsj
+const unsigned int GHOUL			= 0x00001000;	//‰ì‹S
+const unsigned int EXTRUDEDSPRITS	= 0x00002000;	//Šç‚Æè
+const unsigned int ONYUDO			= 0x00004000;	//‘å“ü“¹
+const unsigned int WATER_GHOST		= 0x00008000;	//…–S—ì
+const unsigned int WATER_MONK		= 0x00010000;	//…–Vå
+const unsigned int SKELETON_SPEAR	= 0x00020000;	//‘„Š[œ
+const unsigned int JIZO				= 0x00040000;	//‰»‚¯’n‘ 
+const unsigned int EYE				= 0x00080000;	//–Ú‹Ê‚Ì—d‰ö
+const unsigned int BOW_DEMON        = 0x00100000;	//‹|‹S
 const unsigned int HUG_DEMON		= 0x00200000;	//•ø‚«‚Â‚«‹S
 const unsigned int BLOOD_POND_DEMON	= 0x00400000;	//ŒŒ‚Ì’r‚Ì‹S
 const unsigned int BLUE_MONK		= 0x00800000;	//Â–Vå
+<<<<<<< HEAD
 const unsigned int ONE_EYES_SNAKE	= 0x01000000;	//ˆê‚Â–ÚÖ
 const unsigned int MIYASMA_WHITE	= 0x02000000;	//“Å‹C(”’F)
 const unsigned int DECEASED_GREEN	= 0x04000000;	//–SÒi—Îj
+=======
+const unsigned int CROCODILE_SNAKE	= 0x01000000;	//ƒƒjÖ
+const unsigned int ONE_EYES_SNAKE	= 0x02000000;	//ˆê‚Â–ÚÖ
+>>>>>>> 4c64e7ad1a4114dc58ea3ab3762aa38fb345068c
 
 enum GRAPH {
 	GRAPH_FADE_BOARD,
@@ -61,6 +66,7 @@ enum GRAPH {
 	GRAPH_ENEMY_SMALL,
 	GRAPH_ENEMY_BIG,
 	GRAPH_ENEMY_TREE,
+	GRAPH_ENEMY_TREE_2,
 	GRAPH_ENEMY_FIREBALL,
 	GRAPH_ENEMY_FLOG,
 	GRAPH_ENEMY_EFFECT_NOMAL,

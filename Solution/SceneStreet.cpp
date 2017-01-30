@@ -38,6 +38,7 @@ SceneStreet::SceneStreet() {
 	drawer->loadGraph( GRAPH_ENEMY_EFFECT_SMALL	, "street/enemy/enemy_effect_small.png");
 	drawer->loadGraph( GRAPH_ENEMY_BIG			, "street/enemy/enemy_big.png");
 	drawer->loadGraph( GRAPH_ENEMY_TREE			, "street/enemy/enemy_tree.png");
+	drawer->loadGraph( GRAPH_ENEMY_TREE_2		, "street/enemy/enemy_tree2.png");
 	drawer->loadGraph( GRAPH_ENEMY_FIREBALL		, "street/enemy/enemy_fireball.png");
 	drawer->loadGraph( GRAPH_ENEMY_FLOG			, "street/enemy/enemy_frog_green.png");
 	drawer->loadGraph( GRAPH_STATUS_PLATE		, "street/status/status_plate.png");

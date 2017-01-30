@@ -9,6 +9,7 @@
 #include "Psychic.h"
 #include "EnemyStock.h"
 #include "EnemyDeceasedPurple.h"
+#include "EnemyMiasmaWhite.h"
 #include "EnemyRedbird.h"
 #include "EnemyRedbirdAttack.h"
 #include "EnemyMoth.h"
@@ -37,7 +38,11 @@
 #include "EnemyBloodPondDemon.h"
 #include "EnemyBlueMonk.h"
 #include "EnemyOneEyesSnake.h"
+<<<<<<< HEAD
 #include "EnemyDeceasedGreen.h"
+=======
+#include "EnemyTreeMonster.h"
+>>>>>>> 4c64e7ad1a4114dc58ea3ab3762aa38fb345068c
 #include "Map.h"
 #include "Boss.h"
 
@@ -212,6 +217,9 @@ void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera
 	if ( data & TREE ) {
 		_enemies.push_back( EnemyPtr( new EnemyTree( _enemy_stock, pop_base_x, POPUP_GROUND ) ) );
 	}
+	if ( data & TREE_MONSTER ) {
+		_enemies.push_back( EnemyPtr( new EnemyTreeMonster( _enemy_stock, pop_base_x, POPUP_GROUND ) ) );
+	}
 	
 	if ( data & DECEASED ) {
 		const int INTERVAL = 64;
@@ -263,6 +271,10 @@ void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera
 	if ( data & MIASMA_GRAY ) {
 		_enemies.push_back( EnemyPtr( new EnemyMiasmaGray( pop_base_x, MOTH_POP_Y ) ) );
 		_enemies.push_back( EnemyPtr( new EnemyMiasmaGray( pop_base_x + 200, MOTH_POP_Y + 30 ) ) );
+	}
+	if ( data & MIASMA_WHITE ) {
+		_enemies.push_back( EnemyPtr( new EnemyMiasmaWhite( pop_base_x, MOTH_POP_Y ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyMiasmaWhite( pop_base_x + 200, MOTH_POP_Y + 30 ) ) );
 	}
 	if ( data & JIZO ) {
 		_enemies.push_back( EnemyPtr( new EnemyJizo( _enemy_stock, pop_base_x, BASE_POP_Y ) ) );
