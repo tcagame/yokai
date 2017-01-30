@@ -37,14 +37,17 @@
 #include "EnemyBloodPondDemon.h"
 #include "EnemyBlueMonk.h"
 #include "EnemyOneEyesSnake.h"
+#include "EnemyDeceasedGreen.h"
 #include "Map.h"
 #include "Boss.h"
 
 static const int BASE_POP_Y = 200;
 static const int POPUP_GROUND = 400;
 static const int DECEASED_PURPLE_POP_NUM = 5;
+static const int DECEASED_GREEN_POP_NUM = 5;
 static const int REDBIRD_POP_Y = 250;
 static const int DECEASED_PURPLE_POP_Y = 100;
+static const int DECEASED_GREEN_POP_Y = 100;
 static const int MOTH_POP_Y = 230;
 static const int BOMB_COUNT = 16;
 static const int BOMB_SIZE = 256;
@@ -284,6 +287,11 @@ void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera
 	}
 	if ( data & ONE_EYES_SNAKE ) {
 		_enemies.push_back( EnemyPtr( new EnemyOneEyesSnake( pop_base_x, BASE_POP_Y ) ) );
+	}
+	if ( data & DECEASED_GREEN ) {
+		for ( int i = 0; i < DECEASED_GREEN_POP_NUM; i++ ) {
+			_enemies.push_back( EnemyPtr( new EnemyDeceasedGreen( pop_base_x + ( i * 100 ), DECEASED_GREEN_POP_Y ) ) );
+		}
 	}
 }
 

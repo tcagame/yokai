@@ -34,6 +34,7 @@ const unsigned int BLOOD_POND_DEMON	= 0x00400000;	//ŒŒ‚Ì’r‚Ì‹S
 const unsigned int BLUE_MONK		= 0x00800000;	//Â–Vå
 const unsigned int ONE_EYES_SNAKE	= 0x01000000;	//ˆê‚Â–ÚÖ
 const unsigned int MIYASMA_WHITE	= 0x02000000;	//“Å‹C(”’F)
+const unsigned int DECEASED_GREEN	= 0x04000000;	//–SÒi—Îj
 
 enum GRAPH {
 	GRAPH_FADE_BOARD,
