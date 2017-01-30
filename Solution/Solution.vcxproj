@@ -103,6 +103,7 @@
     <ClCompile Include="EnemyCrocodileSnake.cpp" />
     <ClCompile Include="EnemyDeceasedFirst.cpp" />
     <ClCompile Include="EnemyDeceasedFourth.cpp" />
+    <ClCompile Include="EnemyDeceasedGreen.cpp" />
     <ClCompile Include="EnemyDeceasedSecond.cpp" />
     <ClCompile Include="EnemyDeceasedThird.cpp" />
     <ClCompile Include="EnemyExtrudedSpirits.cpp" />
@@ -111,12 +112,14 @@
     <ClCompile Include="EnemyFlog.cpp" />
     <ClCompile Include="EnemyFlogSmall.cpp" />
     <ClCompile Include="EnemyGrowFace.cpp" />
+    <ClCompile Include="EnemyHellFire.cpp" />
     <ClCompile Include="EnemyHugDemon.cpp" />
     <ClCompile Include="EnemyJizo.cpp" />
     <ClCompile Include="EnemyLittleBlueDemon.cpp" />
     <ClCompile Include="EnemyMiasmaGray.cpp" />
     <ClCompile Include="EnemyMiasmaWhite.cpp" />
     <ClCompile Include="EnemyOneEyesSnake.cpp" />
+    <ClCompile Include="EnemyRockMassShell.cpp" />
     <ClCompile Include="EnemyTreeMonster.cpp" />
     <ClCompile Include="EnemyWaterGhost.cpp" />
     <ClCompile Include="EnemyGhoul.cpp" />
@@ -184,6 +187,7 @@
     <ClInclude Include="EnemyCrocodileSnake.h" />
     <ClInclude Include="EnemyDeceasedFirst.h" />
     <ClInclude Include="EnemyDeceasedFourth.h" />
+    <ClInclude Include="EnemyDeceasedGreen.h" />
     <ClInclude Include="EnemyDeceasedSecond.h" />
     <ClInclude Include="EnemyDeceasedThird.h" />
     <ClInclude Include="EnemyExtrudedSpirits.h" />
@@ -192,12 +196,14 @@
     <ClInclude Include="EnemyFlog.h" />
     <ClInclude Include="EnemyFlogSmall.h" />
     <ClInclude Include="EnemyGrowFace.h" />
+    <ClInclude Include="EnemyHellFire.h" />
     <ClInclude Include="EnemyHugDemon.h" />
     <ClInclude Include="EnemyJizo.h" />
     <ClInclude Include="EnemyLittleBlueDemon.h" />
     <ClInclude Include="EnemyMiasmaGray.h" />
     <ClInclude Include="EnemyMiasmaWhite.h" />
     <ClInclude Include="EnemyOneEyesSnake.h" />
+    <ClInclude Include="EnemyRockMassShell.h" />
     <ClInclude Include="EnemyTreeMonster.h" />
     <ClInclude Include="EnemyWaterGhost.h" />
     <ClInclude Include="EnemyGhoul.h" />

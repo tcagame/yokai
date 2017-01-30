@@ -32,8 +32,12 @@ const unsigned int BOW_DEMON        = 0x00100000;	//‹|‹S
 const unsigned int HUG_DEMON		= 0x00200000;	//•ø‚«‚Â‚«‹S
 const unsigned int BLOOD_POND_DEMON	= 0x00400000;	//ŒŒ‚Ì’r‚Ì‹S
 const unsigned int BLUE_MONK		= 0x00800000;	//Â–Vå
-const unsigned int CROCODILE_SNAKE	= 0x01000000;	//ƒƒjÖ
-const unsigned int ONE_EYES_SNAKE	= 0x02000000;	//ˆê‚Â–ÚÖ
+const unsigned int ONE_EYES_SNAKE	= 0x01000000;	//ˆê‚Â–ÚÖ
+const unsigned int MIYASMA_WHITE	= 0x02000000;	//“Å‹C(”’F)
+const unsigned int DECEASED_GREEN	= 0x04000000;	//–SÒi—Îj
+const unsigned int CROCODILE_SNAKE	= 0x08000000;	//ƒƒjÖ
+const unsigned int HELL_FIRE		= 0x10000000;	//’n–‰Î
+const unsigned int ROCK_MASS		= 0x20000000;	//Šâ‚Ì‰ò(°&ŠOŠk)
 
 enum GRAPH {
 	GRAPH_FADE_BOARD,

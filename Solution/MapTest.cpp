@@ -114,7 +114,7 @@ static const Map::Panel panel[] = {
 		"~~###########   "
 		"################"
 		"################",
-		BLUE_MONK
+		BLUE_MONK | DECEASED_GREEN
 	},
 	{//5
 		"street/map0/bg/map0_06_00.png",
