@@ -42,6 +42,7 @@ const unsigned long long RAY_MONSTER		= 0x0000000040000000;	//化けエイ
 const unsigned long long NECK_SKULL			= 0x0000000080000000;	//飛頭蛮（ドクロ）
 const unsigned long long NECK_WOMAN			= 0x0000000100000000;	//飛頭蛮（女）
 const unsigned long long BAT				= 0x0000000200000000;	//コウモリ
+const unsigned long long HAND				= 0x0000000400000000;	//手の妖怪
 
 enum GRAPH {
 	GRAPH_FADE_BOARD,

@@ -3,7 +3,7 @@
 static const int WAIT_ANIME_TIME = 6;
 static const int CHIP_SIZE = 128;
 static const int CHIP_FOOT = 0;
-static const int HP  = 10;
+static const int HP  = 8;
 static const int POW = 10;
 
 EnemyDeceasedThird::EnemyDeceasedThird( int x, int y ) :
