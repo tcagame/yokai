@@ -114,6 +114,7 @@
     <ClCompile Include="EnemyJizo.cpp" />
     <ClCompile Include="EnemyLittleBlueDemon.cpp" />
     <ClCompile Include="EnemyMiasmaGray.cpp" />
+    <ClCompile Include="EnemyMiasmaWhite.cpp" />
     <ClCompile Include="EnemyOneEyesSnake.cpp" />
     <ClCompile Include="EnemyTreeMonster.cpp" />
     <ClCompile Include="EnemyWaterGhost.cpp" />
@@ -121,7 +122,7 @@
     <ClCompile Include="EnemyManager.cpp" />
     <ClCompile Include="EnemyMoth.cpp" />
     <ClCompile Include="EnemyOnyudo.cpp" />
-    <ClCompile Include="EnemyPurpleYokai.cpp" />
+    <ClCompile Include="EnemyDeceasedPurple.cpp" />
     <ClCompile Include="EnemyRedbird.cpp" />
     <ClCompile Include="EnemyRedbirdAttack.cpp" />
     <ClCompile Include="EnemyStock.cpp" />
@@ -193,6 +194,7 @@
     <ClInclude Include="EnemyJizo.h" />
     <ClInclude Include="EnemyLittleBlueDemon.h" />
     <ClInclude Include="EnemyMiasmaGray.h" />
+    <ClInclude Include="EnemyMiasmaWhite.h" />
     <ClInclude Include="EnemyOneEyesSnake.h" />
     <ClInclude Include="EnemyTreeMonster.h" />
     <ClInclude Include="EnemyWaterGhost.h" />
@@ -200,7 +202,7 @@
     <ClInclude Include="EnemyManager.h" />
     <ClInclude Include="EnemyMoth.h" />
     <ClInclude Include="EnemyOnyudo.h" />
-    <ClInclude Include="EnemyPurpleYokai.h" />
+    <ClInclude Include="EnemyDeceasedPurple.h" />
     <ClInclude Include="EnemyRedbird.h" />
     <ClInclude Include="EnemyRedbirdAttack.h" />
     <ClInclude Include="EnemyStock.h" />
