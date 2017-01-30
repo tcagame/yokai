@@ -2,6 +2,7 @@
 #include "Game.h"
 #include "Device.h"
 #include "Drawer.h"
+#include "Sound.h"
 #include "define.h"
 
 static const int FRAME_WIDTH  = 896;
@@ -10,7 +11,7 @@ static const int FRAME_HEIGHT = 772;
 SceneResult::SceneResult( ) :
 _count( 0 ) {
 	DrawerPtr drawer = Drawer::getTask( );
-
+	SoundPtr sound = Sound::getTask( );
 	GamePtr game = Game::getTask( );
 	_level = game->getStage( ) - 1;
 	if ( _level < 0 ) {
@@ -21,22 +22,27 @@ _count( 0 ) {
 	case 4:
 		drawer->loadGraph( GRAPH_RESULT_FRAME, "result/heaven/heaven_frame.png" );
 		drawer->loadGraph( GRAPH_RESULT_OBJ  , "result/heaven/heaven_obj.png" );
+		sound->playBGM( "yokai_music_08.wav" );
 		break;
 	case 3:
 		drawer->loadGraph( GRAPH_RESULT_FRAME, "result/human/human_frame.png" );
 		drawer->loadGraph( GRAPH_RESULT_OBJ  , "result/human/human_obj.png" );
+		sound->playBGM( "yokai_music_08.wav" );
 		break;
 	case 2:
 		drawer->loadGraph( GRAPH_RESULT_FRAME, "result/damn/damn_frame.png" );
 		drawer->loadGraph( GRAPH_RESULT_OBJ  , "result/damn/damn_obj.png" );
+		sound->playBGM( "yokai_music_09.wav" );
 		break;
 	case 1:
 		drawer->loadGraph( GRAPH_RESULT_FRAME, "result/hungry/hungry_frame.png" );
 		drawer->loadGraph( GRAPH_RESULT_OBJ  , "result/hungry/hungry_obj.png" );
+		sound->playBGM( "yokai_music_09.wav" );
 		break;
 	case 0:
 		drawer->loadGraph( GRAPH_RESULT_FRAME, "result/hell/hell_frame.png" );
 		drawer->loadGraph( GRAPH_RESULT_OBJ  , "result/hell/hell_obj.png" );
+		sound->playBGM( "yokai_music_09.wav" );
 		break;
 	}
 }
@@ -141,6 +147,7 @@ void SceneResult::drawHeaven( ) {
 		Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
 		drawer->setSprite( sprite );
 	}
+
 }
 
 void SceneResult::drawHuman( ) {
