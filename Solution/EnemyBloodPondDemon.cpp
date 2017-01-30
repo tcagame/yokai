@@ -1,15 +1,20 @@
 #include "EnemyBloodPondDemon.h"
+#include "EnemyFireball.h"
 
 static const int CHIP_SIZE = 256;
 static const int CHIP_FOOT = 0;
-static const int HP = 10;
+static const int HP = 20;
 static const int POW = 2;
 static const int WAIT_AINME_TIME = 10;
+static const int SPEED = 3;
+static const int ACCEL = 5;
+static const int CREATE_COUNT_FIREBALL = 15;
 
-EnemyBloodPondDemon::EnemyBloodPondDemon( int x, int y ) :
+EnemyBloodPondDemon::EnemyBloodPondDemon( EnemyStockPtr stock, int x, int y ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ),
+_stock( stock ),
 _action( ACTION_WAIT ),
-_act_count( 0 ) {
+_count( 0 ) {
 }
 
 
@@ -17,27 +22,22 @@ EnemyBloodPondDemon::~EnemyBloodPondDemon( ) {
 }
 
 void EnemyBloodPondDemon::act( ) {
-	updateChip( );
-	_act_count++;
+	attack( );
+	setChipGraph( GRAPH_ENEMY_BIG, 0, 5 );
 }
 
-void EnemyBloodPondDemon::updateChip( ) {
-	switch ( _action ) {
-	case ACTION_WAIT:
-		setChipGraph( GRAPH_ENEMY_BIG, 2, 5 );
-		//‚½‚ë‚·‚¯‚ª‹ß•t‚¢‚½‚çUŒ‚ƒ‚[ƒVƒ‡ƒ“
-		//_action = ACTION_ATTACK;
-		break;
-	case ACTION_ATTACK:
-		updateChipAttack( );
-		break;
+void EnemyBloodPondDemon::attack( ) {
+	_count++;
+	if ( _count % CREATE_COUNT_FIREBALL == 0 ) {
+		if ( rand( ) % 2 ) {
+			Vector pos( getX( ) + rand( ) % SCREEN_WIDTH - SCREEN_WIDTH / 3, -32 );
+			Matrix mat = Matrix::makeTransformRotation( Vector( 0, 0, -1 ), rand( ) % 1000 * PI / 2 / 1000 );
+			Vector vec = mat.multiply( Vector( 0, SPEED + rand( ) % ACCEL ) );
+			_stock->addEnemy( EnemyPtr( new EnemyFireball( pos, vec ) ) );
+		} else {
+			Vector pos( getX( ) + SCREEN_WIDTH / 5, rand( ) % SCREEN_HEIGHT - SCREEN_HEIGHT / 3 );
+			Vector vec = Vector( -SPEED - rand( ) % ACCEL, 0, 0 );
+			_stock->addEnemy( EnemyPtr( new EnemyFireball( pos, vec ) ) );
+		}
 	}
-}
-
-void EnemyBloodPondDemon::updateChipAttack( ) {
-	const int ANIME[ ] = { 0, 1, 0, 1, 0, 1, 2, 3, 2, 1 };
-	int max_anime = sizeof( ANIME ) / sizeof( ANIME[ 0 ] );
-	int u = ANIME[ _act_count / WAIT_AINME_TIME % max_anime ];
-	int v = 5;
-	setChipGraph( GRAPH_ENEMY_BIG, u, v );
 }

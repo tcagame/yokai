@@ -46,6 +46,7 @@
 #include "EnemyRockMassSoul.h"
 #include "EnemyRockMassShell.h"
 #include "EnemyRollOverNeckSkull.h"
+#include "EnemyRollOverNeckWoman.h"
 #include "EnemyRayMonster.h"
 #include "EnemyWindMonster.h"
 #include "EnemyBat.h"
@@ -298,7 +299,7 @@ void EnemyManager::createByField( unsigned long long enemy_data, CameraConstPtr 
 		_enemies.push_back( EnemyPtr( new EnemyHugDemon( pop_base_x, BASE_POP_Y ) ) );
 	}
 	if ( data & BLOOD_POND_DEMON ) {
-		_enemies.push_back( EnemyPtr( new EnemyBloodPondDemon( pop_base_x, BASE_POP_Y + 200 ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyBloodPondDemon( _enemy_stock, pop_base_x, BASE_POP_Y + 200 ) ) );
 	}
 	if ( data & BLUE_MONK ) {
 		_enemies.push_back( EnemyPtr( new EnemyBlueMonk( pop_base_x, BASE_POP_Y ) ) );
@@ -326,6 +327,9 @@ void EnemyManager::createByField( unsigned long long enemy_data, CameraConstPtr 
 	}
 	if ( data & NECK_SKULL ) {
 		_enemies.push_back( EnemyPtr( new EnemyRollOverNeckSkull( pop_base_x, BASE_POP_Y ) ) );
+	}
+	if ( data & NECK_WOMAN ) {
+		_enemies.push_back( EnemyPtr( new EnemyRollOverNeckWoman( pop_base_x, BASE_POP_Y ) ) );
 	}
 	if ( data & BAT ) {
 		_enemies.push_back( EnemyPtr( new EnemyBat( pop_base_x, BASE_POP_Y ) ) );

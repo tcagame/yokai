@@ -1,9 +1,12 @@
 #pragma once
 #include "Enemy.h"
 
+PTR( EnemyStock );
+
+
 class EnemyBloodPondDemon : public Enemy {
 public:
-	EnemyBloodPondDemon( int x, int y );
+	EnemyBloodPondDemon( EnemyStockPtr stock, int x, int y );
 	virtual ~EnemyBloodPondDemon( );
 private:
 	enum ACTION {
@@ -13,10 +16,11 @@ private:
 	};
 private:
 	void act( );
-	void updateChip( );
-	void updateChipAttack( );
+	void attack( );
 private:
 	ACTION _action;
-	int _act_count;
+	int _count;
+	EnemyStockPtr _stock;
+
 };
 
