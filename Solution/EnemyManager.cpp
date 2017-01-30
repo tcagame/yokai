@@ -7,6 +7,8 @@
 #include "Tarosuke.h"
 #include "Momotaro.h"
 #include "Psychic.h"
+#include "Boss.h"
+#include "Map.h"
 #include "EnemyStock.h"
 #include "EnemyDeceasedPurple.h"
 #include "EnemyMiasmaWhite.h"
@@ -43,10 +45,9 @@
 #include "EnemyHellFire.h"
 #include "EnemyRockMassSoul.h"
 #include "EnemyRockMassShell.h"
+#include "EnemyRollOverNeckSkull.h"
 #include "EnemyRayMonster.h"
 #include "EnemyWindMonster.h"
-#include "Map.h"
-#include "Boss.h"
 
 static const int BASE_POP_Y = 200;
 static const int POPUP_GROUND = 400;
@@ -321,6 +322,9 @@ void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera
 	}
 	if ( data & RAY_MONSTER ) {
 		_enemies.push_back( EnemyPtr( new EnemyRayMonster( pop_base_x, BASE_POP_Y ) ) );
+	}
+	if ( data & NECK_SKULL ) {
+		_enemies.push_back( EnemyPtr( new EnemyRollOverNeckSkull( pop_base_x, BASE_POP_Y ) ) );
 	}
 }
 
