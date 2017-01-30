@@ -43,7 +43,7 @@ static const int BASE_POP_Y = 200;
 static const int POPUP_GROUND = 400;
 static const int PURPLE_POP_NUM = 5;
 static const int REDBIRD_POP_Y = 250;
-static const int PURPLE_POP_Y = 400;
+static const int PURPLE_POP_Y = 100;
 static const int MOTH_POP_Y = 230;
 static const int BOMB_COUNT = 16;
 static const int BOMB_SIZE = 256;
@@ -61,6 +61,10 @@ EnemyManager::EnemyManager( MapConstPtr map ) {
 	_boss = map->createBoss( _enemy_stock );
 	_enemies.push_back( _boss );
 	_idx_bomb = 0;
+
+	for ( int i = 0; i < BG_NUM; i++ ) {
+		createByField( map->getEnemyData( i ), CameraPtr( ) );
+	}
 }
 
 EnemyManager::~EnemyManager( ) {
@@ -181,7 +185,11 @@ void EnemyManager::addEnemy( EnemyPtr enemy ) {
 
 void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera ) {
 	unsigned int data = enemy_data;
-	int pop_base_x = BG_SIZE * ( BG_NUM - 1 ) + camera->getX( );
+	int camera_pos = 0;
+	if ( camera ) {
+		camera_pos = camera->getX( );
+	}
+	int pop_base_x = BG_SIZE * ( BG_NUM - 1 ) + camera_pos;
 
 	if ( data & REDBIRD ) {
 		_enemies.push_back( EnemyPtr( new EnemyRedbird( _enemy_stock, pop_base_x - BG_SIZE * 2, REDBIRD_POP_Y ) ) );
