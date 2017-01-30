@@ -1,6 +1,6 @@
 #include "EnemyOnyudo.h"
 
-static const int CHIP_SIZE = 264;
+static const int CHIP_SIZE = 256;
 static const int CHIP_FOOT = 0;
 static const int HP = 10;
 static const int POW = 3;
@@ -22,5 +22,5 @@ void EnemyOnyudo::act( ) {
 	const int ANIME[ MAX_ANIME_PATTERN ] = { 0, 1, 2, 1 };
 	int u = ANIME[ getX( ) / WAIT_ANIME_TIME % MAX_ANIME_PATTERN ];
 	int v = 0;
-	setChipGraph( GRAPH_ENEMY_BIG_1, u, v );
+	setChipGraph( GRAPH_ENEMY_BIG, u, v );
 }

@@ -1,7 +1,7 @@
 #include "EnemyJizo.h"
 #include "EnemyFireball.h"
 
-static const int CHIP_SIZE = 264;
+static const int CHIP_SIZE = 256;
 static const int CHIP_FOOT = 0;
 static const int HP = 10;
 static const int POW = 2;
@@ -9,8 +9,9 @@ static const int MOVE_SPEED = 1;
 static const int WAIT_ANIME_TIME = 6;
 static const int WAIT_ATTACK_TIME = 100;
 static const int WAIT_APPEAR_TIME = 10;
-static const int ATTACK_FOOT = 100;
-static const int FIRE_SPEED = 5;
+static const int ATTACK_FOOT_Y = 120;
+static const int ATTACK_FOOT_X = 50;
+static const int FIRE_SPEED = 10;
 
 EnemyJizo::EnemyJizo( EnemyStockPtr stock, int x, int y ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),
@@ -41,8 +42,8 @@ void EnemyJizo::act( ) {
 void EnemyJizo::actNomal( ) {
 	setAccelX( -MOVE_SPEED );
 	if ( _act_count % WAIT_ATTACK_TIME == 0 ) {
-		Vector pos( getX( ), getY( ) - ATTACK_FOOT );
-		Vector vec = Vector( 1, 0.5 ).normalize( ) * FIRE_SPEED;
+		Vector pos( getX( ) - ATTACK_FOOT_X, getY( ) - ATTACK_FOOT_Y );
+		Vector vec = Vector( -1, 0.3 ).normalize( ) * FIRE_SPEED;
 		EnemyPtr enemy = EnemyPtr( new EnemyFireball( pos, vec ) );
 		_stock->addEnemy( enemy );
 	}
@@ -56,12 +57,11 @@ void EnemyJizo::actWait( ) {
 }
 
 void EnemyJizo::updateChip( ) {
-	const int MAX_WIDTH_NUM = 4;
 	const int MAX_ANIME_PATTERN = 8;
-	int u = _act_count / WAIT_ANIME_TIME % MAX_WIDTH_NUM;
-	int v = _act_count / WAIT_ANIME_TIME / MAX_WIDTH_NUM + 2;
-	setChipGraph( GRAPH_ENEMY_BIG_2, u, v );
-	if ( u == 3 && v == 3 ) {
+	int u = _act_count / WAIT_ANIME_TIME % MAX_ANIME_PATTERN;
+	int v = 7;
+	setChipGraph( GRAPH_ENEMY_BIG, u, v );
+	if ( u == 7 ) {
 		_action = ACTION_NOMAL;
 	}
 }

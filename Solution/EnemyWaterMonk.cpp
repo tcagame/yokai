@@ -1,6 +1,6 @@
 #include "EnemyWaterMonk.h"
 
-static const int CHIP_SIZE = 264;
+static const int CHIP_SIZE = 256;
 static const int CHIP_FOOT = 0;
 static const int HP = 2;
 static const int POW = 2;
@@ -22,5 +22,5 @@ void EnemyWaterMonk::act( ) {
 	_act_count %= WAIT_ANIME_TIME * MAX_ANIME_PATTERN;
 	int u = ANIME[ _act_count / WAIT_ANIME_TIME % MAX_ANIME_PATTERN ];
 	int v = 4;
-	setChipGraph( GRAPH_ENEMY_BIG_1, u, v );
+	setChipGraph( GRAPH_ENEMY_BIG, u, v );
 }

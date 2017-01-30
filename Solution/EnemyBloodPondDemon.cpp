@@ -1,6 +1,6 @@
 #include "EnemyBloodPondDemon.h"
 
-static const int CHIP_SIZE = 264;
+static const int CHIP_SIZE = 256;
 static const int CHIP_FOOT = 0;
 static const int HP = 10;
 static const int POW = 2;
@@ -24,7 +24,7 @@ void EnemyBloodPondDemon::act( ) {
 void EnemyBloodPondDemon::updateChip( ) {
 	switch ( _action ) {
 	case ACTION_WAIT:
-		setChipGraph( GRAPH_ENEMY_BIG_2, 2, 4 );
+		setChipGraph( GRAPH_ENEMY_BIG, 2, 5 );
 		//ÇΩÇÎÇ∑ÇØÇ™ãﬂïtÇ¢ÇΩÇÁçUåÇÉÇÅ[ÉVÉáÉì
 		//_action = ACTION_ATTACK;
 		break;
@@ -38,6 +38,6 @@ void EnemyBloodPondDemon::updateChipAttack( ) {
 	const int ANIME[ ] = { 0, 1, 0, 1, 0, 1, 2, 3, 2, 1 };
 	int max_anime = sizeof( ANIME ) / sizeof( ANIME[ 0 ] );
 	int u = ANIME[ _act_count / WAIT_AINME_TIME % max_anime ];
-	int v = 4;
-	setChipGraph( GRAPH_ENEMY_BIG_2, u, v );
+	int v = 5;
+	setChipGraph( GRAPH_ENEMY_BIG, u, v );
 }
