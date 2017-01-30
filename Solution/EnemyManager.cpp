@@ -41,6 +41,7 @@
 #include "EnemyDeceasedGreen.h"
 #include "EnemyTreeMonster.h"
 #include "EnemyHellFire.h"
+#include "EnemyRockMassSoul.h"
 #include "EnemyRockMassShell.h"
 #include "Map.h"
 #include "Boss.h"
@@ -308,6 +309,7 @@ void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera
 		_enemies.push_back( EnemyPtr( new EnemyHellFire( pop_base_x, BASE_POP_Y ) ) );
 	}
 	if ( data & ROCK_MASS ) {
+		_enemies.push_back( EnemyPtr( new EnemyRockMassSoul( pop_base_x - 50, BASE_POP_Y ) ) );
 		_enemies.push_back( EnemyPtr( new EnemyRockMassShell( pop_base_x, BASE_POP_Y ) ) );
 	}
 	
