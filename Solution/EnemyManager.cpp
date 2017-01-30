@@ -36,6 +36,7 @@
 #include "EnemyHugDemon.h"
 #include "EnemyBloodPondDemon.h"
 #include "EnemyBlueMonk.h"
+#include "EnemyOneEyesSnake.h"
 #include "Map.h"
 #include "Boss.h"
 
@@ -281,7 +282,9 @@ void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera
 	if ( data & BLUE_MONK ) {
 		_enemies.push_back( EnemyPtr( new EnemyBlueMonk( pop_base_x, BASE_POP_Y ) ) );
 	}
-	
+	if ( data & ONE_EYES_SNAKE ) {
+		_enemies.push_back( EnemyPtr( new EnemyOneEyesSnake( pop_base_x, BASE_POP_Y ) ) );
+	}
 }
 
 EnemyPtr EnemyManager::getOverlappedEnemy( PsychicPtr pcychic ) {
