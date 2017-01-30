@@ -123,6 +123,7 @@
     <ClCompile Include="EnemyMiasmaGray.cpp" />
     <ClCompile Include="EnemyMiasmaWhite.cpp" />
     <ClCompile Include="EnemyNoFace.cpp" />
+    <ClCompile Include="EnemyNoNeckGhost.cpp" />
     <ClCompile Include="EnemyOneEyesSnake.cpp" />
     <ClCompile Include="EnemyRayMonster.cpp" />
     <ClCompile Include="EnemyRockMassShell.cpp" />
@@ -218,6 +219,7 @@
     <ClInclude Include="EnemyMiasmaGray.h" />
     <ClInclude Include="EnemyMiasmaWhite.h" />
     <ClInclude Include="EnemyNoFace.h" />
+    <ClInclude Include="EnemyNoNeckGhost.h" />
     <ClInclude Include="EnemyOneEyesSnake.h" />
     <ClInclude Include="EnemyRayMonster.h" />
     <ClInclude Include="EnemyRockMassShell.h" />
