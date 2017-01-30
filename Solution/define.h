@@ -8,7 +8,7 @@ const int CHARA_MOVE_RATIO = 10;
 const int GRAVITY_POWER = 3;
 
 const unsigned int NONE				= 0x00000000;	//Ç»Çµ
-const unsigned int PURPLE			= 0x00000001;	//
+const unsigned int PURPLE			= 0x00000001;	//ñSé“ÅiéáÅj
 const unsigned int REDBIRD			= 0x00000002;	//çgíπ
 const unsigned int MOTH				= 0x00000004;	//âÈ
 const unsigned int TREE				= 0x00000008;	//êlñ é˜
@@ -59,6 +59,8 @@ enum GRAPH {
 	GRAPH_ENEMY_TREE,
 	GRAPH_ENEMY_FIREBALL,
 	GRAPH_ENEMY_FLOG,
+	GRAPH_ENEMY_EFFECT_NOMAL,
+	GRAPH_ENEMY_EFFECT_SMALL,
 	GRAPH_BG,
 	GRAPH_BG_1,
 	GRAPH_BG_2,
