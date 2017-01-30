@@ -2,10 +2,10 @@
 #include "define.h"
 
 static const Map::Item item = {
-	Map::BOSS_REDDEMON
+	Map::BOSS_ENMA
 };
 
-static const Map::Panel panel[] = {
+static const Map::Panel panel[] = {/*
 	{
 		"street/map3/bg/map3_00_00.png",
 		"",
@@ -227,7 +227,7 @@ static const Map::Panel panel[] = {
 		BLOOD_POND_DEMON
 	},
 	{
-		"street/map3/bg/bloodstairs.png",
+		"street/map3/bg/blood_stairs.png",
 		"",
 		190, 130,
 		"                "
@@ -249,7 +249,7 @@ static const Map::Panel panel[] = {
 		NONE
 	},
 	{
-		"street/map3/bg/map3_00_13_test.png",
+		"street/map3/bg/blood_stair_2.png",
 		"",
 		0, 0,
 		"                "
@@ -665,7 +665,7 @@ static const Map::Panel panel[] = {
 		"~~~~~~~~~~~~~~~~"
 		"################",
 		NONE
-	},
+	},*/
 	{
 		"street/map3/bg/map3_00_32.png",
 		"",

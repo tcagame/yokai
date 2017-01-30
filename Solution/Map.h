@@ -17,6 +17,7 @@ public:
 		BOSS_REDDEMON,
 		BOSS_BLUEDEMON,
 		BOSS_HAG,
+		BOSS_ENMA,
 		BOSS_BUDDHA,
 	};
 
