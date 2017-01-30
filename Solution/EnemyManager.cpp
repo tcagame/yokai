@@ -9,6 +9,7 @@
 #include "Psychic.h"
 #include "EnemyStock.h"
 #include "EnemyDeceasedPurple.h"
+#include "EnemyMiasmaWhite.h"
 #include "EnemyRedbird.h"
 #include "EnemyRedbirdAttack.h"
 #include "EnemyMoth.h"
@@ -260,6 +261,10 @@ void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera
 	if ( data & MIASMA_GRAY ) {
 		_enemies.push_back( EnemyPtr( new EnemyMiasmaGray( pop_base_x, MOTH_POP_Y ) ) );
 		_enemies.push_back( EnemyPtr( new EnemyMiasmaGray( pop_base_x + 200, MOTH_POP_Y + 30 ) ) );
+	}
+	if ( data & MIASMA_WHITE ) {
+		_enemies.push_back( EnemyPtr( new EnemyMiasmaWhite( pop_base_x, MOTH_POP_Y ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyMiasmaWhite( pop_base_x + 200, MOTH_POP_Y + 30 ) ) );
 	}
 	if ( data & JIZO ) {
 		_enemies.push_back( EnemyPtr( new EnemyJizo( _enemy_stock, pop_base_x, BASE_POP_Y ) ) );

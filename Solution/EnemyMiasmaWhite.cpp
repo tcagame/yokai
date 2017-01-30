@@ -5,7 +5,7 @@ static const int CHIP_FOOT = 0;
 static const int HP = 2;
 static const int POW = 1;
 static const int MOVE_SPEED = 3;
-static const int WAIT_ANIME_TIME = 3;
+static const int WAIT_ANIME_TIME = 6;
 
 EnemyMiasmaWhite::EnemyMiasmaWhite( int x, int y ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ) {
