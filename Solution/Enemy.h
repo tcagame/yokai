@@ -11,7 +11,7 @@ public:
 	virtual ~Enemy( );
 public:
 	bool isOverlapped( CharacterPtr target ) const;
-	void damage( int pow );
+	virtual void damage( int pow );
 	bool isFinished( ) const;
 	int getPow( ) const;
 	virtual bool isOutSideScreen( CameraConstPtr camera ) const;
