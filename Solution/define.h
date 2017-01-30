@@ -38,6 +38,7 @@ const unsigned int DECEASED_GREEN	= 0x04000000;	//亡者（緑）
 const unsigned int CROCODILE_SNAKE	= 0x08000000;	//ワニ蛇
 const unsigned int HELL_FIRE		= 0x10000000;	//地獄火
 const unsigned int ROCK_MASS		= 0x20000000;	//岩の塊(魂&外殻)
+const unsigned int WIND_MONSTER		= 0x40000000;	//風の妖怪
 
 enum GRAPH {
 	GRAPH_FADE_BOARD,
