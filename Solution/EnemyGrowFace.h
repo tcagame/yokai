@@ -7,6 +7,8 @@ public:
 	virtual ~EnemyGrowFace( );
 private:
 	void act( );
+	void actGrow( );
+	void actAttack( );
 private:
 	enum ACTION {
 		ACTION_GROW,

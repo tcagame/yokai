@@ -20,24 +20,29 @@ EnemyGrowFace::~EnemyGrowFace( ) {
 void EnemyGrowFace::act( ) {
 	_anime_count++;
 	switch( _action ) {
-	case ACTION_GROW: {
-		const int GROW_PATTERN[ ] = { 0, 1, 2, 3, 4, 5 };
-		int pattern_num = sizeof( GROW_PATTERN ) / sizeof( GROW_PATTERN[ 0 ] );
-		int u = GROW_PATTERN[ ( _anime_count / WAIT_ANIME_TIME ) % pattern_num ];
-		setChipGraph( GRAPH_ENEMY_SMALL, u, 3 );
-		if( u == 5 ) {
-			_action = ACTION_ATTACK;
-		}
+	case ACTION_GROW: 
+		actGrow( );
+		break;
+	case ACTION_ATTACK:
+		actAttack( );
 		break;
 	}
-	case ACTION_ATTACK:{
-		setAccelX( -MOVE_SPEED );
-		const int MAX_ATTACK_PATTERN = 2;
-		const int ATTACK_PATTERN[ MAX_ATTACK_PATTERN ] = { 6, 7 };
-		int pattern = ATTACK_PATTERN[ ( getX( ) / WAIT_ANIME_TIME ) % MAX_ATTACK_PATTERN ];
-		setChipGraph( GRAPH_ENEMY_SMALL, pattern, 3 );
-		break;
-	}
+}
 
+void EnemyGrowFace::actGrow( ) {
+	const int GROW_PATTERN[ ] = { 0, 1, 2, 3, 4, 5 };
+	int pattern_num = sizeof( GROW_PATTERN ) / sizeof( GROW_PATTERN[ 0 ] );
+	int u = GROW_PATTERN[ ( _anime_count / WAIT_ANIME_TIME ) % pattern_num ];
+	setChipGraph( GRAPH_ENEMY_SMALL, u, 3 );
+	if( u == 5 ) {
+		_action = ACTION_ATTACK;
 	}
+}
+
+void EnemyGrowFace::actAttack( ) {
+	setAccelX( -MOVE_SPEED );
+	const int MAX_ATTACK_PATTERN = 2;
+	const int ATTACK_PATTERN[ MAX_ATTACK_PATTERN ] = { 6, 7 };
+	int pattern = ATTACK_PATTERN[ ( getX( ) / WAIT_ANIME_TIME ) % MAX_ATTACK_PATTERN ];
+	setChipGraph( GRAPH_ENEMY_SMALL, pattern, 3 );
 }
