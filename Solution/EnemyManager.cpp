@@ -216,11 +216,11 @@ void EnemyManager::createByField( unsigned int enemy_data, CameraConstPtr camera
 	if ( data & FLOG ) {
 		_enemies.push_back( EnemyPtr( new EnemyFlog( _enemy_stock, pop_base_x, BASE_POP_Y ) ) );
 	}
-	if ( data % STONE_ROTE ) {
+	if ( data & STONE_ROTE ) {
 		_enemies.push_back( EnemyPtr( new EnemyStoneRote( pop_base_x, STONE_POP_Y ) ) );
 	}
 
-	if ( data % STONE_FLY ) {
+	if ( data & STONE_FLY ) {
 		_enemies.push_back( EnemyPtr( new EnemyStoneFly( pop_base_x, STONE_POP_Y ) ) );
 	}
 
