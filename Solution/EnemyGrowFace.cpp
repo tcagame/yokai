@@ -18,13 +18,16 @@ EnemyGrowFace::~EnemyGrowFace( ) {
 }
 
 void EnemyGrowFace::act( ) {
+	_anime_count++;
 	switch( _action ) {
 	case ACTION_GROW: {
-		const int MAX_GROW_PATTERN = 6;
-		const int GROW_PATTERN[ MAX_GROW_PATTERN ] = { 0, 1, 2, 3, 4 , 5};
-		int pattern = GROW_PATTERN[ ( getX( ) / 2 ) % MAX_GROW_PATTERN ];
-		setChipGraph( GRAPH_ENEMY_SMALL, pattern, 6 );
-		_action = ACTION_ATTACK;
+		const int GROW_PATTERN[ ] = { 0, 1, 2, 3, 4, 5 };
+		int pattern_num = sizeof( GROW_PATTERN ) / sizeof( GROW_PATTERN[ 0 ] );
+		int u = GROW_PATTERN[ ( _anime_count / WAIT_ANIME_TIME ) % pattern_num ];
+		setChipGraph( GRAPH_ENEMY_SMALL, u, 3 );
+		if( u == 5 ) {
+			_action = ACTION_ATTACK;
+		}
 		break;
 	}
 	case ACTION_ATTACK:{

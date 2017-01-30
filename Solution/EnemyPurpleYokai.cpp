@@ -23,7 +23,7 @@ EnemyPurpleYokai::~EnemyPurpleYokai( ) {
 void EnemyPurpleYokai::act( ) {
 	setAccelX( -_move_speed );
 
-	const int MOTION[ 4 ] = { 0, 1, 2, 1 };
+	const int MOTION[ 4 ] = { 3, 4, 5, 4 };
 	int u = MOTION[ ( getX( ) / WAIT_TIME ) % MAX_PATTERN ];
 	setChipGraph( GRAPH_ENEMY_NOMAL, u, 1 );
 }
