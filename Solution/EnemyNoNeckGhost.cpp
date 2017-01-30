@@ -21,5 +21,9 @@ EnemyNoNeckGhost::~EnemyNoNeckGhost( ) {
 }
 
 void EnemyNoNeckGhost::act( ) {
-
+	setAccelX( -MOVE_SPEED );
+	const int MAX_ATTACK_PATTERN = 4;
+	const int ATTACK_PATTERN[ MAX_ATTACK_PATTERN ] = { 4, 5, 6, 7 };
+	int pattern = ATTACK_PATTERN[ ( getX( ) / WAIT_ANIME_TIME ) % MAX_ATTACK_PATTERN ];
+	setChipGraph( GRAPH_ENEMY_NOMAL, pattern, 11 );
 }
