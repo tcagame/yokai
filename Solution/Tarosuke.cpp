@@ -442,6 +442,8 @@ void Tarosuke::actOnShooting( ) {
 	
 	SoundPtr sound = Sound::getTask( );
 	sound->playSE( "yokai_se_20.wav" );
+	sound->stopSE( "yokai_se_21.wav" );
+	sound->stopSE( "yokai_se_22.wav" );
 }
 
 void Tarosuke::actOnCalling( ) {
