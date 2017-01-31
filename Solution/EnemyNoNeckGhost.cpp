@@ -9,9 +9,8 @@ static const int HP  = 3;
 static const int POW = 3;
 static const int EXTIT_TIME = 80;
 
-EnemyNoNeckGhost::EnemyNoNeckGhost( EnemyStockPtr stock, int x, int y ):
+EnemyNoNeckGhost::EnemyNoNeckGhost( int x, int y ):
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ),
-_stock( stock ),
 _accel( 0 ) {
 
 }

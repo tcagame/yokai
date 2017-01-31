@@ -16,10 +16,10 @@ EnemyNakabon::~EnemyNakabon( ) {
 }
 
 void EnemyNakabon::act( ) {
-	const int ANIME[ ] = { 8, 9, 10, 9, 8, 11, 8, 11, 8, 12 };
+	const int ANIME[ ] = { 8, 9, 10, 9, 8, 11, 8, 11 };
 	int anime_num = sizeof( ANIME ) / sizeof( ANIME[ 0 ] );
-	int u = ANIME[ anime_num / WAIT_ANIME_TIME % anime_num ];
-	int v = 0;
+	int u = ANIME[ _act_count / WAIT_ANIME_TIME % anime_num ];
+	int v = 11;
 	setChipGraph( GRAPH_ENEMY_NOMAL, u, v );
 
 	_act_count++;
