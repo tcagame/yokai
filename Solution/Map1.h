@@ -7,7 +7,7 @@ public:
 	Map1( );
 	virtual ~Map1( );
 private:
-	EnemyPtr generateEnemy( char ch, int x, int y ) const;
+	EnemyPtr generateEnemy( char ch, EnemyStockPtr stock, int x, int y ) const;
 	BossPtr generateBoss( EnemyStockPtr stock ) const;
 };
 

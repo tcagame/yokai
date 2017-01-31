@@ -92,7 +92,7 @@ void Map::addToStock( EnemyStockPtr stock, int bg_idx ) const {
 
 		int x = bg_idx * BG_SIZE + i % MAPCHIP_NUM * MAPCHIP_SIZE + MAPCHIP_SIZE / 2; 
 		int y =                    i / MAPCHIP_NUM * MAPCHIP_SIZE + MAPCHIP_SIZE - 1;
-		EnemyPtr enemy = generateEnemy( ch, x, y );
+		EnemyPtr enemy = generateEnemy( ch, stock, x, y );
 		if ( enemy ) {
 			stock->addEnemy( enemy );
 		}

@@ -36,7 +36,7 @@ public:
 	FLOOR getFloor( int bg_idx, int chip_idx ) const;
 	CloudMgrPtr createCloudMgr( ) const;
 	virtual void addToStock( EnemyStockPtr stock, int idx ) const;
-	virtual EnemyPtr generateEnemy( char ch, int x, int y ) const = 0;
+	virtual EnemyPtr generateEnemy( char ch, EnemyStockPtr stock, int x, int y ) const = 0;
 	virtual BossPtr  generateBoss( EnemyStockPtr stock ) const = 0;
 private:
 	bool isSmallCloud( int bg_idx, int chip_idx ) const;

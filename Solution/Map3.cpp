@@ -763,7 +763,7 @@ Map( panel, sizeof( panel ) / sizeof( Map::Panel ) - 1 ) {
 Map3::~Map3( ) {
 }
 
-EnemyPtr Map3::generateEnemy( char ch, int x, int y ) const {
+EnemyPtr Map3::generateEnemy( char ch, EnemyStockPtr stock, int x, int y ) const {
 	EnemyPtr enemy;
 
 	switch ( ch ) {
