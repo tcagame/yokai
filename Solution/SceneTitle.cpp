@@ -17,6 +17,7 @@ static const int PANEL_PITCH = 192;
 static const int FPC = 5;
 static const int SELECT_X = 600;
 static const int SELECT_Y = 500;
+static const int DEMO_COUNT = 600;
 
 SceneTitle::SceneTitle( ) {
 	DrawerPtr drawer = Drawer::getTask( );
@@ -35,6 +36,10 @@ Scene::NEXT SceneTitle::update( ) {
 	act( );
 	draw( );
 	
+	if ( _count > DEMO_COUNT ) {
+		return NEXT_DEMO;
+	}
+
 	GamePtr game = Game::getTask( );
 	if ( game->getFade( ) == Game::FADE_COVER ) {
 		if ( _select == 0 ) {

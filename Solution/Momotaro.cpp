@@ -1,6 +1,5 @@
 #include "Momotaro.h"
 #include "Keyboard.h"
-#include "device.h"
 #include "define.h"
 #include "Camera.h"
 #include "mathmatics.h"
@@ -9,6 +8,7 @@
 #include "Sound.h"
 #include "Power.h"
 #include "Game.h"
+#include "Inputter.h"
 
 static const int MOVE_SPEED = 20;
 static const int CHIP_MOMOTARO_NUM = 101;
@@ -20,8 +20,9 @@ static const int WAIT_PATTERN_TIME = 3;
 static const int CHIP_SIZE = 128;
 static const int FALTER_COUNT = 30;
 
-Momotaro::Momotaro( PsychicMgrPtr mgr, PowerPtr power ) :
+Momotaro::Momotaro( InputterPtr inputter, PsychicMgrPtr mgr, PowerPtr power ) :
 Character( START_X, START_Y, CHIP_SIZE, CHIP_SIZE / 2, false ),
+_inputter( inputter ),
 _psychic_mgr( mgr ),
 _power( power ) {
 	_shoot_x = SHOOT_SPEED;
@@ -110,12 +111,11 @@ void Momotaro::actOnHide( ) {
 }
 
 void Momotaro::actOnMove( ) {
-	DevicePtr device = Device::getTask( );
 	SoundPtr sound = Sound::getTask( );
 	
-	Vector vec( device->getDirX( _device_num ), device->getDirY( _device_num ) );
+	Vector vec( _inputter->getDirX( _device_num ), _inputter->getDirY( _device_num ) );
 	
-	if ( vec.isOrijin( ) || device->getButton( ) == BUTTON_A ) {
+	if ( vec.isOrijin( ) || _inputter->getButton( ) == BUTTON_A ) {
 		double length = _vec.getLength( );
 		_vec = _vec.normalize( ) * ( length * 0.8 );
 		setAccelX( ( int )_vec.x );
@@ -135,7 +135,7 @@ void Momotaro::actOnMove( ) {
 	}
 
 	_cool--;
-	if ( device->getButton( _device_num ) == BUTTON_A ) {
+	if ( _inputter->getButton( _device_num ) == BUTTON_A ) {
 		sound->playSE( "yokai_se_27.wav" );
 		if ( _cool < 0 ) {
 			PsychicPtr psychic( new PsychicMomotaro( getX( ), getY( ), isChipReverse( ) ) ); 

@@ -19,11 +19,14 @@
 #include "Map4.h"
 #include "MapTest.h"
 #include "EnemyStock.h"
+#include "Inputter.h"
 
 static const int CLEAR_COUNT = 120;
 static const int DEAD_COUNT = 120;
 
 SceneStreet::SceneStreet() {
+	GamePtr game = Game::getTask( );
+
 	DrawerPtr drawer = Drawer::getTask();
 	drawer->loadGraph( GRAPH_CHARACTER_1		, "Character/Character1.png");
 	drawer->loadGraph( GRAPH_CHARACTER_2		, "Character/Character2.png");
@@ -40,15 +43,11 @@ SceneStreet::SceneStreet() {
 	drawer->loadGraph( GRAPH_ENEMY_SMALL		, "street/enemy/enemy_small.png");
 	drawer->loadGraph( GRAPH_ENEMY_BIG			, "street/enemy/enemy_big.png");
 
+	_inputter = InputterPtr( new Inputter );
+	if ( game->isDemo( ) ) {
+		_inputter->load( "" );
+	}
 
-	// Caution
-	// 以下のファイルは面固定なので、以下のstage分岐で読み込むこと！！
-	drawer->loadGraph( GRAPH_ENEMY_FIREBALL		, "street/enemy/enemy_fireball.png");
-	drawer->loadGraph( GRAPH_ENEMY_FLOG_GREEN	, "street/enemy/enemy_frog_green.png");
-	drawer->loadGraph( GRAPH_ENEMY_FLOG_RED		, "street/enemy/enemy_frog_red.png");
-
-	GamePtr game = Game::getTask( );
-	
 	MapConstPtr map;
 	switch ( game->getStage( ) ) {
 	case 0:
@@ -57,12 +56,14 @@ SceneStreet::SceneStreet() {
 		drawer->loadGraph(GRAPH_STATUS_TITLE , "street/status/status_title_0.png");
 		drawer->loadGraph(GRAPH_ENEMY_TREE_BODY       , "street/enemy/enemy_tree_body.png");
 		drawer->loadGraph(GRAPH_ENEMY_TREE_ITEM       , "street/enemy/enemy_tree_item.png");
+		drawer->loadGraph( GRAPH_ENEMY_FLOG_GREEN	, "street/enemy/enemy_frog_green.png");
 		break;
 	case 1:
 		map = MapPtr(new Map1);
 		drawer->loadGraph(GRAPH_STATUS_MAP   , "street/status/status_map_1.png");
 		drawer->loadGraph(GRAPH_STATUS_TITLE , "street/status/status_title_1.png");
 		drawer->loadGraph(GRAPH_ENEMY_BOSS         , "street/enemy/boss_bluedemon.png");
+		drawer->loadGraph( GRAPH_ENEMY_FLOG_RED		, "street/enemy/enemy_frog_red.png");
 		break;
 	case 2:
 		map = MapPtr(new Map2);
@@ -83,6 +84,7 @@ SceneStreet::SceneStreet() {
 		map = MapPtr(new Map4);
 		drawer->loadGraph(GRAPH_STATUS_MAP  , "street/status/status_map_4.png");
 		drawer->loadGraph(GRAPH_STATUS_TITLE, "street/status/status_title_4.png");
+		drawer->loadGraph( GRAPH_ENEMY_FIREBALL		, "street/enemy/enemy_fireball.png");
 		break;
 	case 5:
 		map = MapPtr(new MapTest);
@@ -101,11 +103,10 @@ SceneStreet::SceneStreet() {
 	_camera = CameraPtr( new Camera( map ) );
 	_psychic_mgr = PsychicMgrPtr( new PsychicMgr );
 	_power = PowerPtr( new Power );
-	_momotaro = MomotaroPtr( new Momotaro( _psychic_mgr, _power ) );
-	_tarosuke = TarosukePtr( new Tarosuke( _psychic_mgr, _power, _momotaro ) );
+	_momotaro = MomotaroPtr( new Momotaro( _inputter, _psychic_mgr, _power ) );
+	_tarosuke = TarosukePtr( new Tarosuke( _inputter, _psychic_mgr, _power, _momotaro ) );
 	_enemy_mgr = EnemyManagerPtr( new EnemyManager( map, stock ) );
 	_status = StatusPtr( new Status( _power, _field, _tarosuke ) );
-
 	_phase = PHASE_NORMAL;
 	_phase_count = 0;
 
@@ -121,6 +122,12 @@ Scene::NEXT SceneStreet::update( ) {
 	_phase_count++;
 	GamePtr game = Game::getTask( );
 	SoundPtr sound = Sound::getTask( );
+	
+	if ( game->isDemo( ) ) {
+		if ( _inputter->isFinished( ) ) {
+			return NEXT_TITLE;
+		}
+	}
 
 	switch ( _phase ) {
 	case PHASE_NORMAL:
@@ -171,32 +178,34 @@ Scene::NEXT SceneStreet::update( ) {
 		break;
 	case PHASE_DEAD:
 		if ( _phase_count > DEAD_COUNT ) {
-			GamePtr game = Game::getTask( );
+			if ( game->isDemo( ) ) {
+				return NEXT_TITLE;
+			}
 			game->setFade( Game::FADE_OUT );
 			_phase = PHASE_FADEOUT;
 		}
 		break;
 	case PHASE_CLEAR:
 		if ( _phase_count > CLEAR_COUNT ) {
-			GamePtr game = Game::getTask( );
+			if ( game->isDemo( ) ) {
+				return NEXT_TITLE;
+			}
 			game->setFade( Game::FADE_OUT );
 			_phase = PHASE_FADEOUT;
 		}
 		break;
 	case PHASE_FADEOUT:
-		{
-			GamePtr game = Game::getTask( );
-			if ( game->getFade( ) == Game::FADE_COVER ) {
-				if ( _power->get( ) > 0 ) {
-					return NEXT_STAGE;
-				} else {
-					return NEXT_RESULT;
-				}
+		if ( game->getFade( ) == Game::FADE_COVER ) {
+			if ( _power->get( ) > 0 ) {
+				return NEXT_STAGE;
+			} else {
+				return NEXT_RESULT;
 			}
 		}
 		break;
 	}
 
+	_inputter->update( );
 	_tarosuke->update( _field );
 	_tarosuke->adjust( _camera );
 	_momotaro->update( _field );

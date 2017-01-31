@@ -28,6 +28,7 @@ public:
 	void initialize( );
 	bool isDebug( ) const;
 	bool isSolo( ) const;
+	bool isDemo( ) const;
 	int getStage( ) const;
 	void addDebugMessage( const char* string, ... );
 	FADE getFade( ) const;
@@ -39,6 +40,7 @@ private:
 private:
 	ScenePtr _scene;
 	bool _solo;
+	bool _demo;
 	int _stage;
 	bool _debug;
 	FADE _fade;

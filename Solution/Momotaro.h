@@ -5,10 +5,11 @@
 
 PTR( PsychicMgr );
 PTR( Power );
+PTR( Inputter );
 
 class Momotaro : public Character {
 public:
-	Momotaro( PsychicMgrPtr mgr, PowerPtr _power );
+	Momotaro( InputterPtr inputter, PsychicMgrPtr mgr, PowerPtr _power );
 	virtual ~Momotaro( );
 public:
 	void hide( );
@@ -25,6 +26,7 @@ private:
 	void actOnMove( );
 	void actOnHide( );
 private:
+	InputterPtr _inputter;
 	CameraConstPtr _camera;
 	PsychicMgrPtr _psychic_mgr;
 	PowerPtr _power;

@@ -10,10 +10,11 @@ PTR( Momotaro );
 PTR( Power );
 PTR( Character );
 PTR( Enemy );
+PTR( Inputter );
 
 class Tarosuke : public Character {
 public:
-	Tarosuke( PsychicMgrPtr psychic, PowerPtr power, MomotaroPtr momotaro );
+	Tarosuke( InputterPtr inputter, PsychicMgrPtr psychic, PowerPtr power, MomotaroPtr momotaro );
 	virtual ~Tarosuke( );
 public:
 	bool isOnHead( EnemyPtr target ) const;
@@ -54,6 +55,7 @@ private:
 	void actOnFallingOut( );
 	void drawOverlapped( CameraConstPtr camera ) const;
 private:
+	InputterPtr _inputter;
 	MomotaroPtr _momotaro;
 	PowerPtr _power;
 	ACTION _action;

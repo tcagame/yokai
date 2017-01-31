@@ -1,5 +1,4 @@
 #include "Tarosuke.h"
-#include "Device.h"
 #include "define.h"
 #include "PsychicMgr.h"
 #include "Camera.h"
@@ -10,6 +9,7 @@
 #include "Power.h"
 #include "Game.h"
 #include "Enemy.h"
+#include "Inputter.h"
 
 static const int MAX_TAROSUKE_CHIP_NUM = 101;
 static const int JUMP_COUNT = 10;
@@ -36,8 +36,9 @@ static const int NEEDLE_POW = 6;
 static const int OUCH_POWER = 40;
 
 
-Tarosuke::Tarosuke( PsychicMgrPtr psychic, PowerPtr power, MomotaroPtr momotaro ) : 
+Tarosuke::Tarosuke( InputterPtr inputter, PsychicMgrPtr psychic, PowerPtr power, MomotaroPtr momotaro ) : 
 Character( START_X, START_Y, CHIP_SIZE, CHIP_FOOT, true ),
+_inputter( inputter ),
 _momotaro( momotaro ),
 _power( power ) {
 	_psychic_mgr = psychic;
@@ -140,7 +141,6 @@ void Tarosuke::act( ) {
 }
 
 void Tarosuke::actOnStanding( ) {
-	DevicePtr device = Device::getTask( );
 	SoundPtr sound = Sound::getTask( );
 
 	if ( !isStanding( ) ) {
@@ -154,7 +154,7 @@ void Tarosuke::actOnStanding( ) {
 	bool accel = false;
 	bool moving = false;
 
-	if ( device->getDirX( ) > 90 ) {
+	if ( _inputter->getDirX( ) > 90 ) {
 		moving = true;
 		if ( getAccelX( ) < 0 ) {
 			_action = ACTION_BRAKE;
@@ -168,7 +168,7 @@ void Tarosuke::actOnStanding( ) {
 		}
 	}
 	
-	if ( device->getDirX( ) < -90 ) {
+	if ( _inputter->getDirX( ) < -90 ) {
 		moving = true;
 		if ( getAccelX( ) > 0 ) {
 			_action = ACTION_BRAKE;
@@ -183,17 +183,17 @@ void Tarosuke::actOnStanding( ) {
 	}
 
 
-	if ( device->getPush( ) == BUTTON_C ) {
+	if ( _inputter->getPush( ) == BUTTON_C ) {
 		_jump_count = JUMP_COUNT;
 		_action = ACTION_JUMP;
 		setAccelY( -JUMP_POWER );
 	}
 	
-	if ( device->getPush( ) == BUTTON_A ) {
+	if ( _inputter->getPush( ) == BUTTON_A ) {
 		_action = ACTION_SHOOT;
 	}
 
-	if ( device->getPush( ) == BUTTON_B ) {
+	if ( _inputter->getPush( ) == BUTTON_B ) {
 		GamePtr game = Game::getTask( );
 		if ( game->isSolo( ) ) {
 			sound->playSE( "yokai_voice_06.wav" );
@@ -232,7 +232,7 @@ void Tarosuke::actOnStanding( ) {
 	FLOOR floor = getFloor( );
 
 	if ( !moving ) {
-		if ( device->getDirY( ) > 90 && floor == FLOOR_ROAD ) {
+		if ( _inputter->getDirY( ) > 90 && floor == FLOOR_ROAD ) {
 			_saving_power++;
 			if ( _saving_power >= CAPACITY_SAVING_POWER ) {
 				_action = ACTION_BURST;
@@ -301,11 +301,10 @@ void Tarosuke::actOnStanding( ) {
 }
 
 void Tarosuke::actOnJumping( ) {
-	DevicePtr device = Device::getTask( );
 	SoundPtr sound = Sound::getTask( );
 	
 	_action = ACTION_FLOAT;
-	if ( ( device->getButton( ) & BUTTON_C ) == 0 ) {
+	if ( ( _inputter->getButton( ) & BUTTON_C ) == 0 ) {
 		sound->playSE( "yokai_voice_17.wav" );
 		return;
 	}
@@ -314,7 +313,7 @@ void Tarosuke::actOnJumping( ) {
 		return;
 	}
 		
-	if ( device->getPush( ) & BUTTON_A ) {
+	if ( _inputter->getPush( ) & BUTTON_A ) {
 		_action = ACTION_SHOOT;
 		return;
 	}
@@ -349,35 +348,34 @@ void Tarosuke::actOnBraking( ) {
 }
 
 void Tarosuke::actOnFloating( ) {
-	DevicePtr device = Device::getTask( );
 
 	if ( isStanding( ) ) {
 		_action = ACTION_STAND;
 		return;
 	}
 	
-	if ( device->getPush( ) == BUTTON_C && _air_jump ) {
+	if ( _inputter->getPush( ) == BUTTON_C && _air_jump ) {
 		_air_jump = false;
 		_jump_count = JUMP_COUNT;
 		_action = ACTION_JUMP;
 		setAccelY( -JUMP_POWER );
 	}
 	
-	if ( device->getPush( ) & BUTTON_A ) {
+	if ( _inputter->getPush( ) & BUTTON_A ) {
 		_action = ACTION_SHOOT;
 	}
 
 	int ax = getAccelX( );
 
 	bool push = false;
-	if ( device->getDirX( ) > 90 ) {
+	if ( _inputter->getDirX( ) > 90 ) {
 		if ( MAX_SPEED > ax ) {
 			ax += ACCEL_SPEED;
 		}
 		push = true;
 	}
 	
-	if ( device->getDirX( ) < -90 ) {
+	if ( _inputter->getDirX( ) < -90 ) {
 		if ( -MAX_SPEED < ax ) {
 			ax += -ACCEL_SPEED;
 		}
@@ -501,8 +499,7 @@ void Tarosuke::actOnPraying( ) {
 	};
 	setChipGraph( GRAPH_CHARACTER_1, CALL[ _act_count / 2 % 60 ], 6 );
 
-	DevicePtr device = Device::getTask( );
-	if ( device->getPush( ) == BUTTON_B ) {
+	if ( _inputter->getPush( ) == BUTTON_B ) {
 		_momotaro->hide( );
 		_action = ACTION_STAND;
 	}
@@ -618,14 +615,13 @@ void Tarosuke::drawOverlapped( CameraConstPtr camera ) const {
 
 		SoundPtr sound = Sound::getTask( );
 		sound->playSE( "yokai_se_21.wav" );
-		DevicePtr device = Device::getTask( );
-		if ( device->getDirY( ) == 0 || _saving_power >= 25 ) {
+		if ( _inputter->getDirY( ) == 0 || _saving_power >= 25 ) {
 			sound->stopSE( "yokai_se_21.wav" );
 		}
 		if ( _saving_power >= 25 && _saving_power <= 40 ) {
 			sound->playSE( "yokai_se_22.wav" );
 		}
-		if ( device->getDirY( ) == 0 || _saving_power >= 40 ) {
+		if ( _inputter->getDirY( ) == 0 || _saving_power >= 40 ) {
 			sound->stopSE( "yokai_se_22.wav" );
 		}
 

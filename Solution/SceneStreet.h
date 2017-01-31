@@ -13,6 +13,7 @@ PTR( EnemyManager );
 PTR( Status );
 PTR( Power );
 PTR( EnemyStock );
+PTR( Inputter );
 
 class SceneStreet : public Scene {
 public:
@@ -30,6 +31,7 @@ private:
 	virtual NEXT update( );
 	void debugWarp( );
 private:
+	InputterPtr _inputter;
 	PowerPtr _power;
 	TarosukePtr _tarosuke;
 	MomotaroPtr _momotaro;

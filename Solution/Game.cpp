@@ -14,8 +14,8 @@
 static const int PANEL_WIDTH  = 266;
 static const int PANEL_HEIGHT = 272;
 static const int PANEL_PITCH = 192;
-static const int PANLE_COL = SCREEN_WIDTH  / PANEL_PITCH + 2;
-static const int PANLE_ROW = SCREEN_HEIGHT / PANEL_PITCH + 2;
+static const int PANEL_COL = SCREEN_WIDTH  / PANEL_PITCH + 2;
+static const int PANEL_ROW = SCREEN_HEIGHT / PANEL_PITCH + 2;
 static const int FADE_COUNT = 60;
 
 GamePtr Game::getTask( ) {
@@ -45,6 +45,10 @@ bool Game::isDebug( ) const {
 
 bool Game::isSolo( ) const {
 	return _solo;
+}
+
+bool Game::isDemo( ) const {
+	return _demo;
 }
 
 int Game::getStage( ) const {
@@ -90,8 +94,8 @@ void Game::fade( ) {
 		break;
 	}
 
-	for ( int i = 0; i < PANLE_COL; i++ ) {
-		for ( int j = 0; j < PANLE_ROW; j++ ) {
+	for ( int i = 0; i < PANEL_COL; i++ ) {
+		for ( int j = 0; j < PANEL_ROW; j++ ) {
 			int sx = -PANEL_WIDTH  / 2 + i * PANEL_PITCH;
 			int sy = -PANEL_HEIGHT / 2 + j * PANEL_PITCH;
 			int num = _fade_count / 3 - ( i + j * 2 );
@@ -149,9 +153,16 @@ void Game::changeScene( Scene::NEXT next ) {
 	case Scene::NEXT_TITLE:
 		_scene = ScenePtr( new SceneTitle );
 		break;
+	case Scene::NEXT_DEMO:
+		_solo = true;
+		_demo = true;
+		_stage = 0;
+		_scene = ScenePtr( new SceneStreet( ) );
+		break;
 	case Scene::NEXT_SELECT_1PLAYER:
 	case Scene::NEXT_SELECT_2PLAYER:
 		_solo = ( next == Scene::NEXT_SELECT_1PLAYER );
+		_demo = false;
 		_stage = 0;
 		_scene = ScenePtr( new SceneGate( ) );
 		break;
