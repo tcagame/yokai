@@ -1,9 +1,7 @@
 #include "Map4.h"
 #include "define.h"
-
-static const Map::Item item = {
-	Map::BOSS_BUDDHA
-};
+#include "EnemyDeceasedPurple.h"
+#include "BossBuddha.h"
 
 static const Map::Panel panel[] = {
 	{
@@ -472,9 +470,24 @@ static const Map::Panel panel[] = {
 
 
 Map4::Map4( ) :
-Map( &item, panel, sizeof( panel ) / sizeof( Map::Panel ) - 1 ) {
+Map( panel, sizeof( panel ) / sizeof( Map::Panel ) - 1 ) {
 }
 
 
 Map4::~Map4( ) {
+}
+
+EnemyPtr Map4::generateEnemy( char ch, int x, int y ) const {
+	EnemyPtr enemy;
+
+	switch ( ch ) {
+	case 'A': enemy = EnemyPtr( new EnemyDeceasedPurple( x, y ) );
+	}
+
+	return enemy;
+}
+
+BossPtr Map4::generateBoss( EnemyStockPtr stock ) const {
+	int offset_x = getPanelNum( ) * BG_SIZE - BG_SIZE;
+	return BossPtr( new BossBuddha( stock, offset_x ) );
 }

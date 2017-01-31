@@ -22,3 +22,8 @@ EnemyPtr EnemyStock::getPopUp( ) {
 	_enemies.pop_front( );
 	return stock;
 }
+
+void EnemyStock::clear( ) {
+	_enemies.clear( );
+}
+

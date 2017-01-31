@@ -8,7 +8,7 @@ public:
 private:
 	void act( );
 private:
-	EnemyStockPtr _enemy_stock;
+	EnemyStockPtr _stock;
 	int _act_count;
 };
 

@@ -8,23 +8,12 @@ const int MAPCHIP_NUM = 16;
 const int MAPCHIP_SIZE = BG_SIZE / MAPCHIP_NUM;
 
 PTR( CloudMgr );
-PTR( Boss );
 PTR( EnemyStock );
+PTR( Enemy );
+PTR( Boss );
 
 class Map {
 public:
-	enum BOSS {
-		BOSS_REDDEMON,
-		BOSS_BLUEDEMON,
-		BOSS_HAG,
-		BOSS_ENMA,
-		BOSS_BUDDHA,
-	};
-
-	struct Item {
-		BOSS boss;
-
-	};
 	struct Panel {
 		const char * bg_filename;
 		const char * cover_filename;
@@ -34,7 +23,7 @@ public:
 		const unsigned long long enemy;
 	};
 public:
-	Map( const Item * item, const Panel * panel, int panel_num );
+	Map( const Panel * panel, int panel_num );
 	virtual ~Map( );
 public:
 	const char * getBgFilename( int idx ) const;
@@ -46,13 +35,13 @@ public:
 	bool isBlockChip( int bg_idx, int chip_idx ) const;
 	FLOOR getFloor( int bg_idx, int chip_idx ) const;
 	CloudMgrPtr createCloudMgr( ) const;
-	BossPtr createBoss( EnemyStockPtr enemy_stock ) const;
-	void addToStock( EnemyStockPtr stock ) const { }
+	virtual void addToStock( EnemyStockPtr stock, int idx ) const;
+	virtual EnemyPtr generateEnemy( char ch, int x, int y ) const = 0;
+	virtual BossPtr  generateBoss( EnemyStockPtr stock ) const = 0;
 private:
 	bool isSmallCloud( int bg_idx, int chip_idx ) const;
 	bool isBigCloud( int bg_idx, int chip_idx ) const;
 private:
-	const Item  * _item;
 	const Panel * _panel;
 	const int     _panel_num;
 };

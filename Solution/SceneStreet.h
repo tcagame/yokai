@@ -12,6 +12,7 @@ PTR( PsychicMgr );
 PTR( EnemyManager );
 PTR( Status );
 PTR( Power );
+PTR( EnemyStock );
 
 class SceneStreet : public Scene {
 public:

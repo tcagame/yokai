@@ -14,10 +14,11 @@ PTR( EnemyStock );
 PTR( Psychic );
 PTR( Boss );
 PTR( Map );
+PTR( EnemyStock );
 
-class EnemyManager : public std::enable_shared_from_this< EnemyManager > {
+class EnemyManager /*: public std::enable_shared_from_this< EnemyManager >*/ {
 public:
-	EnemyManager( MapConstPtr map );
+	EnemyManager( MapConstPtr map, EnemyStockPtr stock );
 	virtual ~EnemyManager( );
 public:
 	void update( FieldPtr field, CameraConstPtr camera, TarosukePtr tarosuke, MomotaroPtr momotaro );
@@ -35,13 +36,12 @@ private:
 		int count;
 	};
 private:
-	void createByField( unsigned long long enemy_data,  CameraConstPtr camera );
 	void addBomb( const Vector& pos );
 	void drawBomb( CameraConstPtr camera ) const;
 	void updateBomb( );
 private:
+	const EnemyStockPtr _stock;
 	std::list< EnemyPtr > _enemies;
-	EnemyStockPtr _enemy_stock;
 	std::array< Bomb, BOMB_NUM > _bombs;
 	int _idx_bomb;
 	BossPtr _boss;

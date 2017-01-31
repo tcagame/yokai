@@ -18,6 +18,7 @@
 #include "Map3.h"
 #include "Map4.h"
 #include "MapTest.h"
+#include "EnemyStock.h"
 
 static const int CLEAR_COUNT = 120;
 static const int DEAD_COUNT = 120;
@@ -86,14 +87,16 @@ SceneStreet::SceneStreet() {
 		drawer->loadGraph(GRAPH_ENEMY_BOSS         , "street/enemy/boss_bluedemon.png");
 		break;
 	}
+	
+	EnemyStockPtr stock = EnemyStockPtr( new EnemyStock( ) );
 
-	_field = FieldPtr( new Field( map ) );
+	_field = FieldPtr( new Field( map, stock ) );
 	_camera = CameraPtr( new Camera( map ) );
 	_psychic_mgr = PsychicMgrPtr( new PsychicMgr );
 	_power = PowerPtr( new Power );
 	_momotaro = MomotaroPtr( new Momotaro( _psychic_mgr, _power ) );
 	_tarosuke = TarosukePtr( new Tarosuke( _psychic_mgr, _power, _momotaro ) );
-	_enemy_mgr = EnemyManagerPtr( new EnemyManager( map ) );
+	_enemy_mgr = EnemyManagerPtr( new EnemyManager( map, stock ) );
 	_status = StatusPtr( new Status( _power, _field, _tarosuke ) );
 
 	_phase = PHASE_NORMAL;
