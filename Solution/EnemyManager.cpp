@@ -54,6 +54,7 @@
 #include "EnemyNakabon.h"
 #include "EnemyNoFace.h"
 #include "EnemyNoNeckGhost.h"
+#include "EnemyShishimai.h"
 
 static const int BASE_POP_Y = 200;
 static const int POPUP_GROUND = 400;
@@ -350,6 +351,10 @@ void EnemyManager::createByField( unsigned long long enemy_data, CameraConstPtr 
 	}
 	if ( data & NAKABON ) {
 		_enemies.push_back( EnemyPtr( new EnemyNakabon( pop_base_x - BG_SIZE * 2, REDBIRD_POP_Y ) ) );
+	}
+
+	if ( data & SHISHIMAI ) {
+		_enemies.push_back( EnemyPtr( new EnemyShishimai( pop_base_x, BASE_POP_Y ) ) );
 	}
 }
 

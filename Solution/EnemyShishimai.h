@@ -8,4 +8,6 @@ public:
 	virtual ~EnemyShishimai( );
 private:
 	void act( );
+private:
+	int _anime_count;
 };

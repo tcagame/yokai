@@ -70,7 +70,7 @@ static const Map::Panel panel[] = {
 		"###########~~~~~"
 		"################"
 		"################",
-		NONE
+		SHISHIMAI
 	},
 	{//3
 		"street/map0/bg/map0_04_00.png",
