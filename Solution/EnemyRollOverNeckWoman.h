@@ -7,4 +7,6 @@ public:
 	virtual ~EnemyRollOverNeckWoman( );
 private:
 	void act( );
+	Vector getOverlappedPos( ) const;
+	double getOverlappedRadius( ) const;
 };

@@ -7,5 +7,7 @@ public:
 	virtual ~EnemyWindMonsterAttack( );
 private:
 	void act( );
+private:
+	int _act_count;
 };
 

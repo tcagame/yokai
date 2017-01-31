@@ -2,7 +2,7 @@
 #include "define.h"
 #include "EnemyDeceasedPurple.h"
 #include "BossRedDemon.h"
-#include "EnemyBloodPondDemon.h"
+#include "EnemyRayMonster.h"
 #include "EnemyRockMass.h"
 
 static const Map::Panel panel[] = {
@@ -215,7 +215,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"        D       "
 		"                "
 		"                "
 		"                "
@@ -548,13 +548,14 @@ EnemyPtr MapTest::generateEnemy( char ch, EnemyStockPtr stock, int x, int y ) co
 	EnemyPtr enemy;
 
 	switch ( ch ) {
-	case 'A': enemy = EnemyPtr( new EnemyDeceasedPurple( x, y ) ); break;
-	case 'B': enemy = EnemyPtr( new EnemyDeceasedPurple( x, y ) ); break;
-	case 'C': enemy = EnemyPtr( new EnemyDeceasedPurple( x, y ) ); break;
-	case 'D': enemy = EnemyPtr( new EnemyBloodPondDemon( stock, x, y ) ); break;
-	case 'E': enemy = EnemyPtr( new EnemyRockMass( x, y ) ); break;
-	case 'F': enemy = EnemyPtr( new EnemyDeceasedPurple( x, y ) ); break;
-	case 'G': enemy = EnemyPtr( new EnemyDeceasedPurple( x, y ) ); break;
+	case 'A': enemy = EnemyPtr( new EnemyDeceasedPurple( x, y ) );
+	case 'B': enemy = EnemyPtr( new EnemyDeceasedPurple( x, y ) );
+	case 'C': enemy = EnemyPtr( new EnemyDeceasedPurple( x, y ) );
+	case 'D': enemy = EnemyPtr( new EnemyRayMonster( x, y ) );
+		break;
+	case 'E': enemy = EnemyPtr( new EnemyDeceasedPurple( x, y ) );
+	case 'F': enemy = EnemyPtr( new EnemyDeceasedPurple( x, y ) );
+	case 'G': enemy = EnemyPtr( new EnemyDeceasedPurple( x, y ) );
 	}
 
 	return enemy;
