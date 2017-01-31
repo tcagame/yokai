@@ -7,5 +7,7 @@ public:
 	virtual ~EnemyRayMonster( );
 private:
 	void act( );
+	int _count;
+	bool _revers;
 };
 
