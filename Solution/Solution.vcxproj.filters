@@ -156,6 +156,8 @@
     <ClCompile Include="EnemyHandMonsterAttack.cpp" />
     <ClCompile Include="EnemyNakabon.cpp" />
     <ClCompile Include="EnemyNoFace.cpp" />
+    <ClCompile Include="EnemyMidTray.cpp" />
+    <ClCompile Include="EnemyShishimai.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Boss.h" />
@@ -313,5 +315,7 @@
     <ClInclude Include="EnemyHandMonsterAttack.h" />
     <ClInclude Include="EnemyNakabon.h" />
     <ClInclude Include="EnemyNoFace.h" />
+    <ClInclude Include="EnemyMidTray.h" />
+    <ClInclude Include="EnemyShishimai.h" />
   </ItemGroup>
 </Project>
