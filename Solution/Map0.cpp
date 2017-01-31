@@ -8,6 +8,8 @@
 #include "EnemyDeceasedFourth.h"
 #include "EnemyMoth.h"
 #include "EnemyFlog.h"
+#include "EnemyFlogSmall.h"
+#include "EnemyWaterMonk.h"
 #include "BossRedDemon.h"
 
 static const Map::Panel panel[] = {
@@ -262,7 +264,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"     I          "
 		"                "
 		"                "
 		"                "
@@ -271,7 +273,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"~~~~~~~~~~~~~~~~"
+		"~~~~~~~~~~B~~~~~"
 		"################",
 		NONE
 	},
@@ -289,11 +291,11 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
+		"      I         "
 		"                "
 		"                "
 		"                "
-		"                "
-		"~~~~~~~~~~~~~~~~"
+		"~~~~~~~~~~~B~~~~"
 		"################",
 		NONE
 	},
@@ -310,10 +312,10 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"           H    "
-		"       #########"
+		"        H     I "
+		" I     #########"
 		"######          "
-		"                "
+		"              I "
 		"                "
 		"~~~~~~~~~~~~~~~~"
 		"################",
@@ -327,17 +329,17 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
+		"  I             "
 		"                "
 		"                "
-		"                "
-		"                "
+		"      I         "
 		"                "
 		"                "
 		"###########     "
 		"                "
+		"      I         "
 		"                "
-		"                "
-		"~~~~~~~~~~~~~~~~"
+		"~~~~~~~~~~~~~B~~"
 		"################",
 		NONE
 	},
@@ -359,7 +361,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"~~~~~~~~~~~~~~~~"
+		"~~~~~~~~J~~~~~~~"
 		"################",
 		NONE
 	},
@@ -767,6 +769,10 @@ EnemyPtr Map0::generateEnemy( char ch, EnemyStockPtr stock, int x, int y ) const
 	case 'G': enemy = EnemyPtr( new EnemyMoth( x, y ) );
 		break;
 	case 'H': enemy = EnemyPtr( new EnemyFlog( stock, x, y ) );
+		break;
+	case 'I': enemy = EnemyPtr( new EnemyFlogSmall( x, y ) );
+		break;
+	case 'J': enemy = EnemyPtr( new EnemyWaterMonk( x, y ) );
 		break;
 	}
 
