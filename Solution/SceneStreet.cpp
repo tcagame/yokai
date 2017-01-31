@@ -55,7 +55,7 @@ SceneStreet::SceneStreet() {
 		map = MapPtr(new Map0);
 		drawer->loadGraph(GRAPH_STATUS_MAP   , "street/status/status_map_0.png");
 		drawer->loadGraph(GRAPH_STATUS_TITLE , "street/status/status_title_0.png");
-		drawer->loadGraph(GRAPH_ENEMY_TREE_BODY       , "street/enemy/enemy_tree_body.pn");
+		drawer->loadGraph(GRAPH_ENEMY_TREE_BODY       , "street/enemy/enemy_tree_body.png");
 		drawer->loadGraph(GRAPH_ENEMY_TREE_ITEM       , "street/enemy/enemy_tree_item.png");
 		break;
 	case 1:

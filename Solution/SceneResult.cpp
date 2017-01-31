@@ -22,12 +22,12 @@ _count( 0 ) {
 	case 4:
 		drawer->loadGraph( GRAPH_RESULT_FRAME, "result/heaven/heaven_frame.png" );
 		drawer->loadGraph( GRAPH_RESULT_OBJ  , "result/heaven/heaven_obj.png" );
-		sound->playBGM( "yokai_music_08.wav" );
+		sound->playBGM( "yokai_music_09.wav" );
 		break;
 	case 3:
 		drawer->loadGraph( GRAPH_RESULT_FRAME, "result/human/human_frame.png" );
 		drawer->loadGraph( GRAPH_RESULT_OBJ  , "result/human/human_obj.png" );
-		sound->playBGM( "yokai_music_08.wav" );
+		sound->playBGM( "yokai_music_09.wav" );
 		break;
 	case 2:
 		drawer->loadGraph( GRAPH_RESULT_FRAME, "result/damn/damn_frame.png" );
