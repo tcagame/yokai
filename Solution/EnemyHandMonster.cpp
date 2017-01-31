@@ -3,8 +3,8 @@
 
 static const int CHIP_SIZE = 128;
 static const int CHIP_FOOT = 0;
-static const int HP = 1;
-static const int POW = 1;
+static const int HP = 2;
+static const int POW = 6;
 static const int WAIT_APPEAR_TIME = 50;
 static const int WAIT_ANIME_TIME = 3;
 static const int ATTACK_FOOT = 30;
