@@ -5,8 +5,8 @@ static const int WAIT_ANIME_TIME = 5;
 static const int MOVE_SPEED = 8;
 static const int CHIP_SIZE = 128;
 static const int CHIP_FOOT = 0;
-static const int HP  = 10;
-static const int POW = 3;
+static const int HP  = 6;
+static const int POW = 1;
 static const int ATTACK_FOOT = 50;
 static const int CREATE_COUNT_BRANCH = 60;
 
@@ -48,12 +48,12 @@ void EnemyBranchMonster::actAttack( ) {
 	int u = ANIME[ _anime_count / WAIT_ANIME_TIME % anime_num ];
 	int v = 2;
 	if ( u == 3 ) {
-		if ( _anime_count % WAIT_ANIME_TIME == 0 ) {
+		if ( _anime_count % WAIT_ANIME_TIME == 1 ) {
 			_stock->addEnemy( EnemyPtr( new EnemyBranchMonsterAttack( getX( ) - 40, getY( ) - ATTACK_FOOT ) ) );
 		}
 	}
 	setChipGraph( GRAPH_ENEMY_NORMAL, u, v );
 	if( u == 0 ) {
-		setAccelY( 2000 );
+		setY( -200 );
 	}
 }
