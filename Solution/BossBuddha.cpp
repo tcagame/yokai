@@ -3,8 +3,8 @@
 
 static const int OFFSET_X = 414;
 static const int OFFSET_Y = 155;
-static const int HP = 50;
-static const int POW = 10;
+static const int HP = 30;
+static const int POW = 6;
 static const int RADIUS = 100;
 static const int SPEED = 5;
 static const int ACCEL = 10;
