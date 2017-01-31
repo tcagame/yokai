@@ -53,7 +53,7 @@ void BossEnma::updateChip( ) {
 	int v = MOTION[ ( _count / WAIT_ANIME_TIME ) % pattern ] / WIDTH_NUM;
 	_count++;
 
-	setChipGraph( GRAPH_BOSS, u, v );
+	setChipGraph( GRAPH_ENEMY_BOSS, u, v );
 }
 
 double BossEnma::getOverlappedRadius( ) const {
