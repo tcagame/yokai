@@ -54,25 +54,25 @@ SceneStreet::SceneStreet() {
 		map = MapPtr(new Map0);
 		drawer->loadGraph(GRAPH_STATUS_MAP   , "street/status/status_map_0.png");
 		drawer->loadGraph(GRAPH_STATUS_TITLE , "street/status/status_title_0.png");
-		drawer->loadGraph(GRAPH_BOSS         , "street/enemy/boss_reddemon.png");
+		drawer->loadGraph(GRAPH_ENEMY_BOSS         , "street/enemy/boss_reddemon.png");
 		break;
 	case 1:
 		map = MapPtr(new Map1);
 		drawer->loadGraph(GRAPH_STATUS_MAP   , "street/status/status_map_1.png");
 		drawer->loadGraph(GRAPH_STATUS_TITLE , "street/status/status_title_1.png");
-		drawer->loadGraph(GRAPH_BOSS         , "street/enemy/boss_bluedemon.png");
+		drawer->loadGraph(GRAPH_ENEMY_BOSS         , "street/enemy/boss_bluedemon.png");
 		break;
 	case 2:
 		map = MapPtr(new Map2);
 		drawer->loadGraph(GRAPH_STATUS_MAP, "street/status/status_map_2.png");
 		drawer->loadGraph(GRAPH_STATUS_TITLE, "street/status/status_title_2.png");
-		drawer->loadGraph(GRAPH_BOSS         , "street/enemy/boss_sanzu.png");
+		drawer->loadGraph(GRAPH_ENEMY_BOSS         , "street/enemy/boss_sanzu.png");
 		break;
 	case 3:
 		map = MapPtr(new Map3);
 		drawer->loadGraph(GRAPH_STATUS_MAP  , "street/status/status_map_3.png");
 		drawer->loadGraph(GRAPH_STATUS_TITLE, "street/status/status_title_3.png");
-		drawer->loadGraph(GRAPH_BOSS        , "street/enemy/boss_enma.png");
+		drawer->loadGraph(GRAPH_ENEMY_BOSS        , "street/enemy/boss_enma.png");
 		break;
 	case 4:
 		map = MapPtr(new Map4);
@@ -83,7 +83,7 @@ SceneStreet::SceneStreet() {
 		map = MapPtr(new MapTest);
 		drawer->loadGraph(GRAPH_STATUS_MAP  , "street/status/status_map_0.png");
 		drawer->loadGraph(GRAPH_STATUS_TITLE, "street/status/status_title_test.png");
-		drawer->loadGraph(GRAPH_BOSS         , "street/enemy/boss_bluedemon.png");
+		drawer->loadGraph(GRAPH_ENEMY_BOSS         , "street/enemy/boss_bluedemon.png");
 		break;
 	}
 
