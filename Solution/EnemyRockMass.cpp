@@ -1,11 +1,13 @@
 #include "EnemyRockMass.h"
 #include "Drawer.h"
 #include "Camera.h"
+#include "EnemyStoneMortgage.h"
+#include "EnemyStock.h"
 
 static const int WAIT_SOUL_ANIME_TIME = 2;
 static const int WAIT_SHELL_ANIME_TIME = 20;
 static const int SOUL_SIZE = 128;
-static const int SOUL_FOOT = -100;
+static const int SOUL_FOOT = -60;
 static const int SHELL_TX = 0;
 static const int SHELL_TY = 256 + 128;
 static const int SHELL_TW = 256;
@@ -14,9 +16,34 @@ static const int SHELL_FOOT = 30;
 static const int HP  = 10;
 static const int POW = 3;
 
-EnemyRockMass::EnemyRockMass( int x, int y ) :
-Enemy( x, y, SOUL_SIZE, SOUL_FOOT, true, HP, POW ),
-_count( 0 ){
+EnemyRockMass::EnemyRockMass( EnemyStockPtr stock, int x, int y ) :
+Enemy( x, y, SOUL_SIZE, SOUL_FOOT, false, HP, POW ),
+_count( 0 ),
+_shrine_rope( true ) {
+	struct Stone {
+		int offset_x;
+		int offset_y;
+		int type;
+	} STONE[ STONE_NUM ] = {
+		{    0, -150, 0, },
+		{  -70,  -40, 1, },
+		{   50,  -40, 2, },
+		{  -30,  -40, 0, },
+		{   20,  -45, 0, },
+		{  -40, -100, 1, },
+		{   25, -100, 2, },
+		{  -10,  -80, 3, },
+		{    0, -120, 0, },
+		{    0,  -50, 1, },
+	};
+
+	for ( int i = 0; i < STONE_NUM; i++ ) {
+		int stone_x = STONE[ i ].offset_x + x;
+		int stone_y = STONE[ i ].offset_y + y;
+		int stone_type = STONE[ i ].type;
+		_stones[ i ] = EnemyStoneMortgagePtr( new EnemyStoneMortgage( stone_x, stone_y, stone_type ) );
+		stock->addEnemy( _stones[ i ] );
+	}
 
 }
 
@@ -31,23 +58,34 @@ void EnemyRockMass::act( ) {
 	int u = MOTION[ ( _count / WAIT_SOUL_ANIME_TIME ) % PATTERN ] % 4;
 	int v = MOTION[ ( _count / WAIT_SOUL_ANIME_TIME ) % PATTERN ] / 4;
 	setChipGraph( GRAPH_ENEMY_ROCKMASS, u, v );
+
+	if ( getHp( ) < HP ) {
+		_shrine_rope = false;
+	}
 }
 
 void EnemyRockMass::drawOverlapped( CameraConstPtr camera ) const {
+	DrawerPtr drawer = Drawer::getTask( );
 	{
 		int sx = getX( ) - camera->getX( ) - SHELL_TW / 2;
 		int sy = getY( ) - camera->getY( ) - SHELL_TH + SHELL_FOOT;
-		DrawerPtr drawer = Drawer::getTask( );
 		Drawer::Transform trans( sx, sy, SHELL_TX, SHELL_TY, SHELL_TW, SHELL_TH );
 		Drawer::Sprite sprite( trans, GRAPH_ENEMY_ROCKMASS, Drawer::BLEND_NONE, 1.0 );
 		drawer->setSprite( sprite );
 	}
-	{
+	if ( _shrine_rope ) {
 		int sx = getX( ) - camera->getX( ) - SHELL_TW / 2;
 		int sy = getY( ) - camera->getY( ) - SHELL_TH + SHELL_FOOT;
-		DrawerPtr drawer = Drawer::getTask( );
 		Drawer::Transform trans( sx, sy, SHELL_TX + SHELL_TW, SHELL_TY, SHELL_TW, SHELL_TH );
 		Drawer::Sprite sprite( trans, GRAPH_ENEMY_ROCKMASS, Drawer::BLEND_NONE, 1.0 );
 		drawer->setSprite( sprite );
 	}
+}
+
+double EnemyRockMass::getOverlappedRadius( ) const {
+	double result = SOUL_SIZE;
+	if ( _shrine_rope ) {
+		result = SOUL_SIZE / 2 * 0.8;
+	}
+	return result;
 }

@@ -256,7 +256,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"       E        "
+		"                "
 		"                "
 		"                "
 		"                "
@@ -265,7 +265,7 @@ static const Map::Panel panel[] = {
 		"               #"
 		"             ###"
 		"           #####"
-		"         #######"
+		"       E #######"
 		"################"
 		"################",
 		NONE
@@ -553,7 +553,7 @@ EnemyPtr MapTest::generateEnemy( char ch, EnemyStockPtr stock, int x, int y ) co
 	case 'C': enemy = EnemyPtr( new EnemyDeceasedPurple( x, y ) );
 	case 'D': enemy = EnemyPtr( new EnemyRayMonster( x, y ) );
 		break;
-	case 'E': enemy = EnemyPtr( new EnemyRockMass( x, y ) ); break;
+	case 'E': enemy = EnemyPtr( new EnemyRockMass( stock, x, y ) ); break;
 	case 'F': enemy = EnemyPtr( new EnemyDeceasedPurple( x, y ) );
 	case 'G': enemy = EnemyPtr( new EnemyDeceasedPurple( x, y ) );
 	}

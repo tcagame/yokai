@@ -3,16 +3,16 @@
 static const int CHIP_SIZE = 64;
 static const int CHIP_FOOT = 0;
 static const int MOVE_SPEED = 20;
-static const int HP = 20;
+static const int HP = 99;
 static const int POW = 1;
 static const int WAIT_ANIME_TIME = 3;
 
-EnemyStoneMortgage::EnemyStoneMortgage( int x, int y ) :
+EnemyStoneMortgage::EnemyStoneMortgage( int x, int y, int type ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ),
 _moveing( false ),
-_back( false ),
 _start_x( x ),
 _start_y( y ),
+_type( type ),
 _count( 0 ) {
 }
 
@@ -20,11 +20,7 @@ EnemyStoneMortgage::~EnemyStoneMortgage( ) {
 }
 
 void EnemyStoneMortgage::act( ) {
-	if ( _moveing ) {
-		actMove( );
-	} else {
-		actStop( );
-	}
+	actMove( );
 	updateChip( );
 }
 
@@ -34,29 +30,15 @@ void EnemyStoneMortgage::setMove( bool moveing ) {
 
 void EnemyStoneMortgage::actMove( ) {
 	setAccelX( MOVE_SPEED );
-	if ( _back ) {
+	if ( _count >= 10 ) {
 		setAccelX( -MOVE_SPEED );
 	}
 	_count++;
-}
-
-void EnemyStoneMortgage::actStop( ) {
-	_count = 0;
-	_back = false;
-	setAccelX( 0 );
-	setAccelY( 0 );
-	setX( _start_x );
-	setY( _start_y );
+	_count %= 20;
 }
 
 void EnemyStoneMortgage::updateChip( ) {
-	const int ANIME[ ] = { 0, 1, 2, 3 };
-	const int anime_num = sizeof( ANIME ) / sizeof( ANIME[ 0 ] );
-	int u = ANIME[ _count / WAIT_ANIME_TIME % anime_num ];
-
-	setChipGraph( GRAPH_ENEMY_EFFECT_SMALL, u, 3 );
-}
-
-void EnemyStoneMortgage::back( ) {
-	_back = true;
+	int u = _type % 2 * 4 + _count / WAIT_ANIME_TIME % 4;
+	int v = 4 + _type / 2;
+	setChipGraph( GRAPH_ENEMY_ROCKMASS, u, v );
 }
