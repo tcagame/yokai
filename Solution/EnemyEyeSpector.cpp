@@ -2,11 +2,11 @@
 
 static const int CHIP_SIZE = 64;
 static const int CHIP_FOOT = 0;
-static const int HP = 1;
-static const int POW = 1;
+static const int HP = 3;
+static const int POW = 6;
 static const int WAIT_ANIME_TIME = 10;
 static const int MOVE_SPEED = 2;
-static const int WAIT_JUMP_TIME = 60;
+static const int WAIT_JUMP_TIME = 40;
 static const int JUMP_POWER = -30;
 
 EnemyEyeSpector::EnemyEyeSpector( int x, int y) :
@@ -24,6 +24,9 @@ void EnemyEyeSpector::act( ) {
 	setAccelX( -MOVE_SPEED );
 	if ( _act_count % WAIT_JUMP_TIME == 0 ) {
 		setAccelY( JUMP_POWER );
+		if ( _act_count != 0 ) {
+			_act_count = -WAIT_JUMP_TIME / 4;
+		}
 	}
 
 	const int MAX_ANIME_PATTERN = 4;
