@@ -69,6 +69,9 @@ void EnemyRockMass::act( ) {
 
 	if ( getHp( ) < HP ) {
 		_shrine_rope = false;
+		for ( int i = 0; i < STONE_NUM; i++ ) {
+			_stones[ i ]->setMove( true );
+		}
 	}
 }
 

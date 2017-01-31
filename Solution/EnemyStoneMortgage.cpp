@@ -14,12 +14,19 @@ _start_x( x ),
 _start_y( y ),
 _type( type ),
 _count( 0 ) {
+	if ( rand( ) % 2 ) {
+		_move_speed = MOVE_SPEED;
+	} else {
+		_move_speed = -MOVE_SPEED;
+	}
 }
 
 EnemyStoneMortgage::~EnemyStoneMortgage( ) {
 }
 
 void EnemyStoneMortgage::act( ) {
+	if ( _moveing ) {
+	}
 	actMove( );
 	updateChip( );
 }

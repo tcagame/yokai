@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Enemy.h"
+#include "mathmatics.h"
 
 class EnemyStoneMortgage : public Enemy {
 public:
@@ -13,6 +14,7 @@ private:
 	void updateChip( );
 	void actMove( );
 private:
+	int _move_speed;
 	int _count;
 	int _start_x;
 	int _start_y;
