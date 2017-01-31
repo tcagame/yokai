@@ -56,6 +56,7 @@
 #include "EnemyNoNeckGhost.h"
 #include "EnemyShishimai.h"
 #include "EnemyYadokariYokai.h"
+#include "EnemyShishimaiDemon.h"
 
 static const int BASE_POP_Y = 200;
 static const int POPUP_GROUND = 400;
@@ -359,6 +360,9 @@ void EnemyManager::createByField( unsigned long long enemy_data, CameraConstPtr 
 	}
 	if ( data & YADOKARI ) {
 		_enemies.push_back( EnemyPtr( new EnemyYadokariYokai( pop_base_x, BASE_POP_Y ) ) );
+	}
+	if ( data & SHISHI_ONI ) {
+		_enemies.push_back( EnemyPtr( new EnemyShishimaiDemon( pop_base_x, BASE_POP_Y ) ) );
 	}
 }
 

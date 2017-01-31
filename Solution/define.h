@@ -47,7 +47,8 @@ const unsigned long long NO_FACE			= 0x0000000800000000;	//‚Ì‚Á‚Ø‚ç‚Ú‚¤
 const unsigned long long NO_NECK_GHOST      = 0x0000001000000000;   //Žñ‚È‚µ—H—ì
 const unsigned long long NAKABON			= 0x0000002000000000;   //’†–~
 const unsigned long long SHISHIMAI		    = 0x0000004000000000;   //Ž‚Žq•‘
-const unsigned long long YADOKARI			= 0x0000008000000000;	//ƒ„ƒhƒJƒŠ—d‰ö
+const unsigned long long SHISHI_ONI			= 0x0000008000000000;	//Ž‚Žq•‘‹S
+const unsigned long long YADOKARI			= 0x0000010000000000;	//ƒ„ƒhƒJƒŠ—d‰ö
 
 enum GRAPH {
 	GRAPH_FADE_BOARD,
