@@ -48,7 +48,7 @@ static const Map::Panel panel[] = {
 		"         #######"
 		"################"
 		"################",
-		NO_FACE
+		NO_FACE | FLOG_RED
 	},
 	{//2
 		"street/map0/bg/map0_02_00.png",

@@ -32,7 +32,7 @@ void EnemyFlog::updateChip( ) {
 	int anime_num = sizeof( ANIME ) / sizeof( ANIME[ 0 ] );
 	int u = ANIME[ _act_count / WAIT_ANIME_TIME % anime_num ] % WIDTH_NUM;
 	int v = ANIME[ _act_count / WAIT_ANIME_TIME % anime_num ] / WIDTH_NUM;
-	setChipGraph( GRAPH_ENEMY_FLOG, u, v );
+	setChipGraph( GRAPH_ENEMY_FLOG_GREEN, u, v );
 }
 
 void EnemyFlog::actAttack( ) {

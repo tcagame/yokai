@@ -57,6 +57,7 @@
 #include "EnemyShishimai.h"
 #include "EnemyYadokariYokai.h"
 #include "EnemyShishimaiDemon.h"
+#include "EnemyFlogChief.h"
 
 static const int BASE_POP_Y = 200;
 static const int POPUP_GROUND = 400;
@@ -248,7 +249,7 @@ void EnemyManager::createByField( unsigned long long enemy_data, CameraConstPtr 
 			_enemies.push_back( EnemyPtr( new EnemyFlogSmall( pop_base_x + i * 100, FLOG_SMALL_POP_Y ) ) );
 		}
 	}
-	if ( data & FLOG ) {
+	if ( data & FLOG_GREEN ) {
 		_enemies.push_back( EnemyPtr( new EnemyFlog( _enemy_stock, pop_base_x, BASE_POP_Y ) ) );
 	}
 	if ( data & STONE_ROTE ) {
@@ -363,6 +364,9 @@ void EnemyManager::createByField( unsigned long long enemy_data, CameraConstPtr 
 	}
 	if ( data & SHISHI_ONI ) {
 		_enemies.push_back( EnemyPtr( new EnemyShishimaiDemon( pop_base_x, BASE_POP_Y ) ) );
+	}
+	if ( data & FLOG_RED ) {
+		_enemies.push_back( EnemyPtr( new EnemyFlogChief( pop_base_x, BASE_POP_Y ) ) );
 	}
 }
 
