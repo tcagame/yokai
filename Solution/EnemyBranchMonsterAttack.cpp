@@ -28,5 +28,5 @@ void EnemyBranchMonsterAttack::act( ) {
 	const int SEED_PATTERN[ ] = { 0, 1, 2 };
 	int pattern_num = sizeof( SEED_PATTERN ) / sizeof( SEED_PATTERN[ 0 ] );
 	int u = SEED_PATTERN[ ( _anime_count / WAIT_ANIME_TIME ) % pattern_num ];
-	setChipGraph( GRAPH_ENEMY_EFFECT_SMALL, u, 1 );
+	setChipGraph( GRAPH_ENEMY_TREE_MONSTER_ITEM, u, 5 );
 }

@@ -22,3 +22,6 @@ void EnemyDeceasedFirst::act( ) {
 	int pattern = _count / WAIT_ANIME_TIME % ( MAX_ANIME_PATTERN - 1 );
 	setChipGraph( GRAPH_ENEMY_NORMAL, pattern, 13 );
 }
+
+void EnemyDeceasedFirst::damage( int pow ) {
+}
