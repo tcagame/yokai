@@ -131,6 +131,7 @@
     <ClCompile Include="EnemyNoNeckGhost.cpp" />
     <ClCompile Include="EnemyOneEyesSnake.cpp" />
     <ClCompile Include="EnemyRayMonster.cpp" />
+    <ClCompile Include="EnemyRedFlogSmall.cpp" />
     <ClCompile Include="EnemyRockMass.cpp" />
     <ClCompile Include="EnemyRockMassShell.cpp" />
     <ClCompile Include="EnemyRockMassSoul.cpp" />
@@ -238,6 +239,7 @@
     <ClInclude Include="EnemyNoNeckGhost.h" />
     <ClInclude Include="EnemyOneEyesSnake.h" />
     <ClInclude Include="EnemyRayMonster.h" />
+    <ClInclude Include="EnemyRedFlogSmall.h" />
     <ClInclude Include="EnemyRockMass.h" />
     <ClInclude Include="EnemyRockMassShell.h" />
     <ClInclude Include="EnemyRockMassSoul.h" />

@@ -58,6 +58,7 @@
 #include "EnemyYadokariYokai.h"
 #include "EnemyShishimaiDemon.h"
 #include "EnemyFlogChief.h"
+#include "EnemyRedFlogSmall.h"
 
 static const int BASE_POP_Y = 200;
 static const int POPUP_GROUND = 400;
