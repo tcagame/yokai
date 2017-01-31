@@ -5,8 +5,8 @@ static const int MAX_PATTERN = 4;
 static const int WAIT_TIME = 25;
 static const int CHIP_SIZE = 128;
 static const int CHIP_FOOT = 0;
-static const int HP  = 2;
-static const int POW = 6;
+static const int HP  = 3;
+static const int POW = 3;
 
 EnemyDeceasedPurple::EnemyDeceasedPurple( int x, int y, bool right ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),
