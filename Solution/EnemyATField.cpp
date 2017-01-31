@@ -1,6 +1,6 @@
 #include "EnemyATField.h"
 
-static const int CHIP_SIZE = 256;
+static const int CHIP_SIZE = 512;
 static const int CHIP_FOOT = 0;
 static const int HP = 99;
 static const int POW = 3;
@@ -13,7 +13,4 @@ EnemyATField::~EnemyATField( ) {
 }
 
 void EnemyATField::act( ) {
-}
-
-void EnemyATField::damage( int pow ) {
 }
