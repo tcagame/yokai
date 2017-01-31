@@ -25,6 +25,8 @@ static const int CLEAR_COUNT = 120;
 static const int DEAD_COUNT = 120;
 
 SceneStreet::SceneStreet() {
+	srand( 0 );
+
 	GamePtr game = Game::getTask( );
 
 	DrawerPtr drawer = Drawer::getTask();
@@ -45,7 +47,23 @@ SceneStreet::SceneStreet() {
 
 	_inputter = InputterPtr( new Inputter );
 	if ( game->isDemo( ) ) {
-		_inputter->load( "" );
+		if ( game->isSolo( ) ) {
+			switch ( game->getStage( ) ) {
+			case 0: _inputter->load( "record/record_solo_0" ); break;
+			case 1: _inputter->load( "record/record_solo_1" ); break;
+			case 2: _inputter->load( "record/record_solo_2" ); break;
+			case 3: _inputter->load( "record/record_solo_3" ); break;
+			case 4: _inputter->load( "record/record_solo_4" ); break;
+			}
+		} else {
+			switch ( game->getStage( ) ) {
+			case 0: _inputter->load( "record/record_coop_0" ); break;
+			case 1: _inputter->load( "record/record_coop_1" ); break;
+			case 2: _inputter->load( "record/record_coop_2" ); break;
+			case 3: _inputter->load( "record/record_coop_3" ); break;
+			case 4: _inputter->load( "record/record_coop_4" ); break;
+			}
+		}
 	}
 
 	MapConstPtr map;
@@ -124,7 +142,8 @@ Scene::NEXT SceneStreet::update( ) {
 	SoundPtr sound = Sound::getTask( );
 	
 	if ( game->isDemo( ) ) {
-		if ( _inputter->isFinished( ) ) {
+		DevicePtr device = Device::getTask( );
+		if ( _inputter->isFinished( ) || device->getPush( ) != 0 ) {
 			return NEXT_TITLE;
 		}
 	}
@@ -196,6 +215,25 @@ Scene::NEXT SceneStreet::update( ) {
 		break;
 	case PHASE_FADEOUT:
 		if ( game->getFade( ) == Game::FADE_COVER ) {
+			if ( !game->isDemo( ) ) {
+				if ( game->isSolo( ) ) {
+					switch ( game->getStage( ) ) {
+					case 0: _inputter->save( "record/record_solo_0" ); break;
+					case 1: _inputter->save( "record/record_solo_1" ); break;
+					case 2: _inputter->save( "record/record_solo_2" ); break;
+					case 3: _inputter->save( "record/record_solo_3" ); break;
+					case 4: _inputter->save( "record/record_solo_4" ); break;
+					}
+				} else {
+					switch ( game->getStage( ) ) {
+					case 0: _inputter->save( "record/record_coop_0" ); break;
+					case 1: _inputter->save( "record/record_coop_1" ); break;
+					case 2: _inputter->save( "record/record_coop_2" ); break;
+					case 3: _inputter->save( "record/record_coop_3" ); break;
+					case 4: _inputter->save( "record/record_coop_4" ); break;
+					}
+				}
+			}
 			if ( _power->get( ) > 0 ) {
 				return NEXT_STAGE;
 			} else {

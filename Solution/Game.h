@@ -43,6 +43,7 @@ private:
 	bool _demo;
 	int _stage;
 	bool _debug;
+	int _demo_count;
 	FADE _fade;
 	int _fade_count;
 	std::list< std::string > _debug_message;

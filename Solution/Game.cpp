@@ -27,6 +27,7 @@ Game::Game( ) :
 _debug( false ),
 _solo( true ),
 _stage( 0 ),
+_demo_count( 0 ),
 _fade( FADE_NONE ) {
 }
 
@@ -154,9 +155,12 @@ void Game::changeScene( Scene::NEXT next ) {
 		_scene = ScenePtr( new SceneTitle );
 		break;
 	case Scene::NEXT_DEMO:
-		_solo = true;
+		_demo_count++;
 		_demo = true;
-		_stage = 0;
+		_solo = ( _demo_count / 5 % 2 == 0 );
+		_stage = _demo_count % 2;
+		_solo = true;
+		_stage = 4;
 		_scene = ScenePtr( new SceneStreet( ) );
 		break;
 	case Scene::NEXT_SELECT_1PLAYER:

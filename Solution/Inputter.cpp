@@ -1,5 +1,7 @@
 #include "Inputter.h"
 #include "Device.h"
+#include "Application.h"
+#include "Binary.h"
 
 Inputter::Inputter( ) :
 _device( Device::getTask( ) ),
@@ -19,10 +21,19 @@ Inputter::~Inputter( ) {
 
 void Inputter::load( const char * filename ) {
 	_replay = true;
+
+	BinaryPtr binary( new Binary );
+	ApplicationPtr app = Application::getInstance( );
+	app->loadBinary( filename, binary );
+	binary->read( ( void * )_record, sizeof( _record ) );
 }
 
 void Inputter::save( const char * filename ) {
-
+	BinaryPtr binary( new Binary );
+	binary->ensure( sizeof( _record ) );
+	binary->write( ( void * )_record, sizeof( _record ) );
+	ApplicationPtr app = Application::getInstance( );
+	app->saveBinary( filename, binary );
 }
 
 bool Inputter::isFinished( ) const {
