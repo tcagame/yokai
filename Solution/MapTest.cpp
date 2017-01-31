@@ -2,7 +2,7 @@
 #include "define.h"
 #include "EnemyDeceasedPurple.h"
 #include "BossRedDemon.h"
-#include "EnemyRayMonster.h"
+#include "EnemyTreeMonster.h"
 #include "EnemyRockMass.h"
 
 static const Map::Panel panel[] = {
@@ -551,7 +551,7 @@ EnemyPtr MapTest::generateEnemy( char ch, EnemyStockPtr stock, int x, int y ) co
 	case 'A': enemy = EnemyPtr( new EnemyDeceasedPurple( x, y ) );
 	case 'B': enemy = EnemyPtr( new EnemyDeceasedPurple( x, y ) );
 	case 'C': enemy = EnemyPtr( new EnemyDeceasedPurple( x, y ) );
-	case 'D': enemy = EnemyPtr( new EnemyRayMonster( x, y ) );
+	case 'D': enemy = EnemyPtr( new EnemyTreeMonster( stock, x, y ) );
 		break;
 	case 'E': enemy = EnemyPtr( new EnemyRockMass( stock, x, y ) ); break;
 	case 'F': enemy = EnemyPtr( new EnemyDeceasedPurple( x, y ) );
