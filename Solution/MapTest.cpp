@@ -548,7 +548,6 @@ EnemyPtr MapTest::generateEnemy( char ch, EnemyStockPtr stock, int x, int y ) co
 	EnemyPtr enemy;
 
 	switch ( ch ) {
-
 	case 'A': enemy = EnemyPtr( new EnemyDeceasedPurple( x, y ) );
 	case 'B': enemy = EnemyPtr( new EnemyDeceasedPurple( x, y ) );
 	case 'C': enemy = EnemyPtr( new EnemyDeceasedPurple( x, y ) );

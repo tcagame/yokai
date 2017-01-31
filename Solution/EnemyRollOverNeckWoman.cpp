@@ -5,7 +5,7 @@ static const int CHIP_FOOT = 0;
 static const int HP = 3;
 static const int POW = 2;
 static const int WAIT_ANIME_TIME = 10;
-static const int MOVE_SPEED = 2;
+static const int MOVE_SPEED = 20;
 
 EnemyRollOverNeckWoman::EnemyRollOverNeckWoman( int x, int y ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ) {

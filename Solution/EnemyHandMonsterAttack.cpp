@@ -12,6 +12,7 @@ static const int WAIT_ANIME_TIME = 3;
 EnemyHandMonsterAttack::EnemyHandMonsterAttack( int x, int y ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ),
 _speed_y( INIT_MOVE_SPEED_Y ) {
+	setNoHead( );
 }
 
 
