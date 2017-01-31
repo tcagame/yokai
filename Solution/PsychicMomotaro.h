@@ -16,11 +16,12 @@ private:
 	Vector getOverlappedPos( ) const;
 	double getOverlappedRadius( ) const;
 private:
-	static const int TAIL_NUM = 100;
+	static const int TAIL_NUM = 60;
 	static const int DIV_NUM = 10;
 	Vector _pos;
 	Vector _vec;
 	Vector _accel;
 	std::array< Vector, TAIL_NUM > _tails;
+	int _count;
 };
 

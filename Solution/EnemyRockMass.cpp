@@ -66,9 +66,6 @@ void EnemyRockMass::act( ) {
 
 	if ( getHp( ) < HP ) {
 		_shrine_rope = false;
-		for ( int i = 0; i < STONE_NUM; i++ ) {
-			_stones[ i ]->setMove( true );
-		}
 	}
 
 	if ( !_shrine_rope ) {
@@ -118,3 +115,10 @@ void EnemyRockMass::damage( int pow ) {
 	}
 }
 
+double EnemyRockMass::getOverlappedRadius( ) const {
+	int radius = SOUL_SIZE / 2;
+	if ( !_shrine_rope ) {
+		radius /= 2;
+	}
+	return radius;
+}

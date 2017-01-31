@@ -15,6 +15,7 @@ private:
 	void act( );
 	void drawOverlapped( CameraConstPtr camera ) const;
 	void damage( int pow );
+	double getOverlappedRadius( ) const;
 private:
 	static const int STONE_NUM = 10;
 	EnemyStockPtr _stock;

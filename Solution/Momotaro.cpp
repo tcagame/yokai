@@ -15,7 +15,7 @@ static const int CHIP_MOMOTARO_NUM = 101;
 static const int START_X = -100;
 static const int START_Y = -100;
 static const int SHOOT_SPEED = 10;
-static const int COOL_TIME = 5;
+static const int COOL_TIME = 3;
 static const int WAIT_PATTERN_TIME = 3;
 static const int CHIP_SIZE = 128;
 static const int FALTER_COUNT = 30;
@@ -121,6 +121,18 @@ void Momotaro::actOnMove( ) {
 		setAccelX( ( int )_vec.x );
 		setAccelY( ( int )_vec.y );
 	}
+	
+
+	_falter_count --;
+	if ( _falter_count < 0 ) {
+		_falter_count = 0;
+	}
+
+	if ( _falter_count % 2 == 0 ) {
+		setChipGraph( GRAPH_CHARACTER_2, _act_count / WAIT_PATTERN_TIME % 3 + 3, 5 );
+	} else {
+		setChipGraph( GRAPH_CHARACTER_2, 7, 7 );
+	}
 
 	_cool--;
 	if ( device->getButton( _device_num ) == BUTTON_A ) {
@@ -143,17 +155,6 @@ void Momotaro::actOnMove( ) {
 		vec = vec.normalize( ) * SHOOT_SPEED;
 		_shoot_x = ( int )vec.x;
 		_shoot_y = ( int )vec.y;
-	}
-
-	_falter_count --;
-	if ( _falter_count < 0 ) {
-		_falter_count = 0;
-	}
-
-	if ( _falter_count % 2 == 0 ) {
-		setChipGraph( GRAPH_CHARACTER_2, _act_count / WAIT_PATTERN_TIME % 3 + 3, 5 );
-	} else {
-		setChipGraph( GRAPH_CHARACTER_2, 7, 7 );
 	}
 }
 
