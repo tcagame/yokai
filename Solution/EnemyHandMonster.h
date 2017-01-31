@@ -3,7 +3,7 @@
 
 class EnemyHandMonster : public Enemy {
 public:
-	EnemyHandMonster( int x, int y );
+	EnemyHandMonster( EnemyStockPtr stock, int x, int y );
 	virtual ~EnemyHandMonster( );
 private:
 	enum ACTION {
@@ -18,4 +18,5 @@ private:
 private:
 	int _act_count;
 	ACTION _action;
+	EnemyStockPtr _stock;
 };

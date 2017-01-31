@@ -51,8 +51,13 @@
 #include "EnemyWindMonster.h"
 #include "EnemyBat.h"
 #include "EnemyHandMonster.h"
-//#include "EnemyNoFace.h"
+#include "EnemyNakabon.h"
+#include "EnemyNoFace.h"
 #include "EnemyNoNeckGhost.h"
+#include "EnemyShishimai.h"
+#include "EnemyYadokariYokai.h"
+#include "EnemyShishimaiDemon.h"
+#include "EnemyFlogChief.h"
 
 static const int BASE_POP_Y = 200;
 static const int POPUP_GROUND = 400;
@@ -245,7 +250,7 @@ void EnemyManager::createByField( unsigned long long enemy_data, CameraConstPtr 
 			_enemies.push_back( EnemyPtr( new EnemyFlogSmall( pop_base_x + i * 100, FLOG_SMALL_POP_Y ) ) );
 		}
 	}
-	if ( data & FLOG ) {
+	if ( data & FLOG_GREEN ) {
 		_enemies.push_back( EnemyPtr( new EnemyFlog( _enemy_stock, pop_base_x, BASE_POP_Y ) ) );
 	}
 	if ( data & STONE_ROTE ) {
@@ -339,14 +344,30 @@ void EnemyManager::createByField( unsigned long long enemy_data, CameraConstPtr 
 		_enemies.push_back( EnemyPtr( new EnemyBat( pop_base_x, BASE_POP_Y ) ) );
 	}
 	if ( data & HAND ) {
-		_enemies.push_back( EnemyPtr( new EnemyHandMonster( pop_base_x, BASE_POP_Y ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyHandMonster( _enemy_stock, pop_base_x, BASE_POP_Y ) ) );
 	}
 	if ( data & NO_FACE ) {
-	//	_enemies.push_back( EnemyPtr( new EnemyNoFace( pop_base_x, BASE_POP_Y ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyNoFace( pop_base_x, BASE_POP_Y ) ) );
 	}
 
 	if ( data & NO_NECK_GHOST ) {
-		_enemies.push_back( EnemyPtr( new EnemyNoNeckGhost( _enemy_stock, pop_base_x - BG_SIZE * 2, REDBIRD_POP_Y ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyNoNeckGhost( pop_base_x - BG_SIZE * 2, REDBIRD_POP_Y ) ) );
+	}
+	if ( data & NAKABON ) {
+		_enemies.push_back( EnemyPtr( new EnemyNakabon( pop_base_x - BG_SIZE * 2, REDBIRD_POP_Y ) ) );
+	}
+
+	if ( data & SHISHIMAI ) {
+		_enemies.push_back( EnemyPtr( new EnemyShishimai( pop_base_x, BASE_POP_Y ) ) );
+	}
+	if ( data & YADOKARI ) {
+		_enemies.push_back( EnemyPtr( new EnemyYadokariYokai( pop_base_x, BASE_POP_Y ) ) );
+	}
+	if ( data & SHISHI_ONI ) {
+		_enemies.push_back( EnemyPtr( new EnemyShishimaiDemon( pop_base_x, BASE_POP_Y ) ) );
+	}
+	if ( data & FLOG_RED ) {
+		_enemies.push_back( EnemyPtr( new EnemyFlogChief( pop_base_x, BASE_POP_Y ) ) );
 	}
 }
 

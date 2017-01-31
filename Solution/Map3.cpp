@@ -510,7 +510,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"################"
 		"################",
-		STONE_FLY | MOTH | FLOG
+		STONE_FLY | MOTH | FLOG_GREEN
 	},
 	{
 		"street/map3/bg/map3_00_25.png",

@@ -153,6 +153,13 @@
     <ClCompile Include="BossEnma.cpp" />
     <ClCompile Include="EnemyHandMonster.cpp" />
     <ClCompile Include="EnemyNoNeckGhost.cpp" />
+    <ClCompile Include="EnemyHandMonsterAttack.cpp" />
+    <ClCompile Include="EnemyNakabon.cpp" />
+    <ClCompile Include="EnemyNoFace.cpp" />
+    <ClCompile Include="EnemyShishimai.cpp" />
+    <ClCompile Include="EnemyYadokariYokai.cpp" />
+    <ClCompile Include="EnemyShishimaiDemon.cpp" />
+    <ClCompile Include="EnemyFlogChief.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Boss.h" />
@@ -307,5 +314,12 @@
     <ClInclude Include="BossEnma.h" />
     <ClInclude Include="EnemyHandMonster.h" />
     <ClInclude Include="EnemyNoNeckGhost.h" />
+    <ClInclude Include="EnemyHandMonsterAttack.h" />
+    <ClInclude Include="EnemyNakabon.h" />
+    <ClInclude Include="EnemyNoFace.h" />
+    <ClInclude Include="EnemyShishimai.h" />
+    <ClInclude Include="EnemyYadokariYokai.h" />
+    <ClInclude Include="EnemyShishimaiDemon.h" />
+    <ClInclude Include="EnemyFlogChief.h" />
   </ItemGroup>
 </Project>

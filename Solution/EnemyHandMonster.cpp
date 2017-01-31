@@ -1,16 +1,20 @@
 #include "EnemyHandMonster.h"
+#include "EnemyHandMonsterAttack.h"
 
 static const int CHIP_SIZE = 128;
 static const int CHIP_FOOT = 0;
 static const int HP = 1;
 static const int POW = 1;
-static const int WAIT_APPEAR_TIME = 60;
+static const int WAIT_APPEAR_TIME = 50;
 static const int WAIT_ANIME_TIME = 3;
+static const int ATTACK_FOOT = 30;
 
-EnemyHandMonster::EnemyHandMonster( int x, int y ) :
+EnemyHandMonster::EnemyHandMonster( EnemyStockPtr stock, int x, int y ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),
+_stock( stock ),
 _act_count( 0 ),
 _action( ACTION_WAIT ) {
+	setChipReverse( true );
 }
 
 
@@ -46,6 +50,12 @@ void EnemyHandMonster::actThrow( ) {
 	int u = ANIME[ _act_count / WAIT_ANIME_TIME % anime_num ];
 	int v = 0;
 	setChipGraph( GRAPH_ENEMY_NOMAL, u, v );
+
+	if ( u == 10 ) {
+		if ( _act_count % WAIT_ANIME_TIME == 0 ) {
+			_stock->addEnemy( EnemyPtr( new EnemyHandMonsterAttack( getX( ), getY( ) - ATTACK_FOOT ) ) );
+		}
+	}
 	if ( u == 0 ) {
 		setAccelY( -1000 );
 	}

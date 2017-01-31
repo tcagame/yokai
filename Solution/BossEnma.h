@@ -9,6 +9,7 @@ public:
 private:
 	void act( );
 	void attack( );
+	void updateChip( );
 	double getOverlappedRadius( ) const;
 private:
 	EnemyStockPtr _stock;
