@@ -20,6 +20,8 @@ EnemyStoneMortgage::~EnemyStoneMortgage( ) {
 }
 
 void EnemyStoneMortgage::act( ) {
+	if ( _moveing ) {
+	}
 	actMove( );
 	updateChip( );
 }
