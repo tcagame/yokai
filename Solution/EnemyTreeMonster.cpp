@@ -18,9 +18,7 @@ Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ) {
 	setChipGraph( GRAPH_ENEMY_TREE_2, 0, 0 );
 	setChipReverse( false );
 	_stock = stock;
-	x = getX( ) + BORN_1_X;
-	y = getY( ) + BORN_1_Y;
-	_stock->addEnemy( EnemyPtr( new EnemyBranchMonster( _stock,  x, y ) ) );
+
 }
 
 
@@ -28,7 +26,13 @@ EnemyTreeMonster::~EnemyTreeMonster( ) {
 
 }
 
-void EnemyTreeMonster::act( ) {
+void EnemyTreeMonster::act( ) {	
+	_count++;
+	x = getX( ) + BORN_1_X;
+	y = getY( ) + BORN_1_Y;
+	if ( _count % CREATE_COUNT_BRANCH == 30 ){
+	_stock->addEnemy( EnemyPtr( new EnemyBranchMonster( _stock,  x, y ) ) );
+	}
 }
 
 double EnemyTreeMonster::getOverlappedRadius( ) const {

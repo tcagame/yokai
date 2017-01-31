@@ -43,7 +43,7 @@ void EnemyBranchMonster::actGrow( ) {
 	}
 }
 void EnemyBranchMonster::actAttack( ) {
-	const int ANIME[ ] = { 2, 3, 4, 5, 1, 0 };
+	const int ANIME[ ] = { 2, 3, 4, 5, 1, 0 ,};
 	int anime_num = sizeof( ANIME ) / sizeof( ANIME[ 0 ] );
 	int u = ANIME[ _anime_count / WAIT_ANIME_TIME % anime_num ];
 	int v = 2;
@@ -53,4 +53,7 @@ void EnemyBranchMonster::actAttack( ) {
 		}
 	}
 	setChipGraph( GRAPH_ENEMY_NORMAL, u, v );
+	if( u == 0 ) {
+		setAccelY( 2000 );
+	}
 }
