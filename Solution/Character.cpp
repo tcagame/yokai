@@ -77,6 +77,10 @@ void Character::setChipFoot( int foot ) {
 	_chip_foot = foot;
 }
 
+void Character::setDead( bool dead ) {
+	_dead = dead;
+}
+
 void Character::update( FieldPtr field ) {
 	setFloor( field );
 	act( );

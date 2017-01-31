@@ -338,7 +338,7 @@ void EnemyManager::createByField( unsigned long long enemy_data, CameraConstPtr 
 		_enemies.push_back( EnemyPtr( new EnemyBat( pop_base_x, BASE_POP_Y ) ) );
 	}
 	if ( data & HAND ) {
-		_enemies.push_back( EnemyPtr( new EnemyHandMonster( pop_base_x, BASE_POP_Y ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyHandMonster( _enemy_stock, pop_base_x, BASE_POP_Y ) ) );
 	}
 	if ( data & NO_FACE ) {
 	//	_enemies.push_back( EnemyPtr( new EnemyNoFace( pop_base_x, BASE_POP_Y ) ) );
