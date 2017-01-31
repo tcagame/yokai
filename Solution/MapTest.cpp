@@ -547,6 +547,12 @@ EnemyPtr MapTest::generateEnemy( char ch, int x, int y ) const {
 
 	switch ( ch ) {
 	case 'A': enemy = EnemyPtr( new EnemyDeceasedPurple( x, y ) );
+	case 'B': enemy = EnemyPtr( new EnemyDeceasedPurple( x, y ) );
+	case 'C': enemy = EnemyPtr( new EnemyDeceasedPurple( x, y ) );
+	case 'D': enemy = EnemyPtr( new EnemyDeceasedPurple( x, y ) );
+	case 'E': enemy = EnemyPtr( new EnemyDeceasedPurple( x, y ) );
+	case 'F': enemy = EnemyPtr( new EnemyDeceasedPurple( x, y ) );
+	case 'G': enemy = EnemyPtr( new EnemyDeceasedPurple( x, y ) );
 	}
 
 	return enemy;
