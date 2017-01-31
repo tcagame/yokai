@@ -1,4 +1,4 @@
-#include "EnemyFireball.h"
+#include "EnemyFire.h"
 
 static const int CHIP_SIZE = 64;
 static const int CHIP_FOOT = 0;
@@ -7,7 +7,7 @@ static const int POW = 6;
 static const int MOVE_SPEED = 5;
 static const int WAIT_ANIME_TIME = 1;
 
-EnemyFireball::EnemyFireball( const Vector& pos, const Vector& vec ) :
+EnemyFire::EnemyFire( const Vector& pos, const Vector& vec ) : 
 Enemy( ( int )pos.x, ( int )pos.y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ),
 _pos( pos ),
 _vec( vec ) {
@@ -15,10 +15,10 @@ _vec( vec ) {
 }
 
 
-EnemyFireball::~EnemyFireball( ) {
+EnemyFire::~EnemyFire( ) {
 }
 
-void EnemyFireball::act( ) {
+void EnemyFire::act( ) {
 	_pos += _vec;
 
 	setX( ( int )_pos.x );
