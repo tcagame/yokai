@@ -150,6 +150,7 @@
     <ClCompile Include="EnemyGhost.cpp" />
     <ClCompile Include="EnemyWaterMonk.cpp" />
     <ClCompile Include="EnemyWindMonster.cpp" />
+    <ClCompile Include="EnemyYadokariYokai.cpp" />
     <ClCompile Include="Field.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="EnemyLittleRedDemon.cpp" />
@@ -249,6 +250,7 @@
     <ClInclude Include="EnemyGhost.h" />
     <ClInclude Include="EnemyWaterMonk.h" />
     <ClInclude Include="EnemyWindMonster.h" />
+    <ClInclude Include="EnemyYadokariYokai.h" />
     <ClInclude Include="Field.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="EnemyLittleRedDemon.h" />
