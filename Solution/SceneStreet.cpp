@@ -119,14 +119,34 @@ SceneStreet::~SceneStreet( ) {
 
 Scene::NEXT SceneStreet::update( ) {
 	_phase_count++;
+	GamePtr game = Game::getTask( );
+	SoundPtr sound = Sound::getTask( );
 
 	switch ( _phase ) {
 	case PHASE_NORMAL:
 		if ( _camera->isLocked( ) ) {
 			_phase = PHASE_BOSS;
 			_phase_count = 0;
-			SoundPtr sound = Sound::getTask( );
-			sound->playBGM( "yokai_music_04.wav" );
+			switch ( game->getStage( ) ) {
+			case 0:
+				sound->playBGM( "yokai_music_04.wav" );
+				break;
+			case 1:
+				sound->playBGM( "yokai_music_04.wav" );
+				break;
+			case 2:
+				sound->playBGM( "yokai_music_04.wav" );
+				break;
+			case 3:
+				sound->playBGM( "yokai_music_02.wav" );
+				break;
+			case 4:
+				sound->playBGM( "yokai_music_08.wav" );
+				break;
+			case 5:
+				sound->playBGM( "yokai_music_02.wav" );
+				break;
+			}
 		}
 		if ( _power->get( ) == 0 ) {
 			_phase = PHASE_DEAD;
