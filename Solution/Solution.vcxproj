@@ -123,8 +123,8 @@
     <ClCompile Include="EnemyLittleBlueDemon.cpp" />
     <ClCompile Include="EnemyMiasmaGray.cpp" />
     <ClCompile Include="EnemyMiasmaWhite.cpp" />
+    <ClCompile Include="EnemyNakabon.cpp" />
     <ClCompile Include="EnemyNoFace.cpp" />
-    <ClCompile Include="EnemyMidTray.cpp" />
     <ClCompile Include="EnemyNoNeckGhost.cpp" />
     <ClCompile Include="EnemyOneEyesSnake.cpp" />
     <ClCompile Include="EnemyRayMonster.cpp" />
@@ -222,8 +222,8 @@
     <ClInclude Include="EnemyLittleBlueDemon.h" />
     <ClInclude Include="EnemyMiasmaGray.h" />
     <ClInclude Include="EnemyMiasmaWhite.h" />
+    <ClInclude Include="EnemyNakabon.h" />
     <ClInclude Include="EnemyNoFace.h" />
-    <ClInclude Include="EnemyMidTray.h" />
     <ClInclude Include="EnemyNoNeckGhost.h" />
     <ClInclude Include="EnemyOneEyesSnake.h" />
     <ClInclude Include="EnemyRayMonster.h" />

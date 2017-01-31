@@ -154,6 +154,7 @@
     <ClCompile Include="EnemyHandMonster.cpp" />
     <ClCompile Include="EnemyNoNeckGhost.cpp" />
     <ClCompile Include="EnemyHandMonsterAttack.cpp" />
+    <ClCompile Include="EnemyNakabon.cpp" />
     <ClCompile Include="EnemyNoFace.cpp" />
     <ClCompile Include="EnemyMidTray.cpp" />
     <ClCompile Include="EnemyShishimai.cpp" />
@@ -312,6 +313,7 @@
     <ClInclude Include="EnemyHandMonster.h" />
     <ClInclude Include="EnemyNoNeckGhost.h" />
     <ClInclude Include="EnemyHandMonsterAttack.h" />
+    <ClInclude Include="EnemyNakabon.h" />
     <ClInclude Include="EnemyNoFace.h" />
     <ClInclude Include="EnemyMidTray.h" />
     <ClInclude Include="EnemyShishimai.h" />

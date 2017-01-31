@@ -45,6 +45,7 @@ const unsigned long long BAT				= 0x0000000200000000;	//ƒRƒEƒ‚ƒŠ
 const unsigned long long HAND				= 0x0000000400000000;	//Žè‚Ì—d‰ö
 const unsigned long long NO_FACE			= 0x0000000800000000;	//‚Ì‚Á‚Ø‚ç‚Ú‚¤
 const unsigned long long NO_NECK_GHOST      = 0x0000001000000000;   //Žñ‚È‚µ—H—ì
+const unsigned long long NAKABON			= 0x0000002000000000;   //’†–~
 const unsigned long long SHISHIMAI		    = 0x0000004000000000;   //Ž‚Žq•‘
 
 enum GRAPH {
