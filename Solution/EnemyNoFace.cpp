@@ -24,5 +24,5 @@ void EnemyNoFace::act( ) {
 	_anime_count %= WAIT_ANIME_TIME * pattern;
 	_anime_count++;
 
-	setChipGraph( GRAPH_ENEMY_NOMAL, u, 1 );
+	setChipGraph( GRAPH_ENEMY_NORMAL, u, 1 );
 }

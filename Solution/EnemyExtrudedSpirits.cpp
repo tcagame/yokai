@@ -36,16 +36,16 @@ void EnemyExtrudedSpirits::updateChip( ) {
 	_count++;
 	_count %= WAIT_ANIME_TIME * MAX_ANIME_PATTERN;
 	int pattern = _count / WAIT_ANIME_TIME % MAX_ANIME_PATTERN + ANIME_PATTERN_START;
-	setChipGraph( GRAPH_ENEMY_NOMAL, pattern, v );
+	setChipGraph( GRAPH_ENEMY_NORMAL, pattern, v );
 }
 
 void EnemyExtrudedSpirits::appearing( ) {
 	const int v = 8;
 	_count++;
 	if ( _count < WAIT_ANIME_TIME ) {
-		setChipGraph( GRAPH_ENEMY_NOMAL, 0, v );
+		setChipGraph( GRAPH_ENEMY_NORMAL, 0, v );
 	} else if ( _count < WAIT_ANIME_TIME * 2 ) {
-		setChipGraph( GRAPH_ENEMY_NOMAL, 1, v );
+		setChipGraph( GRAPH_ENEMY_NORMAL, 1, v );
 	}
 
 	if ( _count >= WAIT_ANIME_TIME * 2 ) {

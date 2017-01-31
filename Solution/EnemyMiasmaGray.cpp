@@ -23,5 +23,5 @@ void EnemyMiasmaGray::act( ) {
 	_anime_count++;
 	_anime_count %= WAIT_ANIME_TIME * MAX_ANIME_PATTERN;
 	int pattern = _anime_count / WAIT_ANIME_TIME % MAX_ANIME_PATTERN;
-	setChipGraph( GRAPH_ENEMY_NOMAL, pattern, 7 );
+	setChipGraph( GRAPH_ENEMY_NORMAL, pattern, 7 );
 }

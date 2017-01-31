@@ -27,7 +27,7 @@ void EnemyYadokariYokai::updateChip( ) {
 		int anime_num = sizeof( ANIME ) / sizeof( ANIME[ 0 ] );
 		int u = ANIME[ _act_count / WAIT_ANIME_TIME % anime_num ];
 		int v = 14;
-		setChipGraph( GRAPH_ENEMY_NOMAL, u, v );
+		setChipGraph( GRAPH_ENEMY_NORMAL, u, v );
 		if ( u == 11 ) {
 			_action = ACTION_NOMAL;
 			return;
@@ -38,6 +38,6 @@ void EnemyYadokariYokai::updateChip( ) {
 		int anime_num = sizeof( ANIME ) / sizeof( ANIME[ 0 ] );
 		int u = ANIME[ _act_count / WAIT_ANIME_TIME % anime_num ];
 		int v = 14;
-		setChipGraph( GRAPH_ENEMY_NOMAL, u, v );
+		setChipGraph( GRAPH_ENEMY_NORMAL, u, v );
 	}
 }
