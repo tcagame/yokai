@@ -2,8 +2,8 @@
 
 static const int CHIP_SIZE = 128;
 static const int CHIP_FOOT = 0;
-static const int HP = 2;
-static const int POW = 2;
+static const int HP = 3;
+static const int POW = 6;
 static const int MOVE_SPEED = 5;
 static const int WAIT_ANIME_TIME = 4;
 static const int JUMP_POWER = -40;
@@ -12,7 +12,8 @@ EnemyHugDemon::EnemyHugDemon( int x, int y ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),
 _old_x( 0 ),
 _old_y( 0 ),
-_act_count( 0 ) {
+_act_count( 0 ),
+_jump_count( 1 ){
 }
 
 
@@ -28,11 +29,18 @@ void EnemyHugDemon::act( ) {
 }
 
 void EnemyHugDemon::actMove( ) {
+	_jump_count++;
 	setAccelX( -MOVE_SPEED );
 	if ( _old_x == getX( ) &&
 		 _old_y == getY( ) ) {
 		setAccelY( JUMP_POWER );
 		_act_count = 0;
+	}
+	if ( isStanding( ) ) {
+		if ( _jump_count % 80 == 0 ) {
+			setAccelY( JUMP_POWER );
+			_act_count = 0;
+		}
 	}
 }
 
