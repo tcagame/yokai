@@ -8,7 +8,7 @@ static const int HP  = 2;
 static const int POW = 3;
 
 EnemyNoFace::EnemyNoFace( int x, int y ) :
-Enemy( x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ),
+Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),
 _anime_count( 0 ) {
 }
 
