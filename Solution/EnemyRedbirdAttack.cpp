@@ -7,8 +7,8 @@ static const int MOVE_HORIZONTAL_SPEED = 10;
 static const int WAIT_TURN_TIME = 8;
 static const int CHIP_SIZE = 64;
 static const int CHIP_FOOT = 0;
-static const int HP  = 10;
-static const int POW = 3;
+static const int HP  = 2;
+static const int POW = 1;
 
 EnemyRedbirdAttack::EnemyRedbirdAttack( int x, int y ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ),

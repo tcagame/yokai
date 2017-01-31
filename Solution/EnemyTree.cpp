@@ -4,8 +4,8 @@
 static const int CHIP_SIZE = 512;
 static const int CHIP_FOOT = 10;
 static const int GRAPH_HEIGHT = 256;
-static const int HP  = 10;
-static const int POW = 3;
+static const int HP  = 30;
+static const int POW = 6;
 static const int CREATE_COUNT_GRAW_FACE = 120;
 static const int BORN_1_X = 20;
 static const int BORN_1_Y = 110;

@@ -203,7 +203,7 @@ static const Map::Panel panel[] = {
 		NONE
 	},
 	{//9Å@ïœë‘Ç≠ÇªÉÅÉKÉlà…ì°
-		"street/map0/bg/map0_01_00.png",
+		"street/map1/bg/map1_31.png",
 		"",
 		0, 0,
 		"                "
@@ -216,13 +216,13 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"               #"
-		"             ###"
-		"           #####"
-		"         #######"
+		"                "
+		"                "
+		"                "
+		"                "
 		"################"
 		"################",
-		NONE
+		TREE_MONSTER
 	},
 	{//10
 		"street/map0/bg/map0_01_00.png",
