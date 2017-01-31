@@ -51,6 +51,7 @@
 #include "EnemyWindMonster.h"
 #include "EnemyBat.h"
 #include "EnemyHandMonster.h"
+#include "EnemyNakabon.h"
 #include "EnemyNoFace.h"
 #include "EnemyNoNeckGhost.h"
 
@@ -345,7 +346,10 @@ void EnemyManager::createByField( unsigned long long enemy_data, CameraConstPtr 
 	}
 
 	if ( data & NO_NECK_GHOST ) {
-		_enemies.push_back( EnemyPtr( new EnemyNoNeckGhost( _enemy_stock, pop_base_x - BG_SIZE * 2, REDBIRD_POP_Y ) ) );
+		_enemies.push_back( EnemyPtr( new EnemyNoNeckGhost( pop_base_x - BG_SIZE * 2, REDBIRD_POP_Y ) ) );
+	}
+	if ( data & NAKABON ) {
+		_enemies.push_back( EnemyPtr( new EnemyNakabon( pop_base_x - BG_SIZE * 2, REDBIRD_POP_Y ) ) );
 	}
 }
 
