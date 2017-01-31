@@ -11,7 +11,7 @@ static const int ATTACK_FOOT = 30;
 
 EnemyBowDemon::EnemyBowDemon( EnemyStockPtr enemy_stock, int x, int y ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),
-_enemy_stock( enemy_stock ),
+_stock( enemy_stock ),
 _act_count( 0 ) {
 }
 
@@ -31,7 +31,7 @@ void EnemyBowDemon::act( ) {
 	}
 	if ( u == 12 ) {
 		if ( _act_count % WAIT_ANIME_TIME == 0 ) {
-			_enemy_stock->addEnemy( EnemyPtr( new EnemyBowDemonAttack( getX( ), getY( ) - ATTACK_FOOT ) ) );
+			_stock->addEnemy( EnemyPtr( new EnemyBowDemonAttack( getX( ), getY( ) - ATTACK_FOOT ) ) );
 		}
 	}
 	setChipGraph( GRAPH_ENEMY_NORMAL, u, v );

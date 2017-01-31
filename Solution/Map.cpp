@@ -2,15 +2,9 @@
 #include "define.h"
 #include "CloudMgr.h"
 #include "Cloud.h"
-#include "BossRedDemon.h"
-#include "BossBlueDemon.h"
-#include "BossHag.h"
-#include "BossEnma.h"
-#include "BossBuddha.h"
+#include "EnemyStock.h"
 
-
-Map::Map( const Item * item, const Panel * panel, int panel_num ) :
-_item( item ),
+Map::Map( const Panel * panel, int panel_num ) :
 _panel( panel ),
 _panel_num( panel_num ) {
 }
@@ -85,33 +79,23 @@ CloudMgrPtr Map::createCloudMgr( ) const {
 	return mgr;
 }
 
-BossPtr Map::createBoss( EnemyStockPtr stock ) const {
-	
-	BossPtr boss;
-	int offset_x = _panel_num * BG_SIZE - BG_SIZE;
-
-	switch ( _item->boss ) {
-	case BOSS_REDDEMON:
-		boss = BossPtr( new BossRedDemon( stock, offset_x ) );
-		break;
-	case BOSS_BLUEDEMON:
-		boss = BossPtr( new BossBlueDemon( stock, offset_x ) );
-		break;
-	case BOSS_HAG:
-		boss = BossPtr( new BossHag( stock, offset_x ) );
-		break;
-	case BOSS_ENMA:
-		boss = BossPtr( new BossEnma( stock, offset_x ) );
-		break;
-	case BOSS_BUDDHA:
-		boss = BossPtr( new BossBuddha( stock, offset_x ) );
-		break;
-	} 
-
-	return boss;
-}
-
 Vector Map::getMarkerPos( int idx ) const {
 	return Vector( _panel[ idx ].marker_x, _panel[ idx ].marker_y ); 
+}
+
+void Map::addToStock( EnemyStockPtr stock, int bg_idx ) const {
+	for ( int i = 0; i < MAPCHIP_NUM * MAPCHIP_NUM; i++ ) {
+		char ch = _panel[ bg_idx ].chip[ i ];
+		if ( ch < 'A' || ch > 'Z' ) {
+			continue;
+		}
+
+		int x = bg_idx * BG_SIZE + i % MAPCHIP_NUM * MAPCHIP_SIZE + MAPCHIP_SIZE / 2; 
+		int y =                    i / MAPCHIP_NUM * MAPCHIP_SIZE + MAPCHIP_SIZE - 1;
+		EnemyPtr enemy = generateEnemy( ch, x, y );
+		if ( enemy ) {
+			stock->addEnemy( enemy );
+		}
+	}
 }
 

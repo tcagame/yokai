@@ -11,6 +11,7 @@ public:
 public:
 	void addEnemy( EnemyPtr enemy );
 	EnemyPtr getPopUp( );
+	void clear( );
 private:
 	std::list< EnemyPtr > _enemies;
 };

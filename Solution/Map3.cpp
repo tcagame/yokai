@@ -1,9 +1,7 @@
 #include "Map3.h"
 #include "define.h"
-
-static const Map::Item item = {
-	Map::BOSS_ENMA
-};
+#include "EnemyDeceasedPurple.h"
+#include "BossEnma.h"
 
 static const Map::Panel panel[] = {
 	{
@@ -758,9 +756,24 @@ static const Map::Panel panel[] = {
 
 
 Map3::Map3( ) :
-Map( &item, panel, sizeof( panel ) / sizeof( Map::Panel ) - 1 ) {
+Map( panel, sizeof( panel ) / sizeof( Map::Panel ) - 1 ) {
 }
 
 
 Map3::~Map3( ) {
+}
+
+EnemyPtr Map3::generateEnemy( char ch, int x, int y ) const {
+	EnemyPtr enemy;
+
+	switch ( ch ) {
+	case 'A': enemy = EnemyPtr( new EnemyDeceasedPurple( x, y ) );
+	}
+
+	return enemy;
+}
+
+BossPtr Map3::generateBoss( EnemyStockPtr stock ) const {
+	int offset_x = getPanelNum( ) * BG_SIZE - BG_SIZE;
+	return BossPtr( new BossEnma( stock, offset_x ) );
 }

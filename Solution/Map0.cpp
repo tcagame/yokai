@@ -1,9 +1,7 @@
 #include "Map0.h"
 #include "define.h"
-
-static const Map::Item item = {
-	Map::BOSS_REDDEMON
-};
+#include "EnemyDeceasedPurple.h"
+#include "BossRedDemon.h"
 
 static const Map::Panel panel[] = {
 	{//0
@@ -736,9 +734,24 @@ static const Map::Panel panel[] = {
 
 
 Map0::Map0( ) :
-Map( &item, panel, sizeof( panel ) / sizeof( Map::Panel ) - 1 ) {
+Map( panel, sizeof( panel ) / sizeof( Map::Panel ) - 1 ) {
 }
 
 
 Map0::~Map0( ) {
+}
+
+EnemyPtr Map0::generateEnemy( char ch, int x, int y ) const {
+	EnemyPtr enemy;
+
+	switch ( ch ) {
+	case 'A': enemy = EnemyPtr( new EnemyDeceasedPurple( x, y ) );
+	}
+
+	return enemy;
+}
+
+BossPtr Map0::generateBoss( EnemyStockPtr stock ) const {
+	int offset_x = getPanelNum( ) * BG_SIZE - BG_SIZE;
+	return BossPtr( new BossRedDemon( stock, offset_x ) );
 }
