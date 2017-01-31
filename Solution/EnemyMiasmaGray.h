@@ -10,5 +10,9 @@ private:
 	void act( );
 private:
 	int _anime_count;
+	int _count;
+	int _speed;
+	int _vy;
+	int _dir;
 };
 
