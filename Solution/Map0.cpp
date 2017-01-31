@@ -2,6 +2,12 @@
 #include "define.h"
 #include "EnemyDeceasedPurple.h"
 #include "EnemyWaterGhost.h"
+#include "EnemyDeceasedFirst.h"
+#include "EnemyDeceasedSecond.h"
+#include "EnemyDeceasedThird.h"
+#include "EnemyDeceasedFourth.h"
+#include "EnemyMoth.h"
+#include "EnemyFlog.h"
 #include "BossRedDemon.h"
 
 static const Map::Panel panel[] = {
@@ -110,7 +116,7 @@ static const Map::Panel panel[] = {
 		"  ###########   "
 		"  ###########   "
 		"  ###########   "
-		"B~###########   "
+		"B~###########C D"
 		"################"
 		"################",
 		NONE
@@ -132,7 +138,7 @@ static const Map::Panel panel[] = {
 		"   #############"
 		"   #############"
 		"   #############"
-		"   #############"
+		" EF#############"
 		"################"
 		"################",
 		NONE
@@ -145,7 +151,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"    G           "
 		"                "
 		"                "
 		"                "
@@ -166,7 +172,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"            G   "
 		"                "
 		"                "
 		"                "
@@ -194,7 +200,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"       -        "
-		"                "
+		"             G  "
 		"                "
 		"                "
 		"                "
@@ -216,7 +222,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"               #"
+		"            A  #"
 		"             ###"
 		"           #####"
 		"         #######"
@@ -236,7 +242,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"  A     A     A "
 		"                "
 		"################"
 		"#####           "
@@ -304,7 +310,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"           H    "
 		"       #########"
 		"######          "
 		"                "
@@ -749,6 +755,18 @@ EnemyPtr Map0::generateEnemy( char ch, EnemyStockPtr stock, int x, int y ) const
 	case 'A': enemy = EnemyPtr( new EnemyDeceasedPurple( x, y ) );
 		break;
 	case 'B': enemy = EnemyPtr( new EnemyWaterGhost( x, y ) );
+		break;
+	case 'C': enemy = EnemyPtr( new EnemyDeceasedFirst( x, y ) );
+		break;
+	case 'D': enemy = EnemyPtr( new EnemyDeceasedSecond( x, y ) );
+		break;
+	case 'E': enemy = EnemyPtr( new EnemyDeceasedThird( x, y ) );
+		break;
+	case 'F': enemy = EnemyPtr( new EnemyDeceasedFourth( x, y ) );
+		break;
+	case 'G': enemy = EnemyPtr( new EnemyMoth( x, y ) );
+		break;
+	case 'H': enemy = EnemyPtr( new EnemyFlog( stock, x, y ) );
 		break;
 	}
 
