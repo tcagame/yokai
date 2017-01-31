@@ -19,6 +19,7 @@ public:
 	virtual void steppedOn( );
 protected:
 	void setNoHead( );
+	int getHp( );
 private:
 	const int _pow;
 	int _hp;

@@ -43,8 +43,6 @@ SceneStreet::SceneStreet() {
 
 	// Caution
 	// 以下のファイルは面固定なので、以下のstage分岐で読み込むこと！！
-	drawer->loadGraph( GRAPH_ENEMY_EFFECT_NOMAL	, "street/enemy/enemy_effect_nomal.png");
-	drawer->loadGraph( GRAPH_ENEMY_EFFECT_SMALL	, "street/enemy/enemy_effect_small.png");
 	drawer->loadGraph( GRAPH_ENEMY_FIREBALL		, "street/enemy/enemy_fireball.png");
 	drawer->loadGraph( GRAPH_ENEMY_FLOG_GREEN	, "street/enemy/enemy_frog_green.png");
 	drawer->loadGraph( GRAPH_ENEMY_FLOG_RED		, "street/enemy/enemy_frog_red.png");

@@ -70,3 +70,7 @@ bool Enemy::isOutSideScreen( CameraConstPtr camera ) const {
 
 	return result;
 }
+
+int Enemy::getHp( ) {
+	return _hp;
+}
