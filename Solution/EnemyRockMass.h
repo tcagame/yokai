@@ -8,6 +8,7 @@ public:
 	virtual ~EnemyRockMass( );
 private:
 	void act( );
+	void drawOverlapped( CameraConstPtr camera ) const;
 private:
 	int _count;
 };

@@ -20,7 +20,7 @@ void EnemyRockMassShell::act( ) {
 	int anime_num = sizeof( ANIME ) / sizeof( ANIME[ 0 ] );
 	int u = ANIME[ WAIT_ANIME_TIME % anime_num ];
 	int v = 5;
-	setChipGraph( GRAPH_ENEMY_ROCK_SHELL, u, v );
+	setChipGraph( GRAPH_ENEMY_ROCKMASS, u, v );
 }
 
 void EnemyRockMassShell::damage( int pow ) {

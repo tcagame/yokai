@@ -26,5 +26,5 @@ void EnemyRockMassSoul::updateChip( ) {
 	const int v = 10;
 	const int MOTION[ MAX_ANIME_PATTERN ] = { 4, 5, 6, 7, 8, 9, 10, 11 };
 	int u = MOTION[ ( _count / WAIT_ANIME_TIME ) % MAX_ANIME_PATTERN ];
-	setChipGraph( GRAPH_ENEMY_ROCK_ITEM, u, v );
+	setChipGraph( GRAPH_ENEMY_ROCKMASS, u, v );
 }
