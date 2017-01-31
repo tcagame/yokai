@@ -49,6 +49,9 @@ _shrine_rope( true ) {
 
 
 EnemyRockMass::~EnemyRockMass( ) {
+	for ( int i = 0; i < STONE_NUM; i++ ) {
+		_stones[ i ]->damage( -1 );
+	}
 }
 
 void EnemyRockMass::act( ) {
