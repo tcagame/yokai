@@ -2,8 +2,8 @@
 
 static const int CHIP_SIZE = 256;
 static const int CHIP_FOOT = 0;
-static const int HP = 2;
-static const int POW = 2;
+static const int HP = 5;
+static const int POW = 6;
 static const int WAIT_ANIME_TIME = 10;
 static const int MOVE_SPEED = 2;
 
@@ -22,4 +22,12 @@ void EnemyRollOverNeckSkull::act( ) {
 	int u = ANIME[ getX( ) / WAIT_ANIME_TIME % anime_num ];
 	int v = 6;
 	setChipGraph( GRAPH_ENEMY_BIG, u, v );
+}
+
+double EnemyRollOverNeckSkull::getOverlappedRadius( ) const {
+	return CHIP_SIZE / 2 * 0.6;
+}
+
+Vector EnemyRollOverNeckSkull::getOverlappedPos( ) const {
+	return Vector( getX( ) - CHIP_SIZE / 5, getY( ) + CHIP_FOOT - CHIP_SIZE / 10 );
 }

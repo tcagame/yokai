@@ -8,7 +8,7 @@ static const int MOVE_SPEED = 20;
 
 EnemyBowDemonAttack::EnemyBowDemonAttack( int x, int y ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ) {
-	setChipGraph( GRAPH_ENEMY_NORMAL, 18, 10 );
+	setChipGraph( GRAPH_ENEMY_NORMAL, 28, 10 );
 }
 
 
