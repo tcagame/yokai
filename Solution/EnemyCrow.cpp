@@ -50,7 +50,7 @@ void EnemyCrow::actOnAppearing( ) {
 		_action = ACTION_WAIT;
 	}
 
-	setChipGraph( GRAPH_ENEMY_NOMAL, ANIM[ idx ], 15 );
+	setChipGraph( GRAPH_ENEMY_NORMAL, ANIM[ idx ], 15 );
 }
 
 void EnemyCrow::actOnWaiting( ) {
@@ -64,7 +64,7 @@ void EnemyCrow::actOnWaiting( ) {
 	if ( _count > WAIT_COUNT ) {
 		_action = ACTION_MOVE;
 	}
-	setChipGraph( GRAPH_ENEMY_NOMAL, u, 15 );
+	setChipGraph( GRAPH_ENEMY_NORMAL, u, 15 );
 }
 
 void EnemyCrow::actOnMoving( ) {
@@ -82,6 +82,6 @@ void EnemyCrow::actOnMoving( ) {
 	} else {
 		setChipReverse( false );
 	}
-	setChipGraph( GRAPH_ENEMY_NOMAL, _count / ANIMATION_WAIT_TIME % 2, 15 );
+	setChipGraph( GRAPH_ENEMY_NORMAL, _count / ANIMATION_WAIT_TIME % 2, 15 );
 }
 

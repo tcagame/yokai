@@ -20,7 +20,7 @@ void EnemyNakabon::act( ) {
 	int anime_num = sizeof( ANIME ) / sizeof( ANIME[ 0 ] );
 	int u = ANIME[ _act_count / WAIT_ANIME_TIME % anime_num ];
 	int v = 11;
-	setChipGraph( GRAPH_ENEMY_NOMAL, u, v );
+	setChipGraph( GRAPH_ENEMY_NORMAL, u, v );
 
 	_act_count++;
 }

@@ -22,5 +22,5 @@ void EnemyLittleBlueDemon::act( ) {
 
 	const int ANIM[ 4 ] = { 4, 5, 8, 9 };
 	int pattern = ANIM[ _count / WAIT_ANIME_TIME % 4 ];
-	setChipGraph( GRAPH_ENEMY_NOMAL, pattern, 6 );
+	setChipGraph( GRAPH_ENEMY_NORMAL, pattern, 6 );
 }

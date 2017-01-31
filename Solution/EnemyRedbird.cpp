@@ -35,5 +35,5 @@ void EnemyRedbird::act( ) {
 	const int MAX_ANIME_PATTERN = 9;
 	const int ANIME_PATTERN[ MAX_ANIME_PATTERN ] = { 0, 4, 1, 0, 4, 2, 0, 4, 3  };
 	int pattern = ANIME_PATTERN[ ( getX( ) / WAIT_ANIME_TIME ) % MAX_ANIME_PATTERN ];
-	setChipGraph( GRAPH_ENEMY_NOMAL, pattern, 5 );
+	setChipGraph( GRAPH_ENEMY_NORMAL, pattern, 5 );
 }

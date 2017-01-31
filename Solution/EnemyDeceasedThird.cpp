@@ -21,5 +21,5 @@ void EnemyDeceasedThird::act( ) {
 	_count++;
 	_count %= WAIT_ANIME_TIME * MAX_ANIME_PATTERN;
 	int pattern = _count / WAIT_ANIME_TIME % ( MAX_ANIME_PATTERN - 1 );
-	setChipGraph( GRAPH_ENEMY_NOMAL, pattern, 14 );
+	setChipGraph( GRAPH_ENEMY_NORMAL, pattern, 14 );
 }

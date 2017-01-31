@@ -21,5 +21,5 @@ void EnemyMiasmaWhite::act( ) {
 	const int MAX_ANIME_PATTERN = 4;
 	int u = getX( ) / WAIT_ANIME_TIME % MAX_ANIME_PATTERN;
 	int v = 6;
-	setChipGraph( GRAPH_ENEMY_NOMAL, u, v );
+	setChipGraph( GRAPH_ENEMY_NORMAL, u, v );
 }

@@ -10,6 +10,7 @@ PTR( Camera );
 PTR( Map );
 PTR( Cloud );
 PTR( CloudMgr );
+PTR( EnemyStock );
 
 class Field {
 public:
@@ -32,6 +33,7 @@ public:
 	bool isBlockChip( int x, int y ) const;
 	FLOOR getFloor( int x, int y ) const;
 	Vector getStatusMarkerPos( int x ) const;
+	void apeearEnemy( EnemyStockPtr stock );
 private:
 	void drawBG( ) const;
 	void drawChip( ) const;

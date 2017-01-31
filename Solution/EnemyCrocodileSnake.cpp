@@ -28,5 +28,5 @@ void EnemyCrocodileSnake::updateChip( ) {
 	const int MAX_ANIME_PATTERN = 8;
 	int u = 4 + getX( ) / WAIT_ANIME_TIME % MAX_ANIME_PATTERN;
 	int v = 8;
-	setChipGraph( GRAPH_ENEMY_NOMAL, u, v );
+	setChipGraph( GRAPH_ENEMY_NORMAL, u, v );
 }

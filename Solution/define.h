@@ -15,7 +15,7 @@ const unsigned long long REDBIRD			= 0x0000000000000008;	//çgíπ
 const unsigned long long MOTH				= 0x0000000000000010;	//âÈ
 const unsigned long long TREE				= 0x0000000000000020;	//êlñ é˜
 const unsigned long long TREE_MONSTER	    = 0x0000000000000040;	//é˜ód
-const unsigned long long FLOG				= 0x0000000000000080;	//ÉKÉ}
+const unsigned long long FLOG_GREEN			= 0x0000000000000080;	//ÉKÉ}(óŒ)
 const unsigned long long FLOG_SMALL			= 0x0000000000000100;	//É~ÉjÉKÉGÉã
 const unsigned long long DECEASED			= 0x0000000000000200;	//è¿ÇÃñSé“
 const unsigned long long STONE_ROTE			= 0x0000000000000400;	//êŒÅiâÒì]Åj
@@ -49,6 +49,7 @@ const unsigned long long NAKABON			= 0x0000002000000000;   //íÜñ~
 const unsigned long long SHISHIMAI		    = 0x0000004000000000;   //éÇéqïë
 const unsigned long long SHISHI_ONI			= 0x0000008000000000;	//éÇéqïëãS
 const unsigned long long YADOKARI			= 0x0000010000000000;	//ÉÑÉhÉJÉäódâˆ
+const unsigned long long FLOG_RED			= 0x0000020000000000;	//ÉKÉ}(ê‘)
 
 enum GRAPH {
 	GRAPH_FADE_BOARD,
@@ -70,14 +71,15 @@ enum GRAPH {
 	GRAPH_CHARACTER_2,
 	GRAPH_IMPACT,
 	GRAPH_BOMB,
-	GRAPH_BOSS,
-	GRAPH_ENEMY_NOMAL,
+	GRAPH_ENEMY_BOSS,
+	GRAPH_ENEMY_NORMAL,
 	GRAPH_ENEMY_SMALL,
 	GRAPH_ENEMY_BIG,
 	GRAPH_ENEMY_TREE,
 	GRAPH_ENEMY_TREE_2,
 	GRAPH_ENEMY_FIREBALL,
-	GRAPH_ENEMY_FLOG,
+	GRAPH_ENEMY_FLOG_GREEN,
+	GRAPH_ENEMY_FLOG_RED,
 	GRAPH_ENEMY_EFFECT_NOMAL,
 	GRAPH_ENEMY_EFFECT_SMALL,
 	GRAPH_BG,

@@ -47,6 +47,7 @@ public:
 	FLOOR getFloor( int bg_idx, int chip_idx ) const;
 	CloudMgrPtr createCloudMgr( ) const;
 	BossPtr createBoss( EnemyStockPtr enemy_stock ) const;
+	void addToStock( EnemyStockPtr stock ) const { }
 private:
 	bool isSmallCloud( int bg_idx, int chip_idx ) const;
 	bool isBigCloud( int bg_idx, int chip_idx ) const;

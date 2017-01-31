@@ -37,7 +37,7 @@ void EnemyBranchMonster::actGrow( ) {
 	const int GROW_PATTERN[ ] = { 0, 1 };
 	int pattern_num = sizeof( GROW_PATTERN ) / sizeof( GROW_PATTERN[ 0 ] );
 	int u = GROW_PATTERN[ ( _anime_count / WAIT_ANIME_TIME ) % pattern_num ];
-	setChipGraph( GRAPH_ENEMY_NOMAL, u, 2 );
+	setChipGraph( GRAPH_ENEMY_NORMAL, u, 2 );
 	if( u == 1 ) {
 		_action = ACTION_ATTACK;
 	}
@@ -52,5 +52,5 @@ void EnemyBranchMonster::actAttack( ) {
 			_stock->addEnemy( EnemyPtr( new EnemyBranchMonsterAttack( getX( ) - 40, getY( ) - ATTACK_FOOT ) ) );
 		}
 	}
-	setChipGraph( GRAPH_ENEMY_NOMAL, u, v );
+	setChipGraph( GRAPH_ENEMY_NORMAL, u, v );
 }
