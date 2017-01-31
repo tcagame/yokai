@@ -1,6 +1,7 @@
 #include "Map0.h"
 #include "define.h"
 #include "EnemyDeceasedPurple.h"
+#include "EnemyWaterGhost.h"
 #include "BossRedDemon.h"
 
 static const Map::Panel panel[] = {
@@ -38,7 +39,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"               A"
 		"                "
 		"               #"
 		"             ###"
@@ -58,14 +59,14 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"  A  A  A       "
 		"                "
 		"   ########     "
 		" ##########     "
 		"###########     "
 		"###########     "
 		"###########     "
-		"###########~~~~~"
+		"###########~~B~~"
 		"################"
 		"################",
 		NONE
@@ -109,7 +110,7 @@ static const Map::Panel panel[] = {
 		"  ###########   "
 		"  ###########   "
 		"  ###########   "
-		"~~###########   "
+		"B~###########   "
 		"################"
 		"################",
 		NONE
@@ -746,6 +747,9 @@ EnemyPtr Map0::generateEnemy( char ch, EnemyStockPtr stock, int x, int y ) const
 
 	switch ( ch ) {
 	case 'A': enemy = EnemyPtr( new EnemyDeceasedPurple( x, y ) );
+		break;
+	case 'B': enemy = EnemyPtr( new EnemyWaterGhost( x, y ) );
+		break;
 	}
 
 	return enemy;
