@@ -33,19 +33,23 @@ SceneStreet::SceneStreet() {
 	drawer->loadGraph( GRAPH_MAPCHIPGUIDE		, "street/other/mapchipguide.png");
 	drawer->loadGraph( GRAPH_IMPACT				, "street/other/impact.png");
 	drawer->loadGraph( GRAPH_BOMB				, "street/other/bomb.png");
+	drawer->loadGraph( GRAPH_STATUS_POWER		, "street/status/status_power.png");
+	drawer->loadGraph( GRAPH_STATUS_MARKER		, "street/status/status_marker.png");
+	drawer->loadGraph( GRAPH_STATUS_PLATE		, "street/status/status_plate.png");
 	drawer->loadGraph( GRAPH_ENEMY_NORMAL		, "street/enemy/enemy_nomal.png");
 	drawer->loadGraph( GRAPH_ENEMY_SMALL		, "street/enemy/enemy_small.png");
+	drawer->loadGraph( GRAPH_ENEMY_BIG			, "street/enemy/enemy_big.png");
+
+
+	// Caution
+	// 以下のファイルは面固定なので、以下のstage分岐で読み込むこと！！
 	drawer->loadGraph( GRAPH_ENEMY_EFFECT_NOMAL	, "street/enemy/enemy_effect_nomal.png");
 	drawer->loadGraph( GRAPH_ENEMY_EFFECT_SMALL	, "street/enemy/enemy_effect_small.png");
-	drawer->loadGraph( GRAPH_ENEMY_BIG			, "street/enemy/enemy_big.png");
 	drawer->loadGraph( GRAPH_ENEMY_TREE			, "street/enemy/enemy_tree.png");
 	drawer->loadGraph( GRAPH_ENEMY_TREE_2		, "street/enemy/enemy_tree2.png");
 	drawer->loadGraph( GRAPH_ENEMY_FIREBALL		, "street/enemy/enemy_fireball.png");
 	drawer->loadGraph( GRAPH_ENEMY_FLOG_GREEN	, "street/enemy/enemy_frog_green.png");
 	drawer->loadGraph( GRAPH_ENEMY_FLOG_RED		, "street/enemy/enemy_frog_red.png");
-	drawer->loadGraph( GRAPH_STATUS_PLATE		, "street/status/status_plate.png");
-	drawer->loadGraph( GRAPH_STATUS_POWER		, "street/status/status_power.png");
-	drawer->loadGraph( GRAPH_STATUS_MARKER		, "street/status/status_marker.png");
 
 	GamePtr game = Game::getTask( );
 	
@@ -85,6 +89,8 @@ SceneStreet::SceneStreet() {
 		drawer->loadGraph(GRAPH_STATUS_MAP  , "street/status/status_map_0.png");
 		drawer->loadGraph(GRAPH_STATUS_TITLE, "street/status/status_title_test.png");
 		drawer->loadGraph(GRAPH_ENEMY_BOSS         , "street/enemy/boss_bluedemon.png");
+		drawer->loadGraph(GRAPH_ENEMY_ROCK_SHELL, "street/enemy/enemy_rock_shell.png");
+		drawer->loadGraph(GRAPH_ENEMY_ROCK_ITEM , "street/enemy/enemy_rock_item.png");
 		break;
 	}
 	

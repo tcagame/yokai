@@ -1,4 +1,4 @@
-#include "EnemyRockMassSoul.h"
+#include "EnemyRockMass.h"
 
 static const int WAIT_ANIME_TIME = 2;
 static const int CHIP_SIZE = 128;
@@ -7,20 +7,17 @@ static const int HP  = 10;
 static const int POW = 3;
 static const int MAX_ANIME_PATTERN = 8;
 
-EnemyRockMassSoul::EnemyRockMassSoul( int x, int y ) :
+EnemyRockMass::EnemyRockMass( int x, int y ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),
 _count( 0 ) {
 }
 
 
-EnemyRockMassSoul::~EnemyRockMassSoul( ) {
+EnemyRockMass::~EnemyRockMass( ) {
 }
 
-void EnemyRockMassSoul::act( ) {
-	updateChip( );
-}
+void EnemyRockMass::act( ) {
 
-void EnemyRockMassSoul::updateChip( ) {
 	_count++;
 	_count %= WAIT_ANIME_TIME * MAX_ANIME_PATTERN;
 	const int v = 10;

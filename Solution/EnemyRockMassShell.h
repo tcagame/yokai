@@ -10,8 +10,5 @@ public:
 	void damage( int pow );
 private:
 	void act( );
-private:
-	int _act_count;
-	EnemyStoneMortgagePtr _martgage;
 };
 
