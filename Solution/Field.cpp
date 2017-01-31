@@ -85,6 +85,9 @@ Vector Field::getStatusMarkerPos( int x ) const {
 	return src + ( dst - src ) * ( offset / BG_SIZE );
 }
 
+void Field::apeearEnemy( EnemyStockPtr stock ) {
+	_map->addToStock( stock );
+}
 
 void Field::update( CameraConstPtr camera ) {
 	scroll( camera );

@@ -112,6 +112,7 @@ void EnemyManager::update( FieldPtr field, CameraConstPtr camera, TarosukePtr ta
 		_enemies.push_back( stock );
 	}
 
+	field->apeearEnemy( _enemy_stock );
 	createByField( field->getEnemyData( ), camera );
 	updateBomb( );
 
