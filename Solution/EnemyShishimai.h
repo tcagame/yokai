@@ -9,5 +9,8 @@ public:
 private:
 	void act( );
 private:
-	int _anime_count;
+	int _act_count;
+	int _move_speed;
+	int _old_x;
+	int _old_y;
 };
