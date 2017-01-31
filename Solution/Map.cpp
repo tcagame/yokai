@@ -45,7 +45,11 @@ FLOOR Map::getFloor( int bg_idx, int chip_idx ) const {
 	case '+':
 		floor = FLOOR_BOG;
 		break;
+	case '^':
+		floor = FLOOR_NEEDLE;
+		break;
 	}
+
 	return floor;
 }
 

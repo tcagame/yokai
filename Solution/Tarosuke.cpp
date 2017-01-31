@@ -32,6 +32,8 @@ static const int FALTER_COUNT = 6;
 static const int INVINCIBLE_COUNT = 30;
 static const int JET_POWER = 70;
 static const int FALLOUT_POW = 6;
+static const int NEEDLE_POW = 6;
+static const int OUCH_POWER = 40;
 
 
 Tarosuke::Tarosuke( PsychicMgrPtr psychic, PowerPtr power, MomotaroPtr momotaro ) : 
@@ -73,7 +75,7 @@ bool Tarosuke::isCalling( ) const {
 
 void Tarosuke::act( ) {
 	GamePtr game = Game::getTask( );
-	game->addDebugMessage( "Tarosuke x:%05d(%03d) y:%03d", getX( ), getX( ) % BG_SIZE, getY( ) );
+	game->addDebugMessage( "Tarosuke x:%05d(%03d BG:%03d) y:%03d", getX( ), getX( ) % BG_SIZE, getX( ) / BG_SIZE, getY( ) );
 	_act_count++;
 	_invincible_count--;
 	if ( _invincible_count < 0 ) {
@@ -271,6 +273,12 @@ void Tarosuke::actOnStanding( ) {
 			setChipGraph( GRAPH_CHARACTER_1, u, 7 );
 		}
 		break;
+	case FLOOR_NEEDLE:
+		if ( _invincible_count <= 0 ) {
+			damage( NEEDLE_POW );
+			setAccelY( -OUCH_POWER );
+			break;
+		}
 	default:
 		{
 			if ( getAccelX( ) == 0 ) {
