@@ -17,7 +17,8 @@ EnemyMoth::~EnemyMoth( ) {
 }
 
 void EnemyMoth::act( ) {
-	setAccelX( -MOVE_SPEED );
+	_anime_count++;
+	setAccelY( MOVE_SPEED );
 
 	const int MAX_ANIME_PATTERN = 2;
 	_anime_count++;
