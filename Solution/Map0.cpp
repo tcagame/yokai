@@ -10,6 +10,13 @@
 #include "EnemyFlog.h"
 #include "EnemyFlogSmall.h"
 #include "EnemyWaterMonk.h"
+#include "EnemyMiasmaGray.h"
+#include "EnemyExtrudedSpirits.h"
+#include "EnemyRedbird.h"
+#include "EnemyTree.h"
+#include "EnemyStoneRote.h"
+#include "EnemyStoneFly.h"
+#include "EnemyGhoul.h"
 #include "BossRedDemon.h"
 
 static const Map::Panel panel[] = {
@@ -224,7 +231,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"            A  #"
+		"               #"
 		"             ###"
 		"           #####"
 		"         #######"
@@ -339,7 +346,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"      I         "
 		"                "
-		"~~~~~~~~~~~~~B~~"
+		"~~~~~~~~~~~~~~~~"
 		"################",
 		NONE
 	},
@@ -348,6 +355,7 @@ static const Map::Panel panel[] = {
 		"",
 		0, 0,
 		"                "
+		"          K     "
 		"                "
 		"                "
 		"                "
@@ -360,8 +368,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
-		"~~~~~~~~J~~~~~~~"
+		"~~~~~J~~~~~~~~~"
 		"################",
 		NONE
 	},
@@ -371,7 +378,7 @@ static const Map::Panel panel[] = {
 		275, 165,
 		"                "
 		"                "
-		"                "
+		"               L"
 		"                "
 		"                "
 		"  ##           #"
@@ -393,9 +400,9 @@ static const Map::Panel panel[] = {
 		300, 130,
 		"                "
 		"                "
+		"        M       "
 		"                "
-		"                "
-		"                "
+		"               I"
 		"##              "
 		"##              "
 		"##              "
@@ -417,7 +424,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"      I      I  "
 		"                "
 		"                "
 		"                "
@@ -439,7 +446,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"      I     I   "
 		"                "
 		"                "
 		"                "
@@ -470,7 +477,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"          N     "
 		"################"
 		"################",
 		NONE
@@ -508,12 +515,12 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
+		"             P  "
 		"                "
 		"                "
 		"                "
 		"                "
-		"                "
-		"                "
+		"         A      "
 		"                "
 		"################"
 		"################",
@@ -533,10 +540,10 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
+		"              O "
 		"                "
 		"                "
-		"                "
-		"                "
+		"      A       A "
 		"################"
 		"################",
 		NONE
@@ -550,6 +557,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
+		" M              "
 		"                "
 		"                "
 		"                "
@@ -557,8 +565,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
-		"                "
+		" A  A           "
 		"################"
 		"################",
 		NONE
@@ -574,7 +581,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"          G     "
 		"                "
 		"                "
 		"                "
@@ -591,6 +598,7 @@ static const Map::Panel panel[] = {
 		0, 0,
 		"                "
 		"                "
+		"      G         "
 		"                "
 		"                "
 		"                "
@@ -601,8 +609,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
-		"                "
+		"         Q      "
 		"################"
 		"################",
 		NONE
@@ -624,7 +631,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"          Q     "
 		"################"
 		"################",
 		NONE
@@ -646,7 +653,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"     Q          "
 		"################"
 		"################",
 		NONE
@@ -773,6 +780,20 @@ EnemyPtr Map0::generateEnemy( char ch, EnemyStockPtr stock, int x, int y ) const
 	case 'I': enemy = EnemyPtr( new EnemyFlogSmall( x, y ) );
 		break;
 	case 'J': enemy = EnemyPtr( new EnemyWaterMonk( x, y ) );
+		break;
+	case 'K': enemy = EnemyPtr( new EnemyMiasmaGray( x, y ) );
+		break;
+	case 'L': enemy = EnemyPtr( new EnemyExtrudedSpirits( x, y ) );
+		break;
+	case 'M': enemy = EnemyPtr( new EnemyRedbird( stock, x, y ) );
+		break;
+	case 'N': enemy = EnemyPtr( new EnemyTree( stock, x, y ) );
+		break;
+	case 'O': enemy = EnemyPtr( new EnemyStoneFly( x, y ) );
+		break;
+	case 'P': enemy = EnemyPtr( new EnemyStoneRote( x, y ) );
+		break;
+	case 'Q': enemy = EnemyPtr( new EnemyGhoul( x, y ) );
 		break;
 	}
 
