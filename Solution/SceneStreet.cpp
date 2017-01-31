@@ -89,8 +89,7 @@ SceneStreet::SceneStreet() {
 		drawer->loadGraph(GRAPH_STATUS_MAP  , "street/status/status_map_0.png");
 		drawer->loadGraph(GRAPH_STATUS_TITLE, "street/status/status_title_test.png");
 		drawer->loadGraph(GRAPH_ENEMY_BOSS         , "street/enemy/boss_bluedemon.png");
-		drawer->loadGraph(GRAPH_ENEMY_ROCK_SHELL, "street/enemy/enemy_rock_shell.png");
-		drawer->loadGraph(GRAPH_ENEMY_ROCK_ITEM , "street/enemy/enemy_rock_item.png");
+		drawer->loadGraph(GRAPH_ENEMY_ROCKMASS, "street/enemy/enemy_rock_mass.png");
 		break;
 	}
 	
