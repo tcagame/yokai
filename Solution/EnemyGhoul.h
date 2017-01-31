@@ -9,4 +9,5 @@ private:
 	void act( );
 private:
 	int _count;
+	int _speed;
 };
