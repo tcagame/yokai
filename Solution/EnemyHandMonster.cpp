@@ -49,7 +49,7 @@ void EnemyHandMonster::actThrow( ) {
 	int anime_num = sizeof( ANIME ) / sizeof( ANIME[ 0 ] );
 	int u = ANIME[ _act_count / WAIT_ANIME_TIME % anime_num ];
 	int v = 0;
-	setChipGraph( GRAPH_ENEMY_NOMAL, u, v );
+	setChipGraph( GRAPH_ENEMY_NORMAL, u, v );
 
 	if ( u == 10 ) {
 		if ( _act_count % WAIT_ANIME_TIME == 0 ) {

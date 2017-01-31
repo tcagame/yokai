@@ -22,5 +22,5 @@ void EnemyHellFire::act( ) {
 	int anime_num = sizeof( ANIME ) / sizeof( ANIME[ 0 ] );
 	int u = ANIME[ getX( ) / WAIT_ANIME_TIME % anime_num ];
 	int v = 12;
-	setChipGraph( GRAPH_ENEMY_NOMAL, u, v );
+	setChipGraph( GRAPH_ENEMY_NORMAL, u, v );
 }

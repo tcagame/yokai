@@ -37,7 +37,7 @@ BossHag::~BossHag( ) {
 }
 
 void BossHag::act( ) {
-	setChipGraph( GRAPH_BOSS, 0, 0 );
+	setChipGraph( GRAPH_ENEMY_BOSS, 0, 0 );
 }
 
 void BossHag::attack( ) {

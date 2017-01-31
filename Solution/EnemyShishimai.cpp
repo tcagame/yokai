@@ -25,5 +25,5 @@ void EnemyShishimai::act( ) {
 	_anime_count %= WAIT_ANIME_TIME * pattern;
 	_anime_count++;
 
-	setChipGraph( GRAPH_ENEMY_NOMAL, u, 12 );
+	setChipGraph( GRAPH_ENEMY_NORMAL, u, 12 );
 }
