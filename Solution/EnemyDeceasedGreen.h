@@ -10,4 +10,6 @@ private:
 	void act( );
 private:
 	int _move_speed;
+private:
+	int _act_count;
 };
