@@ -13,5 +13,6 @@ private:
 	int _old_x;
 	int _old_y;
 	int _act_count;
+	int _jump_count;
 };
 
