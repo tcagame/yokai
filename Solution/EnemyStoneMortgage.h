@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Enemy.h"
+#include "mathmatics.h"
 
 class EnemyStoneMortgage : public Enemy {
 public:
@@ -11,12 +12,14 @@ public:
 private:
 	void act( );
 	void updateChip( );
-	void actMove( );
+	void actMove( );;
+	bool isOutSideScreen( CameraConstPtr camera ) const;
 private:
+	const Vector _base_pos;
+	const int _type;
+	double _vy;
 	int _count;
-	int _start_x;
-	int _start_y;
-	int _type;
 	bool _moveing;
+	Vector _return_pos;
 };
 

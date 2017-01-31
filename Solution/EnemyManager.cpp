@@ -129,6 +129,7 @@ void EnemyManager::update( FieldPtr field, CameraConstPtr camera, TarosukePtr ta
 			continue;
 
 		}
+		enemy->setCameraX( camera->getX( ) );
 		enemy->update( field );
 		int pow = enemy->getPow( );
 
