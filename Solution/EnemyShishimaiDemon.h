@@ -7,5 +7,7 @@ public:
 	virtual ~EnemyShishimaiDemon( );
 private:
 	void act( );
+private:
+	int _act_count;
 };
 
