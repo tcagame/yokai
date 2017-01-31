@@ -2,11 +2,9 @@
 
 static const int CHIP_SIZE = 128;
 static const int CHIP_FOOT = 0;
-static const int HP  = 10;
-static const int POW = 3;
-static const int IDLING_COUNT = 60;
+static const int HP  = 3;
+static const int POW = 6;
 static const int SPEED = 10;
-static const int ATTACK_RANGE = 10;
 static const int ANIMATION_WAIT_TIME = 6;
 static const int WAIT_COUNT = 240;
 
