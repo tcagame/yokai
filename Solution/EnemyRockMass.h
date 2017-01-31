@@ -4,6 +4,7 @@
 #include <array>
 
 PTR( EnemyStoneMortgage );
+PTR( EnemyATField );
 
 class EnemyRockMass : public Enemy {
 public:
@@ -18,5 +19,6 @@ private:
 	int _count;
 	bool _shrine_rope;
 	std::array< EnemyStoneMortgagePtr, STONE_NUM > _stones;
+	EnemyATFieldPtr _a_t_field;
 };
 

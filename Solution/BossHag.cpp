@@ -5,8 +5,8 @@
 static const int CHIP_SIZE = 256;
 static const int OFFSET_X = 60 + CHIP_SIZE;
 static const int OFFSET_Y = 512 - 100;
-static const int HP  = 20;
-static const int POW = 10;
+static const int HP  = 30;
+static const int POW = 6;
 static const int CREATE_COUNT_CROW = 60;
 static const double RADIUS = 50;
 

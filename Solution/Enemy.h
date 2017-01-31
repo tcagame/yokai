@@ -17,12 +17,15 @@ public:
 	virtual bool isOutSideScreen( CameraConstPtr camera ) const;
 	bool isHead( ) const;
 	virtual void steppedOn( );
+	void setCameraX( int x );
 protected:
+	int getCameraX( ) const;
 	void setNoHead( );
 	int getHp( );
 private:
 	const int _pow;
 	int _hp;
 	bool _head;
+	int _camera_x;
 };
 

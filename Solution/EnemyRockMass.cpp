@@ -2,6 +2,7 @@
 #include "Drawer.h"
 #include "Camera.h"
 #include "EnemyStoneMortgage.h"
+#include "EnemyATField.h"
 #include "EnemyStock.h"
 
 static const int WAIT_SOUL_ANIME_TIME = 2;
@@ -45,10 +46,14 @@ _shrine_rope( true ) {
 		stock->addEnemy( _stones[ i ] );
 	}
 
+	_a_t_field = EnemyATFieldPtr( new EnemyATField( x, y - 200 ) );
+	stock->addEnemy( _a_t_field );
+
 }
 
 
 EnemyRockMass::~EnemyRockMass( ) {
+	_a_t_field->damage( -1 );
 	for ( int i = 0; i < STONE_NUM; i++ ) {
 		_stones[ i ]->damage( -1 );
 	}

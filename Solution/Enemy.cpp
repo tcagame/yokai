@@ -21,6 +21,14 @@ bool Enemy::isOverlapped( CharacterPtr target ) const {
 	return vec.getLength( ) < radius;
 }
 
+void Enemy::setCameraX( int x ) {
+	_camera_x = x;
+}
+
+int Enemy::getCameraX( ) const {
+	return _camera_x;
+}
+
 bool Enemy::isHead( ) const {
 	return _head;
 }
