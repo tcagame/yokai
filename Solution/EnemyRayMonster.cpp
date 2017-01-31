@@ -3,9 +3,9 @@
 static const int CHIP_SIZE = 256;
 static const int CHIP_FOOT = 0;
 static const int HP = 5;
-static const int POW = 2;
+static const int POW = 6;
 static const int WAIT_ANIME_TIME = 10;
-static const int MOVE_SPEED = 2;
+static const int MOVE_SPEED = 4;
 static const int MOVE_COUNT = 60;
 
 EnemyRayMonster::EnemyRayMonster( int x, int y ) :
