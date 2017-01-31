@@ -7,5 +7,8 @@ public:
 	virtual ~EnemyBat( );
 private:
 	void act( );
+private:
+	int _vy;
+	int _dir;
 };
 
