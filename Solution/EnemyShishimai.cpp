@@ -1,6 +1,7 @@
 #include "EnemyShishimai.h"
 
 static const int WAIT_ANIME_TIME = 3;
+static const int MOVE_SPEED = 3;
 static const int CHIP_SIZE = 128;
 static const int CHIP_FOOT = 0;
 static const int HP  = 2;
@@ -16,6 +17,7 @@ EnemyShishimai::~EnemyShishimai( ) {
 }
 
 void EnemyShishimai::act( ) {
+	setAccelX( -MOVE_SPEED );
 	
 	const int MOTION[ ] = { 8, 9, 10, 11 };
 	int pattern = sizeof( MOTION ) / sizeof( MOTION[ 0 ] );
