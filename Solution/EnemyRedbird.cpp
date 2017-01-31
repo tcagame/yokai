@@ -7,7 +7,7 @@ static const int WAIT_ATTACK_TIME = 25;
 static const int CHIP_SIZE = 128;
 static const int CHIP_FOOT = 0;
 static const int HP  = 3;
-static const int POW = 3;
+static const int POW = 6;
 static const int EXTIT_TIME = 80;
 
 EnemyRedbird::EnemyRedbird( EnemyStockPtr stock, int x, int y ) :
