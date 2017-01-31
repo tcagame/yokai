@@ -2,8 +2,8 @@
 
 static const int CHIP_SIZE = 64;
 static const int CHIP_FOOT = 0;
-static const int HP = 1;
-static const int POW = 2;
+static const int HP = 2;
+static const int POW = 6;
 static const int MOVE_SPEED_Y = 40;
 static const int INIT_MOVE_SPEED_Y = -12;
 static const int FALL_ACCEL = 3;
@@ -23,9 +23,9 @@ void EnemyHandMonsterAttack::act( ) {
 	setAccelY( _speed_y );
 	_speed_y += FALL_ACCEL;
 
-	const int ANIME[ ] = { 0, 1, 2, 3 };
+	const int ANIME[ ] = { 22, 23, 24, 25 };
 	int anime_num = sizeof( ANIME ) / sizeof( ANIME[ 0 ] );
 	int u = ANIME[ getX( ) / WAIT_ANIME_TIME % anime_num ];
 	int v = 0;
-	setChipGraph( GRAPH_ENEMY_EFFECT_SMALL, u, v ); 
+	setChipGraph( GRAPH_ENEMY_NORMAL, u, v ); 
 }
