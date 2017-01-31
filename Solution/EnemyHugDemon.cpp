@@ -50,5 +50,5 @@ void EnemyHugDemon::updateChip( ) {
 		int max_anime =  sizeof( ANIME ) / sizeof( ANIME[ 0 ] );
 		u = ANIME[ _act_count / WAIT_ANIME_TIME % max_anime ];
 	}
-	setChipGraph( GRAPH_ENEMY_NOMAL, u, v );
+	setChipGraph( GRAPH_ENEMY_NORMAL, u, v );
 }

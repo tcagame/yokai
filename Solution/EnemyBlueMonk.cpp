@@ -24,5 +24,5 @@ void EnemyBlueMonk::act( ) {
 	const int v = 11;
 	const int MOTION[ 4 ] = { 0, 1, 2, 3 };
 	int u = MOTION[ ( _count / WAIT_ANIME_TIME ) % MAX_ANIME_PATTERN ];
-	setChipGraph( GRAPH_ENEMY_NOMAL, u, v );
+	setChipGraph( GRAPH_ENEMY_NORMAL, u, v );
 }

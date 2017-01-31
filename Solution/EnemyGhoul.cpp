@@ -23,5 +23,5 @@ void EnemyGhoul::act( ) {
 	_count++;
 	_count %= WAIT_ANIME_TIME * MAX_ANIME_PATTERN;
 	int pattern = _count / WAIT_ANIME_TIME % MAX_ANIME_PATTERN;
-	setChipGraph( GRAPH_ENEMY_NOMAL, pattern, v );
+	setChipGraph( GRAPH_ENEMY_NORMAL, pattern, v );
 }

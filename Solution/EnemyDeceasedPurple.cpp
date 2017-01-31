@@ -25,5 +25,5 @@ void EnemyDeceasedPurple::act( ) {
 
 	const int MOTION[ 4 ] = { 3, 4, 5, 4 };
 	int u = MOTION[ ( getX( ) / WAIT_TIME ) % MAX_PATTERN ];
-	setChipGraph( GRAPH_ENEMY_NOMAL, u, 1 );
+	setChipGraph( GRAPH_ENEMY_NORMAL, u, 1 );
 }

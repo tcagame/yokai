@@ -32,7 +32,7 @@ SceneStreet::SceneStreet() {
 	drawer->loadGraph( GRAPH_MAPCHIPGUIDE		, "street/other/mapchipguide.png");
 	drawer->loadGraph( GRAPH_IMPACT				, "street/other/impact.png");
 	drawer->loadGraph( GRAPH_BOMB				, "street/other/bomb.png");
-	drawer->loadGraph( GRAPH_ENEMY_NOMAL		, "street/enemy/enemy_nomal.png");
+	drawer->loadGraph( GRAPH_ENEMY_NORMAL		, "street/enemy/enemy_nomal.png");
 	drawer->loadGraph( GRAPH_ENEMY_SMALL		, "street/enemy/enemy_small.png");
 	drawer->loadGraph( GRAPH_ENEMY_EFFECT_NOMAL	, "street/enemy/enemy_effect_nomal.png");
 	drawer->loadGraph( GRAPH_ENEMY_EFFECT_SMALL	, "street/enemy/enemy_effect_small.png");
