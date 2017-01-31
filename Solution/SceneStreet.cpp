@@ -45,9 +45,6 @@ SceneStreet::SceneStreet() {
 	// 以下のファイルは面固定なので、以下のstage分岐で読み込むこと！！
 	drawer->loadGraph( GRAPH_ENEMY_EFFECT_NOMAL	, "street/enemy/enemy_effect_nomal.png");
 	drawer->loadGraph( GRAPH_ENEMY_EFFECT_SMALL	, "street/enemy/enemy_effect_small.png");
-	drawer->loadGraph( GRAPH_ENEMY_TREE			, "street/enemy/enemy_tree.png");
-	drawer->loadGraph( GRAPH_ENEMY_TREE_MONSTER_BODY        , "street/enemy/enemy_tree_monster_body.png");
-	drawer->loadGraph( GRAPH_ENEMY_TREE_MONSTER_ITEM, "street/enemy/enemy_tree_monster_item.png");
 	drawer->loadGraph( GRAPH_ENEMY_FIREBALL		, "street/enemy/enemy_fireball.png");
 	drawer->loadGraph( GRAPH_ENEMY_FLOG_GREEN	, "street/enemy/enemy_frog_green.png");
 	drawer->loadGraph( GRAPH_ENEMY_FLOG_RED		, "street/enemy/enemy_frog_red.png");
@@ -60,8 +57,8 @@ SceneStreet::SceneStreet() {
 		map = MapPtr(new Map0);
 		drawer->loadGraph(GRAPH_STATUS_MAP   , "street/status/status_map_0.png");
 		drawer->loadGraph(GRAPH_STATUS_TITLE , "street/status/status_title_0.png");
-		drawer->loadGraph(GRAPH_ENEMY_TREE       , "street/enemy/enemy_tree.pn");
-		drawer->loadGraph(GRAPH_ENEMY_TREE       , "street/enemy/enemy_small.png");
+		drawer->loadGraph(GRAPH_ENEMY_TREE_BODY       , "street/enemy/enemy_tree_body.pn");
+		drawer->loadGraph(GRAPH_ENEMY_TREE_ITEM       , "street/enemy/enemy_tree_item.png");
 		break;
 	case 1:
 		map = MapPtr(new Map1);
@@ -80,8 +77,8 @@ SceneStreet::SceneStreet() {
 		drawer->loadGraph(GRAPH_STATUS_MAP  , "street/status/status_map_3.png");
 		drawer->loadGraph(GRAPH_STATUS_TITLE, "street/status/status_title_3.png");
 		drawer->loadGraph(GRAPH_ENEMY_BOSS        , "street/enemy/boss_enma.png");
-		drawer->loadGraph(GRAPH_ENEMY_TREE_MONSTER_BODY, "street/enemy/enemy_terr_monster_body.png");
-		drawer->loadGraph(GRAPH_ENEMY_TREE_MONSTER_ITEM, "street/enemy/enemy_terr_monster_item.png");
+		drawer->loadGraph(GRAPH_ENEMY_TREE_MONSTER_BODY, "street/enemy/enemy_tree_monster_body.png");
+		drawer->loadGraph(GRAPH_ENEMY_TREE_MONSTER_ITEM, "street/enemy/enemy_tree_monster_item.png");
 		
 		break;
 	case 4:
@@ -95,6 +92,8 @@ SceneStreet::SceneStreet() {
 		drawer->loadGraph(GRAPH_STATUS_TITLE, "street/status/status_title_test.png");
 		drawer->loadGraph(GRAPH_ENEMY_BOSS         , "street/enemy/boss_bluedemon.png");
 		drawer->loadGraph(GRAPH_ENEMY_ROCKMASS, "street/enemy/enemy_rock_mass.png");
+		drawer->loadGraph( GRAPH_ENEMY_TREE_BODY			, "street/enemy/enemy_tree_body.png");
+		drawer->loadGraph( GRAPH_ENEMY_TREE_ITEM			, "street/enemy/enemy_tree_item.png");
 		break;
 	}
 	

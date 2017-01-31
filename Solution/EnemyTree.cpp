@@ -18,7 +18,7 @@ static const int BORN_4_Y = 110;
 
 EnemyTree::EnemyTree( EnemyStockPtr stock, int x, int y ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ) {
-	setChipGraph( GRAPH_ENEMY_TREE, 0, 0 );
+	setChipGraph( GRAPH_ENEMY_TREE_BODY, 0, 0 );
 	setChipReverse( false );
 	_stock = stock;
 }
