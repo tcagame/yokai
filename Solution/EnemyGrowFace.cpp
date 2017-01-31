@@ -5,7 +5,7 @@ static const int MOVE_SPEED = 12;
 static const int CHIP_SIZE = 64;
 static const int CHIP_FOOT = 0;
 static const int HP  = 3;
-static const int POW = 3;
+static const int POW = 6;
 static const int JUMP_POWER = 40;
 
 EnemyGrowFace::EnemyGrowFace( int x, int y ) :
