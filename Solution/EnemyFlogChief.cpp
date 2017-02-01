@@ -1,5 +1,5 @@
 #include "EnemyFlogChief.h"
-#include "EnemyFlogSmall.h"
+#include "EnemyRedFlogSmall.h"
 
 static const int WAIT_ANIME_TIME = 3;
 static const int CHIP_SIZE = 256;
@@ -29,7 +29,7 @@ void EnemyFlogChief::act( ) {
 	int u = MOTION[ ( _anime_count / WAIT_ANIME_TIME ) % MAX_ANIME_PATTERN ];
 
 	if ( _anime_count % CREATE_COUNT_FLOG == 0 ) {
-		EnemyPtr enemy = EnemyPtr( new EnemyFlogSmall( getX( ) - rand( ) % MAX_RAND + MAX_RAND / 3, 100 ) );
+		EnemyPtr enemy = EnemyPtr( new EnemyRedFlogSmall( getX( ) - rand( ) % MAX_RAND + MAX_RAND / 3, 100 ) );
 		_stock->addEnemy( enemy );
 	}
 
