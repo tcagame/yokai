@@ -50,7 +50,6 @@ private:
 	int _accel_y;
 	CloudConstPtr _cloud;
 	bool _standing;
-	bool _in_water;
 	int  _chip_graph;
 	int  _chip_u;
 	int  _chip_v;
