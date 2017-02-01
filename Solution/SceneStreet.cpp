@@ -113,6 +113,7 @@ SceneStreet::SceneStreet() {
 		drawer->loadGraph(GRAPH_ENEMY_ROCKMASS, "street/enemy/enemy_rock_mass.png");
 		drawer->loadGraph( GRAPH_ENEMY_TREE_BODY			, "street/enemy/enemy_tree_body.png");
 		drawer->loadGraph( GRAPH_ENEMY_TREE_ITEM			, "street/enemy/enemy_tree_item.png");
+		drawer->loadGraph( GRAPH_ENEMY_FLOG_RED				, "street/enemy/enemy_frog_red.png" );
 		break;
 	}
 	
