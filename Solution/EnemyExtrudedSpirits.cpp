@@ -8,10 +8,14 @@ static const int POW = 6;
 static const int MOVE_SPEED_X = 10;
 static const int MOVE_SPEED_Y = 4;
 
-EnemyExtrudedSpirits::EnemyExtrudedSpirits( int x, int y ) :
+EnemyExtrudedSpirits::EnemyExtrudedSpirits( int x, int y, bool dir_right ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ),
 _count( 0 ),
 _appears( false ) {
+	_move_speed = -MOVE_SPEED_X;
+	if ( dir_right ) {
+		_move_speed *= -1;
+	}
 }
 
 EnemyExtrudedSpirits::~EnemyExtrudedSpirits( ) {
@@ -27,7 +31,7 @@ void EnemyExtrudedSpirits::act( ) {
 }
 
 void EnemyExtrudedSpirits::actMove( ) {
-	setAccelX( -MOVE_SPEED_X );
+	setAccelX( _move_speed );
 	setAccelY( MOVE_SPEED_Y );
 }
 

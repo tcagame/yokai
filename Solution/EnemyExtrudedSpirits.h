@@ -3,7 +3,7 @@
 
 class EnemyExtrudedSpirits : public Enemy {
 public:
-	EnemyExtrudedSpirits( int x, int y );
+	EnemyExtrudedSpirits( int x, int y, bool dir_right = false );
 	virtual ~EnemyExtrudedSpirits( );
 private:
 	void act( );
@@ -11,6 +11,7 @@ private:
 	void updateChip( );
 	void appearing( );
 private:
+	int _move_speed;
 	int _count;
 	bool _appears;
 };
