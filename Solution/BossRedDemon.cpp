@@ -53,7 +53,7 @@ void BossRedDemon::attack( ) {
 	if ( _count % CREATE_COUNT_LITTLE_RED_DEMON == 0 ) {
 		int x = getX( );
 		int y = getY( );
-		_stock->addEnemy( EnemyPtr( new EnemyLittleRedDemon( x, y ) ) );
+		_stock->addEnemy( EnemyPtr( new EnemyLittleRedDemon( getCameraX( ) + SCREEN_WIDTH, y ) ) );
 	}
 
 }

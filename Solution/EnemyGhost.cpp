@@ -7,6 +7,7 @@ static const int POW = 3;
 static const int IDLING_COUNT = 60;
 static const int SPEED = 5;
 
+//target‚¢‚ç‚È‚¢
 EnemyGhost::EnemyGhost( int x, int y, const Vector& target ) : 
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ),
 _count( 0 ),
@@ -23,7 +24,8 @@ EnemyGhost::~EnemyGhost( ) {
 
 void EnemyGhost::act( ) {
 	_count++;
-	
+	_target = Vector( getCameraX( ) + SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 );
+
 	if ( _vec.x > 0 ) {
 		setChipReverse( true );
 	} else {
