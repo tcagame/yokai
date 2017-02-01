@@ -8,7 +8,9 @@ static const int MOVE_SPEED = 3;
 static const int WAIT_ANIME_TIME = 20;
 
 EnemyOnyudo::EnemyOnyudo( int x, int y ) :
-Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ) {
+Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),
+_move_speed( -MOVE_SPEED ),
+_before_x( 0 ) {
 }
 
 
@@ -16,7 +18,11 @@ EnemyOnyudo::~EnemyOnyudo( ) {
 }
 
 void EnemyOnyudo::act( ) {
-	setAccelX( -MOVE_SPEED );
+	if ( _before_x == getX( ) ) {
+		_move_speed *= -1;
+	}
+	_before_x = getX( );
+	setAccelX( _move_speed );
 
 	const int MAX_ANIME_PATTERN = 4;
 	const int ANIME[ MAX_ANIME_PATTERN ] = { 0, 1, 2, 1 };
