@@ -100,7 +100,7 @@ static const Map::Panel panel[] = {
 		"street/map3/bg/map3_00_04.png",
 		"",
 		130, 130,
-		"               E"
+		"                "
 		"                "
 		"                "
 		"                "
@@ -123,7 +123,7 @@ static const Map::Panel panel[] = {
 		"",
 		0, 0,
 		"                "
-		"               T"
+		"        E      T"
 		"                "
 		"       R        "
 		"                "
