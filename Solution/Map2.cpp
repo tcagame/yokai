@@ -1,6 +1,18 @@
 #include "Map2.h"
 #include "define.h"
 #include "EnemyDeceasedPurple.h"
+#include "EnemyStoneRote.h"
+#include "EnemyStoneFly.h"
+#include "EnemyMiasmaGray.h"
+#include "EnemyMiasmaWhite.h"
+#include "EnemyWaterMonk.h"
+#include "EnemyWaterGhost.h"
+#include "EnemyExtrudedSpirits.h"
+#include "EnemyDeceasedGreen.h"
+#include "EnemySkeletonSpear.h"
+#include "EnemyRedFlogSmall.h"
+#include "EnemyHellFire.h"
+#include "EnemyRedbird.h"
 #include "BossHag.h"
 
 static const Map::Panel panel[] = {
@@ -56,7 +68,7 @@ static const Map::Panel panel[] = {
 		"             ###"
 		"             ###"
 		"             ###"
-		"             ###"
+		"        B    ###"
 		"             ###"
 		"    ############"
 		"  ##############"
@@ -68,7 +80,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"################"
 		"################",
-		NONE
+		STONE_FLY
 	},
 	{
 		"street/map2/map2_rock_00.png",
@@ -657,7 +669,18 @@ EnemyPtr Map2::generateEnemy( char ch, EnemyStockPtr stock, int x, int y ) const
 	EnemyPtr enemy;
 
 	switch ( ch ) {
-	case 'A': enemy = EnemyPtr( new EnemyDeceasedPurple( x, y ) );
+	case 'A': enemy = EnemyPtr( new EnemyDeceasedPurple( x, y ) ); break;
+	case 'B': enemy = EnemyPtr( new EnemyStoneRote( x, y ) ); break;
+	case 'C': enemy = EnemyPtr( new EnemyStoneFly( x, y ) ); break;
+	case 'D': enemy = EnemyPtr( new EnemyMiasmaGray( x, y ) ); break;
+	case 'E': enemy = EnemyPtr( new EnemyMiasmaWhite( x, y ) ); break;
+	case 'F': enemy = EnemyPtr( new EnemyWaterMonk( x, y ) ); break;
+	case 'G': enemy = EnemyPtr( new EnemyWaterGhost( x, y ) ); break;
+	case 'H': enemy = EnemyPtr( new EnemyExtrudedSpirits( x, y ) ); break;
+	case 'I': enemy = EnemyPtr( new EnemySkeletonSpear( x, y ) ); break;
+	case 'J': enemy = EnemyPtr( new EnemyRedFlogSmall( x, y ) ); break;
+	case 'K': enemy = EnemyPtr( new EnemyHellFire( x, y ) ); break;
+	case 'L': enemy = EnemyPtr( new EnemyRedbird( stock, x, y ) ); break;
 	}
 
 	return enemy;
