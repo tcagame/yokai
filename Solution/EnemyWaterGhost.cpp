@@ -7,7 +7,7 @@ static const int POW = 6;
 static const int WAIT_ANIME_TIME = 5;
 
 EnemyWaterGhost::EnemyWaterGhost( int x, int y ) :
-Enemy( x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ),
+Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),
 _act_count( 0 ),
 _in_water( true ){
 }
