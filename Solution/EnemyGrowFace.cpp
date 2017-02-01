@@ -5,8 +5,8 @@ static const int WAIT_ANIME_TIME = 4;
 static const int MOVE_SPEED = 3;
 static const int CHIP_SIZE = 64;
 static const int CHIP_FOOT = 0;
-static const int HP  = 3;
-static const int POW = 6;
+static const int HP  = 1;
+static const int POW = 1;
 static const int JUMP_POWER = 40;
 
 EnemyGrowFace::EnemyGrowFace( EnemyTreeConstPtr tree, int x, int y ) :
