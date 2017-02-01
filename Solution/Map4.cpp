@@ -1,6 +1,27 @@
 #include "Map4.h"
 #include "define.h"
+#include "EnemyDeceasedFirst.h"
+#include "EnemyDeceasedSecond.h"
+#include "EnemyDeceasedThird.h"
+#include "EnemyDeceasedFourth.h"
+#include "EnemyMiasmaGray.h"
+#include "EnemyRedbird.h"
+#include "EnemyStoneFly.h"
+#include "EnemyStoneRote.h"
+#include "EnemyExtrudedSpirits.h"
+#include "EnemyFlogSmall.h"
+#include "EnemyOneEyesSnake.h"
 #include "EnemyDeceasedPurple.h"
+#include "EnemyMoth.h"
+#include "EnemyDeceasedGreen.h"
+#include "EnemyOnyudo.h"
+#include "EnemyNoFace.h"
+#include "EnemyRedFlogSmall.h"
+#include "EnemyMiasmaWhite.h"
+#include "EnemySkeletonSpear.h"
+#include "EnemyWaterGhost.h"
+#include "EnemyHellFire.h"
+#include "EnemyBowDemon.h"
 #include "BossBuddha.h"
 
 static const Map::Panel panel[] = {
@@ -51,7 +72,7 @@ static const Map::Panel panel[] = {
 	{
 		"street/map4/bg/map4_02.png",
 		"",
-		0, 0,
+		40, 120,
 		"                "
 		"                "
 		"                "
@@ -65,7 +86,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		" L        L     "
 		"################"
 		"################",
 		NONE
@@ -74,6 +95,7 @@ static const Map::Panel panel[] = {
 		"street/map4/bg/map4_03.png",
 		"",
 		0, 0,
+		"               I"
 		"                "
 		"                "
 		"                "
@@ -81,13 +103,12 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
+		"              G "
 		"                "
-		"                "
-		"                "
-		"                "
+		"   N            "
+		"     M         #"
 		"               #"
-		"               #"
-		"               #"
+		" V        T    #"
 		"######~~~~~~~~~#"
 		"################",
 		NONE
@@ -101,14 +122,14 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
+		" I              "
 		"                "
 		"                "
 		"                "
 		"                "
 		"                "
-		"                "
+		"######## A B C D"
 		"########++++++++"
-		"################"
 		"################"
 		"################"
 		"################",
@@ -116,21 +137,21 @@ static const Map::Panel panel[] = {
 	},
 	{
 		"street/map4/bg/map4_05.png",
-		"street/map4/cover/map4_05_cover.png",
-		0, 0,
+		"",
+		60, 135,
+		"          i     "
 		"                "
 		"                "
 		"                "
 		"                "
 		"                "
+		"  E             "
 		"                "
-		"                "
-		"                "
+		"   ###########  "
 		"   ###########  "
 		"   ###########  "
 		"   ###########  "
 		"+++###########++"
-		"################"
 		"################"
 		"################"
 		"################",
@@ -140,6 +161,7 @@ static const Map::Panel panel[] = {
 		"street/map4/bg/map4_06.png",
 		"",
 		0, 0,
+		"　      I       "
 		"                "
 		"                "
 		"                "
@@ -150,9 +172,8 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		" D C B A   #####"
 		"+++++++++++#####"
-		"################"
 		"################"
 		"################"
 		"################",
@@ -160,8 +181,8 @@ static const Map::Panel panel[] = {
 	},
 	{
 		"street/map4/bg/map4_07.png",
-		"street/map4/cover/map4_07_cover.png",
-		95, 107,
+		"",
+		80, 125,
 		"                "
 		"                "
 		"                "
@@ -169,9 +190,9 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
+		"  N             "
 		"                "
-		"                "
-		"                "
+		"    N           "
 		"                "
 		"###             "
 		"###             "
@@ -183,23 +204,45 @@ static const Map::Panel panel[] = {
 	{
 		"street/map4/bg/map4_08.png",
 		"",
-		216, 105,
+		85, 120,
+		"             i  "
 		"                "
 		"                "
 		"                "
+		"   Q            "
 		"                "
 		"                "
+		"Q               "
 		"                "
 		"                "
-		"                "
-		"                "
-		"                "
-		"               ="
-		"                "
+		"              = "
+		"               -"
 		"                "
 		"                "
 		"#####           "
 		"#####           ",
+		NONE
+	},
+	{
+		"street/map4/bg/map4_09.png",
+		"",
+		0, 0,
+		"                "
+		"       I        "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"         G      "
+		"           -    "
+		"            -   "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                ",
 		NONE
 	},
 	{
@@ -214,7 +257,117 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
+		"      -         "
 		"              - "
+		"       -        "
+		"             =  "
+		"              G "
+		"                "
+		"                "
+		"                ",
+		NONE
+	},
+	{
+		"street/map4/bg/map4_09.png",
+		"",
+		100, 90,
+		"                "
+		"           I    "
+		"                "
+		"                "
+		"                "
+		"                "
+		"         -      "
+		"                "
+		"     G          "
+		"            =   "
+		"                "
+		"             -  "
+		"                "
+		"                "
+		"                "
+		"                ",
+		NONE
+	},
+	{
+		"street/map4/bg/map4_09.png",
+		"",
+		0, 0,
+		"                "
+		"                "
+		"                "
+		"         G      "
+		"                "
+		"                "
+		"                "
+		"       -        "
+		"                "
+		"                "
+		"                "
+		"                "
+		"         -      "
+		"                "
+		"                "
+		"                ",
+		NONE
+	},
+	{
+		"street/map4/bg/map4_09.png",
+		"",
+		0, 0,
+		"                "
+		"              I "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"     -          "
+		"                "
+		"              G "
+		"                "
+		"    =           "
+		"                "
+		"                "
+		"                ",
+		NONE
+	},
+	{
+		"street/map4/bg/map4_09.png",
+		"",
+		0, 0,
+		"                "
+		"                "
+		"                "
+		"        I       "
+		"                "
+		"                "
+		"                "
+		"                "
+		" =            - "
+		"             -  "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                ",
+		NONE
+	},
+	{
+		"street/map4/bg/map4_09.png",
+		"",
+		0, 0,
+		"                "
+		"                "
+		" I              "
+		"                "
+		"                "
+		"                "
+		"                "
+		"     =          "
+		"                "
 		"                "
 		"                "
 		"                "
@@ -230,15 +383,15 @@ static const Map::Panel panel[] = {
 		251, 178,
 		"                "
 		"                "
+		"I               "
 		"                "
 		"                "
 		"                "
 		"                "
 		"                "
+		"          G     "
 		"                "
-		"                "
-		"                "
-		"                "
+		"G               "
 		"                "
 		"                "
 		"                "
@@ -277,15 +430,15 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
+		"           F    "
 		"                "
 		"                "
 		"                "
 		"                "
 		"                "
 		"                "
-		"                "
-		"               #"
-		"               #"
+		"      O        #"
+		"             S #"
 		"################"
 		"################",
 		NONE
@@ -301,8 +454,8 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
-		"                "
+		"K               "
+		"   O            "
 		"                "
 		"   #############"
 		"   #############"
@@ -320,7 +473,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"F               "
 		"                "
 		"                "
 		"                "
@@ -357,6 +510,94 @@ static const Map::Panel panel[] = {
 		NONE
 	},
 	{
+		"street/map4/bg/map4_15.png",
+		"",
+		0, 0,
+		"                "
+		"                "
+		"         I      "
+		"                "
+		"                "
+		"   I            "
+		"                "
+		"            f   "
+		"                "
+		"     G          "
+		"                "
+		"      E         "
+		"                "
+		"++++++++++++++++"
+		"################"
+		"################",
+		NONE
+	},
+	{
+		"street/map4/bg/map4_15.png",
+		"",
+		0, 0,
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"               I"
+		"                "
+		"                "
+		"                "
+		"                "
+		"            E   "
+		"        -       "
+		"                "
+		"++++++++++++++++"
+		"################"
+		"################",
+		NONE
+	},
+	{
+		"street/map4/bg/map4_15.png",
+		"",
+		0, 0,
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"              I "
+		"                "
+		"                "
+		"    E           "
+		"                "
+		"          E     "
+		"                "
+		"++++++++++++++++"
+		"################"
+		"################",
+		NONE
+	},
+	{
+		"street/map4/bg/map4_15.png",
+		"",
+		0, 0,
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"               I"
+		"                "
+		"                "
+		"          E     "
+		"                "
+		"                "
+		"                "
+		"++++++++++++++++"
+		"################"
+		"################",
+		NONE
+	},
+	{
 		"street/map4/bg/map4_16.png",
 		"",
 		172, 143,
@@ -376,6 +617,116 @@ static const Map::Panel panel[] = {
 		"++++++++++++++  "
 		"##############  "
 		"##############  ",
+		NONE
+	},
+	{
+		"",
+		"",
+		0, 0,
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"            =   "
+		"                "
+		"                "
+		"             G  "
+		"                "
+		"   -            "
+		"                "
+		"                "
+		"                "
+		"                ",
+		NONE
+	},
+	{
+		"",
+		"",
+		0, 0,
+		"    I           "
+		"                "
+		"           I    "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"   =            "
+		"                "
+		"                "
+		"            =   "
+		"                "
+		"                "
+		"                "
+		"                ",
+		NONE
+	},
+	{
+		"",
+		"",
+		0, 0,
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"       =        "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                ",
+		NONE
+	},
+	{
+		"",
+		"",
+		0, 0,
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"       =        "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                ",
+		NONE
+	},
+	{
+		"",
+		"",
+		0, 0,
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"       =        "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                ",
 		NONE
 	},
 	{
@@ -480,8 +831,34 @@ Map4::~Map4( ) {
 EnemyPtr Map4::generateEnemy( char ch, EnemyStockPtr stock, int x, int y ) const {
 	EnemyPtr enemy;
 
+	int shift_back_x = x - BG_SIZE * 3; // 3つ先に置くと3つ前の時に後ろから出る
+
 	switch ( ch ) {
-	case 'A': enemy = EnemyPtr( new EnemyDeceasedPurple( x, y ) );
+	case 'A': enemy = EnemyPtr( new EnemyDeceasedFirst( x, y ) ); break;
+	case 'B': enemy = EnemyPtr( new EnemyDeceasedSecond( x, y ) ); break;
+	case 'C': enemy = EnemyPtr( new EnemyDeceasedThird( x, y ) ); break;
+	case 'D': enemy = EnemyPtr( new EnemyDeceasedFourth( x, y ) ); break;
+	case 'E': enemy = EnemyPtr( new EnemyMiasmaGray( x, y ) ); break;
+	case 'F': enemy = EnemyPtr( new EnemyRedbird( stock, x, y ) ); break;
+	case 'f': enemy = EnemyPtr( new EnemyRedbird( stock, shift_back_x, y ) ); break;
+	case 'G': enemy = EnemyPtr( new EnemyStoneFly( x, y ) ); break;
+	//case 'g': enemy = EnemyPtr( new EnemyStoneFly( shift_x, y ) ); break;
+	case 'H': enemy = EnemyPtr( new EnemyStoneRote( x, y ) ); break;
+	case 'I': enemy = EnemyPtr( new EnemyExtrudedSpirits( x, y ) ); break;
+	case 'i': enemy = EnemyPtr( new EnemyExtrudedSpirits( shift_back_x, y ) ); break;
+	case 'J': enemy = EnemyPtr( new EnemyFlogSmall( x, y ) ); break;
+	case 'K': enemy = EnemyPtr( new EnemyOneEyesSnake( x, y ) ); break;
+	case 'L': enemy = EnemyPtr( new EnemyDeceasedPurple( x, y ) ); break;
+	case 'M': enemy = EnemyPtr( new EnemyDeceasedGreen( x, y ) ); break;
+	case 'N': enemy = EnemyPtr( new EnemyMoth( x, y ) ); break;
+	case 'O': enemy = EnemyPtr( new EnemyOnyudo( x, y ) ); break;
+	case 'P': enemy = EnemyPtr( new EnemyNoFace( x, y ) ); break;
+	case 'Q': enemy = EnemyPtr( new EnemyRedFlogSmall( x, y ) ); break;
+	case 'R': enemy = EnemyPtr( new EnemyMiasmaWhite( x, y ) ); break;
+	case 'S': enemy = EnemyPtr( new EnemySkeletonSpear( x, y ) ); break;
+	case 'T': enemy = EnemyPtr( new EnemyWaterGhost( x, y ) ); break;
+	case 'U': enemy = EnemyPtr( new EnemyHellFire( x, y ) ); break;
+	case 'V': enemy = EnemyPtr( new EnemyBowDemon( stock, x, y ) ); break;
 	}
 
 	return enemy;
