@@ -85,5 +85,5 @@ bool Cloud::isStanding( int x, int src_y, int dst_y ) const {
 	if ( x < _x - _width / 2 || x > _x + _width / 2 ) {
 		return false;
 	}
-	return src_y < _y + _accel - _height / 2 + BLANK  && dst_y >= _y + _accel - _height / 2 + BLANK;
+	return src_y < _y - _height / 2 + BLANK  && dst_y >= _y - _height / 2 + BLANK;
 }
