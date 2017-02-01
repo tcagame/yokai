@@ -17,10 +17,10 @@ private:
 private:
 	void act( );
 	void attack( );
+	void updateChip( );
 private:
 	ACTION _action;
 	int _count;
 	EnemyStockPtr _stock;
-
 };
 

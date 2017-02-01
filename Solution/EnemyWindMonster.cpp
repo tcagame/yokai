@@ -8,7 +8,7 @@ static const int POW = 6;
 static const int WAIT_ANIME_TIME = 5;
 static const int MOVE_SPEED_X = 15;
 static const int MOVE_SPEED_Y = 1;
-static const int CREATE_INTERVAL = 10;
+static const int CREATE_INTERVAL = 13;
 
 EnemyWindMonster::EnemyWindMonster( EnemyStockPtr stock, int x, int y ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ),
