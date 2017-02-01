@@ -9,7 +9,9 @@ static const int MOVE_SPEED = 4;
 static const int JUMP_POWER = -30;
 
 EnemyOneEyesSnake::EnemyOneEyesSnake( int x, int y ) :
-Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ) {
+Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ) ,
+_move_speed( -MOVE_SPEED ),
+_before_x( 0 ) {
 }
 
 
@@ -22,7 +24,11 @@ void EnemyOneEyesSnake::act( ) {
 }
 
 void EnemyOneEyesSnake::actMove( ) {
-	setAccelX( -MOVE_SPEED );
+	if ( _before_x == getX( ) ) {
+		_move_speed *= -1;
+	}
+	_before_x = getX( );
+	setAccelX( _move_speed );
 
 	if ( isStanding( ) ) {
 		setAccelY( JUMP_POWER );

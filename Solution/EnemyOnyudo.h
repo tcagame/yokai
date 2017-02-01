@@ -7,5 +7,7 @@ public:
 	virtual ~EnemyOnyudo( );
 private:
 	void act( );
+	int _move_speed;
+	int _before_x;
 };
 

@@ -10,7 +10,9 @@ static const int WAIT_JUMP_TIME = 40;
 static const int JUMP_POWER = -30;
 
 EnemyShishimaiDemon::EnemyShishimaiDemon( int x, int y ) :
-Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ) {
+Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),
+_move_speed( -MOVE_SPEED ),
+_before_x( 0 ) {
 }
 
 
@@ -19,8 +21,13 @@ EnemyShishimaiDemon::~EnemyShishimaiDemon( ) {
 
 void EnemyShishimaiDemon::act( ) {
 	_act_count++;
+	
+	if ( _before_x == getX( ) ) {
+		_move_speed *= -1;
+	}
+	_before_x = getX( );
+	setAccelX( _move_speed );
 
-	setAccelX( -MOVE_SPEED );
 	if ( _act_count % WAIT_JUMP_TIME == 0 ) {
 		setAccelY( JUMP_POWER );
 	}

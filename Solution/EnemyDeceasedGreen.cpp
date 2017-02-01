@@ -12,7 +12,8 @@ static const int JUMP_POWER = -30;
 
 EnemyDeceasedGreen::EnemyDeceasedGreen( int x, int y, bool right ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),
-_move_speed( MOVE_SPEED ) {
+_move_speed( -MOVE_SPEED ),
+_before_x( 0 ) {
 	if ( right ) {
 		_move_speed *= -1;
 	}
@@ -24,6 +25,11 @@ EnemyDeceasedGreen::~EnemyDeceasedGreen( ) {
 
 void EnemyDeceasedGreen::act( ) {
 	_act_count++;
+	if ( _before_x == getX( ) ) {
+		_move_speed *= -1;
+	}
+	_before_x = getX( );
+	setAccelX( _move_speed );
 
 	setAccelX( -_move_speed );
 	if ( _act_count % WAIT_JUMP_TIME == 0 ) {
