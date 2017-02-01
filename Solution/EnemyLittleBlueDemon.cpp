@@ -10,14 +10,22 @@ static const int WAIT_ANIME_TIME = 6;
 
 EnemyLittleBlueDemon::EnemyLittleBlueDemon( int x, int y ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),
-_count( 0 ) {
+_count( 0 ),
+_move_speed( -SPEED ),
+_before_x( 0 ) {
 }
 
 EnemyLittleBlueDemon::~EnemyLittleBlueDemon( ) {
 }
 
 void EnemyLittleBlueDemon::act( ) {
-	setAccelX( -SPEED );
+	setAccelX( _move_speed );
+	if ( _before_x == getX( ) ) {
+		_move_speed *= -1;
+		setAccelX( _move_speed );
+	}
+	_before_x = getX( );
+
 	if ( isStanding( ) ) {
 		setAccelY( - rand( ) % JUMP_POW );
 	}
