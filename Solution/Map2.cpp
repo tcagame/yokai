@@ -13,6 +13,7 @@
 #include "EnemyRedFlogSmall.h"
 #include "EnemyHellFire.h"
 #include "EnemyRedbird.h"
+#include "EnemyHugDemon.h"
 #include "BossHag.h"
 
 static const Map::Panel panel[] = {
@@ -98,7 +99,7 @@ static const Map::Panel panel[] = {
 		"#               "
 		"#               "
 		"#               "
-		"# AAAA          "
+		"# N  N          "
 		"                "
 		"################"
 		"################",
@@ -682,6 +683,7 @@ EnemyPtr Map2::generateEnemy( char ch, EnemyStockPtr stock, int x, int y ) const
 	case 'K': enemy = EnemyPtr( new EnemyHellFire( x, y ) ); break;
 	case 'L': enemy = EnemyPtr( new EnemyRedbird( stock, x - BG_SIZE * 3, y ) ); break;
 	case 'M': enemy = EnemyPtr( new EnemyDeceasedGreen( x, y ) ); break;
+	case 'N': enemy = EnemyPtr( new EnemyHugDemon( x, y ) ); break;
 	}
 
 	return enemy;
