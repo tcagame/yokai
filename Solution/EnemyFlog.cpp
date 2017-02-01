@@ -14,6 +14,7 @@ EnemyFlog::EnemyFlog( EnemyStockPtr stock, int x, int y ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),
 _act_count( 0 ),
 _stock( stock ) {
+	focus( );
 }
 
 

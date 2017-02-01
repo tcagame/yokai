@@ -38,7 +38,7 @@ void PsychicMgr::update( CameraConstPtr camera, TarosukeConstPtr tarosuke, Enemy
 				enemy->damage( pow );
 				psychic->hit( enemy->isFinished( ) );
 				if ( !enemy->isFinished( ) ) {
-					addImpact( psychic->getOverlappedPos( ) );
+					addImpact( psychic->getOverlappedPos( ), enemy->isFocus( ) );
 				}
 			}
 		}
@@ -64,9 +64,10 @@ void PsychicMgr::shoot( PsychicPtr psychic ) {
 	_psychics.push_back( psychic );
 }
 
-void PsychicMgr::addImpact( const Vector& pos ) {
-	_impact[ _idx_impact ].pos = pos;
+void PsychicMgr::addImpact( const Vector& pos, bool big ) {
+	_impact[ _idx_impact ].pos   = pos;
 	_impact[ _idx_impact ].count = 0;
+	_impact[ _idx_impact ].big   = big;
 	_idx_impact = ( _idx_impact + 1 ) % IMPACT_NUM;
 }
 
@@ -90,9 +91,12 @@ void PsychicMgr::drawImpact( CameraConstPtr camera ) const {
 
 		int sx = ( int )_impact[ idx ].pos.x - camera->getX( ) - IMPACT_SIZE / 2;
 		int sy = ( int )_impact[ idx ].pos.y - camera->getY( ) - IMPACT_SIZE / 2;
-
+		int graph = GRAPH_IMPACT;
+		if ( _impact[ idx ].big ) {
+			graph = GRAPH_IMPACT_BIG;
+		}
 		Drawer::Transform trans( sx, sy, tx, ty, IMPACT_SIZE, IMPACT_SIZE );
-		Drawer::Sprite sprite( trans, GRAPH_IMPACT, Drawer::BLEND_ADD, 1.0 );
+		Drawer::Sprite sprite( trans, graph, Drawer::BLEND_ADD, 1.0 );
 		drawer->setSprite( sprite );
 	}
 }

@@ -24,10 +24,6 @@ const char * Map::getCoverFilename( int idx ) const {
 	return _panel[ idx ].cover_filename;
 }
 
-const unsigned long long Map::getEnemyData( int idx ) const {
-	return _panel[ idx ].enemy;
-}
-
 bool Map::isChip( int bg_idx, int chip_idx ) const {
 	return _panel[ bg_idx ].chip[ chip_idx ] == '#';
 }

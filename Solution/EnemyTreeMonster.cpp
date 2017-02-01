@@ -18,7 +18,7 @@ Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ) {
 	setChipGraph( GRAPH_ENEMY_TREE_MONSTER_BODY, 0, 0 );
 	setChipReverse( false );
 	_stock = stock;
-
+	focus( );
 }
 
 

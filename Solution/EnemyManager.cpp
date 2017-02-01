@@ -43,8 +43,6 @@
 #include "EnemyDeceasedGreen.h"
 #include "EnemyTreeMonster.h"
 #include "EnemyHellFire.h"
-#include "EnemyRockMassSoul.h"
-#include "EnemyRockMassShell.h"
 #include "EnemyRollOverNeckSkull.h"
 #include "EnemyRollOverNeckWoman.h"
 #include "EnemyRayMonster.h"

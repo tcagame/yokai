@@ -20,6 +20,7 @@ Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ) {
 	setChipReverse( false );
 	_stock = stock;
 	_create_idx = 0;
+	focus( );
 }
 
 EnemyTree::~EnemyTree( ) {

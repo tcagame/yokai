@@ -16,7 +16,8 @@ static const int MAX_RAND = 500;
 EnemyFlogChief::EnemyFlogChief( EnemyStockPtr stock, int x, int y ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),
 _anime_count( 0 ),
-_stock( stock ){
+_stock( stock ) {
+	focus( );
 }
 
 EnemyFlogChief::~EnemyFlogChief( ) {

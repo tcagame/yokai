@@ -15,6 +15,7 @@ Enemy( x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ),
 _stock( stock ),
 _anime_count( 0 ) {
 	_action = ACTION_GROW;
+	focus( );
 }
 
 
