@@ -159,6 +159,8 @@ void Game::changeScene( Scene::NEXT next ) {
 		_demo = true;
 		_solo = ( _demo_count / 5 % 2 == 0 );
 		_stage = _demo_count % 5;
+		_stage = 0;
+		_solo = true;
 		_scene = ScenePtr( new SceneStreet( ) );
 		break;
 	case Scene::NEXT_SELECT_1PLAYER:

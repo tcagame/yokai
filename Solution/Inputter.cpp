@@ -57,10 +57,10 @@ void Inputter::update( ) {
 		}
 	} else {
 		for ( int i = 0; i < 2; i++ ) {
-			_data[ i ].dir_x  = _device->getDirX( );
-			_data[ i ].dir_y  = _device->getDirY( );
-			_data[ i ].button = _device->getButton( );
-			_data[ i ].push   = _device->getPush( );
+			_data[ i ].dir_x  = _device->getDirX( i );
+			_data[ i ].dir_y  = _device->getDirY( i );
+			_data[ i ].button = _device->getButton( i );
+			_data[ i ].push   = _device->getPush( i );
 		}
 	
 		if ( _record_idx < DATA_NUM ) {

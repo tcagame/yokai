@@ -1,7 +1,33 @@
 #include "Map3.h"
 #include "define.h"
-#include "EnemyDeceasedPurple.h"
 #include "BossEnma.h"
+#include "EnemyDeceasedPurple.h"
+#include "EnemyRockMass.h"
+#include "EnemyBloodPondDemon.h"
+#include "EnemyTreeMonster.h"
+#include "EnemyStoneFly.h"
+#include "EnemyStoneRote.h"
+#include "EnemyShishimai.h"
+#include "EnemyShishimaiDemon.h"
+#include "EnemyHellFire.h"
+#include "EnemyWindMonster.h"
+#include "EnemyMiasmaGray.h"
+#include "EnemyMiasmaWhite.h"
+#include "EnemyJizo.h"
+#include "EnemyOnyudo.h"
+#include "EnemyEyeSpector.h"
+#include "EnemyExtrudedSpirits.h"
+#include "EnemyRedbird.h"
+#include "EnemyBat.h"
+#include "EnemyRollOverNeckSkull.h"
+#include "EnemyRollOverNeckWoman.h"
+#include "EnemyBowDemon.h"
+#include "EnemyRedFlogSmall.h"
+#include "EnemyNoFace.h"
+#include "EnemyNoNeckGhost.h"
+#include "EnemyOneEyesSnake.h"
+#include "EnemyCrocodileSnake.h"
+#include "EnemyHugDemon.h"
 
 static const Map::Panel panel[] = {
 	{
@@ -46,7 +72,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"################"
 		"################",
-		GHOUL
+		NONE
 	},
 	{
 		"street/map3/bg/map3_00_02.png",
@@ -55,7 +81,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"         T      "
 		"                "
 		"                "
 		"                "
@@ -68,12 +94,13 @@ static const Map::Panel panel[] = {
 		"                "
 		"################"
 		"################",
-		DECEASED_PURPLE | HELL_FIRE
+		NONE
 	},
 	{
 		"street/map3/bg/map3_00_04.png",
 		"",
 		130, 130,
+		"               E"
 		"                "
 		"                "
 		"                "
@@ -83,11 +110,10 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
+		"          D     "
 		"                "
 		"                "
-		"                "
-		"                "
-		"                "
+		"     N      F   "
 		"################"
 		"################",
 		FLOG_SMALL
@@ -97,6 +123,9 @@ static const Map::Panel panel[] = {
 		"",
 		0, 0,
 		"                "
+		"               T"
+		"                "
+		"       R        "
 		"                "
 		"                "
 		"                "
@@ -104,12 +133,9 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
+		"              W "
 		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
+		"  S             "
 		"################"
 		"################",
 		STONE_ROTE | HUG_DEMON | BOW_DEMON
@@ -121,6 +147,9 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
+		"              O "
+		"                "
+		"          T     "
 		"                "
 		"                "
 		"                "
@@ -128,13 +157,10 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
-		"                "
-		"                "
-		"                "
+		"   G          S "
 		"################"
 		"################",
-		STONE_ROTE | STONE_FLY | EXTRUDEDSPRITS | HUG_DEMON
+		NONE
 	},
 	{
 		"street/map3/bg/map3_00_07.png",
@@ -153,7 +179,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"              ##"
-		"              ##"
+		"  U           ##"
 		"################"
 		"################",
 		DECEASED_GREEN | BOW_DEMON | HELL_FIRE
@@ -167,11 +193,11 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
+		"          R     "
 		"                "
 		"                "
 		"                "
-		"                "
-		"                "
+		"        E  I  E "
 		"   #############"
 		"   #############"
 		"################"
@@ -213,7 +239,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"       A        "
 		"                "
 		"                "
 		"                "
@@ -233,7 +259,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"           H    "
 		"                "
 		"                "
 		"                "
@@ -256,11 +282,11 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"          O     "
 		"                "
 		"        ########"
 		"      ##########"
-		"    ############"
+		" H  ############"
 		"################"
 		"################"
 		"################"
@@ -279,7 +305,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"           -    "
-		"                "
+		"      M         "
 		"########        "
 		"########        "
 		"########^^^^^^^^"
@@ -297,11 +323,11 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
+		"             P  "
+		"      P   J  -  "
 		"                "
-		"                "
-		"              - "
-		"        ^^      "
-		"    -   ##      "
+		"    -   ^^      "
+		"        ##      "
 		"      ^^##^^    "
 		"     ^######^^^^"
 		"^^^^############"
@@ -321,8 +347,8 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
-		"                "
+		"     Q          "
+		"          V   D "
 		"                "
 		"           -    "
 		"                "
@@ -340,9 +366,9 @@ static const Map::Panel panel[] = {
 		0, 0,
 		"                "
 		"                "
+		"       K        "
 		"                "
-		"                "
-		"                "
+		"             I  "
 		"                "
 		"                "
 		"                "
@@ -439,7 +465,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"    B           "
 		"################"
 		"################",
 		NONE
@@ -461,7 +487,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"       Z        "
 		"################"
 		"################",
 		NONE
@@ -483,10 +509,10 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"         Y      "
 		"################"
 		"################",
-		FLOG_SMALL | HELL_FIRE | STONE_FLY
+		NONE
 	},
 	{
 		"street/map3/bg/map3_00_24.png",
@@ -505,7 +531,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"       X        "
 		"################"
 		"################",
 		STONE_FLY | MOTH | FLOG_GREEN
@@ -527,7 +553,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"X        L      "
 		"################"
 		"################",
 		MIASMA_GRAY
@@ -549,7 +575,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"    Y           "
 		"################"
 		"################",
 		GHOUL | EXTRUDEDSPRITS
@@ -571,7 +597,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"   L           Z"
 		"################"
 		"################",
 		ONYUDO
@@ -637,7 +663,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"C               "
 		"###############~"
 		"################",
 		STONE_ROTE | BOW_DEMON
@@ -767,7 +793,32 @@ EnemyPtr Map3::generateEnemy( char ch, EnemyStockPtr stock, int x, int y ) const
 	EnemyPtr enemy;
 
 	switch ( ch ) {
-	case 'A': enemy = EnemyPtr( new EnemyDeceasedPurple( x, y ) );
+	case 'A': enemy = EnemyPtr( new EnemyBloodPondDemon( stock, x, y ) ); break;
+	case 'B': enemy = EnemyPtr( new EnemyTreeMonster( stock, x, y ) ); break;
+	case 'C': enemy = EnemyPtr( new EnemyRockMass( stock, x, y ) ); break;
+	case 'D': enemy = EnemyPtr( new EnemyStoneFly( x, y ) ); break;
+	case 'E': enemy = EnemyPtr( new EnemyStoneRote( x, y ) ); break;
+	case 'F': enemy = EnemyPtr( new EnemyShishimai( x, y ) ); break;
+	case 'G': enemy = EnemyPtr( new EnemyShishimaiDemon( x, y ) ); break;
+	case 'H': enemy = EnemyPtr( new EnemyHellFire( x, y ) ); break;
+	case 'I': enemy = EnemyPtr( new EnemyWindMonster( stock, x + 300, y ) ); break;
+	case 'J': enemy = EnemyPtr( new EnemyMiasmaGray( x, y ) ); break;
+	case 'K': enemy = EnemyPtr( new EnemyMiasmaWhite( x, y ) ); break;
+	case 'L': enemy = EnemyPtr( new EnemyJizo( stock, x, y ) ); break;
+	case 'M': enemy = EnemyPtr( new EnemyOnyudo( x, y ) ); break;
+	case 'N': enemy = EnemyPtr( new EnemyEyeSpector( x, y ) ); break;
+	case 'O': enemy = EnemyPtr( new EnemyExtrudedSpirits( x, y ) ); break;
+	case 'P': enemy = EnemyPtr( new EnemyBat( x, y ) ); break;
+	case 'Q': enemy = EnemyPtr( new EnemyRollOverNeckSkull( x, y ) ); break;
+	case 'R': enemy = EnemyPtr( new EnemyRedbird( stock, x - BG_SIZE * 3, y ) ); break;
+	case 'S': enemy = EnemyPtr( new EnemyBowDemon( stock, x, y ) ); break;
+	case 'T': enemy = EnemyPtr( new EnemyRedFlogSmall( x, y ) ); break;
+	case 'U': enemy = EnemyPtr( new EnemyNoFace( x, y ) ); break;
+	case 'V': enemy = EnemyPtr( new EnemyNoNeckGhost( x, y ) ); break;
+	case 'W': enemy = EnemyPtr( new EnemyRollOverNeckWoman( x, y ) ); break;
+	case 'X': enemy = EnemyPtr( new EnemyHugDemon( x, y ) ); break;
+	case 'Y': enemy = EnemyPtr( new EnemyCrocodileSnake( x, y ) ); break;
+	case 'Z': enemy = EnemyPtr( new EnemyOneEyesSnake( x, y ) ); break;
 	}
 
 	return enemy;
