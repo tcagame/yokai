@@ -10,7 +10,7 @@ static const int OFFSET_Y = 512 - 140;
 static const int HP  = 30;
 static const int POW = 6;
 static const double RADIUS = 50;
-static const int CREATE_COUNT_GHOST = 60;
+static const int CREATE_COUNT_GHOST = 100;
 static const int CREATE_COUNT_LITTLE_RED_DEMON = 60;
 
 BossRedDemon::BossRedDemon( EnemyStockPtr stock, int x ) :

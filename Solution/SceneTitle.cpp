@@ -12,9 +12,9 @@ static const int TITLE_HEIGHT = 256;
 static const int TITLE_CENTER_X = 1280 / 2;
 static const int TITLE_CENTER_Y = 180;
 static const int CHOICE_FONT_X = 400;
-static const int CHOICE_FONT_Y = 250;
+static const int CHOICE_FONT_Y = 300;
 static const int CHOICE_CURSORY_X = 220;
-static const int CHOICE_CURSORY_Y = 125;
+static const int CHOICE_CURSORY_Y = 175;
 static const int PANEL_WIDTH  = 266;
 static const int PANEL_HEIGHT = 272;
 static const int PANEL_PITCH = 192;
@@ -156,11 +156,9 @@ void SceneTitle::draw( ) {
 	}
 
 
-	/*GamePtr game = Game::getTask( );
+	GamePtr game = Game::getTask( );
 	Game::FADE fade = game->getFade( );
 	if ( fade == Game::FADE_NONE ) {
-		drawer->drawString( SELECT_X, SELECT_Y +   0, "1P PLAYER GAME" );
-		drawer->drawString( SELECT_X, SELECT_Y +  40, "2P PLAYER GAME" );
-		drawer->drawString( SELECT_X - 30, SELECT_Y + _select * 40, "→" );
-	}*/
+		//drawer->drawString( 200, 200, "東京コミュニケーションアート専門学校" );
+	}
 }

@@ -2,8 +2,8 @@
 
 static const int CHIP_SIZE = 128;
 static const int CHIP_FOOT = 0;
-static const int HP  = 3;
-static const int POW = 3;
+static const int HP  = 2;
+static const int POW = 2;
 static const int IDLING_COUNT = 60;
 static const int SPEED = 5;
 

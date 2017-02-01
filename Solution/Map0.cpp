@@ -81,7 +81,7 @@ static const Map::Panel panel[] = {
 		"###########     "
 		"###########     "
 		"###########     "
-		"###########~~B~~"
+		"###########~~~~~"
 		"################"
 		"################",
 		NONE
@@ -92,17 +92,17 @@ static const Map::Panel panel[] = {
 		80, 80,
 		"                "
 		"                "
+		" =              "
 		"                "
 		"                "
 		"                "
 		"                "
 		"                "
-		"                "
-		" =           -  "
-		"                "
+		"             -  "
 		"                "
 		"                "
 		"                "
+		"       B        "
 		"~~~~~~~~~~~~~~~~"
 		"################"
 		"################",
@@ -125,7 +125,7 @@ static const Map::Panel panel[] = {
 		"  ###########   "
 		"  ###########   "
 		"  ###########   "
-		"B~###########C D"
+		"~~###########C D"
 		"################"
 		"################",
 		NONE
@@ -257,8 +257,8 @@ static const Map::Panel panel[] = {
 		"#####           "
 		"#####           "
 		"##### ####      "
-		"#####           "
-		"#####~~~~~~~~~B~"
+		"#####         B "
+		"#####~~~~~~~~~~~"
 		"################",
 		NONE
 	},
@@ -301,8 +301,8 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
-		"~~~~~~~~~~~B~~~~"
+		"           B    "
+		"~~~~~~~~~~~~~~~~"
 		"################",
 		NONE
 	},
@@ -320,8 +320,8 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"       #########"
-		"#######         "
+		"      ##########"
+		"#####           "
 		"                "
 		"                "
 		"~~~~~~~~~~~~~~~~"
@@ -515,7 +515,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"             P  "
+		"             A  "
 		"                "
 		"                "
 		"                "
@@ -563,9 +563,9 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
+		"               P"
 		"                "
 		"                "
-		"       A        "
 		"################"
 		"################",
 		NONE
@@ -785,7 +785,7 @@ EnemyPtr Map0::generateEnemy( char ch, EnemyStockPtr stock, int x, int y ) const
 		break;
 	case 'L': enemy = EnemyPtr( new EnemyExtrudedSpirits( x, y ) );
 		break;
-	case 'M': enemy = EnemyPtr( new EnemyRedbird( stock, x, y ) );
+	case 'M': enemy = EnemyPtr( new EnemyRedbird( stock, x - BG_SIZE * 3, y ) );
 		break;
 	case 'N': enemy = EnemyPtr( new EnemyTree( stock, x, y ) );
 		break;
