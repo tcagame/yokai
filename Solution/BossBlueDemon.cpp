@@ -35,7 +35,7 @@ void BossBlueDemon::drawOverlapped( CameraConstPtr camera ) const {
 	int sy = getY( ) - camera->getY( ) - CHIP_SIZE + getChipFoot( );
 
 	DrawerPtr drawer = Drawer::getTask( );
-	Drawer::Transform trans( sx, sy, tx, ty, CHIP_SIZE, CHIP_SIZE );
+	Drawer::Transform trans( sx, sy, tx, ty, CHIP_SIZE / 2, CHIP_SIZE );
 	Drawer::Sprite sprite( trans, GRAPH_ENEMY_BOSS, Drawer::BLEND_NONE, 1.0 );
 	drawer->setSprite( sprite );
 }
@@ -51,7 +51,7 @@ void BossBlueDemon::attack( ) {
 	if ( _count % CREATE_COUNT_LITTLE_BLUE_DEMON == 0 ) {
 		int x = getX( );
 		int y = getY( );
-		_stock->addEnemy( EnemyPtr( new EnemyLittleBlueDemon( x, y ) ) );
+		_stock->addEnemy( EnemyPtr( new EnemyLittleBlueDemon( getCameraX( ) + SCREEN_WIDTH, y ) ) );
 	}
 
 }
