@@ -1,15 +1,17 @@
 #include "EnemyGrowFace.h"
+#include "EnemyTree.h"
 
-static const int WAIT_ANIME_TIME = 3;
-static const int MOVE_SPEED = 12;
+static const int WAIT_ANIME_TIME = 4;
+static const int MOVE_SPEED = 3;
 static const int CHIP_SIZE = 64;
 static const int CHIP_FOOT = 0;
-static const int HP  = 3;
-static const int POW = 6;
+static const int HP  = 1;
+static const int POW = 1;
 static const int JUMP_POWER = 40;
 
-EnemyGrowFace::EnemyGrowFace( int x, int y ) :
+EnemyGrowFace::EnemyGrowFace( EnemyTreeConstPtr tree, int x, int y ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ),
+_tree( tree ),
 _anime_count( 0 ) {
 	_action = ACTION_GROW;
 }
@@ -28,13 +30,24 @@ void EnemyGrowFace::act( ) {
 		actAttack( );
 		break;
 	}
+
+	if ( _tree->isFinished( ) ) {
+		damage( -1 );
+	}
 }
 
 void EnemyGrowFace::actGrow( ) {
 	const int PATTERN_NUM = 6;
 	const int GROW_PATTERN[ PATTERN_NUM ] = { 0, 1, 2, 3, 4, 5 };
-	int pattern = GROW_PATTERN[ ( _anime_count / WAIT_ANIME_TIME ) ];
+	int idx = ( _anime_count / WAIT_ANIME_TIME );
+	if ( idx > PATTERN_NUM - 1 ) {
+		idx = PATTERN_NUM - 1;
+	}
+	int pattern = GROW_PATTERN[ idx ];
 	if( pattern == 5 ) {
+		pattern = GROW_PATTERN[ idx ];
+	}
+	if( _anime_count == 200 ) {
 		_action = ACTION_ATTACK;
 	}
 	int u = pattern % 4;

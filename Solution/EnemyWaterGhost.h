@@ -7,6 +7,8 @@ public:
 	virtual ~EnemyWaterGhost( );
 public:
 	void act( );
+	Vector getOverlappedPos( ) const;
 private:
 	int _act_count;
+	bool _in_water;
 };

@@ -12,17 +12,19 @@ static const double RADIUS = 50;
 
 static const int CROW_NUM = 11;
 static const Vector CROW_POS[ CROW_NUM ] = {
-	Vector(   0, 100 ),
-	Vector(  30, 100 ),
-	Vector(  60, 100 ),
-	Vector(  90, 100 ),
-	Vector( 120, 100 ),
-	Vector( 150, 100 ),
-	Vector( 180, 100 ),
-	Vector( 210, 100 ),
-	Vector( 240, 100 ),
-	Vector( 270, 100 ),
-	Vector( 300, 100 ),
+	Vector(  130,  100 ), // 1(ç∂è„é})
+	Vector(  300,  170 ), // 2(ç∂â∫é})
+	Vector( -110,   80 ), // 3(âEè„ëæé})
+	Vector( -120,  190 ), // 4(âEâ∫é})
+	Vector(  -50,  290 ), // 5(îkå®)
+
+	Vector(  200,  170 ), // 2
+	Vector(   30,  200 ), // 5(îkì™)
+	Vector( -170,  190 ), // 4
+	Vector(  150,  160 ), // 2
+	Vector(  180,   70 ), // 1
+
+	Vector(  250,  170 ), // 2
 };
 BossHag::BossHag( EnemyStockPtr stock, int x ) :
 Boss( x + OFFSET_X, OFFSET_Y, CHIP_SIZE, HP, POW ),

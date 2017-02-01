@@ -44,16 +44,15 @@ void BossRedDemon::drawOverlapped( CameraConstPtr camera ) const {
 void BossRedDemon::attack( ) {
 	_count++;
 	if ( _count % CREATE_COUNT_GHOST == 0 ) {
-		int x = getX( ) - rand( ) % SCREEN_WIDTH;
+		int x = getCameraX( ) + rand( ) % SCREEN_WIDTH;
 		int y = rand( ) % 150 + 100;
-		Vector target( getX( ) - SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 );
-		_stock->addEnemy( EnemyPtr( new EnemyGhost( x, y, target ) ) );
+		_stock->addEnemy( EnemyPtr( new EnemyGhost( x, y ) ) );
 	}
 
 	if ( _count % CREATE_COUNT_LITTLE_RED_DEMON == 0 ) {
 		int x = getX( );
 		int y = getY( );
-		_stock->addEnemy( EnemyPtr( new EnemyLittleRedDemon( x, y ) ) );
+		_stock->addEnemy( EnemyPtr( new EnemyLittleRedDemon( getCameraX( ) + SCREEN_WIDTH, y ) ) );
 	}
 
 }

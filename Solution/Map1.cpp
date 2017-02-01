@@ -8,6 +8,23 @@
 #include "EnemyDeceasedFirst.h"
 #include "EnemyDeceasedSecond.h"
 #include "EnemyDeceasedThird.h"
+#include "EnemyDeceasedFourth.h"
+#include "EnemyStoneRote.h"
+#include "EnemyStoneFly.h"
+#include "EnemyGhoul.h"
+#include "EnemyFlogChief.h"
+#include "EnemyWaterMonk.h"
+#include "EnemyMiasmaGray.h"
+#include "EnemyExtrudedSpirits.h"
+#include "EnemyDeceasedGreen.h"
+#include "EnemyJizo.h"
+#include "EnemyOnyudo.h"
+#include "EnemyMoth.h"
+#include "EnemyBat.h"
+#include "EnemySkeletonSpear.h"
+#include "EnemyOneEyesSnake.h"
+
+
 
 static const Map::Panel panel[] = {
 	{//0
@@ -68,11 +85,11 @@ static const Map::Panel panel[] = {
 		"                "
 		"              - "
 		"   A A          "
-		"######         "
 		"######          "
 		"######          "
 		"######          "
-		"######D+E+F+++++"
+		"######          "
+		"######D+E+F+G+++"
 		"################",
 		DECEASED
 	},
@@ -84,7 +101,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"        S       "
 		"                "
 		"                "
 		"                "
@@ -106,7 +123,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"      S         "
 		"                "
 		"                "
 		"                "
@@ -131,7 +148,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"       E        "
+		"                "
 		"                "
 		"                "
 		"################"
@@ -155,7 +172,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"        N       "
 		"################"
 		"################"
 		"################"
@@ -194,7 +211,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"     L          "
 		"                "
 		"                "
 		"                "
@@ -240,9 +257,9 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
+		"      S         "
 		"                "
-		"                "
-		"                "
+		"         S      "
 		"                "
 		"                "
 		"                "
@@ -267,9 +284,9 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
+		"            P   "
 		"                "
-		"                "
-		"                "
+		"       P        "
 		"################"
 		"################",
 		NONE
@@ -308,12 +325,12 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
+		"     K          "
 		"                "
 		"                "
 		"                "
 		"                "
-		"                "
-		"                "
+		"               M"
 		"################"
 		"################",
 		STONE_ROTE
@@ -335,7 +352,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"   M            "
 		"################"
 		"################",
 		ONYUDO
@@ -356,7 +373,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"I               "
 		"                "
 		"################"
 		"################",
@@ -401,7 +418,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"     R          "
 		"################"
 		"################",
 		MOTH
@@ -418,7 +435,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"        L       "
 		"                "
 		"                "
 		"                "
@@ -445,7 +462,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"             A H"
 		"################"
 		"################",
 		NONE
@@ -489,7 +506,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"      R         "
 		"################"
 		"################",
 		JIZO
@@ -529,7 +546,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"               H"
 		"         #######"
 		"         #######"
 		"       #########"
@@ -551,7 +568,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"    H    H    H "
 		"################"
 		"################"
 		"################"
@@ -710,7 +727,7 @@ static const Map::Panel panel[] = {
 		"#########       "
 		"#########       "
 		"#########       "
-		"################"
+		"#########D#E#F#G"
 		"################",
 		DECEASED
 	},
@@ -725,9 +742,9 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
+		"         U      "
 		"                "
-		"                "
-		"                "
+		"               U"
 		"                "
 		"                "
 		"                "
@@ -747,13 +764,13 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
+		"    U           "
 		"                "
 		"                "
 		"                "
 		"                "
 		"                "
-		"                "
-		"                "
+		"           Q   Q"
 		"################"
 		"################",
 		SKELETON_SPEAR
@@ -775,7 +792,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"   Q            "
 		"################"
 		"################",
 		NONE
@@ -871,6 +888,36 @@ EnemyPtr Map1::generateEnemy( char ch, EnemyStockPtr stock, int x, int y ) const
 	case 'E': enemy = EnemyPtr( new EnemyDeceasedSecond( x, y ) );
 		break;
 	case 'F': enemy = EnemyPtr( new EnemyDeceasedThird( x, y ) );
+		break;
+	case 'G': enemy = EnemyPtr( new EnemyDeceasedFourth( x, y ) );
+		break;
+	case 'H': enemy = EnemyPtr( new EnemyDeceasedGreen( x, y ) );
+		break;
+	case 'I': enemy = EnemyPtr( new EnemyFlogChief( stock, x, y ) );
+		break;
+	case 'J': enemy = EnemyPtr( new EnemyWaterMonk( x, y ) );
+		break;
+	case 'K': enemy = EnemyPtr( new EnemyMiasmaGray( x, y ) );
+		break;
+	case 'L': enemy = EnemyPtr( new EnemyExtrudedSpirits( x, y ) );
+		break;
+	case 'M': enemy = EnemyPtr( new EnemySkeletonSpear( x, y ) );
+		break;
+	case 'N': enemy = EnemyPtr( new EnemyJizo( stock, x, y ) );
+		break;
+	case 'O': enemy = EnemyPtr( new EnemyStoneFly( x, y ) );
+		break;
+	case 'P': enemy = EnemyPtr( new EnemyStoneRote( x + BG_SIZE, y ) );
+		break;
+	case 'Q': enemy = EnemyPtr( new EnemyGhoul( x, y ) );
+		break;
+	case 'R': enemy = EnemyPtr( new EnemyOnyudo( x, y ) );
+		break;
+	case 'S': enemy = EnemyPtr( new EnemyMoth( x, y ) );
+		break;
+	case 'T': enemy = EnemyPtr( new EnemyOneEyesSnake( x, y ) );
+		break;
+	case 'U': enemy = EnemyPtr( new EnemyBat( x, y ) );
 		break;
 	}
 

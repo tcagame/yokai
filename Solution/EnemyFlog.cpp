@@ -3,11 +3,11 @@
 
 static const int CHIP_SIZE = 256;
 static const int CHIP_FOOT = 0;
-static const int HP = 30;
+static const int HP = 10;
 static const int POW = 6;
 static const int WAIT_ANIME_TIME = 10;
-static const int MAX_RAND = 600;
-static const int WAIT_ATTACK_TIME = 20;
+static const int MAX_RAND = 400;
+static const int WAIT_ATTACK_TIME = 120;
 static const int MAX_CREATE_NUM = 100;
 
 EnemyFlog::EnemyFlog( EnemyStockPtr stock, int x, int y ) :
