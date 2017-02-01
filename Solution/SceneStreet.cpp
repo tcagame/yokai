@@ -276,7 +276,7 @@ Scene::NEXT SceneStreet::update( ) {
 			Drawer::Transform( 0, SCREEN_HEIGHT * 9 / 10 ), GRAPH_REPLAY );
 		drawer->setSprite( sprite );
 	}
-	if ( _phase == PHASE_DEAD && _phase_count > 90 && !game->isDemo( ) ) {
+	if ( _phase == PHASE_DEAD && _phase_count > 80 && !game->isDemo( ) ) {
 		DrawerPtr drawer = Drawer::getTask( );
 		Drawer::Sprite sprite(
 			Drawer::Transform( 400, 240 ), GRAPH_GAMEOVER );
