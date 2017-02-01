@@ -194,7 +194,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"             M  "
+		"                "
 		"################"
 		"################"
 		"################"
@@ -264,7 +264,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"    T       T   "
+		"                "
 		"################"
 		"################",
 		NONE
@@ -297,7 +297,7 @@ static const Map::Panel panel[] = {
 		0, 0,
 		"                "
 		"                "
-		"               K"
+		"                "
 		"                "
 		"                "
 		"                "
@@ -330,7 +330,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"           A   A"
+		"               M"
 		"################"
 		"################",
 		STONE_ROTE
@@ -352,7 +352,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"   A            "
+		"   M            "
 		"################"
 		"################",
 		ONYUDO
@@ -435,7 +435,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"        L       "
 		"                "
 		"                "
 		"                "
@@ -462,7 +462,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"    R           "
+		"             A H"
 		"################"
 		"################",
 		NONE
@@ -607,7 +607,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"         V      "
+		"                "
 		"                "
 		"                "
 		"                "
@@ -918,8 +918,6 @@ EnemyPtr Map1::generateEnemy( char ch, EnemyStockPtr stock, int x, int y ) const
 	case 'T': enemy = EnemyPtr( new EnemyOneEyesSnake( x, y ) );
 		break;
 	case 'U': enemy = EnemyPtr( new EnemyBat( x, y ) );
-		break;
-	case 'V': enemy = EnemyPtr( new EnemyRedbird( stock, x - BG_SIZE, y ) );
 		break;
 	}
 
