@@ -69,12 +69,12 @@ static const Map::Panel panel[] = {
 		"",
 		70, 60,
 		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
 		"     A  A       "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
 		"                "
 		"   ########     "
 		" ##########     "
@@ -98,7 +98,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"      =         "
+		" =           -  "
 		"                "
 		"                "
 		"                "
@@ -137,7 +137,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"              G "
 		"                "
 		"                "
 		"                "
@@ -160,7 +160,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"    G           "
+		"                "
 		"                "
 		"                "
 		"               ="
@@ -181,7 +181,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"            G   "
+		"                "
 		"                "
 		"                "
 		"                "
@@ -209,7 +209,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"       -        "
-		"             G  "
+		"                "
 		"                "
 		"                "
 		"                "
@@ -251,14 +251,14 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"        A     A "
+		"                "
 		"                "
 		"################"
 		"#####           "
 		"#####           "
 		"##### ####      "
 		"#####           "
-		"#####~~~~~~~~~~~"
+		"#####~~~~~~~~~B~"
 		"################",
 		NONE
 	},
@@ -271,7 +271,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"     I          "
+		"                "
 		"                "
 		"                "
 		"                "
@@ -280,7 +280,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"~~~~~~~~~~B~~~~~"
+		"~~~~~~~~~~~~~~~~"
 		"################",
 		NONE
 	},
@@ -346,7 +346,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"~~J~~~~~~~~~~~~~"
+		"~~~~~~~~~~~~~~J~"
 		"################",
 		NONE
 	},
@@ -355,7 +355,7 @@ static const Map::Panel panel[] = {
 		"",
 		0, 0,
 		"                "
-		"          K     "
+		"                "
 		"                "
 		"                "
 		"                "
@@ -378,7 +378,7 @@ static const Map::Panel panel[] = {
 		275, 165,
 		"                "
 		"                "
-		"               L"
+		"                "
 		"                "
 		"                "
 		"  ##           #"
@@ -400,7 +400,7 @@ static const Map::Panel panel[] = {
 		300, 130,
 		"                "
 		"                "
-		"        M       "
+		"                "
 		"                "
 		"               I"
 		"##              "
@@ -424,7 +424,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"      I      I  "
+		"             I  "
 		"                "
 		"                "
 		"                "
@@ -446,7 +446,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"      I     I   "
+		"                "
 		"                "
 		"                "
 		"                "
