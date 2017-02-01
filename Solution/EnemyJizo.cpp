@@ -17,7 +17,9 @@ EnemyJizo::EnemyJizo( EnemyStockPtr stock, int x, int y ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),
 _stock( stock ),
 _action( ACTION_WAIT ),
-_act_count( 0 ) {
+_act_count( 0 ),
+_move_speed( -MOVE_SPEED ),
+_before_x( 0 ) {
 }
 
 
