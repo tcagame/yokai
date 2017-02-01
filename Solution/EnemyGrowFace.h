@@ -1,9 +1,11 @@
 #pragma once
 #include "Enemy.h"
 
-class EnemyGrowFace : public Enemy{
+PTR( EnemyTree );
+
+class EnemyGrowFace : public Enemy {
 public:
-	EnemyGrowFace( int x, int y );
+	EnemyGrowFace( EnemyTreeConstPtr tree, int x, int y );
 	virtual ~EnemyGrowFace( );
 private:
 	void act( );
@@ -16,6 +18,7 @@ private:
 		MAX_ACTION
 	};
 private:
+	EnemyTreeConstPtr _tree;
 	int _anime_count;
 	int _y;
 	int _action;
