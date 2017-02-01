@@ -575,7 +575,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"    Y       S   "
+		"    Y  S S  S S "
 		"################"
 		"################",
 		NONE
