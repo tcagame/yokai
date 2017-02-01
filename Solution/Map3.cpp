@@ -11,7 +11,7 @@
 #include "EnemyShishimaiDemon.h"
 #include "EnemyHellFire.h"
 #include "EnemyWindMonster.h"
-#include "EnemyMiasmaGray.h"
+#include "EnemyDeceasedGreen.h"
 #include "EnemyMiasmaWhite.h"
 #include "EnemyJizo.h"
 #include "EnemyOnyudo.h"
@@ -113,7 +113,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"             N  "
+		"             N F"
 		"################"
 		"################",
 		NONE
@@ -135,7 +135,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"  N  F          "
+		"  N           S "
 		"################"
 		"################",
 		NONE
@@ -146,7 +146,6 @@ static const Map::Panel panel[] = {
 		0, 0,
 		"                "
 		"              O "
-		"           E    "
 		"                "
 		"                "
 		"                "
@@ -157,7 +156,8 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"U             S "
+		"                "
+		"                "
 		"################"
 		"################",
 		NONE
@@ -169,7 +169,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"      R         "
+		" E    R         "
 		"                "
 		"                "
 		"                "
@@ -192,7 +192,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"               I"
 		"                "
 		"                "
 		"                "
@@ -214,12 +214,12 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"   R            "
-		"   I            "
 		"                "
 		"                "
-		"    F           "
 		"                "
-		"      E         "
+		"                "
+		"                "
+		"                "
 		"########        "
 		"########        "
 		"########        "
@@ -283,10 +283,10 @@ static const Map::Panel panel[] = {
 		"             W  "
 		"                "
 		"          O     "
-		"                "
+		"              H "
 		"        ########"
 		"      ##########"
-		" H  ############"
+		"    ############"
 		"################"
 		"################"
 		"################"
@@ -324,7 +324,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"             P  "
-		"      P   J  -  "
+		"      P      -  "
 		"                "
 		"    -   ^^      "
 		"        ##      "
@@ -346,9 +346,9 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
-		"     Q          "
-		"          V   D "
+		" Q              "
+		"        D       "
+		"          V     "
 		"                "
 		"           -    "
 		"                "
@@ -553,7 +553,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"X        L      "
+		"X  J     L      "
 		"################"
 		"################",
 		NONE
@@ -638,10 +638,10 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"               K"
-		"     J          "
 		"                "
 		"                "
 		"                "
+		"       J        "
 		"################"
 		"################",
 		NONE
@@ -802,7 +802,7 @@ EnemyPtr Map3::generateEnemy( char ch, EnemyStockPtr stock, int x, int y ) const
 	case 'G': enemy = EnemyPtr( new EnemyShishimaiDemon( x, y ) ); break;
 	case 'H': enemy = EnemyPtr( new EnemyHellFire( x, y ) ); break;
 	case 'I': enemy = EnemyPtr( new EnemyWindMonster( stock, x + 300, y ) ); break;
-	case 'J': enemy = EnemyPtr( new EnemyMiasmaGray( x, y ) ); break;
+	case 'J': enemy = EnemyPtr( new EnemyDeceasedGreen( x, y ) ); break;
 	case 'K': enemy = EnemyPtr( new EnemyMiasmaWhite( x, y ) ); break;
 	case 'L': enemy = EnemyPtr( new EnemyJizo( stock, x, y ) ); break;
 	case 'M': enemy = EnemyPtr( new EnemyOnyudo( x, y ) ); break;
