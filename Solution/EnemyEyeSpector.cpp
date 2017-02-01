@@ -11,6 +11,8 @@ static const int JUMP_POWER = -30;
 
 EnemyEyeSpector::EnemyEyeSpector( int x, int y) :
 Enemy( x - 400, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),
+_move_speed( -MOVE_SPEED ),
+_before_x( 0 ),
 _act_count( 0 ) {
 }
 
@@ -20,6 +22,12 @@ EnemyEyeSpector::~EnemyEyeSpector( ) {
 
 void EnemyEyeSpector::act( ) {
 	_act_count++;
+
+	if ( _before_x == getX( ) ) {
+		_move_speed *= -1;
+	}
+	_before_x = getX( );
+	setAccelX( _move_speed );
 
 	setAccelX( -MOVE_SPEED );
 	if ( _act_count % WAIT_JUMP_TIME == 0 ) {

@@ -11,5 +11,7 @@ private:
 	void updateChip( );
 private:
 	int _act_count;
+	int _move_speed;
+	int _before_x;
 };
 
