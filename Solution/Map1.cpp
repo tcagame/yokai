@@ -13,7 +13,7 @@
 #include "EnemyStoneFly.h"
 #include "EnemyGhoul.h"
 #include "EnemyFlogChief.h"
-#include "EnemyWaterMonk.h"
+#include "EnemyBlueMonk.h"
 #include "EnemyMiasmaGray.h"
 #include "EnemyExtrudedSpirits.h"
 #include "EnemyDeceasedGreen.h"
@@ -440,7 +440,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"  J             "
 		"################"
 		"################",
 		ONYUDO
@@ -462,7 +462,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"             A H"
+		"               J"
 		"################"
 		"################",
 		NONE
@@ -484,7 +484,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"              N "
+		"            N   "
 		"################"
 		"################",
 		EXTRUDEDSPRITS
@@ -656,7 +656,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"           M    "
+		"        M       "
 		"################"
 		"################"
 		"                "
@@ -886,7 +886,7 @@ EnemyPtr Map1::generateEnemy( char ch, EnemyStockPtr stock, int x, int y ) const
 	case 'G': enemy = EnemyPtr( new EnemyDeceasedFourth( x, y ) );break;
 	case 'H': enemy = EnemyPtr( new EnemyDeceasedGreen( x, y ) );break;
 	case 'I': enemy = EnemyPtr( new EnemyFlogChief( stock, x, y ) );break;
-	case 'J': enemy = EnemyPtr( new EnemyWaterMonk( x, y ) );break;
+	case 'J': enemy = EnemyPtr( new EnemyBlueMonk( x, y ) );break;
 	case 'K': enemy = EnemyPtr( new EnemyMiasmaGray( x, y ) );break;
 	case 'L': enemy = EnemyPtr( new EnemyExtrudedSpirits( x, y ) );break;
 	case 'M': enemy = EnemyPtr( new EnemySkeletonSpear( x, y ) );break;

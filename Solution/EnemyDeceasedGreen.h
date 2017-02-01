@@ -12,4 +12,5 @@ private:
 	int _move_speed;
 private:
 	int _act_count;
+	int _before_x;
 };

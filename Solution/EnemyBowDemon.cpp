@@ -11,6 +11,8 @@ static const int ATTACK_FOOT = 30;
 
 EnemyBowDemon::EnemyBowDemon( EnemyStockPtr enemy_stock, int x, int y ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),
+_move_speed( -MOVE_SPEED ),
+_before_x( 0 ),
 _stock( enemy_stock ),
 _act_count( 0 ) {
 }
@@ -20,7 +22,11 @@ EnemyBowDemon::~EnemyBowDemon( ) {
 }
 
 void EnemyBowDemon::act( ) {
-	setAccelX( -MOVE_SPEED );
+	if ( _before_x == getX( ) ) {
+		_move_speed *= -1;
+	}
+	_before_x = getX( );
+	setAccelX( _move_speed );
 
 	const int ANIME[ ] = { 7, 8, 9, 8, 7, 8, 9, 8, 7, 8, 9, 10, 11, 12, 13 };
 	int anime_num = sizeof( ANIME ) / sizeof( ANIME[ 0 ] );
