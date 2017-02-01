@@ -23,7 +23,7 @@ EnemyBloodPondDemon::~EnemyBloodPondDemon( ) {
 
 void EnemyBloodPondDemon::act( ) {
 	attack( );
-	setChipGraph( GRAPH_ENEMY_BIG, 0, 5 );
+	updateChip( );
 }
 
 void EnemyBloodPondDemon::attack( ) {
@@ -40,4 +40,12 @@ void EnemyBloodPondDemon::attack( ) {
 			_stock->addEnemy( EnemyPtr( new EnemyFire( pos, vec ) ) );
 		}
 	}
+}
+
+void EnemyBloodPondDemon::updateChip( ) {
+	const int ANIME[ ] = { 3, 2, 1, 0, 1, 0, 1, 0, 1, 2 };
+	int anime_num = sizeof( ANIME ) / sizeof( ANIME[ 0 ] );
+	int u = ANIME[ _count / WAIT_AINME_TIME % anime_num ];
+	int v = 0;	
+	setChipGraph( GRAPH_ENEMY_BLOOD_POND, u, v );
 }

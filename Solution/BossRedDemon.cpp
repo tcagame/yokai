@@ -38,8 +38,8 @@ void BossRedDemon::drawOverlapped( CameraConstPtr camera ) const {
 
 	int sx = getX( ) - camera->getX( ) - CHIP_SIZE / 2;
 	int sy = getY( ) - camera->getY( ) - CHIP_SIZE + getChipFoot( );	
-	if ( _count / WAIT_ANIME_TIME % 2 ) {
-		sy -= LIFTING;
+	if ( _count % WAIT_ANIME_TIME > WAIT_ANIME_TIME / 4 ) {
+		sy -= LIFTING * ( _count % WAIT_ANIME_TIME / 2 ) / 10;
 	}
 
 	DrawerPtr drawer = Drawer::getTask( );

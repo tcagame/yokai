@@ -5,7 +5,7 @@ static const int CHIP_FOOT = 0;
 static const int HP = 2;
 static const int POW = 3;
 static const int MOVE_SPEED_X = 15;
-static const int MOVE_SPEED_Y = 3;
+static const int MOVE_SPEED_Y = 6;
 static const int WAIT_ANIME_TIME = 5;
 
 EnemyWindMonsterAttack::EnemyWindMonsterAttack( int x, int y ) :
