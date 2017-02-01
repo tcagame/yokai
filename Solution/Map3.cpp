@@ -18,6 +18,10 @@
 #include "EnemyEyeSpector.h"
 #include "EnemyExtrudedSpirits.h"
 #include "EnemyRedbird.h"
+#include "EnemyBat.h"
+#include "EnemyRollOverNeckSkull.h"
+#include "EnemyBowDemon.h"
+#include "EnemyRedFlogSmall.h"
 
 static const Map::Panel panel[] = {
 	{
@@ -71,9 +75,9 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
+		"         T      "
 		"                "
-		"                "
-		"                "
+		"    T           "
 		"                "
 		"                "
 		"                "
@@ -91,10 +95,10 @@ static const Map::Panel panel[] = {
 		"",
 		130, 130,
 		"               E"
+		"      T         "
+		"              T "
 		"                "
-		"                "
-		"                "
-		"                "
+		"    T           "
 		"                "
 		"                "
 		"                "
@@ -103,7 +107,7 @@ static const Map::Panel panel[] = {
 		"          D     "
 		"                "
 		"                "
-		"     N          "
+		"     N      F   "
 		"################"
 		"################",
 		FLOG_SMALL
@@ -113,6 +117,10 @@ static const Map::Panel panel[] = {
 		"",
 		0, 0,
 		"                "
+		"               T"
+		"                "
+		"       R        "
+		"     T          "
 		"                "
 		"                "
 		"                "
@@ -121,11 +129,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"  F             "
+		"  S      S      "
 		"################"
 		"################",
 		STONE_ROTE | HUG_DEMON | BOW_DEMON
@@ -147,7 +151,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"   G            "
+		"   G          S "
 		"################"
 		"################",
 		STONE_ROTE | STONE_FLY | EXTRUDEDSPRITS | HUG_DEMON
@@ -313,11 +317,11 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
-		"          J     "
+		"             P  "
+		"      P   J     "
 		"              - "
-		"        ^^      "
-		"    -   ##      "
+		"    -   ^^      "
+		"        ##      "
 		"      ^^##^^    "
 		"     ^######^^^^"
 		"^^^^############"
@@ -337,7 +341,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"     Q          "
 		"              D "
 		"                "
 		"           -    "
@@ -358,7 +362,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"       K        "
 		"                "
-		"                "
+		"             I  "
 		"                "
 		"                "
 		"                "
@@ -798,11 +802,11 @@ EnemyPtr Map3::generateEnemy( char ch, EnemyStockPtr stock, int x, int y ) const
 	case 'M': enemy = EnemyPtr( new EnemyOnyudo( x, y ) ); break;
 	case 'N': enemy = EnemyPtr( new EnemyEyeSpector( x, y ) ); break;
 	case 'O': enemy = EnemyPtr( new EnemyExtrudedSpirits( x, y ) ); break;
-	case 'P': enemy = EnemyPtr( new EnemyRockMass( stock, x, y ) ); break;
-	case 'Q': enemy = EnemyPtr( new EnemyRockMass( stock, x, y ) ); break;
+	case 'P': enemy = EnemyPtr( new EnemyBat( x, y ) ); break;
+	case 'Q': enemy = EnemyPtr( new EnemyRollOverNeckSkull( x, y ) ); break;
 	case 'R': enemy = EnemyPtr( new EnemyRedbird( stock, x - BG_SIZE * 3, y ) ); break;
-	case 'S': enemy = EnemyPtr( new EnemyRockMass( stock, x, y ) ); break;
-	case 'T': enemy = EnemyPtr( new EnemyRockMass( stock, x, y ) ); break;
+	case 'S': enemy = EnemyPtr( new EnemyBowDemon( stock, x, y ) ); break;
+	case 'T': enemy = EnemyPtr( new EnemyRedFlogSmall( x, y ) ); break;
 	case 'U': enemy = EnemyPtr( new EnemyRockMass( stock, x, y ) ); break;
 	case 'V': enemy = EnemyPtr( new EnemyRockMass( stock, x, y ) ); break;
 	case 'W': enemy = EnemyPtr( new EnemyRockMass( stock, x, y ) ); break;
