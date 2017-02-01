@@ -15,7 +15,6 @@ static const int CHIP_MOMOTARO_NUM = 101;
 static const int START_X = -100;
 static const int START_Y = -100;
 static const int SHOOT_SPEED = 10;
-static const int COOL_TIME = 3;
 static const int WAIT_PATTERN_TIME = 3;
 static const int CHIP_SIZE = 128;
 static const int FALTER_COUNT = 30;
@@ -27,7 +26,6 @@ _psychic_mgr( mgr ),
 _power( power ) {
 	_shoot_x = SHOOT_SPEED;
 	_shoot_y = 0;
-	_cool = 0;
 	_device_num = DEVICE_2;
 	_action = ACTION_MOVE;
 	_act_count = 0;
@@ -133,15 +131,10 @@ void Momotaro::actOnMove( ) {
 	} else {
 		setChipGraph( GRAPH_CHARACTER_2, 7, 7 );
 	}
-
-	_cool--;
-	if ( _inputter->getButton( _device_num ) == BUTTON_A ) {
+	if ( _inputter->getPush( _device_num ) == BUTTON_A ) {
 		sound->playSE( "yokai_se_27.wav" );
-		if ( _cool < 0 ) {
-			PsychicPtr psychic( new PsychicMomotaro( getX( ), getY( ), isChipReverse( ) ) ); 
-			_psychic_mgr->shoot( psychic );
-			_cool = COOL_TIME;
-		}
+		PsychicPtr psychic( new PsychicMomotaro( getX( ), getY( ), isChipReverse( ) ) ); 
+		_psychic_mgr->shoot( psychic );
 		return;
 	}
 

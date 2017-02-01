@@ -33,7 +33,6 @@ private:
 	ACTION _action;
 	int _shoot_x;
 	int _shoot_y;
-	int _cool;
 	Vector _vec;
 	int _device_num;
 	int _act_count;
