@@ -35,5 +35,4 @@ private:
 	std::list< PsychicPtr > _psychics;
 	std::array< Impact, IMPACT_NUM > _impact;
 	int _idx_impact;
-	int _big;
 };

@@ -7,14 +7,13 @@
 #include "Drawer.h"
 
 static const int IMPACT_COUNT = 8;
-static const int IMPACT_SIZE = 64;
+static const int IMPACT_SIZE = 128;
 
 PsychicMgr::PsychicMgr( ) {
 	for ( int i = 0; i < IMPACT_NUM; i++ ) {
 		_impact[ i ].count = IMPACT_COUNT;
 	}
 	_idx_impact = 0;
-	_big = false;
 }
 
 PsychicMgr::~PsychicMgr( ) {
@@ -79,25 +78,20 @@ void PsychicMgr::updateImpact( ) {
 
 void PsychicMgr::drawImpact( CameraConstPtr camera ) const {
 	DrawerPtr drawer = Drawer::getTask( );
-	int v = 0;
-	int chip_size = IMPACT_SIZE;
-	if ( _big ) {
-		v = 1;
-		chip_size *= 2;
-	}
+
 	for ( int i = 0; i < IMPACT_NUM; i++ ) {
 		int idx = ( _idx_impact + i ) % IMPACT_NUM;
 		if ( _impact[ idx ].count >= IMPACT_COUNT ) {
 			continue;
 		}
 		int pattern = _impact[ idx ].count / ( IMPACT_COUNT / 4 );
-		int tx = pattern * chip_size;
-		int ty = v * chip_size;
+		int tx = pattern % 2 * IMPACT_SIZE;
+		int ty = pattern / 2 * IMPACT_SIZE;
 
-		int sx = ( int )_impact[ idx ].pos.x - camera->getX( ) - chip_size / 2;
-		int sy = ( int )_impact[ idx ].pos.y - camera->getY( ) - chip_size / 2;
+		int sx = ( int )_impact[ idx ].pos.x - camera->getX( ) - IMPACT_SIZE / 2;
+		int sy = ( int )_impact[ idx ].pos.y - camera->getY( ) - IMPACT_SIZE / 2;
 
-		Drawer::Transform trans( sx, sy, tx, ty, chip_size, chip_size );
+		Drawer::Transform trans( sx, sy, tx, ty, IMPACT_SIZE, IMPACT_SIZE );
 		Drawer::Sprite sprite( trans, GRAPH_IMPACT, Drawer::BLEND_ADD, 1.0 );
 		drawer->setSprite( sprite );
 	}
