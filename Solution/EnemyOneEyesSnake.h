@@ -9,4 +9,7 @@ private:
 	void act( );
 	void actMove( );
 	void updateChip( );
+private:
+	int _move_speed;
+	int _before_x;
 };
