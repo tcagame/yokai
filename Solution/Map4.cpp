@@ -22,6 +22,7 @@
 #include "EnemyWaterGhost.h"
 #include "EnemyHellFire.h"
 #include "EnemyBowDemon.h"
+#include "EnemyShishimai.h"
 #include "BossBuddha.h"
 
 static const Map::Panel panel[] = {
@@ -86,7 +87,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		" L        L     "
+		" L        L    V"
 		"################"
 		"################",
 		NONE
@@ -108,7 +109,7 @@ static const Map::Panel panel[] = {
 		"   N            "
 		"     M         #"
 		"               #"
-		" V        T    #"
+		"     H    T    #"
 		"######~~~~~~~~~#"
 		"################",
 		NONE
@@ -137,7 +138,7 @@ static const Map::Panel panel[] = {
 	},
 	{
 		"street/map4/bg/map4_05.png",
-		"",
+		"street/map4/cover/map4_05_cover.png",
 		60, 135,
 		"          i     "
 		"                "
@@ -145,13 +146,13 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"  E             "
 		"                "
-		"   ###########  "
-		"   ###########  "
-		"   ###########  "
-		"   ###########  "
-		"+++###########++"
+		"                "
+		"   ############ "
+		"   ############ "
+		"   ############ "
+		"   ############ "
+		"+++############+"
 		"################"
 		"################"
 		"################",
@@ -161,7 +162,7 @@ static const Map::Panel panel[] = {
 		"street/map4/bg/map4_06.png",
 		"",
 		0, 0,
-		"Å@      I       "
+		"Å@     I        "
 		"                "
 		"                "
 		"                "
@@ -181,7 +182,7 @@ static const Map::Panel panel[] = {
 	},
 	{
 		"street/map4/bg/map4_07.png",
-		"",
+		"street/map4/cover/map4_07_cover.png",
 		80, 125,
 		"                "
 		"                "
@@ -209,10 +210,10 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"   Q            "
 		"                "
 		"                "
-		"Q               "
+		"                "
+		"                "
 		"                "
 		"                "
 		"              = "
@@ -430,11 +431,11 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"           F    "
 		"                "
 		"                "
 		"                "
 		"                "
+		"        W       "
 		"                "
 		"                "
 		"      O        #"
@@ -500,9 +501,9 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
+		"       E        "
 		"                "
-		"                "
-		"                "
+		"     E          "
 		"                "
 		"++++++++++++++++"
 		"################"
@@ -859,6 +860,7 @@ EnemyPtr Map4::generateEnemy( char ch, EnemyStockPtr stock, int x, int y ) const
 	case 'T': enemy = EnemyPtr( new EnemyWaterGhost( x, y ) ); break;
 	case 'U': enemy = EnemyPtr( new EnemyHellFire( x, y ) ); break;
 	case 'V': enemy = EnemyPtr( new EnemyBowDemon( stock, x, y ) ); break;
+	case 'W': enemy = EnemyPtr( new EnemyShishimai( x, y ) ); break;
 	}
 
 	return enemy;
