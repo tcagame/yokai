@@ -36,8 +36,7 @@ static const Map::Panel panel[] = {
 		"###             "
 		"###             "
 		"################"
-		"################",
-		NONE
+		"################"
 	},
 	{
 		"street/map2/map2_start_01.png",
@@ -58,8 +57,7 @@ static const Map::Panel panel[] = {
 		"         #######"
 		"                "
 		"################"
-		"################",
-		DECEASED_GREEN | MOTH
+		"################"
 	},
 	{
 		"street/map2/map2_start_02.png",
@@ -80,8 +78,7 @@ static const Map::Panel panel[] = {
 		"################"
 		"                "
 		"################"
-		"################",
-		STONE_FLY
+		"################"
 	},
 	{
 		"street/map2/map2_rock_00.png",
@@ -102,8 +99,7 @@ static const Map::Panel panel[] = {
 		"# N  N          "
 		"                "
 		"################"
-		"################",
-		NONE
+		"################"
 	},
 	{
 		"street/map2/map2_rock_01.png",
@@ -124,8 +120,7 @@ static const Map::Panel panel[] = {
 		"J  J  J  J      "
 		"                "
 		"################"
-		"################",
-		HELL_FIRE | STONE_ROTE
+		"################"
 	},
 	{
 		"street/map2/map2_rock_02.png",
@@ -146,8 +141,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"    B     B     "
 		"################"
-		"################",
-		NONE
+		"################"
 	},
 	{
 		"street/map2/map2_sea_00.png",
@@ -168,8 +162,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"#########       "
 		"#########~~~~~~~"
-		"################",
-		DECEASED_PURPLE | MOTH | STONE_FLY
+		"################"
 	},
 	{
 		"street/map2/map2_sea_01.png",
@@ -190,8 +183,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"             F  "
 		"~~~~~~~~~~~~~~~~"
-		"################",
-		WATER_GHOST
+		"################"
 	},
 	{
 		"street/map2/map2_sea_01.png",
@@ -212,8 +204,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"~~~~~~~~~~~~~~~~"
-		"################",
-		STONE_FLY | MIASMA_GRAY | HELL_FIRE
+		"################"
 	},
 	{
 		"street/map2/map2_sea_01.png",
@@ -234,8 +225,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"   G            "
 		"~~~~~~~~~~~~~~~~"
-		"################",
-		WATER_GHOST | STONE_FLY | EXTRUDEDSPRITS
+		"################"
 	},
 	{
 		"street/map2/map2_sea_02.png",
@@ -256,8 +246,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"     F     #####"
 		"~~~~~~~~~~~#####"
-		"################",
-		WATER_MONK
+		"################"
 	},
 	{
 		"street/map2/map2_brownstreet_00.png",
@@ -278,8 +267,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"################"
-		"################",
-		STONE_ROTE | MOTH
+		"################"
 	},
 	{
 		"street/map2/map2_brownstreet_01.png",
@@ -300,8 +288,7 @@ static const Map::Panel panel[] = {
 		"             B  "
 		"                "
 		"################"
-		"################",
-		STONE_ROTE | STONE_FLY
+		"################"
 	},
 	{
 		"street/map2/map2_brownstreet_02.png",
@@ -322,8 +309,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"      B         "
 		"################"
-		"################",
-		STONE_ROTE | STONE_FLY | EXTRUDEDSPRITS
+		"################"
 	},
 	{
 		"street/map2/map2_brownstreet_03.png",
@@ -344,8 +330,7 @@ static const Map::Panel panel[] = {
 		"         I      "
 		"                "
 		"################"
-		"################",
-		FLOG_GREEN | FLOG_SMALL | HELL_FIRE
+		"################"
 	},
 	{
 		"street/map2/map2_brownstreet_04.png",
@@ -366,8 +351,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"   I       M N  "
 		"################"
-		"################",
-		STONE_ROTE
+		"################"
 	},
 	{
 		"street/map2/map2_brownstreet_05.png",
@@ -388,8 +372,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"     A B A B    "
 		"################"
-		"################",
-		STONE_ROTE
+		"################"
 	},
 	{
 		"street/map2/map2_sea_00_01.png",
@@ -410,8 +393,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"     I    B  ###"
 		"################"
-		"################",
-		SKELETON_SPEAR | FLOG_SMALL
+		"################"
 	},
 	{
 		"street/map2/map2_sea_00_02.png",
@@ -432,8 +414,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"##       F      "
 		"##~~~~~~~~~~~~~~"
-		"################",
-		EXTRUDEDSPRITS 
+		"################"
 	},
 	{
 		"street/map2/map2_sea_01.png",
@@ -454,8 +435,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"    G           "
 		"~~~~~~~~~~~~~~~~"
-		"################",
-		STONE_FLY | MIASMA_GRAY
+		"################"
 	},
 	{
 		"street/map2/map2_sea_01.png",
@@ -476,8 +456,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"~~~~~~~~~~~~~~~~"
-		"################",
-		WATER_MONK | HELL_FIRE
+		"################"
 	},
 	{
 		"street/map2/map2_sea_01.png",
@@ -498,8 +477,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"    G           "
 		"~~~~~~~~~~~~~~~~"
-		"################",
-		WATER_GHOST | MOTH
+		"################"
 	},
 	{
 		"street/map2/map2_sea_01.png",
@@ -520,8 +498,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"~~~~~~~~~~~~~~~~"
-		"################",
-		WATER_MONK | STONE_FLY
+		"################"
 	},
 	{
 		"street/map2/map2_sea_02.png",
@@ -542,8 +519,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"       F   #####"
 		"~~~~~~~~~~~#####"
-		"################",
-		MIASMA_WHITE
+		"################"
 	},
 	{
 		"street/map2/map2_riverbed.png",
@@ -564,8 +540,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"################"
-		"################",
-		NONE
+		"################"
 	},
 	{
 		"street/map2/map2_gravel0.png",
@@ -586,8 +561,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"################"
-		"################",
-		NONE
+		"################"
 	},
 	{
 		"street/map2/map2_gravel1.png",
@@ -608,8 +582,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"################"
-		"################",
-		NONE
+		"################"
 	},
 	{
 		"street/map2/map2_gravel2.png",
@@ -630,8 +603,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"################"
-		"################",
-		NONE
+		"################"
 	},
 	{
 		"street/map2/map2_gravel0.png",
@@ -652,8 +624,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"################"
-		"################",
-		NONE
+		"################"
 	},
 };
 
