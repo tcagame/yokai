@@ -140,7 +140,7 @@ static const Map::Panel panel[] = {
 		"street/map4/bg/map4_05.png",
 		"street/map4/cover/map4_05_cover.png",
 		60, 135,
-		"          i     "
+		"                "
 		"                "
 		"                "
 		"                "
@@ -219,7 +219,7 @@ static const Map::Panel panel[] = {
 		"              = "
 		"               -"
 		"                "
-		"                "
+		"   Q            "
 		"#####           "
 		"#####           ",
 		NONE
@@ -389,10 +389,10 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
+		"         G      "
 		"                "
-		"          G     "
+		"            G   "
 		"                "
-		"G               "
 		"                "
 		"                "
 		"                "
@@ -438,7 +438,7 @@ static const Map::Panel panel[] = {
 		"        W       "
 		"                "
 		"                "
-		"      O        #"
+		"               #"
 		"             S #"
 		"################"
 		"################",
@@ -456,7 +456,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"K               "
-		"   O            "
+		"                "
 		"                "
 		"   #############"
 		"   #############"
@@ -474,7 +474,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"F               "
+		"                "
 		"                "
 		"                "
 		"                "
@@ -501,10 +501,10 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"       E        "
-		"                "
 		"     E          "
 		"                "
+		"                "
+		"        E       "
 		"++++++++++++++++"
 		"################"
 		"################",
@@ -516,14 +516,14 @@ static const Map::Panel panel[] = {
 		0, 0,
 		"                "
 		"                "
-		"         I      "
+		" I              "
 		"                "
 		"                "
-		"   I            "
 		"                "
-		"            f   "
 		"                "
-		"     G          "
+		"U               "
+		"              R "
+		"  U             "
 		"                "
 		"      E         "
 		"                "
@@ -539,15 +539,15 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		" I              "
 		"                "
 		"               I"
 		"                "
 		"                "
 		"                "
 		"                "
-		"            E   "
-		"        -       "
+		"        -   E   "
+		"                "
 		"                "
 		"++++++++++++++++"
 		"################"
@@ -566,11 +566,11 @@ static const Map::Panel panel[] = {
 		"                "
 		"              I "
 		"                "
-		"                "
-		"    E           "
+		"              U "
+		"    R           "
 		"                "
 		"          E     "
-		"                "
+		"             E  "
 		"++++++++++++++++"
 		"################"
 		"################",
@@ -589,10 +589,10 @@ static const Map::Panel panel[] = {
 		"               I"
 		"                "
 		"                "
-		"          E     "
 		"                "
+		" E              "
 		"                "
-		"                "
+		"         U      "
 		"++++++++++++++++"
 		"################"
 		"################",
@@ -605,10 +605,10 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
+		"    I           "
 		"                "
 		"                "
-		"                "
-		"                "
+		"          I     "
 		"                "
 		"                "
 		"                "
@@ -633,7 +633,7 @@ static const Map::Panel panel[] = {
 		"            =   "
 		"                "
 		"                "
-		"             G  "
+		"                "
 		"                "
 		"   -            "
 		"                "
@@ -648,26 +648,6 @@ static const Map::Panel panel[] = {
 		0, 0,
 		"    I           "
 		"                "
-		"           I    "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"   =            "
-		"                "
-		"                "
-		"            =   "
-		"                "
-		"                "
-		"                "
-		"                ",
-		NONE
-	},
-	{
-		"",
-		"",
-		0, 0,
 		"                "
 		"                "
 		"                "
@@ -675,13 +655,11 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
-		"                "
-		"       =        "
-		"                "
+		"        U       "
 		"                "
 		"                "
 		"                "
+		"   -            "
 		"                "
 		"                ",
 		NONE
@@ -692,6 +670,7 @@ static const Map::Panel panel[] = {
 		0, 0,
 		"                "
 		"                "
+		"      I         "
 		"                "
 		"                "
 		"                "
@@ -699,8 +678,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"       =        "
-		"                "
+		"    =           "
 		"                "
 		"                "
 		"                "
@@ -720,9 +698,31 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
+		"              = "
 		"                "
-		"       =        "
 		"                "
+		" -              "
+		"                "
+		"                "
+		"                "
+		"                ",
+		NONE
+	},
+	{
+		"",
+		"",
+		0, 0,
+		"                "
+		"                "
+		"                "
+		"    U           "
+		"                "
+		"  U             "
+		"                "
+		"     U          "
+		"        =       "
+		"                "
+		"   U            "
 		"                "
 		"                "
 		"                "
@@ -740,10 +740,10 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
+		"    =           "
 		"                "
 		"                "
 		"                "
-		"       =        "
 		"                "
 		"                "
 		"                "
@@ -832,7 +832,7 @@ Map4::~Map4( ) {
 EnemyPtr Map4::generateEnemy( char ch, EnemyStockPtr stock, int x, int y ) const {
 	EnemyPtr enemy;
 
-	int shift_back_x = x - BG_SIZE * 3; // 3Ç¬êÊÇ…íuÇ≠Ç∆3Ç¬ëOÇÃéûÇ…å„ÇÎÇ©ÇÁèoÇÈ
+	int shift_back_x = x - BG_SIZE * 3;
 
 	switch ( ch ) {
 	case 'A': enemy = EnemyPtr( new EnemyDeceasedFirst( x, y ) ); break;
