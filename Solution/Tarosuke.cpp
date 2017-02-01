@@ -260,6 +260,7 @@ void Tarosuke::actOnStanding( ) {
 				}
 			}
 			setChipGraph( GRAPH_CHARACTER_1, u, 3 );
+			setAccelX( getAccelX( ) - getAccelX( ) / 4 );
 		}
 		break;
 	case FLOOR_BOG:
@@ -271,6 +272,7 @@ void Tarosuke::actOnStanding( ) {
 				u = 4;
 			}
 			setChipGraph( GRAPH_CHARACTER_1, u, 7 );
+			setAccelX( getAccelX( ) - getAccelX( ) / 3 );
 		}
 		break;
 	case FLOOR_NEEDLE:

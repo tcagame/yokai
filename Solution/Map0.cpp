@@ -785,7 +785,7 @@ EnemyPtr Map0::generateEnemy( char ch, EnemyStockPtr stock, int x, int y ) const
 		break;
 	case 'L': enemy = EnemyPtr( new EnemyExtrudedSpirits( x, y ) );
 		break;
-	case 'M': enemy = EnemyPtr( new EnemyRedbird( stock, x, y ) );
+	case 'M': enemy = EnemyPtr( new EnemyRedbird( stock, x - BG_SIZE * 3, y ) );
 		break;
 	case 'N': enemy = EnemyPtr( new EnemyTree( stock, x, y ) );
 		break;
