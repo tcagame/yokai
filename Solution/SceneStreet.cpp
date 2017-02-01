@@ -85,6 +85,7 @@ SceneStreet::SceneStreet() {
 		drawer->loadGraph(GRAPH_STATUS_TITLE , "street/status/status_title_1.png");
 		drawer->loadGraph(GRAPH_ENEMY_BOSS         , "street/enemy/boss_bluedemon.png");
 		drawer->loadGraph( GRAPH_ENEMY_FLOG_RED		, "street/enemy/enemy_frog_red.png");
+		drawer->loadGraph( GRAPH_ENEMY_FIREBALL		, "street/enemy/enemy_fireball.png");
 		break;
 	case 2:
 		map = MapPtr(new Map2);
@@ -277,10 +278,10 @@ Scene::NEXT SceneStreet::update( ) {
 			Drawer::Transform( 0, SCREEN_HEIGHT * 9 / 10 ), GRAPH_REPLAY );
 		drawer->setSprite( sprite );
 	}
-	if ( _phase == PHASE_DEAD && _phase_count > 90 && !game->isDemo( ) ) {
+	if ( _phase == PHASE_DEAD && _phase_count > 80 && !game->isDemo( ) ) {
 		DrawerPtr drawer = Drawer::getTask( );
 		Drawer::Sprite sprite(
-			Drawer::Transform( 400, 240 ), GRAPH_GAMEOVER );
+			Drawer::Transform( 100, 10 ), GRAPH_GAMEOVER );
 		drawer->setSprite( sprite );
 	}
 
