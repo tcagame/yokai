@@ -1,6 +1,6 @@
 #include "EnemyDeceasedPurple.h"
 
-static const int MOVE_SPEED = 7;
+static const int MOVE_SPEED = 5;
 static const int MAX_PATTERN = 4;
 static const int WAIT_TIME = 25;
 static const int CHIP_SIZE = 128;
