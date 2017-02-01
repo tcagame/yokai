@@ -37,6 +37,7 @@ SceneStreet::SceneStreet() {
 	drawer->loadGraph( GRAPH_CLOUD_SMALL		, "street/cloud/Yokai_OBJ_cloud2.png");
 	drawer->loadGraph( GRAPH_MAPCHIPGUIDE		, "street/other/mapchipguide.png");
 	drawer->loadGraph( GRAPH_IMPACT				, "street/other/impact.png");
+	drawer->loadGraph( GRAPH_IMPACT_BIG         , "street/other/impact_big.png");
 	drawer->loadGraph( GRAPH_BOMB				, "street/other/bomb.png");
 	drawer->loadGraph( GRAPH_STATUS_POWER		, "street/status/status_power.png");
 	drawer->loadGraph( GRAPH_STATUS_MARKER		, "street/status/status_marker.png");

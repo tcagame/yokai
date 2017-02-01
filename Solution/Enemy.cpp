@@ -9,10 +9,19 @@ Enemy::Enemy( int x, int y, int chip_size, int chip_foot, bool mass, int hp, int
 Character( x, y, chip_size, chip_foot, mass ),
 _hp( hp ),
 _pow( pow ),
-_head( true ) {
+_head( true ),
+_focus( false ) {
 }
 
 Enemy::~Enemy( ) {
+}
+
+void Enemy::focus( ) {
+	_focus = true;
+}
+
+bool Enemy::isFocus( ) const {
+	return _focus;
 }
 
 bool Enemy::isOverlapped( CharacterPtr target ) const {

@@ -25,6 +25,7 @@ _regist( true ),
 _stock( stock ) {
 	_a_t_field = EnemyATFieldPtr( new EnemyATField( x, y - 200 ) );
 	stock->addEnemy( _a_t_field );
+	focus( );
 }
 
 

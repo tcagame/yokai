@@ -26,9 +26,10 @@ private:
 	struct Impact {
 		Vector pos;
 		int count;
+		bool big;
 	};
 private:
-	void addImpact( const Vector& pos );
+	void addImpact( const Vector& pos, bool big );
 	void drawImpact( CameraConstPtr camera ) const;
 	void updateImpact( );
 private:
