@@ -7,6 +7,7 @@
 
 static const int FRAME_WIDTH  = 896;
 static const int FRAME_HEIGHT = 772;
+static const int ANIMELOCK_COUNT = 420;
 
 SceneResult::SceneResult( ) :
 _count( 0 ) {
@@ -66,9 +67,11 @@ Scene::NEXT SceneResult::update( ) {
 
 	GamePtr game = Game::getTask( );
 	if ( game->getFade( ) == Game::FADE_NONE ) {
-		DevicePtr device = Device::getTask( );
-		if ( device->getPush( ) == BUTTON_A ) {
-			game->setFade( Game::FADE_OUT );
+		if ( _count > ANIMELOCK_COUNT ) {
+			DevicePtr device = Device::getTask( );
+			if ( device->getPush( ) == BUTTON_A ) {
+				game->setFade( Game::FADE_OUT );
+			}
 		}
 	}
 	if ( game->getFade( ) == Game::FADE_COVER ) {
@@ -87,7 +90,7 @@ void SceneResult::drawFrame( ) {
 void SceneResult::drawHeaven( ) {
 	DrawerPtr drawer = Drawer::getTask( );
 	
-	if ( _count > 250 && _count < 300  ) {
+	if ( _count > ANIMELOCK_COUNT -170 && _count < ANIMELOCK_COUNT - 120 ) {
 		{// たろすけ
 			Drawer::Transform trans( 575, 430, ( _count / 4 % 2 ) * 128 + 256, 256, 128, 128 );
 			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
@@ -129,21 +132,21 @@ void SceneResult::drawHeaven( ) {
 	{// 金の鳥1
 		const int ANIM[ 4 ] = { 0, 1, 2, 1 };
 		int n = ANIM[ _count / 6 % 2 ];
-		Drawer::Transform trans( 900 - _count * 5, 100 + ( int )( sin( _count * PI / 120 ) * 50 ), n % 2 * 64 + 384, n / 2 * 64 + 384, 64, 64 );
+		Drawer::Transform trans( 1280 - _count % 300 * 5, 150 + ( int )( sin( _count * PI / 120 ) * 50 ), n % 2 * 64 + 384, n / 2 * 64 + 384, 64, 64 );
 		Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
 		drawer->setSprite( sprite );
 	}
 	{// 金の鳥2
 		const int ANIM[ 4 ] = { 0, 1, 2, 1 };
 		int n = ANIM[ _count / 6 % 2 ];
-		Drawer::Transform trans( 950 - _count * 5, 130 + ( int )( sin( _count * PI / 120 ) * 50 ), n % 2 * 64 + 384, n / 2 * 64 + 384, 64, 64 );
+		Drawer::Transform trans( 1330 - _count % 300 * 5, 180 + ( int )( sin( _count * PI / 120 ) * 50 ), n % 2 * 64 + 384, n / 2 * 64 + 384, 64, 64 );
 		Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
 		drawer->setSprite( sprite );
 	}
 	{// 金の鳥3
 		const int ANIM[ 4 ] = { 0, 1, 2, 1 };
 		int n = ANIM[ _count / 6 % 2 ];
-		Drawer::Transform trans( 970 - _count * 5, 80 + ( int )( sin( _count * PI / 120 ) * 50 ), n % 2 * 64 + 384, n / 2 * 64 + 384, 64, 64 );
+		Drawer::Transform trans( 1350 - _count % 300 * 5, 130 + ( int )( sin( _count * PI / 120 ) * 50 ), n % 2 * 64 + 384, n / 2 * 64 + 384, 64, 64 );
 		Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
 		drawer->setSprite( sprite );
 	}
@@ -153,8 +156,8 @@ void SceneResult::drawHeaven( ) {
 void SceneResult::drawHuman( ) {
 	DrawerPtr drawer = Drawer::getTask( );
 
-	if ( _count < 490 ) {
-		if ( _count > 450 ) {
+	if ( _count < ANIMELOCK_COUNT - 29 ) {
+		if ( _count > ANIMELOCK_COUNT - 84 ) {
 			{// たろすけ
 				const int ANIM[ 7 ] = { 0, 1, 2, 3, 3, 3, 3 };
 				Drawer::Transform trans( 360, 400, ANIM[ _count / 8 % 7 ] * 128, 0, 128, 128 );
@@ -194,7 +197,7 @@ void SceneResult::drawHuman( ) {
 			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
 			drawer->setSprite( sprite );
 		}
-	} else if ( _count >= 490 && _count < 512 ) {
+	} else if ( _count >= ANIMELOCK_COUNT - 29 && _count < ANIMELOCK_COUNT - 7 ) {
 		{// たろすけ
 			const int ANIM[ 6 ] = { 0, 1, 0, 1, 2, 1 };
 			Drawer::Transform trans( 360, 400, ANIM[ _count / 8 % 6 ] * 128 + 640, 0, 128, 128 );
@@ -267,12 +270,12 @@ void SceneResult::drawDamn( ) {
 	DrawerPtr drawer = Drawer::getTask( );
 
 	{// カラス
-		Drawer::Transform trans( 900 - _count, 200, ( _count / 4 % 2 ) * 64, 384, 64, 64 );
+		Drawer::Transform trans( 850 - _count, 200, ( _count / 4 % 2 ) * 64, 384, 64, 64 );
 		Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
 		drawer->setSprite( sprite );
 	}
 
-	if ( _count < 450 ) {
+	if ( _count < ANIMELOCK_COUNT - 84 ) {
 		{// 豚ろすけ
 			Drawer::Transform trans( 650, 480, ( _count / 8 % 2 ) * 128, 0, 128, 128 );
 			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
@@ -290,8 +293,8 @@ void SceneResult::drawDamn( ) {
 			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
 			drawer->setSprite( sprite );
 		}
-	} else if ( _count >= 450 && _count <= 510 ) {
-		if ( _count >= 465 && _count <= 500 ) {
+	} else if ( _count >= ANIMELOCK_COUNT - 84 && _count <= ANIMELOCK_COUNT - 29 ) {
+		if ( _count >= ANIMELOCK_COUNT - 68 && _count <= ANIMELOCK_COUNT - 37 ) {
 			{// ハート
 				Drawer::Transform trans( 715, 440, ( _count / 8 % 4 ) * 128 + 128, 384, 64, 64 );
 				Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
@@ -311,8 +314,8 @@ void SceneResult::drawDamn( ) {
 		}
 		
 		{// 豚ﾊﾟｲｾﾝ
-			const int ANIM[ 8 ] = { 0, 1, 2, 2, 2, 2, 2, 1 };
-			Drawer::Transform trans( 730, 485, ANIM[ _count / 8 % 8 ] * 128 + 128, 256, 128, 128 );
+			const int ANIM[ 7 ] = { 0, 1, 2, 2, 2, 2, 1 };
+			Drawer::Transform trans( 730, 485, ANIM[ _count / 8 % 7 ] * 128 + 128, 256, 128, 128 );
 			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
 			drawer->setSprite( sprite );
 		}
@@ -341,13 +344,13 @@ void SceneResult::drawHungry( ) {
 	DrawerPtr drawer = Drawer::getTask( );
 
 	int food_y = _count - 250;
-	int y = food_y * 6 + 125;
+	int y = food_y * 10 + 500;
 
 	if ( y > 450 ) {
 		y = 450;
 	}
 
-	if ( _count < 260 )  {
+	if ( _count < ANIMELOCK_COUNT - 148 )  {
 		{// たろすけ
 			const int ANIM[ 3 ] = { 0, 0, 1 };
 			Drawer::Transform trans( 575, 325, ANIM[ _count / 8 % 3 ] * 128 + 256, 0, 128, 128 );
@@ -365,16 +368,16 @@ void SceneResult::drawHungry( ) {
 			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
 			drawer->setSprite( sprite );
 		}
-	} else if ( _count < 350 ) {
+	} else if ( _count < ANIMELOCK_COUNT - 90 ) {
 		{// たろすけ
-			const int ANIM[ 3 ] = { 0, 0, 1 };
-			Drawer::Transform trans( 575, 325, ANIM[ _count / 8 % 3 ] * 128 + 256, 0, 128, 128 );
+			const int ANIM[ 4 ] = { 0, 0, 0, 1 };
+			Drawer::Transform trans( 575, 325, ANIM[ _count / 8 % 4 ] * 128 + 256, 0, 128, 128 );
 			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
 			drawer->setSprite( sprite );
 		}
 
 		{// 餓鬼左
-			Drawer::Transform trans( 375, 420, ( _count / 4 % 2 ) * 128 + 256, 128, 128, 128 );
+			Drawer::Transform trans( 375, 420, _count / 4 % 2 * 128 + 256, 128, 128, 128 );
 			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
 			drawer->setSprite( sprite );
 		}
@@ -384,22 +387,22 @@ void SceneResult::drawHungry( ) {
 			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
 			drawer->setSprite( sprite );
 		}
-	} else if ( _count < 460 ) {
+	} else if ( _count < ANIMELOCK_COUNT ) {
 		{// たろすけ
-			Drawer::Transform trans( 575, 325 + ( ( _count / 3 ) - 117 ), ( _count / 16 % 2 ) * 128, 0, 128, 128 );
+			Drawer::Transform trans( 575, 325 + ( ( _count / 3 ) - 103 ), ( _count / 16 % 2 ) * 128, 0, 128, 128 );
 			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
 			drawer->setSprite( sprite );
 		}
 
 		{// 餓鬼左
 			const int ANIM[ 6 ] = { 0, 1, 2, 3, 2, 1 };
-			Drawer::Transform trans( 375 + ( _count - 350 ), 420, ANIM[ _count / 6 % 6 ] * 128 + 512, 128, 128, 128 );
+			Drawer::Transform trans( 375 + ( _count - 310 ), 420, ANIM[ _count / 6 % 6 ] * 128 + 512, 128, 128, 128 );
 			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
 			drawer->setSprite( sprite );
 		}
 		{// 餓鬼右
 			const int ANIM[ 6 ] = { 0, 1, 2, 3, 2, 1 };
-			Drawer::Transform trans( 770 - ( _count - 350 ), 420, ANIM[ _count / 6 % 6 ] * 128, 384, 128, 128 );
+			Drawer::Transform trans( 770 - ( _count - 310 ), 420, ANIM[ _count / 6 % 6 ] * 128, 384, 128, 128 );
 			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
 			drawer->setSprite( sprite );
 		}
@@ -421,10 +424,8 @@ void SceneResult::drawHungry( ) {
 			drawer->setSprite( sprite );
 		}
 	}
-	
-	
 
-	if ( _count > 250 && _count < 460 ) {
+	if ( _count > ANIMELOCK_COUNT - 220 && _count < ANIMELOCK_COUNT ) {
 		{// 食べ物
 			Drawer::Transform trans( 610, y, ( _count / 4 % 4 ) * 64 + 640, 384, 64, 64 );
 			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
@@ -436,13 +437,13 @@ void SceneResult::drawHungry( ) {
 void SceneResult::drawHell( ) {
 	DrawerPtr drawer = Drawer::getTask( );
 
-	if ( _count < 400 ) {
+	if ( _count < ANIMELOCK_COUNT - 20 ) {
 		{// たろすけ
 			Drawer::Transform trans( 575, 420, ( _count / 4 % 4 ) * 128, 256, 128, 128 );
 			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
 			drawer->setSprite( sprite );
 		}
-	} else if ( _count <= 407 ) {
+	} else if ( _count <= ANIMELOCK_COUNT - 13 ) {
 		{// たろすけ
 			Drawer::Transform trans( 575, 420, ( _count / 4 % 2 ) * 128 + 512, 256, 128, 128 );
 			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
