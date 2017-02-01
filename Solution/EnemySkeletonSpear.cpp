@@ -8,14 +8,20 @@ static const int MOVE_SPEED = 7;
 static const int WAIT_ANIME_TIME = 14;
 
 EnemySkeletonSpear::EnemySkeletonSpear( int x, int y ) :
-Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ) {
+Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),
+_move_speed( -MOVE_SPEED ),
+_before_x( 0 ) {
 }
 
 EnemySkeletonSpear::~EnemySkeletonSpear( ) {
 }
 
 void EnemySkeletonSpear::act( ) {
-	setAccelX( -MOVE_SPEED );
+	if ( _before_x == getX( ) ) {
+		_move_speed *= -1;
+	}
+	_before_x = getX( );
+	setAccelX( _move_speed );
 
 	const int MAX_ANIME_PATTERN = 6;
 	const int ANIME[ MAX_ANIME_PATTERN ] = { 5, 6, 7, 8, 7, 6 };

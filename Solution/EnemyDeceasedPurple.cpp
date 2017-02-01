@@ -22,12 +22,11 @@ EnemyDeceasedPurple::~EnemyDeceasedPurple( ) {
 }
 
 void EnemyDeceasedPurple::act( ) {
-	setAccelX( _move_speed );
 	if ( _before_x == getX( ) ) {
 		_move_speed *= -1;
-		setAccelX( _move_speed );
 	}
 	_before_x = getX( );
+	setAccelX( _move_speed );
 	const int MOTION[ 4 ] = { 3, 4, 5, 4 };
 	int u = MOTION[ ( getX( ) / WAIT_TIME ) % MAX_PATTERN ];
 	setChipGraph( GRAPH_ENEMY_NORMAL, u, 1 );

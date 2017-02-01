@@ -22,12 +22,11 @@ EnemyLittleRedDemon::~EnemyLittleRedDemon( ) {
 }
 
 void EnemyLittleRedDemon::act( ) {
-	setAccelX( _move_speed );
 	if ( _before_x == getX( ) ) {
 		_move_speed *= -1;
-		setAccelX( _move_speed );
 	}
 	_before_x = getX( );
+	setAccelX( _move_speed );
 	_count++;
 
 	const int ANIM[ 4 ] = { 1, 2, 2, 3 };
