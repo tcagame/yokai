@@ -284,9 +284,9 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"            P   "
 		"                "
-		"       P        "
+		"                "
+		"            P   "
 		"################"
 		"################",
 		NONE
@@ -305,7 +305,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"  P             "
 		"                "
 		"                "
 		"                "
@@ -325,7 +325,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"     K          "
+		"                "
 		"                "
 		"                "
 		"                "
@@ -568,7 +568,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"    H    H    H "
+		"    H    H      "
 		"################"
 		"################"
 		"################"
@@ -656,7 +656,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"           M    "
 		"################"
 		"################"
 		"                "
@@ -678,7 +678,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		" M              "
 		"################"
 		"################"
 		"      ##########"
@@ -740,7 +740,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"    V           "
 		"                "
 		"         U      "
 		"                "
@@ -877,48 +877,28 @@ EnemyPtr Map1::generateEnemy( char ch, EnemyStockPtr stock, int x, int y ) const
 	EnemyPtr enemy;
 
 	switch ( ch ) {
-	case 'A': enemy = EnemyPtr( new EnemyDeceasedPurple( x, y ) );
-		break;
-	case 'B': enemy = EnemyPtr( new EnemyRedbird( stock, x, y ) );
-		break;
-	case 'C': enemy = EnemyPtr( new EnemyWaterGhost( x, y ) );
-		break;
-	case 'D': enemy = EnemyPtr( new EnemyDeceasedFirst( x, y ) );
-		break;
-	case 'E': enemy = EnemyPtr( new EnemyDeceasedSecond( x, y ) );
-		break;
-	case 'F': enemy = EnemyPtr( new EnemyDeceasedThird( x, y ) );
-		break;
-	case 'G': enemy = EnemyPtr( new EnemyDeceasedFourth( x, y ) );
-		break;
-	case 'H': enemy = EnemyPtr( new EnemyDeceasedGreen( x, y ) );
-		break;
-	case 'I': enemy = EnemyPtr( new EnemyFlogChief( stock, x, y ) );
-		break;
-	case 'J': enemy = EnemyPtr( new EnemyWaterMonk( x, y ) );
-		break;
-	case 'K': enemy = EnemyPtr( new EnemyMiasmaGray( x, y ) );
-		break;
-	case 'L': enemy = EnemyPtr( new EnemyExtrudedSpirits( x, y ) );
-		break;
-	case 'M': enemy = EnemyPtr( new EnemySkeletonSpear( x, y ) );
-		break;
-	case 'N': enemy = EnemyPtr( new EnemyJizo( stock, x, y ) );
-		break;
-	case 'O': enemy = EnemyPtr( new EnemyStoneFly( x, y ) );
-		break;
-	case 'P': enemy = EnemyPtr( new EnemyStoneRote( x + BG_SIZE, y ) );
-		break;
-	case 'Q': enemy = EnemyPtr( new EnemyGhoul( x, y ) );
-		break;
-	case 'R': enemy = EnemyPtr( new EnemyOnyudo( x, y ) );
-		break;
-	case 'S': enemy = EnemyPtr( new EnemyMoth( x, y ) );
-		break;
-	case 'T': enemy = EnemyPtr( new EnemyOneEyesSnake( x, y ) );
-		break;
-	case 'U': enemy = EnemyPtr( new EnemyBat( x, y ) );
-		break;
+	case 'A': enemy = EnemyPtr( new EnemyDeceasedPurple( x, y ) );break;
+	case 'B': enemy = EnemyPtr( new EnemyRedbird( stock, x, y ) );break;
+	case 'C': enemy = EnemyPtr( new EnemyWaterGhost( x, y ) );break;
+	case 'D': enemy = EnemyPtr( new EnemyDeceasedFirst( x, y ) );break;
+	case 'E': enemy = EnemyPtr( new EnemyDeceasedSecond( x, y ) );break;
+	case 'F': enemy = EnemyPtr( new EnemyDeceasedThird( x, y ) );break;
+	case 'G': enemy = EnemyPtr( new EnemyDeceasedFourth( x, y ) );break;
+	case 'H': enemy = EnemyPtr( new EnemyDeceasedGreen( x, y ) );break;
+	case 'I': enemy = EnemyPtr( new EnemyFlogChief( stock, x, y ) );break;
+	case 'J': enemy = EnemyPtr( new EnemyWaterMonk( x, y ) );break;
+	case 'K': enemy = EnemyPtr( new EnemyMiasmaGray( x, y ) );break;
+	case 'L': enemy = EnemyPtr( new EnemyExtrudedSpirits( x, y ) );break;
+	case 'M': enemy = EnemyPtr( new EnemySkeletonSpear( x, y ) );break;
+	case 'N': enemy = EnemyPtr( new EnemyJizo( stock, x, y ) );break;
+	case 'O': enemy = EnemyPtr( new EnemyStoneFly( x, y ) );break;
+	case 'P': enemy = EnemyPtr( new EnemyStoneRote( x, y ) );break;
+	case 'Q': enemy = EnemyPtr( new EnemyGhoul( x, y ) );break;
+	case 'R': enemy = EnemyPtr( new EnemyOnyudo( x, y ) );break;
+	case 'S': enemy = EnemyPtr( new EnemyMoth( x, y ) );break;
+	case 'T': enemy = EnemyPtr( new EnemyOneEyesSnake( x, y ) );break;
+	case 'U': enemy = EnemyPtr( new EnemyBat( x, y ) );break;
+	case 'V': enemy = EnemyPtr( new EnemyRedbird( stock, x - BG_SIZE * 2, y ) );break;
 	}
 
 	return enemy;

@@ -85,6 +85,7 @@ SceneStreet::SceneStreet() {
 		drawer->loadGraph(GRAPH_STATUS_TITLE , "street/status/status_title_1.png");
 		drawer->loadGraph(GRAPH_ENEMY_BOSS         , "street/enemy/boss_bluedemon.png");
 		drawer->loadGraph( GRAPH_ENEMY_FLOG_RED		, "street/enemy/enemy_frog_red.png");
+		drawer->loadGraph( GRAPH_ENEMY_FIREBALL		, "street/enemy/enemy_fireball.png");
 		break;
 	case 2:
 		map = MapPtr(new Map2);
