@@ -40,7 +40,11 @@ void EnemyJizo::act( ) {
 }
 
 void EnemyJizo::actNomal( ) {
-	setAccelX( -MOVE_SPEED );
+	if ( _before_x == getX( ) ) {
+		_move_speed *= -1;
+	}
+	_before_x = getX( );
+	setAccelX( _move_speed );
 	if ( _act_count % WAIT_ATTACK_TIME == 0 ) {
 		Vector pos( getX( ) - ATTACK_FOOT_X, getY( ) - ATTACK_FOOT_Y );
 		Vector vec = Vector( -1, 0.3 ).normalize( ) * FIRE_SPEED;
