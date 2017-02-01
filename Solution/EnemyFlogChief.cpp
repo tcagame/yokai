@@ -4,7 +4,7 @@
 static const int WAIT_ANIME_TIME = 3;
 static const int CHIP_SIZE = 256;
 static const int CHIP_FOOT = 0;
-static const int HP  = 30;
+static const int HP  = 15;
 static const int POW = 6;
 static const int MAX_ANIME_PATTERN = 9;
 static const int CREATE_COUNT_FLOG = 30;
