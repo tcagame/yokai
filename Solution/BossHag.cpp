@@ -12,6 +12,8 @@ static const double RADIUS = 50;
 
 static const int CROW_NUM = 11;
 static const Vector CROW_POS[ CROW_NUM ] = {
+	Vector( -170,  400 ), // (ínñ )
+
 	Vector(  130,  100 ), // 1(ç∂è„é})
 	Vector(  300,  170 ), // 2(ç∂â∫é})
 	Vector( -110,   80 ), // 3(âEè„ëæé})
@@ -24,7 +26,6 @@ static const Vector CROW_POS[ CROW_NUM ] = {
 	Vector(  150,  160 ), // 2
 	Vector(  180,   70 ), // 1
 
-	Vector(  250,  170 ), // 2
 };
 BossHag::BossHag( EnemyStockPtr stock, int x ) :
 Boss( x + OFFSET_X, OFFSET_Y, CHIP_SIZE, HP, POW ),
