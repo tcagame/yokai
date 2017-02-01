@@ -147,7 +147,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"              O "
+		"      R       O "
 		"                "
 		"          T     "
 		"                "
@@ -465,7 +465,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"    B           "
+		"    B      M    "
 		"################"
 		"################",
 		NONE
