@@ -22,7 +22,7 @@
 #include "Inputter.h"
 
 static const int CLEAR_COUNT = 120;
-static const int DEAD_COUNT = 120;
+static const int DEAD_COUNT = 150;
 
 SceneStreet::SceneStreet() {
 	srand( 0 );
@@ -44,6 +44,8 @@ SceneStreet::SceneStreet() {
 	drawer->loadGraph( GRAPH_ENEMY_NORMAL		, "street/enemy/enemy_nomal.png");
 	drawer->loadGraph( GRAPH_ENEMY_SMALL		, "street/enemy/enemy_small.png");
 	drawer->loadGraph( GRAPH_ENEMY_BIG			, "street/enemy/enemy_big.png");
+	drawer->loadGraph( GRAPH_REPLAY				, "street/status/status_replay.png" );
+	drawer->loadGraph( GRAPH_GAMEOVER			, "street/status/status_gameover.png" );
 
 	_inputter = InputterPtr( new Inputter );
 	if ( game->isDemo( ) ) {
@@ -264,6 +266,19 @@ Scene::NEXT SceneStreet::update( ) {
 	_psychic_mgr->draw( _camera );
 	_field->drawCover( );
 	_status->draw( );
+
+	if ( game->isDemo( ) ) {
+		DrawerPtr drawer = Drawer::getTask( );
+		Drawer::Sprite sprite(
+			Drawer::Transform( 0, SCREEN_HEIGHT * 9 / 10 ), GRAPH_REPLAY );
+		drawer->setSprite( sprite );
+	}
+	if ( _phase == PHASE_DEAD && _phase_count > 90 && !game->isDemo( ) ) {
+		DrawerPtr drawer = Drawer::getTask( );
+		Drawer::Sprite sprite(
+			Drawer::Transform( 400, 240 ), GRAPH_GAMEOVER );
+		drawer->setSprite( sprite );
+	}
 
 	debugWarp( );
 
