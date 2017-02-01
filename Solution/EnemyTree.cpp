@@ -6,21 +6,20 @@ static const int CHIP_FOOT = 10;
 static const int GRAPH_HEIGHT = 256;
 static const int HP  = 30;
 static const int POW = 6;
-static const int CREATE_COUNT_GRAW_FACE = 120;
-static const int BORN_1_X = 20;
-static const int BORN_1_Y = 110;
-static const int BORN_2_X = -30;
-static const int BORN_2_Y = 150;
-static const int BORN_3_X = -40;
-static const int BORN_3_Y = 70;
-static const int BORN_4_X = -220;
-static const int BORN_4_Y = 110;
+static const int CREATE_COUNT_GRAW_FACE = 60;
+
+static const int OFFSET_X = -257;
+static const int OFFSET_Y = 10;
+static const int FACE_NUM = 10;
+static const int MX[ FACE_NUM ] {  24,  46,  45, 122, 217, 324, 354, 431, 496, 473 };
+static const int MY[ FACE_NUM ] { 240, 320, 400, 389, 267, 214, 341, 352, 310, 230 };
 
 EnemyTree::EnemyTree( EnemyStockPtr stock, int x, int y ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ) {
 	setChipGraph( GRAPH_ENEMY_TREE_BODY, 0, 0 );
 	setChipReverse( false );
 	_stock = stock;
+	_create_idx = 0;
 }
 
 EnemyTree::~EnemyTree( ) {
@@ -29,23 +28,9 @@ EnemyTree::~EnemyTree( ) {
 void EnemyTree::act( ) {
 	_count++;
 	if ( _count % CREATE_COUNT_GRAW_FACE == 0 ) {
-		int x = getX( ) - BORN_1_X;
-		int y = getY( ) - BORN_1_Y;
-		_stock->addEnemy( EnemyPtr( new EnemyGrowFace( x, y ) ) );
-	}
-	if ( _count % CREATE_COUNT_GRAW_FACE == 30 ) {
-		int x = getX( ) - BORN_2_X;
-		int y = getY( ) - BORN_2_Y;
-		_stock->addEnemy( EnemyPtr( new EnemyGrowFace( x, y ) ) );
-	}
-	if ( _count % CREATE_COUNT_GRAW_FACE == 60 ) {
-		int x = getX( ) - BORN_3_X;
-		int y = getY( ) - BORN_3_Y;
-		_stock->addEnemy( EnemyPtr( new EnemyGrowFace( x, y ) ) );
-	}
-	if ( _count % CREATE_COUNT_GRAW_FACE == 90 ) {
-		int x = getX( ) - BORN_4_X;
-		int y = getY( ) - BORN_4_Y;
+		_create_idx = ( _create_idx + 1 ) % FACE_NUM;
+		int x = getX( ) + MX[ _create_idx ] + + OFFSET_X;
+		int y = 0 + MY[ _create_idx ] + + OFFSET_Y;
 		_stock->addEnemy( EnemyPtr( new EnemyGrowFace( x, y ) ) );
 	}
 }

@@ -34,6 +34,9 @@ void EnemyGrowFace::actGrow( ) {
 	const int PATTERN_NUM = 6;
 	const int GROW_PATTERN[ PATTERN_NUM ] = { 0, 1, 2, 3, 4, 5 };
 	int pattern = GROW_PATTERN[ ( _anime_count / WAIT_ANIME_TIME ) ];
+	if( pattern == 4 ) {
+		 pattern = GROW_PATTERN[ ( _anime_count / WAIT_ANIME_TIME  + ) ];
+	}
 	if( pattern == 5 ) {
 		_action = ACTION_ATTACK;
 	}

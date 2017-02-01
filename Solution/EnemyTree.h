@@ -11,6 +11,7 @@ private:
 	double getOverlappedRadius( ) const;
 	int _count;
 private:
+	int _create_idx;
 	EnemyStockPtr _stock;
 	Vector getOverlappedPos( ) const;
 };
