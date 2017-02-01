@@ -31,7 +31,7 @@ void EnemyTree::act( ) {
 		_create_idx = ( _create_idx + 1 ) % FACE_NUM;
 		int x = getX( ) + MX[ _create_idx ] + + OFFSET_X;
 		int y = 0 + MY[ _create_idx ] + + OFFSET_Y;
-		_stock->addEnemy( EnemyPtr( new EnemyGrowFace( x, y ) ) );
+		_stock->addEnemy( EnemyPtr( new EnemyGrowFace( shared_from_this( ), x, y ) ) );
 	}
 }
 
