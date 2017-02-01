@@ -1,4 +1,5 @@
 #include "EnemyGrowFace.h"
+#include "EnemyTree.h"
 
 static const int WAIT_ANIME_TIME = 4;
 static const int MOVE_SPEED = 3;
@@ -8,8 +9,9 @@ static const int HP  = 3;
 static const int POW = 6;
 static const int JUMP_POWER = 40;
 
-EnemyGrowFace::EnemyGrowFace( int x, int y ) :
+EnemyGrowFace::EnemyGrowFace( EnemyTreeConstPtr tree, int x, int y ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ),
+_tree( tree ),
 _anime_count( 0 ) {
 	_action = ACTION_GROW;
 }
@@ -27,6 +29,10 @@ void EnemyGrowFace::act( ) {
 	case ACTION_ATTACK:
 		actAttack( );
 		break;
+	}
+
+	if ( _tree->isFinished( ) ) {
+		damage( -1 );
 	}
 }
 
