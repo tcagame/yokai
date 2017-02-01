@@ -116,7 +116,7 @@ static const Map::Panel panel[] = {
 	},
 	{
 		"street/map4/bg/map4_05.png",
-		"",
+		"street/map4/cover/map4_05_cover.png",
 		0, 0,
 		"                "
 		"                "
@@ -160,7 +160,7 @@ static const Map::Panel panel[] = {
 	},
 	{
 		"street/map4/bg/map4_07.png",
-		"",
+		"street/map4/cover/map4_07_cover.png",
 		95, 107,
 		"                "
 		"                "
