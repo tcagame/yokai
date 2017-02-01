@@ -9,24 +9,21 @@ static const double SPEED = 1.5;
 static const double ACCEL = 0.05;
 static const int COUNT = 30;
 
-PsychicMomotaro::PsychicMomotaro( int x, int y, bool right ) :
-Psychic( x, y ) {
+PsychicMomotaro::PsychicMomotaro( const Vector& pos, const Vector& target ) :
+Psychic( 0, 0 ),
+_pos( pos ),
+_target( target ) {
 	setPow( 2 );
 	setChipSize( 0 );
 
-	_pos = Vector( x, y );
-	int v = -1;
-	if ( right ) {
-		v = 1;
-	}
-	_pos += Vector( v * -CHIP_SIZE / 4, 0 );
+	_pos += ( pos - target ).normalize( ) * ( CHIP_SIZE / 4 );
 	Matrix mat = Matrix::makeTransformRotation( Vector( 0, 0, 1 ), rand( ) % 1000 * PI2 / 1000 ); 
-	_vec = mat.multiply( Vector( 0, SPEED * v ) );
-	_accel = Vector( ACCEL * v, 0 );
+	_vec = mat.multiply( Vector( 0, SPEED ) );
 	
 	for ( int j = 0; j < DIV_NUM * 2; j++ ) {
-		_vec += _accel;
-		_vec = _vec.normalize( ) * SPEED;
+		Vector v = _target - _pos;
+		v = v.normalize( ) * ACCEL;
+		_vec = ( _vec + v ).normalize( ) * SPEED;
 		_pos += _vec;
 	}
 
@@ -47,9 +44,11 @@ void PsychicMomotaro::act( ) {
 	}
 
 	for ( int j = 0; j < DIV_NUM; j++ ) {
-		_vec += _accel;
-		_vec = _vec.normalize( ) * SPEED;
+		Vector v = _target - _pos;
+		v = v.normalize( ) * ACCEL;
+		_vec = ( _vec + v ).normalize( ) * SPEED;
 		_pos += _vec;
+
 		for ( int i = 0; i < TAIL_NUM - 1; i++ ) {
 			_tails[ i ] = _tails[ i + 1 ];
 		}

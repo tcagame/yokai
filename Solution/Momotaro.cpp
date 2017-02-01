@@ -133,8 +133,16 @@ void Momotaro::actOnMove( ) {
 	}
 	if ( _inputter->getPush( _device_num ) == BUTTON_A ) {
 		sound->playSE( "yokai_se_27.wav" );
-		PsychicPtr psychic( new PsychicMomotaro( getX( ), getY( ), isChipReverse( ) ) ); 
-		_psychic_mgr->shoot( psychic );
+
+		Vector pos( getX( ), getY( ) );
+		Vector vec( -500, 0 );
+		if ( isChipReverse( ) ) {
+			vec *= -1;
+		}
+		for ( int i = 0; i < 2; i++ ) {
+			PsychicPtr psychic( new PsychicMomotaro( pos, pos + vec ) );
+			_psychic_mgr->shoot( psychic );
+		}
 		return;
 	}
 

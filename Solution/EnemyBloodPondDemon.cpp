@@ -45,7 +45,8 @@ void EnemyBloodPondDemon::attack( ) {
 void EnemyBloodPondDemon::updateChip( ) {
 	const int ANIME[ ] = { 3, 2, 1, 0, 1, 0, 1, 0, 1, 2 };
 	int anime_num = sizeof( ANIME ) / sizeof( ANIME[ 0 ] );
-	int u = ANIME[ _count / WAIT_AINME_TIME % anime_num ];
-	int v = 0;	
+	int pattern = ANIME[ _count / WAIT_AINME_TIME % anime_num ];
+	int u = pattern % 2;
+	int v = pattern / 2;	
 	setChipGraph( GRAPH_ENEMY_BLOOD_POND, u, v );
 }

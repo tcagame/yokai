@@ -7,7 +7,7 @@
 
 class PsychicMomotaro : public Psychic {
 public:
-	PsychicMomotaro( int x, int y, bool right );
+	PsychicMomotaro( const Vector& pos, const Vector& target );
 	virtual ~PsychicMomotaro( );
 private:
 	void act( );
@@ -19,8 +19,8 @@ private:
 	static const int TAIL_NUM = 60;
 	static const int DIV_NUM = 10;
 	Vector _pos;
+	Vector _target;
 	Vector _vec;
-	Vector _accel;
 	std::array< Vector, TAIL_NUM > _tails;
 	int _count;
 };
