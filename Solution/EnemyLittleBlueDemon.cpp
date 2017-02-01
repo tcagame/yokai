@@ -19,12 +19,11 @@ EnemyLittleBlueDemon::~EnemyLittleBlueDemon( ) {
 }
 
 void EnemyLittleBlueDemon::act( ) {
-	setAccelX( _move_speed );
 	if ( _before_x == getX( ) ) {
 		_move_speed *= -1;
-		setAccelX( _move_speed );
 	}
 	_before_x = getX( );
+	setAccelX( _move_speed );
 
 	if ( isStanding( ) ) {
 		setAccelY( - rand( ) % JUMP_POW );
