@@ -7,7 +7,7 @@
 static const int CHIP_SIZE = 256;
 static const int OFFSET_X = 60;
 static const int OFFSET_Y = 512 - 140;
-static const int HP  = 30;
+static const int HP  = 20;
 static const int POW = 6;
 static const double RADIUS = 50;
 static const int CREATE_COUNT_GHOST = 60;
@@ -36,7 +36,7 @@ void BossRedDemon::drawOverlapped( CameraConstPtr camera ) const {
 	int sy = getY( ) - camera->getY( ) - CHIP_SIZE + getChipFoot( );
 
 	DrawerPtr drawer = Drawer::getTask( );
-	Drawer::Transform trans( sx, sy, tx, ty, CHIP_SIZE, CHIP_SIZE );
+	Drawer::Transform trans( sx, sy, tx, ty, CHIP_SIZE / 2, CHIP_SIZE );
 	Drawer::Sprite sprite( trans, GRAPH_ENEMY_BOSS, Drawer::BLEND_NONE, 1.0 );
 	drawer->setSprite( sprite );
 }

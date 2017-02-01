@@ -91,6 +91,7 @@ SceneStreet::SceneStreet() {
 		drawer->loadGraph(GRAPH_STATUS_MAP, "street/status/status_map_2.png");
 		drawer->loadGraph(GRAPH_STATUS_TITLE, "street/status/status_title_2.png");
 		drawer->loadGraph(GRAPH_ENEMY_BOSS         , "street/enemy/boss_sanzu.png");
+		drawer->loadGraph(GRAPH_ENEMY_CROW         , "street/enemy/enemy_crow.png");
 		break;
 	case 3:
 		map = MapPtr(new Map3);
