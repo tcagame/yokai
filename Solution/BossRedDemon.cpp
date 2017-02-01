@@ -9,6 +9,8 @@ static const int OFFSET_X = 60;
 static const int OFFSET_Y = 512 - 140;
 static const int HP  = 20;
 static const int POW = 6;
+static const int WAIT_ANIME_TIME = 20;
+static const int LIFTING = 50;
 static const double RADIUS = 50;
 static const int CREATE_COUNT_GHOST = 100;
 static const int CREATE_COUNT_LITTLE_RED_DEMON = 60;
@@ -24,7 +26,9 @@ BossRedDemon::~BossRedDemon( ) {
 }
 
 void BossRedDemon::act( ) {
-	setChipGraph( GRAPH_ENEMY_BOSS, 0, 0 );
+	_count++;
+	
+	setChipGraph( GRAPH_ENEMY_BOSS, _count / WAIT_ANIME_TIME % 2, 0 );
 }
 
 void BossRedDemon::drawOverlapped( CameraConstPtr camera ) const {
@@ -33,7 +37,10 @@ void BossRedDemon::drawOverlapped( CameraConstPtr camera ) const {
 	int ty = 1 * CHIP_SIZE;
 
 	int sx = getX( ) - camera->getX( ) - CHIP_SIZE / 2;
-	int sy = getY( ) - camera->getY( ) - CHIP_SIZE + getChipFoot( );
+	int sy = getY( ) - camera->getY( ) - CHIP_SIZE + getChipFoot( );	
+	if ( _count / WAIT_ANIME_TIME % 2 ) {
+		sy -= LIFTING;
+	}
 
 	DrawerPtr drawer = Drawer::getTask( );
 	Drawer::Transform trans( sx, sy, tx, ty, CHIP_SIZE / 2, CHIP_SIZE );
@@ -42,7 +49,6 @@ void BossRedDemon::drawOverlapped( CameraConstPtr camera ) const {
 }
 
 void BossRedDemon::attack( ) {
-	_count++;
 	if ( _count % CREATE_COUNT_GHOST == 0 ) {
 		int x = getCameraX( ) + rand( ) % SCREEN_WIDTH;
 		int y = rand( ) % 150 + 100;
