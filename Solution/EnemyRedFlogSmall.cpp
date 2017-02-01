@@ -2,8 +2,8 @@
 
 static const int CHIP_SIZE = 64;
 static const int CHIP_FOOT = 0;
-static const int HP = 5;
-static const int POW = 6;
+static const int HP = 2;
+static const int POW = 3;
 static const int WAIT_ANIME_TIME = 40;
 static const int SMASHED_COUNT = 5;
 static const int JUMP_POWER = -20;

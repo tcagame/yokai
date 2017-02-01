@@ -22,7 +22,7 @@
 #include "Inputter.h"
 
 static const int CLEAR_COUNT = 120;
-static const int DEAD_COUNT = 120;
+static const int DEAD_COUNT = 150;
 
 SceneStreet::SceneStreet() {
 	srand( 0 );
@@ -44,6 +44,8 @@ SceneStreet::SceneStreet() {
 	drawer->loadGraph( GRAPH_ENEMY_NORMAL		, "street/enemy/enemy_nomal.png");
 	drawer->loadGraph( GRAPH_ENEMY_SMALL		, "street/enemy/enemy_small.png");
 	drawer->loadGraph( GRAPH_ENEMY_BIG			, "street/enemy/enemy_big.png");
+	drawer->loadGraph( GRAPH_REPLAY				, "street/status/status_replay.png" );
+	drawer->loadGraph( GRAPH_GAMEOVER			, "street/status/status_gameover.png" );
 
 	_inputter = InputterPtr( new Inputter );
 	if ( game->isDemo( ) ) {
@@ -83,12 +85,14 @@ SceneStreet::SceneStreet() {
 		drawer->loadGraph(GRAPH_STATUS_TITLE , "street/status/status_title_1.png");
 		drawer->loadGraph(GRAPH_ENEMY_BOSS         , "street/enemy/boss_bluedemon.png");
 		drawer->loadGraph( GRAPH_ENEMY_FLOG_RED		, "street/enemy/enemy_frog_red.png");
+		drawer->loadGraph( GRAPH_ENEMY_FIREBALL		, "street/enemy/enemy_fireball.png");
 		break;
 	case 2:
 		map = MapPtr(new Map2);
 		drawer->loadGraph(GRAPH_STATUS_MAP, "street/status/status_map_2.png");
 		drawer->loadGraph(GRAPH_STATUS_TITLE, "street/status/status_title_2.png");
 		drawer->loadGraph(GRAPH_ENEMY_BOSS         , "street/enemy/boss_sanzu.png");
+		drawer->loadGraph(GRAPH_ENEMY_CROW         , "street/enemy/enemy_crow.png");
 		break;
 	case 3:
 		map = MapPtr(new Map3);
@@ -267,6 +271,19 @@ Scene::NEXT SceneStreet::update( ) {
 	_psychic_mgr->draw( _camera );
 	_field->drawCover( );
 	_status->draw( );
+
+	if ( game->isDemo( ) ) {
+		DrawerPtr drawer = Drawer::getTask( );
+		Drawer::Sprite sprite(
+			Drawer::Transform( 0, SCREEN_HEIGHT * 9 / 10 ), GRAPH_REPLAY );
+		drawer->setSprite( sprite );
+	}
+	if ( _phase == PHASE_DEAD && _phase_count > 80 && !game->isDemo( ) ) {
+		DrawerPtr drawer = Drawer::getTask( );
+		Drawer::Sprite sprite(
+			Drawer::Transform( 100, 10 ), GRAPH_GAMEOVER );
+		drawer->setSprite( sprite );
+	}
 
 	debugWarp( );
 

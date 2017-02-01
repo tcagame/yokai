@@ -11,6 +11,10 @@ static const int TITLE_WIDTH  = 1024;
 static const int TITLE_HEIGHT = 256;
 static const int TITLE_CENTER_X = 1280 / 2;
 static const int TITLE_CENTER_Y = 180;
+static const int CHOICE_FONT_X = 400;
+static const int CHOICE_FONT_Y = 300;
+static const int CHOICE_CURSORY_X = 220;
+static const int CHOICE_CURSORY_Y = 175;
 static const int PANEL_WIDTH  = 266;
 static const int PANEL_HEIGHT = 272;
 static const int PANEL_PITCH = 192;
@@ -24,6 +28,8 @@ SceneTitle::SceneTitle( ) {
 	drawer->loadGraph( GRAPH_TITLE_FONT,  "title/Yokai_UI_title_font.png"  );
 	drawer->loadGraph( GRAPH_TITLE_FRAME, "title/Yokai_UI_title_frame.png" );
 	drawer->loadGraph( GRAPH_TITLE_PANEL, "title/Yokai_UI_title_panel.png" );
+	drawer->loadGraph( GRAPH_PLAYERCHOICE, "title/status_player_choice.png");
+	drawer->loadGraph( GRAPH_CURSORY, "title/cursory.png" );
 
 	_count = 0;
 	_select = 0;
@@ -113,7 +119,7 @@ void SceneTitle::act( ) {
 
 void SceneTitle::draw( ) {
 	DrawerPtr drawer = Drawer::getTask( );
-
+	
 	Drawer::Sprite sprite_font( 
 		Drawer::Transform( TITLE_CENTER_X - TITLE_WIDTH / 2, TITLE_CENTER_Y - TITLE_HEIGHT / 2),
 		GRAPH_TITLE_FONT );
@@ -122,7 +128,18 @@ void SceneTitle::draw( ) {
 	Drawer::Sprite sprite_frame( 
 		Drawer::Transform( TITLE_CENTER_X - TITLE_WIDTH / 2, TITLE_CENTER_Y - TITLE_HEIGHT / 2),
 		GRAPH_TITLE_FRAME );
-	drawer->setSprite( sprite_frame);
+	drawer->setSprite( sprite_frame );
+
+	Drawer::Sprite sprite_playerchoice(
+		Drawer::Transform( CHOICE_FONT_X, CHOICE_FONT_Y ),
+		GRAPH_PLAYERCHOICE );
+	drawer->setSprite( sprite_playerchoice );
+	
+	Drawer::Sprite sprite_cusory(
+		Drawer::Transform( CHOICE_CURSORY_X, CHOICE_CURSORY_Y + _select * 100 ),
+		GRAPH_CURSORY );
+	drawer->setSprite( sprite_cusory );
+	
 
 	for ( int i = 0; i < 5; i++ ) {
 		int x = TITLE_CENTER_X - PANEL_PITCH * 2 + i * PANEL_PITCH - PANEL_WIDTH / 2;
@@ -138,11 +155,10 @@ void SceneTitle::draw( ) {
 		drawer->setSprite( sprite_panel);
 	}
 
+
 	GamePtr game = Game::getTask( );
 	Game::FADE fade = game->getFade( );
 	if ( fade == Game::FADE_NONE ) {
-		drawer->drawString( SELECT_X, SELECT_Y +   0, "1P PLAYER GAME" );
-		drawer->drawString( SELECT_X, SELECT_Y +  40, "2P PLAYER GAME" );
-		drawer->drawString( SELECT_X - 30, SELECT_Y + _select * 40, "→" );
+		//drawer->drawString( 200, 200, "東京コミュニケーションアート専門学校" );
 	}
 }
