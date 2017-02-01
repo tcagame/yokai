@@ -6,39 +6,52 @@ static const int CHIP_FOOT = 0;
 static const int HP = 30;
 static const int POW = 6;
 static const int WAIT_AINME_TIME = 10;
-static const int SPEED = 3;
-static const int ACCEL = 5;
-static const int CREATE_COUNT_FIREBALL = 15;
+static const double RANGE = 1500;
 
 EnemyBloodPondDemon::EnemyBloodPondDemon( EnemyStockPtr stock, int x, int y ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),
 _stock( stock ),
-_action( ACTION_WAIT ),
+_regist( true ),
 _count( 0 ) {
+	focus( );
 }
 
-
 EnemyBloodPondDemon::~EnemyBloodPondDemon( ) {
+	for ( int i = 0; i < FIRE_NUM; i++ ) {
+		_fires[ i ]->damage( -1 );
+	}
 }
 
 void EnemyBloodPondDemon::act( ) {
-	attack( );
+	if ( _regist ) {
+		generate( );
+		_regist  = false;
+	}
 	updateChip( );
 }
 
-void EnemyBloodPondDemon::attack( ) {
-	_count++;
-	if ( _count % CREATE_COUNT_FIREBALL == 0 ) {
-		if ( rand( ) % 2 ) {
-			Vector pos( getX( ) + rand( ) % SCREEN_WIDTH - SCREEN_WIDTH / 3, -32 );
-			Matrix mat = Matrix::makeTransformRotation( Vector( 0, 0, -1 ), rand( ) % 1000 * PI / 2 / 1000 );
-			Vector vec = mat.multiply( Vector( 0, SPEED + rand( ) % ACCEL ) );
-			_stock->addEnemy( EnemyPtr( new EnemyFire( pos, vec ) ) );
-		} else {
-			Vector pos( getX( ) + SCREEN_WIDTH / 5, rand( ) % SCREEN_HEIGHT - SCREEN_HEIGHT / 3 );
-			Vector vec = Vector( -SPEED - rand( ) % ACCEL, 0, 0 );
-			_stock->addEnemy( EnemyPtr( new EnemyFire( pos, vec ) ) );
-		}
+void EnemyBloodPondDemon::generate( ) {
+	Vector target = getOverlappedPos( ) ;
+	target.y = BG_SIZE / 2;
+	Vector offset( RANGE, 0 );
+	Vector vec( 0, 1 );
+	Matrix mat = Matrix::makeTransformRotation( Vector( 0, 0, 1 ), PI2 / FIRE_NUM );
+	for ( int i = 0; i < FIRE_NUM / 2; i++ ) {
+		offset = mat.multiply( offset );
+		vec = mat.multiply( vec );
+		EnemyFirePtr fire( new EnemyFire( target + offset, vec, target ) );
+		_stock->addEnemy( fire );
+		_fires[ i ] = fire;
+	}
+	
+	offset *= 0.6;
+	vec *= -1;
+	for ( int i = 0; i < FIRE_NUM / 2; i++ ) {
+		offset = mat.multiply( offset );
+		vec = mat.multiply( vec );
+		EnemyFirePtr fire( new EnemyFire( target + offset, vec, target ) );
+		_stock->addEnemy( fire );
+		_fires[ i + FIRE_NUM / 2 ] = fire;
 	}
 }
 
