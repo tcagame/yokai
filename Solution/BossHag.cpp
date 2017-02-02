@@ -7,7 +7,7 @@ static const int OFFSET_X = 60 + CHIP_SIZE;
 static const int OFFSET_Y = 512 - 100;
 static const int HP  = 30;
 static const int POW = 6;
-static const int CREATE_COUNT_CROW = 60;
+static const int CREATE_COUNT_CROW = 30;
 static const double RADIUS = 50;
 
 static const int CROW_NUM = 11;
@@ -49,7 +49,7 @@ void BossHag::attack( ) {
 			int x = getX( ) - ( int )CROW_POS[ i ].x;
 			int y =           ( int )CROW_POS[ i ].y;
 			Vector target( getX( ) - SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 );
-			_stock->addEnemy( EnemyPtr( new EnemyCrow( x, y, target ) ) );
+			_stock->addEnemy( EnemyPtr( new EnemyCrow( x, y, i, target ) ) );
 		}
 		_count = CREATE_COUNT_CROW * 4;
 	}
@@ -60,7 +60,7 @@ void BossHag::attack( ) {
 		int x = getX( ) - ( int )CROW_POS[ idx ].x;
 		int y =           ( int )CROW_POS[ idx ].y;
 		Vector target( getX( ) - SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 );
-		_stock->addEnemy( EnemyPtr( new EnemyCrow( x, y, target ) ) );
+		_stock->addEnemy( EnemyPtr( new EnemyCrow( x, y, rand( ) % 3, target ) ) );
 	}
 }
 
