@@ -23,6 +23,7 @@ EnemyBloodPondDemon::~EnemyBloodPondDemon( ) {
 }
 
 void EnemyBloodPondDemon::act( ) {
+	_count++;
 	if ( _regist ) {
 		generate( );
 		_regist  = false;

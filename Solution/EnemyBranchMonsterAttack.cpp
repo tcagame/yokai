@@ -2,11 +2,12 @@
 
 static const int CHIP_SIZE = 64;
 static const int CHIP_FOOT = 0;
-static const int HP = 2;
+static const int HP = 5;
 static const int POW = 3;
 static const int MOVE_SPEED = 10;
-static const int WAIT_ANIME_TIME = 3;
-static const int JUMP_POWER = 40;
+static const int WAIT_ANIME_TIME = 3;;
+static const int JUMP_POWER = 30;
+static const int JUMP_ACCEL = 20;
 
 EnemyBranchMonsterAttack::EnemyBranchMonsterAttack(  int x, int y  ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),
@@ -22,7 +23,7 @@ void EnemyBranchMonsterAttack::act( ) {
 	_anime_count++;
 	setAccelX( -MOVE_SPEED );
 	if( isStanding( ) ) {
-		setAccelY( -JUMP_POWER );
+		setAccelY( -JUMP_POWER - ( rand( ) % JUMP_ACCEL ) );
 	}
 		
 	const int SEED_PATTERN[ ] = { 0, 1, 2 };
