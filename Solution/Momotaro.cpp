@@ -18,6 +18,7 @@ static const int SHOOT_SPEED = 10;
 static const int WAIT_PATTERN_TIME = 3;
 static const int CHIP_SIZE = 128;
 static const int FALTER_COUNT = 30;
+static const int DAMAGE_COUNT = 30;
 
 Momotaro::Momotaro( InputterPtr inputter, PsychicMgrPtr mgr, PowerPtr power ) :
 Character( START_X, START_Y, CHIP_SIZE, CHIP_SIZE / 2, false ),
@@ -117,6 +118,13 @@ void Momotaro::actOnHide( ) {
 void Momotaro::actOnMove( ) {
 	SoundPtr sound = Sound::getTask( );
 	
+	if ( _act_count % DAMAGE_COUNT == 0 ) {
+		GamePtr game = Game::getTask( );
+		if ( game->isSolo( ) ) {
+			_power->decrease( 1 );
+		}
+	}
+
 	Vector vec( _inputter->getDirX( _device_num ), _inputter->getDirY( _device_num ) );
 	
 	if ( vec.isOrijin( ) || _inputter->getButton( ) == BUTTON_A ) {
