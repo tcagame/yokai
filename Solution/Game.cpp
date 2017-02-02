@@ -149,6 +149,7 @@ void Game::changeScene( Scene::NEXT next ) {
 	SoundPtr sound = Sound::getTask( );
 	sound->stopAllSE( );
 	sound->stopBGM( );
+	_demo = false;
 
 	switch ( next ) {
 	case Scene::NEXT_TITLE:

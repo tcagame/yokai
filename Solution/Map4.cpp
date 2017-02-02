@@ -806,7 +806,7 @@ EnemyPtr Map4::generateEnemy( char ch, EnemyStockPtr stock, int x, int y ) const
 	case 'E': enemy = EnemyPtr( new EnemyMiasmaGray( x, y ) ); break;
 	case 'F': enemy = EnemyPtr( new EnemyRedbird( stock, x, y ) ); break;
 	case 'G': enemy = EnemyPtr( new EnemyStoneFly( x, y ) ); break;
-	case 'H': enemy = EnemyPtr( new EnemyStoneRote( x, y ) ); break;
+	case 'H': enemy = EnemyPtr( new EnemyStoneRote( x, y, false ) ); break;
 	case 'I': enemy = EnemyPtr( new EnemyExtrudedSpirits( x, y ) ); break;
 	case 'J': enemy = EnemyPtr( new EnemyFlogSmall( x, y ) ); break;
 	case 'K': enemy = EnemyPtr( new EnemyOneEyesSnake( x, y ) ); break;

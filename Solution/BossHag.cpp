@@ -7,7 +7,7 @@ static const int OFFSET_X = 60 + CHIP_SIZE;
 static const int OFFSET_Y = 512 - 100;
 static const int HP  = 30;
 static const int POW = 6;
-static const int CREATE_COUNT_CROW = 40;
+static const int CREATE_COUNT_CROW = 30;
 static const double RADIUS = 50;
 
 static const int CROW_NUM = 11;
