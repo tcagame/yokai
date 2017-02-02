@@ -159,6 +159,7 @@
     <ClCompile Include="Field.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="EnemyLittleRedDemon.cpp" />
+    <ClCompile Include="Infomation.cpp" />
     <ClCompile Include="Inputter.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
@@ -265,6 +266,7 @@
     <ClInclude Include="Field.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="EnemyLittleRedDemon.h" />
+    <ClInclude Include="Infomation.h" />
     <ClInclude Include="Inputter.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Map0.h" />

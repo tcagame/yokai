@@ -141,8 +141,6 @@
     <ClCompile Include="EnemyMiasmaWhite.cpp" />
     <ClCompile Include="EnemyDeceasedPurple.cpp" />
     <ClCompile Include="EnemyDeceasedGreen.cpp" />
-    <ClCompile Include="EnemyRockMassShell.cpp" />
-    <ClCompile Include="EnemyRockMassSoul.cpp" />
     <ClCompile Include="EnemyStoneMortgage.cpp" />
     <ClCompile Include="EnemyRayMonster.cpp" />
     <ClCompile Include="EnemyRollOverNeckSkull.cpp" />
@@ -164,6 +162,7 @@
     <ClCompile Include="EnemyATField.cpp" />
     <ClCompile Include="Inputter.cpp" />
     <ClCompile Include="EnemyRedFlogSmall.cpp" />
+    <ClCompile Include="Infomation.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Boss.h" />
@@ -306,8 +305,6 @@
     <ClInclude Include="EnemyMiasmaWhite.h" />
     <ClInclude Include="EnemyDeceasedPurple.h" />
     <ClInclude Include="EnemyDeceasedGreen.h" />
-    <ClInclude Include="EnemyRockMassShell.h" />
-    <ClInclude Include="EnemyRockMassSoul.h" />
     <ClInclude Include="EnemyStoneMortgage.h" />
     <ClInclude Include="EnemyRayMonster.h" />
     <ClInclude Include="EnemyRollOverNeckSkull.h" />
@@ -329,5 +326,6 @@
     <ClInclude Include="EnemyATField.h" />
     <ClInclude Include="Inputter.h" />
     <ClInclude Include="EnemyRedFlogSmall.h" />
+    <ClInclude Include="Infomation.h" />
   </ItemGroup>
 </Project>
