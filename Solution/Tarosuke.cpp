@@ -35,7 +35,6 @@ static const int FALLOUT_POW = 6;
 static const int NEEDLE_POW = 6;
 static const int OUCH_POWER = 40;
 
-
 Tarosuke::Tarosuke( InputterPtr inputter, PsychicMgrPtr psychic, PowerPtr power, MomotaroPtr momotaro ) : 
 Character( START_X, START_Y, CHIP_SIZE, CHIP_FOOT, true ),
 _inputter( inputter ),
@@ -197,7 +196,6 @@ void Tarosuke::actOnStanding( ) {
 		GamePtr game = Game::getTask( );
 		if ( game->isSolo( ) ) {
 			sound->playSE( "yokai_voice_06.wav" );
-			damage( 2 );
 			_action = ACTION_CALL;
 			_act_count = 0;
 			_momo_pos = Vector( getX( ), -CHIP_SIZE );
