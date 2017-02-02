@@ -14,6 +14,7 @@ Infomation::Infomation( ) {
 
 	_data.denominator[ j ] = 0;
 	_data.numerator[ j ] = 0;
+	_data.population[ j ] = 0;
 	}
 
 	load( );
