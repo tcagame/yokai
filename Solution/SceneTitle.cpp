@@ -189,7 +189,7 @@ void SceneTitle::draw( ) {
 		}
 		const int ANIM[ 8 ] = { 0, 1, 2, 1, 0, 3, 4, 3 };
 		int pattern = ANIM[ _tarosuke_x / 20 % 8 ];
-		if ( pattern == 0 ) {
+		if ( pattern == 2 || pattern == 4 ) {
 			SoundPtr sound = Sound::getTask( );
 			sound->playSE( "yokai_voice_15.wav" );
 		}
