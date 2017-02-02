@@ -3,7 +3,7 @@
 
 class EnemyOneEyesSnake : public Enemy {
 public:
-	EnemyOneEyesSnake( int x, int y );
+	EnemyOneEyesSnake( int x, int y, bool dir_right = false );
 	virtual ~EnemyOneEyesSnake( );
 private:
 	void act( );

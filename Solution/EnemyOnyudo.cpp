@@ -7,10 +7,13 @@ static const int POW = 6;
 static const int MOVE_SPEED = 3;
 static const int WAIT_ANIME_TIME = 20;
 
-EnemyOnyudo::EnemyOnyudo( int x, int y ) :
+EnemyOnyudo::EnemyOnyudo( int x, int y, bool dir_right ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),
 _move_speed( -MOVE_SPEED ),
 _before_x( 0 ) {
+	if ( dir_right ) {
+		_move_speed *= -1;
+	}
 }
 
 

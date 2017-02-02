@@ -7,10 +7,13 @@ static const int POW = 6;
 static const int MOVE_SPEED = 2;
 static const int WAIT_ANIME_TIME = 10;
 
-EnemyCrocodileSnake::EnemyCrocodileSnake( int x, int y ) :
+EnemyCrocodileSnake::EnemyCrocodileSnake( int x, int y, bool dir_right ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),
 _move_speed( -MOVE_SPEED ),
 _before_x( 0 ) {
+	if ( dir_right ) {
+		_move_speed *= -1;
+	}
 }
 
 
@@ -22,14 +25,13 @@ void EnemyCrocodileSnake::act( ) {
 		_move_speed *= -1;
 	}
 	_before_x = getX( );
-	setAccelX( _move_speed );
 
 	actMove( );
 	updateChip( );
 }
 
 void EnemyCrocodileSnake::actMove( ) {
-	setAccelX( -MOVE_SPEED );
+	setAccelX( _move_speed );
 }
 
 void EnemyCrocodileSnake::updateChip( ) {

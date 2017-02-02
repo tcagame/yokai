@@ -5,7 +5,7 @@
 
 class EnemyFireball : public Enemy {
 public:
-	EnemyFireball( const Vector& pos, const Vector& vec );
+	EnemyFireball( const Vector& pos, const Vector& vec, bool dir_right = false );
 	virtual ~EnemyFireball( );
 private:
 	void act( );
