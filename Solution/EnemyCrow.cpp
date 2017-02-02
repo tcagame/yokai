@@ -6,12 +6,12 @@ static const int HP  = 3;
 static const int POW = 6;
 static const int SPEED = 10;
 static const int ANIMATION_WAIT_TIME = 6;
-static const int WAIT_COUNT = 240;
+static const int WAIT_COUNT = 180;
 
 EnemyCrow::EnemyCrow( int x, int y, int pattern, const Vector& target ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ),
 _count( 0 ),
-_pattern( 1 ),
+_pattern( pattern ),
 _pos( x, y ),
 _target( target ) {
 	_vec = _target - _pos;
@@ -71,21 +71,22 @@ void EnemyCrow::actOnWaiting( ) {
 }
 
 void EnemyCrow::actOnMoving( ) {
+	//_pattern = 1;
 	switch ( _pattern ) {
 	case 0:
 		{
 			Vector v = Vector( SCREEN_WIDTH * 4 / 5, SCREEN_HEIGHT / 2 );
-			_vec += v.normalize( ) * ( SPEED * 0.1 );
+			_vec += v.normalize( ) * ( SPEED * 0.07 );
 			_vec = _vec.normalize( ) * SPEED * 2;
 			break;
 		}
 	case 1:
 		{
-			Vector v = Vector( SCREEN_WIDTH / 2, SCREEN_HEIGHT );
-			if ( _pos.x < SCREEN_WIDTH / 3 ) {
-				v = Vector( -SCREEN_WIDTH, 0 );
+			Vector v = Vector( SCREEN_WIDTH / 2, SCREEN_HEIGHT * 2 );
+			if ( _pos.x < SCREEN_WIDTH*12/10 ) {
+				v = Vector( 0, -SCREEN_HEIGHT );
 			}
-			_vec += v.normalize( ) * ( SPEED * 0.1 );
+			_vec += v.normalize( ) * ( SPEED * 0.05 );
 			_vec = _vec.normalize( ) * SPEED;
 			break;
 		}
