@@ -3,6 +3,7 @@
 #include "define.h"
 #include "Sound.h"
 #include "Game.h"
+#include "Infomation.h"
 
 static const int BG_HEIGHT = 512;
 static const int MAP_X = ( SCREEN_WIDTH - 632 ) / 5;
@@ -20,17 +21,29 @@ SceneGate::SceneGate( ) {
 	drawer->loadGraph( GRAPH_CHARACTER_1, "Character/Character1.png" );
 	drawer->loadGraph( GRAPH_GATE_BG,     "gate/gate_bg.png"  );
 	drawer->loadGraph( GRAPH_GATE_COVER,  "gate/gate_cover.png"  );
+	drawer->loadGraph( GRAPH_GATE_COUNT_0, "gate/count_0.png" );
+	drawer->loadGraph( GRAPH_GATE_COUNT_1, "gate/count_1.png" );
+	drawer->loadGraph( GRAPH_GATE_COUNT_2, "gate/count_2.png" );
+	drawer->loadGraph( GRAPH_GATE_COUNT_3, "gate/count_3.png" );
+	drawer->loadGraph( GRAPH_GATE_COUNT_4, "gate/count_4.png" );
+	drawer->loadGraph( GRAPH_GATE_COUNT_5, "gate/count_5.png" );
+	drawer->loadGraph( GRAPH_GATE_COUNT_6, "gate/count_6.png" );
+	drawer->loadGraph( GRAPH_GATE_COUNT_7, "gate/count_7.png" );
+	drawer->loadGraph( GRAPH_GATE_COUNT_8, "gate/count_8.png" );
+	drawer->loadGraph( GRAPH_GATE_COUNT_9, "gate/count_9.png" );
+	drawer->loadGraph( GRAPH_GATE_DOT  , "gate/count_dot.png" );
+	drawer->loadGraph( GRAPH_GATE_CLEAR, "gate/clear_font.png" );
+	drawer->loadGraph( GRAPH_GATE_PERCENT, "gate/count_percent.png" );
 
 	GamePtr game = Game::getTask( );
 	switch ( game->getStage( ) ) {
 	case 0:
 		drawer->loadGraph( GRAPH_GATE_MAP  , "gate/gate_map_0.png"  );
 		drawer->loadGraph( GRAPH_GATE_TITLE, "gate/gate_title_0.png"  );
-		drawer->loadGraph( GRAPH_GATE_COUNT, "gate/count_1.png " );
 		break;
 	case 1:
 		drawer->loadGraph( GRAPH_GATE_MAP  , "gate/gate_map_1.png"  );
-		drawer->loadGraph( GRAPH_GATE_TITLE, "gate/gate_title_1.png"  );
+		drawer->loadGraph( GRAPH_GATE_TITLE, "gate/gate_title_1.png"  );		
 		break;
 	case 2:
 		drawer->loadGraph( GRAPH_GATE_MAP  , "gate/gate_map_2.png"  );
@@ -45,6 +58,8 @@ SceneGate::SceneGate( ) {
 		drawer->loadGraph( GRAPH_GATE_TITLE, "gate/gate_title_4.png"  );
 		break;
 	}
+	
+	_infomation = InfomationPtr( new Infomation );
 
 	SoundPtr sound = Sound::getTask( );
 	sound->playBGM( "yokai_se_32.wav" );
@@ -90,9 +105,59 @@ void SceneGate::draw( ) const {
 			Drawer::Transform( TITLE_X, TITLE_Y ), GRAPH_GATE_TITLE );
 		drawer->setSprite( sprite );
 	}
+
+	const int GRAPH_NUMERIC[ 10 ] = {
+		GRAPH_GATE_COUNT_0,
+		GRAPH_GATE_COUNT_1,
+		GRAPH_GATE_COUNT_2,
+		GRAPH_GATE_COUNT_3,
+		GRAPH_GATE_COUNT_4,
+		GRAPH_GATE_COUNT_5,
+		GRAPH_GATE_COUNT_6,
+		GRAPH_GATE_COUNT_7,
+		GRAPH_GATE_COUNT_8,
+		GRAPH_GATE_COUNT_9,
+	};
+
+	int prob = _infomation->getProbability( );
+	{
+		int n = prob / 100;
+		if ( n > 0 || n == 0 ) {
+			Drawer::Sprite sprite( //\‚ÌˆÊ
+				Drawer::Transform( COUNT_X - 120, COUNT_Y + 130 ), GRAPH_NUMERIC[ n ] );
+			drawer->setSprite( sprite );
+		}
+	}
+	{
+		int n = prob / 10 % 10;
+		if ( n > 0 || n == 0 ) {
+			Drawer::Sprite sprite( //ˆê‚ÌˆÊ
+				Drawer::Transform( COUNT_X - 70, COUNT_Y + 130 ), GRAPH_NUMERIC[ n ] );
+			drawer->setSprite( sprite );
+		}
+
+	}
+	{
+		int n = prob % 10;
+		if ( n > 0 || n == 0 ) {
+			Drawer::Sprite sprite( //¬”“_‘æˆê
+				Drawer::Transform( COUNT_X, COUNT_Y + 130 ), GRAPH_NUMERIC[ n ] );
+			drawer->setSprite( sprite );
+		}
+	}
 	{
 		Drawer::Sprite sprite( 
-			Drawer::Transform( COUNT_X, COUNT_Y ), GRAPH_GATE_COUNT );
+			Drawer::Transform( COUNT_X - 40, COUNT_Y + 130 ), GRAPH_GATE_DOT );
+		drawer->setSprite( sprite );
+	}
+	{
+		Drawer::Sprite sprite( 
+			Drawer::Transform( COUNT_X - 120, COUNT_Y - 50 ), GRAPH_GATE_CLEAR );
+		drawer->setSprite( sprite );
+	}
+	{
+		Drawer::Sprite sprite( 
+			Drawer::Transform( COUNT_X + 60, COUNT_Y + 140 ), GRAPH_GATE_PERCENT );
 		drawer->setSprite( sprite );
 	}
 	{
