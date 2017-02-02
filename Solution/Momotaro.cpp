@@ -37,6 +37,11 @@ _power( power ) {
 		_device_num = DEVICE_1;
 		hide( );
 	}
+	if ( !game->isSolo( ) ) {
+		setX( SCREEN_WIDTH / 3 );
+		setY( SCREEN_HEIGHT / 3 );
+	}
+	setChipReverse( true );
 }
 
 Momotaro::~Momotaro( ) {

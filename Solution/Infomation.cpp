@@ -14,6 +14,7 @@ Infomation::Infomation( ) {
 
 	_data.denominator[ j ] = 0;
 	_data.numerator[ j ] = 0;
+	_data.population[ j ] = 0;
 	}
 
 	load( );
@@ -66,6 +67,10 @@ int Infomation::getHistoryX( int stage_idx, int idx ) const {
 
 int Infomation::getHistoryY( int stage_idx, int idx ) const {
 	return _data.history_y[ stage_idx ][ idx ];
+}
+
+void Infomation::increasePopulation( int result_idx ) {
+	_data.population[ result_idx ]++;
 }
 
 int Infomation::getPopulation( int result_idx ) const {

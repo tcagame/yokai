@@ -1,6 +1,9 @@
 #pragma once
 
 #include "Scene.h"
+#include "smart_ptr.h"
+
+PTR( Infomation );
 
 class SceneResult : public Scene {
 public:
