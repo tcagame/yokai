@@ -40,6 +40,9 @@ void Infomation::save( ) {
 }
 
 int Infomation::getProbability( int stage_idx ) const {
+	if ( _data.denominator[ stage_idx ] == 0 ) {
+		return 0;
+	}
 	return _data.numerator[ stage_idx ] * 1000 / _data.denominator[ stage_idx ];
 }
 

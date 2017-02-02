@@ -119,7 +119,9 @@ void SceneGate::draw( ) const {
 		GRAPH_GATE_COUNT_9,
 	};
 
-	int prob = _infomation->getProbability( );
+	GamePtr game = Game::getTask( );
+	int prob = _infomation->getProbability( game->getStage( ) );
+
 	{
 		int n = prob / 100;
 		if ( n > 0 || n == 0 ) {

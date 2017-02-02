@@ -207,6 +207,7 @@ Scene::NEXT SceneStreet::update( ) {
 		if ( _enemy_mgr->isBossDead( ) ) {
 			_enemy_mgr->clear( );
 			_phase = PHASE_CLEAR;
+			_info->increaseNumerator( game->getStage( ) );
 			_phase_count = 0;
 			SoundPtr sound = Sound::getTask( );
 			sound->playBGM( "yokai_se_32.wav" );
