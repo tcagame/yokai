@@ -28,6 +28,7 @@ Cloud::Cloud( int x, int y, bool big ) {
 	}
 	_x = x;
 	_y = y;
+	_past_y = _y;
 	_accel = CLOUD_MOVE_SPEED;
 	_turn_count = 0;
 }
@@ -50,6 +51,7 @@ void Cloud::draw( CameraConstPtr camera ) const {
 }
 
 void Cloud::update( ) {
+	_past_y = _y;
 	updateAccel( );
 	moveVertical( );
 }
@@ -85,5 +87,13 @@ bool Cloud::isStanding( int x, int src_y, int dst_y ) const {
 	if ( x < _x - _width / 2 || x > _x + _width / 2 ) {
 		return false;
 	}
-	return src_y < _y - _height / 2 + BLANK  && dst_y >= _y - _height / 2 + BLANK;
+	if ( src_y <  _y - _height / 2 + BLANK &&
+		 dst_y >= _y - _height / 2 + BLANK ) {
+		return true;
+	}
+	if ( src_y <  _past_y - _height / 2 + BLANK &&
+		 dst_y >= _past_y - _height / 2 + BLANK ) {
+		return true;
+	}
+	return false;
 }

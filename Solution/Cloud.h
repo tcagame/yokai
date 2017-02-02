@@ -23,6 +23,7 @@ private:
 private:
 	int _x;
 	int _y;
+	int _past_y;
 	int _accel;
 	int _turn_count;
 	int _width;

@@ -41,10 +41,10 @@ SceneTitle::SceneTitle( ) {
 	_panel_count = 0;
 	_select = 0;
 	
-	_tarosuke_x = TITLE_CENTER_X;
+	_tarosuke_x = TITLE_CENTER_X + 400;
 	_tarosuke_vx = 0;
 	_tarosuke_right = false;
-	_tarosuke_move = false;
+	_tarosuke_move = true;
 }
 
 SceneTitle::~SceneTitle( ) {

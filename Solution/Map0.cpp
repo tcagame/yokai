@@ -758,7 +758,7 @@ EnemyPtr Map0::generateEnemy( char ch, EnemyStockPtr stock, int x, int y ) const
 		break;
 	case 'O': enemy = EnemyPtr( new EnemyStoneFly( x, y ) );
 		break;
-	case 'P': enemy = EnemyPtr( new EnemyStoneRote( x, y ) );
+	case 'P': enemy = EnemyPtr( new EnemyStoneRote( x, y, false ) );
 		break;
 	case 'Q': enemy = EnemyPtr( new EnemyGhoul( x, y ) );
 		break;
