@@ -4,6 +4,7 @@
 #include "Drawer.h"
 #include "Sound.h"
 #include "define.h"
+#include "Infomation.h"
 
 static const int FRAME_WIDTH  = 896;
 static const int FRAME_HEIGHT = 772;
@@ -89,6 +90,12 @@ void SceneResult::drawFrame( ) {
 
 void SceneResult::drawHeaven( ) {
 	DrawerPtr drawer = Drawer::getTask( );
+	
+	InfomationPtr kase = InfomationPtr( new Infomation );
+	kase->increasePopulation( 4 ); //l”‚ð+‚·‚é
+	
+	drawer->drawString( 100, 100, "%d", kase->getPopulation( 4 ) ); //“ü‚Á‚½l”‚ðŽæ“¾
+
 	
 	if ( _count > ANIMELOCK_COUNT -170 && _count < ANIMELOCK_COUNT - 120 ) {
 		{// ‚½‚ë‚·‚¯
