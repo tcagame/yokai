@@ -46,6 +46,12 @@ _power( power ) {
 	_act_count = 0;
 	_invincible_count = 0;
 	setChipReverse( true );
+
+	SoundPtr sound = Sound::getTask( );
+	sound->playSE( "yokai_se_21.wav" );
+	sound->stopSE( "yokai_se_21.wav" );
+	sound->playSE( "yokai_se_22.wav" );
+	sound->stopSE( "yokai_se_22.wav" );
 }
 
 Tarosuke::~Tarosuke( ) {
@@ -185,6 +191,7 @@ void Tarosuke::actOnStanding( ) {
 		_jump_count = JUMP_COUNT;
 		_action = ACTION_JUMP;
 		setAccelY( -JUMP_POWER );
+		sound->playSE( "yokai_voice_17.wav" );
 	}
 	
 	if ( _inputter->getPush( ) == BUTTON_A ) {
@@ -301,11 +308,8 @@ void Tarosuke::actOnStanding( ) {
 }
 
 void Tarosuke::actOnJumping( ) {
-	SoundPtr sound = Sound::getTask( );
-	
 	_action = ACTION_FLOAT;
 	if ( ( _inputter->getButton( ) & BUTTON_C ) == 0 ) {
-		sound->playSE( "yokai_voice_17.wav" );
 		return;
 	}
 	_jump_count--;
@@ -359,6 +363,9 @@ void Tarosuke::actOnFloating( ) {
 		_jump_count = JUMP_COUNT;
 		_action = ACTION_JUMP;
 		setAccelY( -JUMP_POWER );
+		
+		SoundPtr sound = Sound::getTask( );
+		sound->playSE( "yokai_voice_17.wav" );
 	}
 	
 	if ( _inputter->getPush( ) & BUTTON_A ) {
