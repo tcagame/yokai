@@ -31,7 +31,6 @@ void EnemyDeceasedGreen::act( ) {
 	_before_x = getX( );
 	setAccelX( _move_speed );
 
-	setAccelX( -_move_speed );
 	if ( _act_count % WAIT_JUMP_TIME == 0 ) {
 		setAccelY( JUMP_POWER );
 	}
