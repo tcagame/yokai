@@ -29,6 +29,7 @@ _solo( true ),
 _stage( 0 ),
 _demo_count( 0 ),
 _fade( FADE_NONE ) {
+
 }
 
 
