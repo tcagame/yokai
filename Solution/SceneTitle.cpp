@@ -109,28 +109,6 @@ void SceneTitle::act( ) {
 	_count++;
 	_panel_count++;
 
-	GamePtr game = Game::getTask( );
-	if ( game->getFade( ) != Game::FADE_NONE ) {
-		return;
-	}
-
-	DevicePtr device = Device::getTask( );
-
-	if ( device->getButton( ) != 0 ) {
-		SoundPtr sound = Sound::getTask( );
-		sound->playSE( "yokai_se_01.wav" );
-		game->setFade( Game::FADE_OUT );
-	}
-
-	if ( device->getDirY( ) < 0 ) {
-		_select = 0;
-		_count = 0;
-	}
-	if ( device->getDirY( ) > 0 ) {
-		_select = 1;
-		_count = 0;
-	}
-
 	if ( _count % 60 == 0 ) {
 		_tarosuke_move = ( rand( ) % 3 != 0 );
 		if ( _tarosuke_move ) {
@@ -163,11 +141,38 @@ void SceneTitle::act( ) {
 	if ( _tarosuke_x < TITLE_CENTER_X - 400 ) {
 		_tarosuke_x = TITLE_CENTER_X - 400;
 		_tarosuke_vx = 0;
+		_tarosuke_move = true;
+		_tarosuke_right = true;
 	}
 	if ( _tarosuke_x > TITLE_CENTER_X + 400 ) {
 		_tarosuke_x = TITLE_CENTER_X + 400;
 		_tarosuke_vx = 0;
+		_tarosuke_move = true;
+		_tarosuke_right = false;
 	}
+	
+	GamePtr game = Game::getTask( );
+	if ( game->getFade( ) != Game::FADE_NONE ) {
+		return;
+	}
+
+	DevicePtr device = Device::getTask( );
+
+	if ( device->getButton( ) != 0 ) {
+		SoundPtr sound = Sound::getTask( );
+		sound->playSE( "yokai_se_01.wav" );
+		game->setFade( Game::FADE_OUT );
+	}
+
+	if ( device->getDirY( ) < 0 ) {
+		_select = 0;
+		_count = 0;
+	}
+	if ( device->getDirY( ) > 0 ) {
+		_select = 1;
+		_count = 0;
+	}
+
 }
 
 void SceneTitle::draw( ) {
@@ -189,7 +194,9 @@ void SceneTitle::draw( ) {
 		}
 		const int ANIM[ 8 ] = { 0, 1, 2, 1, 0, 3, 4, 3 };
 		int pattern = ANIM[ _tarosuke_x / 20 % 8 ];
-		if ( pattern == 2 || pattern == 4 ) {
+		if ( _tarosuke_vx == 0 ) {
+			pattern = 0;
+		} else if ( _count % 10 == 0 ) {
 			SoundPtr sound = Sound::getTask( );
 			sound->playSE( "yokai_voice_15.wav" );
 		}

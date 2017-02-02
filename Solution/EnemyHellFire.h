@@ -7,4 +7,6 @@ public:
 	virtual ~EnemyHellFire( );
 private:
 	void act( );
+private:
+	int _count;
 };
