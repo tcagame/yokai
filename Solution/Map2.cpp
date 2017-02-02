@@ -642,7 +642,7 @@ EnemyPtr Map2::generateEnemy( char ch, EnemyStockPtr stock, int x, int y ) const
 
 	switch ( ch ) {
 	case 'A': enemy = EnemyPtr( new EnemyDeceasedPurple( x, y ) ); break;
-	case 'B': enemy = EnemyPtr( new EnemyStoneRote( x, y ) ); break;
+	case 'B': enemy = EnemyPtr( new EnemyStoneRote( x, y, false ) ); break;
 	case 'C': enemy = EnemyPtr( new EnemyStoneFly( x, y ) ); break;
 	case 'D': enemy = EnemyPtr( new EnemyMiasmaGray( x, y ) ); break;
 	case 'E': enemy = EnemyPtr( new EnemyMiasmaWhite( x, y ) ); break;

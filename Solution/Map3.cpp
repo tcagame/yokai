@@ -763,7 +763,7 @@ EnemyPtr Map3::generateEnemy( char ch, EnemyStockPtr stock, int x, int y ) const
 	case 'B': enemy = EnemyPtr( new EnemyTreeMonster( stock, x, y ) ); break;
 	case 'C': enemy = EnemyPtr( new EnemyRockMass( stock, x, y ) ); break;
 	case 'D': enemy = EnemyPtr( new EnemyStoneFly( x, y ) ); break;
-	case 'E': enemy = EnemyPtr( new EnemyStoneRote( x, y ) ); break;
+	case 'E': enemy = EnemyPtr( new EnemyStoneRote( x, y, false ) ); break;
 	case 'F': enemy = EnemyPtr( new EnemyShishimai( x, y ) ); break;
 	case 'G': enemy = EnemyPtr( new EnemyShishimaiDemon( x, y ) ); break;
 	case 'H': enemy = EnemyPtr( new EnemyHellFire( x, y ) ); break;
