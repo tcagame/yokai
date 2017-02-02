@@ -85,6 +85,7 @@ void Momotaro::appear( int x, int y, bool reverse ) {
 	if ( reverse ) {
 		_vec = Vector( MOVE_SPEED, -MOVE_SPEED / 2 );
 	}
+
 }
 
 void Momotaro::act( ) {
