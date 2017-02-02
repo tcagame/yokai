@@ -5,7 +5,7 @@ static const int CHIP_SIZE = 512;
 static const int CHIP_FOOT = 10;
 static const int GRAPH_HEIGHT = 256;
 static const int HP  = 15;
-static const int POW = 6;
+static const int POW = 10;
 static const int CREATE_COUNT_GRAW_FACE = 25;
 
 static const int OFFSET_X = -257;
