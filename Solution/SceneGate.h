@@ -1,6 +1,9 @@
 #pragma once
 
 #include "Scene.h"
+#include "smart_ptr.h"
+
+PTR( Infomation );  
 
 class SceneGate : public Scene {
 public:
@@ -12,5 +15,6 @@ private:
 	void draw( ) const;
 private:
 	int _x;
+	InfomationPtr _infomation;
 };
 
