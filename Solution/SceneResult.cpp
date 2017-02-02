@@ -15,10 +15,14 @@ _count( 0 ) {
 	DrawerPtr drawer = Drawer::getTask( );
 	SoundPtr sound = Sound::getTask( );
 	GamePtr game = Game::getTask( );
+	InfomationPtr info = InfomationPtr( new Infomation );
+
 	_level = game->getStage( ) - 1;
 	if ( _level < 0 ) {
 		_level = 0;
 	}
+
+	info->increasePopulation( _level );
 
 	switch ( _level ) {
 	case 4:
@@ -90,13 +94,10 @@ void SceneResult::drawFrame( ) {
 
 void SceneResult::drawHeaven( ) {
 	DrawerPtr drawer = Drawer::getTask( );
-	
-	InfomationPtr kase = InfomationPtr( new Infomation );
-	kase->increasePopulation( 4 ); //人数を+する
-	
-	drawer->drawString( 100, 100, "%d", kase->getPopulation( 4 ) ); //入った人数を取得
+	InfomationPtr info = InfomationPtr( new Infomation );
 
-	
+	drawer->drawString( 100, 100, "%d", info->getPopulation( _level ) ); 
+
 	if ( _count > ANIMELOCK_COUNT -170 && _count < ANIMELOCK_COUNT - 120 ) {
 		{// たろすけ
 			Drawer::Transform trans( 575, 430, ( _count / 4 % 2 ) * 128 + 256, 256, 128, 128 );
@@ -162,6 +163,9 @@ void SceneResult::drawHeaven( ) {
 
 void SceneResult::drawHuman( ) {
 	DrawerPtr drawer = Drawer::getTask( );
+	InfomationPtr info = InfomationPtr( new Infomation );
+
+	drawer->drawString( 100, 100, "%d", info->getPopulation( _level ) ); 
 
 	if ( _count < ANIMELOCK_COUNT - 29 ) {
 		if ( _count > ANIMELOCK_COUNT - 84 ) {
@@ -275,6 +279,9 @@ void SceneResult::drawHuman( ) {
 
 void SceneResult::drawDamn( ) {
 	DrawerPtr drawer = Drawer::getTask( );
+	InfomationPtr info = InfomationPtr( new Infomation );
+
+	drawer->drawString( 100, 100, "%d", info->getPopulation( _level ) ); 
 
 	{// カラス
 		Drawer::Transform trans( 850 - _count, 200, ( _count / 4 % 2 ) * 64, 384, 64, 64 );
@@ -349,6 +356,9 @@ void SceneResult::drawDamn( ) {
 
 void SceneResult::drawHungry( ) {
 	DrawerPtr drawer = Drawer::getTask( );
+	InfomationPtr info = InfomationPtr( new Infomation );
+
+	drawer->drawString( 100, 100, "%d", info->getPopulation( _level ) ); 
 
 	int food_y = _count - 250;
 	int y = food_y * 10 + 500;
@@ -443,6 +453,9 @@ void SceneResult::drawHungry( ) {
 
 void SceneResult::drawHell( ) {
 	DrawerPtr drawer = Drawer::getTask( );
+	InfomationPtr info = InfomationPtr( new Infomation );
+
+	drawer->drawString( 100, 100, "%d", info->getPopulation( _level ) ); 
 
 	if ( _count < ANIMELOCK_COUNT - 20 ) {
 		{// たろすけ
