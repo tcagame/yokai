@@ -5,10 +5,12 @@
 #include "Game.h"
 
 static const int BG_HEIGHT = 512;
-static const int MAP_X = ( SCREEN_WIDTH - 632 ) / 2;
+static const int MAP_X = ( SCREEN_WIDTH - 632 ) / 5;
 static const int MAP_Y = 70;
-static const int TITLE_X = ( SCREEN_WIDTH - 480 ) / 2;
+static const int TITLE_X = ( SCREEN_WIDTH - 480 ) / 4;
 static const int TITLE_Y = 10;
+static const int COUNT_X = 1000;
+static const int COUNT_Y = 20;
 static const int TAROSUKE_Y = 550;
 static const int TAROSUKE_SPEED = 10;
 static const int TAROSUKE_SIZE = 128;
@@ -24,6 +26,7 @@ SceneGate::SceneGate( ) {
 	case 0:
 		drawer->loadGraph( GRAPH_GATE_MAP  , "gate/gate_map_0.png"  );
 		drawer->loadGraph( GRAPH_GATE_TITLE, "gate/gate_title_0.png"  );
+		drawer->loadGraph( GRAPH_GATE_COUNT, "gate/count_1.png " );
 		break;
 	case 1:
 		drawer->loadGraph( GRAPH_GATE_MAP  , "gate/gate_map_1.png"  );
@@ -85,6 +88,11 @@ void SceneGate::draw( ) const {
 	{
 		Drawer::Sprite sprite( 
 			Drawer::Transform( TITLE_X, TITLE_Y ), GRAPH_GATE_TITLE );
+		drawer->setSprite( sprite );
+	}
+	{
+		Drawer::Sprite sprite( 
+			Drawer::Transform( COUNT_X, COUNT_Y ), GRAPH_GATE_COUNT );
 		drawer->setSprite( sprite );
 	}
 	{
