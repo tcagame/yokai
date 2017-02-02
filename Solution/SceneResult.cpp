@@ -164,7 +164,7 @@ void SceneResult::drawHeaven( ) {
 		drawer->setSprite( sprite );
 	}
 
-	{
+	{// メッセージ
 	Drawer::Transform trans( 70, 530 );
 	Drawer::Sprite sprite( trans, GRAPH_RESULT_MSG, Drawer::BLEND_NONE, 1.0 );
 	drawer->setSprite( sprite );
@@ -285,7 +285,8 @@ void SceneResult::drawHuman( ) {
 			drawer->setSprite( sprite );
 		}
 	}
-	{
+
+	{// メッセージ
 	Drawer::Transform trans( 70, 530 );
 	Drawer::Sprite sprite( trans, GRAPH_RESULT_MSG, Drawer::BLEND_NONE, 1.0 );
 	drawer->setSprite( sprite );
@@ -367,7 +368,8 @@ void SceneResult::drawDamn( ) {
 			drawer->setSprite( sprite );
 		}
 	}
-	{
+
+	{// メッセージ
 	Drawer::Transform trans( 70, 530 );
 	Drawer::Sprite sprite( trans, GRAPH_RESULT_MSG, Drawer::BLEND_NONE, 1.0 );
 	drawer->setSprite( sprite );
@@ -469,7 +471,8 @@ void SceneResult::drawHungry( ) {
 			drawer->setSprite( sprite );
 		}
 	}
-	{
+
+	{// メッセージ
 	Drawer::Transform trans( 70, 530 );
 	Drawer::Sprite sprite( trans, GRAPH_RESULT_MSG, Drawer::BLEND_NONE, 1.0 );
 	drawer->setSprite( sprite );
@@ -534,7 +537,8 @@ void SceneResult::drawHell( ) {
 		Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
 		drawer->setSprite( sprite );
 	}
-	{
+	
+	{// メッセージ
 	Drawer::Transform trans( 70, 530 );
 	Drawer::Sprite sprite( trans, GRAPH_RESULT_MSG, Drawer::BLEND_NONE, 1.0 );
 	drawer->setSprite( sprite );
