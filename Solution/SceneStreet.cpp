@@ -20,6 +20,7 @@
 #include "MapTest.h"
 #include "EnemyStock.h"
 #include "Inputter.h"
+#include "Infomation.h"
 
 static const int CLEAR_COUNT = 120;
 static const int DEAD_COUNT = 150;
@@ -47,6 +48,8 @@ SceneStreet::SceneStreet() {
 	drawer->loadGraph( GRAPH_ENEMY_BIG			, "street/enemy/enemy_big.png");
 	drawer->loadGraph( GRAPH_REPLAY				, "street/status/status_replay.png" );
 	drawer->loadGraph( GRAPH_GAMEOVER			, "street/status/status_gameover.png" );
+	drawer->loadGraph( GRAPH_DETH_POINT			, "street/status/status_deth_point.png" );
+
 
 	_inputter = InputterPtr( new Inputter );
 	if ( game->isDemo( ) ) {
@@ -128,8 +131,10 @@ SceneStreet::SceneStreet() {
 
 	_field = FieldPtr( new Field( map, stock ) );
 	_camera = CameraPtr( new Camera( map ) );
-	_psychic_mgr = PsychicMgrPtr( new PsychicMgr );
+	_info = InfomationPtr( new Infomation );
+	_info->increaseDenominator( game->getStage( ) );
 	_power = PowerPtr( new Power );
+	_psychic_mgr = PsychicMgrPtr( new PsychicMgr );
 	_momotaro = MomotaroPtr( new Momotaro( _inputter, _psychic_mgr, _power ) );
 	_tarosuke = TarosukePtr( new Tarosuke( _inputter, _psychic_mgr, _power, _momotaro ) );
 	_enemy_mgr = EnemyManagerPtr( new EnemyManager( map, stock ) );
@@ -186,6 +191,7 @@ Scene::NEXT SceneStreet::update( ) {
 		}
 		if ( _power->get( ) == 0 ) {
 			_phase = PHASE_DEAD;
+			_info->setHistroy( game->getStage( ), _tarosuke->getX( ), _tarosuke->getY( ) );
 			_phase_count = 0;
 		}
 		break;
@@ -195,6 +201,7 @@ Scene::NEXT SceneStreet::update( ) {
 		}
 		if ( _power->get( ) == 0 ) {
 			_phase = PHASE_DEAD;
+			_info->setHistroy( game->getStage( ), _tarosuke->getX( ), _tarosuke->getY( ) );
 			_phase_count = 0;
 		}
 		if ( _enemy_mgr->isBossDead( ) ) {
@@ -282,6 +289,9 @@ Scene::NEXT SceneStreet::update( ) {
 		drawer->setSprite( sprite );
 	}
 	if ( _phase == PHASE_DEAD && _phase_count > 80 && !game->isDemo( ) ) {
+		//@Ž€‚ñ‚¾êŠ‚w
+		drawDethPoint( game );
+		//‚°`‚Þ‚¨`‚Î`
 		DrawerPtr drawer = Drawer::getTask( );
 		Drawer::Sprite sprite(
 			Drawer::Transform( 100, 10 ), GRAPH_GAMEOVER );
@@ -310,3 +320,18 @@ void SceneStreet::debugWarp( ) {
 	_tarosuke->warp( warp );
 }
 
+void SceneStreet::drawDethPoint( GamePtr game ) {
+	const int DETH_CHIP_SIZE = 200;
+	DrawerPtr drawer = Drawer::getTask( );
+	for ( int i = 0; i < _info->HISTORY_NUM; i++ ) {
+		int x = _info->getHistoryX( game->getStage( ), i ) - _camera->getX( );
+		int y = _info->getHistoryY( game->getStage( ), i );
+		if ( x + y == 0 ) {
+			continue;
+		}
+
+		Drawer::Sprite sprite(
+			Drawer::Transform( x - DETH_CHIP_SIZE / 2, y ), GRAPH_DETH_POINT );
+		drawer->setSprite( sprite );
+	}
+}

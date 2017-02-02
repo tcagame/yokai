@@ -14,6 +14,8 @@ PTR( Status );
 PTR( Power );
 PTR( EnemyStock );
 PTR( Inputter );
+PTR( Infomation );
+PTR( Game );
 
 class SceneStreet : public Scene {
 public:
@@ -30,7 +32,9 @@ private:
 private:
 	virtual NEXT update( );
 	void debugWarp( );
+	void drawDethPoint( GamePtr game );
 private:
+	InfomationPtr _info;
 	InputterPtr _inputter;
 	PowerPtr _power;
 	TarosukePtr _tarosuke;

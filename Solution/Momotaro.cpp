@@ -37,6 +37,11 @@ _power( power ) {
 		_device_num = DEVICE_1;
 		hide( );
 	}
+	if ( !game->isSolo( ) ) {
+		setX( SCREEN_WIDTH / 3 );
+		setY( SCREEN_HEIGHT / 3 );
+	}
+	setChipReverse( true );
 }
 
 Momotaro::~Momotaro( ) {
@@ -80,6 +85,7 @@ void Momotaro::appear( int x, int y, bool reverse ) {
 	if ( reverse ) {
 		_vec = Vector( MOVE_SPEED, -MOVE_SPEED / 2 );
 	}
+
 }
 
 void Momotaro::act( ) {
