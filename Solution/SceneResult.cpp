@@ -9,7 +9,7 @@
 static const int FRAME_WIDTH  = 896;
 static const int FRAME_HEIGHT = 772;
 static const int ANIMELOCK_COUNT = 420;
-static const int PHASE_COUNT = 60;
+static const int PHASE_COUNT = 30;
 static const int NUMERIC_SIZE = 100;
 
 PTR( Infomation );
@@ -197,7 +197,7 @@ void SceneResult::drawNumber( int offset, int num, double alpha ) {
 	}
 
 	{
-		int n = _population;
+		int n = num;
 		DrawerPtr drawer = Drawer::getTask( );
 		do {
 			Drawer::Transform trans( x - NUMERIC_SIZE / 2, y - NUMERIC_SIZE / 2, 0, 0, NUMERIC_SIZE, NUMERIC_SIZE, x + NUMERIC_SIZE / 2, y + NUMERIC_SIZE / 2 );

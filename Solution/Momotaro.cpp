@@ -18,7 +18,7 @@ static const int SHOOT_SPEED = 10;
 static const int WAIT_PATTERN_TIME = 3;
 static const int CHIP_SIZE = 128;
 static const int FALTER_COUNT = 30;
-static const int DAMAGE_COUNT = 30;
+static const int DAMAGE_COUNT = 60;
 
 Momotaro::Momotaro( InputterPtr inputter, PsychicMgrPtr mgr, PowerPtr power ) :
 Character( START_X, START_Y, CHIP_SIZE, CHIP_SIZE / 2, false ),
