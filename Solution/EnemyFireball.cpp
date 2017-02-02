@@ -7,11 +7,14 @@ static const int POW = 3;
 static const int MOVE_SPEED = 5;
 static const int WAIT_ANIME_TIME = 1;
 
-EnemyFireball::EnemyFireball( const Vector& pos, const Vector& vec ) :
+EnemyFireball::EnemyFireball( const Vector& pos, const Vector& vec, bool dir_right ) :
 Enemy( ( int )pos.x, ( int )pos.y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ),
 _pos( pos ),
 _vec( vec ) {
 	setNoHead( );
+	if ( dir_right ) {
+		_vec.x *= -1;
+	}
 }
 
 

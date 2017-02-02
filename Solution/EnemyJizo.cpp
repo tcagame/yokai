@@ -11,15 +11,19 @@ static const int WAIT_ATTACK_TIME = 100;
 static const int WAIT_APPEAR_TIME = 10;
 static const int ATTACK_FOOT_Y = 120;
 static const int ATTACK_FOOT_X = 50;
+static const int RIGHT_ATTACK_POS = 120;
 static const int FIRE_SPEED = 10;
 
-EnemyJizo::EnemyJizo( EnemyStockPtr stock, int x, int y ) :
+EnemyJizo::EnemyJizo( EnemyStockPtr stock, int x, int y, bool dir_right ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),
 _stock( stock ),
 _action( ACTION_WAIT ),
 _act_count( 0 ),
 _move_speed( -MOVE_SPEED ),
 _before_x( 0 ) {
+	if ( dir_right ) {
+		_move_speed *= -1;
+	}
 }
 
 
@@ -50,7 +54,12 @@ void EnemyJizo::actNomal( ) {
 	if ( _act_count % WAIT_ATTACK_TIME == 0 ) {
 		Vector pos( getX( ) - ATTACK_FOOT_X, getY( ) - ATTACK_FOOT_Y );
 		Vector vec = Vector( -1, 0.3 ).normalize( ) * FIRE_SPEED;
-		EnemyPtr enemy = EnemyPtr( new EnemyFireball( pos, vec ) );
+		bool dir_right = false;
+		if ( _move_speed > 0 ) {
+			dir_right = true;
+			pos.x += RIGHT_ATTACK_POS;
+		}
+		EnemyPtr enemy = EnemyPtr( new EnemyFireball( pos, vec, dir_right ) );
 		_stock->addEnemy( enemy );
 	}
 }

@@ -3,7 +3,7 @@
 
 class EnemyBowDemon : public Enemy {
 public:
-	EnemyBowDemon( EnemyStockPtr enemy_stock, int x, int y );
+	EnemyBowDemon( EnemyStockPtr enemy_stock, int x, int y, bool dir_right = false );
 	virtual ~EnemyBowDemon( );
 private:
 	void act( );

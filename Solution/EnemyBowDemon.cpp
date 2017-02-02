@@ -9,12 +9,15 @@ static const int MOVE_SPEED = 5;
 static const int WAIT_ANIME_TIME = 8;
 static const int ATTACK_FOOT = 30;
 
-EnemyBowDemon::EnemyBowDemon( EnemyStockPtr enemy_stock, int x, int y ) :
+EnemyBowDemon::EnemyBowDemon( EnemyStockPtr enemy_stock, int x, int y, bool dir_right ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),
 _move_speed( -MOVE_SPEED ),
 _before_x( 0 ),
 _stock( enemy_stock ),
 _act_count( 0 ) {
+	if ( dir_right ) {
+		_move_speed *= -1;
+	}
 }
 
 
@@ -37,7 +40,11 @@ void EnemyBowDemon::act( ) {
 	}
 	if ( u == 12 ) {
 		if ( _act_count % WAIT_ANIME_TIME == 0 ) {
-			_stock->addEnemy( EnemyPtr( new EnemyBowDemonAttack( getX( ), getY( ) - ATTACK_FOOT ) ) );
+			bool dir_right = false;
+			if ( _move_speed > 0 ) {
+				dir_right = true;
+			}
+			_stock->addEnemy( EnemyPtr( new EnemyBowDemonAttack( getX( ), getY( ) - ATTACK_FOOT, dir_right ) ) );
 		}
 	}
 	setChipGraph( GRAPH_ENEMY_NORMAL, u, v );

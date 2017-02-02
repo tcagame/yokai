@@ -3,7 +3,7 @@
 
 class EnemyJizo : public Enemy {
 public:
-	EnemyJizo( EnemyStockPtr enemy_stock, int x, int y );
+	EnemyJizo( EnemyStockPtr enemy_stock, int x, int y, bool dir_right = false );
 	virtual ~EnemyJizo( );
 private:
 	enum ACTION {
