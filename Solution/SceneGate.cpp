@@ -11,7 +11,7 @@ static const int MAP_Y = 70;
 static const int TITLE_X = ( SCREEN_WIDTH - 480 ) / 4;
 static const int TITLE_Y = 10;
 static const int COUNT_X = 1000;
-static const int COUNT_Y = 20;
+static const int COUNT_Y = 100;
 static const int TAROSUKE_Y = 550;
 static const int TAROSUKE_SPEED = 10;
 static const int TAROSUKE_SIZE = 128;
@@ -124,7 +124,7 @@ void SceneGate::draw( ) const {
 
 	{
 		int n = prob / 100;
-		if ( n > 0 || n == 0 ) {
+		if ( n > 0 ) {
 			Drawer::Sprite sprite( //\‚ÌˆÊ
 				Drawer::Transform( COUNT_X - 120, COUNT_Y + 130 ), GRAPH_NUMERIC[ n ] );
 			drawer->setSprite( sprite );
@@ -132,20 +132,15 @@ void SceneGate::draw( ) const {
 	}
 	{
 		int n = prob / 10 % 10;
-		if ( n > 0 || n == 0 ) {
-			Drawer::Sprite sprite( //ˆê‚ÌˆÊ
-				Drawer::Transform( COUNT_X - 70, COUNT_Y + 130 ), GRAPH_NUMERIC[ n ] );
-			drawer->setSprite( sprite );
-		}
-
+		Drawer::Sprite sprite( //ˆê‚ÌˆÊ
+			Drawer::Transform( COUNT_X - 70, COUNT_Y + 130 ), GRAPH_NUMERIC[ n ] );
+		drawer->setSprite( sprite );
 	}
 	{
 		int n = prob % 10;
-		if ( n > 0 || n == 0 ) {
-			Drawer::Sprite sprite( //¬”“_‘æˆê
-				Drawer::Transform( COUNT_X, COUNT_Y + 130 ), GRAPH_NUMERIC[ n ] );
-			drawer->setSprite( sprite );
-		}
+		Drawer::Sprite sprite( //¬”“_‘æˆê
+			Drawer::Transform( COUNT_X, COUNT_Y + 130 ), GRAPH_NUMERIC[ n ] );
+		drawer->setSprite( sprite );
 	}
 	{
 		Drawer::Sprite sprite( 

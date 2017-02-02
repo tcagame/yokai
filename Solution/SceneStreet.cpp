@@ -24,6 +24,7 @@
 
 static const int CLEAR_COUNT = 120;
 static const int DEAD_COUNT = 150;
+static const int DEATH_POINTS_COUNT = 80;
 
 SceneStreet::SceneStreet() {
 	srand( 0 );
@@ -48,7 +49,7 @@ SceneStreet::SceneStreet() {
 	drawer->loadGraph( GRAPH_ENEMY_BIG			, "street/enemy/enemy_big.png");
 	drawer->loadGraph( GRAPH_REPLAY				, "street/status/status_replay.png" );
 	drawer->loadGraph( GRAPH_GAMEOVER			, "street/status/status_gameover.png" );
-	drawer->loadGraph( GRAPH_DETH_POINT			, "street/status/status_deth_point.png" );
+	drawer->loadGraph( GRAPH_DEATH_POINT        , "street/status/status_deth_point.png" );
 
 
 	_inputter = InputterPtr( new Inputter );
@@ -191,7 +192,7 @@ Scene::NEXT SceneStreet::update( ) {
 		}
 		if ( _power->get( ) == 0 ) {
 			_phase = PHASE_DEAD;
-			_info->setHistroy( game->getStage( ), _tarosuke->getX( ), _tarosuke->getY( ) );
+			makeDeathPoints( );
 			_phase_count = 0;
 		}
 		break;
@@ -201,7 +202,7 @@ Scene::NEXT SceneStreet::update( ) {
 		}
 		if ( _power->get( ) == 0 ) {
 			_phase = PHASE_DEAD;
-			_info->setHistroy( game->getStage( ), _tarosuke->getX( ), _tarosuke->getY( ) );
+			makeDeathPoints( );
 			_phase_count = 0;
 		}
 		if ( _enemy_mgr->isBossDead( ) ) {
@@ -289,9 +290,9 @@ Scene::NEXT SceneStreet::update( ) {
 			Drawer::Transform( 0, SCREEN_HEIGHT * 9 / 10 ), GRAPH_REPLAY );
 		drawer->setSprite( sprite );
 	}
-	if ( _phase == PHASE_DEAD && _phase_count > 80 && !game->isDemo( ) ) {
+	if ( _phase == PHASE_DEAD && _phase_count > DEATH_POINTS_COUNT && !game->isDemo( ) ) {
 		//@Ž€‚ñ‚¾êŠ‚w
-		drawDethPoint( game );
+		drawDeathPoints( );
 		//‚°`‚Þ‚¨`‚Î`
 		DrawerPtr drawer = Drawer::getTask( );
 		Drawer::Sprite sprite(
@@ -321,18 +322,51 @@ void SceneStreet::debugWarp( ) {
 	_tarosuke->warp( warp );
 }
 
-void SceneStreet::drawDethPoint( GamePtr game ) {
-	const int DETH_CHIP_SIZE = 200;
-	DrawerPtr drawer = Drawer::getTask( );
-	for ( int i = 0; i < _info->HISTORY_NUM; i++ ) {
-		int x = _info->getHistoryX( game->getStage( ), i ) - _camera->getX( );
-		int y = _info->getHistoryY( game->getStage( ), i );
+void SceneStreet::makeDeathPoints( ) {
+	GamePtr game = Game::getTask( );
+	int stage = game->getStage( );
+	_info->setHistroy( stage, _tarosuke->getX( ), _tarosuke->getY( ) );
+	for ( int i = 0; i < Infomation::HISTORY_NUM; i++ ) {
+		int x = _info->getHistoryX( stage, i );
+		int y = _info->getHistoryY( stage, i );
 		if ( x + y == 0 ) {
 			continue;
 		}
 
+		Vector pos( x - _camera->getX( ), y - _camera->getY( ) );
+		if ( pos.x < -64 || pos.x > SCREEN_WIDTH + 64 ) {
+			continue;
+		}
+
+		_death_points.push_back( pos );
+	}
+}
+
+void SceneStreet::drawDeathPoints( ) {
+	const int DEATH_CHIP_SIZE = 32;
+	DrawerPtr drawer = Drawer::getTask( );
+	int count = ( _phase_count - DEATH_POINTS_COUNT ) / 4;
+	int size = ( _phase_count - DEATH_POINTS_COUNT ) / 4;
+	if ( size > ( int )_death_points.size( ) ) {
+		size = ( int )_death_points.size( );
+	}
+	
+	std::list< Vector >::iterator it = _death_points.begin( );
+	for ( int i = 0; i < size; i++ ) {
+		int pattern = count - i - 1;
+		if ( pattern > 3 ) {
+			pattern = 3;
+		}
+		int sx = ( int )( *it ).x;
+		int sy = ( int )( *it ).y;
+		int tx = pattern % 2 * DEATH_CHIP_SIZE;
+		int ty = pattern / 2 * DEATH_CHIP_SIZE;
+
 		Drawer::Sprite sprite(
-			Drawer::Transform( x - DETH_CHIP_SIZE / 2, y ), GRAPH_DETH_POINT );
+			Drawer::Transform( sx - DEATH_CHIP_SIZE / 2, sy - DEATH_CHIP_SIZE, tx, ty, DEATH_CHIP_SIZE, DEATH_CHIP_SIZE ),
+			GRAPH_DEATH_POINT );
 		drawer->setSprite( sprite );
+
+		it++;
 	}
 }

@@ -2,6 +2,8 @@
 
 #include "smart_ptr.h"
 #include "Scene.h"
+#include "mathmatics.h"
+#include <list>
 
 PTR( Tarosuke );
 PTR( Tarosuke );
@@ -32,7 +34,8 @@ private:
 private:
 	virtual NEXT update( );
 	void debugWarp( );
-	void drawDethPoint( GamePtr game );
+	void makeDeathPoints( );
+	void drawDeathPoints( );
 private:
 	InfomationPtr _info;
 	InputterPtr _inputter;
@@ -46,5 +49,6 @@ private:
 	StatusPtr _status;
 	PHASE _phase;
 	int _phase_count;
+	std::list< Vector > _death_points;
 };
 
