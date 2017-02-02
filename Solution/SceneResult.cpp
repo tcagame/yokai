@@ -28,26 +28,31 @@ _count( 0 ) {
 	case 4:
 		drawer->loadGraph( GRAPH_RESULT_FRAME, "result/heaven/heaven_frame.png" );
 		drawer->loadGraph( GRAPH_RESULT_OBJ  , "result/heaven/heaven_obj.png" );
+		drawer->loadGraph( GRAPH_RESULT_MSG  , "result/heaven/heaven_message_frame.png" );
 		sound->playBGM( "yokai_music_09.wav" );
 		break;
 	case 3:
 		drawer->loadGraph( GRAPH_RESULT_FRAME, "result/human/human_frame.png" );
 		drawer->loadGraph( GRAPH_RESULT_OBJ  , "result/human/human_obj.png" );
+		drawer->loadGraph( GRAPH_RESULT_MSG  , "result/human/human_message_frame.png" );
 		sound->playBGM( "yokai_music_09.wav" );
 		break;
 	case 2:
 		drawer->loadGraph( GRAPH_RESULT_FRAME, "result/damn/damn_frame.png" );
 		drawer->loadGraph( GRAPH_RESULT_OBJ  , "result/damn/damn_obj.png" );
+		drawer->loadGraph( GRAPH_RESULT_MSG  , "result/damn/damn_message_frame.png" );
 		sound->playBGM( "yokai_music_09.wav" );
 		break;
 	case 1:
 		drawer->loadGraph( GRAPH_RESULT_FRAME, "result/hungry/hungry_frame.png" );
 		drawer->loadGraph( GRAPH_RESULT_OBJ  , "result/hungry/hungry_obj.png" );
+		drawer->loadGraph( GRAPH_RESULT_MSG  , "result/hungry/hungry_message_frame.png" );
 		sound->playBGM( "yokai_music_09.wav" );
 		break;
 	case 0:
 		drawer->loadGraph( GRAPH_RESULT_FRAME, "result/hell/hell_frame.png" );
 		drawer->loadGraph( GRAPH_RESULT_OBJ  , "result/hell/hell_obj.png" );
+		drawer->loadGraph( GRAPH_RESULT_MSG  , "result/hell/hell_message_frame.png" );
 		sound->playBGM( "yokai_music_09.wav" );
 		break;
 	}
@@ -159,6 +164,11 @@ void SceneResult::drawHeaven( ) {
 		drawer->setSprite( sprite );
 	}
 
+	{
+	Drawer::Transform trans( 70, 530 );
+	Drawer::Sprite sprite( trans, GRAPH_RESULT_MSG, Drawer::BLEND_NONE, 1.0 );
+	drawer->setSprite( sprite );
+	}
 }
 
 void SceneResult::drawHuman( ) {
@@ -275,6 +285,11 @@ void SceneResult::drawHuman( ) {
 			drawer->setSprite( sprite );
 		}
 	}
+	{
+	Drawer::Transform trans( 70, 530 );
+	Drawer::Sprite sprite( trans, GRAPH_RESULT_MSG, Drawer::BLEND_NONE, 1.0 );
+	drawer->setSprite( sprite );
+	}
 }
 
 void SceneResult::drawDamn( ) {
@@ -351,6 +366,11 @@ void SceneResult::drawDamn( ) {
 			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
 			drawer->setSprite( sprite );
 		}
+	}
+	{
+	Drawer::Transform trans( 70, 530 );
+	Drawer::Sprite sprite( trans, GRAPH_RESULT_MSG, Drawer::BLEND_NONE, 1.0 );
+	drawer->setSprite( sprite );
 	}
 }
 
@@ -449,6 +469,11 @@ void SceneResult::drawHungry( ) {
 			drawer->setSprite( sprite );
 		}
 	}
+	{
+	Drawer::Transform trans( 70, 530 );
+	Drawer::Sprite sprite( trans, GRAPH_RESULT_MSG, Drawer::BLEND_NONE, 1.0 );
+	drawer->setSprite( sprite );
+	}
 }
 
 void SceneResult::drawHell( ) {
@@ -508,5 +533,10 @@ void SceneResult::drawHell( ) {
 		Drawer::Transform trans( 670, 550, ( _count / 4 % 4 ) * 64, 384, 64, 64 );
 		Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
 		drawer->setSprite( sprite );
+	}
+	{
+	Drawer::Transform trans( 70, 530 );
+	Drawer::Sprite sprite( trans, GRAPH_RESULT_MSG, Drawer::BLEND_NONE, 1.0 );
+	drawer->setSprite( sprite );
 	}
 }
