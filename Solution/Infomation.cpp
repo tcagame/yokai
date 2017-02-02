@@ -67,17 +67,11 @@ void Infomation::setHistroy( int stage_idx, int x, int y ) {
 }
 
 int Infomation::getHistoryX( int stage_idx, int idx ) const {
-	if ( idx == _data.history_idx ) {
-		return 0;
-	}
 	idx = ( idx + _data.history_idx ) % HISTORY_NUM;
 	return _data.history_x[ stage_idx ][ idx ];
 }
 
 int Infomation::getHistoryY( int stage_idx, int idx ) const {
-	if ( idx == _data.history_idx ) {
-		return 0;
-	}
 	idx = ( idx + _data.history_idx ) % HISTORY_NUM;
 	return _data.history_y[ stage_idx ][ idx ];
 }

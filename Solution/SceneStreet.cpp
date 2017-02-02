@@ -191,6 +191,7 @@ Scene::NEXT SceneStreet::update( ) {
 			}
 		}
 		if ( _power->get( ) == 0 ) {
+			sound->playBGM( "yokai_se_31.wav", false );
 			_phase = PHASE_DEAD;
 			makeDeathPoints( );
 			_phase_count = 0;
@@ -201,6 +202,7 @@ Scene::NEXT SceneStreet::update( ) {
 			_enemy_mgr->attackBoss( );
 		}
 		if ( _power->get( ) == 0 ) {
+			sound->playBGM( "yokai_se_31.wav", false );
 			_phase = PHASE_DEAD;
 			makeDeathPoints( );
 			_phase_count = 0;
@@ -329,7 +331,7 @@ void SceneStreet::makeDeathPoints( ) {
 	GamePtr game = Game::getTask( );
 	int stage = game->getStage( );
 	_info->setHistroy( stage, _tarosuke->getX( ), _tarosuke->getY( ) );
-	for ( int i = 0; i < Infomation::HISTORY_NUM; i++ ) {
+	for ( int i = 1; i < Infomation::HISTORY_NUM; i++ ) {
 		int x = _info->getHistoryX( stage, i );
 		int y = _info->getHistoryY( stage, i );
 		if ( x + y == 0 ) {

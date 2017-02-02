@@ -133,7 +133,6 @@ void Tarosuke::act( ) {
 			_momotaro->hide( );
 		}
 		SoundPtr sound = Sound::getTask( );
-		sound->playBGM( "yokai_se_31.wav" );
 		sound->stopSE( "yokai_se_02.wav" );
 		return;
 	}
