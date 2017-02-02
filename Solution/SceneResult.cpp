@@ -9,6 +9,10 @@
 static const int FRAME_WIDTH  = 896;
 static const int FRAME_HEIGHT = 772;
 static const int ANIMELOCK_COUNT = 420;
+static const int PHASE_COUNT = 60;
+static const int NUMERIC_SIZE = 100;
+
+PTR( Infomation );
 
 SceneResult::SceneResult( ) :
 _count( 0 ) {
@@ -23,6 +27,18 @@ _count( 0 ) {
 	}
 
 	info->increasePopulation( _level );
+	_population = info->getPopulation( _level );
+	
+	drawer->loadGraph( GRAPH_GATE_COUNT_0, "gate/count_0.png" );
+	drawer->loadGraph( GRAPH_GATE_COUNT_1, "gate/count_1.png" );
+	drawer->loadGraph( GRAPH_GATE_COUNT_2, "gate/count_2.png" );
+	drawer->loadGraph( GRAPH_GATE_COUNT_3, "gate/count_3.png" );
+	drawer->loadGraph( GRAPH_GATE_COUNT_4, "gate/count_4.png" );
+	drawer->loadGraph( GRAPH_GATE_COUNT_5, "gate/count_5.png" );
+	drawer->loadGraph( GRAPH_GATE_COUNT_6, "gate/count_6.png" );
+	drawer->loadGraph( GRAPH_GATE_COUNT_7, "gate/count_7.png" );
+	drawer->loadGraph( GRAPH_GATE_COUNT_8, "gate/count_8.png" );
+	drawer->loadGraph( GRAPH_GATE_COUNT_9, "gate/count_9.png" );
 
 	switch ( _level ) {
 	case 4:
@@ -56,6 +72,8 @@ _count( 0 ) {
 		sound->playBGM( "yokai_music_09.wav" );
 		break;
 	}
+
+	_phase = PHASE_ONLYFRAME;
 }
 
 
@@ -75,19 +93,121 @@ Scene::NEXT SceneResult::update( ) {
 	case 0: drawHell( ); break;
 	}
 
+	drawWindow( );
+
+	_phase_count++;
+	
 	GamePtr game = Game::getTask( );
-	if ( game->getFade( ) == Game::FADE_NONE ) {
-		if ( _count > ANIMELOCK_COUNT || _level == 0 ) {
-			DevicePtr device = Device::getTask( );
-			if ( device->getPush( ) == BUTTON_A ) {
-				game->setFade( Game::FADE_OUT );
-			}
+	DevicePtr device = Device::getTask( );
+	switch ( _phase ) {
+	case PHASE_ONLYFRAME:
+		if ( device->getPush( ) != 0 ) {
+			_phase = PHASE_INWINDOW;
+			_phase_count = 0;
 		}
+		break;
+	case PHASE_INWINDOW:
+		if ( _phase_count > PHASE_COUNT ) {
+			_phase = PHASE_INCREASE;
+			_phase_count = 0;
+		}
+		break;
+	case PHASE_INCREASE:
+		if ( _phase_count > PHASE_COUNT ) {
+			_phase = PHASE_WAIT;
+			_phase_count = 0;
+		}
+		break;
+	case PHASE_WAIT:
+		if ( game->getFade( ) == Game::FADE_NONE ) {
+			if ( device->getPush( ) != 0 ) {
+				game->setFade( Game::FADE_OUT );
+			}	
+		}
+		break;
 	}
+
 	if ( game->getFade( ) == Game::FADE_COVER ) {
 		return NEXT_TITLE;
 	}
 	return NEXT_CONTINUE;
+}
+
+void SceneResult::drawWindow( ) {
+	if ( _phase == PHASE_ONLYFRAME ) {
+		return;
+	}
+
+	double alpha = 1.0;
+	if ( _phase == PHASE_INWINDOW ) {
+		alpha = ( double )_phase_count / ( PHASE_COUNT / 2 );
+	}
+
+	DrawerPtr drawer = Drawer::getTask( );
+	Drawer::Transform trans( 70, 570 );
+	Drawer::Sprite sprite( trans, GRAPH_RESULT_MSG, Drawer::BLEND_ALPHA, alpha );
+	drawer->setSprite( sprite );
+
+	switch ( _phase ) {
+	case PHASE_INWINDOW:
+		drawNumber( 0, _population - 1, alpha );
+		break;
+	case PHASE_INCREASE:
+		{
+			int offset = _phase_count * NUMERIC_SIZE / PHASE_COUNT;
+			drawNumber( offset               , _population - 1, 1.0 );
+			drawNumber( offset - NUMERIC_SIZE, _population    , 1.0 );
+		}
+		break;
+	case PHASE_WAIT:
+		drawNumber( 0, _population, 1.0 );
+		break;
+	}
+}
+
+void SceneResult::drawNumber( int offset, int num, double alpha ) {
+	const int GRAPH_NUMERIC[ 10 ] = {
+		GRAPH_GATE_COUNT_0,
+		GRAPH_GATE_COUNT_1,
+		GRAPH_GATE_COUNT_2,
+		GRAPH_GATE_COUNT_3,
+		GRAPH_GATE_COUNT_4,
+		GRAPH_GATE_COUNT_5,
+		GRAPH_GATE_COUNT_6,
+		GRAPH_GATE_COUNT_7,
+		GRAPH_GATE_COUNT_8,
+		GRAPH_GATE_COUNT_9,
+	};
+	const int X[ ] = {
+		70 + 800,
+		70 + 200,
+		70 + 528,
+		70 + 800,
+		70 + 800,
+	};
+
+	int y = 70 + 570 + offset;
+	int x = X[ _level ];
+	{
+		int n = num;
+		while ( n >= 10 ) {
+			x += NUMERIC_SIZE / 4;
+			n /= 10;
+		}
+	}
+
+	{
+		int n = _population;
+		DrawerPtr drawer = Drawer::getTask( );
+		do {
+			Drawer::Transform trans( x - NUMERIC_SIZE / 2, y - NUMERIC_SIZE / 2, 0, 0, NUMERIC_SIZE, NUMERIC_SIZE, x + NUMERIC_SIZE / 2, y + NUMERIC_SIZE / 2 );
+			Drawer::Sprite sprite( trans, GRAPH_NUMERIC[ n % 10 ], Drawer::BLEND_ALPHA, alpha );
+			drawer->setSprite( sprite );
+
+			n /= 10;
+			x -= NUMERIC_SIZE / 2;
+		} while ( n > 0 );
+	}
 }
 
 void SceneResult::drawFrame( ) {
@@ -99,9 +219,6 @@ void SceneResult::drawFrame( ) {
 
 void SceneResult::drawHeaven( ) {
 	DrawerPtr drawer = Drawer::getTask( );
-	InfomationPtr info = InfomationPtr( new Infomation );
-
-	drawer->drawString( 100, 100, "%d", info->getPopulation( _level ) ); 
 
 	if ( _count > ANIMELOCK_COUNT -170 && _count < ANIMELOCK_COUNT - 120 ) {
 		{// たろすけ
@@ -163,19 +280,10 @@ void SceneResult::drawHeaven( ) {
 		Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
 		drawer->setSprite( sprite );
 	}
-
-	{// メッセージ
-	Drawer::Transform trans( 70, 570 );
-	Drawer::Sprite sprite( trans, GRAPH_RESULT_MSG, Drawer::BLEND_NONE, 1.0 );
-	drawer->setSprite( sprite );
-	}
 }
 
 void SceneResult::drawHuman( ) {
 	DrawerPtr drawer = Drawer::getTask( );
-	InfomationPtr info = InfomationPtr( new Infomation );
-
-	drawer->drawString( 100, 100, "%d", info->getPopulation( _level ) ); 
 
 	if ( _count < ANIMELOCK_COUNT - 29 ) {
 		if ( _count > ANIMELOCK_COUNT - 84 ) {
@@ -285,19 +393,10 @@ void SceneResult::drawHuman( ) {
 			drawer->setSprite( sprite );
 		}
 	}
-
-	{// メッセージ
-	Drawer::Transform trans( 70, 570 );
-	Drawer::Sprite sprite( trans, GRAPH_RESULT_MSG, Drawer::BLEND_NONE, 1.0 );
-	drawer->setSprite( sprite );
-	}
 }
 
 void SceneResult::drawDamn( ) {
 	DrawerPtr drawer = Drawer::getTask( );
-	InfomationPtr info = InfomationPtr( new Infomation );
-
-	drawer->drawString( 100, 100, "%d", info->getPopulation( _level ) ); 
 
 	{// カラス
 		Drawer::Transform trans( 850 - _count, 200, ( _count / 4 % 2 ) * 64, 384, 64, 64 );
@@ -368,19 +467,10 @@ void SceneResult::drawDamn( ) {
 			drawer->setSprite( sprite );
 		}
 	}
-
-	{// メッセージ
-	Drawer::Transform trans( 70, 570 );
-	Drawer::Sprite sprite( trans, GRAPH_RESULT_MSG, Drawer::BLEND_NONE, 1.0 );
-	drawer->setSprite( sprite );
-	}
 }
 
 void SceneResult::drawHungry( ) {
 	DrawerPtr drawer = Drawer::getTask( );
-	InfomationPtr info = InfomationPtr( new Infomation );
-
-	drawer->drawString( 100, 100, "%d", info->getPopulation( _level ) ); 
 
 	int food_y = _count - 250;
 	int y = food_y * 10 + 500;
@@ -471,19 +561,10 @@ void SceneResult::drawHungry( ) {
 			drawer->setSprite( sprite );
 		}
 	}
-
-	{// メッセージ
-	Drawer::Transform trans( 70, 570 );
-	Drawer::Sprite sprite( trans, GRAPH_RESULT_MSG, Drawer::BLEND_NONE, 1.0 );
-	drawer->setSprite( sprite );
-	}
 }
 
 void SceneResult::drawHell( ) {
 	DrawerPtr drawer = Drawer::getTask( );
-	InfomationPtr info = InfomationPtr( new Infomation );
-
-	drawer->drawString( 100, 100, "%d", info->getPopulation( _level ) ); 
 
 	if ( _count < ANIMELOCK_COUNT - 20 ) {
 		{// たろすけ
@@ -536,11 +617,5 @@ void SceneResult::drawHell( ) {
 		Drawer::Transform trans( 670, 550, ( _count / 4 % 4 ) * 64, 384, 64, 64 );
 		Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );
 		drawer->setSprite( sprite );
-	}
-	
-	{// メッセージ
-	Drawer::Transform trans( 70, 570 );
-	Drawer::Sprite sprite( trans, GRAPH_RESULT_MSG, Drawer::BLEND_NONE, 1.0 );
-	drawer->setSprite( sprite );
 	}
 }

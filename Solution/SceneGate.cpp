@@ -31,8 +31,8 @@ SceneGate::SceneGate( ) {
 	drawer->loadGraph( GRAPH_GATE_COUNT_7, "gate/count_7.png" );
 	drawer->loadGraph( GRAPH_GATE_COUNT_8, "gate/count_8.png" );
 	drawer->loadGraph( GRAPH_GATE_COUNT_9, "gate/count_9.png" );
-	drawer->loadGraph( GRAPH_GATE_DOT  , "gate/count_dot.png" );
-	drawer->loadGraph( GRAPH_GATE_CLEAR, "gate/clear_font.png" );
+	drawer->loadGraph( GRAPH_GATE_DOT    , "gate/count_dot.png" );
+	drawer->loadGraph( GRAPH_GATE_CLEAR  , "gate/clear_font.png" );
 	drawer->loadGraph( GRAPH_GATE_PERCENT, "gate/count_percent.png" );
 
 	GamePtr game = Game::getTask( );
