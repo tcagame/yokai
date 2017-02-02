@@ -67,3 +67,7 @@ int Infomation::getHistoryX( int stage_idx, int idx ) const {
 int Infomation::getHistoryY( int stage_idx, int idx ) const {
 	return _data.history_y[ stage_idx ][ idx ];
 }
+
+int Infomation::getPopulation( int result_idx ) const {
+	return _data.population[ result_idx ];
+}
