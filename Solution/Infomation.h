@@ -2,7 +2,7 @@
 
 class Infomation {
 public:
-	Infomation( );
+	Infomation( bool loading = true );
 	virtual ~Infomation();
 public:
 	static const int HISTORY_NUM = 1000;

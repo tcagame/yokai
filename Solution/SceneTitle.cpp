@@ -6,6 +6,7 @@
 #include "Define.h"
 #include "Keyboard.h"
 #include "Game.h"
+#include "Infomation.h"
 #include <time.h>
 
 static const int TITLE_WIDTH  = 1024;
@@ -68,6 +69,9 @@ Scene::NEXT SceneTitle::update( ) {
 	}
 
 	KeyboardPtr keyboard = Keyboard::getTask( );
+	if ( keyboard->isPushKey( "F9" ) ) {
+		Infomation( false ); // データクリア
+	}
 	if ( keyboard->isPushKey( "ENTER" ) ) {
 		return NEXT_DEBUG_STREET_TEST;
 	}

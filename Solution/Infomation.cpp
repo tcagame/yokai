@@ -4,20 +4,22 @@
 
 const char * FILENAME = "record/information";
 
-Infomation::Infomation( ) {
+Infomation::Infomation( bool loading ) {
 	for ( int j = 0; j < 5; j++ ) {
 		for ( int i = 0; i < HISTORY_NUM; i++ ) {
 			_data.history_x[ j ][ i ] = 0;
 			_data.history_y[ j ][ i ] = 0;
 		}
-	_data.history_idx = 0;
+		_data.history_idx = 0;
 
-	_data.denominator[ j ] = 0;
-	_data.numerator[ j ] = 0;
-	_data.population[ j ] = 0;
+		_data.denominator[ j ] = 0;
+		_data.numerator[ j ] = 0;
+		_data.population[ j ] = 0;
 	}
 
-	load( );
+	if ( loading ) {
+		load( );
+	}
 }
 
 Infomation::~Infomation( ) {
@@ -59,9 +61,9 @@ void Infomation::increaseNumerator( int stage_idx ) {
 }
 
 void Infomation::setHistroy( int stage_idx, int x, int y ) {
+	_data.history_idx = ( _data.history_idx + 1 ) % HISTORY_NUM;
 	_data.history_x[ stage_idx ][ _data.history_idx ] = x;
 	_data.history_y[ stage_idx ][ _data.history_idx ] = y;
-	_data.history_idx = ( _data.history_idx + 1 ) % HISTORY_NUM;
 }
 
 int Infomation::getHistoryX( int stage_idx, int idx ) const {

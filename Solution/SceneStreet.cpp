@@ -219,8 +219,11 @@ Scene::NEXT SceneStreet::update( ) {
 			if ( game->isDemo( ) ) {
 				return NEXT_TITLE;
 			}
-			game->setFade( Game::FADE_OUT );
-			_phase = PHASE_FADEOUT;
+			DevicePtr device = Device::getTask( );
+			if ( device->getButton( ) != 0 ) {
+				game->setFade( Game::FADE_OUT );
+				_phase = PHASE_FADEOUT;
+			}
 		}
 		break;
 	case PHASE_CLEAR:
@@ -296,7 +299,7 @@ Scene::NEXT SceneStreet::update( ) {
 		//‚°`‚Þ‚¨`‚Î`
 		DrawerPtr drawer = Drawer::getTask( );
 		Drawer::Sprite sprite(
-			Drawer::Transform( 100, 10 ), GRAPH_GAMEOVER );
+			Drawer::Transform( ( SCREEN_WIDTH - 704 ) / 2, ( SCREEN_HEIGHT - 96 ) / 2 ), GRAPH_GAMEOVER );
 		drawer->setSprite( sprite );
 	}
 
