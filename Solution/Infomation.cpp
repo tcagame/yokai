@@ -15,7 +15,7 @@ Infomation::~Infomation( ) {
 
 
 int Infomation::getProbability( ) const {
-	return _data.numerator / _data.denominator;
+	return _data.numerator * 1000 / _data.denominator;
 }
 
 int Infomation::getNumerator( ) const {
