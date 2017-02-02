@@ -14,6 +14,7 @@ public:
 	void setHistroy( int stage_idx, int x, int y );
 	int getHistoryX( int stage_idx, int idx ) const;
 	int getHistoryY( int stage_idx, int idx ) const;
+	void increasePopulation( int result_idx );
 	int getPopulation( int result_idx ) const;
 private:
 	struct Data {
