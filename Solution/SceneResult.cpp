@@ -77,7 +77,7 @@ Scene::NEXT SceneResult::update( ) {
 
 	GamePtr game = Game::getTask( );
 	if ( game->getFade( ) == Game::FADE_NONE ) {
-		if ( _count > ANIMELOCK_COUNT ) {
+		if ( _count > ANIMELOCK_COUNT || _level == 0 ) {
 			DevicePtr device = Device::getTask( );
 			if ( device->getPush( ) == BUTTON_A ) {
 				game->setFade( Game::FADE_OUT );
