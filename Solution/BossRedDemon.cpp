@@ -12,8 +12,8 @@ static const int POW = 6;
 static const int WAIT_ANIME_TIME = 20;
 static const int LIFTING = 50;
 static const double RADIUS = 50;
-static const int CREATE_COUNT_GHOST = 100;
-static const int CREATE_COUNT_LITTLE_RED_DEMON = 60;
+static const int CREATE_COUNT_GHOST = 200;
+static const int CREATE_COUNT_LITTLE_RED_DEMON = 180;
 
 BossRedDemon::BossRedDemon( EnemyStockPtr stock, int x ) :
 Boss( x + OFFSET_X, OFFSET_Y, CHIP_SIZE, HP, POW ),
