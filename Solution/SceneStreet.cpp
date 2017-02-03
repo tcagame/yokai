@@ -330,7 +330,14 @@ void SceneStreet::debugWarp( ) {
 void SceneStreet::makeDeathPoints( ) {
 	GamePtr game = Game::getTask( );
 	int stage = game->getStage( );
-	_info->setHistroy( stage, _tarosuke->getX( ), _tarosuke->getY( ) );
+	int dx = _tarosuke->getX( );
+	int dy = _tarosuke->getY( );
+
+	if ( dy > BG_SIZE ) {
+		dy = BG_SIZE;
+	}
+
+	_info->setHistroy( stage, dx, dy );
 	for ( int i = 1; i < Infomation::HISTORY_NUM; i++ ) {
 		int x = _info->getHistoryX( stage, i );
 		int y = _info->getHistoryY( stage, i );
