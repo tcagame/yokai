@@ -50,6 +50,8 @@ SceneStreet::SceneStreet() {
 	drawer->loadGraph( GRAPH_REPLAY				, "street/status/status_replay.png" );
 	drawer->loadGraph( GRAPH_GAMEOVER			, "street/status/status_gameover.png" );
 	drawer->loadGraph( GRAPH_DEATH_POINT        , "street/status/status_deth_point.png" );
+	drawer->loadGraph( GRAPH_FAR_BG             , "street/other/bg_far.png" );
+
 
 
 	_inputter = InputterPtr( new Inputter );
