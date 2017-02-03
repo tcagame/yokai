@@ -8,6 +8,7 @@
 #include "Application.h"
 #include "define.h"
 #include "Drawer.h"
+#include "Device.h"
 #include "Sound.h"
 #include <stdarg.h>
 
@@ -28,7 +29,8 @@ _debug( false ),
 _solo( true ),
 _stage( 0 ),
 _demo_count( 0 ),
-_fade( FADE_NONE ) {
+_fade( FADE_NONE ),
+_next( Scene::NEXT_TITLE ) {
 
 }
 
@@ -38,7 +40,7 @@ Game::~Game( ) {
 }
 
 void Game::initialize( ) {
-	changeScene( Scene::NEXT_TITLE );
+	changeScene( );
 }
 
 bool Game::isDebug( ) const {
@@ -58,10 +60,10 @@ int Game::getStage( ) const {
 }
 
 void Game::update( ) {
-	Scene::NEXT next = _scene->update( );
+	_next = _scene->update( );
 	fade( );
 	option( );
-	changeScene( next );
+	changeScene( );
 }
 
 Game::FADE Game::getFade( ) const {
@@ -122,6 +124,13 @@ void Game::option( ) {
 		_debug = !_debug;
 	}
 
+	DevicePtr device = Device::getTask( );
+	if ( device->getButton( ) == ( BUTTON_A |  BUTTON_B | BUTTON_C | BUTTON_D ) ) {
+		_next = Scene::NEXT_TITLE;
+		setFade( FADE::FADE_COVER );
+	}
+
+
 	if ( _debug ) {
 		int x = 0;
 		int y = 0;
@@ -134,11 +143,12 @@ void Game::option( ) {
 			it++;
 		}
 	}
+
 	_debug_message.clear( );
 }
 
-void Game::changeScene( Scene::NEXT next ) {
-	if ( next == Scene::NEXT_CONTINUE ) {
+void Game::changeScene( ) {
+	if ( _next == Scene::NEXT_CONTINUE ) {
 		return;
 	}
 
@@ -152,7 +162,7 @@ void Game::changeScene( Scene::NEXT next ) {
 	sound->stopBGM( );
 	_demo = false;
 
-	switch ( next ) {
+	switch ( _next ) {
 	case Scene::NEXT_TITLE:
 		_scene = ScenePtr( new SceneTitle );
 		break;
@@ -165,7 +175,7 @@ void Game::changeScene( Scene::NEXT next ) {
 		break;
 	case Scene::NEXT_SELECT_1PLAYER:
 	case Scene::NEXT_SELECT_2PLAYER:
-		_solo = ( next == Scene::NEXT_SELECT_1PLAYER );
+		_solo = ( _next == Scene::NEXT_SELECT_1PLAYER );
 		_demo = false;
 		_stage = 0;
 		_scene = ScenePtr( new SceneGate( ) );
