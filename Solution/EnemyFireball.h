@@ -9,8 +9,12 @@ public:
 	virtual ~EnemyFireball( );
 private:
 	void act( );
+	void drawOverlapped( CameraConstPtr camera ) const;
 private:
 	Vector _pos;
 	Vector _vec;
+	int _u;
+	int _v;
+	int _count;
 };
 
