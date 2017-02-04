@@ -140,6 +140,7 @@ void Field::moveClouds( ) {
 }
 
 void Field::draw( CameraConstPtr camera ) const {
+	drawFarBG( camera );
 	drawBG( );
 	drawChip( );
 	drawClouds( camera );
@@ -153,6 +154,16 @@ void Field::drawCover( ) const {
 		Drawer::Sprite sprite( 
 			Drawer::Transform( _scroll_x + i * BG_SIZE, _scroll_y ),
 			graph );
+		drawer->setSprite( sprite );
+	}
+}
+
+void Field::drawFarBG( CameraConstPtr camera ) const {
+	DrawerPtr drawer = Drawer::getTask( );
+	for ( int i = 0; i < 2; i++ ) {
+		Drawer::Sprite sprite( 
+			Drawer::Transform( i * SCREEN_WIDTH - camera->getX( ) / 4 % SCREEN_WIDTH, 0 ),
+			GRAPH_FAR_BG );
 		drawer->setSprite( sprite );
 	}
 }

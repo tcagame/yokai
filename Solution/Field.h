@@ -33,6 +33,7 @@ public:
 	FLOOR getFloor( int x, int y ) const;
 	Vector getStatusMarkerPos( int x ) const;
 private:
+	void drawFarBG( CameraConstPtr camera ) const;
 	void drawBG( ) const;
 	void drawChip( ) const;
 	void drawClouds( CameraConstPtr camera ) const;

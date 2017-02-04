@@ -36,7 +36,7 @@ public:
 private:
 	void fade( );
 	void option( );
-	void changeScene( Scene::NEXT next );
+	void changeScene( );
 private:
 	ScenePtr _scene;
 	bool _solo;
@@ -47,5 +47,6 @@ private:
 	FADE _fade;
 	int _fade_count;
 	std::list< std::string > _debug_message;
+	Scene::NEXT _next;
 };
 
