@@ -1,331 +1,1008 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="Boss.cpp" />
-    <ClCompile Include="BossBlueDemon.cpp" />
-    <ClCompile Include="BossBuddha.cpp" />
-    <ClCompile Include="BossEnma.cpp" />
-    <ClCompile Include="BossHag.cpp" />
-    <ClCompile Include="BossRedDemon.cpp" />
-    <ClCompile Include="EnemyBat.cpp" />
-    <ClCompile Include="EnemyBloodPondDemon.cpp" />
-    <ClCompile Include="EnemyBlueMonk.cpp" />
-    <ClCompile Include="EnemyBowDemon.cpp" />
-    <ClCompile Include="Camera.cpp" />
-    <ClCompile Include="Character.cpp" />
-    <ClCompile Include="Cloud.cpp" />
-    <ClCompile Include="CloudMgr.cpp" />
-    <ClCompile Include="Enemy.cpp" />
-    <ClCompile Include="EnemyBowDemonAttack.cpp" />
-    <ClCompile Include="EnemyBranchMonster.cpp" />
-    <ClCompile Include="EnemyBranchMonsterAttack.cpp" />
-    <ClCompile Include="EnemyCrow.cpp" />
-    <ClCompile Include="EnemyCrocodileSnake.cpp" />
-    <ClCompile Include="EnemyDeceasedFirst.cpp" />
-    <ClCompile Include="EnemyDeceasedFourth.cpp" />
-    <ClCompile Include="EnemyDeceasedGreen.cpp" />
-    <ClCompile Include="EnemyDeceasedSecond.cpp" />
-    <ClCompile Include="EnemyDeceasedThird.cpp" />
-    <ClCompile Include="EnemyExtrudedSpirits.cpp" />
-    <ClCompile Include="EnemyEyeSpector.cpp" />
-    <ClCompile Include="EnemyFireball.cpp" />
-    <ClCompile Include="EnemyFlog.cpp" />
-    <ClCompile Include="EnemyFlogSmall.cpp" />
-    <ClCompile Include="EnemyGrowFace.cpp" />
-    <ClCompile Include="EnemyHandMonster.cpp" />
-    <ClCompile Include="EnemyHellFire.cpp" />
-    <ClCompile Include="EnemyHugDemon.cpp" />
-    <ClCompile Include="EnemyJizo.cpp" />
-    <ClCompile Include="EnemyLittleBlueDemon.cpp" />
-    <ClCompile Include="EnemyMiasmaGray.cpp" />
-    <ClCompile Include="EnemyMiasmaWhite.cpp" />
-    <ClCompile Include="EnemyOneEyesSnake.cpp" />
-    <ClCompile Include="EnemyRayMonster.cpp" />
-    <ClCompile Include="EnemyRollOverNeckWoman.cpp" />
-    <ClCompile Include="EnemyStoneMortgage.cpp" />
-    <ClCompile Include="EnemyRollOverNeckSkull.cpp" />
-    <ClCompile Include="EnemyTreeMonster.cpp" />
-    <ClCompile Include="EnemyWaterGhost.cpp" />
-    <ClCompile Include="EnemyGhoul.cpp" />
-    <ClCompile Include="EnemyManager.cpp" />
-    <ClCompile Include="EnemyMoth.cpp" />
-    <ClCompile Include="EnemyOnyudo.cpp" />
-    <ClCompile Include="EnemyDeceasedPurple.cpp" />
-    <ClCompile Include="EnemyRedbird.cpp" />
-    <ClCompile Include="EnemyRedbirdAttack.cpp" />
-    <ClCompile Include="EnemyStock.cpp" />
-    <ClCompile Include="EnemyStoneRote.cpp" />
-    <ClCompile Include="EnemyStoneFly.cpp" />
-    <ClCompile Include="EnemyTree.cpp" />
-    <ClCompile Include="EnemyGhost.cpp" />
-    <ClCompile Include="EnemyWaterMonk.cpp" />
-    <ClCompile Include="EnemyWindMonster.cpp" />
-    <ClCompile Include="Field.cpp" />
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="EnemyLittleRedDemon.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Map.cpp" />
-    <ClCompile Include="Map0.cpp" />
-    <ClCompile Include="Map1.cpp" />
-    <ClCompile Include="Map2.cpp" />
-    <ClCompile Include="Map3.cpp" />
-    <ClCompile Include="Map4.cpp" />
-    <ClCompile Include="MapTest.cpp" />
-    <ClCompile Include="Momotaro.cpp" />
-    <ClCompile Include="Power.cpp" />
-    <ClCompile Include="Psychic.cpp" />
-    <ClCompile Include="PsychicMgr.cpp" />
-    <ClCompile Include="PsychicMomotaro.cpp" />
-    <ClCompile Include="PsychicTarosuke.cpp" />
-    <ClCompile Include="Scene.cpp" />
-    <ClCompile Include="SceneGate.cpp" />
-    <ClCompile Include="SceneResult.cpp" />
-    <ClCompile Include="SceneStreet.cpp" />
-    <ClCompile Include="SceneTitle.cpp" />
-    <ClCompile Include="EnemySkeletonSpear.cpp" />
-    <ClCompile Include="Status.cpp" />
-    <ClCompile Include="Tarosuke.cpp" />
-    <ClCompile Include="EnemyBranchMonsterAttack.cpp" />
-    <ClCompile Include="EnemyWindMonster.cpp" />
-    <ClCompile Include="EnemyBranchMonster.cpp" />
-    <ClCompile Include="EnemyHellFire.cpp" />
-    <ClCompile Include="EnemyStock.cpp" />
-    <ClCompile Include="EnemyMoth.cpp" />
-    <ClCompile Include="EnemyTree.cpp" />
-    <ClCompile Include="Power.cpp" />
-    <ClCompile Include="SceneGate.cpp" />
-    <ClCompile Include="CloudMgr.cpp" />
-    <ClCompile Include="Boss.cpp" />
-    <ClCompile Include="BossRedDemon.cpp" />
-    <ClCompile Include="Map0.cpp" />
-    <ClCompile Include="Map1.cpp" />
-    <ClCompile Include="Map2.cpp" />
-    <ClCompile Include="Map3.cpp" />
-    <ClCompile Include="Map4.cpp" />
-    <ClCompile Include="MapTest.cpp" />
-    <ClCompile Include="EnemyDeceasedFirst.cpp" />
-    <ClCompile Include="EnemyDeceasedSecond.cpp" />
-    <ClCompile Include="EnemyDeceasedThird.cpp" />
-    <ClCompile Include="EnemyDeceasedFourth.cpp" />
-    <ClCompile Include="EnemyGhoul.cpp" />
-    <ClCompile Include="EnemyExtrudedSpirits.cpp" />
-    <ClCompile Include="EnemyGhost.cpp" />
-    <ClCompile Include="EnemyOnyudo.cpp" />
-    <ClCompile Include="EnemyStoneFly.cpp" />
-    <ClCompile Include="EnemyStoneRote.cpp" />
-    <ClCompile Include="EnemyWaterGhost.cpp" />
-    <ClCompile Include="EnemyWaterMonk.cpp" />
-    <ClCompile Include="EnemySkeletonSpear.cpp" />
-    <ClCompile Include="SceneResult.cpp" />
-    <ClCompile Include="EnemyLittleRedDemon.cpp" />
-    <ClCompile Include="EnemyMiasmaGray.cpp" />
-    <ClCompile Include="EnemyJizo.cpp" />
-    <ClCompile Include="EnemyFlogSmall.cpp" />
-    <ClCompile Include="EnemyFlog.cpp" />
-    <ClCompile Include="EnemyEyeSpector.cpp" />
-    <ClCompile Include="EnemyGrowFace.cpp" />
-    <ClCompile Include="EnemyBowDemon.cpp" />
-    <ClCompile Include="BossBlueDemon.cpp" />
-    <ClCompile Include="EnemyLittleBlueDemon.cpp" />
-    <ClCompile Include="EnemyFireball.cpp" />
-    <ClCompile Include="EnemyCrocodileSnake.cpp" />
-    <ClCompile Include="EnemyHugDemon.cpp" />
-    <ClCompile Include="EnemyBloodPondDemon.cpp" />
-    <ClCompile Include="BossBuddha.cpp" />
-    <ClCompile Include="BossHag.cpp" />
-    <ClCompile Include="EnemyCrow.cpp" />
-    <ClCompile Include="EnemyBlueMonk.cpp" />
-    <ClCompile Include="EnemyBowDemonAttack.cpp" />
-    <ClCompile Include="EnemyOneEyesSnake.cpp" />
-    <ClCompile Include="EnemyTreeMonster.cpp" />
-    <ClCompile Include="EnemyMiasmaWhite.cpp" />
-    <ClCompile Include="EnemyDeceasedPurple.cpp" />
-    <ClCompile Include="EnemyDeceasedGreen.cpp" />
-    <ClCompile Include="EnemyStoneMortgage.cpp" />
-    <ClCompile Include="EnemyRayMonster.cpp" />
-    <ClCompile Include="EnemyRollOverNeckSkull.cpp" />
-    <ClCompile Include="EnemyBat.cpp" />
-    <ClCompile Include="EnemyRollOverNeckWoman.cpp" />
-    <ClCompile Include="BossEnma.cpp" />
-    <ClCompile Include="EnemyHandMonster.cpp" />
-    <ClCompile Include="EnemyNoNeckGhost.cpp" />
-    <ClCompile Include="EnemyHandMonsterAttack.cpp" />
-    <ClCompile Include="EnemyNakabon.cpp" />
-    <ClCompile Include="EnemyNoFace.cpp" />
-    <ClCompile Include="EnemyShishimai.cpp" />
-    <ClCompile Include="EnemyYadokariYokai.cpp" />
-    <ClCompile Include="EnemyShishimaiDemon.cpp" />
-    <ClCompile Include="EnemyFlogChief.cpp" />
-    <ClCompile Include="EnemyWindMonsterAttack.cpp" />
-    <ClCompile Include="EnemyFire.cpp" />
-    <ClCompile Include="EnemyRockMass.cpp" />
-    <ClCompile Include="EnemyATField.cpp" />
-    <ClCompile Include="Inputter.cpp" />
-    <ClCompile Include="EnemyRedFlogSmall.cpp" />
-    <ClCompile Include="Infomation.cpp" />
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyATField.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyBat.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyBloodPondDemon.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyBlueMonk.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyBowDemon.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyBowDemonAttack.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyBranchMonster.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyBranchMonsterAttack.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyCrocodileSnake.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyCrow.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyDeceasedFirst.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyDeceasedFourth.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyDeceasedGreen.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyDeceasedPurple.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyDeceasedSecond.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyDeceasedThird.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyExtrudedSpirits.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyEyeSpector.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyFire.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyFireball.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyFlog.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyFlogChief.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyFlogSmall.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyGhost.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyGhoul.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyGrowFace.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyHandMonster.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyHandMonsterAttack.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyHellFire.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyHugDemon.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyJizo.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyLittleBlueDemon.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyLittleRedDemon.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyManager.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyMiasmaGray.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyMiasmaWhite.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyMoth.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyNakabon.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyNoFace.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyNoNeckGhost.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyOneEyesSnake.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyOnyudo.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyRayMonster.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyRedbird.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyRedbirdAttack.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyRedFlogSmall.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyRockMass.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyRollOverNeckSkull.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyRollOverNeckWoman.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyShishimai.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyShishimaiDemon.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemySkeletonSpear.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyStock.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyStoneFly.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyStoneMortgage.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyStoneRote.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyTree.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyTreeMonster.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyWaterGhost.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyWaterMonk.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyWindMonster.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyWindMonsterAttack.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyYadokariYokai.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="BossBlueDemon.cpp">
+      <Filter>Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="BossBuddha.cpp">
+      <Filter>Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="BossEnma.cpp">
+      <Filter>Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="BossHag.cpp">
+      <Filter>Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="BossRedDemon.cpp">
+      <Filter>Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss.cpp">
+      <Filter>Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="Cloud.cpp">
+      <Filter>Field</Filter>
+    </ClCompile>
+    <ClCompile Include="CloudMgr.cpp">
+      <Filter>Field</Filter>
+    </ClCompile>
+    <ClCompile Include="Field.cpp">
+      <Filter>Field</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Map0.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Map1.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Map2.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Map3.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Map4.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="MapTest.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Psychic.cpp">
+      <Filter>Psychic</Filter>
+    </ClCompile>
+    <ClCompile Include="PsychicMgr.cpp">
+      <Filter>Psychic</Filter>
+    </ClCompile>
+    <ClCompile Include="PsychicMomotaro.cpp">
+      <Filter>Psychic</Filter>
+    </ClCompile>
+    <ClCompile Include="PsychicTarosuke.cpp">
+      <Filter>Psychic</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneGate.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneResult.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneStreet.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneTitle.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Momotaro.cpp">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Tarosuke.cpp">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Inputter.cpp">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Power.cpp">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Infomation.cpp">
+      <Filter>Other</Filter>
+    </ClCompile>
+    <ClCompile Include="Status.cpp">
+      <Filter>Other</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Character.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss.cpp">
+      <Filter>Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="BossBlueDemon.cpp">
+      <Filter>Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="BossBuddha.cpp">
+      <Filter>Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="BossEnma.cpp">
+      <Filter>Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="BossHag.cpp">
+      <Filter>Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="BossRedDemon.cpp">
+      <Filter>Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyBat.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyBloodPondDemon.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyBlueMonk.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyBowDemon.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyBowDemonAttack.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyBranchMonster.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyBranchMonsterAttack.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyCrocodileSnake.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyCrow.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyDeceasedFirst.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyDeceasedFourth.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyDeceasedGreen.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyDeceasedPurple.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyDeceasedSecond.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyDeceasedThird.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyExtrudedSpirits.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyEyeSpector.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyFireball.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyFlog.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyFlogSmall.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyGhost.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyGhoul.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyGrowFace.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyHandMonster.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyHellFire.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyHugDemon.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyJizo.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyLittleBlueDemon.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyLittleRedDemon.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyMiasmaGray.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyMiasmaWhite.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyMoth.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyOneEyesSnake.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyOnyudo.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyRayMonster.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyRollOverNeckSkull.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyRollOverNeckWoman.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemySkeletonSpear.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyStock.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyStoneFly.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyStoneMortgage.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyStoneRote.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyTree.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyTreeMonster.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyWaterGhost.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyWaterMonk.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyWindMonster.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="CloudMgr.cpp">
+      <Filter>Field</Filter>
+    </ClCompile>
+    <ClCompile Include="Map0.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Map1.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Map2.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Map3.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Map4.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="MapTest.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Power.cpp">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneGate.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneResult.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Boss.h" />
-    <ClInclude Include="BossBlueDemon.h" />
-    <ClInclude Include="BossBuddha.h" />
-    <ClInclude Include="BossEnma.h" />
-    <ClInclude Include="BossHag.h" />
-    <ClInclude Include="BossRedDemon.h" />
-    <ClInclude Include="EnemyBat.h" />
-    <ClInclude Include="EnemyBloodPondDemon.h" />
-    <ClInclude Include="EnemyBlueMonk.h" />
-    <ClInclude Include="EnemyBowDemon.h" />
-    <ClInclude Include="Camera.h" />
-    <ClInclude Include="Character.h" />
-    <ClInclude Include="Cloud.h" />
-    <ClInclude Include="CloudMgr.h" />
-    <ClInclude Include="define.h" />
-    <ClInclude Include="Enemy.h" />
-    <ClInclude Include="EnemyBowDemonAttack.h" />
-    <ClInclude Include="EnemyBranchMonster.h" />
-    <ClInclude Include="EnemyBranchMonsterAttack.h" />
-    <ClInclude Include="EnemyCrow.h" />
-    <ClInclude Include="EnemyCrocodileSnake.h" />
-    <ClInclude Include="EnemyDeceasedFirst.h" />
-    <ClInclude Include="EnemyDeceasedFourth.h" />
-    <ClInclude Include="EnemyDeceasedGreen.h" />
-    <ClInclude Include="EnemyDeceasedSecond.h" />
-    <ClInclude Include="EnemyDeceasedThird.h" />
-    <ClInclude Include="EnemyExtrudedSpirits.h" />
-    <ClInclude Include="EnemyEyeSpector.h" />
-    <ClInclude Include="EnemyFireball.h" />
-    <ClInclude Include="EnemyFlog.h" />
-    <ClInclude Include="EnemyFlogSmall.h" />
-    <ClInclude Include="EnemyGrowFace.h" />
-    <ClInclude Include="EnemyHandMonster.h" />
-    <ClInclude Include="EnemyHellFire.h" />
-    <ClInclude Include="EnemyHugDemon.h" />
-    <ClInclude Include="EnemyJizo.h" />
-    <ClInclude Include="EnemyLittleBlueDemon.h" />
-    <ClInclude Include="EnemyMiasmaGray.h" />
-    <ClInclude Include="EnemyMiasmaWhite.h" />
-    <ClInclude Include="EnemyOneEyesSnake.h" />
-    <ClInclude Include="EnemyRayMonster.h" />
-    <ClInclude Include="EnemyRollOverNeckWoman.h" />
-    <ClInclude Include="EnemyStoneMortgage.h" />
-    <ClInclude Include="EnemyRollOverNeckSkull.h" />
-    <ClInclude Include="EnemyTreeMonster.h" />
-    <ClInclude Include="EnemyWaterGhost.h" />
-    <ClInclude Include="EnemyGhoul.h" />
-    <ClInclude Include="EnemyManager.h" />
-    <ClInclude Include="EnemyMoth.h" />
-    <ClInclude Include="EnemyOnyudo.h" />
-    <ClInclude Include="EnemyDeceasedPurple.h" />
-    <ClInclude Include="EnemyRedbird.h" />
-    <ClInclude Include="EnemyRedbirdAttack.h" />
-    <ClInclude Include="EnemyStock.h" />
-    <ClInclude Include="EnemyStoneRote.h" />
-    <ClInclude Include="EnemyStoneFly.h" />
-    <ClInclude Include="EnemyTree.h" />
-    <ClInclude Include="EnemyGhost.h" />
-    <ClInclude Include="EnemyWaterMonk.h" />
-    <ClInclude Include="EnemyWindMonster.h" />
-    <ClInclude Include="Field.h" />
-    <ClInclude Include="Game.h" />
-    <ClInclude Include="EnemyLittleRedDemon.h" />
-    <ClInclude Include="Map.h" />
-    <ClInclude Include="Map0.h" />
-    <ClInclude Include="Map1.h" />
-    <ClInclude Include="Map2.h" />
-    <ClInclude Include="Map3.h" />
-    <ClInclude Include="Map4.h" />
-    <ClInclude Include="MapTest.h" />
-    <ClInclude Include="Momotaro.h" />
-    <ClInclude Include="Power.h" />
-    <ClInclude Include="Psychic.h" />
-    <ClInclude Include="PsychicMgr.h" />
-    <ClInclude Include="PsychicMomotaro.h" />
-    <ClInclude Include="PsychicTarosuke.h" />
-    <ClInclude Include="Scene.h" />
-    <ClInclude Include="SceneGate.h" />
-    <ClInclude Include="SceneResult.h" />
-    <ClInclude Include="SceneStreet.h" />
-    <ClInclude Include="SceneTitle.h" />
-    <ClInclude Include="EnemySkeletonSpear.h" />
-    <ClInclude Include="Status.h" />
-    <ClInclude Include="Tarosuke.h" />
-    <ClInclude Include="EnemyBranchMonsterAttack.h" />
-    <ClInclude Include="EnemyWindMonster.h" />
-    <ClInclude Include="EnemyBranchMonster.h" />
-    <ClInclude Include="EnemyHellFire.h" />
-    <ClInclude Include="EnemyStock.h" />
-    <ClInclude Include="EnemyMoth.h" />
-    <ClInclude Include="EnemyTree.h" />
-    <ClInclude Include="Power.h" />
-    <ClInclude Include="SceneGate.h" />
-    <ClInclude Include="CloudMgr.h" />
-    <ClInclude Include="Boss.h" />
-    <ClInclude Include="BossRedDemon.h" />
-    <ClInclude Include="Map0.h" />
-    <ClInclude Include="Map1.h" />
-    <ClInclude Include="Map2.h" />
-    <ClInclude Include="Map3.h" />
-    <ClInclude Include="Map4.h" />
-    <ClInclude Include="MapTest.h" />
-    <ClInclude Include="EnemyDeceasedFirst.h" />
-    <ClInclude Include="EnemyDeceasedSecond.h" />
-    <ClInclude Include="EnemyDeceasedThird.h" />
-    <ClInclude Include="EnemyDeceasedFourth.h" />
-    <ClInclude Include="EnemyGhoul.h" />
-    <ClInclude Include="EnemyExtrudedSpirits.h" />
-    <ClInclude Include="EnemyGhost.h" />
-    <ClInclude Include="EnemyOnyudo.h" />
-    <ClInclude Include="EnemyStoneFly.h" />
-    <ClInclude Include="EnemyStoneRote.h" />
-    <ClInclude Include="EnemyWaterGhost.h" />
-    <ClInclude Include="EnemyWaterMonk.h" />
-    <ClInclude Include="EnemySkeletonSpear.h" />
-    <ClInclude Include="SceneResult.h" />
-    <ClInclude Include="EnemyLittleRedDemon.h" />
-    <ClInclude Include="EnemyMiasmaGray.h" />
-    <ClInclude Include="EnemyJizo.h" />
-    <ClInclude Include="EnemyFlogSmall.h" />
-    <ClInclude Include="EnemyFlog.h" />
-    <ClInclude Include="EnemyEyeSpector.h" />
-    <ClInclude Include="EnemyGrowFace.h" />
-    <ClInclude Include="EnemyBowDemon.h" />
-    <ClInclude Include="BossBlueDemon.h" />
-    <ClInclude Include="EnemyLittleBlueDemon.h" />
-    <ClInclude Include="EnemyFireball.h" />
-    <ClInclude Include="EnemyCrocodileSnake.h" />
-    <ClInclude Include="EnemyHugDemon.h" />
-    <ClInclude Include="EnemyBloodPondDemon.h" />
-    <ClInclude Include="BossBuddha.h" />
-    <ClInclude Include="BossHag.h" />
-    <ClInclude Include="EnemyCrow.h" />
-    <ClInclude Include="EnemyBlueMonk.h" />
-    <ClInclude Include="EnemyBowDemonAttack.h" />
-    <ClInclude Include="EnemyOneEyesSnake.h" />
-    <ClInclude Include="EnemyTreeMonster.h" />
-    <ClInclude Include="EnemyMiasmaWhite.h" />
-    <ClInclude Include="EnemyDeceasedPurple.h" />
-    <ClInclude Include="EnemyDeceasedGreen.h" />
-    <ClInclude Include="EnemyStoneMortgage.h" />
-    <ClInclude Include="EnemyRayMonster.h" />
-    <ClInclude Include="EnemyRollOverNeckSkull.h" />
-    <ClInclude Include="EnemyBat.h" />
-    <ClInclude Include="EnemyRollOverNeckWoman.h" />
-    <ClInclude Include="BossEnma.h" />
-    <ClInclude Include="EnemyHandMonster.h" />
-    <ClInclude Include="EnemyNoNeckGhost.h" />
-    <ClInclude Include="EnemyHandMonsterAttack.h" />
-    <ClInclude Include="EnemyNakabon.h" />
-    <ClInclude Include="EnemyNoFace.h" />
-    <ClInclude Include="EnemyShishimai.h" />
-    <ClInclude Include="EnemyYadokariYokai.h" />
-    <ClInclude Include="EnemyShishimaiDemon.h" />
-    <ClInclude Include="EnemyFlogChief.h" />
-    <ClInclude Include="EnemyWindMonsterAttack.h" />
-    <ClInclude Include="EnemyFire.h" />
-    <ClInclude Include="EnemyRockMass.h" />
-    <ClInclude Include="EnemyATField.h" />
-    <ClInclude Include="Inputter.h" />
-    <ClInclude Include="EnemyRedFlogSmall.h" />
-    <ClInclude Include="Infomation.h" />
+    <ClInclude Include="Enemy.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyATField.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyBat.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyBloodPondDemon.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyBlueMonk.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyBowDemon.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyBowDemonAttack.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyBranchMonster.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyBranchMonsterAttack.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyCrocodileSnake.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyCrow.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyDeceasedFirst.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyDeceasedFourth.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyDeceasedGreen.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyDeceasedPurple.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyDeceasedSecond.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyDeceasedThird.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyExtrudedSpirits.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyEyeSpector.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyFire.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyFireball.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyFlog.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyFlogChief.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyFlogSmall.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyGhost.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyGhoul.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyGrowFace.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyHandMonster.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyHandMonsterAttack.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyHellFire.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyHugDemon.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyJizo.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyLittleBlueDemon.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyLittleRedDemon.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyManager.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyMiasmaGray.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyMiasmaWhite.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyMoth.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyNakabon.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyNoFace.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyNoNeckGhost.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyOneEyesSnake.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyOnyudo.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyRayMonster.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyRedbird.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyRedbirdAttack.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyRedFlogSmall.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyRockMass.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyRollOverNeckSkull.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyRollOverNeckWoman.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyShishimai.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyShishimaiDemon.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemySkeletonSpear.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyStock.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyStoneFly.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyStoneMortgage.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyStoneRote.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyTree.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyTreeMonster.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyWaterGhost.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyWaterMonk.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyWindMonster.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyWindMonsterAttack.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyYadokariYokai.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="BossBlueDemon.h">
+      <Filter>Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="BossBuddha.h">
+      <Filter>Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="BossEnma.h">
+      <Filter>Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="BossHag.h">
+      <Filter>Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="BossRedDemon.h">
+      <Filter>Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss.h">
+      <Filter>Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="Cloud.h">
+      <Filter>Field</Filter>
+    </ClInclude>
+    <ClInclude Include="CloudMgr.h">
+      <Filter>Field</Filter>
+    </ClInclude>
+    <ClInclude Include="Field.h">
+      <Filter>Field</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Map0.h">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Map1.h">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Map2.h">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Map3.h">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Map4.h">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="MapTest.h">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Psychic.h">
+      <Filter>Psychic</Filter>
+    </ClInclude>
+    <ClInclude Include="PsychicMgr.h">
+      <Filter>Psychic</Filter>
+    </ClInclude>
+    <ClInclude Include="PsychicMomotaro.h">
+      <Filter>Psychic</Filter>
+    </ClInclude>
+    <ClInclude Include="PsychicTarosuke.h">
+      <Filter>Psychic</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneGate.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneResult.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneStreet.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneTitle.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Momotaro.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Tarosuke.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Inputter.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Power.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Infomation.h">
+      <Filter>Other</Filter>
+    </ClInclude>
+    <ClInclude Include="Status.h">
+      <Filter>Other</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Character.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="define.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss.h">
+      <Filter>Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="BossBlueDemon.h">
+      <Filter>Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="BossBuddha.h">
+      <Filter>Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="BossEnma.h">
+      <Filter>Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="BossHag.h">
+      <Filter>Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="BossRedDemon.h">
+      <Filter>Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyBat.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyBloodPondDemon.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyBlueMonk.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyBowDemon.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyBowDemonAttack.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyBranchMonster.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyBranchMonsterAttack.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyCrocodileSnake.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyCrow.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyDeceasedFirst.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyDeceasedFourth.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyDeceasedGreen.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyDeceasedPurple.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyDeceasedSecond.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyDeceasedThird.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyExtrudedSpirits.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyEyeSpector.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyFireball.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyFlog.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyFlogSmall.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyGhost.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyGhoul.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyGrowFace.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyHandMonster.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyHellFire.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyHugDemon.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyJizo.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyLittleBlueDemon.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyLittleRedDemon.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyMiasmaGray.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyMiasmaWhite.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyMoth.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyOneEyesSnake.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyOnyudo.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyRayMonster.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyRollOverNeckSkull.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyRollOverNeckWoman.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemySkeletonSpear.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyStock.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyStoneFly.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyStoneMortgage.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyStoneRote.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyTree.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyTreeMonster.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyWaterGhost.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyWaterMonk.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyWindMonster.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="CloudMgr.h">
+      <Filter>Field</Filter>
+    </ClInclude>
+    <ClInclude Include="Map0.h">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Map1.h">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Map2.h">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Map3.h">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Map4.h">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="MapTest.h">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Power.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneGate.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneResult.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Enemy">
+      <UniqueIdentifier>{66efd165-1d33-4272-9c11-c61c033cedbc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Boss">
+      <UniqueIdentifier>{c6aca183-e638-42b4-8089-9212e7f99289}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Field">
+      <UniqueIdentifier>{dfa95aeb-2d5d-4bf4-9858-183d944f0935}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Map">
+      <UniqueIdentifier>{e97c5c97-83f6-4e49-ba8f-b7afac0824cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Psychic">
+      <UniqueIdentifier>{aeffb876-0247-404c-9c5a-fa8b2112d641}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{64c872e9-39ee-4b9d-96c3-6517919711f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Player">
+      <UniqueIdentifier>{ac15b1a7-eba8-425f-b779-ccaec5573b10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Other">
+      <UniqueIdentifier>{005f942a-1678-4609-bb04-a7b8f986a547}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{6dd0045b-4a64-4e03-bcb0-eed99d296166}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

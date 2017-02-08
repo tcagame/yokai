@@ -29,8 +29,9 @@ Infomation::~Infomation( ) {
 void Infomation::load( ) {
 	BinaryPtr binary( new Binary );
 	ApplicationPtr app = Application::getInstance( );
-	app->loadBinary( FILENAME, binary );
-	binary->read( ( void * )&_data, sizeof( _data ) );
+	if ( app->loadBinary( FILENAME, binary ) ) {
+		binary->read( ( void * )&_data, sizeof( _data ) );
+	}
 }
 
 void Infomation::save( ) {

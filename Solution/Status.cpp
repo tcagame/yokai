@@ -44,10 +44,21 @@ void Status::draw( ) {
 		drawer->setSprite( sprite );
 	}
 	{
+		const int GRAPH[ 7 ] = {
+			GRAPH_STATUS_POWER_0,
+			GRAPH_STATUS_POWER_1,
+			GRAPH_STATUS_POWER_2,
+			GRAPH_STATUS_POWER_3,
+			GRAPH_STATUS_POWER_4,
+			GRAPH_STATUS_POWER_5,
+			GRAPH_STATUS_POWER_6,
+		};
 		int n = _power->get( );
-		Drawer::Transform trans( POWER_X, POWER_Y, 0, 0, n * 16, 32 );
-		Drawer::Sprite sprite( trans, GRAPH_STATUS_POWER );
-		drawer->setSprite( sprite );
+		for ( int i = 0; i < n; i++ ) {
+			Drawer::Transform trans( POWER_X + i * 16, POWER_Y );
+			Drawer::Sprite sprite( trans, GRAPH[ i / 6 ] );
+			drawer->setSprite( sprite );
+		}
 	}
 	{
 		const int ANIM[ 8 ] = { 4, 3, 2, 3, 4, 1, 0, 1 };

@@ -41,7 +41,13 @@ SceneStreet::SceneStreet() {
 	drawer->loadGraph( GRAPH_IMPACT				, "street/other/impact.png");
 	drawer->loadGraph( GRAPH_IMPACT_BIG         , "street/other/impact_big.png");
 	drawer->loadGraph( GRAPH_BOMB				, "street/other/bomb.png");
-	drawer->loadGraph( GRAPH_STATUS_POWER		, "street/status/status_power.png");
+	drawer->loadGraph( GRAPH_STATUS_POWER_0		, "street/status/status_power_0.png");
+	drawer->loadGraph( GRAPH_STATUS_POWER_1		, "street/status/status_power_1.png");
+	drawer->loadGraph( GRAPH_STATUS_POWER_2		, "street/status/status_power_2.png");
+	drawer->loadGraph( GRAPH_STATUS_POWER_3		, "street/status/status_power_3.png");
+	drawer->loadGraph( GRAPH_STATUS_POWER_4		, "street/status/status_power_4.png");
+	drawer->loadGraph( GRAPH_STATUS_POWER_5		, "street/status/status_power_5.png");
+	drawer->loadGraph( GRAPH_STATUS_POWER_6		, "street/status/status_power_6.png");
 	drawer->loadGraph( GRAPH_STATUS_MARKER		, "street/status/status_marker.png");
 	drawer->loadGraph( GRAPH_STATUS_PLATE		, "street/status/status_plate.png");
 	drawer->loadGraph( GRAPH_ENEMY_NORMAL		, "street/enemy/enemy_nomal.png");
