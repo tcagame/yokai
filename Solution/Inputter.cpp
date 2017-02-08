@@ -24,8 +24,9 @@ void Inputter::load( const char * filename ) {
 
 	BinaryPtr binary( new Binary );
 	ApplicationPtr app = Application::getInstance( );
-	app->loadBinary( filename, binary );
-	binary->read( ( void * )_record, sizeof( _record ) );
+	if ( app->loadBinary( filename, binary ) ) {
+		binary->read( ( void * )_record, sizeof( _record ) );
+	}
 }
 
 void Inputter::save( const char * filename ) {
