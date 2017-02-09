@@ -26,6 +26,7 @@ public:
 public:
 	void update( );
 	void initialize( );
+	bool isSuddendeath( ) const;
 	bool isDebug( ) const;
 	bool isSolo( ) const;
 	bool isDemo( ) const;
@@ -39,6 +40,7 @@ private:
 	void changeScene( );
 private:
 	ScenePtr _scene;
+	bool _suddondeath;
 	bool _solo;
 	bool _demo;
 	int _stage;

@@ -1,10 +1,15 @@
 #include "Power.h"
 #include "Sound.h"
+#include "Game.h"
 
 static const int MAX = 42;
 
 Power::Power( ) :
 _value( MAX ) {
+	GamePtr game = Game::getTask( );
+	if ( game->isSuddendeath( ) ) {
+		_value = 1;
+	}
 }
 
 
