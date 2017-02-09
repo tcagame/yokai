@@ -30,6 +30,7 @@ _solo( true ),
 _stage( 0 ),
 _demo_count( 0 ),
 _fade( FADE_NONE ),
+_suddondeath( false ),
 _next( Scene::NEXT_TITLE ) {
 
 }
@@ -41,6 +42,10 @@ Game::~Game( ) {
 
 void Game::initialize( ) {
 	changeScene( );
+}
+
+bool Game::isSuddendeath( ) const {
+	return _suddondeath;
 }
 
 bool Game::isDebug( ) const {
@@ -122,6 +127,9 @@ void Game::option( ) {
 	KeyboardPtr keyboard = Keyboard::getTask( );
 	if ( keyboard->isPushKey( "SPACE" ) ) {
 		_debug = !_debug;
+	}
+	if ( keyboard->isPushKey( "0" ) ) {
+		_suddondeath = true;
 	}
 
 	DevicePtr device = Device::getTask( );
