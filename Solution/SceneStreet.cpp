@@ -279,9 +279,9 @@ Scene::NEXT SceneStreet::update( ) {
 
 	_inputter->update( );
 	_tarosuke->update( _field );
-	_tarosuke->adjust( _camera );
+	_tarosuke->adjust( _camera, _field );
 	_momotaro->update( _field );
-	_momotaro->adjust( _camera );
+	_momotaro->adjust( _camera, _field  );
 	_camera->update( _tarosuke );
 	_status->update( );
 

@@ -30,7 +30,7 @@ private:
 		unsigned char button;
 		unsigned char push;
 	};
-	static const int DATA_NUM = 5000;
+	static const int DATA_NUM = 2000;
 private:
 	DevicePtr _device;
 	Data _data[ 2 ];

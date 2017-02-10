@@ -32,6 +32,7 @@ public:
 	bool isBlockChip( int x, int y ) const;
 	FLOOR getFloor( int x, int y ) const;
 	Vector getStatusMarkerPos( int x ) const;
+	int getLimitX( ) const;
 private:
 	void drawFarBG( CameraConstPtr camera ) const;
 	void drawBG( ) const;

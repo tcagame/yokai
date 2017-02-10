@@ -21,7 +21,7 @@ public:
 	void warp( int v );
 	void damage( int pow );
 	void bound( );
-	void adjust( CameraConstPtr camera );
+	void adjust( CameraConstPtr camera, FieldConstPtr field );
 	bool isCalling( ) const;
 private:
 	enum ACTION {

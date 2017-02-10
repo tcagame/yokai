@@ -15,7 +15,7 @@ public:
 	void hide( );
 	void appear( int x, int y, bool reverse );
 	void damage( int pow );
-	void adjust( CameraConstPtr camera );
+	void adjust( CameraConstPtr camera, FieldConstPtr field );
 private:
 	enum ACTION {
 		ACTION_HIDE,

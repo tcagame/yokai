@@ -10,6 +10,7 @@
 #include "Game.h"
 #include "Enemy.h"
 #include "Inputter.h"
+#include "Field.h"
 
 static const int MAX_TAROSUKE_CHIP_NUM = 101;
 static const int JUMP_COUNT = 10;
@@ -64,12 +65,16 @@ void Tarosuke::warp( int v ) {
 	setY( 0 );
 }
 
-void Tarosuke::adjust( CameraConstPtr camera ) {
+void Tarosuke::adjust( CameraConstPtr camera, FieldConstPtr field ) {
 	if ( getX( ) < camera->getX( ) + CHIP_SIZE / 2 ) {
 		setX( camera->getX( ) + CHIP_SIZE / 2 );
 	}
 	if ( getX( ) > camera->getX( ) + SCREEN_WIDTH - CHIP_SIZE / 2 ) {
 		setX( camera->getX( ) + SCREEN_WIDTH - CHIP_SIZE / 2 );
+	}
+
+	if ( getX( ) > field->getLimitX( ) ) {
+		setX( field->getLimitX( ) );
 	}
 }
 
