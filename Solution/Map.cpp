@@ -86,7 +86,8 @@ Vector Map::getMarkerPos( int idx ) const {
 void Map::addToStock( EnemyStockPtr stock, int bg_idx ) const {
 	for ( int i = 0; i < MAPCHIP_NUM * MAPCHIP_NUM; i++ ) {
 		char ch = _panel[ bg_idx ].chip[ i ];
-		if ( ch < 'A' || ch > 'Z' ) {
+		if ( ( ch < 'A' || ch > 'Z' ) &&
+			 ( ch < 'a' || ch > 'z' ) ) {
 			continue;
 		}
 
