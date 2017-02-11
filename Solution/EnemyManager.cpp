@@ -167,7 +167,7 @@ void EnemyManager::addBomb( const Vector& pos ) {
 	_bombs[ _idx_bomb ].count = 0;
 	_idx_bomb = ( _idx_bomb + 1 ) % BOMB_NUM;
 	SoundPtr sound = Sound::getTask( );
-	sound->playSE( "yokai_se_26.wav" );
+	sound->playSE( "yokai_voice_08.wav" );
 }
 
 void EnemyManager::updateBomb( ) {
