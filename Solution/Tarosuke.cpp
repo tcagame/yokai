@@ -47,12 +47,6 @@ _power( power ) {
 	_act_count = 0;
 	_invincible_count = 0;
 	setChipReverse( true );
-
-	SoundPtr sound = Sound::getTask( );
-	sound->playSE( "yokai_se_21.wav" );
-	sound->stopSE( "yokai_se_21.wav" );
-	sound->playSE( "yokai_se_22.wav" );
-	sound->stopSE( "yokai_se_22.wav" );
 }
 
 Tarosuke::~Tarosuke( ) {
@@ -162,8 +156,9 @@ void Tarosuke::actOnStanding( ) {
 	
 	bool accel = false;
 	bool moving = false;
+	FLOOR floor = getFloor( );
 
-	if ( _inputter->getDirX( ) > 90 ) {
+	if ( _inputter->getDirX( ) > 50 ) {
 		moving = true;
 		if ( getAccelX( ) < 0 ) {
 			_action = ACTION_BRAKE;
@@ -177,7 +172,7 @@ void Tarosuke::actOnStanding( ) {
 		}
 	}
 	
-	if ( _inputter->getDirX( ) < -90 ) {
+	if ( _inputter->getDirX( ) < -50 ) {
 		moving = true;
 		if ( getAccelX( ) > 0 ) {
 			_action = ACTION_BRAKE;
@@ -203,7 +198,7 @@ void Tarosuke::actOnStanding( ) {
 		_action = ACTION_SHOOT;
 	}
 
-	if ( _inputter->getPush( ) == BUTTON_B ) {
+	if ( _inputter->getPush( ) == BUTTON_B && floor == FLOOR_ROAD ) {
 		GamePtr game = Game::getTask( );
 		if ( game->isSolo( ) ) {
 			sound->playSE( "yokai_voice_06.wav" );
@@ -239,20 +234,26 @@ void Tarosuke::actOnStanding( ) {
 		setAccelX( ax );
 	}
 
-	FLOOR floor = getFloor( );
-
 	if ( !moving ) {
 		if ( _inputter->getDirY( ) > 90 && floor == FLOOR_ROAD ) {
+			if ( _saving_power == 0 ) {
+				sound->playSE( "yokai_se_21.wav", true );
+			}
 			_saving_power++;
 			if ( _saving_power >= CAPACITY_SAVING_POWER ) {
 				_action = ACTION_BURST;
 				_act_count = 0;
 				return;
 			}
-		} else {
+		}
+		if ( _inputter->getDirY( ) < 50 || floor != FLOOR_ROAD ) {
+			int store = _saving_power;
 			_saving_power -= 4;
-			if ( _saving_power < 0 ) {
+			if ( _saving_power <= 0 ) {
 				_saving_power = 0;
+				if ( store > 0 ) {
+					sound->stopSE( "yokai_se_21.wav" );
+				}
 			}
 		}
 	}
@@ -260,6 +261,9 @@ void Tarosuke::actOnStanding( ) {
 	switch ( floor ) {
 	case FLOOR_WATER:
 		{
+			if ( _saving_power > 0 ) {
+				sound->stopSE( "yokai_se_21.wav" );
+			}
 			_saving_power = 0;
 			const int ANIM[ 4 ] = { 0, 1, 2, 1 };
 			int u = ANIM[ ( _act_count / 4 ) % 4 ];
@@ -275,6 +279,9 @@ void Tarosuke::actOnStanding( ) {
 		break;
 	case FLOOR_BOG:
 		{
+			if ( _saving_power > 0 ) {
+				sound->stopSE( "yokai_se_21.wav" );
+			}
 			_saving_power = 0;
 			const int ANIM[ 8 ] = { 1, 2, 4, 5, 3, 5, 4, 2 };
 			int u = ANIM[ ( _act_count / 4 ) % 8 ];
@@ -420,6 +427,10 @@ void Tarosuke::actOnFallingOut( ) {
 
 void Tarosuke::actOnBursting( ) {
 	if ( _act_count > BURST_COUNT ) {
+		if ( _saving_power > 0 ) {
+			SoundPtr sound = Sound::getTask( );
+			sound->stopSE( "yokai_se_21.wav" );
+		}
 		_saving_power = 0;
 		_action = ACTION_STAND;
 	}
@@ -455,22 +466,30 @@ void Tarosuke::actOnShooting( ) {
 	int level = _saving_power / ( CAPACITY_SAVING_POWER / 4 );
 	_psychic_mgr->shoot( PsychicPtr( new PsychicTarosuke(
 		getX( ), getY( ) - SHOOT_FOOT, isChipReverse( ), level ) ) );
-	_saving_power = 0;
-	_action = ACTION_STAND;
 	
 	SoundPtr sound = Sound::getTask( );
-	sound->playSE( "yokai_se_20.wav" );
-	sound->stopSE( "yokai_se_21.wav" );
-	sound->stopSE( "yokai_se_22.wav" );
+
+	if ( _saving_power > 0 ) {
+		sound->stopSE( "yokai_se_21.wav" );
+	}
+
+	sound->playSE( "yokai_se_15.wav" );
+
+	_saving_power = 0;
+	_action = ACTION_STAND;
 }
 
 void Tarosuke::actOnCalling( ) {
+	if ( _saving_power > 0 ) {
+		SoundPtr sound = Sound::getTask( );
+		sound->stopSE( "yokai_se_21.wav" );
+	}
 	_saving_power = 0;
 
 	const int PRAY[ 14 ] = { 0, 0, 0, 0, 0, 1, 2, 3, 3, 3, 3, 3, 2, 1 };
 	setChipGraph( GRAPH_CHARACTER_1, PRAY[ _act_count % 14 ], 1 );
-	Vector v = Vector( getX( ), getY( ) - CHIP_SIZE ) - _momo_pos;
-	_momo_vec += v.normalize( ) * ( MOMO_SPEED * 0.05 );
+	Vector v = Vector( getX( ), getY( ) - CHIP_SIZE / 2 ) - _momo_pos;
+	_momo_vec += v.normalize( ) * ( MOMO_SPEED * 0.001 * _act_count );
 	_momo_vec = _momo_vec.normalize( ) * MOMO_SPEED;
 	_momo_pos += _momo_vec;
 
@@ -625,18 +644,6 @@ void Tarosuke::drawOverlapped( CameraConstPtr camera ) const {
 		int sx1 = getX( ) - camera->getX( ) - CHIP_SIZE / 2;
 		int sy1 = getY( ) - camera->getY( ) - CHIP_SIZE;
 
-		SoundPtr sound = Sound::getTask( );
-		sound->playSE( "yokai_se_21.wav" );
-		if ( _inputter->getDirY( ) == 0 || _saving_power >= 25 ) {
-			sound->stopSE( "yokai_se_21.wav" );
-		}
-		if ( _saving_power >= 25 && _saving_power <= 40 ) {
-			sound->playSE( "yokai_se_22.wav" );
-		}
-		if ( _inputter->getDirY( ) == 0 || _saving_power >= 40 ) {
-			sound->stopSE( "yokai_se_22.wav" );
-		}
-
 		DrawerPtr drawer = Drawer::getTask( );
 		Drawer::Transform trans( sx1, sy1, tx, ty, CHIP_SIZE, CHIP_SIZE );
 		Drawer::Sprite sprite( trans, GRAPH_PSYCHIC, Drawer::BLEND_ADD, 1.0 );
@@ -661,6 +668,12 @@ void Tarosuke::damage( int pow ) {
 	if ( _invincible_count > 0 ) {
 		return;
 	}
+	
+	SoundPtr sound = Sound::getTask( );
+
+	if ( _saving_power > 0 ) {
+		sound->stopSE( "yokai_se_21.wav" );
+	}
 
 	_invincible_count = INVINCIBLE_COUNT;
 	_power->decrease( pow );
@@ -670,7 +683,6 @@ void Tarosuke::damage( int pow ) {
 	setAccelX( 0 );
 	setChipReverse( !isChipReverse( ) );
 
-	SoundPtr sound = Sound::getTask( );
 	sound->playSE( "yokai_voice_26.wav" );
 }
 
