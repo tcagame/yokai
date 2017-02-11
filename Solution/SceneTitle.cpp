@@ -168,13 +168,17 @@ void SceneTitle::act( ) {
 		game->setFade( Game::FADE_OUT );
 	}
 
-	if ( device->getDirY( ) < 0 ) {
+	if ( device->getDirY( ) < 0 && _select != 0 ) {
 		_select = 0;
 		_count = 0;
+		SoundPtr sound = Sound::getTask( );
+		sound->playSE( "yokai_se_06.wav" );
 	}
-	if ( device->getDirY( ) > 0 ) {
+	if ( device->getDirY( ) > 0 && _select != 1  ) {
 		_select = 1;
 		_count = 0;
+		SoundPtr sound = Sound::getTask( );
+		sound->playSE( "yokai_se_06.wav" );
 	}
 
 }
@@ -200,7 +204,7 @@ void SceneTitle::draw( ) {
 		int pattern = ANIM[ _tarosuke_x / 20 % 8 ];
 		if ( _tarosuke_vx == 0 ) {
 			pattern = 0;
-		} else if ( _count % 10 == 0 ) {
+		} else if ( _count % 10 == 9 ) {
 			SoundPtr sound = Sound::getTask( );
 			sound->playSE( "yokai_voice_15.wav" );
 		}
@@ -221,11 +225,13 @@ void SceneTitle::draw( ) {
 		GRAPH_PLAYERCHOICE );
 	drawer->setSprite( sprite_playerchoice );
 	
-	Drawer::Sprite sprite_cusory(
-		Drawer::Transform( CHOICE_CURSORY_X, CHOICE_CURSORY_Y + _select * 140 ),
-		GRAPH_CURSOR );
-	drawer->setSprite( sprite_cusory );
-	
+	GamePtr game = Game::getTask( );
+	if ( game->getFade( ) != Game::FADE_IN ) {
+		Drawer::Sprite sprite_cusory(
+			Drawer::Transform( CHOICE_CURSORY_X, CHOICE_CURSORY_Y + _select * 140 ),
+			GRAPH_CURSOR );
+		drawer->setSprite( sprite_cusory );
+	}
 
 	for ( int i = 0; i < 5; i++ ) {
 		int x = TITLE_CENTER_X - PANEL_PITCH * 2 + i * PANEL_PITCH - PANEL_WIDTH / 2;
