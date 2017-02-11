@@ -277,9 +277,6 @@
     <ClCompile Include="Inputter.cpp">
       <Filter>Player</Filter>
     </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Scene</Filter>
-    </ClCompile>
     <ClCompile Include="Power.cpp">
       <Filter>Player</Filter>
     </ClCompile>
@@ -486,6 +483,9 @@
     </ClCompile>
     <ClCompile Include="SceneResult.cpp">
       <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Common</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -765,9 +765,6 @@
     <ClInclude Include="Inputter.h">
       <Filter>Player</Filter>
     </ClInclude>
-    <ClInclude Include="Game.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
     <ClInclude Include="Power.h">
       <Filter>Player</Filter>
     </ClInclude>
@@ -974,6 +971,9 @@
     </ClInclude>
     <ClInclude Include="SceneResult.h">
       <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

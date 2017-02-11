@@ -76,6 +76,10 @@ void Field::initMark( ) {
 	}
 }
 
+int Field::getLimitX( ) const {
+	return ( _map->getPanelNum( ) - 1 ) * BG_SIZE;
+}
+
 Vector Field::getStatusMarkerPos( int x ) const {
 	int idx = x / BG_SIZE;
 	Vector src = _markers[ idx ];

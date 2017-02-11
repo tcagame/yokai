@@ -9,6 +9,7 @@
 #include "Power.h"
 #include "Game.h"
 #include "Inputter.h"
+#include "Field.h"
 
 static const int MOVE_SPEED = 20;
 static const int CHIP_MOMOTARO_NUM = 101;
@@ -53,7 +54,7 @@ void Momotaro::hide( ) {
 	_act_count = 0;
 }
 
-void Momotaro::adjust( CameraConstPtr camera ) {
+void Momotaro::adjust( CameraConstPtr camera, FieldConstPtr field ) {
 	if ( _action == ACTION_HIDE ) {
 		return;
 	}
@@ -73,6 +74,10 @@ void Momotaro::adjust( CameraConstPtr camera ) {
 	if ( getY( ) > BG_SIZE - CHIP_SIZE / 2) {
 		setAccelY( 0 );
 		setY( BG_SIZE - CHIP_SIZE / 2 );
+	}
+
+	if ( getX( ) > field->getLimitX( ) ) {
+		setX( field->getLimitX( ) );
 	}
 }
 

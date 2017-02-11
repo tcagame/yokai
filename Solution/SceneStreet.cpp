@@ -126,13 +126,15 @@ SceneStreet::SceneStreet() {
 		break;
 	case 5:
 		map = MapPtr(new MapTest);
-		drawer->loadGraph(GRAPH_STATUS_MAP  , "street/status/status_map_0.png");
-		drawer->loadGraph(GRAPH_STATUS_TITLE, "street/status/status_title_test.png");
-		drawer->loadGraph(GRAPH_ENEMY_BOSS         , "street/enemy/boss_bluedemon.png");
-		drawer->loadGraph(GRAPH_ENEMY_ROCKMASS, "street/enemy/enemy_rock_mass.png");
-		drawer->loadGraph( GRAPH_ENEMY_TREE_BODY			, "street/enemy/enemy_tree_body.png");
-		drawer->loadGraph( GRAPH_ENEMY_TREE_ITEM			, "street/enemy/enemy_tree_item.png");
-		drawer->loadGraph( GRAPH_ENEMY_FLOG_RED				, "street/enemy/enemy_frog_red.png" );
+		drawer->loadGraph(GRAPH_STATUS_MAP			, "street/status/status_map_0.png");
+		drawer->loadGraph(GRAPH_STATUS_TITLE		, "street/status/status_title_test.png");
+		drawer->loadGraph(GRAPH_ENEMY_BOSS			, "street/enemy/boss_bluedemon.png");
+		drawer->loadGraph(GRAPH_ENEMY_ROCKMASS		, "street/enemy/enemy_rock_mass.png");
+		drawer->loadGraph( GRAPH_ENEMY_TREE_BODY	, "street/enemy/enemy_tree_body.png");
+		drawer->loadGraph( GRAPH_ENEMY_TREE_ITEM	, "street/enemy/enemy_tree_item.png");
+		drawer->loadGraph( GRAPH_ENEMY_FLOG_RED		, "street/enemy/enemy_frog_red.png" );
+		drawer->loadGraph( GRAPH_ENEMY_FIREBALL		, "street/enemy/enemy_fireball.png");
+		drawer->loadGraph( GRAPH_ENEMY_FLOG_GREEN	, "street/enemy/enemy_frog_green.png");
 		break;
 	}
 	
@@ -277,9 +279,9 @@ Scene::NEXT SceneStreet::update( ) {
 
 	_inputter->update( );
 	_tarosuke->update( _field );
-	_tarosuke->adjust( _camera );
+	_tarosuke->adjust( _camera, _field );
 	_momotaro->update( _field );
-	_momotaro->adjust( _camera );
+	_momotaro->adjust( _camera, _field  );
 	_camera->update( _tarosuke );
 	_status->update( );
 

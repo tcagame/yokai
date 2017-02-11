@@ -2,6 +2,7 @@
 #include "Device.h"
 #include "Application.h"
 #include "Binary.h"
+#include "Game.h"
 
 Inputter::Inputter( ) :
 _device( Device::getTask( ) ),
@@ -68,6 +69,8 @@ void Inputter::update( ) {
 			_record[ _record_idx * 2 + 0 ] = _data[ 0 ];
 			_record[ _record_idx * 2 + 1 ] = _data[ 1 ];
 			_record_idx++;
+			GamePtr game = Game::getTask( );
+			game->addDebugMessage( "Record: %03d", _record_idx );
 		}
 	}
 }

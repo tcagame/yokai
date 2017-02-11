@@ -13,10 +13,10 @@ static const int TITLE_WIDTH  = 1024;
 static const int TITLE_HEIGHT = 256;
 static const int TITLE_CENTER_X = 1280 / 2;
 static const int TITLE_CENTER_Y = 180;
-static const int CHOICE_FONT_X = 400;
-static const int CHOICE_FONT_Y = 300;
-static const int CHOICE_CURSORY_X = 220;
-static const int CHOICE_CURSORY_Y = 175;
+static const int CHOICE_FONT_X = 420;
+static const int CHOICE_FONT_Y = 350;
+static const int CHOICE_CURSORY_X = 350;
+static const int CHOICE_CURSORY_Y = 400;
 static const int PANEL_WIDTH  = 266;
 static const int PANEL_HEIGHT = 272;
 static const int PANEL_PITCH = 192;
@@ -222,7 +222,7 @@ void SceneTitle::draw( ) {
 	drawer->setSprite( sprite_playerchoice );
 	
 	Drawer::Sprite sprite_cusory(
-		Drawer::Transform( CHOICE_CURSORY_X, CHOICE_CURSORY_Y + _select * 100 ),
+		Drawer::Transform( CHOICE_CURSORY_X, CHOICE_CURSORY_Y + _select * 140 ),
 		GRAPH_CURSOR );
 	drawer->setSprite( sprite_cusory );
 	

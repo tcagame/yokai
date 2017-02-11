@@ -13,7 +13,7 @@ PsychicMomotaro::PsychicMomotaro( const Vector& pos, const Vector& target ) :
 Psychic( 0, 0 ),
 _pos( pos ),
 _target( target ) {
-	setPow( 2 );
+	setPow( 1 );
 	setChipSize( 0 );
 
 	_pos += ( pos - target ).normalize( ) * ( CHIP_SIZE / 4 );
