@@ -29,16 +29,16 @@ _count( 0 ) {
 	info->increasePopulation( _level );
 	_population = info->getPopulation( _level );
 	
-	drawer->loadGraph( GRAPH_GATE_COUNT_0, "gate/count_0.png" );
-	drawer->loadGraph( GRAPH_GATE_COUNT_1, "gate/count_1.png" );
-	drawer->loadGraph( GRAPH_GATE_COUNT_2, "gate/count_2.png" );
-	drawer->loadGraph( GRAPH_GATE_COUNT_3, "gate/count_3.png" );
-	drawer->loadGraph( GRAPH_GATE_COUNT_4, "gate/count_4.png" );
-	drawer->loadGraph( GRAPH_GATE_COUNT_5, "gate/count_5.png" );
-	drawer->loadGraph( GRAPH_GATE_COUNT_6, "gate/count_6.png" );
-	drawer->loadGraph( GRAPH_GATE_COUNT_7, "gate/count_7.png" );
-	drawer->loadGraph( GRAPH_GATE_COUNT_8, "gate/count_8.png" );
-	drawer->loadGraph( GRAPH_GATE_COUNT_9, "gate/count_9.png" );
+	drawer->loadGraph( GRAPH_GATE_COUNT_0, "result/number/count_0.png" );
+	drawer->loadGraph( GRAPH_GATE_COUNT_1, "result/number/count_1.png" );
+	drawer->loadGraph( GRAPH_GATE_COUNT_2, "result/number/count_2.png" );
+	drawer->loadGraph( GRAPH_GATE_COUNT_3, "result/number/count_3.png" );
+	drawer->loadGraph( GRAPH_GATE_COUNT_4, "result/number/count_4.png" );
+	drawer->loadGraph( GRAPH_GATE_COUNT_5, "result/number/count_5.png" );
+	drawer->loadGraph( GRAPH_GATE_COUNT_6, "result/number/count_6.png" );
+	drawer->loadGraph( GRAPH_GATE_COUNT_7, "result/number/count_7.png" );
+	drawer->loadGraph( GRAPH_GATE_COUNT_8, "result/number/count_8.png" );
+	drawer->loadGraph( GRAPH_GATE_COUNT_9, "result/number/count_9.png" );
 
 	switch ( _level ) {
 	case 4:

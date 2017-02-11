@@ -37,7 +37,8 @@ void PsychicTarosuke::act( ) {
 		Vector pos( getX( ), getY( ) );
 		Vector target( getTargetX( ), getTargetY( ) );
 		Vector vec = target - pos;
-		if ( vec.getLength( ) < SPEED ) {
+		double length = vec.getLength( );
+		if ( length < SPEED ) {
 			finish( );
 		}
 		vec = vec.normalize( ) * SPEED;
@@ -45,8 +46,11 @@ void PsychicTarosuke::act( ) {
 		setAccelY( ( int )vec.y );
 		setChipReverse( !_dir_right );
 		setChipGraph( GRAPH_PSYCHIC, _motion_count % 2, 0 );
-		
-		setChipFoot( ( int )( CHIP_SIZE / 2 + sin( 3.14159 * getX( ) / 300 ) * ( CHIP_SIZE / 4 ) ) );
+		double ratio = length / 256;
+		if ( ratio > 1 ) {
+			ratio = 1;
+		}
+		setChipFoot( ( int )( CHIP_SIZE / 2 + sin( 3.14159 * getX( ) / 200 ) * ( CHIP_SIZE / 4 * ratio ) ) );
 	}
 }
 

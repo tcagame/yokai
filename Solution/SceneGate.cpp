@@ -145,17 +145,17 @@ void SceneGate::draw( ) const {
 	}
 	{
 		Drawer::Sprite sprite( 
-			Drawer::Transform( COUNT_X - 40, COUNT_Y + 130 ), GRAPH_GATE_DOT );
+			Drawer::Transform( COUNT_X - 20, COUNT_Y + 170 ), GRAPH_GATE_DOT );
 		drawer->setSprite( sprite );
 	}
 	{
 		Drawer::Sprite sprite( 
-			Drawer::Transform( COUNT_X - 120, COUNT_Y - 50 ), GRAPH_GATE_CLEAR );
+			Drawer::Transform( COUNT_X - 105, COUNT_Y + 50 ), GRAPH_GATE_CLEAR );
 		drawer->setSprite( sprite );
 	}
 	{
 		Drawer::Sprite sprite( 
-			Drawer::Transform( COUNT_X + 60, COUNT_Y + 140 ), GRAPH_GATE_PERCENT );
+			Drawer::Transform( COUNT_X + 60, COUNT_Y + 145 ), GRAPH_GATE_PERCENT );
 		drawer->setSprite( sprite );
 	}
 	{
