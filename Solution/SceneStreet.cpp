@@ -143,8 +143,6 @@ SceneStreet::SceneStreet() {
 
 	_field = FieldPtr( new Field( map, stock ) );
 	_camera = CameraPtr( new Camera( map ) );
-	_info = InfomationPtr( new Infomation );
-	_info->increaseDenominator( game->getStage( ) );
 	_power = PowerPtr( new Power );
 	_psychic_mgr = PsychicMgrPtr( new PsychicMgr );
 	_momotaro = MomotaroPtr( new Momotaro( _inputter, _psychic_mgr, _power ) );
@@ -212,19 +210,21 @@ Scene::NEXT SceneStreet::update( ) {
 		if ( !_tarosuke->isCalling( ) ) {
 			_enemy_mgr->attackBoss( );
 		}
+		if ( _enemy_mgr->isBossDead( ) ) {
+			_enemy_mgr->clear( );
+			_phase = PHASE_CLEAR;
+			Infomation info;
+			info.increaseDenominator( game->getStage( ) );
+			info.increaseNumerator( game->getStage( ) );
+			_phase_count = 0;
+			SoundPtr sound = Sound::getTask( );
+			sound->playBGM( "yokai_se_32.wav" );
+		}
 		if ( _power->get( ) == 0 ) {
 			sound->playBGM( "yokai_se_31.wav", false );
 			_phase = PHASE_DEAD;
 			makeDeathPoints( );
 			_phase_count = 0;
-		}
-		if ( _enemy_mgr->isBossDead( ) ) {
-			_enemy_mgr->clear( );
-			_phase = PHASE_CLEAR;
-			_info->increaseNumerator( game->getStage( ) );
-			_phase_count = 0;
-			SoundPtr sound = Sound::getTask( );
-			sound->playBGM( "yokai_se_32.wav" );
 		}
 		break;
 	case PHASE_DEAD:
@@ -347,11 +347,14 @@ void SceneStreet::makeDeathPoints( ) {
 	if ( dy > BG_SIZE ) {
 		dy = BG_SIZE;
 	}
+	
+	Infomation info;
+	info.increaseDenominator( game->getStage( ) );
+	info.setHistroy( stage, dx, dy );
 
-	_info->setHistroy( stage, dx, dy );
 	for ( int i = 1; i < Infomation::HISTORY_NUM; i++ ) {
-		int x = _info->getHistoryX( stage, i );
-		int y = _info->getHistoryY( stage, i );
+		int x = info.getHistoryX( stage, i );
+		int y = info.getHistoryY( stage, i );
 		if ( x + y == 0 ) {
 			continue;
 		}

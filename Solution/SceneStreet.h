@@ -16,7 +16,6 @@ PTR( Status );
 PTR( Power );
 PTR( EnemyStock );
 PTR( Inputter );
-PTR( Infomation );
 PTR( Game );
 
 class SceneStreet : public Scene {
@@ -37,7 +36,6 @@ private:
 	void makeDeathPoints( );
 	void drawDeathPoints( );
 private:
-	InfomationPtr _info;
 	InputterPtr _inputter;
 	PowerPtr _power;
 	TarosukePtr _tarosuke;

@@ -3,8 +3,6 @@
 #include "Scene.h"
 #include "smart_ptr.h"
 
-PTR( Infomation );  
-
 class SceneGate : public Scene {
 public:
 	SceneGate( );
@@ -15,6 +13,6 @@ private:
 	void draw( ) const;
 private:
 	int _x;
-	InfomationPtr _infomation;
+	int _prob;
 };
 
