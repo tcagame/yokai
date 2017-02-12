@@ -10,53 +10,6 @@
 #include "Boss.h"
 #include "Map.h"
 #include "EnemyStock.h"
-#include "EnemyDeceasedPurple.h"
-#include "EnemyMiasmaWhite.h"
-#include "EnemyRedbird.h"
-#include "EnemyRedbirdAttack.h"
-#include "EnemyMoth.h"
-#include "EnemyTree.h"
-#include "EnemyDeceasedFirst.h"
-#include "EnemyDeceasedSecond.h"
-#include "EnemyDeceasedThird.h"
-#include "EnemyDeceasedFourth.h"
-#include "EnemyFlogSmall.h"
-#include "EnemyStoneRote.h"
-#include "EnemyStoneFly.h"
-#include "EnemyGhoul.h"
-#include "EnemyOnyudo.h"
-#include "EnemyWaterGhost.h"
-#include "EnemyExtrudedSpirits.h"
-#include "EnemyWaterMonk.h"
-#include "EnemySkeletonSpear.h"
-#include "EnemyMiasmaGray.h"
-#include "EnemyFlog.h"
-#include "EnemyJizo.h"
-#include "EnemyEyeSpector.h"
-#include "EnemyGrowFace.h"
-#include "EnemyCrocodileSnake.h"
-#include "EnemyBowDemon.h"
-#include "EnemyHugDemon.h"
-#include "EnemyBloodPondDemon.h"
-#include "EnemyBlueMonk.h"
-#include "EnemyOneEyesSnake.h"
-#include "EnemyDeceasedGreen.h"
-#include "EnemyTreeMonster.h"
-#include "EnemyHellFire.h"
-#include "EnemyRollOverNeckSkull.h"
-#include "EnemyRollOverNeckWoman.h"
-#include "EnemyRayMonster.h"
-#include "EnemyWindMonster.h"
-#include "EnemyBat.h"
-#include "EnemyHandMonster.h"
-#include "EnemyNakabon.h"
-#include "EnemyNoFace.h"
-#include "EnemyNoNeckGhost.h"
-#include "EnemyShishimai.h"
-#include "EnemyYadokariYokai.h"
-#include "EnemyShishimaiDemon.h"
-#include "EnemyFlogChief.h"
-#include "EnemyRedFlogSmall.h"
 
 static const int BASE_POP_Y = 200;
 static const int POPUP_GROUND = 400;
@@ -129,6 +82,7 @@ void EnemyManager::update( FieldPtr field, CameraConstPtr camera, TarosukePtr ta
 
 		}
 		enemy->setCameraX( camera->getX( ) );
+		enemy->setTarget( tarosuke->getX( ), tarosuke->getY( ) );
 		enemy->update( field );
 		int pow = enemy->getPow( );
 

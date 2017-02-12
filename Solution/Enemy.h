@@ -19,6 +19,9 @@ public:
 	bool isFocus( ) const;
 	virtual void steppedOn( );
 	void setCameraX( int x );
+	void setTarget( int x, int y );
+	int getTargetX( ) const;
+	int getTargetY( ) const;
 protected:
 	int getCameraX( ) const;
 	void setNoHead( );
@@ -30,5 +33,7 @@ private:
 	bool _head;
 	int _camera_x;
 	bool _focus;
+	int _target_x;
+	int _target_y;
 };
 

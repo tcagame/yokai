@@ -24,6 +24,19 @@ bool Enemy::isFocus( ) const {
 	return _focus;
 }
 
+void Enemy::setTarget( int x, int y ) {
+	_target_x = x;
+	_target_y = y;
+}
+
+int Enemy::getTargetX( ) const {
+	return _target_x;
+}
+
+int Enemy::getTargetY( ) const {
+	return _target_y;
+}
+
 bool Enemy::isOverlapped( CharacterPtr target ) const {
 	Vector vec = getOverlappedPos( ) - target->getOverlappedPos( );
 	double radius = getOverlappedRadius( ) + target->getOverlappedRadius( );
