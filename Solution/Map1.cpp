@@ -23,6 +23,7 @@
 #include "EnemyBat.h"
 #include "EnemySkeletonSpear.h"
 #include "EnemyOneEyesSnake.h"
+#include "EnemyNoFace.h"
 
 
 
@@ -78,10 +79,10 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
-		"                "
-		"                "
 		"              - "
+		"                "
+		"                "
+		"                "
 		"   A A          "
 		"######          "
 		"######          "
@@ -98,7 +99,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"        S       "
+		"                "
 		"                "
 		"                "
 		"                "
@@ -187,7 +188,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"    W           "
 		"################"
 		"################"
 		"################"
@@ -207,7 +208,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"     O          "
+		"                "
 		"                "
 		"#               "
 		"###             "
@@ -275,7 +276,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"            P   "
+		"                "
 		"################"
 		"################"
 	},
@@ -293,10 +294,10 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"  P             "
 		"                "
 		"                "
 		"                "
+		"           P    "
 		"################"
 		"################"
 	},
@@ -716,7 +717,28 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
+		"           Q    "
+		"################"
+		"################"
+	},
+	{//33
+		"street/map1/bg/map1_31.png",
+		"",
+		0, 0,
 		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"                "
+		"           Q    "
 		"################"
 		"################"
 	},
@@ -731,13 +753,13 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"    U           "
 		"                "
 		"                "
 		"                "
 		"                "
 		"                "
-		"     Q        Q "
+		"                "
+		"                "
 		"################"
 		"################"
 	},
@@ -804,6 +826,7 @@ static const Map::Panel panel[] = {
 		"################"
 		"################"
 	},
+
 	{//37
 		"street/map1/bg/map1_36.png",
 		"",
@@ -861,6 +884,7 @@ EnemyPtr Map1::generateEnemy( char ch, EnemyStockPtr stock, int x, int y ) const
 	case 'T': enemy = EnemyPtr( new EnemyOneEyesSnake( x, y ) );break;
 	case 'U': enemy = EnemyPtr( new EnemyBat( x, y ) );break;
 	case 'V': enemy = EnemyPtr( new EnemyRedbird( stock, x - BG_SIZE * 2, y ) );break;
+	case 'W': enemy = EnemyPtr( new EnemyNoFace( x, y ) );break;
 	}
 
 	return enemy;
