@@ -3,6 +3,7 @@
 #include "SceneGate.h"
 #include "SceneStreet.h"
 #include "SceneResult.h"
+#include "SceneInfo.h"
 #include "Drawer.h"
 #include "Keyboard.h"
 #include "Application.h"
@@ -31,7 +32,9 @@ _stage( 0 ),
 _demo_count( 0 ),
 _fade( FADE_NONE ),
 _suddondeath( false ),
-_next( Scene::NEXT_TITLE ) {
+//_next( Scene::NEXT_TITLE ),
+_next( Scene::NEXT_DEMO ),
+_info( false ) {
 
 }
 
@@ -175,11 +178,16 @@ void Game::changeScene( ) {
 		_scene = ScenePtr( new SceneTitle );
 		break;
 	case Scene::NEXT_DEMO:
-		_demo_count++;
-		_demo = true;
-		_solo = ( _demo_count / 5 % 2 == 0 );
-		_stage = _demo_count % 5;
-		_scene = ScenePtr( new SceneStreet( ) );
+		_info = !_info;
+		if ( _info ) {
+			_scene = ScenePtr( new SceneInfo );
+		} else {
+			_demo_count++;
+			_demo = true;
+			_solo = ( _demo_count / 5 % 2 == 0 );
+			_stage = _demo_count % 5;
+			_scene = ScenePtr( new SceneStreet( ) );
+		}
 		break;
 	case Scene::NEXT_SELECT_1PLAYER:
 	case Scene::NEXT_SELECT_2PLAYER:

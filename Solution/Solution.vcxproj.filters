@@ -487,6 +487,9 @@
     <ClCompile Include="Game.cpp">
       <Filter>Common</Filter>
     </ClCompile>
+    <ClCompile Include="SceneInfo.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Enemy.h">
@@ -974,6 +977,9 @@
     </ClInclude>
     <ClInclude Include="Game.h">
       <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneInfo.h">
+      <Filter>Scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

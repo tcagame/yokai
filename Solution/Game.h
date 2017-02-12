@@ -50,5 +50,6 @@ private:
 	int _fade_count;
 	std::list< std::string > _debug_message;
 	Scene::NEXT _next;
+	bool _info;
 };
 
