@@ -164,9 +164,9 @@ void Field::drawCover( ) const {
 
 void Field::drawFarBG( CameraConstPtr camera ) const {
 	DrawerPtr drawer = Drawer::getTask( );
-	for ( int i = 0; i < 2; i++ ) {
+	for ( int i = 0; i < 4; i++ ) {
 		Drawer::Sprite sprite( 
-			Drawer::Transform( i * SCREEN_WIDTH - camera->getX( ) / 4 % SCREEN_WIDTH, 0 ),
+			Drawer::Transform( i * BG_SIZE - camera->getX( ) / 4 % BG_SIZE, 208 ),
 			GRAPH_FAR_BG );
 		drawer->setSprite( sprite );
 	}
