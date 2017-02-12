@@ -4,7 +4,7 @@
 #include "Game.h"
 
 const char * FILENAME = "record/infomation";
-const char * FILENAME_SERVER = "//172.18.6.11/students/GamePGPL\okuty/Yokai/infomation";
+const char * FILENAME_SERVER = "//172.18.6.11/students/GamePGPL/okuty/Yokai/infomation";
 
 Infomation::Infomation( bool loading ) {
 	_data.history_idx = 0;
