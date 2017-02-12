@@ -56,8 +56,6 @@ SceneStreet::SceneStreet() {
 	drawer->loadGraph( GRAPH_REPLAY				, "street/status/status_replay.png" );
 	drawer->loadGraph( GRAPH_GAMEOVER			, "street/status/status_gameover.png" );
 	drawer->loadGraph( GRAPH_DEATH_POINT        , "street/status/status_deth_point.png" );
-	drawer->loadGraph( GRAPH_FAR_BG             , "street/other/bg_far.png" );
-
 
 
 	_inputter = InputterPtr( new Inputter );
@@ -91,6 +89,7 @@ SceneStreet::SceneStreet() {
 		drawer->loadGraph(GRAPH_ENEMY_TREE_ITEM       , "street/enemy/enemy_tree_item.png");
 		drawer->loadGraph( GRAPH_ENEMY_FLOG_GREEN	, "street/enemy/enemy_frog_green.png");
 		drawer->loadGraph(GRAPH_ENEMY_BOSS         , "street/enemy/boss_reddemon.png");
+		drawer->loadGraph( GRAPH_FAR_BG             , "street/other/bg_far_0.png" );
 		break;
 	case 1:
 		map = MapPtr(new Map1);
@@ -99,6 +98,7 @@ SceneStreet::SceneStreet() {
 		drawer->loadGraph(GRAPH_ENEMY_BOSS         , "street/enemy/boss_bluedemon.png");
 		drawer->loadGraph( GRAPH_ENEMY_FLOG_RED		, "street/enemy/enemy_frog_red.png");
 		drawer->loadGraph( GRAPH_ENEMY_FIREBALL		, "street/enemy/enemy_fireball.png");
+		drawer->loadGraph( GRAPH_FAR_BG             , "street/other/bg_far_1.png" );
 		break;
 	case 2:
 		map = MapPtr(new Map2);
@@ -106,6 +106,7 @@ SceneStreet::SceneStreet() {
 		drawer->loadGraph(GRAPH_STATUS_TITLE, "street/status/status_title_2.png");
 		drawer->loadGraph(GRAPH_ENEMY_BOSS         , "street/enemy/boss_sanzu.png");
 		drawer->loadGraph(GRAPH_ENEMY_CROW         , "street/enemy/enemy_crow.png");
+		drawer->loadGraph( GRAPH_FAR_BG             , "street/other/bg_far_2.png" );
 		break;
 	case 3:
 		map = MapPtr(new Map3);
@@ -117,12 +118,14 @@ SceneStreet::SceneStreet() {
 		drawer->loadGraph(GRAPH_ENEMY_TREE_MONSTER_ITEM	, "street/enemy/enemy_tree_monster_item.png");
 		drawer->loadGraph( GRAPH_ENEMY_FIREBALL			, "street/enemy/enemy_fireball.png");
 		drawer->loadGraph(GRAPH_ENEMY_BLOOD_POND		, "street/enemy/enemy_blood_pond.png");
+		drawer->loadGraph( GRAPH_FAR_BG             , "street/other/bg_far_3.png" );
 		break;
 	case 4:
 		map = MapPtr(new Map4);
 		drawer->loadGraph(GRAPH_STATUS_MAP  , "street/status/status_map_4.png");
 		drawer->loadGraph(GRAPH_STATUS_TITLE, "street/status/status_title_4.png");
 		drawer->loadGraph( GRAPH_ENEMY_FIREBALL		, "street/enemy/enemy_fireball.png");
+		drawer->loadGraph( GRAPH_FAR_BG             , "street/other/bg_far_4.png" );
 		break;
 	case 5:
 		map = MapPtr(new MapTest);
@@ -136,6 +139,7 @@ SceneStreet::SceneStreet() {
 		drawer->loadGraph( GRAPH_ENEMY_FIREBALL		, "street/enemy/enemy_fireball.png");
 		drawer->loadGraph( GRAPH_ENEMY_FLOG_GREEN	, "street/enemy/enemy_frog_green.png");
 		drawer->loadGraph( GRAPH_ENEMY_BLOOD_POND	, "street/enemy/enemy_blood_pond.png");
+		drawer->loadGraph( GRAPH_FAR_BG             , "street/other/bg_far_test.png" );
 		break;
 	}
 	
