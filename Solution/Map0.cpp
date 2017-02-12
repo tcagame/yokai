@@ -424,12 +424,12 @@ static const Map::Panel panel[] = {
 		"street/map0/bg/map0_01_04.png",
 		"street/map0/cover/grass.png",
 		0, 0,
-		"  I    I    I   "
+		"    I   I   I   "
 		"                "
 		"                "
 		"                "
 		"                "
-		"  I    I    I   "
+		"  I   I   I     "
 		"                "
 		"                "
 		"                "
@@ -466,12 +466,12 @@ static const Map::Panel panel[] = {
 		"street/map0/bg/map0_01_04.png",
 		"street/map0/cover/grass.png",
 		280, 120,
-		"  I    I    I   "
+		"    I   I   I   "
 		"                "
 		"                "
 		"                "
 		"                "
-		"  I    I    I   "
+		"  I   I   I     "
 		"                "
 		"                "
 		"                "
