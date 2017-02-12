@@ -8,7 +8,7 @@ Power::Power( ) :
 _value( MAX ) {
 	GamePtr game = Game::getTask( );
 	if ( game->isSuddendeath( ) ) {
-		_value = 1;
+		_value = 6;
 	}
 }
 
