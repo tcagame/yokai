@@ -60,7 +60,8 @@ SceneGate::SceneGate( ) {
 		break;
 	}
 	
-	_infomation = InfomationPtr( new Infomation );
+	Infomation info;
+	_prob = info.getProbability( game->getStage( ) );
 
 	SoundPtr sound = Sound::getTask( );
 	sound->playBGM( "yokai_se_32.wav" );
@@ -121,10 +122,9 @@ void SceneGate::draw( ) const {
 	};
 
 	GamePtr game = Game::getTask( );
-	int prob = _infomation->getProbability( game->getStage( ) );
 
 	{
-		int n = prob / 100;
+		int n = _prob / 100;
 		if ( n > 0 ) {
 			Drawer::Sprite sprite( //\‚ÌˆÊ
 				Drawer::Transform( COUNT_X - 120, COUNT_Y + 130 ), GRAPH_NUMERIC[ n ] );
@@ -132,13 +132,13 @@ void SceneGate::draw( ) const {
 		}
 	}
 	{
-		int n = prob / 10 % 10;
+		int n = _prob / 10 % 10;
 		Drawer::Sprite sprite( //ˆê‚ÌˆÊ
 			Drawer::Transform( COUNT_X - 70, COUNT_Y + 130 ), GRAPH_NUMERIC[ n ] );
 		drawer->setSprite( sprite );
 	}
 	{
-		int n = prob % 10;
+		int n = _prob % 10;
 		Drawer::Sprite sprite( //¬”“_‘æˆê
 			Drawer::Transform( COUNT_X, COUNT_Y + 130 ), GRAPH_NUMERIC[ n ] );
 		drawer->setSprite( sprite );

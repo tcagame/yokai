@@ -1,8 +1,10 @@
 #include "Infomation.h"
 #include "Binary.h"
 #include "Application.h"
+#include "Game.h"
 
-const char * FILENAME = "record/information";
+const char * FILENAME = "record/infomation";
+const char * FILENAME_SERVER = "//172.18.6.11/students/GamePGPL\okuty/Yokai/infomation";
 
 Infomation::Infomation( bool loading ) {
 	_data.history_idx = 0;
@@ -27,19 +29,29 @@ Infomation::~Infomation( ) {
 }
 
 void Infomation::load( ) {
+	const char * filename = FILENAME;
+	GamePtr game = Game::getTask( );
+	if ( game->isSuddendeath( ) ) {
+		filename = FILENAME_SERVER;
+	}
 	BinaryPtr binary( new Binary );
 	ApplicationPtr app = Application::getInstance( );
-	if ( app->loadBinary( FILENAME, binary ) ) {
+	if ( app->loadBinary( filename, binary ) ) {
 		binary->read( ( void * )&_data, sizeof( _data ) );
 	}
 }
 
 void Infomation::save( ) {
+	const char * filename = FILENAME;
+	GamePtr game = Game::getTask( );
+	if ( game->isSuddendeath( ) ) {
+		filename = FILENAME_SERVER;
+	}
 	BinaryPtr binary( new Binary );
 	binary->ensure( sizeof( _data ) );
 	binary->write( ( void * )&_data, sizeof( _data ) );
 	ApplicationPtr app = Application::getInstance( );
-	app->saveBinary( FILENAME, binary );
+	app->saveBinary( filename, binary );
 }
 
 int Infomation::getProbability( int stage_idx ) const {
