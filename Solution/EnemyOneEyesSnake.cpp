@@ -6,12 +6,12 @@ static const int HP = 3;
 static const int POW = 6;
 static const int WAIT_ANIME_TIME = 15;
 static const int MOVE_SPEED = 4;
-static const int JUMP_POWER = -30;
+static const int JUMP_POWER = -50;
 
 EnemyOneEyesSnake::EnemyOneEyesSnake( int x, int y, bool dir_right ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ) ,
 _move_speed( -MOVE_SPEED ),
-_before_x( 0 ) {
+_count( 0 ) {
 	if ( dir_right ) {
 		_move_speed *= -1;
 	}
@@ -27,21 +27,29 @@ void EnemyOneEyesSnake::act( ) {
 }
 
 void EnemyOneEyesSnake::actMove( ) {
-	if ( _before_x == getX( ) ) {
-		_move_speed *= -1;
+	_count++;
+	if ( _count > 15 * 4 ) {
+		if ( isStanding( ) ) {
+			_count = 0;
+		}
+	} else {
+		setAccelX( 0 );
+		setAccelY( 0 );
 	}
-	_before_x = getX( );
-	setAccelX( _move_speed );
-
-	if ( isStanding( ) ) {
+	if ( _count == 14 * 4 ) {
+		setAccelX( _move_speed );
 		setAccelY( JUMP_POWER );
 	}
+
 }
 
 void EnemyOneEyesSnake::updateChip( ) {
-	const int ANIME[ ] = { 0, 1, 2, 3, 4, 5, 6 };
-	int anime_num = sizeof( ANIME ) / sizeof( ANIME[ 0 ] );
-	int u = ANIME[ getX( ) / WAIT_ANIME_TIME % anime_num ];
+	const int ANIME[ 16 ] = { 0, 1, 2, 3, 4, 5, 6, 7, 7, 6, 5, 4, 3, 2, 1, 0 };
+	int idx = _count / 4;
+	if ( idx > 15 ) {
+		idx = 15;
+	}
+	int u = ANIME[ idx ];
 	int v = 4;
 	setChipGraph( GRAPH_ENEMY_NORMAL, u, v );
 }
