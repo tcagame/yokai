@@ -237,7 +237,7 @@ static const Map::Panel panel[] = {
 		"                "
 	},
 	{
-		"street/map4/bg/map4_09.png",
+		"street/map4/bg/map4_71.png",
 		"",
 		158, 92,
 		"                "
@@ -258,7 +258,7 @@ static const Map::Panel panel[] = {
 		"                "
 	},
 	{
-		"street/map4/bg/map4_09.png",
+		"street/map4/bg/map4_71.png",
 		"",
 		0, 0,
 		"                "
@@ -279,7 +279,7 @@ static const Map::Panel panel[] = {
 		"                "
 	},
 	{
-		"street/map4/bg/map4_09.png",
+		"street/map4/bg/map4_71.png",
 		"",
 		208, 100,
 		"                "
@@ -300,7 +300,7 @@ static const Map::Panel panel[] = {
 		"                "
 	},
 	{
-		"street/map4/bg/map4_09.png",
+		"street/map4/bg/map4_71.png",
 		"",
 		233, 128,
 		"                "
@@ -321,7 +321,7 @@ static const Map::Panel panel[] = {
 		"                "
 	},
 	{
-		"street/map4/bg/map4_09.png",
+		"street/map4/bg/map4_71.png",
 		"",
 		0, 0,
 		"                "
@@ -342,7 +342,7 @@ static const Map::Panel panel[] = {
 		"                "
 	},
 	{
-		"street/map4/bg/map4_09.png",
+		"street/map4/bg/map4_71.png",
 		"",
 		275, 128,
 		"                "
