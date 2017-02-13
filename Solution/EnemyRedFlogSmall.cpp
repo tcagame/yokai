@@ -1,4 +1,5 @@
 #include "EnemyRedFlogSmall.h"
+#include "Sound.h"
 
 static const int CHIP_SIZE = 64;
 static const int CHIP_FOOT = 0;
@@ -43,9 +44,11 @@ void EnemyRedFlogSmall::act( ) {
 		setChipGraph( GRAPH_ENEMY_SMALL, pattern, 3 );
 	}
 	if ( isStanding( ) ) {
-			setAccelX( 0 );
+		setAccelX( 0 );
 		if ( _time % 30 == 0 ) {
 			setAccelY( JUMP_POWER );
+			SoundPtr sound = Sound::getTask( );
+			sound->playSE( "yokai_voice_05.wav" );
 		}
 	}
 	if( !isStanding( ) ) {
