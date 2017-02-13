@@ -1,4 +1,5 @@
 #include "EnemyFlogSmall.h"
+#include "Sound.h"
 
 static const int CHIP_SIZE = 64;
 static const int CHIP_FOOT = 0;
@@ -11,7 +12,6 @@ EnemyFlogSmall::EnemyFlogSmall( int x, int y ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),
 _act_count( 0 ),
 _smashed_count( 0 ) {
-
 }
 
 
@@ -38,5 +38,10 @@ void EnemyFlogSmall::act( ) {
 		_act_count %= WAIT_ANIME_TIME * MAX_ANIME_PATTERN;
 		int pattern = _act_count / WAIT_ANIME_TIME;
 		setChipGraph( GRAPH_ENEMY_SMALL, pattern, 2 );
+	}
+
+	if ( _act_count == 0 ) {
+		SoundPtr sound = Sound::getTask( );
+		sound->playSE( "yokai_voice_07.wav" );
 	}
 }
