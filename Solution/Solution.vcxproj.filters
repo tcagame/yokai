@@ -490,6 +490,7 @@
     <ClCompile Include="SceneInfo.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
+    <ClCompile Include="ItemMgr.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Enemy.h">
@@ -981,6 +982,7 @@
     <ClInclude Include="SceneInfo.h">
       <Filter>Scene</Filter>
     </ClInclude>
+    <ClInclude Include="ItemMgr.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Enemy">

@@ -11,6 +11,7 @@ PTR( Map );
 PTR( Cloud );
 PTR( CloudMgr );
 PTR( EnemyStock );
+PTR( ItemMgr );
 
 class Field {
 public:
@@ -37,9 +38,7 @@ private:
 	void drawFarBG( CameraConstPtr camera ) const;
 	void drawBG( ) const;
 	void drawChip( ) const;
-	void drawClouds( CameraConstPtr camera ) const;
 	void scroll( CameraConstPtr camera );
-	void moveClouds( );
 	void initMark( );
 private:
 	const MapConstPtr _map;
@@ -48,9 +47,8 @@ private:
 	int _scroll_y;
 	int _idx;
 	int _create_idx;
-	std::list< CloudPtr > _clouds;
 	CloudMgrPtr _cloud_mgr;
-	bool _debug_mapchip;
+	ItemMgrPtr _item_mgr;
 	std::vector< Vector > _markers; 
 };
 
