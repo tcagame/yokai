@@ -1,5 +1,6 @@
 #include "EnemyRedbird.h"
 #include "EnemyRedbirdAttack.h"
+#include "Sound.h"
 
 static const int MOVE_SPEED = 10;
 static const int WAIT_ANIME_TIME = 40;
@@ -14,6 +15,8 @@ EnemyRedbird::EnemyRedbird( EnemyStockPtr stock, int x, int y ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ),
 _stock( stock ),
 _accel( 0 ) {
+	SoundPtr sound = Sound::getTask( );
+	sound->playSE( "yokai_voice_02.wav" );
 }
 
 

@@ -64,7 +64,7 @@ SceneGate::SceneGate( ) {
 	_prob = info.getProbability( game->getStage( ) );
 
 	SoundPtr sound = Sound::getTask( );
-	sound->playBGM( "yokai_se_32.wav" );
+	sound->playBGM( "yokai_se_30.wav" );
 	_x = 0;
 }
 
