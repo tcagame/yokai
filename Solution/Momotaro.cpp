@@ -185,4 +185,7 @@ void Momotaro::damage( int pow ) {
 
 	_falter_count = FALTER_COUNT;
 	_power->decrease( pow );
+
+	SoundPtr sound = Sound::getTask( );
+	sound->playSE( "yokai_voice_26.wav" );
 }
