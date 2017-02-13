@@ -24,7 +24,10 @@ void EnemyHellFire::act( ) {
 	Vector target(
 		getCameraX( ) + SCREEN_WIDTH / 2 + ( int )( sin( _count * PI / 150 ) * BG_SIZE + BG_SIZE / 2),
 		BG_SIZE / 2 + ( int )( sin( _count * PI / 100 ) * BG_SIZE / 2 ) );
-	Vector vec = ( target - pos ).normalize( ) * MOVE_SPEED;
+	Vector vec = target - pos;
+	if ( vec.getLength( ) > MOVE_SPEED ) {
+		vec = vec.normalize( ) * MOVE_SPEED;
+	}
 
 	setAccelX( ( int )vec.x );
 	setAccelY( ( int )vec.y );
