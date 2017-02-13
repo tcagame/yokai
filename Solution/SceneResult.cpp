@@ -12,11 +12,14 @@ static const int ANIMELOCK_COUNT = 420;
 static const int PHASE_COUNT = 30;
 static const int NUMERIC_SIZE = 100;
 static const int OFFSET_Y = 40;
+static const int ONLY_FLAME_TIME = 700;
+static const int WAIT_FADE_OUT_TIME = 300;
 
 PTR( Infomation );
 
 SceneResult::SceneResult( ) :
-_count( 0 ) {
+_count( 0 ),
+_phase_count( 0 ) {
 	DrawerPtr drawer = Drawer::getTask( );
 	SoundPtr sound = Sound::getTask( );
 	GamePtr game = Game::getTask( );
@@ -102,7 +105,8 @@ Scene::NEXT SceneResult::update( ) {
 	DevicePtr device = Device::getTask( );
 	switch ( _phase ) {
 	case PHASE_ONLYFRAME:
-		if ( device->getPush( ) != 0 ) {
+		if ( ( device->getPush( ) != 0 ) ||
+			 ( _phase_count > ONLY_FLAME_TIME ) ) {
 			_phase = PHASE_INWINDOW;
 			_phase_count = 0;
 		}
@@ -121,9 +125,10 @@ Scene::NEXT SceneResult::update( ) {
 		break;
 	case PHASE_WAIT:
 		if ( game->getFade( ) == Game::FADE_NONE ) {
-			if ( device->getPush( ) != 0 ) {
+			if ( ( device->getPush( ) != 0 ) ||
+				 ( _phase_count > WAIT_FADE_OUT_TIME ) ) {
 				game->setFade( Game::FADE_OUT );
-			}	
+			}
 		}
 		break;
 	}

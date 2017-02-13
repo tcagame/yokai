@@ -25,6 +25,7 @@
 static const int CLEAR_COUNT = 120;
 static const int DEAD_COUNT = 150;
 static const int DEATH_POINTS_COUNT = 80;
+static const int WAIT_FADE_OUT_TIME = 600;
 
 SceneStreet::SceneStreet() {
 	srand( 0 );
@@ -237,7 +238,8 @@ Scene::NEXT SceneStreet::update( ) {
 				return NEXT_TITLE;
 			}
 			DevicePtr device = Device::getTask( );
-			if ( device->getButton( ) != 0 ) {
+			if ( ( device->getButton( ) != 0 ) ||
+				 ( _phase_count > WAIT_FADE_OUT_TIME ) ) {
 				game->setFade( Game::FADE_OUT );
 				_phase = PHASE_FADEOUT;
 			}
