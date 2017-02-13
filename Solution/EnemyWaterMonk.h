@@ -7,8 +7,10 @@ public:
 	virtual ~EnemyWaterMonk( );
 private:
 	void act( );
+	double getOverlappedRadius( ) const;
 	Vector getOverlappedPos( ) const;
 private:
+	int _over_lapped_pos;
 	int _act_count;
 	bool _in_water;
 };
