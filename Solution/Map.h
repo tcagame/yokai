@@ -8,6 +8,7 @@ const int MAPCHIP_NUM = 16;
 const int MAPCHIP_SIZE = BG_SIZE / MAPCHIP_NUM;
 
 PTR( CloudMgr );
+PTR( ItemMgr );
 PTR( EnemyStock );
 PTR( Enemy );
 PTR( Boss );
@@ -33,6 +34,7 @@ public:
 	bool isBlockChip( int bg_idx, int chip_idx ) const;
 	FLOOR getFloor( int bg_idx, int chip_idx ) const;
 	CloudMgrPtr createCloudMgr( ) const;
+	ItemMgrPtr createItemMgr( ) const;
 	virtual void addToStock( EnemyStockPtr stock, int idx ) const;
 	virtual EnemyPtr generateEnemy( char ch, EnemyStockPtr stock, int x, int y ) const = 0;
 	virtual BossPtr  generateBoss( EnemyStockPtr stock ) const = 0;

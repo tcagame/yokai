@@ -5,6 +5,7 @@
 #include "Map.h"
 #include "Cloud.h"
 #include "CloudMgr.h"
+#include "ItemMgr.h"
 #include "Keyboard.h"
 #include "Game.h"
 
@@ -20,7 +21,8 @@ _stock( stock ) {
 	_scroll_y = -48; // ÅI“I‚É‚ÍƒJƒƒ‰‚©‚çŽæ“¾
 
 	_cloud_mgr = map->createCloudMgr( );
-	
+	_item_mgr  = map->createItemMgr( );
+
 	DrawerPtr drawer = Drawer::getTask( );
 
 	_create_idx = 0;
@@ -45,8 +47,6 @@ _stock( stock ) {
 	}
 
 	initMark( );
-
-	_debug_mapchip = false;
 }
 
 Field::~Field( ) {
@@ -93,12 +93,8 @@ Vector Field::getStatusMarkerPos( int x ) const {
 
 void Field::update( CameraConstPtr camera ) {
 	scroll( camera );
-	moveClouds( );
-
-	KeyboardPtr keyboard = Keyboard::getTask( );
-	if ( keyboard->isPushKey( "C" ) ) {
-		_debug_mapchip = !_debug_mapchip; 
-	}
+	_cloud_mgr->update( );
+	_item_mgr->update( );
 }
 
 void Field::scroll( CameraConstPtr camera ) {
@@ -139,15 +135,12 @@ void Field::scroll( CameraConstPtr camera ) {
 	_scroll_y = -camera->getY( );
 }
 
-void Field::moveClouds( ) {
-	_cloud_mgr->update( );
-}
-
 void Field::draw( CameraConstPtr camera ) const {
 	drawFarBG( camera );
 	drawBG( );
 	drawChip( );
-	drawClouds( camera );
+	_cloud_mgr->draw( camera );
+	_item_mgr->draw( camera );
 }
 
 void Field::drawCover( ) const {
@@ -208,10 +201,6 @@ void Field::drawChip( ) const {
 			drawer->setSprite( sprite );
 		}
 	}
-}
-
-void Field::drawClouds( CameraConstPtr camera ) const {
-	_cloud_mgr->draw( camera );
 }
 
 FLOOR Field::getFloor( int x, int y ) const {

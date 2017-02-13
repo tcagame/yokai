@@ -32,8 +32,7 @@ _stage( 0 ),
 _demo_count( 0 ),
 _fade( FADE_NONE ),
 _suddondeath( false ),
-//_next( Scene::NEXT_TITLE ),
-_next( Scene::NEXT_DEMO ),
+_next( Scene::NEXT_TITLE ),
 _info( false ) {
 
 }

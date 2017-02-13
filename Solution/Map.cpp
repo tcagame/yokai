@@ -3,6 +3,7 @@
 #include "CloudMgr.h"
 #include "Cloud.h"
 #include "EnemyStock.h"
+#include "ItemMgr.h"
 
 Map::Map( const Panel * panel, int panel_num ) :
 _panel( panel ),
@@ -76,6 +77,11 @@ CloudMgrPtr Map::createCloudMgr( ) const {
 		}
 	}
 
+	return mgr;
+}
+
+ItemMgrPtr Map::createItemMgr( ) const {
+	ItemMgrPtr mgr( new ItemMgr );
 	return mgr;
 }
 
