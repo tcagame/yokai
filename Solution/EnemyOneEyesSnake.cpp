@@ -28,7 +28,7 @@ void EnemyOneEyesSnake::act( ) {
 
 void EnemyOneEyesSnake::actMove( ) {
 	_count++;
-	if ( _count > 15 * 4 ) {
+	if ( _count > 15 * 2 ) {
 		if ( isStanding( ) ) {
 			_count = 0;
 		}
@@ -36,7 +36,7 @@ void EnemyOneEyesSnake::actMove( ) {
 		setAccelX( 0 );
 		setAccelY( 0 );
 	}
-	if ( _count == 14 * 4 ) {
+	if ( _count == 15 * 2 ) {
 		setAccelX( _move_speed );
 		setAccelY( JUMP_POWER );
 	}
@@ -45,7 +45,7 @@ void EnemyOneEyesSnake::actMove( ) {
 
 void EnemyOneEyesSnake::updateChip( ) {
 	const int ANIME[ 16 ] = { 0, 1, 2, 3, 4, 5, 6, 7, 7, 6, 5, 4, 3, 2, 1, 0 };
-	int idx = _count / 4;
+	int idx = _count / 2;
 	if ( idx > 15 ) {
 		idx = 15;
 	}

@@ -9,10 +9,12 @@ public:
 	virtual ~SceneGate( );
 private:
 	NEXT update( );
-	void act( );
 	void draw( ) const;
 private:
 	int _x;
 	int _prob;
+	int _map_offset_x;
+	int _title_offset_x;
+	int _clear_offset_y;
 };
 

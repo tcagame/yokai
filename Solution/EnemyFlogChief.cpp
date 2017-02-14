@@ -36,3 +36,12 @@ void EnemyFlogChief::act( ) {
 
 	setChipGraph( GRAPH_ENEMY_FLOG_RED, u, 0 );
 }
+
+
+Vector EnemyFlogChief::getOverlappedPos( ) const {
+	return Vector( getX( ), getY( ) + CHIP_FOOT - CHIP_SIZE / 3 );
+}
+
+double EnemyFlogChief::getOverlappedRadius( ) const {
+	return CHIP_SIZE / 2 * 0.3;
+}
