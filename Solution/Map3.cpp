@@ -551,7 +551,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"   S   S  S   S "
+		"  S   S   S   S "
 		"################"
 		"################"
 	},

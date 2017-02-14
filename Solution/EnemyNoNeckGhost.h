@@ -8,8 +8,8 @@ public:
 private:
 	void act( );
 private:
-	int _accel;
 	int _count;
+	int _speed;
 	int _vy;
 	int _dir;
 };

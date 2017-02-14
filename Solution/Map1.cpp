@@ -565,7 +565,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"             a  "
 		"                "
 		"                "
 		"################"
@@ -887,6 +887,7 @@ EnemyPtr Map1::generateEnemy( char ch, EnemyStockPtr stock, int x, int y ) const
 	case 'V': enemy = EnemyPtr( new EnemyRedbird( stock, x - BG_SIZE * 2, y ) );break;
 	case 'W': enemy = EnemyPtr( new EnemyNoFace( x, y ) );break;
 	case 'Z': enemy = EnemyPtr( new EnemyWindMonster( stock, x, y ) );break;
+	case 'a': enemy = EnemyPtr( new EnemyNoNeckGhost( x, y ) );break;
 	}
 
 	return enemy;
