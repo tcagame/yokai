@@ -1,4 +1,5 @@
 #include "EnemyStoneMortgage.h"
+#include "Sound.h"
 
 static const int CHIP_SIZE = 64;
 static const int CHIP_FOOT = 0;
@@ -29,6 +30,8 @@ void EnemyStoneMortgage::setMove( bool moveing ) {
 	if ( !_moveing ) {
 		_return_pos = Vector( getX( ), getY( ) );
 	} else {
+		SoundPtr sound = Sound::getTask( );
+		sound->playSE( "yokai_voice_37.wav" );
 		setAccelX( rand( ) % 20 - 10 );
 		setAccelY( -40 );
 		_vy = -40;
