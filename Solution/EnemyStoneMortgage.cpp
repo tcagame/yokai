@@ -3,7 +3,7 @@
 static const int CHIP_SIZE = 64;
 static const int CHIP_FOOT = 0;
 static const int MOVE_SPEED = 20;
-static const int HP = 99;
+static const int HP = 1;
 static const int POW = 2;
 static const int WAIT_ANIME_TIME = 3;
 
@@ -61,4 +61,10 @@ void EnemyStoneMortgage::updateChip( ) {
 	int u = _type % 2 * 4 + _count / WAIT_ANIME_TIME % 4;
 	int v = 4 + _type / 2;
 	setChipGraph( GRAPH_ENEMY_ROCKMASS, u, v );
+}
+
+void EnemyStoneMortgage::damage( int pow ) {
+	if ( pow < 0 ) {
+		Enemy::damage( pow );
+	}
 }
