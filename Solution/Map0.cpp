@@ -260,7 +260,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"            $   "
 		"                "
 		"                "
 		"                "
