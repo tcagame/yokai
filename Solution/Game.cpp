@@ -287,6 +287,8 @@ void Game::changeScene( ) {
 	drawer->loadGraph( GRAPH_TITLE_PANEL, "title/Yokai_UI_title_panel.png" );
 
 	setFade( FADE_IN );
+
+	drawer->resetFPS( );
 }
 
 void Game::addDebugMessage( const char* string, ... ) {
