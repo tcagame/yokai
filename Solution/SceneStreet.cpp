@@ -25,9 +25,17 @@
 static const int CLEAR_COUNT = 120;
 static const int DEAD_COUNT = 150;
 static const int DEATH_POINTS_COUNT = 80;
-static const int WAIT_FADE_OUT_TIME = 600;
+static const int WAIT_FADE_OUT_TIME = 1000;
+static const int CHOICE_CURSORY_X = 475;
+static const int CHOICE_CURSORY_Y = 440;
+static const int CHOICE_FONT_X = 400;
+static const int CHOICE_FONT_Y = 250;
+static const int GAME_OVER_TIME =100;
 
-SceneStreet::SceneStreet() {
+
+SceneStreet::SceneStreet( ) :
+_select( 0 ),
+_count( 0 ) {
 	srand( 0 );
 
 	GamePtr game = Game::getTask( );
@@ -165,6 +173,7 @@ SceneStreet::SceneStreet() {
 	SoundPtr sound = Sound::getTask( );
 	sound->playBGM( "yokai_music_10.wav" );
 
+	_count++;
 }
 
 SceneStreet::~SceneStreet( ) {
@@ -240,12 +249,12 @@ Scene::NEXT SceneStreet::update( ) {
 		break;
 	case PHASE_DEAD:
 		if ( _phase_count > DEAD_COUNT ) {
+			//ƒfƒ‚
 			if ( game->isDemo( ) ) {
 				return NEXT_TITLE;
 			}
-			DevicePtr device = Device::getTask( );
-			if ( ( device->getButton( ) != 0 ) ||
-				 ( _phase_count > WAIT_FADE_OUT_TIME ) ) {
+			//ˆê’èŽžŠÔorƒ{ƒ^ƒ“‚ÅƒŠƒUƒ‹ƒg‚ÖˆÚ“®
+			if ( _phase_count > WAIT_FADE_OUT_TIME ) {
 				game->setFade( Game::FADE_OUT );
 				_phase = PHASE_FADEOUT;
 			}
@@ -259,6 +268,9 @@ Scene::NEXT SceneStreet::update( ) {
 			game->setFade( Game::FADE_OUT );
 			_phase = PHASE_FADEOUT;
 		}
+		break;
+	case PHASE_CONTINUE:
+		return NEXT_RETRY;
 		break;
 	case PHASE_FADEOUT:
 		if ( game->getFade( ) == Game::FADE_COVER ) {
@@ -298,6 +310,7 @@ Scene::NEXT SceneStreet::update( ) {
 	_camera->update( _tarosuke );
 	_status->update( );
 
+
 	if ( !_tarosuke->isCalling( ) ) {
 		_enemy_mgr->update( _field, _camera, _tarosuke, _momotaro );
 		_psychic_mgr->update( _camera, _tarosuke, _enemy_mgr );
@@ -312,25 +325,47 @@ Scene::NEXT SceneStreet::update( ) {
 	_field->drawCover( );
 	_status->draw( );
 
+	if ( _phase == PHASE_DEAD && _phase_count > DEATH_POINTS_COUNT ) {
+		updatePhaseDead( );
+	}
+
 	if ( game->isDemo( ) ) {
 		DrawerPtr drawer = Drawer::getTask( );
 		Drawer::Sprite sprite(
 			Drawer::Transform( 0, SCREEN_HEIGHT * 9 / 10 ), GRAPH_FONT_REPLAY );
 		drawer->setSprite( sprite );
 	}
-	if ( _phase == PHASE_DEAD && _phase_count > DEATH_POINTS_COUNT && !game->isDemo( ) ) {
-		//@Ž€‚ñ‚¾êŠ‚w
-		drawDeathPoints( );
-		//‚°`‚Þ‚¨`‚Î`
-		DrawerPtr drawer = Drawer::getTask( );
-		Drawer::Sprite sprite(
-			Drawer::Transform( ( SCREEN_WIDTH - 704 ) / 2, ( SCREEN_HEIGHT - 96 ) / 2 ), GRAPH_FONT_GAMEOVER );
-		drawer->setSprite( sprite );
-	}
-
 	debugWarp( );
 
 	return NEXT_CONTINUE;
+}
+
+void SceneStreet::updatePhaseDead( ) {
+	DevicePtr device = Device::getTask( );
+	if ( _count >= GAME_OVER_TIME ) {
+		if ( device->getDirY( ) < 0 && _select != 0 ) {
+			_select = 0;
+			SoundPtr sound = Sound::getTask( );
+			sound->playSE( "yokai_se_06.wav" );
+		}
+		if ( device->getDirY( ) > 0 && _select != 1  ) {
+			_select = 1;
+			SoundPtr sound = Sound::getTask( );
+			sound->playSE( "yokai_se_06.wav" );
+		}
+		if ( device->getButton( ) != 0 ) {
+			GamePtr game = Game::getTask( );
+			if ( _select == 0 ) {
+				_phase = PHASE_CONTINUE;
+			}
+			if ( _select == 1 ) {
+				game->setFade( Game::FADE_OUT );
+				_phase = PHASE_FADEOUT;
+			}
+		}
+	}
+	drawPhaseDead( );
+	_count++;
 }
 
 void SceneStreet::debugWarp( ) {
@@ -407,4 +442,34 @@ void SceneStreet::drawDeathPoints( ) {
 
 		it++;
 	}
+}
+
+void SceneStreet::drawPhaseDead( ) {
+	drawDeathPoints( );
+	if ( _count < GAME_OVER_TIME ) {
+		drawGameOver( );
+	}
+	if (_count >= GAME_OVER_TIME ) {
+		drawContinue( );
+	}
+}
+
+void SceneStreet::drawGameOver( ) {
+	DrawerPtr drawer = Drawer::getTask( );
+	Drawer::Transform trans = Drawer::Transform( ( SCREEN_WIDTH - 704 ) / 2, ( SCREEN_HEIGHT - 96 ) / 2 );
+	Drawer::Sprite sprite( trans, GRAPH_FONT_GAMEOVER );
+	drawer->setSprite( sprite );
+}
+
+void SceneStreet::drawContinue( ) {
+	DrawerPtr drawer = Drawer::getTask( );
+	Drawer::Sprite sprite_cusory(
+			Drawer::Transform( CHOICE_CURSORY_X, CHOICE_CURSORY_Y + _select * 110 ),
+			GRAPH_FONT_CURSOR );
+	drawer->setSprite( sprite_cusory );
+	
+	Drawer::Sprite sprite_playerchoice(
+		Drawer::Transform( CHOICE_FONT_X, CHOICE_FONT_Y ),
+		GRAPH_FONT_CONTINUE );
+	drawer->setSprite( sprite_playerchoice );
 }
