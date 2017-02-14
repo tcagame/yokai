@@ -58,6 +58,7 @@ void Game::initialize( ) {
 	sound->loadSE( "yokai_voice_17.wav" );
 	sound->loadSE( "yokai_voice_26.wav" );
 	sound->loadSE( "yokai_voice_29.wav" );
+	sound->loadSE( "yokai_voice_30.wav" );
 	sound->loadSE( "yokai_voice_31.wav" );
 	sound->loadSE( "yokai_voice_37.wav" );
 	sound->loadSE( "yokai_voice_39.wav" );
@@ -232,6 +233,9 @@ void Game::changeScene( ) {
 	case Scene::NEXT_STREET:
 		_scene = ScenePtr( new SceneStreet( ) );
 		break;
+	case Scene::NEXT_RETRY:
+		_scene = ScenePtr( new SceneGate( ) );
+		break;
 	case Scene::NEXT_RESULT:
 		_scene = ScenePtr( new SceneResult( ) );
 		break;
@@ -287,6 +291,8 @@ void Game::changeScene( ) {
 	drawer->loadGraph( GRAPH_TITLE_PANEL, "title/Yokai_UI_title_panel.png" );
 
 	setFade( FADE_IN );
+
+	drawer->resetFPS( );
 }
 
 void Game::addDebugMessage( const char* string, ... ) {
