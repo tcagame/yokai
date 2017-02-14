@@ -38,6 +38,9 @@ SceneTitle::SceneTitle( ) {
 	drawer->loadGraph( GRAPH_PLAYERCHOICE, "title/status_player_choice.png");
 	drawer->loadGraph( GRAPH_CURSOR      , "title/cursory.png" );
 
+	SoundPtr sound = Sound::getTask( );
+	sound->playBGM( "yokai_music_03.wav" );
+
 	_count = 0;
 	_panel_count = 0;
 	_select = 0;
