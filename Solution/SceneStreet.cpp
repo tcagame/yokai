@@ -55,6 +55,7 @@ SceneStreet::SceneStreet() {
 	drawer->loadGraph( GRAPH_ENEMY_NORMAL		, "street/enemy/enemy_nomal.png");
 	drawer->loadGraph( GRAPH_ENEMY_SMALL		, "street/enemy/enemy_small.png");
 	drawer->loadGraph( GRAPH_ENEMY_BIG			, "street/enemy/enemy_big.png");
+	drawer->loadGraph( GRAPH_ENEMY_ANIMAL		, "street/enemy/enemy_cat.png");
 	drawer->loadGraph( GRAPH_DEATH_POINT        , "street/status/status_deth_point.png" );
 	drawer->loadGraph( GRAPH_FONT_REPLAY		, "font/font_replay.png" );
 	drawer->loadGraph( GRAPH_FONT_GAMEOVER	    , "font/font_gameover.png" );
@@ -149,14 +150,15 @@ SceneStreet::SceneStreet() {
 	
 	EnemyStockPtr stock = EnemyStockPtr( new EnemyStock( ) );
 
+	PowerPtr pow = game->getPower( );
+
 	_field = FieldPtr( new Field( map, stock ) );
 	_camera = CameraPtr( new Camera( map ) );
-	_power = PowerPtr( new Power );
 	_psychic_mgr = PsychicMgrPtr( new PsychicMgr );
-	_momotaro = MomotaroPtr( new Momotaro( _inputter, _psychic_mgr, _power ) );
-	_tarosuke = TarosukePtr( new Tarosuke( _inputter, _psychic_mgr, _power, _momotaro ) );
+	_momotaro = MomotaroPtr( new Momotaro( _inputter, _psychic_mgr, pow ) );
+	_tarosuke = TarosukePtr( new Tarosuke( _inputter, _psychic_mgr, pow, _momotaro ) );
 	_enemy_mgr = EnemyManagerPtr( new EnemyManager( map, stock ) );
-	_status = StatusPtr( new Status( _power, _field, _tarosuke ) );
+	_status = StatusPtr( new Status( pow, _field, _tarosuke ) );
 	_phase = PHASE_NORMAL;
 	_phase_count = 0;
 
@@ -172,6 +174,7 @@ Scene::NEXT SceneStreet::update( ) {
 	_phase_count++;
 	GamePtr game = Game::getTask( );
 	SoundPtr sound = Sound::getTask( );
+	PowerPtr pow = game->getPower( );
 	
 	if ( game->isDemo( ) ) {
 		DevicePtr device = Device::getTask( );
@@ -207,7 +210,7 @@ Scene::NEXT SceneStreet::update( ) {
 				break;
 			}
 		}
-		if ( _power->get( ) == 0 ) {
+		if ( pow->get( ) == 0 ) {
 			sound->playBGM( "yokai_se_31.wav", false );
 			_phase = PHASE_DEAD;
 			makeDeathPoints( );
@@ -228,7 +231,7 @@ Scene::NEXT SceneStreet::update( ) {
 			SoundPtr sound = Sound::getTask( );
 			sound->playBGM( "yokai_se_32.wav" );
 		}
-		if ( _power->get( ) == 0 ) {
+		if ( pow->get( ) == 0 ) {
 			sound->playBGM( "yokai_se_31.wav", false );
 			_phase = PHASE_DEAD;
 			makeDeathPoints( );
@@ -278,7 +281,7 @@ Scene::NEXT SceneStreet::update( ) {
 					}
 				}
 			}
-			if ( _power->get( ) > 0 ) {
+			if ( pow->get( ) > 0 ) {
 				return NEXT_STAGE;
 			} else {
 				return NEXT_RESULT;

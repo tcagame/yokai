@@ -3,6 +3,7 @@
 #include "SceneGate.h"
 #include "SceneStreet.h"
 #include "SceneResult.h"
+#include "SceneThanks.h"
 #include "SceneInfo.h"
 #include "Drawer.h"
 #include "Keyboard.h"
@@ -11,6 +12,7 @@
 #include "Drawer.h"
 #include "Device.h"
 #include "Sound.h"
+#include "Power.h"
 #include <stdarg.h>
 
 static const int PANEL_WIDTH  = 266;
@@ -34,7 +36,7 @@ _fade( FADE_NONE ),
 _suddondeath( false ),
 _next( Scene::NEXT_TITLE ),
 _info( false ) {
-
+	_power = PowerPtr( new Power );
 }
 
 
@@ -44,10 +46,6 @@ Game::~Game( ) {
 
 void Game::initialize( ) {
 	changeScene( );
-}
-
-bool Game::isSuddendeath( ) const {
-	return _suddondeath;
 }
 
 bool Game::isDebug( ) const {
@@ -174,6 +172,7 @@ void Game::changeScene( ) {
 
 	switch ( _next ) {
 	case Scene::NEXT_TITLE:
+		_power->reset( );
 		_scene = ScenePtr( new SceneTitle );
 		break;
 	case Scene::NEXT_DEMO:
@@ -210,6 +209,9 @@ void Game::changeScene( ) {
 		break;
 	case Scene::NEXT_RESULT:
 		_scene = ScenePtr( new SceneResult( ) );
+		break;
+	case Scene::NEXT_THANKS:
+		_scene = ScenePtr( new SceneThanks( ) );
 		break;
 	case Scene::NEXT_DEBUG_STREET_0:
 		_stage = 0;
@@ -271,4 +273,8 @@ void Game::addDebugMessage( const char* string, ... ) {
 	std::string str = buf;
 	_debug_message.push_back( str );
 	va_end( ap );
+}
+
+PowerPtr Game::getPower( ) {
+	return _power;
 }
