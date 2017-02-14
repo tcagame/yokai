@@ -1,5 +1,6 @@
 #include "EnemyWindMonster.h"
 #include "EnemyWindMonsterAttack.h"
+#include "Sound.h"
 
 static const int CHIP_SIZE = 256;
 static const int CHIP_FOOT = 0;
@@ -39,6 +40,8 @@ void EnemyWindMonster::act( ) {
 		if ( idx >= 8 ) {
 			if ( _act_count % CREATE_INTERVAL == 0 ) {
 				_stock->addEnemy( EnemyPtr( new EnemyWindMonsterAttack( getX( ) - 50, getY( ) ) ) );
+				SoundPtr sound = Sound::getTask( );
+				sound->playSE( "yokai_voice_39.wav" );
 			}
 		}
 	}
