@@ -3,6 +3,7 @@
 #include "Camera.h"
 #include "EnemyGhost.h"
 #include "EnemyLittleRedDemon.h"
+#include "Sound.h"
 
 static const int CHIP_SIZE = 256;
 static const int OFFSET_X = 60;
@@ -23,11 +24,11 @@ _count( 0 ) {
 
 
 BossRedDemon::~BossRedDemon( ) {
+
 }
 
 void BossRedDemon::act( ) {
 	_count++;
-	
 	setChipGraph( GRAPH_ENEMY_BOSS, _count / WAIT_ANIME_TIME % 2, 0 );
 }
 
@@ -65,4 +66,13 @@ void BossRedDemon::attack( ) {
 
 double BossRedDemon::getOverlappedRadius( ) const {
 	return RADIUS;
+}
+
+void BossRedDemon::damage( int pow ) {
+	int n = getHp( );
+	Enemy::damage( pow );
+	if ( isFinished( ) && n > 0 ) {
+		SoundPtr sound = Sound::getTask( );
+		sound->playSE( "yokai_voice_29.wav" );
+	}
 }

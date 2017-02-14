@@ -11,6 +11,7 @@ private:
 	void drawOverlapped( CameraConstPtr camera ) const;
 	void attack( );
 	double getOverlappedRadius( ) const;
+	void damage( int pow );
 private:
 	EnemyStockPtr _stock;
 	int _count;

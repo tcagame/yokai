@@ -3,6 +3,7 @@
 #include "Camera.h"
 #include "EnemyGhost.h"
 #include "EnemyLittleBlueDemon.h"
+#include "Sound.h"
 
 static const int CHIP_SIZE = 256;
 static const int OFFSET_X = 60;
@@ -64,4 +65,13 @@ void BossBlueDemon::attack( ) {
 
 double BossBlueDemon::getOverlappedRadius( ) const {
 	return RADIUS;
+}
+
+void BossBlueDemon::damage( int pow ) {
+	int n = getHp( );
+	Enemy::damage( pow );
+	if ( isFinished( ) && n > 0 ) {
+		SoundPtr sound = Sound::getTask( );
+		sound->playSE( "yokai_voice_29.wav" );
+	}
 }
