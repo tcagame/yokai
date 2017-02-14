@@ -33,6 +33,10 @@ bool Map::isBlockChip( int bg_idx, int chip_idx ) const {
 	return _panel[ bg_idx ].chip[ chip_idx ] == '*';
 }
 
+bool Map::isItem( int bg_idx, int chip_idx ) const {
+	return _panel[ bg_idx ].chip[ chip_idx ] == '$';
+}
+
 FLOOR Map::getFloor( int bg_idx, int chip_idx ) const {
 	FLOOR floor = FLOOR_ROAD;
 	switch ( _panel[ bg_idx ].chip[ chip_idx ] ) {
@@ -82,6 +86,18 @@ CloudMgrPtr Map::createCloudMgr( ) const {
 
 ItemMgrPtr Map::createItemMgr( ) const {
 	ItemMgrPtr mgr( new ItemMgr );
+
+	for ( int i = 0; i < _panel_num; i++ ) {
+		for ( int j = 0; j < MAPCHIP_NUM * MAPCHIP_NUM; j++ ) {
+			if ( isItem( i, j ) ) {
+				int x = j % MAPCHIP_NUM * MAPCHIP_SIZE + i * BG_SIZE;
+				int y = j / MAPCHIP_NUM * MAPCHIP_SIZE;
+				ItemPtr item( new Item( x, y ) );
+				mgr->add( item );
+			}
+		}
+	}
+
 	return mgr;
 }
 
