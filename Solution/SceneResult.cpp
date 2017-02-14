@@ -134,7 +134,7 @@ Scene::NEXT SceneResult::update( ) {
 	}
 
 	if ( game->getFade( ) == Game::FADE_COVER ) {
-		return NEXT_TITLE;
+		return NEXT_THANKS;
 	}
 	return NEXT_CONTINUE;
 }
