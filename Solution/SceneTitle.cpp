@@ -35,8 +35,8 @@ SceneTitle::SceneTitle( ) {
 	drawer->loadGraph( GRAPH_TITLE_FONT  , "title/Yokai_UI_title_font.png"  );
 	drawer->loadGraph( GRAPH_TITLE_FRAME , "title/Yokai_UI_title_frame.png" );
 	drawer->loadGraph( GRAPH_TITLE_PANEL , "title/Yokai_UI_title_panel.png" );
-	drawer->loadGraph( GRAPH_PLAYERCHOICE, "title/status_player_choice.png");
-	drawer->loadGraph( GRAPH_CURSOR      , "title/cursory.png" );
+	drawer->loadGraph( GRAPH_FONT_PLAYER , "font/font_player.png");
+	drawer->loadGraph( GRAPH_FONT_CURSOR , "font/font_cursor.png" );
 
 	SoundPtr sound = Sound::getTask( );
 	sound->playBGM( "yokai_music_03.wav" );
@@ -228,14 +228,14 @@ void SceneTitle::draw( ) {
 
 	Drawer::Sprite sprite_playerchoice(
 		Drawer::Transform( CHOICE_FONT_X, CHOICE_FONT_Y ),
-		GRAPH_PLAYERCHOICE );
+		GRAPH_FONT_PLAYER );
 	drawer->setSprite( sprite_playerchoice );
 	
 	GamePtr game = Game::getTask( );
 	if ( game->getFade( ) != Game::FADE_IN ) {
 		Drawer::Sprite sprite_cusory(
 			Drawer::Transform( CHOICE_CURSORY_X, CHOICE_CURSORY_Y + _select * 140 ),
-			GRAPH_CURSOR );
+			GRAPH_FONT_CURSOR );
 		drawer->setSprite( sprite_cusory );
 	}
 
