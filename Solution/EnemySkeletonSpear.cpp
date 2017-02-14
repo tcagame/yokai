@@ -6,6 +6,7 @@ static const int HP = 3;
 static const int POW = 6;
 static const int MOVE_SPEED = 7;
 static const int WAIT_ANIME_TIME = 14;
+static const int RANGE = 350;
 
 EnemySkeletonSpear::EnemySkeletonSpear( int x, int y ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),
@@ -22,6 +23,10 @@ void EnemySkeletonSpear::act( ) {
 	}
 	_before_x = getX( );
 	setAccelX( _move_speed );
+
+	if ( getTargetX( ) > getX( ) - RANGE ) {
+		setAccelX( _move_speed * 2 );
+	}
 
 	const int MAX_ANIME_PATTERN = 6;
 	const int ANIME[ MAX_ANIME_PATTERN ] = { 5, 6, 7, 8, 7, 6 };

@@ -1027,7 +1027,7 @@ EnemyPtr MapTest::generateEnemy( char ch, EnemyStockPtr stock, int x, int y ) co
 		case 'Q': enemy = EnemyPtr( new EnemyBowDemon( stock, x, y ) ); break;
 		case 'R': enemy = EnemyPtr( new EnemyHandMonster( stock, x, y ) ); break;
 		case 'S': enemy = EnemyPtr( new EnemyJizo( stock, x, y ) ); break;
-		case 'T': enemy = EnemyPtr( new EnemyCrocodileSnake( x, y ) ); break;
+		case 'T': enemy = EnemyPtr( new EnemyCrocodileSnake( stock, x, y ) ); break;
 		case 'U': enemy = EnemyPtr( new EnemyRollOverNeckWoman( x, y ) ); break;
 		case 'V': enemy = EnemyPtr( new EnemyStoneRote( x, y, false ) ); break;
 		case 'W': enemy = EnemyPtr( new EnemyFlogChief( stock, x, y ) ); break;

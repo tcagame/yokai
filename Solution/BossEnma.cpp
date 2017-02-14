@@ -95,8 +95,8 @@ void BossEnma::attack( ) {
 			for ( int i = 0; i < 2; i++ ) {
 				_stock->addEnemy( EnemyPtr( new EnemyOneEyesSnake( x - i * 100, y ) ) );
 				_stock->addEnemy( EnemyPtr( new EnemyOneEyesSnake( x - 1200 + i * 100, y, true ) ) );
-				_stock->addEnemy( EnemyPtr( new EnemyCrocodileSnake( x - 200 - i * 100, y ) ) );
-				_stock->addEnemy( EnemyPtr( new EnemyCrocodileSnake( x - 1000 + i * 100, y, true ) ) );
+				_stock->addEnemy( EnemyPtr( new EnemyCrocodileSnake( _stock, x - 200 - i * 100, y ) ) );
+				_stock->addEnemy( EnemyPtr( new EnemyCrocodileSnake( _stock, x - 1000 + i * 100, y, true ) ) );
 			}
 			break;
 		case 6: // stop_monster
