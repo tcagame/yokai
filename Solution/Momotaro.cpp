@@ -127,6 +127,8 @@ void Momotaro::actOnMove( ) {
 		GamePtr game = Game::getTask( );
 		if ( game->isSolo( ) ) {
 			_power->decrease( 1 );
+			SoundPtr sound = Sound::getTask( );
+			sound->playSE( "yokai_se_23.wav" );
 		}
 	}
 
