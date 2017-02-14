@@ -226,7 +226,7 @@ void SceneResult::drawFrame( ) {
 void SceneResult::drawHeaven( ) {
 	DrawerPtr drawer = Drawer::getTask( );
 
-	if ( _count > ANIMELOCK_COUNT -170 && _count < ANIMELOCK_COUNT - 120 ) {
+	if ( _count > ANIMELOCK_COUNT - 170 && _count < ANIMELOCK_COUNT - 120 ) {
 		{// ‚½‚ë‚·‚¯
 			Drawer::Transform trans( 575, 430 - OFFSET_Y, ( _count / 4 % 2 ) * 128 + 256, 256, 128, 128 );
 			Drawer::Sprite sprite( trans, GRAPH_RESULT_OBJ, Drawer::BLEND_NONE, 1.0 );

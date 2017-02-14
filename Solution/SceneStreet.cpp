@@ -54,9 +54,11 @@ SceneStreet::SceneStreet() {
 	drawer->loadGraph( GRAPH_ENEMY_NORMAL		, "street/enemy/enemy_nomal.png");
 	drawer->loadGraph( GRAPH_ENEMY_SMALL		, "street/enemy/enemy_small.png");
 	drawer->loadGraph( GRAPH_ENEMY_BIG			, "street/enemy/enemy_big.png");
-	drawer->loadGraph( GRAPH_REPLAY				, "street/status/status_replay.png" );
-	drawer->loadGraph( GRAPH_GAMEOVER			, "street/status/status_gameover.png" );
 	drawer->loadGraph( GRAPH_DEATH_POINT        , "street/status/status_deth_point.png" );
+	drawer->loadGraph( GRAPH_FONT_REPLAY		, "font/font_replay.png" );
+	drawer->loadGraph( GRAPH_FONT_GAMEOVER	    , "font/font_gameover.png" );
+	drawer->loadGraph( GRAPH_FONT_CONTINUE	    , "font/font_continue.png" );
+	drawer->loadGraph( GRAPH_FONT_CURSOR		, "font/font_cursor.png" );
 
 
 	_inputter = InputterPtr( new Inputter );
@@ -309,7 +311,7 @@ Scene::NEXT SceneStreet::update( ) {
 	if ( game->isDemo( ) ) {
 		DrawerPtr drawer = Drawer::getTask( );
 		Drawer::Sprite sprite(
-			Drawer::Transform( 0, SCREEN_HEIGHT * 9 / 10 ), GRAPH_REPLAY );
+			Drawer::Transform( 0, SCREEN_HEIGHT * 9 / 10 ), GRAPH_FONT_REPLAY );
 		drawer->setSprite( sprite );
 	}
 	if ( _phase == PHASE_DEAD && _phase_count > DEATH_POINTS_COUNT && !game->isDemo( ) ) {
@@ -318,7 +320,7 @@ Scene::NEXT SceneStreet::update( ) {
 		//‚°`‚Þ‚¨`‚Î`
 		DrawerPtr drawer = Drawer::getTask( );
 		Drawer::Sprite sprite(
-			Drawer::Transform( ( SCREEN_WIDTH - 704 ) / 2, ( SCREEN_HEIGHT - 96 ) / 2 ), GRAPH_GAMEOVER );
+			Drawer::Transform( ( SCREEN_WIDTH - 704 ) / 2, ( SCREEN_HEIGHT - 96 ) / 2 ), GRAPH_FONT_GAMEOVER );
 		drawer->setSprite( sprite );
 	}
 

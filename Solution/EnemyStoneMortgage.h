@@ -9,10 +9,11 @@ public:
 	virtual ~EnemyStoneMortgage( );
 	void setMove( bool moveing );
 	void back( );
+	void damage( int pow );
 private:
 	void act( );
 	void updateChip( );
-	void actMove( );;
+	void actMove( );
 	bool isOutSideScreen( CameraConstPtr camera ) const;
 private:
 	const Vector _base_pos;
