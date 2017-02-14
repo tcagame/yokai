@@ -10,7 +10,8 @@ static const int WAIT_ANIME_TIME = 20;
 EnemyOnyudo::EnemyOnyudo( int x, int y, bool dir_right ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),
 _move_speed( -MOVE_SPEED ),
-_before_x( 0 ) {
+_before_x( 0 ),
+_before_hp( HP ) {
 	if ( dir_right ) {
 		_move_speed *= -1;
 	}
@@ -27,9 +28,13 @@ void EnemyOnyudo::act( ) {
 	_before_x = getX( );
 	setAccelX( _move_speed );
 
-	const int MAX_ANIME_PATTERN = 4;
-	const int ANIME[ MAX_ANIME_PATTERN ] = { 0, 1, 2, 1 };
-	int u = ANIME[ getX( ) / WAIT_ANIME_TIME % MAX_ANIME_PATTERN ];
+	const int ANIME[ ] = { 0, 1, 2, 3, 2, 1 };
+	int anime = sizeof( ANIME ) / sizeof( ANIME[ 0 ] );
+	int u = ANIME[ getX( ) / WAIT_ANIME_TIME % anime ];
 	int v = 0;
+	if ( _before_hp != getHp( ) ) {
+		u = 4;
+	}
+	_before_hp = getHp( );
 	setChipGraph( GRAPH_ENEMY_BIG, u, v );
 }
