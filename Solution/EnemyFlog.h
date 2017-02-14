@@ -10,6 +10,8 @@ public:
 private:
 	void updateChip( );
 	void actAttack( );
+	Vector getOverlappedPos( ) const;
+	double getOverlappedRadius( ) const;
 private:
 	int _act_count;
 	EnemyStockPtr _stock;
