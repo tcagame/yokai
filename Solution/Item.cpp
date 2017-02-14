@@ -21,6 +21,10 @@ bool Item::update( const Vector& pos ) {
 	return ( _pos - pos ).getLength2( ) < CHIP_SIZE * CHIP_SIZE;
 }
 
+bool Item::isOutOfScreen( int x ) const {
+	return x > ( int )_pos.x + CHIP_SIZE;
+}
+
 void Item::draw( CameraConstPtr camera ) const {
 	int idx = _count / 5 % 4;
 	int tx = idx % 2 * CHIP_SIZE;

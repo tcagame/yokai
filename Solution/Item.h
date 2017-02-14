@@ -12,6 +12,7 @@ public:
 public:
 	bool update( const Vector& pos );
 	void draw( CameraConstPtr camera ) const;
+	bool isOutOfScreen( int x ) const;
 private:
 	int _count;
 	Vector _pos;

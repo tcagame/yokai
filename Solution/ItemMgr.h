@@ -12,7 +12,7 @@ public:
 	ItemMgr( );
 	virtual ~ItemMgr( );
 public:
-	void update( TarosukePtr tarosuke );
+	void update( CameraConstPtr camera, TarosukePtr tarosuke );
 	void draw( CameraConstPtr camera ) const;
 	void add( ItemPtr item );
 private:
