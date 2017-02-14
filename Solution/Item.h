@@ -1,11 +1,19 @@
 #pragma once
-#include "Character.h"
 
-class Item : public Character {
+#include "smart_ptr.h"
+#include "mathmatics.h"
+
+PTR( Camera );
+
+class Item {
 public:
 	Item( int x, int y );
 	virtual ~Item( );
+public:
+	void update( );
+	void draw( CameraConstPtr camera ) const;
 private:
-	void act( );
+	int _count;
+	Vector _pos;
 };
 

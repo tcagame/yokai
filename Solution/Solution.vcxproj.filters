@@ -493,7 +493,9 @@
     <ClCompile Include="ItemMgr.cpp">
       <Filter>Field</Filter>
     </ClCompile>
-    <ClCompile Include="Item.cpp" />
+    <ClCompile Include="Item.cpp">
+      <Filter>Field</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Enemy.h">
@@ -988,7 +990,9 @@
     <ClInclude Include="ItemMgr.h">
       <Filter>Field</Filter>
     </ClInclude>
-    <ClInclude Include="Item.h" />
+    <ClInclude Include="Item.h">
+      <Filter>Field</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Enemy">
