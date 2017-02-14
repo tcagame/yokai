@@ -783,7 +783,7 @@ EnemyPtr Map3::generateEnemy( char ch, EnemyStockPtr stock, int x, int y ) const
 	case 'V': enemy = EnemyPtr( new EnemyNoNeckGhost( x, y ) ); break;
 	case 'W': enemy = EnemyPtr( new EnemyRollOverNeckWoman( x, y ) ); break;
 	case 'X': enemy = EnemyPtr( new EnemyHugDemon( x, y ) ); break;
-	case 'Y': enemy = EnemyPtr( new EnemyCrocodileSnake( x, y ) ); break;
+	case 'Y': enemy = EnemyPtr( new EnemyCrocodileSnake( stock, x, y ) ); break;
 	case 'Z': enemy = EnemyPtr( new EnemyOneEyesSnake( x, y ) ); break;
 	}
 
