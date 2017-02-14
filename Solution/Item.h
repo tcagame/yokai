@@ -4,6 +4,8 @@
 class Item : public Character {
 public:
 	Item( int x, int y );
-	virtual ~Item();
+	virtual ~Item( );
+private:
+	void act( );
 };
 

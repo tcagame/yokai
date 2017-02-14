@@ -4,6 +4,7 @@
 #include "Cloud.h"
 #include "EnemyStock.h"
 #include "ItemMgr.h"
+#include "Item.h"
 
 Map::Map( const Panel * panel, int panel_num ) :
 _panel( panel ),
