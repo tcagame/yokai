@@ -32,3 +32,15 @@ void EnemyRayMonster::act( ) {
 	int v = 6;
 	setChipGraph( GRAPH_ENEMY_BIG, u, v );
 }
+
+Vector EnemyRayMonster::getOverlappedPos( ) const {
+	Vector pos( getX( ) - CHIP_SIZE / 5, getY( ) + CHIP_FOOT - CHIP_SIZE / 10 );
+	if ( isChipReverse( ) ) {
+		pos += Vector( 150, 0 );
+	}
+	return pos;
+}
+
+double EnemyRayMonster::getOverlappedRadius( ) const {
+	return CHIP_SIZE / 2 * 0.3;
+}

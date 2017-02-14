@@ -7,6 +7,8 @@ public:
 	virtual ~EnemyRayMonster( );
 private:
 	void act( );
+	Vector getOverlappedPos( ) const;
+	double getOverlappedRadius( ) const;
 	int _count;
 	bool _revers;
 };
