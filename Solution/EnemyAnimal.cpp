@@ -33,7 +33,14 @@ void EnemyAnimal::act( ) {
 		setAccelX( 0 );
 	}
 
-	if ( _wait_count > 20 ) {
+
+	if ( getAccelX( ) != 0 ) {
+		const int MOTION[ ] = { 0, 1, 2, 3 };
+		int anime_num = sizeof( MOTION ) / sizeof( MOTION[ 0 ] );
+		int u = MOTION[ ( _act_count / 2 ) % anime_num ];
+		int v = 0;
+		setChipGraph( GRAPH_ENEMY_ANIMAL, u, v );
+	} else if ( _wait_count > 20 ) {
 		const int MOTION[ ] = { 2, 3, 3, 3 };
 		int anime_num = sizeof( MOTION ) / sizeof( MOTION[ 0 ] );
 		int u = MOTION[ ( _act_count / 10 ) % anime_num ];
