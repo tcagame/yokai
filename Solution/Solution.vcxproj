@@ -182,6 +182,7 @@
     <ClCompile Include="SceneInfo.cpp" />
     <ClCompile Include="SceneResult.cpp" />
     <ClCompile Include="SceneStreet.cpp" />
+    <ClCompile Include="SceneThanks.cpp" />
     <ClCompile Include="SceneTitle.cpp" />
     <ClCompile Include="EnemySkeletonSpear.cpp" />
     <ClCompile Include="Status.cpp" />
@@ -291,6 +292,7 @@
     <ClInclude Include="SceneInfo.h" />
     <ClInclude Include="SceneResult.h" />
     <ClInclude Include="SceneStreet.h" />
+    <ClInclude Include="SceneThanks.h" />
     <ClInclude Include="SceneTitle.h" />
     <ClInclude Include="EnemySkeletonSpear.h" />
     <ClInclude Include="Status.h" />
