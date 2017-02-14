@@ -38,6 +38,7 @@ SceneStreet::SceneStreet() {
 	drawer->loadGraph( GRAPH_PSYCHIC			, "Character/psychic.png");
 	drawer->loadGraph( GRAPH_CLOUD_BIG			, "street/cloud/Yokai_OBJ_cloud1.png");
 	drawer->loadGraph( GRAPH_CLOUD_SMALL		, "street/cloud/Yokai_OBJ_cloud2.png");
+	drawer->loadGraph( GRAPH_ITEM		        , "street/other/item.png");
 	drawer->loadGraph( GRAPH_MAPCHIPGUIDE		, "street/other/mapchipguide.png");
 	drawer->loadGraph( GRAPH_IMPACT				, "street/other/impact.png");
 	drawer->loadGraph( GRAPH_IMPACT_BIG         , "street/other/impact_big.png");

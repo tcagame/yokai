@@ -32,6 +32,7 @@ public:
 	int getPanelNum( ) const;
 	bool isChip( int bg_idx, int chip_idx ) const;
 	bool isBlockChip( int bg_idx, int chip_idx ) const;
+	bool isItem( int bg_idx, int chip_idx ) const;
 	FLOOR getFloor( int bg_idx, int chip_idx ) const;
 	CloudMgrPtr createCloudMgr( ) const;
 	ItemMgrPtr createItemMgr( ) const;

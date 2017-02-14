@@ -161,6 +161,7 @@
     <ClCompile Include="EnemyLittleRedDemon.cpp" />
     <ClCompile Include="Infomation.cpp" />
     <ClCompile Include="Inputter.cpp" />
+    <ClCompile Include="Item.cpp" />
     <ClCompile Include="ItemMgr.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
@@ -270,6 +271,7 @@
     <ClInclude Include="EnemyLittleRedDemon.h" />
     <ClInclude Include="Infomation.h" />
     <ClInclude Include="Inputter.h" />
+    <ClInclude Include="Item.h" />
     <ClInclude Include="ItemMgr.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Map0.h" />

@@ -10,6 +10,7 @@ static const int RANGE = 5;
 
 EnemyBat::EnemyBat( int x, int y ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ),
+_anime_count( 0 ),
 _vy( 0 ),
 _dir( 1 ){
 }
@@ -19,7 +20,7 @@ EnemyBat::~EnemyBat( ) {
 }
 
 void EnemyBat::act( ) {
-	setAccelX( -MOVE_SPEED );
+	_anime_count++;
 	setAccelY( MOVE_SPEED );
 	
 	_vy += _dir;
@@ -34,7 +35,7 @@ void EnemyBat::act( ) {
 
 	const int ANIME[ ] = { 0, 1, 2, 3 };
 	int anime_num = sizeof( ANIME ) / sizeof( ANIME[ 0 ] );
-	int u = ANIME[ getX( ) / WAIT_ANIME_TIME % anime_num ];
+	int u = ANIME[ _anime_count / WAIT_ANIME_TIME % anime_num ];
 	int v = 7;
 	setChipGraph( GRAPH_ENEMY_SMALL, u, v );
 }
