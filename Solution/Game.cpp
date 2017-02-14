@@ -33,7 +33,7 @@ _solo( true ),
 _stage( 0 ),
 _demo_count( 0 ),
 _fade( FADE_NONE ),
-_suddondeath( false ),
+_server( false ),
 _next( Scene::NEXT_TITLE ),
 _info( false ) {
 	_power = PowerPtr( new Power );
@@ -84,6 +84,10 @@ bool Game::isSolo( ) const {
 
 bool Game::isDemo( ) const {
 	return _demo;
+}
+
+bool Game::isServer( ) const {
+	return _server;
 }
 
 int Game::getStage( ) const {
@@ -155,7 +159,7 @@ void Game::option( ) {
 		_debug = !_debug;
 	}
 	if ( keyboard->isPushKey( "0" ) ) {
-		_suddondeath = true;
+		_server = true;
 	}
 
 	DevicePtr device = Device::getTask( );

@@ -35,6 +35,7 @@ public:
 	FADE getFade( ) const;
 	void setFade( FADE fade );
 	PowerPtr getPower( );
+	bool isServer( ) const;
 private:
 	void fade( );
 	void option( );
@@ -42,7 +43,7 @@ private:
 private:
 	ScenePtr _scene;
 	PowerPtr _power;
-	bool _suddondeath;
+	bool _server;
 	bool _solo;
 	bool _demo;
 	int _stage;
