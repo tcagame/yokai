@@ -15,8 +15,10 @@ _count( 0 ) {
 Item::~Item( ) {
 }
 
-void Item::update( ) {
+bool Item::update( const Vector& pos ) {
 	_count++;
+
+	return ( _pos - pos ).getLength2( ) < CHIP_SIZE * CHIP_SIZE;
 }
 
 void Item::draw( CameraConstPtr camera ) const {

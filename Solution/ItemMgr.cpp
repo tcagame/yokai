@@ -1,6 +1,6 @@
 #include "ItemMgr.h"
 #include "Item.h"
-
+#include "Tarosuke.h"
 
 ItemMgr::ItemMgr( ) {
 }
@@ -9,12 +9,17 @@ ItemMgr::ItemMgr( ) {
 ItemMgr::~ItemMgr( ) {
 }
 
-void ItemMgr::update( ) {
+void ItemMgr::update( TarosukePtr tarosuke ) {
+	Vector pos = tarosuke->getOverlappedPos( );
 	std::list< ItemPtr >::iterator it = _items.begin( );
 	while ( it != _items.end( ) ) {
 		ItemPtr item = *it;
-		item->update( );
-		it++;
+		if ( item->update( pos ) ) {
+			tarosuke->heal( );
+			it = _items.erase( it );
+		} else {
+			it++;
+		}
 	}
 }
 

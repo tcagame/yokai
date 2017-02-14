@@ -10,7 +10,7 @@ public:
 	Item( int x, int y );
 	virtual ~Item( );
 public:
-	void update( );
+	bool update( const Vector& pos );
 	void draw( CameraConstPtr camera ) const;
 private:
 	int _count;

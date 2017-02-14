@@ -16,6 +16,13 @@ int Power::get( ) const {
 	return _value;
 }
 
+void Power::increase( int pow ) {
+	_value += pow;
+	if ( _value > MAX ) {
+		_value = MAX;
+	}
+}
+
 void Power::decrease( int pow ) {
 	SoundPtr sound = Sound::getTask( );
 

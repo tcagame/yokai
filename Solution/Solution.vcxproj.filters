@@ -493,10 +493,14 @@
     <ClCompile Include="ItemMgr.cpp">
       <Filter>Field</Filter>
     </ClCompile>
-    <ClCompile Include="Item.cpp" />
-    <ClCompile Include="SceneThanks.cpp" />
     <ClCompile Include="EnemyAnimal.cpp">
       <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>Field</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneThanks.cpp">
+      <Filter>Scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -992,10 +996,14 @@
     <ClInclude Include="ItemMgr.h">
       <Filter>Field</Filter>
     </ClInclude>
-    <ClInclude Include="Item.h" />
-    <ClInclude Include="SceneThanks.h" />
     <ClInclude Include="EnemyAnimal.h">
       <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>Field</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneThanks.h">
+      <Filter>Scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
