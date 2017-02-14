@@ -44,6 +44,31 @@ Game::~Game( ) {
 }
 
 void Game::initialize( ) {
+	SoundPtr sound = Sound::getTask( );
+	sound->loadSE( "yokai_voice_02.wav" );
+	sound->loadSE( "yokai_voice_04.wav" );
+	sound->loadSE( "yokai_voice_05.wav" );
+	sound->loadSE( "yokai_voice_06.wav" );
+	sound->loadSE( "yokai_voice_07.wav" );
+	sound->loadSE( "yokai_voice_08.wav" );
+	sound->loadSE( "yokai_voice_14.wav" );
+	sound->loadSE( "yokai_voice_15.wav" );
+	sound->loadSE( "yokai_voice_16.wav" );
+	sound->loadSE( "yokai_voice_17.wav" );
+	sound->loadSE( "yokai_voice_26.wav" );
+	sound->loadSE( "yokai_voice_29.wav" );
+	sound->loadSE( "yokai_voice_31.wav" );
+	sound->loadSE( "yokai_voice_37.wav" );
+	sound->loadSE( "yokai_voice_39.wav" );
+	sound->loadSE( "yokai_se_01.wav" );
+	sound->loadSE( "yokai_se_02.wav" );
+	sound->loadSE( "yokai_se_06.wav" );
+	sound->loadSE( "yokai_se_15.wav" );
+	sound->loadSE( "yokai_se_21.wav" );
+	sound->loadSE( "yokai_se_23.wav" );
+	sound->loadSE( "yokai_se_25.wav" );
+	sound->loadSE( "yokai_se_27.wav" );
+
 	changeScene( );
 }
 
