@@ -10,8 +10,9 @@ public:
 	Item( int x, int y );
 	virtual ~Item( );
 public:
-	void update( );
+	bool update( const Vector& pos );
 	void draw( CameraConstPtr camera ) const;
+	bool isOutOfScreen( int x ) const;
 private:
 	int _count;
 	Vector _pos;

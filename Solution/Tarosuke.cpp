@@ -35,6 +35,7 @@ static const int JET_POWER = 70;
 static const int FALLOUT_POW = 6;
 static const int NEEDLE_POW = 6;
 static const int OUCH_POWER = 40;
+static const int HEAL_POWER = 6;
 
 Tarosuke::Tarosuke( InputterPtr inputter, PsychicMgrPtr psychic, PowerPtr power, MomotaroPtr momotaro ) : 
 Character( START_X, START_Y, CHIP_SIZE, CHIP_FOOT, true ),
@@ -70,6 +71,12 @@ void Tarosuke::adjust( CameraConstPtr camera, FieldConstPtr field ) {
 	if ( getX( ) > field->getLimitX( ) ) {
 		setX( field->getLimitX( ) );
 	}
+}
+
+void Tarosuke::heal( ) {
+	SoundPtr sound = Sound::getTask( );
+	sound->playSE( "yokai_voice_30.wav" );
+	_power->increase( HEAL_POWER );
 }
 
 bool Tarosuke::isCalling( ) const {

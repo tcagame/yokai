@@ -4,9 +4,9 @@ static const int CHIP_SIZE = 128;
 static const int CHIP_FOOT = 0;
 static const int HP = 3;
 static const int POW = 6;
-static const int MOVE_SPEED = 7;
+static const int MOVE_SPEED = 3;
 static const int WAIT_ANIME_TIME = 14;
-static const int RANGE = 350;
+static const int RANGE = 380;
 
 EnemySkeletonSpear::EnemySkeletonSpear( int x, int y ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),
@@ -25,7 +25,7 @@ void EnemySkeletonSpear::act( ) {
 	setAccelX( _move_speed );
 
 	if ( getTargetX( ) > getX( ) - RANGE ) {
-		setAccelX( _move_speed * 2 );
+		setAccelX( _move_speed * 5 );
 	}
 
 	const int MAX_ANIME_PATTERN = 6;

@@ -7,6 +7,7 @@ public:
 public:
 	int get( ) const;
 	void decrease( int pow );
+	void increase( int pow );
 	void reset( );
 private:
 	int _value;

@@ -91,10 +91,10 @@ Vector Field::getStatusMarkerPos( int x ) const {
 	return src + ( dst - src ) * ( offset / BG_SIZE );
 }
 
-void Field::update( CameraConstPtr camera ) {
+void Field::update( CameraConstPtr camera, TarosukePtr tarosuke ) {
 	scroll( camera );
 	_cloud_mgr->update( );
-	_item_mgr->update( );
+	_item_mgr->update( camera, tarosuke );
 }
 
 void Field::scroll( CameraConstPtr camera ) {
