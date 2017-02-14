@@ -23,6 +23,7 @@ public:
 	void bound( );
 	void adjust( CameraConstPtr camera, FieldConstPtr field );
 	bool isCalling( ) const;
+	void heal( );
 private:
 	enum ACTION {
 		ACTION_STAND,

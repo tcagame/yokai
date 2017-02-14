@@ -5,13 +5,14 @@
 
 PTR( Camera );
 PTR( Item );
+PTR( Tarosuke );
 
 class ItemMgr {
 public:
 	ItemMgr( );
 	virtual ~ItemMgr( );
 public:
-	void update( );
+	void update( TarosukePtr tarosuke );
 	void draw( CameraConstPtr camera ) const;
 	void add( ItemPtr item );
 private:

@@ -301,7 +301,7 @@ Scene::NEXT SceneStreet::update( ) {
 	if ( !_tarosuke->isCalling( ) ) {
 		_enemy_mgr->update( _field, _camera, _tarosuke, _momotaro );
 		_psychic_mgr->update( _camera, _tarosuke, _enemy_mgr );
-		_field->update( _camera );
+		_field->update( _camera, _tarosuke );
 	}
 
 	_field->draw( _camera );

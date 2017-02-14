@@ -12,6 +12,7 @@ PTR( Cloud );
 PTR( CloudMgr );
 PTR( EnemyStock );
 PTR( ItemMgr );
+PTR( Tarosuke );
 
 class Field {
 public:
@@ -25,7 +26,7 @@ public:
 		int adjust_y;
 		CloudConstPtr cloud;
 	};
-	void update( CameraConstPtr camera );
+	void update( CameraConstPtr camera, TarosukePtr tarosuke );
 	void draw( CameraConstPtr camera ) const;
 	void drawCover( ) const;
 	Collision getCollision( int src_x, int src_y, int dst_x, int dst_y ) const;
