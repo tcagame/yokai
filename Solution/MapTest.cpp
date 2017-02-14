@@ -47,6 +47,7 @@
 #include "EnemyWaterMonk.h"
 #include "EnemyWindMonster.h"
 #include "EnemyYadokariYokai.h"
+#include "EnemyAnimal.h"
 
 static const Map::Panel panel[] = {
 	{//0
@@ -87,7 +88,7 @@ static const Map::Panel panel[] = {
 		"               #"
 		"             ###"
 		"           #####"
-		"         #######"
+		"      s  #######"
 		"################"
 		"################"
 	},
@@ -1053,6 +1054,7 @@ EnemyPtr MapTest::generateEnemy( char ch, EnemyStockPtr stock, int x, int y ) co
 		case 'p': enemy = EnemyPtr( new EnemyHugDemon( x, y ) ); break;
 		case 'q': enemy = EnemyPtr( new EnemyRayMonster( x, y ) ); break;
 		case 'r': enemy = EnemyPtr( new EnemyYadokariYokai( x, y ) ); break;
+		case 's': enemy = EnemyPtr( new EnemyAnimal( x, y ) ); break;
 	}
 	
 	return enemy;

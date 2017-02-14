@@ -90,6 +90,7 @@
     <ClCompile Include="BossEnma.cpp" />
     <ClCompile Include="BossHag.cpp" />
     <ClCompile Include="BossRedDemon.cpp" />
+    <ClCompile Include="EnemyAnimal.cpp" />
     <ClCompile Include="EnemyATField.cpp" />
     <ClCompile Include="EnemyBat.cpp" />
     <ClCompile Include="EnemyBloodPondDemon.cpp" />
@@ -199,6 +200,7 @@
     <ClInclude Include="BossEnma.h" />
     <ClInclude Include="BossHag.h" />
     <ClInclude Include="BossRedDemon.h" />
+    <ClInclude Include="EnemyAnimal.h" />
     <ClInclude Include="EnemyATField.h" />
     <ClInclude Include="EnemyBat.h" />
     <ClInclude Include="EnemyBloodPondDemon.h" />
