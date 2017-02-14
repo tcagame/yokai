@@ -495,6 +495,9 @@
     </ClCompile>
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="SceneThanks.cpp" />
+    <ClCompile Include="EnemyAnimal.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Enemy.h">
@@ -991,6 +994,9 @@
     </ClInclude>
     <ClInclude Include="Item.h" />
     <ClInclude Include="SceneThanks.h" />
+    <ClInclude Include="EnemyAnimal.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Enemy">

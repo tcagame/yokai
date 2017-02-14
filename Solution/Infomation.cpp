@@ -30,10 +30,6 @@ Infomation::~Infomation( ) {
 
 void Infomation::load( ) {
 	const char * filename = FILENAME;
-	GamePtr game = Game::getTask( );
-	if ( game->isSuddendeath( ) ) {
-		filename = FILENAME_SERVER;
-	}
 	BinaryPtr binary( new Binary );
 	ApplicationPtr app = Application::getInstance( );
 	if ( app->loadBinary( filename, binary ) ) {
@@ -43,10 +39,6 @@ void Infomation::load( ) {
 
 void Infomation::save( ) {
 	const char * filename = FILENAME;
-	GamePtr game = Game::getTask( );
-	if ( game->isSuddendeath( ) ) {
-		filename = FILENAME_SERVER;
-	}
 	BinaryPtr binary( new Binary );
 	binary->ensure( sizeof( _data ) );
 	binary->write( ( void * )&_data, sizeof( _data ) );

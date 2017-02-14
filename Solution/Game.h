@@ -8,6 +8,7 @@
 
 PTR( Game );
 PTR( Scene );
+PTR( Power );
 
 class Game : public Task {
 public:
@@ -26,7 +27,6 @@ public:
 public:
 	void update( );
 	void initialize( );
-	bool isSuddendeath( ) const;
 	bool isDebug( ) const;
 	bool isSolo( ) const;
 	bool isDemo( ) const;
@@ -34,12 +34,14 @@ public:
 	void addDebugMessage( const char* string, ... );
 	FADE getFade( ) const;
 	void setFade( FADE fade );
+	PowerPtr getPower( );
 private:
 	void fade( );
 	void option( );
 	void changeScene( );
 private:
 	ScenePtr _scene;
+	PowerPtr _power;
 	bool _suddondeath;
 	bool _solo;
 	bool _demo;
