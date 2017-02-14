@@ -6,14 +6,12 @@
 #include <list>
 
 PTR( Tarosuke );
-PTR( Tarosuke );
 PTR( Momotaro );
 PTR( Field );
 PTR( Camera );
 PTR( PsychicMgr );
 PTR( EnemyManager );
 PTR( Status );
-PTR( Power );
 PTR( EnemyStock );
 PTR( Inputter );
 PTR( Game );
@@ -37,7 +35,6 @@ private:
 	void drawDeathPoints( );
 private:
 	InputterPtr _inputter;
-	PowerPtr _power;
 	TarosukePtr _tarosuke;
 	MomotaroPtr _momotaro;
 	FieldPtr _field;

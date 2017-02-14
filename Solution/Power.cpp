@@ -6,10 +6,6 @@ static const int MAX = 42;
 
 Power::Power( ) :
 _value( MAX ) {
-	GamePtr game = Game::getTask( );
-	if ( game->isSuddendeath( ) ) {
-		_value = 6;
-	}
 }
 
 
@@ -32,7 +28,9 @@ void Power::decrease( int pow ) {
 
 	if ( _value <= 6 && n > 6 ) {
 		sound->playSE( "yokai_se_02.wav", true );
-	}
+	}	
+}
 
-	
+void Power::reset( ) {
+	_value = MAX;
 }
