@@ -252,4 +252,8 @@ void SceneTitle::draw( ) {
 			GRAPH_TITLE_PANEL );
 		drawer->setSprite( sprite_panel);
 	}
+
+	if ( game->isServer( ) ) {
+		drawer->drawString( 0, 0, "Access Infomation To Server" );
+	}
 }

@@ -12,5 +12,6 @@ private:
 	void act( );
 private:
 	int _act_count;
+	int _wait_count;
 	int _move_speed;
 };

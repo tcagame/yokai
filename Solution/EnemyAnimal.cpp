@@ -12,7 +12,8 @@ static const int RANGE = 80;
 EnemyAnimal::EnemyAnimal( int x, int y, bool right ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),
 _move_speed( -MOVE_SPEED ),
-_act_count( 0 ) {
+_act_count( 0 ),
+_wait_count( 0 ) {
 }
 
 EnemyAnimal::~EnemyAnimal( ) {
@@ -22,18 +23,41 @@ void EnemyAnimal::act( ) {
 	_act_count++;
 
 	if ( getX( ) - RANGE > getTargetX( ) ) {
+		_wait_count = 0;
 		setAccelX( _move_speed );
 	} else if ( getX( ) + RANGE < getTargetX( ) ) {
+		_wait_count = 0;
 		setAccelX( -_move_speed );
 	} else {
+		_wait_count++;
 		setAccelX( 0 );
 	}
 
-	const int MOTION[ ] = { 2, 3, 3, 3 };
-	int anime_num = sizeof( MOTION ) / sizeof( MOTION[ 0 ] );
-	int u = MOTION[ ( _act_count / 10 ) % anime_num ];
-	int v = 3;
-	setChipGraph( GRAPH_ENEMY_ANIMAL, u, v );
+
+	if ( getAccelX( ) != 0 ) {
+		const int MOTION[ ] = { 0, 1, 2, 3 };
+		int anime_num = sizeof( MOTION ) / sizeof( MOTION[ 0 ] );
+		int u = MOTION[ ( _act_count / 2 ) % anime_num ];
+		int v = 0;
+		setChipGraph( GRAPH_ENEMY_ANIMAL, u, v );
+	} else if ( _wait_count > 20 ) {
+		const int MOTION[ ] = { 2, 3, 3, 3 };
+		int anime_num = sizeof( MOTION ) / sizeof( MOTION[ 0 ] );
+		int u = MOTION[ ( _act_count / 10 ) % anime_num ];
+		int v = 3;
+		setChipGraph( GRAPH_ENEMY_ANIMAL, u, v );
+	} else {
+		const int MOTION[ ] = { 0, 1, 2, 3, 4, 3, 4, 3, 4, 3, 4 };
+		int anime_num = sizeof( MOTION ) / sizeof( MOTION[ 0 ] );
+		int u = MOTION[ ( _act_count / 5 ) % anime_num ];
+		int v = 1;
+
+		if ( u == 4 ) {
+			u = 0;
+			v = 2;
+		}
+		setChipGraph( GRAPH_ENEMY_ANIMAL, u, v );
+	}
 }
 
 void EnemyAnimal::damage( int pow ) {
