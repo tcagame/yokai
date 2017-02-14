@@ -26,13 +26,18 @@ private:
 		PHASE_BOSS,
 		PHASE_DEAD,
 		PHASE_CLEAR,
+		PHASE_CONTINUE,
 		PHASE_FADEOUT,
 	};
 private:
 	virtual NEXT update( );
+	void updatePhaseDead( );
 	void debugWarp( );
 	void makeDeathPoints( );
 	void drawDeathPoints( );
+	void drawPhaseDead( );
+	void drawGameOver( );
+	void drawContinue( );
 private:
 	InputterPtr _inputter;
 	TarosukePtr _tarosuke;
@@ -44,6 +49,8 @@ private:
 	StatusPtr _status;
 	PHASE _phase;
 	int _phase_count;
+	int _select;
+	int _count;
 	std::list< Vector > _death_points;
 };
 

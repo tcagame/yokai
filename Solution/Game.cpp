@@ -233,6 +233,9 @@ void Game::changeScene( ) {
 	case Scene::NEXT_STREET:
 		_scene = ScenePtr( new SceneStreet( ) );
 		break;
+	case Scene::NEXT_RETRY:
+		_scene = ScenePtr( new SceneGate( ) );
+		break;
 	case Scene::NEXT_RESULT:
 		_scene = ScenePtr( new SceneResult( ) );
 		break;
