@@ -31,7 +31,7 @@ static const int OFFSET_Y = 512 - 265;
 static const int HP  = 30;
 static const int POW = 6;
 static const int CREATE_COUNT_ENEMY = 180;
-static const double RADIUS = 12;
+static const double RADIUS = 90;
 
 BossEnma::BossEnma( EnemyStockPtr stock, int x ) :
 Boss( x + OFFSET_X, OFFSET_Y, CHIP_SIZE, HP, POW ),
