@@ -58,6 +58,7 @@ void Game::initialize( ) {
 	sound->loadSE( "yokai_voice_17.wav" );
 	sound->loadSE( "yokai_voice_26.wav" );
 	sound->loadSE( "yokai_voice_29.wav" );
+	sound->loadSE( "yokai_voice_30.wav" );
 	sound->loadSE( "yokai_voice_31.wav" );
 	sound->loadSE( "yokai_voice_37.wav" );
 	sound->loadSE( "yokai_voice_39.wav" );
