@@ -19,6 +19,7 @@ EnemyAnimal::~EnemyAnimal( ) {
 }
 
 void EnemyAnimal::act( ) {
+	_act_count++;
 
 	if ( getX( ) - RANGE > getTargetX( ) ) {
 		setAccelX( _move_speed );
@@ -28,9 +29,11 @@ void EnemyAnimal::act( ) {
 		setAccelX( 0 );
 	}
 
-	//const int MOTION[ 4 ] = { 3, 4, 5, 4 };
-	// int u = MOTION[ ( _act_count / WAIT_TIME ) % MAX_PATTERN ];
-	setChipGraph( GRAPH_ENEMY_ANIMAL, 1, 1 );
+	const int MOTION[ ] = { 2, 3, 3, 3 };
+	int anime_num = sizeof( MOTION ) / sizeof( MOTION[ 0 ] );
+	int u = MOTION[ ( _act_count / 10 ) % anime_num ];
+	int v = 3;
+	setChipGraph( GRAPH_ENEMY_ANIMAL, u, v );
 }
 
 void EnemyAnimal::damage( int pow ) {
