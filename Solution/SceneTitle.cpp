@@ -210,6 +210,9 @@ void SceneTitle::draw( ) {
 		} else if ( _count % 10 == 9 ) {
 			SoundPtr sound = Sound::getTask( );
 			sound->playSE( "yokai_voice_15.wav" );
+		} else if ( _count % 10 == 6 ) {
+			SoundPtr sound = Sound::getTask( );
+			sound->playSE( "yokai_voice_16.wav" );
 		}
 		int tx = pattern * 128;
 		Drawer::Sprite sprite( 
