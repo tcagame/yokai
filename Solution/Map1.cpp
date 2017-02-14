@@ -24,6 +24,7 @@
 #include "EnemySkeletonSpear.h"
 #include "EnemyOneEyesSnake.h"
 #include "EnemyNoFace.h"
+#include "EnemyWindMonster.h"
 
 
 
@@ -665,7 +666,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"           Z    "
 		"                "
 		"                "
 		"                "
@@ -885,6 +886,7 @@ EnemyPtr Map1::generateEnemy( char ch, EnemyStockPtr stock, int x, int y ) const
 	case 'U': enemy = EnemyPtr( new EnemyBat( x, y ) );break;
 	case 'V': enemy = EnemyPtr( new EnemyRedbird( stock, x - BG_SIZE * 2, y ) );break;
 	case 'W': enemy = EnemyPtr( new EnemyNoFace( x, y ) );break;
+	case 'Z': enemy = EnemyPtr( new EnemyWindMonster( stock, x, y ) );break;
 	}
 
 	return enemy;
