@@ -25,9 +25,9 @@ void EnemyRollOverNeckSkull::act( ) {
 }
 
 Vector EnemyRollOverNeckSkull::getOverlappedPos( ) const {
-	return Vector( getX( ) - CHIP_SIZE / 5, getY( ) + CHIP_FOOT - CHIP_SIZE / 10 );
+	return Vector( getX( ) - CHIP_SIZE / 3, getY( ) + CHIP_FOOT - CHIP_SIZE / 7 );
 }
 
 double EnemyRollOverNeckSkull::getOverlappedRadius( ) const {
-	return CHIP_SIZE / 2 * 0.4;
+	return CHIP_SIZE / 2 * 0.3;
 }
