@@ -104,15 +104,22 @@ void EnemyManager::update( FieldPtr field, CameraConstPtr camera, TarosukePtr ta
 }
 
 void EnemyManager::draw( CameraPtr camera ) {
+	GamePtr game = Game::getTask( );
+
 	std::list<EnemyPtr>::iterator ite = _enemies.begin( );
 	while ( ite != _enemies.end( ) ) {
-		(*ite)->draw( camera );
+		EnemyPtr enemy = *ite;
+		enemy->draw( camera );
+		if ( game->isDebug( ) ) {
+			DrawerPtr drawer = Drawer::getTask( );
+			Vector pos = enemy->getOverlappedPos( ) - Vector( camera->getX( ), camera->getY( ) ); 
+			drawer->setCircle( Drawer::Circle( pos, enemy->getOverlappedRadius( ) ) ); 
+		}
 		ite++;
 	}
 
 	drawBomb( camera );
 
-	GamePtr game = Game::getTask( );
 	game->addDebugMessage( "Enemy Size : %d", _enemies.size( ) );
 }
 
