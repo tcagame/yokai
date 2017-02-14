@@ -7,12 +7,13 @@ static const int CHIP_SIZE = 128;
 static const int CHIP_FOOT = 0;
 static const int HP  = 3;
 static const int POW = 6;
-static const int EXTIT_TIME = 80;
+static const int REVERS_TIME = 80;
 static const int RANGE = 5;
 
 EnemyNoNeckGhost::EnemyNoNeckGhost( int x, int y ):
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ),
-_accel( 0 ),
+_count( 0 ),
+_speed( -10 ),
 _vy( 0 ),
 _dir( 1 ) {
 
@@ -23,7 +24,11 @@ EnemyNoNeckGhost::~EnemyNoNeckGhost( ) {
 }
 
 void EnemyNoNeckGhost::act( ) {
-	setAccelX( -MOVE_SPEED );
+	_count++;
+	if ( _count % REVERS_TIME == 0 ) {
+		_speed *= -1;
+	}
+	setAccelX( _speed );
 	setAccelY( MOVE_SPEED );
 	
 	_vy += _dir;
@@ -35,6 +40,7 @@ void EnemyNoNeckGhost::act( ) {
 	if ( _vy > RANGE ) {
 		_dir = -1;
 	}
+
 	const int MAX_ATTACK_PATTERN = 4;
 	const int ATTACK_PATTERN[ MAX_ATTACK_PATTERN ] = { 4, 5, 6, 7 };
 	int pattern = ATTACK_PATTERN[ ( getX( ) / WAIT_ANIME_TIME ) % MAX_ATTACK_PATTERN ];
