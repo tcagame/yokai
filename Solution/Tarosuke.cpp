@@ -313,6 +313,9 @@ void Tarosuke::actOnStanding( ) {
 				if ( _act_count % ( WALK_PATTERN ) == 0 ) {
 					sound->playSE( "yokai_voice_15.wav" );
 				}
+				if ( _act_count % ( WALK_PATTERN ) == 3 ) {
+					sound->playSE( "yokai_voice_16.wav" );
+				}
 			}
 		}
 		break;
