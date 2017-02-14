@@ -2,9 +2,10 @@
 #include "Drawer.h"
 #include "define.h"
 
-static const int NEXT_TIME = 200;
+static const int NEXT_TIME = 300;
 
-SceneThanks::SceneThanks( ) {
+SceneThanks::SceneThanks( ) :
+_next_count( 0 ) {
 	DrawerPtr drawer = Drawer::getTask( );
 	drawer->loadGraph( GRAPH_THANKS, "thanks/thanks_bg.png" );
 }
