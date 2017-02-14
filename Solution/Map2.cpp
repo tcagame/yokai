@@ -17,6 +17,7 @@
 #include "BossHag.h"
 #include "EnemyNoNeckGhost.h"
 #include "EnemyHandMonster.h"
+#include "EnemyRayMonster.h"
 
 
 static const Map::Panel panel[] = {
@@ -272,24 +273,24 @@ static const Map::Panel panel[] = {
 		"~~~~~~~~~~~~~~~~"
 		"################"
 	},
-	{
+	{//‹›ŒQ’n“_
 		"street/map2/map2_sea_02.png",
 		"",
 		130, 116,
 		"                "
 		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"                "
-		"            C   "
+		"   Q            "
+		"          Q     "
+		"    Q  Q        "
+		"Q         Q  Q  "
+		"    Q  Q        "
+		"          Q     "
+		"   Q            "
 		"                "
 		"                "
 		"                "
 		"           #####"
-		"     F     #####"
+		"           #####"
 		"~~~~~~~~~~~#####"
 		"################"
 	},
@@ -343,11 +344,11 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
+		"     E          "
 		"                "
 		"                "
 		"                "
 		"                "
-		"    E           "
 		"                "
 		"                "
 		"                "
@@ -765,6 +766,7 @@ EnemyPtr Map2::generateEnemy( char ch, EnemyStockPtr stock, int x, int y ) const
 	case 'N': enemy = EnemyPtr( new EnemyHugDemon( x, y ) ); break;
 	case 'O': enemy = EnemyPtr( new EnemyNoNeckGhost( x, y ) ); break;
 	case 'P': enemy = EnemyPtr( new EnemyHandMonster( stock, x, y ) ); break;
+	case 'Q': enemy = EnemyPtr( new EnemyRayMonster( x, y ) ); break;
 	}
 
 	return enemy;
