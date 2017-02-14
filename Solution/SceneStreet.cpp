@@ -55,6 +55,7 @@ SceneStreet::SceneStreet() {
 	drawer->loadGraph( GRAPH_ENEMY_NORMAL		, "street/enemy/enemy_nomal.png");
 	drawer->loadGraph( GRAPH_ENEMY_SMALL		, "street/enemy/enemy_small.png");
 	drawer->loadGraph( GRAPH_ENEMY_BIG			, "street/enemy/enemy_big.png");
+	drawer->loadGraph( GRAPH_ENEMY_ANIMAL		, "street/enemy/enemy_cat.png");
 	drawer->loadGraph( GRAPH_DEATH_POINT        , "street/status/status_deth_point.png" );
 	drawer->loadGraph( GRAPH_FONT_REPLAY		, "font/font_replay.png" );
 	drawer->loadGraph( GRAPH_FONT_GAMEOVER	    , "font/font_gameover.png" );

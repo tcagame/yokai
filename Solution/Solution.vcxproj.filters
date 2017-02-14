@@ -494,6 +494,9 @@
       <Filter>Field</Filter>
     </ClCompile>
     <ClCompile Include="Item.cpp" />
+    <ClCompile Include="EnemyAnimal.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Enemy.h">
@@ -989,6 +992,9 @@
       <Filter>Field</Filter>
     </ClInclude>
     <ClInclude Include="Item.h" />
+    <ClInclude Include="EnemyAnimal.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Enemy">
