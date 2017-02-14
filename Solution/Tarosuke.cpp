@@ -364,9 +364,14 @@ void Tarosuke::actOnBraking( ) {
 }
 
 void Tarosuke::actOnFloating( ) {
+	SoundPtr sound = Sound::getTask( );
 
 	if ( isStanding( ) ) {
-		_action = ACTION_STAND;
+		_action = ACTION_STAND;		
+		FLOOR floor = getFloor( );
+		if ( FLOOR::FLOOR_WATER == floor ) {
+			sound->playSE( "yokai_voice_31.wav" );
+		}
 		return;
 	}
 	
@@ -374,9 +379,7 @@ void Tarosuke::actOnFloating( ) {
 		_air_jump = false;
 		_jump_count = JUMP_COUNT;
 		_action = ACTION_JUMP;
-		setAccelY( -JUMP_POWER );
-		
-		SoundPtr sound = Sound::getTask( );
+		setAccelY( -JUMP_POWER );		
 		sound->playSE( "yokai_voice_17.wav" );
 	}
 	
