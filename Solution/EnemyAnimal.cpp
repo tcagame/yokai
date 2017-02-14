@@ -21,3 +21,10 @@ void EnemyAnimal::act( ) {
 	// int u = MOTION[ ( _act_count / WAIT_TIME ) % MAX_PATTERN ];
 	setChipGraph( GRAPH_ENEMY_ANIMAL, 1, 1 );
 }
+
+void EnemyAnimal::damage( int pow ) {
+}
+
+Vector EnemyAnimal::getOverlappedPos( ) const {
+	return Vector( -100, -100 );
+}

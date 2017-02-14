@@ -3,6 +3,7 @@
 #include "SceneGate.h"
 #include "SceneStreet.h"
 #include "SceneResult.h"
+#include "SceneThanks.h"
 #include "SceneInfo.h"
 #include "Drawer.h"
 #include "Keyboard.h"
@@ -233,6 +234,9 @@ void Game::changeScene( ) {
 		break;
 	case Scene::NEXT_RESULT:
 		_scene = ScenePtr( new SceneResult( ) );
+		break;
+	case Scene::NEXT_THANKS:
+		_scene = ScenePtr( new SceneThanks( ) );
 		break;
 	case Scene::NEXT_DEBUG_STREET_0:
 		_stage = 0;

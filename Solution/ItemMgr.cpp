@@ -10,7 +10,12 @@ ItemMgr::~ItemMgr( ) {
 }
 
 void ItemMgr::update( ) {
-
+	std::list< ItemPtr >::iterator it = _items.begin( );
+	while ( it != _items.end( ) ) {
+		ItemPtr item = *it;
+		item->update( );
+		it++;
+	}
 }
 
 void ItemMgr::draw( CameraConstPtr camera ) const {
