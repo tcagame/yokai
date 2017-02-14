@@ -11,5 +11,6 @@ private:
 	int _move_speed;
 	int _before_x;
 	int _before_hp;
+	int _damage_count;
 };
 

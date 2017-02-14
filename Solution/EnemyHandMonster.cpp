@@ -8,6 +8,7 @@ static const int POW = 6;
 static const int WAIT_APPEAR_TIME = 50;
 static const int WAIT_ANIME_TIME = 3;
 static const int ATTACK_FOOT = 30;
+static const int RANGE = 400;
 
 EnemyHandMonster::EnemyHandMonster( EnemyStockPtr stock, int x, int y ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),
@@ -38,7 +39,7 @@ void EnemyHandMonster::act( ) {
 }
 
 void EnemyHandMonster::actWait( ) {
-	if ( _act_count > WAIT_APPEAR_TIME ) {
+	if ( getTargetX( ) > getX( ) - RANGE ) {
 		_action = ACTION_THROW;
 		_act_count = 0;
 	}
