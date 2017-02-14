@@ -1,4 +1,5 @@
 #include "EnemyCrow.h"
+#include "Sound.h"
 
 static const int CHIP_SIZE = 128;
 static const int CHIP_FOOT = 0;
@@ -21,6 +22,9 @@ _target( target ) {
 
 	setX( ( int )_pos.x );
 	setY( ( int )_pos.y );
+
+	SoundPtr sound = Sound::getTask( );
+	sound->playSE( "yokai_voice_02.wav" );
 }
 
 EnemyCrow::~EnemyCrow( ) {
@@ -66,6 +70,8 @@ void EnemyCrow::actOnWaiting( ) {
 	}
 	if ( _count > WAIT_COUNT ) {
 		_action = ACTION_MOVE;
+		SoundPtr sound = Sound::getTask( );
+		sound->playSE( "yokai_voice_02.wav" );
 	}
 	setChipGraph( GRAPH_ENEMY_CROW, u, v );
 }

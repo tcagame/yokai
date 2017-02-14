@@ -64,8 +64,12 @@ SceneGate::SceneGate( ) {
 	_prob = info.getProbability( game->getStage( ) );
 
 	SoundPtr sound = Sound::getTask( );
-	sound->playBGM( "yokai_se_30.wav" );
-	_x = 0;
+	sound->playBGM( "yokai_se_30.wav", false );
+	_x = -1000;
+
+	_title_offset_x = -SCREEN_WIDTH * 2;
+	_map_offset_x   =  SCREEN_WIDTH * 2;
+	_clear_offset_y = -SCREEN_HEIGHT * 2;
 }
 
 
@@ -73,10 +77,17 @@ SceneGate::~SceneGate( ) {
 }
 
 Scene::NEXT SceneGate::update( ) {
-	act( );
+	GamePtr game = Game::getTask( );
+
+	if ( game->getFade( ) != Game::FADE_IN ) {
+		_title_offset_x = ( int )( _title_offset_x * 95 / 100 );
+		_map_offset_x   = ( int )( _map_offset_x   * 90 / 100 );
+		_clear_offset_y = ( int )( _clear_offset_y * 97 / 100 );
+		_x += CHARACTER_SPEED;
+	}
+
 	draw( );
 
-	GamePtr game = Game::getTask( );
 	switch ( game->getFade( ) ) {
 	case Game::FADE_NONE:
 		if ( _x > SCREEN_WIDTH + CHARACTER_SIZE ) {
@@ -90,21 +101,17 @@ Scene::NEXT SceneGate::update( ) {
 	return NEXT_CONTINUE;
 }
 
-void SceneGate::act( ) {
-	_x += CHARACTER_SPEED;
-}
-
 void SceneGate::draw( ) const {
 	DrawerPtr drawer = Drawer::getTask( );
 	
 	{
 		Drawer::Sprite sprite( 
-			Drawer::Transform( MAP_X, MAP_Y ), GRAPH_GATE_MAP );
+			Drawer::Transform( MAP_X + _map_offset_x, MAP_Y ), GRAPH_GATE_MAP );
 		drawer->setSprite( sprite );
 	}
 	{
 		Drawer::Sprite sprite( 
-			Drawer::Transform( TITLE_X, TITLE_Y ), GRAPH_GATE_TITLE );
+			Drawer::Transform( TITLE_X + _title_offset_x, TITLE_Y ), GRAPH_GATE_TITLE );
 		drawer->setSprite( sprite );
 	}
 
@@ -124,38 +131,47 @@ void SceneGate::draw( ) const {
 	GamePtr game = Game::getTask( );
 
 	{
-		int n = _prob / 100;
+		int n = _prob / 1000 % 10;
 		if ( n > 0 ) {
+			Drawer::Sprite sprite( //•S‚ÌˆÊ
+				Drawer::Transform( COUNT_X - 170, COUNT_Y + 130 + _clear_offset_y ), GRAPH_NUMERIC[ n ] );
+			drawer->setSprite( sprite );
+		}
+	}
+
+	{
+		int n = _prob / 100 % 10;
+		if ( n > 0 || _prob >= 100 ) {
 			Drawer::Sprite sprite( //\‚ÌˆÊ
-				Drawer::Transform( COUNT_X - 120, COUNT_Y + 130 ), GRAPH_NUMERIC[ n ] );
+				Drawer::Transform( COUNT_X - 120, COUNT_Y + 130 + _clear_offset_y ), GRAPH_NUMERIC[ n ] );
 			drawer->setSprite( sprite );
 		}
 	}
 	{
 		int n = _prob / 10 % 10;
 		Drawer::Sprite sprite( //ˆê‚ÌˆÊ
-			Drawer::Transform( COUNT_X - 70, COUNT_Y + 130 ), GRAPH_NUMERIC[ n ] );
+			Drawer::Transform( COUNT_X - 70, COUNT_Y + 130 + _clear_offset_y ), GRAPH_NUMERIC[ n ] );
 		drawer->setSprite( sprite );
 	}
 	{
 		int n = _prob % 10;
 		Drawer::Sprite sprite( //¬”“_‘æˆê
-			Drawer::Transform( COUNT_X, COUNT_Y + 130 ), GRAPH_NUMERIC[ n ] );
+			Drawer::Transform( COUNT_X, COUNT_Y + 130 + _clear_offset_y ), GRAPH_NUMERIC[ n ] );
 		drawer->setSprite( sprite );
 	}
 	{
 		Drawer::Sprite sprite( 
-			Drawer::Transform( COUNT_X - 20, COUNT_Y + 170 ), GRAPH_GATE_DOT );
+			Drawer::Transform( COUNT_X - 20, COUNT_Y + 170 + _clear_offset_y ), GRAPH_GATE_DOT );
 		drawer->setSprite( sprite );
 	}
 	{
 		Drawer::Sprite sprite( 
-			Drawer::Transform( COUNT_X - 105, COUNT_Y + 50 ), GRAPH_GATE_CLEAR );
+			Drawer::Transform( COUNT_X - 105, COUNT_Y + 50 + _clear_offset_y ), GRAPH_GATE_CLEAR );
 		drawer->setSprite( sprite );
 	}
 	{
 		Drawer::Sprite sprite( 
-			Drawer::Transform( COUNT_X + 60, COUNT_Y + 145 ), GRAPH_GATE_PERCENT );
+			Drawer::Transform( COUNT_X + 60, COUNT_Y + 145 + _clear_offset_y ), GRAPH_GATE_PERCENT );
 		drawer->setSprite( sprite );
 	}
 	{

@@ -24,10 +24,10 @@ void EnemyRollOverNeckSkull::act( ) {
 	setChipGraph( GRAPH_ENEMY_BIG, u, v );
 }
 
-double EnemyRollOverNeckSkull::getOverlappedRadius( ) const {
-	return CHIP_SIZE / 2 * 0.6;
+Vector EnemyRollOverNeckSkull::getOverlappedPos( ) const {
+	return Vector( getX( ) - CHIP_SIZE / 3, getY( ) + CHIP_FOOT - CHIP_SIZE / 7 );
 }
 
-Vector EnemyRollOverNeckSkull::getOverlappedPos( ) const {
-	return Vector( getX( ) - CHIP_SIZE / 5, getY( ) + CHIP_FOOT - CHIP_SIZE / 10 );
+double EnemyRollOverNeckSkull::getOverlappedRadius( ) const {
+	return CHIP_SIZE / 2 * 0.3;
 }

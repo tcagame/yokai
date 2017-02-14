@@ -5,7 +5,7 @@ static const int CHIP_FOOT = 0;
 static const int HP = 999;
 static const int POW = 2;
 static const int WAIT_ANIME_TIME = 4;
-static const int MOVE_SPEED = 10;
+static const int MOVE_SPEED = 6;
 
 EnemyStoneRote::EnemyStoneRote(int x, int y, bool right ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),

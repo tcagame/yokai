@@ -44,3 +44,11 @@ void EnemyFlog::actAttack( ) {
 		}
 	}
 }
+
+Vector EnemyFlog::getOverlappedPos( ) const {
+	return Vector( getX( ), getY( ) + CHIP_FOOT - CHIP_SIZE / 3 );
+}
+
+double EnemyFlog::getOverlappedRadius( ) const {
+	return CHIP_SIZE / 2 * 0.3;
+}

@@ -17,6 +17,8 @@ private:
 	void actNomal( );
 	void actWait( );
 	void updateChip( );
+	Vector getOverlappedPos( ) const;
+	double getOverlappedRadius( ) const;
 private:
 	int _move_speed;
 	int _before_x;

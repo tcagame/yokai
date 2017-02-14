@@ -10,6 +10,8 @@ public:
 	virtual ~EnemyFlogChief( );
 private:
 	void act( );
+	Vector getOverlappedPos( ) const;
+	double getOverlappedRadius( ) const;
 private:
 	int _anime_count;
 	EnemyStockPtr _stock;

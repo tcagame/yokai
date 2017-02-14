@@ -80,3 +80,11 @@ void EnemyJizo::updateChip( ) {
 		_action = ACTION_NOMAL;
 	}
 }
+
+Vector EnemyJizo::getOverlappedPos( ) const {
+	return Vector( getX( ) - CHIP_SIZE / 6, getY( ) + CHIP_FOOT - CHIP_SIZE / 3 * 2 );
+}
+
+double EnemyJizo::getOverlappedRadius( ) const {
+	return CHIP_SIZE / 2 * 0.7;
+}
