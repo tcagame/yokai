@@ -36,6 +36,7 @@ static const int FALLOUT_POW = 6;
 static const int NEEDLE_POW = 6;
 static const int OUCH_POWER = 40;
 static const int HEAL_POWER = 6;
+static const int COOLTIME = 3;
 
 Tarosuke::Tarosuke( InputterPtr inputter, PsychicMgrPtr psychic, PowerPtr power, MomotaroPtr momotaro ) : 
 Character( START_X, START_Y, CHIP_SIZE, CHIP_FOOT, true ),
@@ -48,6 +49,7 @@ _power( power ) {
 	_act_count = 0;
 	_invincible_count = 0;
 	setChipReverse( true );
+	_cooltime = 0;
 }
 
 Tarosuke::~Tarosuke( ) {
@@ -89,9 +91,15 @@ void Tarosuke::act( ) {
 	GamePtr game = Game::getTask( );
 	game->addDebugMessage( "Tarosuke x:%05d(%03d BG:%03d) y:%03d", getX( ), getX( ) % BG_SIZE, getX( ) / BG_SIZE, getY( ) );
 	_act_count++;
+	
 	_invincible_count--;
 	if ( _invincible_count < 0 ) {
 		_invincible_count = 0;
+	}
+
+	_cooltime--;
+	if ( _cooltime < 0 ) {
+		_cooltime = 0;
 	}
 
 	switch ( _action ) {
@@ -162,49 +170,21 @@ void Tarosuke::actOnStanding( ) {
 	_action = ACTION_STAND;
 	
 	bool accel = false;
-	bool moving = false;
 	FLOOR floor = getFloor( );
-
-	if ( _inputter->getDirX( ) > 50 ) {
-		moving = true;
-		if ( getAccelX( ) < 0 ) {
-			_action = ACTION_BRAKE;
-		} else if ( getAccelX( ) < MAX_SPEED ) {
-			accel = true;
-			int ax = getAccelX( ) + ACCEL_SPEED;
-			if ( ax > MAX_SPEED ) {
-				ax = MAX_SPEED;
-			}
-			setAccelX( ax );
-		}
+	
+	if ( _inputter->getPush( ) == BUTTON_A ) {
+		_action = ACTION_SHOOT;
+		return;
 	}
 	
-	if ( _inputter->getDirX( ) < -50 ) {
-		moving = true;
-		if ( getAccelX( ) > 0 ) {
-			_action = ACTION_BRAKE;
-		} else if ( getAccelX( ) > -MAX_SPEED ) {
-			accel = true;
-			int ax = getAccelX( ) - ACCEL_SPEED;
-			if ( ax < -MAX_SPEED ) {
-				ax = -MAX_SPEED;
-			}
-			setAccelX( ax );
-		}
-	}
-
-
 	if ( _inputter->getPush( ) == BUTTON_C ) {
 		_jump_count = JUMP_COUNT;
 		_action = ACTION_JUMP;
 		setAccelY( -JUMP_POWER );
 		sound->playSE( "yokai_voice_17.wav" );
+		return;
 	}
 	
-	if ( _inputter->getPush( ) == BUTTON_A ) {
-		_action = ACTION_SHOOT;
-	}
-
 	if ( _inputter->getPush( ) == BUTTON_B && floor == FLOOR_ROAD ) {
 		GamePtr game = Game::getTask( );
 		if ( game->isSolo( ) ) {
@@ -218,6 +198,33 @@ void Tarosuke::actOnStanding( ) {
 				_momo_vec = Vector( 1, -0.1 ).normalize( ) * MOMO_SPEED;
 			}
 			setAccelX( 0 );
+			return;
+		}
+	}
+
+	if ( _inputter->getDirX( ) > 50 ) {
+		if ( getAccelX( ) < 0 ) {
+			_action = ACTION_BRAKE;
+		} else if ( getAccelX( ) <= MAX_SPEED && _cooltime == 0 ) {
+			accel = true;
+			int ax = getAccelX( ) + ACCEL_SPEED;
+			if ( ax > MAX_SPEED ) {
+				ax = MAX_SPEED;
+			}
+			setAccelX( ax );
+		}
+	}
+	
+	if ( _inputter->getDirX( ) < -50 ) {
+		if ( getAccelX( ) > 0 ) {
+			_action = ACTION_BRAKE;
+		} else if ( getAccelX( ) >= -MAX_SPEED && _cooltime == 0 ) {
+			accel = true;
+			int ax = getAccelX( ) - ACCEL_SPEED;
+			if ( ax < -MAX_SPEED ) {
+				ax = -MAX_SPEED;
+			}
+			setAccelX( ax );
 		}
 	}
 
@@ -225,28 +232,26 @@ void Tarosuke::actOnStanding( ) {
 		decel( );
 	}
 
-	if ( !moving ) {
-		if ( _inputter->getDirY( ) > 90 && floor == FLOOR_ROAD ) {
-			if ( _saving_power == 0 ) {
-				sound->playSE( "yokai_se_21.wav", true );
-			}
-			_saving_power++;
-			if ( _saving_power >= CAPACITY_SAVING_POWER ) {
-				_action = ACTION_BURST;
-				_act_count = 0;
-				_saving_power = 0;
-				sound->stopSE( "yokai_se_21.wav" );
-				return;
-			}
+	if ( _inputter->getDirY( ) > 90 && floor == FLOOR_ROAD ) {
+		if ( _saving_power == 0 ) {
+			sound->playSE( "yokai_se_21.wav", true );
 		}
-		if ( _inputter->getDirY( ) < 50 || floor != FLOOR_ROAD ) {
-			int store = _saving_power;
-			_saving_power -= 4;
-			if ( _saving_power <= 0 ) {
-				_saving_power = 0;
-				if ( store > 0 ) {
-					sound->stopSE( "yokai_se_21.wav" );
-				}
+		_saving_power++;
+		if ( _saving_power >= CAPACITY_SAVING_POWER ) {
+			_action = ACTION_BURST;
+			_act_count = 0;
+			_saving_power = 0;
+			sound->stopSE( "yokai_se_21.wav" );
+			return;
+		}
+	}
+	if ( _inputter->getDirY( ) < 50 && _inputter->getDirX( ) == 0 ) {
+		int store = _saving_power;
+		_saving_power -= 4;
+		if ( _saving_power <= 0 ) {
+			_saving_power = 0;
+			if ( store > 0 ) {
+				sound->stopSE( "yokai_se_21.wav" );
 			}
 		}
 	}
@@ -458,6 +463,9 @@ void Tarosuke::actOnFaltering( ) {
 	}
 
 	if ( _act_count > FALTER_COUNT ) {
+		setAccelX( 0 );
+		setChipReverse( !isChipReverse( ) );
+		setChipGraph( GRAPH_CHARACTER_1, 0, 0 );
 		_action = ACTION_STAND;
 	}
 }
@@ -467,14 +475,14 @@ void Tarosuke::actOnShooting( ) {
 	_psychic_mgr->shoot( PsychicPtr( new PsychicTarosuke(
 		getX( ), getY( ) - SHOOT_FOOT, isChipReverse( ), level ) ) );
 	
-	SoundPtr sound = Sound::getTask( );
 
+	SoundPtr sound = Sound::getTask( );
 	if ( _saving_power > 0 ) {
 		sound->stopSE( "yokai_se_21.wav" );
 	}
-
 	sound->playSE( "yokai_se_15.wav" );
 
+	_cooltime = COOLTIME;
 	_saving_power = 0;
 	_action = ACTION_STAND;
 }

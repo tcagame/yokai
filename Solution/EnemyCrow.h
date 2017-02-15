@@ -5,7 +5,7 @@
 
 class EnemyCrow : public Enemy {
 public:
-	EnemyCrow( int x, int y, int pattern, const Vector& target );
+	EnemyCrow( int x, int y, int patternt );
 	virtual ~EnemyCrow( );
 private:
 	enum ACTION {
@@ -23,7 +23,6 @@ private:
 	int _count;
 	Vector _pos;
 	Vector _vec;
-	Vector _target;
 	ACTION _action;
 };
 

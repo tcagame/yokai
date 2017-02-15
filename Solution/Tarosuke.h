@@ -69,4 +69,5 @@ private:
 	bool _air_jump;
 	Vector _momo_pos;
 	Vector _momo_vec;
+	int _cooltime;
 };

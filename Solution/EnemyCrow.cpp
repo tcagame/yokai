@@ -9,15 +9,11 @@ static const int SPEED = 10;
 static const int ANIMATION_WAIT_TIME = 6;
 static const int WAIT_COUNT = 180;
 
-EnemyCrow::EnemyCrow( int x, int y, int pattern, const Vector& target ) :
+EnemyCrow::EnemyCrow( int x, int y, int pattern ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ),
 _count( 0 ),
 _pattern( pattern ),
-_pos( x, y ),
-_target( target ) {
-	_vec = _target - _pos;
-	_vec.y = 0;
-	_vec = _vec.normalize( ) * SPEED;
+_pos( x, y ) {
 	_action = ACTION_APPEAR;
 
 	setX( ( int )_pos.x );
@@ -70,6 +66,12 @@ void EnemyCrow::actOnWaiting( ) {
 	}
 	if ( _count > WAIT_COUNT ) {
 		_action = ACTION_MOVE;
+		
+		Vector target( getTargetX( ), getTargetY( ) );
+		_vec = target - _pos;
+		_vec.y = 0;
+		_vec = _vec.normalize( ) * SPEED;
+
 		SoundPtr sound = Sound::getTask( );
 		sound->playSE( "yokai_voice_02.wav" );
 	}
@@ -98,7 +100,8 @@ void EnemyCrow::actOnMoving( ) {
 		}
 	default:
 		{
-			Vector v = _target - _pos;
+			Vector target( getTargetX( ), getTargetY( ) );
+			Vector v = target - _pos;
 			_vec += v.normalize( ) * ( SPEED * 0.05 );
 			_vec = _vec.normalize( ) * SPEED;
 			break;

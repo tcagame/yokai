@@ -48,8 +48,7 @@ void BossHag::attack( ) {
 		for ( int i = 0; i < 5; i++ ) {
 			int x = getX( ) - ( int )CROW_POS[ i ].x;
 			int y =           ( int )CROW_POS[ i ].y;
-			Vector target( getX( ) - SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 );
-			_stock->addEnemy( EnemyPtr( new EnemyCrow( x, y, i, target ) ) );
+			_stock->addEnemy( EnemyPtr( new EnemyCrow( x, y, i ) ) );
 		}
 		_count = CREATE_COUNT_CROW * 4;
 	}
@@ -59,8 +58,7 @@ void BossHag::attack( ) {
 		int idx = _count / CREATE_COUNT_CROW % CROW_NUM;
 		int x = getX( ) - ( int )CROW_POS[ idx ].x;
 		int y =           ( int )CROW_POS[ idx ].y;
-		Vector target( getX( ) - SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 );
-		_stock->addEnemy( EnemyPtr( new EnemyCrow( x, y, rand( ) % 3, target ) ) );
+		_stock->addEnemy( EnemyPtr( new EnemyCrow( x, y, rand( ) % 3 ) ) );
 	}
 }
 

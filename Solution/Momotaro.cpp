@@ -19,19 +19,18 @@ static const int SHOOT_SPEED = 10;
 static const int WAIT_PATTERN_TIME = 3;
 static const int CHIP_SIZE = 128;
 static const int FALTER_COUNT = 30;
-static const int DAMAGE_COUNT = 60;
+static const int OOOLTIME = 7;
 
 Momotaro::Momotaro( InputterPtr inputter, PsychicMgrPtr mgr, PowerPtr power ) :
 Character( START_X, START_Y, CHIP_SIZE, CHIP_SIZE / 2, false ),
 _inputter( inputter ),
 _psychic_mgr( mgr ),
 _power( power ) {
-	_shoot_x = SHOOT_SPEED;
-	_shoot_y = 0;
 	_device_num = DEVICE_2;
 	_action = ACTION_MOVE;
 	_act_count = 0;
 	_falter_count = 0;
+	_cooltime = 0;
 
 	_device_num = DEVICE_2;
 	GamePtr game = Game::getTask( );
@@ -123,35 +122,26 @@ void Momotaro::actOnHide( ) {
 void Momotaro::actOnMove( ) {
 	SoundPtr sound = Sound::getTask( );
 	
-	if ( _act_count % DAMAGE_COUNT == 0 ) {
-		GamePtr game = Game::getTask( );
-		if ( game->isSolo( ) && _power->get( ) > 1 ) {
-			_power->decrease( 1 );
-			SoundPtr sound = Sound::getTask( );
-			sound->playSE( "yokai_se_23.wav" );
-		}
+	Vector vec( _inputter->getDirX( _device_num ), _inputter->getDirY( _device_num ) );
+
+	_cooltime--;
+	if ( _cooltime < 0 ) {
+		_cooltime = 0;
 	}
 
-	Vector vec( _inputter->getDirX( _device_num ), _inputter->getDirY( _device_num ) );
-	
-	if ( vec.isOrijin( ) || _inputter->getButton( ) == BUTTON_A ) {
+	if ( vec.isOrijin( ) || _cooltime > 0 ) {
 		double length = _vec.getLength( );
 		_vec = _vec.normalize( ) * ( length * 0.8 );
 		setAccelX( ( int )_vec.x );
 		setAccelY( ( int )_vec.y );
 	}
-	
 
-	_falter_count --;
-	if ( _falter_count < 0 ) {
-		_falter_count = 0;
+	if ( !vec.isOrijin( ) && _cooltime == 0 ) {
+		_vec = ( _vec + vec).normalize( ) * MOVE_SPEED;
+		setAccelX( ( int )_vec.x );
+		setAccelY( ( int )_vec.y );
 	}
 
-	if ( _falter_count % 2 == 0 ) {
-		setChipGraph( GRAPH_CHARACTER_2, _act_count / WAIT_PATTERN_TIME % 3 + 3, 5 );
-	} else {
-		setChipGraph( GRAPH_CHARACTER_2, 7, 7 );
-	}
 	if ( _inputter->getPush( _device_num ) == BUTTON_A ) {
 		sound->playSE( "yokai_se_27.wav" );
 
@@ -164,19 +154,17 @@ void Momotaro::actOnMove( ) {
 			PsychicPtr psychic( new PsychicMomotaro( pos, pos + vec ) );
 			_psychic_mgr->shoot( psychic );
 		}
-		return;
+		_cooltime = OOOLTIME;
 	}
-
-	if ( !vec.isOrijin( ) ) {
-		_vec = ( _vec + vec).normalize( ) * MOVE_SPEED;
-		setAccelX( ( int )_vec.x );
-		setAccelY( ( int )_vec.y );
+	
+	_falter_count --;
+	if ( _falter_count < 0 ) {
+		_falter_count = 0;
 	}
-
-	if ( !vec.isOrijin( ) ) {
-		vec = vec.normalize( ) * SHOOT_SPEED;
-		_shoot_x = ( int )vec.x;
-		_shoot_y = ( int )vec.y;
+	if ( _falter_count % 2 == 0 ) {
+		setChipGraph( GRAPH_CHARACTER_2, _act_count / WAIT_PATTERN_TIME % 3 + 3, 5 );
+	} else {
+		setChipGraph( GRAPH_CHARACTER_2, 7, 7 );
 	}
 }
 
