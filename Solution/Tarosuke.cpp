@@ -432,6 +432,10 @@ void Tarosuke::actOnBursting( ) {
 	}
 	const int ANIM[ ] = { 39, 40, 41, 40, 41, 40, 41, 40, 41, 40, 41, 40, 41 };
 	setChipGraph( GRAPH_CHARACTER_1, ANIM[ _act_count / 10 ] % 8, ANIM[ _act_count / 10 ] / 8 );
+	if (  ANIM[ _act_count / 5 ] == 39 ) {
+		SoundPtr sound = Sound::getTask( );
+		sound->playSE( "yokai_voice_38.wav" );
+	}
 }
 
 void Tarosuke::actOnFaltering( ) {
