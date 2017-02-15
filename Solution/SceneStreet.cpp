@@ -171,7 +171,7 @@ _count( 0 ) {
 	_phase_count = 0;
 
 	SoundPtr sound = Sound::getTask( );
-	sound->playBGM( "yokai_music_10.wav" );
+	sound->playBGM( "yokai_music_12.wav" );
 
 	_count++;
 }

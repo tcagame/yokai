@@ -7,7 +7,6 @@ public:
 	virtual ~SceneThanks( );
 public:
 	NEXT update( );
-	void draw( );
 private:
 	int _next_count;
 };

@@ -34,7 +34,8 @@ _stage( 0 ),
 _demo_count( 0 ),
 _fade( FADE_NONE ),
 _server( false ),
-_next( Scene::NEXT_TITLE ),
+//_next( Scene::NEXT_TITLE ),
+_next( Scene::NEXT_THANKS ),
 _info( false ) {
 	_power = PowerPtr( new Power );
 }

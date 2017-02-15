@@ -25,7 +25,7 @@ private:
 	int _y;
 	int _past_y;
 	int _accel;
-	int _turn_count;
+	int _count;
 	int _width;
 	int _height;
 	int _graph;

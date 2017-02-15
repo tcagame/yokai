@@ -30,14 +30,15 @@ Cloud::Cloud( int x, int y, bool big ) {
 	_y = y;
 	_past_y = _y;
 	_accel = CLOUD_MOVE_SPEED;
-	_turn_count = 0;
+	_count = 0;
 }
 
 Cloud::~Cloud( ) {
 }
 
 void Cloud::draw( CameraConstPtr camera ) const {
-	int tx = _y / INTERVAL % CLOUD_CHIP_PATTERN * _width;
+	const int ANIM[ 4 ] = { 0, 2, 1, 3 };
+	int tx = ANIM[ _count / 4 % CLOUD_CHIP_PATTERN ] * _width;
 	int ty = 0;
 	int sx = _x - camera->getX( ) - _width / 2;
 	int sy = _y - camera->getY( ) - _height / 2;
@@ -51,14 +52,14 @@ void Cloud::draw( CameraConstPtr camera ) const {
 }
 
 void Cloud::update( ) {
+	_count++;
 	_past_y = _y;
 	updateAccel( );
 	moveVertical( );
 }
 
 void Cloud::updateAccel( ) {
-	_turn_count++;
-	if ( _turn_count % MAX_TURN_COUNT == 0 ) {
+	if ( _count % MAX_TURN_COUNT == 0 ) {
 		_accel *= -1;
 	}
 }
