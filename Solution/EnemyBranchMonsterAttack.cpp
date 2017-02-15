@@ -31,3 +31,6 @@ void EnemyBranchMonsterAttack::act( ) {
 	int u = SEED_PATTERN[ ( _anime_count / WAIT_ANIME_TIME ) % pattern_num ];
 	setChipGraph( GRAPH_ENEMY_TREE_MONSTER_ITEM, u, 5 );
 }
+
+void EnemyBranchMonsterAttack::damage( int pow ) {
+}
