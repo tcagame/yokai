@@ -4,17 +4,28 @@
 #include "Device.h"
 #include "Game.h"
 #include "Sound.h"
+#include <time.h>
 
 static const int COUNT_FINISH = 60 * 15;
+static const int PARTICLE_SIZE = 32;
+static const int DIV = 200;
 
 SceneInfo::SceneInfo( ) :
 _count( 0 ) {
 	DrawerPtr drawer = Drawer::getTask( );
 	drawer->loadGraph( GRAPH_INFO_BG      , "info/info_bg.png" );
 	drawer->loadGraph( GRAPH_INFO_TITLE   , "info/info_title.png" );
-	drawer->loadGraph( GRAPH_INFO_NAME    , "info/info_name_ito.png" );
-	drawer->loadGraph( GRAPH_INFO_MESSAGE , "info/info_message.png" );
 	drawer->loadGraph( GRAPH_INFO_PARTICLE, "info/info_particle.png" );
+	drawer->loadGraph( GRAPH_INFO_MESSAGE , "info/info_message.png" );
+
+	switch ( time( NULL ) % 6 ) {
+	case 0: drawer->loadGraph( GRAPH_INFO_NAME    , "info/info_name_ito.png" ); break;
+	case 1: drawer->loadGraph( GRAPH_INFO_NAME    , "info/info_name_yokoyama.png" ); break;
+	case 2: drawer->loadGraph( GRAPH_INFO_NAME    , "info/info_name_iwafune.png" ); break;
+	case 3: drawer->loadGraph( GRAPH_INFO_NAME    , "info/info_name_saito.png" ); break;
+	case 4: drawer->loadGraph( GRAPH_INFO_NAME    , "info/info_name_kase.png" ); break;
+	case 5: drawer->loadGraph( GRAPH_INFO_NAME    , "info/info_name_yamada.png" ); break;
+	}
 
 	_data[ 0 ].graph = GRAPH_INFO_TITLE;
 	_data[ 0 ].target = Vector( 0, 0 );
@@ -67,7 +78,7 @@ Scene::NEXT SceneInfo::update( ) {
 		drawer->setSprite( sprite );
 	}
 
-	int num = _count / ( COUNT_FINISH / 8 );
+	int num = _count / ( COUNT_FINISH / 12 );
 	if ( num > 3 ) {
 		num = 3;
 	}
@@ -78,23 +89,43 @@ Scene::NEXT SceneInfo::update( ) {
 			alpha = _data[ i ].count / 30.0;
 		} else if ( _data[ i ].count < 45 ) {
 			int length = _data[ i ].width * ( _data[ i ].count - 30 ) / 15;
-			for ( int j = 0; j < 100; j++ ) {
-				Drawer::Sprite sprite( 
-					Drawer::Transform(
-					( int )_data[ i ].pos.x + length * j / 100,
-					( int )( _data[ i ].pos.y + _data[ i ].height - 50 ) ),
-					GRAPH_INFO_PARTICLE, Drawer::BLEND_ADD, 0.1 );
-				drawer->setSprite( sprite );
+			for ( int j = 0; j < DIV; j++ ) {
+				{
+					int x = ( int )_data[ i ].pos.x - PARTICLE_SIZE / 2 + length * j / DIV;
+					int y = ( int )_data[ i ].pos.y - PARTICLE_SIZE / 2;
+					Drawer::Sprite sprite( 
+						Drawer::Transform( x, y ),
+						GRAPH_INFO_PARTICLE, Drawer::BLEND_ADD, 0.1 );
+					drawer->setSprite( sprite );
+				}
+				{
+					int x = ( int )_data[ i ].pos.x - PARTICLE_SIZE / 2 - length * j / DIV + _data[ i ].width;
+					int y = ( int )_data[ i ].pos.y - PARTICLE_SIZE / 2 + _data[ i ].height;
+					Drawer::Sprite sprite( 
+						Drawer::Transform( x, y ),
+						GRAPH_INFO_PARTICLE, Drawer::BLEND_ADD, 0.1 );
+					drawer->setSprite( sprite );
+				}
 			}
 		} else if ( _data[ i ].count < 60 ) {
 			int length = ( int )( _data[ i ].width * ( 1.0 - ( _data[ i ].count - 45 ) / 15.0 ) );
-			for ( int j = 0; j < 100; j++ ) {
-				Drawer::Sprite sprite( 
-					Drawer::Transform(
-					( int )_data[ i ].pos.x + _data[ i ].width - length * j / 100,
-					( int )( _data[ i ].pos.y + _data[ i ].height - 50 ) ),
-					GRAPH_INFO_PARTICLE, Drawer::BLEND_ADD, 0.1  );
-				drawer->setSprite( sprite );
+			for ( int j = 0; j < DIV; j++ ) {
+				{
+					int x = ( int )_data[ i ].pos.x - PARTICLE_SIZE / 2 - length * j / DIV + _data[ i ].width;
+					int y = ( int )_data[ i ].pos.y - PARTICLE_SIZE / 2;
+					Drawer::Sprite sprite( 
+						Drawer::Transform( x, y ),
+						GRAPH_INFO_PARTICLE, Drawer::BLEND_ADD, 0.1 );
+					drawer->setSprite( sprite );
+				}
+				{
+					int x = ( int )_data[ i ].pos.x - PARTICLE_SIZE / 2 + length * j / DIV;
+					int y = ( int )_data[ i ].pos.y - PARTICLE_SIZE / 2 + _data[ i ].height;
+					Drawer::Sprite sprite( 
+						Drawer::Transform( x, y ),
+						GRAPH_INFO_PARTICLE, Drawer::BLEND_ADD, 0.1 );
+					drawer->setSprite( sprite );
+				}
 			}
 		} else {
 			Vector vec = _data[ i ].target - _data[ i ].pos;

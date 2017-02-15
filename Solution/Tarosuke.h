@@ -55,6 +55,7 @@ private:
 	void actOnDying( );
 	void actOnFallingOut( );
 	void drawOverlapped( CameraConstPtr camera ) const;
+	void decel( );
 private:
 	InputterPtr _inputter;
 	MomotaroPtr _momotaro;

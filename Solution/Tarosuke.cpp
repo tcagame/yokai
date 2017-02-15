@@ -222,23 +222,7 @@ void Tarosuke::actOnStanding( ) {
 	}
 
 	if ( !accel ) {
-		int ax = getAccelX( );
-
-		if ( ax < 0 ) {
-			ax += ACCEL_SPEED;
-			if ( ax > 0 ) {
-				ax = 0;
-			}
-		}
-		
-		if ( ax > 0 ) {
-			ax += -ACCEL_SPEED;
-			if ( ax < 0 ) {
-				ax = 0;
-			}
-		}
-
-		setAccelX( ax );
+		decel( );
 	}
 
 	if ( !moving ) {
@@ -250,6 +234,8 @@ void Tarosuke::actOnStanding( ) {
 			if ( _saving_power >= CAPACITY_SAVING_POWER ) {
 				_action = ACTION_BURST;
 				_act_count = 0;
+				_saving_power = 0;
+				sound->stopSE( "yokai_se_21.wav" );
 				return;
 			}
 		}
@@ -439,12 +425,9 @@ void Tarosuke::actOnFallingOut( ) {
 }
 
 void Tarosuke::actOnBursting( ) {
+	decel( );
+
 	if ( _act_count > BURST_COUNT ) {
-		if ( _saving_power > 0 ) {
-			SoundPtr sound = Sound::getTask( );
-			sound->stopSE( "yokai_se_21.wav" );
-		}
-		_saving_power = 0;
 		_action = ACTION_STAND;
 	}
 	const int ANIM[ ] = { 39, 40, 41, 40, 41, 40, 41, 40, 41, 40, 41, 40, 41 };
@@ -592,6 +575,26 @@ void Tarosuke::actOnDying( ) {
 		}
 		break;
 	}
+}
+
+void Tarosuke::decel( ) {
+	int ax = getAccelX( );
+
+	if ( ax < 0 ) {
+		ax += ACCEL_SPEED;
+		if ( ax > 0 ) {
+			ax = 0;
+		}
+	}
+		
+	if ( ax > 0 ) {
+		ax += -ACCEL_SPEED;
+		if ( ax < 0 ) {
+			ax = 0;
+		}
+	}
+
+	setAccelX( ax );
 }
 
 void Tarosuke::drawOverlapped( CameraConstPtr camera ) const {

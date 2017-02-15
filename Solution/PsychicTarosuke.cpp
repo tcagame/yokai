@@ -10,7 +10,11 @@ _dir_right( dir_right ),
 _outward( true ),
 _motion_count( 0 ),
 _level( level ) {
-	setPow( level + 1 );
+	int pow = 1;
+	for ( int i = 0; i < level; i++ ) {
+		pow *= 2;
+	}
+	setPow( pow );
 }
 
 
