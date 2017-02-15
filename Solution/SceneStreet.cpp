@@ -296,7 +296,7 @@ Scene::NEXT SceneStreet::update( ) {
 			if ( pow->get( ) > 0 ) {
 				return NEXT_STAGE;
 			} else {
-				return NEXT_RESULT;
+				return NEXT_THANKS;
 			}
 		}
 		break;
