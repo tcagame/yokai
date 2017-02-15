@@ -27,22 +27,24 @@ void EnemyShishimaiDemon::act( ) {
 }
 
 void EnemyShishimaiDemon::move( ) {
-	// たろすけと距離を保つ
-	int lengh = getX( ) - getTargetX( );
-	if ( lengh < RANGE ) {
-		_move_speed = MOVE_SPEED;
-	}
-	lengh = getTargetX( ) + RANGE * 2;
-	if ( lengh < getX( ) ) {
-		_move_speed = -MOVE_SPEED;
-	}
-
 	// 止まったら反転
 	if ( _before_x == getX( ) ) {
 		_move_speed *= -1;
 	}
 	_before_x = getX( );
 
+	// たろすけと距離を保つ
+	int lengh = getX( ) - getTargetX( );
+	// たろすけより右側の時は離れる たろすけより左側の時は近づく
+	if ( lengh < RANGE ) {
+		_move_speed = MOVE_SPEED;
+	}
+	lengh = getTargetX( ) + RANGE * 2;
+	// たろすけより右側の時のみ近づく
+	if ( lengh < getX( ) ) {
+		_move_speed = -MOVE_SPEED;
+	}
+	
 	setAccelX( _move_speed );
 
 	// たろすけがジャンプしたらジャンプ
