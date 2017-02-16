@@ -19,8 +19,14 @@ Infomation::Infomation( bool loading ) {
 		_data.population[ j ] = 0;
 	}
 
-	if ( loading ) {
-		load( );
+	load( );
+	
+	if ( !loading ) {
+		for ( int j = 0; j < 5; j++ ) {
+			_data.denominator[ j ] = 0;
+			_data.numerator[ j ] = 0;
+			_data.population[ j ] = 0;
+		}
 	}
 }
 
