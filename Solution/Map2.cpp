@@ -11,7 +11,6 @@
 #include "EnemyDeceasedGreen.h"
 #include "EnemySkeletonSpear.h"
 #include "EnemyRedFlogSmall.h"
-#include "EnemyHellFire.h"
 #include "EnemyRedbird.h"
 #include "EnemyHugDemon.h"
 #include "BossHag.h"
@@ -95,7 +94,7 @@ static const Map::Panel panel[] = {
 		"#               "
 		"#               "
 		"#               "
-		"#       K       "
+		"#               "
 		"#               "
 		"#               "
 		"#               "
@@ -407,7 +406,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"       C        "
+		"                "
 		"                "
 		"                "
 		"                "
@@ -537,7 +536,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"        K       "
+		"                "
 		"                "
 		"      -         "
 		"                "
@@ -558,7 +557,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"               C"
+		"                "
 		"                "
 		"        -       "
 		"                "
@@ -761,7 +760,6 @@ EnemyPtr Map2::generateEnemy( char ch, EnemyStockPtr stock, int x, int y ) const
 	case 'H': enemy = EnemyPtr( new EnemyExtrudedSpirits( x, y ) ); break;
 	case 'I': enemy = EnemyPtr( new EnemySkeletonSpear( x, y ) ); break;
 	case 'J': enemy = EnemyPtr( new EnemyRedFlogSmall( x, y ) ); break;
-	case 'K': enemy = EnemyPtr( new EnemyHellFire( x, y ) ); break;
 	case 'L': enemy = EnemyPtr( new EnemyRedbird( stock, x - BG_SIZE * 3, y ) ); break;
 	case 'M': enemy = EnemyPtr( new EnemyDeceasedGreen( x, y ) ); break;
 	case 'N': enemy = EnemyPtr( new EnemyHugDemon( x, y ) ); break;
