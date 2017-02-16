@@ -46,7 +46,7 @@ Scene::NEXT SceneThanks::update( ) {
 		_next_count++;
 		if ( _next_count > NEXT_TIME - FADEOUT_COUNT ) {
 			SoundPtr sound = Sound::getTask( );
-			sound->setVolumeBGM( 1.0 - ( double )( _next_count - ( NEXT_TIME - FADEOUT_COUNT ) ) / FADEOUT_COUNT );
+			//sound->setVolumeBGM( 1.0 - ( double )( _next_count - ( NEXT_TIME - FADEOUT_COUNT ) ) / FADEOUT_COUNT );
 		}
 		if( _next_count > NEXT_TIME ) {
 			game->setFade( Game::FADE_OUT );
