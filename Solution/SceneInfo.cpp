@@ -4,7 +4,6 @@
 #include "Device.h"
 #include "Game.h"
 #include "Sound.h"
-#include <time.h>
 
 static const int COUNT_FINISH = 60 * 15;
 static const int PARTICLE_SIZE = 32;
@@ -16,15 +15,38 @@ _count( 0 ) {
 	drawer->loadGraph( GRAPH_INFO_BG      , "info/info_bg.png" );
 	drawer->loadGraph( GRAPH_INFO_TITLE   , "info/info_title.png" );
 	drawer->loadGraph( GRAPH_INFO_PARTICLE, "info/info_particle.png" );
-	drawer->loadGraph( GRAPH_INFO_MESSAGE , "info/info_message.png" );
 
-	switch ( time( NULL ) % 6 ) {
+	static int select = 0;
+	select = ( select + 1 ) % ( 6 * 3 );
+
+	switch ( select % 6 ) {
 	case 0: drawer->loadGraph( GRAPH_INFO_NAME    , "info/info_name_ito.png" ); break;
 	case 1: drawer->loadGraph( GRAPH_INFO_NAME    , "info/info_name_yokoyama.png" ); break;
 	case 2: drawer->loadGraph( GRAPH_INFO_NAME    , "info/info_name_iwafune.png" ); break;
 	case 3: drawer->loadGraph( GRAPH_INFO_NAME    , "info/info_name_saito.png" ); break;
 	case 4: drawer->loadGraph( GRAPH_INFO_NAME    , "info/info_name_kase.png" ); break;
 	case 5: drawer->loadGraph( GRAPH_INFO_NAME    , "info/info_name_yamada.png" ); break;
+	}
+
+	switch ( select ) {
+	case  0: drawer->loadGraph( GRAPH_INFO_MESSAGE, "info/info_message_ito_1.png" ); break;
+	case  1: drawer->loadGraph( GRAPH_INFO_MESSAGE, "info/info_message_yokoyama_1.png" ); break;
+	case  2: drawer->loadGraph( GRAPH_INFO_MESSAGE, "info/info_message_iwafune_1.png" ); break;
+	case  3: drawer->loadGraph( GRAPH_INFO_MESSAGE, "info/info_message_saito_1.png" ); break;
+	case  4: drawer->loadGraph( GRAPH_INFO_MESSAGE, "info/info_message_kase_1.png" ); break;
+	case  5: drawer->loadGraph( GRAPH_INFO_MESSAGE, "info/info_message_yamada_1.png" ); break;
+	case  6: drawer->loadGraph( GRAPH_INFO_MESSAGE, "info/info_message_ito_2.png" ); break;
+	case  7: drawer->loadGraph( GRAPH_INFO_MESSAGE, "info/info_message_yokoyama_2.png" ); break;
+	case  8: drawer->loadGraph( GRAPH_INFO_MESSAGE, "info/info_message_iwafune_2.png" ); break;
+	case  9: drawer->loadGraph( GRAPH_INFO_MESSAGE, "info/info_message_saito_2.png" ); break;
+	case 10: drawer->loadGraph( GRAPH_INFO_MESSAGE, "info/info_message_kase_2.png" ); break;
+	case 11: drawer->loadGraph( GRAPH_INFO_MESSAGE, "info/info_message_yamada_2.png" ); break;
+	case 12: drawer->loadGraph( GRAPH_INFO_MESSAGE, "info/info_message_ito_3.png" ); break;
+	case 13: drawer->loadGraph( GRAPH_INFO_MESSAGE, "info/info_message_yokoyama_3.png" ); break;
+	case 14: drawer->loadGraph( GRAPH_INFO_MESSAGE, "info/info_message_iwafune_3.png" ); break;
+	case 15: drawer->loadGraph( GRAPH_INFO_MESSAGE, "info/info_message_saito_3.png" ); break;
+	case 16: drawer->loadGraph( GRAPH_INFO_MESSAGE, "info/info_message_kase_3.png" ); break;
+	case 17: drawer->loadGraph( GRAPH_INFO_MESSAGE, "info/info_message_yamada_3.png" ); break;
 	}
 
 	_data[ 0 ].graph = GRAPH_INFO_TITLE;

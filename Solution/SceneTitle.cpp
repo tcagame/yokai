@@ -75,6 +75,9 @@ Scene::NEXT SceneTitle::update( ) {
 	if ( keyboard->isPushKey( "F9" ) ) {
 		Infomation( false ); // データクリア
 	}
+	if ( keyboard->isPushKey( "NUM9" ) ) {
+		return NEXT_INFO;
+	}
 	if ( keyboard->isPushKey( "ENTER" ) ) {
 		return NEXT_DEBUG_STREET_TEST;
 	}

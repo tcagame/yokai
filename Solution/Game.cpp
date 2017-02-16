@@ -35,7 +35,6 @@ _demo_count( 0 ),
 _fade( FADE_NONE ),
 _server( false ),
 _next( Scene::NEXT_TITLE ),
-//_next( Scene::NEXT_THANKS ),
 _info( false ) {
 	_power = PowerPtr( new Power );
 }
@@ -206,6 +205,9 @@ void Game::changeScene( ) {
 	case Scene::NEXT_TITLE:
 		_power->reset( );
 		_scene = ScenePtr( new SceneTitle );
+		break;
+	case Scene::NEXT_INFO:
+		_scene = ScenePtr( new SceneInfo );
 		break;
 	case Scene::NEXT_DEMO:
 		_info = !_info;
