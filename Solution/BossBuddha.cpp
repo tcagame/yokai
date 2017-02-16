@@ -6,9 +6,9 @@ static const int OFFSET_Y = 155;
 static const int HP = 30;
 static const int POW = 6;
 static const int RADIUS = 100;
-static const int SPEED = 5;
-static const int ACCEL = 10;
-static const int CREATE_COUNT_FIREBALL = 12;
+static const int SPEED = 3;
+static const int ACCEL = 6;
+static const int CREATE_COUNT_FIREBALL = 8;
 
 BossBuddha::BossBuddha( EnemyStockPtr stock, int x ) :
 Boss( OFFSET_X + x, OFFSET_Y, 0, HP, POW ),
@@ -36,4 +36,3 @@ void BossBuddha::attack( ) {
 double BossBuddha::getOverlappedRadius( ) const {
 	return RADIUS;
 }
-
