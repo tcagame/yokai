@@ -4,6 +4,7 @@
 #include "Device.h"
 #include "Game.h"
 #include "Sound.h"
+#include "Keyboard.h"
 
 static const int COUNT_FINISH = 60 * 15;
 static const int PARTICLE_SIZE = 32;
@@ -160,6 +161,10 @@ Scene::NEXT SceneInfo::update( ) {
 		drawer->setSprite( sprite );
 	}
 
+	KeyboardPtr keyboard = Keyboard::getTask( );
+	if ( keyboard->isPushKey( "NUM9" ) ) {
+		return NEXT_INFO;
+	}
 	return NEXT_CONTINUE;
 }
 
