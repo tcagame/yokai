@@ -7,7 +7,7 @@ static const int HP = 8;
 static const int POW = 6;
 static const int MOVE_SPEED = 1;
 static const int WAIT_ANIME_TIME = 6;
-static const int WAIT_ATTACK_TIME = 100;
+static const int WAIT_ATTACK_TIME = 50;
 static const int WAIT_APPEAR_TIME = 10;
 static const int ATTACK_FOOT_Y = 120;
 static const int ATTACK_FOOT_X = 50;
@@ -53,7 +53,7 @@ void EnemyJizo::actNomal( ) {
 	setAccelX( _move_speed );
 	if ( _act_count % WAIT_ATTACK_TIME == 0 ) {
 		Vector pos( getX( ) - ATTACK_FOOT_X, getY( ) - ATTACK_FOOT_Y );
-		Vector vec = Vector( -1, 0.3 ).normalize( ) * FIRE_SPEED;
+		Vector vec = Vector( -1, 0.2 ).normalize( ) * FIRE_SPEED;
 		bool dir_right = false;
 		if ( _move_speed > 0 ) {
 			dir_right = true;

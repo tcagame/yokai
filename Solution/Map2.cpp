@@ -18,6 +18,7 @@
 #include "EnemyNoNeckGhost.h"
 #include "EnemyHandMonster.h"
 #include "EnemyRayMonster.h"
+#include "EnemyAnimal.h"
 
 
 static const Map::Panel panel[] = {
@@ -311,7 +312,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"#               "
-		"#               "
+		"#     t         "
 		"################"
 		"################"
 	},
@@ -668,7 +669,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"            s   "
 		"################"
 		"################"
 	},
@@ -767,6 +768,8 @@ EnemyPtr Map2::generateEnemy( char ch, EnemyStockPtr stock, int x, int y ) const
 	case 'O': enemy = EnemyPtr( new EnemyNoNeckGhost( x, y ) ); break;
 	case 'P': enemy = EnemyPtr( new EnemyHandMonster( stock, x, y ) ); break;
 	case 'Q': enemy = EnemyPtr( new EnemyRayMonster( x, y ) ); break;
+	case 's': enemy = EnemyPtr( new EnemyAnimal( x, y, GRAPH_ENEMY_ANIMAL_DOG ) ); break;
+	case 't': enemy = EnemyPtr( new EnemyAnimal( x, y, GRAPH_ENEMY_ANIMAL_CAT ) ); break;
 	}
 
 	return enemy;

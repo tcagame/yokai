@@ -4,6 +4,7 @@
 #include "Device.h"
 #include "Game.h"
 #include "Sound.h"
+#include "Keyboard.h"
 
 static const int COUNT_FINISH = 60 * 15;
 static const int PARTICLE_SIZE = 32;
@@ -67,7 +68,7 @@ _count( 0 ) {
 	for ( int i = 0; i < 3; i++ ) {
 		_data[ i ].pos = Vector(
 			( SCREEN_WIDTH  - _data[ i ].width  ) / 2,
-			( SCREEN_HEIGHT - _data[ i ].height ) / 2 );
+			SCREEN_HEIGHT - 512 );
 		_data[ i ].count = 0;
 	}
 	
@@ -107,10 +108,12 @@ Scene::NEXT SceneInfo::update( ) {
 	for ( int i = 0; i < num; i++ ) {
 		_data[ i ].count++;
 		double alpha = 1.0;
-		if ( _data[ i ].count < 30 ) {
-			alpha = _data[ i ].count / 30.0;
-		} else if ( _data[ i ].count < 45 ) {
-			int length = _data[ i ].width * ( _data[ i ].count - 30 ) / 15;
+		alpha = _data[ i ].count / 30.0;
+		if ( alpha > 1.0 ) {
+			alpha = 1.0;
+		}
+		if ( _data[ i ].count < 15 ) {
+			int length = _data[ i ].width * ( _data[ i ].count - 0 ) / 15;
 			for ( int j = 0; j < DIV; j++ ) {
 				{
 					int x = ( int )_data[ i ].pos.x - PARTICLE_SIZE / 2 + length * j / DIV;
@@ -129,8 +132,8 @@ Scene::NEXT SceneInfo::update( ) {
 					drawer->setSprite( sprite );
 				}
 			}
-		} else if ( _data[ i ].count < 60 ) {
-			int length = ( int )( _data[ i ].width * ( 1.0 - ( _data[ i ].count - 45 ) / 15.0 ) );
+		} else if ( _data[ i ].count < 30 ) {
+			int length = ( int )( _data[ i ].width * ( 1.0 - ( _data[ i ].count - 15 ) / 15.0 ) );
 			for ( int j = 0; j < DIV; j++ ) {
 				{
 					int x = ( int )_data[ i ].pos.x - PARTICLE_SIZE / 2 - length * j / DIV + _data[ i ].width;
@@ -160,6 +163,10 @@ Scene::NEXT SceneInfo::update( ) {
 		drawer->setSprite( sprite );
 	}
 
+	KeyboardPtr keyboard = Keyboard::getTask( );
+	if ( keyboard->isPushKey( "NUM9" ) ) {
+		return NEXT_INFO;
+	}
 	return NEXT_CONTINUE;
 }
 

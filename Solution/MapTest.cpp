@@ -88,7 +88,7 @@ static const Map::Panel panel[] = {
 		"               #"
 		"             ###"
 		"           #####"
-		" $    s  #######"
+		" $    s t#######"
 		"################"
 		"################"
 	},
@@ -1054,7 +1054,8 @@ EnemyPtr MapTest::generateEnemy( char ch, EnemyStockPtr stock, int x, int y ) co
 		case 'p': enemy = EnemyPtr( new EnemyHugDemon( x, y ) ); break;
 		case 'q': enemy = EnemyPtr( new EnemyRayMonster( x, y ) ); break;
 		case 'r': enemy = EnemyPtr( new EnemyYadokariYokai( x, y ) ); break;
-		case 's': enemy = EnemyPtr( new EnemyAnimal( x, y ) ); break;
+		case 's': enemy = EnemyPtr( new EnemyAnimal( x, y, GRAPH_ENEMY_ANIMAL_DOG ) ); break;
+		case 't': enemy = EnemyPtr( new EnemyAnimal( x, y, GRAPH_ENEMY_ANIMAL_CAT ) ); break;
 	}
 	
 	return enemy;

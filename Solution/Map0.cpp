@@ -19,6 +19,8 @@
 #include "EnemyGhoul.h"
 #include "BossRedDemon.h"
 #include "EnemySkeletonSpear.h"
+#include "EnemyAnimal.h"
+#include "EnemyAnimal.h"
 
 static const Map::Panel panel[] = {
 	{//0
@@ -395,7 +397,7 @@ static const Map::Panel panel[] = {
 		"##  ####        "
 		"##              "
 		"##              "
-		"##    $         "
+		"##t   $         "
 		"################"
 		"################"
 	},
@@ -458,7 +460,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"                "
+		"             s  "
 		"################"
 		"################"
 	},
@@ -849,6 +851,8 @@ EnemyPtr Map0::generateEnemy( char ch, EnemyStockPtr stock, int x, int y ) const
 		break;
 	case 'R': enemy = EnemyPtr( new EnemySkeletonSpear( x, y ) );
 		break;
+	case 's': enemy = EnemyPtr( new EnemyAnimal( x, y, GRAPH_ENEMY_ANIMAL_DOG ) ); break;
+	case 't': enemy = EnemyPtr( new EnemyAnimal( x, y, GRAPH_ENEMY_ANIMAL_CAT ) ); break;
 	}
 
 	return enemy;
