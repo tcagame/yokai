@@ -9,10 +9,10 @@ static const int SPEED = 10;
 static const int ANIMATION_WAIT_TIME = 6;
 static const int WAIT_COUNT = 180;
 
-EnemyCrow::EnemyCrow( int x, int y, int pattern ) :
+EnemyCrow::EnemyCrow( int x, int y ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ),
 _count( 0 ),
-_pattern( pattern ),
+_pattern( rand( ) % 4 ),
 _pos( x, y ) {
 	_action = ACTION_APPEAR;
 
@@ -79,7 +79,7 @@ void EnemyCrow::actOnWaiting( ) {
 }
 
 void EnemyCrow::actOnMoving( ) {
-	//_pattern = 1;
+	//_pattern = 2;
 	switch ( _pattern ) {
 	case 0:
 		{
@@ -97,6 +97,12 @@ void EnemyCrow::actOnMoving( ) {
 			_vec += v.normalize( ) * ( SPEED * 0.05 );
 			_vec = _vec.normalize( ) * SPEED;
 			break;
+		}
+	case 2:
+		{
+			Vector v = Vector( SCREEN_WIDTH * 3 / 4, SCREEN_HEIGHT * 3 );
+			_vec += v.normalize( ) * ( SPEED * 0.05 );
+			_vec = _vec.normalize( ) * SPEED;
 		}
 	default:
 		{
