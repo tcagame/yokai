@@ -55,6 +55,7 @@ private:
 	void actOnDying( );
 	void actOnFallingOut( );
 	void drawOverlapped( CameraConstPtr camera ) const;
+	void decel( );
 private:
 	InputterPtr _inputter;
 	MomotaroPtr _momotaro;
@@ -68,4 +69,5 @@ private:
 	bool _air_jump;
 	Vector _momo_pos;
 	Vector _momo_vec;
+	int _cooltime;
 };

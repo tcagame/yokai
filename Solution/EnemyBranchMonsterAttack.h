@@ -7,6 +7,7 @@ public:
 	virtual ~EnemyBranchMonsterAttack( );
 private:
 	void act( );
+	void damage( int pow );
 private:
 	int _anime_count;
 	int _jump_power;

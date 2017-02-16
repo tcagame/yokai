@@ -35,6 +35,7 @@ _demo_count( 0 ),
 _fade( FADE_NONE ),
 _server( false ),
 _next( Scene::NEXT_TITLE ),
+//_next( Scene::NEXT_THANKS ),
 _info( false ) {
 	_power = PowerPtr( new Power );
 }
@@ -61,6 +62,7 @@ void Game::initialize( ) {
 	sound->loadSE( "yokai_voice_30.wav" );
 	sound->loadSE( "yokai_voice_31.wav" );
 	sound->loadSE( "yokai_voice_37.wav" );
+	sound->loadSE( "yokai_voice_38.wav" );
 	sound->loadSE( "yokai_voice_39.wav" );
 	sound->loadSE( "yokai_se_01.wav" );
 	sound->loadSE( "yokai_se_02.wav" );

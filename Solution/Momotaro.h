@@ -31,10 +31,9 @@ private:
 	PsychicMgrPtr _psychic_mgr;
 	PowerPtr _power;
 	ACTION _action;
-	int _shoot_x;
-	int _shoot_y;
 	Vector _vec;
 	int _device_num;
 	int _act_count;
 	int _falter_count;
+	int _cooltime;
 };

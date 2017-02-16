@@ -9,7 +9,9 @@ private:
 	void act( );
 	Vector getOverlappedPos( ) const;
 	double getOverlappedRadius( ) const;
+private:
 	int _count;
+	int _speed;
 	bool _revers;
 };
 

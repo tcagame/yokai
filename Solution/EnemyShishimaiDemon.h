@@ -7,6 +7,8 @@ public:
 	virtual ~EnemyShishimaiDemon( );
 private:
 	void act( );
+	void move( );
+	void updateChip( );
 private:
 	int _act_count;
 	int _move_speed;

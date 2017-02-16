@@ -10,6 +10,7 @@ public:
 public:
 	virtual void attack( ) = 0;
 private:
+	virtual Vector getOverlappedPos( ) const;
 	virtual bool isOutSideScreen( CameraConstPtr camera ) const;
 };
 
