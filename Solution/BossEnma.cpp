@@ -38,7 +38,7 @@ BossEnma::BossEnma( EnemyStockPtr stock, int x ) :
 Boss( x + OFFSET_X, OFFSET_Y, CHIP_SIZE, HP, POW ),
 _stock( stock ),
 _anime_count( 0 ),
-_attack_count( 0 ) {
+_attack_count( 120 ) {
 }
 
 
