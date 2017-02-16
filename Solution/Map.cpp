@@ -92,7 +92,7 @@ ItemMgrPtr Map::createItemMgr( ) const {
 		for ( int j = 0; j < MAPCHIP_NUM * MAPCHIP_NUM; j++ ) {
 			if ( isItem( i, j ) ) {
 				int x = j % MAPCHIP_NUM * MAPCHIP_SIZE + i * BG_SIZE;
-				int y = j / MAPCHIP_NUM * MAPCHIP_SIZE;
+				int y = j / MAPCHIP_NUM * MAPCHIP_SIZE - MAPCHIP_SIZE / 2;
 				ItemPtr item( new Item( x, y ) );
 				mgr->add( item );
 			}
