@@ -15,7 +15,6 @@
 #include "EnemyBlueMonk.h"
 #include "EnemyNoNeckGhost.h"
 #include "EnemyStoneFly.h"
-#include "EnemyHellFire.h"
 #include "EnemyShishimai.h"
 #include "EnemyShishimaiDemon.h"
 #include "EnemySkeletonSpear.h"
@@ -30,7 +29,7 @@ static const int OFFSET_X = 192 + CHIP_SIZE;
 static const int OFFSET_Y = 512 - 265;
 static const int HP  = 30;
 static const int POW = 6;
-static const int CREATE_COUNT_ENEMY = 240;
+static const int CREATE_COUNT_ENEMY = 120;
 static const double RADIUS = 90;
 static const double RANGE = 650;
 
@@ -85,7 +84,6 @@ void BossEnma::attack( ) {
 			_stock->addEnemy( EnemyPtr( new EnemyShishimai( x, y ) ) );
 			_stock->addEnemy( EnemyPtr( new EnemyShishimai( x - 100, y ) ) );
 			_stock->addEnemy( EnemyPtr( new EnemyShishimaiDemon( x - 200, y ) ) );
-			_stock->addEnemy( EnemyPtr( new EnemyHellFire( x, y - 150 ) ) );
 			break;
 		case 4: // ƒS[ƒXƒg
 			_stock->addEnemy( EnemyPtr( new EnemyMiasmaGray( x, y - 150 ) ) );
