@@ -20,7 +20,6 @@
 #include "EnemyMiasmaWhite.h"
 #include "EnemySkeletonSpear.h"
 #include "EnemyWaterGhost.h"
-#include "EnemyHellFire.h"
 #include "EnemyBowDemon.h"
 #include "EnemyShishimai.h"
 #include "BossBuddha.h"
@@ -499,9 +498,9 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"                "
-		"U               "
+		"                "
 		"              R "
-		"  U             "
+		"                "
 		"                "
 		"      E         "
 		"                "
@@ -541,12 +540,12 @@ static const Map::Panel panel[] = {
 		"              Y "
 		"                "
 		"              I "
-		"           U    "
+		"                "
 		"                "
 		"    R           "
 		"                "
 		"                "
-		"             U  "
+		"                "
 		"++++++++++++++++"
 		"################"
 		"################"
@@ -567,7 +566,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"   E            "
 		"                "
-		"           U    "
+		"                "
 		"++++++++++++++++"
 		"################"
 		"################"
@@ -586,7 +585,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"                "
 		"             E  "
-		"      U         "
+		"                "
 		"                "
 		"               E"
 		"++++++++++++++  "
@@ -692,7 +691,7 @@ static const Map::Panel panel[] = {
 		"                "
 		"      -         "
 		"                "
-		"      U         "
+		"                "
 		"                "
 		"                "
 		"                "
@@ -819,7 +818,6 @@ EnemyPtr Map4::generateEnemy( char ch, EnemyStockPtr stock, int x, int y ) const
 	case 'R': enemy = EnemyPtr( new EnemyMiasmaWhite( x, y ) ); break;
 	case 'S': enemy = EnemyPtr( new EnemySkeletonSpear( x, y ) ); break;
 	case 'T': enemy = EnemyPtr( new EnemyWaterGhost( x, y ) ); break;
-	case 'U': enemy = EnemyPtr( new EnemyHellFire( x, y ) ); break;
 	case 'V': enemy = EnemyPtr( new EnemyBowDemon( stock, x, y ) ); break;
 	case 'W': enemy = EnemyPtr( new EnemyShishimai( x, y ) ); break;
 	case 'X': enemy = EnemyPtr( new EnemyExtrudedSpirits( shift_back_x, y, true ) ); break;

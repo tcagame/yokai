@@ -9,7 +9,6 @@
 #include "EnemyStoneRote.h"
 #include "EnemyShishimai.h"
 #include "EnemyShishimaiDemon.h"
-#include "EnemyHellFire.h"
 #include "EnemyWindMonster.h"
 #include "EnemyDeceasedGreen.h"
 #include "EnemyMiasmaWhite.h"
@@ -767,7 +766,6 @@ EnemyPtr Map3::generateEnemy( char ch, EnemyStockPtr stock, int x, int y ) const
 	case 'E': enemy = EnemyPtr( new EnemyStoneRote( x, y, false ) ); break;
 	case 'F': enemy = EnemyPtr( new EnemyHandMonster( stock, x, y ) ); break;
 	case 'G': enemy = EnemyPtr( new EnemyShishimaiDemon( x, y ) ); break;
-	case 'H': enemy = EnemyPtr( new EnemyHellFire( x, y ) ); break;
 	case 'I': enemy = EnemyPtr( new EnemyWindMonster( stock, x + 300, y ) ); break;
 
 	case 'J': enemy = EnemyPtr( new EnemyDeceasedGreen( x, y ) ); break;
