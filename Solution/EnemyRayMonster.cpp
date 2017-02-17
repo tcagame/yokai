@@ -7,11 +7,11 @@ static const int POW = 6;
 static const int WAIT_ANIME_TIME = 10;
 static const int MOVE_SPEED = 4;
 static const int MOVE_COUNT = 60;
-static const int REVERS_TIME = 64;
+static const int REVERS_TIME = 110;
 
 EnemyRayMonster::EnemyRayMonster( int x, int y ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ),
-_speed( -4 ){
+_speed( -MOVE_SPEED ){
 	_revers = false;
 }
 

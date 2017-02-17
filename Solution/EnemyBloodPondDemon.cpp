@@ -3,7 +3,7 @@
 
 static const int CHIP_SIZE = 256;
 static const int CHIP_FOOT = 0;
-static const int HP = 30;
+static const int HP = 25;
 static const int POW = 6;
 static const int WAIT_AINME_TIME = 10;
 static const double RANGE = 1500;
