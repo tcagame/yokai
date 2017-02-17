@@ -11,12 +11,16 @@ static const int HP  = 3;
 static const int POW = 6;
 static const int EXTIT_TIME = 200;
 
-EnemyRedbird::EnemyRedbird( EnemyStockPtr stock, int x, int y ) :
+EnemyRedbird::EnemyRedbird( EnemyStockPtr stock, int x, int y, bool dir_right ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ),
 _stock( stock ),
-_accel( 0 ) {
+_accel( 0 ),
+_move_speed( MOVE_SPEED ) {
 	SoundPtr sound = Sound::getTask( );
 	sound->playSE( "yokai_voice_02.wav" );
+	if ( !dir_right ) {
+		_move_speed = -MOVE_SPEED;
+	}
 }
 
 
@@ -26,7 +30,7 @@ EnemyRedbird::~EnemyRedbird( ) {
 void EnemyRedbird::act( ) {
 	_count++;
 
-	setAccelX( MOVE_SPEED );
+	setAccelX( _move_speed );
 	if ( _count >= EXTIT_TIME ) {
 		setAccelY( -MOVE_SPEED );
 	}
