@@ -13,8 +13,8 @@ Enemy( x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ),
 _move_speed( -MOVE_SPEED ),
 _vy( 0 ),
 _dir( 1 ){
-	if ( dir_right ) {
-		_move_speed *= -1;
+	if ( !dir_right ) {
+		_move_speed = -MOVE_SPEED;
 	}
 }
 

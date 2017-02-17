@@ -37,7 +37,7 @@ BossEnma::BossEnma( EnemyStockPtr stock, int x ) :
 Boss( x + OFFSET_X, OFFSET_Y, CHIP_SIZE, HP, POW ),
 _stock( stock ),
 _anime_count( 0 ),
-_attack_count( 120 ) {
+_attack_count( 60 ) {
 }
 
 
@@ -53,7 +53,7 @@ void BossEnma::attack( ) {
 		return;
 	}
 	_attack_count++;
-	const int ATTACK_PATTERN = 8; // switch case‚Ì”
+	const int ATTACK_PATTERN = 10; // switch case‚Ì”
 	_attack_count %= CREATE_COUNT_ENEMY * ATTACK_PATTERN;
 
 	if ( _attack_count % CREATE_COUNT_ENEMY == 0 ) {
@@ -63,58 +63,43 @@ void BossEnma::attack( ) {
 		switch ( _attack_count / CREATE_COUNT_ENEMY ) {
 		case 0: // ‰»‚¯’n‘ 
 			_stock->addEnemy( EnemyPtr( new EnemyJizo( _stock, x - 250, y ) ) );
-			_stock->addEnemy( EnemyPtr( new EnemyJizo( _stock, x - 1200, y, true ) ) );
+			_stock->addEnemy( EnemyPtr( new EnemyJizo( _stock, x - 1000, y ) ) );
 			_stock->addEnemy( EnemyPtr( new EnemyRedbird( _stock, x - SCREEN_WIDTH, y - 150 ) ) );
 			_stock->addEnemy( EnemyPtr( new EnemyRedbird( _stock, x - SCREEN_WIDTH + 100, y - 150 ) ) );
 			break;
 		case 1: // •—‚Ì—d‰ö & ‘å“ü“¹
-			_stock->addEnemy( EnemyPtr( new EnemyWindMonster( _stock, x + 400, y - 150 ) ) );
-			_stock->addEnemy( EnemyPtr( new EnemyOnyudo( x - 1200, y, true ) ) );
+			_stock->addEnemy( EnemyPtr( new EnemyNoNeckGhost( x, y - 100 ) ) );
+			_stock->addEnemy( EnemyPtr( new EnemyNoNeckGhost( x - 150, y - 150 ) ) );
+			_stock->addEnemy( EnemyPtr( new EnemySkeletonSpear( x + 140, y ) ) );
+			_stock->addEnemy( EnemyPtr( new EnemySkeletonSpear( x + 190, y ) ) );
 			break;
-		case 2: // –SŽÒ
-			for ( int i = 0; i < 3; i++ ) {
-				_stock->addEnemy( EnemyPtr( new EnemyDeceasedPurple( x - i * 100 - SCREEN_WIDTH * 3 / 4, y + 100, true ) ) );
-				_stock->addEnemy( EnemyPtr( new EnemyDeceasedGreen( x - i * 100, y ) ) );
-			}
-			break;
-		case 3: // Ô‚¢“G
-			_stock->addEnemy( EnemyPtr( new EnemyRedbird( _stock, x - SCREEN_WIDTH, y - 150 ) ) );
+		case 2: // Ô‚¢“G
+			_stock->addEnemy( EnemyPtr( new EnemyRedbird( _stock, x + SCREEN_WIDTH, y - 150, false ) ) );
 			_stock->addEnemy( EnemyPtr( new EnemyRedbird( _stock, x - SCREEN_WIDTH - 50, y - 150 ) ) );
-			_stock->addEnemy( EnemyPtr( new EnemyBowDemon( _stock, x - 1200, y, true ) ) );
-			_stock->addEnemy( EnemyPtr( new EnemyShishimai( x, y ) ) );
-			_stock->addEnemy( EnemyPtr( new EnemyShishimai( x - 100, y ) ) );
-			_stock->addEnemy( EnemyPtr( new EnemyShishimaiDemon( x - 200, y ) ) );
+			break;
+		case 3: // ‚»‚Ì‘¼
+			_stock->addEnemy( EnemyPtr( new EnemyWindMonster( _stock, x + 400, y - 150 ) ) );
 			break;
 		case 4: // ƒS[ƒXƒg
-			_stock->addEnemy( EnemyPtr( new EnemyMiasmaGray( x, y - 150 ) ) );
-			_stock->addEnemy( EnemyPtr( new EnemyMiasmaGray( x - 100, y - 50 ) ) );
-			_stock->addEnemy( EnemyPtr( new EnemyMiasmaWhite( x - SCREEN_WIDTH, y - 150, true ) ) );
-			_stock->addEnemy( EnemyPtr( new EnemyMiasmaWhite( x - SCREEN_WIDTH + 100, y - 50, true ) ) );
+			_stock->addEnemy( EnemyPtr( new EnemyMiasmaGray( x, y - 250 ) ) );
+			_stock->addEnemy( EnemyPtr( new EnemyMiasmaGray( x - 100, y - 150 ) ) );
+			_stock->addEnemy( EnemyPtr( new EnemyMiasmaGray( x - 100, y - 250 ) ) );
+			_stock->addEnemy( EnemyPtr( new EnemyMiasmaGray( x - 200, y - 150 ) ) );
 			_stock->addEnemy( EnemyPtr( new EnemyExtrudedSpirits( x, y - 150 ) ) );
 			_stock->addEnemy( EnemyPtr( new EnemyExtrudedSpirits( x - SCREEN_WIDTH, y - 150, true ) ) );
-			_stock->addEnemy( EnemyPtr( new EnemyStoneFly( x, rand( ) % SCREEN_HEIGHT / 2 + SCREEN_HEIGHT / 5 ) ) );
 			break;
-		case 5: // ŽÖ
-			for ( int i = 0; i < 2; i++ ) {
-				_stock->addEnemy( EnemyPtr( new EnemyOneEyesSnake( x - i * 100, y ) ) );
-				_stock->addEnemy( EnemyPtr( new EnemyCrocodileSnake( _stock, x - 200 - i * 100, y ) ) );
-				_stock->addEnemy( EnemyPtr( new EnemyCrocodileSnake( _stock, x - 1000 + i * 100, y, true ) ) );
-			}
+		case 5:		
+			_stock->addEnemy( EnemyPtr( new EnemyNoNeckGhost( x, y - 100 ) ) );
+			_stock->addEnemy( EnemyPtr( new EnemyNoNeckGhost( x - 150, y - 150 ) ) );
 			break;
-		case 6: // stop_monster
-			for ( int i = 0; i < 2; i++ ) {
-				_stock->addEnemy( EnemyPtr( new EnemyHandMonster( _stock, SCREEN_WIDTH - rand( ) % SCREEN_WIDTH / 2, y + 100 ) ) );
-				_stock->addEnemy( EnemyPtr( new EnemyNoFace( SCREEN_WIDTH - rand( ) % SCREEN_WIDTH / 2, y + 100 ) ) );
-				_stock->addEnemy( EnemyPtr( new EnemyGhoul( SCREEN_WIDTH - rand( ) % SCREEN_WIDTH / 2, y + 100 ) ) );
-				_stock->addEnemy( EnemyPtr( new EnemyYadokariYokai( SCREEN_WIDTH - rand( ) % SCREEN_WIDTH / 2, y - 100 ) ) );
-			}
+		case 6: // ƒS[ƒXƒg
+			_stock->addEnemy( EnemyPtr( new EnemyMiasmaWhite( x, y - 250, true ) ) );
+			_stock->addEnemy( EnemyPtr( new EnemyMiasmaWhite( x + 100, y - 150, true ) ) );
 			break;
-		case 7: // ‚»‚Ì‘¼
-			_stock->addEnemy( EnemyPtr( new EnemyBlueMonk( x - 1200, y ) ) );
-			_stock->addEnemy( EnemyPtr( new EnemyHugDemon( x, y ) ) );
-			_stock->addEnemy( EnemyPtr( new EnemyNoNeckGhost( x, y + rand( ) % SCREEN_HEIGHT / 5 ) ) );
-			_stock->addEnemy( EnemyPtr( new EnemyNoNeckGhost( x, y - rand( ) % SCREEN_HEIGHT / 5 ) ) );
-			_stock->addEnemy( EnemyPtr( new EnemySkeletonSpear( x - 250, y + 100 ) ) );
+		case 7:
+			_stock->addEnemy( EnemyPtr( new EnemySkeletonSpear( x + 140, y ) ) );
+			_stock->addEnemy( EnemyPtr( new EnemySkeletonSpear( x + 190, y ) ) );
+			break;
 		}
 	}
 }
