@@ -7,7 +7,6 @@
 #include "Keyboard.h"
 #include "Game.h"
 #include "Infomation.h"
-#include <time.h>
 
 static const int TITLE_WIDTH  = 1024;
 static const int TITLE_HEIGHT = 256;
@@ -29,8 +28,6 @@ static const int TAROSUKE_ACCEL = 1;
 static const int FADEOUT_COUNT = 60;
 
 SceneTitle::SceneTitle( ) {
-	srand( ( unsigned int )time( NULL ) );
-
 	DrawerPtr drawer = Drawer::getTask( );
 	drawer->loadGraph( GRAPH_CHARACTER_1 , "Character/Character1.png");
 	drawer->loadGraph( GRAPH_TITLE_FONT  , "title/Yokai_UI_title_font.png"  );
@@ -50,6 +47,9 @@ SceneTitle::SceneTitle( ) {
 	_tarosuke_vx = 0;
 	_tarosuke_right = false;
 	_tarosuke_move = true;
+
+	GamePtr game = Game::getTask( );
+	game->resetContinueCount( );
 }
 
 SceneTitle::~SceneTitle( ) {
@@ -98,19 +98,10 @@ Scene::NEXT SceneTitle::update( ) {
 		return NEXT_DEBUG_STREET_4;
 	}
 	if ( keyboard->isPushKey( "1" ) ) {
-		return NEXT_DEBUG_RESULT_1;
+		game->increaseContinueCount( );
 	}
 	if ( keyboard->isPushKey( "2" ) ) {
-		return NEXT_DEBUG_RESULT_2;
-	}
-	if ( keyboard->isPushKey( "3" ) ) {
-		return NEXT_DEBUG_RESULT_3;
-	}
-	if ( keyboard->isPushKey( "4" ) ) {
-		return NEXT_DEBUG_RESULT_4;
-	}
-	if ( keyboard->isPushKey( "5" ) ) {
-		return NEXT_DEBUG_RESULT_5;
+		return NEXT_DEBUG_RESULT;
 	}
 
 	return NEXT_CONTINUE;

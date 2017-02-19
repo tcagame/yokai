@@ -357,9 +357,9 @@ void SceneStreet::updatePhaseDead( ) {
 		if ( device->getButton( ) != 0 ) {
 			GamePtr game = Game::getTask( );
 			if ( _select == 0 ) {
+				game->increaseContinueCount( );
 				_phase = PHASE_CONTINUE;
-			}
-			if ( _select == 1 ) {
+			} else {
 				game->setFade( Game::FADE_OUT );
 				_phase = PHASE_FADEOUT;
 			}

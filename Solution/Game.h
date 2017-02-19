@@ -36,6 +36,9 @@ public:
 	void setFade( FADE fade );
 	PowerPtr getPower( );
 	bool isServer( ) const;
+	void resetContinueCount( );
+	void increaseContinueCount( );
+	int getContinueCount( ) const;
 private:
 	void fade( );
 	void option( );
@@ -54,5 +57,6 @@ private:
 	std::list< std::string > _debug_message;
 	Scene::NEXT _next;
 	bool _info;
+	int _continue_count;
 };
 

@@ -75,6 +75,18 @@ void Game::initialize( ) {
 	changeScene( );
 }
 
+void Game::resetContinueCount( ) {
+	_continue_count = 0;
+}
+
+void Game::increaseContinueCount( ) {
+	_continue_count++;
+}
+
+int Game::getContinueCount( ) const {
+	return _continue_count;
+}
+
 bool Game::isDebug( ) const {
 	return _debug;
 }
@@ -275,24 +287,7 @@ void Game::changeScene( ) {
 		_stage = 5;
 		_scene = ScenePtr( new SceneStreet( ) );
 		break;
-	case Scene::NEXT_DEBUG_RESULT_1:
-		_stage = 1;
-		_scene = ScenePtr( new SceneResult( ) );
-		break;
-	case Scene::NEXT_DEBUG_RESULT_2:
-		_stage = 2;
-		_scene = ScenePtr( new SceneResult( ) );
-		break;
-	case Scene::NEXT_DEBUG_RESULT_3:
-		_stage = 3;
-		_scene = ScenePtr( new SceneResult( ) );
-		break;
-	case Scene::NEXT_DEBUG_RESULT_4:
-		_stage = 4;
-		_scene = ScenePtr( new SceneResult( ) );
-		break;
-	case Scene::NEXT_DEBUG_RESULT_5:
-		_stage = 5;
+	case Scene::NEXT_DEBUG_RESULT:
 		_scene = ScenePtr( new SceneResult( ) );
 		break;
 	}
