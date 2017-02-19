@@ -23,9 +23,10 @@ static const int PANEL_PITCH = 192;
 static const int FPC = 5;
 static const int SELECT_X = 600;
 static const int SELECT_Y = 500;
-static const int DEMO_COUNT = 600;
+static const int DEMO_COUNT = 1000;
 static const int TAROSUKE_SPEED = 10;
 static const int TAROSUKE_ACCEL = 1;
+static const int FADEOUT_COUNT = 60;
 
 SceneTitle::SceneTitle( ) {
 	srand( ( unsigned int )time( NULL ) );
@@ -258,5 +259,11 @@ void SceneTitle::draw( ) {
 
 	if ( game->isServer( ) ) {
 		drawer->drawString( 0, 0, "Access Infomation To Server" );
+	}
+	
+	_count++;
+	if ( _count > DEMO_COUNT - FADEOUT_COUNT ) {
+		SoundPtr sound = Sound::getTask( );
+		sound->setVolumeBGM( 1.0 - ( double )( _count - ( DEMO_COUNT - FADEOUT_COUNT ) ) / FADEOUT_COUNT );
 	}
 }

@@ -8,9 +8,12 @@
 #include "ItemMgr.h"
 #include "Keyboard.h"
 #include "Game.h"
+#include "EnemyStock.h"
+#include "EnemyHellFire.h"
 
 static const int HEAD_HEIGHT = 100;
 static const int REBORN_RANGE = 2;
+static const int HELLFIRE_COUNT = 300;
 
 Field::Field( MapConstPtr map, EnemyStockPtr stock ) :
 _map( map ),
@@ -19,7 +22,7 @@ _stock( stock ) {
 
 	_scroll_x = 0;
 	_scroll_y = -48; // ÅI“I‚É‚ÍƒJƒƒ‰‚©‚çŽæ“¾
-
+	_hellfire_count = 0;
 	_cloud_mgr = map->createCloudMgr( );
 	_item_mgr  = map->createItemMgr( );
 
@@ -123,6 +126,7 @@ void Field::scroll( CameraConstPtr camera ) {
 		_idx = idx;
 		
 		if ( _create_idx < _idx ) {
+			_hellfire_count = 0;
 			_create_idx = _idx;
 			_map->addToStock( _stock, _create_idx + BG_NUM - 1 );
 		}
@@ -133,6 +137,14 @@ void Field::scroll( CameraConstPtr camera ) {
 
 	_scroll_x = _idx * BG_SIZE - camera->getX( );
 	_scroll_y = -camera->getY( );
+	
+	if ( !camera->isLocked( ) ) {
+		_hellfire_count++;
+		if ( _hellfire_count > HELLFIRE_COUNT ) {
+			_hellfire_count = 0;
+			_stock->addEnemy( EnemyPtr( new EnemyHellFire( camera->getX( ), 0 ) ) );
+		}
+	}
 }
 
 void Field::draw( CameraConstPtr camera ) const {

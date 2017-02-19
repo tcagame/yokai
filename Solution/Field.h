@@ -50,6 +50,7 @@ private:
 	int _create_idx;
 	CloudMgrPtr _cloud_mgr;
 	ItemMgrPtr _item_mgr;
-	std::vector< Vector > _markers; 
+	std::vector< Vector > _markers;
+	int _hellfire_count;
 };
 
