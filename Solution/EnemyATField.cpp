@@ -14,3 +14,9 @@ EnemyATField::~EnemyATField( ) {
 
 void EnemyATField::act( ) {
 }
+
+void EnemyATField::damage( int pow ) {
+	if ( pow < 0 ) {
+		Enemy::damage( pow );
+	}
+}
