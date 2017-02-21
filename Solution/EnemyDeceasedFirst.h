@@ -11,4 +11,5 @@ private:
 	void act( );
 private:
 	int _count;
+	bool _talked;
 };
