@@ -234,10 +234,12 @@ Scene::NEXT SceneStreet::update( ) {
 		if ( _enemy_mgr->isBossDead( ) ) {
 			_enemy_mgr->clear( );
 			_phase = PHASE_CLEAR;
-			Infomation info;
-			info.increaseDenominator( game->getStage( ) );
-			info.increaseNumerator( game->getStage( ) );
 			_phase_count = 0;
+			if ( game->getContinueCount( ) == 0 ) {
+				Infomation info;
+				info.increaseDenominator( game->getStage( ) );
+				info.increaseNumerator( game->getStage( ) );
+			}
 			SoundPtr sound = Sound::getTask( );
 			sound->playBGM( "yokai_se_32.wav" );
 		}
@@ -271,7 +273,11 @@ Scene::NEXT SceneStreet::update( ) {
 		}
 		break;
 	case PHASE_CONTINUE:
-		return NEXT_RETRY;
+		_phase = PHASE_NORMAL;
+		_enemy_mgr->clear( );
+		game->getPower( )->reset( );
+		_tarosuke->rebirth( );
+		sound->playBGM( "yokai_music_12.wav" );
 		break;
 	case PHASE_FADEOUT:
 		if ( game->getFade( ) == Game::FADE_COVER ) {
@@ -397,7 +403,11 @@ void SceneStreet::makeDeathPoints( ) {
 	}
 	
 	Infomation info;
-	info.increaseDenominator( game->getStage( ) );
+
+	if ( game->getContinueCount( ) == 0 ) {
+		info.increaseDenominator( game->getStage( ) );
+	}
+
 	info.setHistroy( stage, dx, dy );
 
 	for ( int i = 1; i < Infomation::HISTORY_NUM; i++ ) {

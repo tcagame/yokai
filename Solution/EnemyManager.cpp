@@ -45,7 +45,10 @@ void EnemyManager::clear( ) {
 	std::list<EnemyPtr>::iterator ite = _enemies.begin( );
 	while ( ite != _enemies.end( ) ) {
 		EnemyPtr enemy = *ite;
-		enemy->damage( -1 );
+		BossPtr boss = std::dynamic_pointer_cast< Boss >( enemy );
+		if ( !boss ) {
+			enemy->damage( -1 );
+		}
 		ite++;
 	}
 	_stock->clear( );

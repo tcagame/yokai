@@ -58,6 +58,9 @@ Tarosuke::~Tarosuke( ) {
 
 void Tarosuke::warp( int v ) {
 	int x = getX( ) + v * BG_SIZE;
+	if ( x < BG_SIZE / 2 ) {
+		x = BG_SIZE / 2;
+	}
 	setX( x );
 	setY( 0 );
 }
@@ -79,6 +82,15 @@ void Tarosuke::heal( ) {
 	SoundPtr sound = Sound::getTask( );
 	sound->playSE( "yokai_voice_30.wav" );
 	_power->increase( HEAL_POWER );
+}
+
+void Tarosuke::rebirth( ) {
+	_action = ACTION_FLOAT;
+	warp( -4 );
+	GamePtr game = Game::getTask( );
+	if ( !game->isSolo( ) ) {
+		_momotaro->appear( getX( ), getY( ), true );
+	}
 }
 
 bool Tarosuke::isCalling( ) const {

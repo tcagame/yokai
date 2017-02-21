@@ -24,6 +24,7 @@ public:
 	void adjust( CameraConstPtr camera, FieldConstPtr field );
 	bool isCalling( ) const;
 	void heal( );
+	void rebirth( );
 private:
 	enum ACTION {
 		ACTION_STAND,
