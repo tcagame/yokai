@@ -8,6 +8,7 @@ static const int OFFSET_Y = 512 - 100;
 static const int HP  = 30;
 static const int POW = 6;
 static const int CREATE_COUNT_CROW = 30;
+static const int ANIMESTON_TIME = 8;
 static const double RADIUS = 50;
 
 static const int CROW_NUM = 11;
@@ -40,7 +41,17 @@ BossHag::~BossHag( ) {
 }
 
 void BossHag::act( ) {
-	setChipGraph( GRAPH_ENEMY_BOSS, 0, 0 );
+	const int ANIME[ ] = { 0, 1, 0, 1, 0, 1, 0, 3, 4, 2, 3, 4, 0, 5, 5 };
+	const int pattern = sizeof( ANIME ) / sizeof( ANIME[ 0 ] );
+	int u = ANIME[ _count / ANIMESTON_TIME % pattern ] % 3;
+	int v = ANIME[ _count / ANIMESTON_TIME % pattern ] / 3;
+	//Å@ç≈èâÇ…ÈÎÇ…éwé¶ÇèoÇ∑
+//	if ( 100 < _count && _count < 120 ) {
+//		u = 2;
+//		v = 1;
+//	}
+
+	setChipGraph( GRAPH_ENEMY_BOSS, u, v );
 }
 
 void BossHag::attack( ) {
