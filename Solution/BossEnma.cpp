@@ -29,7 +29,7 @@ static const int OFFSET_X = 192 + CHIP_SIZE;
 static const int OFFSET_Y = 512 - 265;
 static const int HP  = 30;
 static const int POW = 6;
-static const int CREATE_COUNT_ENEMY = 120;
+static const int CREATE_COUNT_ENEMY = 130;
 static const double RADIUS = 90;
 static const double RANGE = 650;
 
@@ -63,7 +63,7 @@ void BossEnma::attack( ) {
 		switch ( _attack_count / CREATE_COUNT_ENEMY ) {
 		case 0: // ‰»‚¯’n‘ 
 			_stock->addEnemy( EnemyPtr( new EnemyJizo( _stock, x - 250, y ) ) );
-			_stock->addEnemy( EnemyPtr( new EnemyJizo( _stock, x - 1000, y ) ) );
+			_stock->addEnemy( EnemyPtr( new EnemyJizo( _stock, x - 1000, y, true ) ) );
 			_stock->addEnemy( EnemyPtr( new EnemyRedbird( _stock, x - SCREEN_WIDTH, y - 150 ) ) );
 			_stock->addEnemy( EnemyPtr( new EnemyRedbird( _stock, x - SCREEN_WIDTH + 100, y - 150 ) ) );
 			break;
