@@ -11,7 +11,7 @@ static const int HP  = 2;
 static const int POW = 1;
 
 EnemyRedbirdAttack::EnemyRedbirdAttack( int x, int y ) :
-Enemy( x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ),
+Enemy( x, y, CHIP_SIZE, CHIP_FOOT, true, HP, POW ),
 _act_count( 0 ) {
 }
 
@@ -26,4 +26,8 @@ void EnemyRedbirdAttack::act( ) {
 	_act_count %= MAX_ANIME_PATTERN * WAIT_PATTERN_TIME;
 	int pattern = _act_count / WAIT_PATTERN_TIME;
 	setChipGraph( GRAPH_ENEMY_SMALL, pattern, 0 );
+
+	if ( isStanding( ) ) {
+		damage( -1 );
+	}
 }

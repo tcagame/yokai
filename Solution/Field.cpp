@@ -142,7 +142,10 @@ void Field::scroll( CameraConstPtr camera ) {
 		_hellfire_count++;
 		if ( _hellfire_count > HELLFIRE_COUNT ) {
 			_hellfire_count = 0;
-			_stock->addEnemy( EnemyPtr( new EnemyHellFire( camera->getX( ), 0 ) ) );
+			
+			GamePtr game = Game::getTask( );
+			int hp = game->getStage( ) + 1;
+			_stock->addEnemy( EnemyPtr( new EnemyHellFire( camera->getX( ), 0, hp ) ) );
 		}
 	}
 }

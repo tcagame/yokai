@@ -3,7 +3,7 @@
 
 class EnemyHellFire : public Enemy {
 public:
-	EnemyHellFire( int x, int y );
+	EnemyHellFire( int x, int y, int hp );
 	virtual ~EnemyHellFire( );
 private:
 	void act( );

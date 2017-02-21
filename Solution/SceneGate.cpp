@@ -22,6 +22,7 @@ SceneGate::SceneGate( ) {
 	drawer->loadGraph( GRAPH_CHARACTER_2, "Character/Character2.png" );
 	drawer->loadGraph( GRAPH_GATE_BG,     "gate/gate_bg.png"  );
 	drawer->loadGraph( GRAPH_GATE_COVER,  "gate/gate_cover.png"  );
+	drawer->loadGraph( GRAPH_GATE_FACE,   "gate/gate_face.png"  );
 	drawer->loadGraph( GRAPH_GATE_COUNT_0, "gate/count_0.png" );
 	drawer->loadGraph( GRAPH_GATE_COUNT_1, "gate/count_1.png" );
 	drawer->loadGraph( GRAPH_GATE_COUNT_2, "gate/count_2.png" );
@@ -177,6 +178,15 @@ void SceneGate::draw( ) const {
 	{
 		Drawer::Sprite sprite( 
 			Drawer::Transform( 0, SCREEN_HEIGHT - BG_HEIGHT ), GRAPH_GATE_BG );
+		drawer->setSprite( sprite );
+	}
+	{
+		const int ANIM[ 10 ] = { 0, 0, 0, 1, 0, 0, 0, 2, 3, 2 };
+		int idx = ANIM[ ( _x + 1000 ) / 50 % 10 ];  
+		int tx = idx % 2 * 128;
+		int ty = idx / 2 * 128;
+		Drawer::Sprite sprite( 
+			Drawer::Transform( 1100, 350, tx, ty, 128, 128 ), GRAPH_GATE_FACE );
 		drawer->setSprite( sprite );
 	}
 	{

@@ -2,13 +2,12 @@
 
 static const int CHIP_SIZE = 128;
 static const int CHIP_FOOT = 0;
-static const int HP = 4;
 static const int POW = 6;
 static const int WAIT_ANIME_TIME = 10;
 static const int MOVE_SPEED = 10;
 
-EnemyHellFire::EnemyHellFire( int x, int y ) :
-Enemy( x, y, CHIP_SIZE, CHIP_FOOT, false, HP, POW ) {
+EnemyHellFire::EnemyHellFire( int x, int y, int hp ) :
+Enemy( x, y, CHIP_SIZE, CHIP_FOOT, false, hp, POW ) {
 	_count = 0;
 }
 
@@ -32,9 +31,8 @@ void EnemyHellFire::act( ) {
 	setAccelX( ( int )vec.x );
 	setAccelY( ( int )vec.y );
 
-	const int ANIME[ ] { 4, 5, 6, 5, 7, 4, 7 };
-	int anime_num = sizeof( ANIME ) / sizeof( ANIME[ 0 ] );
-	int u = ANIME[ getX( ) / WAIT_ANIME_TIME % anime_num ];
+	const int ANIME[ 6 ] { 0, 1, 2, 3, 2, 1 };
+	int u = 4 + ANIME[ _count / 4 % 6 ];
 	int v = 12;
 	setChipGraph( GRAPH_ENEMY_NORMAL, u, v );
 }
