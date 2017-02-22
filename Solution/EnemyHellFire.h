@@ -8,5 +8,7 @@ public:
 private:
 	void act( );
 private:
-	int _count;
+	int _act_count;
+	Vector _pos;
+	Vector _vec;
 };

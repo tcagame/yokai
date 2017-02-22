@@ -10,7 +10,7 @@ public:
 private:
 	void act( );
 private:
-	int _act_count;
+	int _count;
 	Vector _pos;
 	Vector _vec;
 };
