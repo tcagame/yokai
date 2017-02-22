@@ -180,7 +180,13 @@ void Game::option( ) {
 	}
 
 	DevicePtr device = Device::getTask( );
-	if ( device->getButton( ) == ( BUTTON_A |  BUTTON_B | BUTTON_C | BUTTON_D ) ) {
+	if ( device->getButton( 0 ) == ( BUTTON_A |  BUTTON_B | BUTTON_C | BUTTON_D ) &&
+		 device->getDirY( 0 ) < -50 ) {
+		_next = Scene::NEXT_TITLE;
+		setFade( FADE::FADE_COVER );
+	}
+	if ( device->getButton( 1 ) == ( BUTTON_A |  BUTTON_B | BUTTON_C | BUTTON_D ) &&
+		 device->getDirY( 1 ) < -50 ) {
 		_next = Scene::NEXT_TITLE;
 		setFade( FADE::FADE_COVER );
 	}
