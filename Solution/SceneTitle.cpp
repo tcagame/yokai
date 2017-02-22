@@ -66,9 +66,17 @@ Scene::NEXT SceneTitle::update( ) {
 	GamePtr game = Game::getTask( );
 	if ( game->getFade( ) == Game::FADE_COVER ) {
 		if ( _select == 0 ) {
-			return NEXT_SELECT_1PLAYER;
+			if ( _controller == 0 ) {
+				return NEXT_SELECT_1PLAYER_DEVICE_0;
+			} else {
+				return NEXT_SELECT_1PLAYER_DEVICE_1;
+			}
 		} else {
-			return NEXT_SELECT_2PLAYER;
+			if ( _controller == 0 ) {
+				return NEXT_SELECT_2PLAYER_DEVICE_0;
+			} else {
+				return NEXT_SELECT_2PLAYER_DEVICE_1;
+			}
 		}
 	}
 
@@ -160,19 +168,40 @@ void SceneTitle::act( ) {
 
 	DevicePtr device = Device::getTask( );
 
-	if ( device->getButton( ) != 0 ) {
+	if ( device->getButton( 0 ) != 0 ) {
 		SoundPtr sound = Sound::getTask( );
 		sound->playSE( "yokai_se_01.wav" );
 		game->setFade( Game::FADE_OUT );
+		_controller = 0;
 	}
 
-	if ( device->getDirY( ) < 0 && _select != 0 ) {
+	if ( device->getButton( 1 ) != 0 ) {
+		SoundPtr sound = Sound::getTask( );
+		sound->playSE( "yokai_se_01.wav" );
+		game->setFade( Game::FADE_OUT );
+		_controller = 1;
+	}
+
+	if ( device->getDirY( 0 ) < 0 && _select != 0 ) {
 		_select = 0;
 		_count = 0;
 		SoundPtr sound = Sound::getTask( );
 		sound->playSE( "yokai_se_06.wav" );
 	}
-	if ( device->getDirY( ) > 0 && _select != 1  ) {
+	if ( device->getDirY( 0 ) > 0 && _select != 1  ) {
+		_select = 1;
+		_count = 0;
+		SoundPtr sound = Sound::getTask( );
+		sound->playSE( "yokai_se_06.wav" );
+	}
+
+	if ( device->getDirY( 1 ) < 0 && _select != 0 ) {
+		_select = 0;
+		_count = 0;
+		SoundPtr sound = Sound::getTask( );
+		sound->playSE( "yokai_se_06.wav" );
+	}
+	if ( device->getDirY( 1 ) > 0 && _select != 1  ) {
 		_select = 1;
 		_count = 0;
 		SoundPtr sound = Sound::getTask( );

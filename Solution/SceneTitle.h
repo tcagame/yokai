@@ -18,5 +18,6 @@ private:
 	int _tarosuke_vx;
 	bool _tarosuke_right;
 	bool _tarosuke_move;
+	int _controller;
 };
 

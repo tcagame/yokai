@@ -24,17 +24,23 @@ public:
 	void load( const char * filename );
 	void save( const char * filename );
 private:
-	struct Data {
-		char dir_x;
-		char dir_y;
-		unsigned char button;
-		unsigned char push;
-	};
 	static const int DATA_NUM = 2000;
+	struct Record {
+		struct Data {
+			char dir_x;
+			char dir_y;
+			unsigned char button;
+			unsigned char push;
+		};
+		Data data[ 2 * DATA_NUM ];
+		int controller;
+	};
+private:
+	int getID( int idx ) const;
 private:
 	DevicePtr _device;
-	Data _data[ 2 ];
-	Data _record[ 2 * DATA_NUM ];
+	Record::Data _now[ 2 ];
+	Record _record;
 	int _record_idx;
 	bool _replay;
 };

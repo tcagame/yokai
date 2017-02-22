@@ -87,6 +87,10 @@ int Game::getContinueCount( ) const {
 	return _continue_count;
 }
 
+int Game::getController( ) const {
+	return _controller;
+}
+
 bool Game::isDebug( ) const {
 	return _debug;
 }
@@ -233,9 +237,14 @@ void Game::changeScene( ) {
 			_scene = ScenePtr( new SceneStreet( ) );
 		}
 		break;
-	case Scene::NEXT_SELECT_1PLAYER:
-	case Scene::NEXT_SELECT_2PLAYER:
-		_solo = ( _next == Scene::NEXT_SELECT_1PLAYER );
+	case Scene::NEXT_SELECT_1PLAYER_DEVICE_0:
+	case Scene::NEXT_SELECT_2PLAYER_DEVICE_0:
+	case Scene::NEXT_SELECT_1PLAYER_DEVICE_1:
+	case Scene::NEXT_SELECT_2PLAYER_DEVICE_1:
+		_solo = ( _next == Scene::NEXT_SELECT_1PLAYER_DEVICE_0 ||
+		          _next == Scene::NEXT_SELECT_1PLAYER_DEVICE_1 );
+		_controller = ( _next == Scene::NEXT_SELECT_1PLAYER_DEVICE_1 ||
+		                _next == Scene::NEXT_SELECT_2PLAYER_DEVICE_1 );
 		_demo = false;
 		_stage = 0;
 		_scene = ScenePtr( new SceneGate( ) );

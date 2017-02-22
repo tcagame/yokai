@@ -39,6 +39,7 @@ public:
 	void resetContinueCount( );
 	void increaseContinueCount( );
 	int getContinueCount( ) const;
+	int getController( ) const;
 private:
 	void fade( );
 	void option( );
@@ -58,5 +59,6 @@ private:
 	Scene::NEXT _next;
 	bool _info;
 	int _continue_count;
+	int _controller;
 };
 
