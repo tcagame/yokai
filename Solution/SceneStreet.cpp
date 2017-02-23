@@ -350,24 +350,26 @@ Scene::NEXT SceneStreet::update( ) {
 void SceneStreet::updatePhaseDead( ) {
 	DevicePtr device = Device::getTask( );
 	if ( _count >= GAME_OVER_TIME ) {
-		if ( device->getDirY( ) < 0 && _select != 0 ) {
-			_select = 0;
-			SoundPtr sound = Sound::getTask( );
-			sound->playSE( "yokai_se_06.wav" );
-		}
-		if ( device->getDirY( ) > 0 && _select != 1  ) {
-			_select = 1;
-			SoundPtr sound = Sound::getTask( );
-			sound->playSE( "yokai_se_06.wav" );
-		}
-		if ( device->getButton( ) != 0 ) {
-			GamePtr game = Game::getTask( );
-			if ( _select == 0 ) {
-				game->increaseContinueCount( );
-				_phase = PHASE_CONTINUE;
-			} else {
-				game->setFade( Game::FADE_OUT );
-				_phase = PHASE_FADEOUT;
+		for ( int i = 0; i < 2; i++ ) {
+			if ( device->getDirY( i ) < 0 && _select != 0 ) {
+				_select = 0;
+				SoundPtr sound = Sound::getTask( );
+				sound->playSE( "yokai_se_06.wav" );
+			}
+			if ( device->getDirY( i ) > 0 && _select != 1  ) {
+				_select = 1;
+				SoundPtr sound = Sound::getTask( );
+				sound->playSE( "yokai_se_06.wav" );
+			}
+			if ( device->getButton( i ) != 0 ) {
+				GamePtr game = Game::getTask( );
+				if ( _select == 0 ) {
+					game->increaseContinueCount( );
+					_phase = PHASE_CONTINUE;
+				} else {
+					game->setFade( Game::FADE_OUT );
+					_phase = PHASE_FADEOUT;
+				}
 			}
 		}
 	}
