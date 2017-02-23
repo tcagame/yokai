@@ -248,18 +248,28 @@ void Tarosuke::actOnStanding( ) {
 		if ( _saving_power == 0 ) {
 			sound->playSE( "yokai_se_21.wav", true );
 		}
+		if ( _saving_power == CAPACITY_SAVING_POWER / 2 ) {
+			sound->stopSE( "yokai_se_21.wav" );
+			sound->playSE( "yokai_se_22.wav", true );
+		}
 		_saving_power++;
 		if ( _saving_power >= CAPACITY_SAVING_POWER ) {
 			_action = ACTION_BURST;
 			_act_count = 0;
 			_saving_power = 0;
 			sound->stopSE( "yokai_se_21.wav" );
+			sound->stopSE( "yokai_se_22.wav" );
 			return;
 		}
 	}
 	if ( _inputter->getDirY( ) < 50 && _inputter->getDirX( ) == 0 ) {
 		int store = _saving_power;
 		_saving_power -= 4;
+		if ( _saving_power < CAPACITY_SAVING_POWER / 2 &&
+			 store >= CAPACITY_SAVING_POWER / 2 ) {
+			sound->stopSE( "yokai_se_22.wav" );
+			sound->playSE( "yokai_se_21.wav", true );
+		}
 		if ( _saving_power <= 0 ) {
 			_saving_power = 0;
 			if ( store > 0 ) {
@@ -273,6 +283,7 @@ void Tarosuke::actOnStanding( ) {
 		{
 			if ( _saving_power > 0 ) {
 				sound->stopSE( "yokai_se_21.wav" );
+				sound->stopSE( "yokai_se_22.wav" );
 			}
 			_saving_power = 0;
 			const int ANIM[ 4 ] = { 0, 1, 2, 1 };
@@ -291,6 +302,7 @@ void Tarosuke::actOnStanding( ) {
 		{
 			if ( _saving_power > 0 ) {
 				sound->stopSE( "yokai_se_21.wav" );
+				sound->stopSE( "yokai_se_22.wav" );
 			}
 			_saving_power = 0;
 			const int ANIM[ 8 ] = { 1, 2, 4, 5, 3, 5, 4, 2 };
@@ -491,6 +503,7 @@ void Tarosuke::actOnShooting( ) {
 	SoundPtr sound = Sound::getTask( );
 	if ( _saving_power > 0 ) {
 		sound->stopSE( "yokai_se_21.wav" );
+		sound->stopSE( "yokai_se_22.wav" );
 	}
 	sound->playSE( "yokai_se_15.wav" );
 
@@ -503,6 +516,7 @@ void Tarosuke::actOnCalling( ) {
 	if ( _saving_power > 0 ) {
 		SoundPtr sound = Sound::getTask( );
 		sound->stopSE( "yokai_se_21.wav" );
+		sound->stopSE( "yokai_se_22.wav" );
 	}
 	_saving_power = 0;
 
@@ -713,6 +727,7 @@ void Tarosuke::damage( int pow ) {
 
 	if ( _saving_power > 0 ) {
 		sound->stopSE( "yokai_se_21.wav" );
+		sound->stopSE( "yokai_se_22.wav" );
 	}
 
 	_invincible_count = INVINCIBLE_COUNT;
