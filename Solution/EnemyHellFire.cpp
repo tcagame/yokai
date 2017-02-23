@@ -10,6 +10,7 @@ static const double ACCEL = 0.3;
 
 EnemyHellFire::EnemyHellFire( int x, int y, int hp ) :
 Enemy( x, y, CHIP_SIZE, CHIP_FOOT, false, hp, POW ) {
+	_pos = Vector( x, y );
 	_act_count = 0;
 }
 

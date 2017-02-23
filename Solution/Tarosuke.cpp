@@ -690,7 +690,9 @@ void Tarosuke::drawOverlapped( CameraConstPtr camera ) const {
 
 	if ( _saving_power > 0 ) {
 		int power = _saving_power / ( CAPACITY_SAVING_POWER / 6 );
-
+		if ( power > 5 ) {
+			power = 5;
+		}
 		int idx = power * 2 + _act_count % 2;
 		int tx = ( idx % 8 ) * CHIP_SIZE;
 		int ty = ( idx / 8 ) * CHIP_SIZE;

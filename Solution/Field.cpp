@@ -145,7 +145,7 @@ void Field::scroll( CameraConstPtr camera ) {
 			
 			GamePtr game = Game::getTask( );
 			int hp = game->getStage( ) + 1;
-			_stock->addEnemy( EnemyPtr( new EnemyHellFire( camera->getX( ), 0, hp ) ) );
+			_stock->addEnemy( EnemyPtr( new EnemyHellFire( camera->getX( ), BG_SIZE / 2, hp ) ) );
 		}
 	}
 }
