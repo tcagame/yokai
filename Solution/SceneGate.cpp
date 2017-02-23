@@ -186,7 +186,7 @@ void SceneGate::draw( ) const {
 		int tx = idx % 2 * 128;
 		int ty = idx / 2 * 128;
 		Drawer::Sprite sprite( 
-			Drawer::Transform( 1100, 350, tx, ty, 128, 128 ), GRAPH_GATE_FACE );
+			Drawer::Transform( 1098, 348, tx, ty, 128, 128 ), GRAPH_GATE_FACE );
 		drawer->setSprite( sprite );
 	}
 	{

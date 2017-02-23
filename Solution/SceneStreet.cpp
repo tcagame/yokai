@@ -59,6 +59,7 @@ _count( 0 ) {
 	drawer->loadGraph( GRAPH_STATUS_POWER_5		, "street/status/status_power_5.png");
 	drawer->loadGraph( GRAPH_STATUS_POWER_6		, "street/status/status_power_6.png");
 	drawer->loadGraph( GRAPH_STATUS_MARKER		, "street/status/status_marker.png");
+	drawer->loadGraph( GRAPH_STATUS_CONTINUE    , "street/status/status_continue.png");
 	drawer->loadGraph( GRAPH_STATUS_PLATE		, "street/status/status_plate.png");
 	drawer->loadGraph( GRAPH_ENEMY_NORMAL		, "street/enemy/enemy_nomal.png");
 	drawer->loadGraph( GRAPH_ENEMY_SMALL		, "street/enemy/enemy_small.png");

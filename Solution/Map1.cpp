@@ -131,7 +131,7 @@ static const Map::Panel panel[] = {
 		"     ###########"
 		"     ###########"
 		"     ###########"
-		"  $  ###########"
+		"    $###########"
 		"+++++###########"
 		"################"
 	},
@@ -664,7 +664,7 @@ static const Map::Panel panel[] = {
 		"street/map1/bg/map1_29.png",
 		"street/map1/cover/entry_cave.png",
 		0, 0,
-		"                "
+		"           $    "
 		"                "
 		"                "
 		"           Z    "

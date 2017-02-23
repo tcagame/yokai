@@ -4,6 +4,7 @@
 #include "Power.h"
 #include "Field.h"
 #include "Tarosuke.h"
+#include "Game.h"
 
 static const int MAP_WIDTH = 347;
 static const int POWER_X = 218;
@@ -17,6 +18,8 @@ _power( power ),
 _field( field ),
 _tarosuke( tarosuke ),
 _count( 0 ) {
+	GamePtr game = Game::getTask( );
+	_continue_count = game->getContinueCount( );
 }
 
 Status::~Status( ) {
@@ -68,6 +71,18 @@ void Status::draw( ) {
 		int u = ANIM[_count / 4 % 8 ];
 		Drawer::Transform trans( x, y, u * MARKER_SIZE, 0, MARKER_SIZE, MARKER_SIZE );
 		Drawer::Sprite sprite(trans, GRAPH_STATUS_MARKER );
+		drawer->setSprite(sprite);
+	}
+	
+	for ( int i = 0; i < _continue_count; i++ ) {
+		int x = 850 - i * 15;
+		int y = 32;
+		int n = ( _count + i * 5 ) % 100;
+		if ( n < 20 ) {
+			y -= ( int )( sin( PI * n / 20 ) * 16 );
+		}
+		Drawer::Transform trans( x, y );
+		Drawer::Sprite sprite(trans, GRAPH_STATUS_CONTINUE );
 		drawer->setSprite(sprite);
 	}
 }

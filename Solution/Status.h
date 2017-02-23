@@ -18,4 +18,5 @@ private:
 	int _count;
 	FieldConstPtr _field;
 	TarosukeConstPtr _tarosuke;
+	int _continue_count;
 };
