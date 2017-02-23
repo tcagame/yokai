@@ -84,7 +84,7 @@ Scene::NEXT SceneInfo::update( ) {
 	_count++;
 
 	DevicePtr device = Device::getTask( );
-	if ( device->getPush( ) != 0 ) {
+	if ( device->getPush( 0 ) != 0 || device->getPush( 1 ) != 0 ) {
 		GamePtr game = Game::getTask( );
 		game->setFade( Game::FADE_COVER );
 		return NEXT_TITLE;

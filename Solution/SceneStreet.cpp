@@ -188,7 +188,7 @@ Scene::NEXT SceneStreet::update( ) {
 	
 	if ( game->isDemo( ) ) {
 		DevicePtr device = Device::getTask( );
-		if ( _inputter->isFinished( ) || device->getPush( ) != 0 ) {
+		if ( _inputter->isFinished( ) || device->getPush( 0 ) != 0 || device->getPush( 1 ) != 0 ) {
 			game->setFade( Game::FADE_COVER );
 			return NEXT_TITLE;
 		}
