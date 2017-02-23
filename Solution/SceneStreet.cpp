@@ -314,11 +314,11 @@ Scene::NEXT SceneStreet::update( ) {
 	_tarosuke->adjust( _camera, _field );
 	_momotaro->update( _field );
 	_momotaro->adjust( _camera, _field  );
-	_camera->update( _tarosuke );
-	_status->update( );
 
 
 	if ( !_tarosuke->isCalling( ) ) {
+		_camera->update( _tarosuke );
+		_status->update( );
 		_enemy_mgr->update( _field, _camera, _tarosuke, _momotaro );
 		_psychic_mgr->update( _camera, _tarosuke, _enemy_mgr );
 		_field->update( _camera, _tarosuke );
