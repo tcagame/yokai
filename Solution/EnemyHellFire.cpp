@@ -9,9 +9,7 @@ static const double ACCEL = 0.3;
 
 
 EnemyHellFire::EnemyHellFire( int x, int y, int hp ) :
-Enemy( x, y, CHIP_SIZE, CHIP_FOOT, false, hp, POW ) ,
-_pos( x, y ),
-_vec( 0, 0 ) {
+Enemy( x, y, CHIP_SIZE, CHIP_FOOT, false, hp, POW ) {
 	_act_count = 0;
 }
 

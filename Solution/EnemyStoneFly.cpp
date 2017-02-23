@@ -34,7 +34,7 @@ void EnemyStoneFly::act( ) {
 	setAccelY( ( int )vec.y );
 
 	const int ANIME[ 6 ] { 0, 1, 2, 3, 2, 1 };
-	int u = ANIME[ _count / 4 % 6 ];
+	int u =ANIME[ _count / 4 % 6 ];
 	int v = 12;
 	setChipGraph( GRAPH_ENEMY_NORMAL, u, v );
 }
