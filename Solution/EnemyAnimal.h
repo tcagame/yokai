@@ -13,7 +13,6 @@ private:
 		ACTION_STAND,
 		ACTION_YAWN,
 		ACTION_GROOM,
-		ACTION_INTIMIDATE,
 		ACTION_FLOAT,
 	};
 private:
@@ -21,7 +20,6 @@ private:
 	void actOnStanding( );
 	void actOnYawning( );
 	void actOnGrooming( );
-	void actOnIntimidating( );
 	void actOnFloating( );
 private:
 	ACTION _action;

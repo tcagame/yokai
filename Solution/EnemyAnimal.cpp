@@ -32,9 +32,6 @@ void EnemyAnimal::act( ) {
 	case ACTION_GROOM:
 		actOnGrooming( );
 		break;
-	case ACTION_INTIMIDATE:
-		actOnIntimidating( );
-		break;
 	case ACTION_FLOAT:
 		actOnFloating( );
 		break;
@@ -42,7 +39,7 @@ void EnemyAnimal::act( ) {
 }
 
 void EnemyAnimal::actOnStanding( ) {
-	setChipGraph( _graph, 1, 1 );
+	setChipGraph( _graph, 0, 1 );
 
 	if ( !isStanding( ) ) {
 		_action = ACTION_FLOAT;
@@ -53,7 +50,6 @@ void EnemyAnimal::actOnStanding( ) {
 	if ( getTargetY( ) < getY( ) - CHIP_SIZE ) {
 		_action = ACTION_FLOAT;
 		_act_count = 0;
-		setAccelY( -JUMP_POWER );
 		return;
 	}
 
@@ -73,20 +69,15 @@ void EnemyAnimal::actOnStanding( ) {
 		setChipGraph( _graph, u, v );
 	}
 
-	switch ( rand( ) % 60 ) {
+	switch ( rand( ) % 120 ) {
 	case 0:
 		_action = ACTION_GROOM;
 		_act_count = 0;
 		break;
 	case 1:
+	case 2:
 		_action = ACTION_YAWN;
 		_act_count = 0;
-		break;
-	case 2:
-		_action = ACTION_INTIMIDATE;
-		_act_count = 0;
-		setAccelY( -JUMP_POWER / 2 );
-		break;
 		break;
 	}
 }
@@ -108,7 +99,7 @@ void EnemyAnimal::actOnYawning( ) {
 void EnemyAnimal::actOnGrooming( ) {
 	setAccelX( 0 );
 
-	const int MOTION[ 13 ] = { 4, 5, 6, 7, 8, 7, 8, 7, 8, 7, 6, 5, 4 };
+	const int MOTION[ 13 ] = { 4, 5, 6, 7, 6, 7, 6, 7, 6, 7, 6, 5, 4 };
 	int idx = _act_count / 5;
 	int u = MOTION[ idx ] % 4;
 	int v = MOTION[ idx ] / 4;
@@ -119,31 +110,23 @@ void EnemyAnimal::actOnGrooming( ) {
 	}
 }
 
-void EnemyAnimal::actOnIntimidating( ) {
-	const int MOTION[ 4 ] = { 9, 10, 11, 10 };
-	int idx = _act_count / 5 % 4;
-	int u = MOTION[ idx ] % 4;
-	int v = MOTION[ idx ] / 4;
+void EnemyAnimal::actOnFloating( ) {
+	const int MOTION[ 6 ] = { 8, 9, 10, 11, 12, 13 };
+	int n = _act_count / 5;
+	if ( n > 5 ) {
+		n = 5;
+	}
+	int idx = MOTION[ n ];
+	int u = idx % 4;
+	int v = idx / 4;
 	setChipGraph( _graph, u, v );
 
-	if ( isStanding( ) ) {
-		_action = ACTION_STAND;
-	}
-}
-
-void EnemyAnimal::actOnFloating( ) {
-	setChipGraph( _graph, 0, 3 );
-	if ( isStanding( ) ) {
-		setChipGraph( _graph, 1, 3 );
-		_action = ACTION_STAND;
+	if ( _act_count == 5 ) {
+		setAccelY( -JUMP_POWER );
 	}
 
-	setAccelX( 0 );
-	if ( getX( ) < getTargetX( ) - CHIP_SIZE ) {
-		setAccelX( MOVE_SPEED );
-	}
-	if ( getX( ) > getTargetX( ) + CHIP_SIZE ) {
-		setAccelX( -MOVE_SPEED );
+	if ( isStanding( ) && _act_count > 7 ) {
+		_action = ACTION_STAND;
 	}
 }
 
