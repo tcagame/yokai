@@ -20,7 +20,7 @@ EnemyDeceasedFirst::~EnemyDeceasedFirst( ) {
 void EnemyDeceasedFirst::act( ) {
 	const int ANIM[ 8 ] = { 0, 1, 2, 3, 4, 3, 2, 1 };
 	_count++;
-	int pattern = _count / WAIT_ANIME_TIME % 8;
+	int pattern = ANIM[ _count / WAIT_ANIME_TIME % 8 ];
 	setChipGraph( GRAPH_ENEMY_NORMAL, pattern, 13 );
 	if ( ( getX( ) > getCameraX( ) + SCREEN_WIDTH / 3 * 2 - 10 ) &&
 		 ( getX( ) < getCameraX( ) + SCREEN_WIDTH / 3 * 2 + 10 ) ) {

@@ -18,11 +18,16 @@ _power( power ),
 _field( field ),
 _tarosuke( tarosuke ),
 _count( 0 ) {
-	GamePtr game = Game::getTask( );
-	_continue_count = game->getContinueCount( );
+	reset( );
 }
 
 Status::~Status( ) {
+}
+
+void Status::reset( ) {
+	GamePtr game = Game::getTask( );
+	_continue_count = game->getContinueCount( );
+	
 }
 
 void Status::update( ) {

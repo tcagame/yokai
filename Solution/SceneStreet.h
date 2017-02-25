@@ -38,6 +38,7 @@ private:
 	void drawPhaseDead( );
 	void drawGameOver( );
 	void drawContinue( );
+	void save( );
 private:
 	InputterPtr _inputter;
 	TarosukePtr _tarosuke;
@@ -52,5 +53,6 @@ private:
 	int _select;
 	int _count;
 	std::list< Vector > _death_points;
+	bool _inputter_saving;
 };
 

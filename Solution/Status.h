@@ -13,6 +13,7 @@ public:
 public:
 	void update( );
 	void draw( );
+	void reset( );
 private:
 	PowerConstPtr _power;
 	int _count;

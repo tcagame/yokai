@@ -171,6 +171,7 @@ _count( 0 ) {
 	_status = StatusPtr( new Status( pow, _field, _tarosuke ) );
 	_phase = PHASE_NORMAL;
 	_phase_count = 0;
+	_inputter_saving = true;
 
 	SoundPtr sound = Sound::getTask( );
 	sound->playBGM( "yokai_music_12.wav" );
@@ -243,6 +244,8 @@ Scene::NEXT SceneStreet::update( ) {
 			}
 			SoundPtr sound = Sound::getTask( );
 			sound->playBGM( "yokai_se_32.wav" );
+
+			save( );
 		}
 		if ( pow->get( ) == 0 ) {
 			sound->playBGM( "yokai_se_31.wav", false );
@@ -282,25 +285,6 @@ Scene::NEXT SceneStreet::update( ) {
 		break;
 	case PHASE_FADEOUT:
 		if ( game->getFade( ) == Game::FADE_COVER ) {
-			if ( !game->isDemo( ) ) {
-				if ( game->isSolo( ) ) {
-					switch ( game->getStage( ) ) {
-					case 0: _inputter->save( "record/record_solo_0" ); break;
-					case 1: _inputter->save( "record/record_solo_1" ); break;
-					case 2: _inputter->save( "record/record_solo_2" ); break;
-					case 3: _inputter->save( "record/record_solo_3" ); break;
-					case 4: _inputter->save( "record/record_solo_4" ); break;
-					}
-				} else {
-					switch ( game->getStage( ) ) {
-					case 0: _inputter->save( "record/record_coop_0" ); break;
-					case 1: _inputter->save( "record/record_coop_1" ); break;
-					case 2: _inputter->save( "record/record_coop_2" ); break;
-					case 3: _inputter->save( "record/record_coop_3" ); break;
-					case 4: _inputter->save( "record/record_coop_4" ); break;
-					}
-				}
-			}
 			if ( pow->get( ) > 0 ) {
 				return NEXT_STAGE;
 			} else {
@@ -366,6 +350,7 @@ void SceneStreet::updatePhaseDead( ) {
 				GamePtr game = Game::getTask( );
 				if ( _select == 0 ) {
 					game->increaseContinueCount( );
+					_status->reset( );
 					_phase = PHASE_CONTINUE;
 				} else {
 					game->setFade( Game::FADE_OUT );
@@ -426,6 +411,34 @@ void SceneStreet::makeDeathPoints( ) {
 		}
 
 		_death_points.push_back( pos );
+	}
+	
+	save( );
+}
+
+void SceneStreet::save( ) {
+	GamePtr game = Game::getTask( );
+	if ( game->isDemo( ) || !_inputter_saving ) {
+		return;
+	}
+
+	_inputter_saving = false;
+	if ( game->isSolo( ) ) {
+		switch ( game->getStage( ) ) {
+		case 0: _inputter->save( "record/record_solo_0" ); break;
+		case 1: _inputter->save( "record/record_solo_1" ); break;
+		case 2: _inputter->save( "record/record_solo_2" ); break;
+		case 3: _inputter->save( "record/record_solo_3" ); break;
+		case 4: _inputter->save( "record/record_solo_4" ); break;
+		}
+	} else {
+		switch ( game->getStage( ) ) {
+		case 0: _inputter->save( "record/record_coop_0" ); break;
+		case 1: _inputter->save( "record/record_coop_1" ); break;
+		case 2: _inputter->save( "record/record_coop_2" ); break;
+		case 3: _inputter->save( "record/record_coop_3" ); break;
+		case 4: _inputter->save( "record/record_coop_4" ); break;
+		}
 	}
 }
 
