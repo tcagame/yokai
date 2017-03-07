@@ -32,6 +32,7 @@ static const int CHOICE_FONT_X = 400;
 static const int CHOICE_FONT_Y = 250;
 static const int GAME_OVER_TIME =100;
 
+PTR( Infomation );
 
 SceneStreet::SceneStreet( ) :
 _select( 0 ),
@@ -238,9 +239,9 @@ Scene::NEXT SceneStreet::update( ) {
 			_phase = PHASE_CLEAR;
 			_phase_count = 0;
 			if ( game->getContinueCount( ) == 0 ) {
-				Infomation info;
-				info.increaseDenominator( game->getStage( ) );
-				info.increaseNumerator( game->getStage( ) );
+				InfomationPtr info( new Infomation );
+				info->increaseDenominator( game->getStage( ) );
+				info->increaseNumerator( game->getStage( ) );
 			}
 			SoundPtr sound = Sound::getTask( );
 			sound->playBGM( "yokai_se_32.wav" );
@@ -390,17 +391,17 @@ void SceneStreet::makeDeathPoints( ) {
 		dy = BG_SIZE;
 	}
 	
-	Infomation info;
+	InfomationPtr info( new Infomation );
 
 	if ( game->getContinueCount( ) == 0 ) {
-		info.increaseDenominator( game->getStage( ) );
+		info->increaseDenominator( game->getStage( ) );
 	}
 
-	info.setHistroy( stage, dx, dy );
+	info->setHistroy( stage, dx, dy );
 
 	for ( int i = 1; i < Infomation::HISTORY_NUM; i++ ) {
-		int x = info.getHistoryX( stage, i );
-		int y = info.getHistoryY( stage, i );
+		int x = info->getHistoryX( stage, i );
+		int y = info->getHistoryY( stage, i );
 		if ( x + y == 0 ) {
 			continue;
 		}

@@ -16,6 +16,8 @@ static const int CHARACTER_Y = 550;
 static const int CHARACTER_SPEED = 10;
 static const int CHARACTER_SIZE = 128;
 
+PTR( Infomation );
+
 SceneGate::SceneGate( ) {
 	DrawerPtr drawer = Drawer::getTask( );
 	drawer->loadGraph( GRAPH_CHARACTER_1, "Character/Character1.png" );
@@ -61,8 +63,8 @@ SceneGate::SceneGate( ) {
 		break;
 	}
 	
-	Infomation info;
-	_prob = info.getProbability( game->getStage( ) );
+	InfomationPtr info( new Infomation );
+	_prob = info->getProbability( game->getStage( ) );
 
 	SoundPtr sound = Sound::getTask( );
 	sound->playBGM( "yokai_se_30.wav", false );
